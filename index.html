@@ -9,9 +9,9 @@
   <meta name="google-site-verification" content="TZUtM4nDXrj2tNXWp7Hp1FRAtMOhQDTUHlKgJvn57mw"/>
 
   <!-- Font preload (only above-the-fold critical weights) -->
-  <link rel="preload" href="fonts/cormorant-500.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/cormorant-600.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/dmsans-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/eb-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/eb-garamond-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"/>
@@ -298,93 +298,93 @@
   }
   </script>
 
-  <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Fonts self-hosted (zero dipendenze esterne) -->
+  <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) — self-hosted, zero dipendenze esterne -->
   <style>
-@font-face {
-  font-family: 'Cormorant Garamond';
-  font-weight: 400;
-  font-style: normal;
-  font-display: optional;
-  src: url('fonts/cormorant-400.woff2') format('woff2');
-  size-adjust: 100%;
-}
-@font-face {
-  font-family: 'Cormorant Garamond';
-  font-weight: 400;
-  font-style: italic;
-  font-display: optional;
-  src: url('fonts/cormorant-400i.woff2') format('woff2');
-  size-adjust: 100%;
-}
-@font-face {
-  font-family: 'Cormorant Garamond';
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-  src: url('fonts/cormorant-500.woff2') format('woff2');
-  size-adjust: 100%;
-}
-@font-face {
-  font-family: 'Cormorant Garamond';
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-  src: url('fonts/cormorant-600.woff2') format('woff2');
-  size-adjust: 100%;
-}
-@font-face {
-  font-family: 'Cormorant Garamond';
-  font-weight: 600;
-  font-style: italic;
-  font-display: optional;
-  src: url('fonts/cormorant-600i.woff2') format('woff2');
-  size-adjust: 100%;
-}
-@font-face {
-  font-family: 'DM Sans';
-  font-weight: 300;
-  font-style: normal;
-  font-display: optional;
-  src: url('fonts/dmsans-300.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'DM Sans';
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-  src: url('fonts/dmsans-400.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'DM Sans';
-  font-weight: 500;
-  font-style: normal;
-  font-display: optional;
-  src: url('fonts/dmsans-500.woff2') format('woff2');
-}
-
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* Fallback fonts with adjusted metrics — eliminates visible layout shift during font load */
+    /* ── EB Garamond ── */
+    @font-face { font-family:'EB Garamond'; font-weight:400; font-style:normal; font-display:swap;
+      src: url('fonts/eb-garamond-latin-ext-400-normal.woff2') format('woff2'); unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family:'EB Garamond'; font-weight:400; font-style:normal; font-display:swap;
+      src: url('fonts/eb-garamond-greek-400-normal.woff2') format('woff2'); unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF; }
+    @font-face { font-family:'EB Garamond'; font-weight:400; font-style:normal; font-display:swap;
+      src: url('fonts/eb-garamond-latin-400-normal.woff2') format('woff2'); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+
+    @font-face { font-family:'EB Garamond'; font-weight:400; font-style:italic; font-display:swap;
+      src: url('fonts/eb-garamond-latin-ext-400-italic.woff2') format('woff2'); unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family:'EB Garamond'; font-weight:400; font-style:italic; font-display:swap;
+      src: url('fonts/eb-garamond-latin-400-italic.woff2') format('woff2'); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+
+    @font-face { font-family:'EB Garamond'; font-weight:500; font-style:normal; font-display:swap;
+      src: url('fonts/eb-garamond-latin-ext-500-normal.woff2') format('woff2'); unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family:'EB Garamond'; font-weight:500; font-style:normal; font-display:swap;
+      src: url('fonts/eb-garamond-greek-500-normal.woff2') format('woff2'); unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF; }
+    @font-face { font-family:'EB Garamond'; font-weight:500; font-style:normal; font-display:swap;
+      src: url('fonts/eb-garamond-latin-500-normal.woff2') format('woff2'); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+
+    @font-face { font-family:'EB Garamond'; font-weight:500; font-style:italic; font-display:swap;
+      src: url('fonts/eb-garamond-latin-ext-500-italic.woff2') format('woff2'); unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family:'EB Garamond'; font-weight:500; font-style:italic; font-display:swap;
+      src: url('fonts/eb-garamond-latin-500-italic.woff2') format('woff2'); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+
+    @font-face { font-family:'EB Garamond'; font-weight:600; font-style:normal; font-display:swap;
+      src: url('fonts/eb-garamond-latin-ext-600-normal.woff2') format('woff2'); unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family:'EB Garamond'; font-weight:600; font-style:normal; font-display:swap;
+      src: url('fonts/eb-garamond-greek-600-normal.woff2') format('woff2'); unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF; }
+    @font-face { font-family:'EB Garamond'; font-weight:600; font-style:normal; font-display:swap;
+      src: url('fonts/eb-garamond-latin-600-normal.woff2') format('woff2'); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+
+    @font-face { font-family:'EB Garamond'; font-weight:600; font-style:italic; font-display:swap;
+      src: url('fonts/eb-garamond-latin-ext-600-italic.woff2') format('woff2'); unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family:'EB Garamond'; font-weight:600; font-style:italic; font-display:swap;
+      src: url('fonts/eb-garamond-latin-600-italic.woff2') format('woff2'); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+
+    @font-face { font-family:'EB Garamond'; font-weight:700; font-style:normal; font-display:swap;
+      src: url('fonts/eb-garamond-latin-ext-700-normal.woff2') format('woff2'); unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family:'EB Garamond'; font-weight:700; font-style:normal; font-display:swap;
+      src: url('fonts/eb-garamond-latin-700-normal.woff2') format('woff2'); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+
+    /* ── Inter ── */
+    @font-face { font-family:'Inter'; font-weight:300; font-style:normal; font-display:swap;
+      src: url('fonts/inter-latin-ext-300-normal.woff2') format('woff2'); unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family:'Inter'; font-weight:300; font-style:normal; font-display:swap;
+      src: url('fonts/inter-latin-300-normal.woff2') format('woff2'); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+
+    @font-face { font-family:'Inter'; font-weight:400; font-style:normal; font-display:swap;
+      src: url('fonts/inter-latin-ext-400-normal.woff2') format('woff2'); unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family:'Inter'; font-weight:400; font-style:normal; font-display:swap;
+      src: url('fonts/inter-latin-400-normal.woff2') format('woff2'); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+
+    @font-face { font-family:'Inter'; font-weight:500; font-style:normal; font-display:swap;
+      src: url('fonts/inter-latin-ext-500-normal.woff2') format('woff2'); unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family:'Inter'; font-weight:500; font-style:normal; font-display:swap;
+      src: url('fonts/inter-latin-500-normal.woff2') format('woff2'); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+
+    @font-face { font-family:'Inter'; font-weight:600; font-style:normal; font-display:swap;
+      src: url('fonts/inter-latin-ext-600-normal.woff2') format('woff2'); unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family:'Inter'; font-weight:600; font-style:normal; font-display:swap;
+      src: url('fonts/inter-latin-600-normal.woff2') format('woff2'); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+
+    @font-face { font-family:'Inter'; font-weight:700; font-style:normal; font-display:swap;
+      src: url('fonts/inter-latin-ext-700-normal.woff2') format('woff2'); unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family:'Inter'; font-weight:700; font-style:normal; font-display:swap;
+      src: url('fonts/inter-latin-700-normal.woff2') format('woff2'); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+
+    /* Fallback fonts with adjusted metrics — reduces layout shift during font load */
     @font-face {
-      font-family: 'Cormorant-fallback';
-      src: local('Times New Roman'), local('Times'), local('Georgia');
-      size-adjust: 108%;
-      ascent-override: 90%;
+      font-family: 'EBGaramond-fallback';
+      src: local('Times New Roman'), local('Georgia');
+      size-adjust: 116%;
+      ascent-override: 82%;
       descent-override: 22%;
       line-gap-override: 0%;
     }
     @font-face {
-      font-family: 'DMSans-fallback';
+      font-family: 'Inter-fallback';
       src: local('Helvetica Neue'), local('Arial'), local('sans-serif');
-      size-adjust: 103%;
-      ascent-override: 92%;
-      descent-override: 24%;
+      size-adjust: 107%;
+      ascent-override: 90%;
+      descent-override: 23%;
       line-gap-override: 0%;
     }
 
@@ -401,7 +401,7 @@
     }
 
     html { scroll-behavior: smooth; overflow-x: hidden; }
-    body { font-family: 'DM Sans', 'DMSans-fallback', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+    body { font-family: 'Inter', 'Inter-fallback', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
 
     body::before {
       content: ''; position: fixed; inset: 0;
@@ -421,7 +421,7 @@
       display: flex; align-items: center; justify-content: space-between;
       padding: 1rem 2.5rem; flex-wrap: wrap; gap: 0.75rem;
     }
-    .nav-logo { font-family: 'Cormorant Garamond', 'Cormorant-fallback', serif; font-size: 20px; font-weight: 600; color: var(--gold-light); letter-spacing: 0.06em; text-decoration: none; }
+    .nav-logo { font-family: 'EB Garamond', 'EBGaramond-fallback', serif; font-size: 20px; font-weight: 600; color: var(--gold-light); letter-spacing: 0.06em; text-decoration: none; }
     .nav-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
     .nav-links a { font-size: 15px; color: var(--text-muted); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
     .nav-links a:hover { color: var(--gold-light); }
@@ -430,12 +430,12 @@
     .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 6rem 2rem 4rem; overflow: hidden; }
     .hero-emblem { width: 150px; height: 150px;  margin-bottom: 2rem;  }
     @keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-14px) rotate(2deg); } }
-    .hero-eyebrow { font-family: 'Cormorant Garamond', 'Cormorant-fallback', serif; font-size: clamp(14px,2vw,17px); font-weight: 500; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 0.75rem; }
-    .hero h1 { font-family: 'Cormorant Garamond', 'Cormorant-fallback', serif; font-size: clamp(38px,9vw,76px); font-weight: 600; color: var(--text); letter-spacing: 0.06em; line-height: 1.05; margin-bottom: 0.5rem; }
+    .hero-eyebrow { font-family: 'EB Garamond', 'EBGaramond-fallback', serif; font-size: clamp(14px,2vw,17px); font-weight: 500; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 0.75rem; }
+    .hero h1 { font-family: 'EB Garamond', 'EBGaramond-fallback', serif; font-size: clamp(38px,9vw,76px); font-weight: 600; color: var(--text); letter-spacing: 0.06em; line-height: 1.05; margin-bottom: 0.5rem; }
     .hero h1 span { color: var(--gold-light); }
-    .hero-motto { font-family: 'Cormorant Garamond', 'Cormorant-fallback', serif; font-size: clamp(17px,3vw,24px); font-weight: 500; color: var(--gold-light); margin-bottom: 0.35rem; letter-spacing: 0.05em; }
-    .hero-motto-sub { font-family: 'Cormorant Garamond', 'Cormorant-fallback', serif; font-size: clamp(14px,2vw,18px); color: var(--text); opacity: 0.9; margin-bottom: 1.75rem; }
-    .hero-slogan { font-family: 'Cormorant Garamond', 'Cormorant-fallback', serif; font-size: clamp(15px,2.5vw,20px); color: var(--text); max-width: 560px; line-height: 1.7; margin-bottom: 2.5rem; }
+    .hero-motto { font-family: 'EB Garamond', 'EBGaramond-fallback', serif; font-size: clamp(17px,3vw,24px); font-weight: 500; color: var(--gold-light); margin-bottom: 0.35rem; letter-spacing: 0.05em; }
+    .hero-motto-sub { font-family: 'EB Garamond', 'EBGaramond-fallback', serif; font-size: clamp(14px,2vw,18px); color: var(--text); opacity: 0.9; margin-bottom: 1.75rem; }
+    .hero-slogan { font-family: 'EB Garamond', 'EBGaramond-fallback', serif; font-size: clamp(15px,2.5vw,20px); color: var(--text); max-width: 560px; line-height: 1.7; margin-bottom: 2.5rem; }
     .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
     .btn-primary { display: inline-block; padding: 0.85rem 2.25rem; background: linear-gradient(135deg, var(--gold) 0%, #a8782a 100%); border: none; border-radius: 999px; color: #1a1000; font-size: 15px; font-weight: 500; text-decoration: none; letter-spacing: 0.07em; text-transform: uppercase; transition: opacity 0.2s, transform 0.2s; cursor: pointer; }
     .btn-primary:hover { opacity: 0.88; transform: translateY(-2px); }
@@ -450,18 +450,18 @@
     /* SECTIONS */
     section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
     .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; display: block; }
-    .section-title { font-family: 'Cormorant Garamond', 'Cormorant-fallback', serif; font-size: clamp(28px,5vw,42px); font-weight: 500; color: var(--text); margin-bottom: 0.75rem; line-height: 1.15; }
+    .section-title { font-family: 'EB Garamond', 'EBGaramond-fallback', serif; font-size: clamp(28px,5vw,42px); font-weight: 500; color: var(--text); margin-bottom: 0.75rem; line-height: 1.15; }
     .section-sub { font-size: 15px; color: var(--text-muted); max-width: 900px; line-height: 1.8; margin-bottom: 2.5rem; }
 
     /* GLASS CARD */
     .glass-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: 16px; padding: 1.75rem; transition: background 0.2s, border-color 0.2s; }
     .glass-card:hover { background: var(--surface-hover); border-color: var(--border-hover); }
-    .card-title { font-family: 'Cormorant Garamond', 'Cormorant-fallback', serif; font-size: 20px; font-weight: 500; margin-bottom: 0.5rem; color: var(--text); display: flex; align-items: center; gap: 0.5rem; }
+    .card-title { font-family: 'EB Garamond', 'EBGaramond-fallback', serif; font-size: 20px; font-weight: 500; margin-bottom: 0.5rem; color: var(--text); display: flex; align-items: center; gap: 0.5rem; }
     .card-body { font-size: 16px; color: var(--text-muted); line-height: 1.8; }
 
     /* QUOTE BLOCK */
     .quote-block { border-left: 2px solid var(--gold); padding: 1.25rem 1.5rem; margin: 2rem 0; background: rgba(201,151,58,0.05); border-radius: 0 12px 12px 0; }
-    .quote-block p { font-family: 'Cormorant Garamond', 'Cormorant-fallback', serif; font-size: clamp(16px,2.5vw,20px); font-style: italic; color: var(--text); line-height: 1.7; margin-bottom: 0.5rem; }
+    .quote-block p { font-family: 'EB Garamond', 'EBGaramond-fallback', serif; font-size: clamp(16px,2.5vw,20px); font-style: italic; color: var(--text); line-height: 1.7; margin-bottom: 0.5rem; }
     .quote-block cite { font-size: 12px; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; }
 
     /* GRIDS */
@@ -474,7 +474,7 @@
     /* PILLAR */
     .pillar-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: 16px; padding: 1.75rem; display: flex; flex-direction: column; }
     .pillar-card:hover { border-color: var(--border-hover); }
-    .pillar-title { font-family: 'Cormorant Garamond', 'Cormorant-fallback', serif; font-size: 22px; font-weight: 600; color: var(--gold-light); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+    .pillar-title { font-family: 'EB Garamond', 'EBGaramond-fallback', serif; font-size: 22px; font-weight: 600; color: var(--gold-light); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
     .pillar-list { list-style: none; flex: 1; }
     .pillar-list li { font-size: 15px; color: var(--text-muted); line-height: 1.8; padding: 0.5rem 0; border-bottom: 0.5px solid rgba(201,151,58,0.07); }
     .pillar-list li:last-child { border-bottom: none; }
@@ -485,11 +485,11 @@
     @media (max-width: 540px) { .book-card { flex-direction: column; align-items: center; text-align: center; } .book-info { text-align: left; } }
     .book-cover { width: 100px; height: 140px; border-radius: 8px; background: linear-gradient(160deg, #1a0f00, #3d2400); border: 1px solid var(--border-hover); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0.75rem; flex-shrink: 0; }
     .book-cover-symbol { font-size: 28px; margin-bottom: 0.5rem; }
-    .book-cover-title { font-family: 'Cormorant Garamond', 'Cormorant-fallback', serif; font-size: 11px; color: var(--gold-light); line-height: 1.4; letter-spacing: 0.04em; }
+    .book-cover-title { font-family: 'EB Garamond', 'EBGaramond-fallback', serif; font-size: 11px; color: var(--gold-light); line-height: 1.4; letter-spacing: 0.04em; }
     .book-info { flex: 1; }
     .book-label { font-size: 11px; color: var(--gold); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 0.5rem; display: block; }
-    .book-title { font-family: 'Cormorant Garamond', 'Cormorant-fallback', serif; font-size: clamp(18px,3vw,24px); font-weight: 600; color: var(--text); margin-bottom: 0.25rem; line-height: 1.2; }
-    .book-subtitle { font-family: 'Cormorant Garamond', 'Cormorant-fallback', serif; font-size: 15px; font-style: italic; color: var(--text-muted); margin-bottom: 1rem; }
+    .book-title { font-family: 'EB Garamond', 'EBGaramond-fallback', serif; font-size: clamp(18px,3vw,24px); font-weight: 600; color: var(--text); margin-bottom: 0.25rem; line-height: 1.2; }
+    .book-subtitle { font-family: 'EB Garamond', 'EBGaramond-fallback', serif; font-size: 15px; font-style: italic; color: var(--text-muted); margin-bottom: 1rem; }
     .book-authors { font-size: 15px; color: var(--text-muted); margin-bottom: 0.25rem; }
     .book-publisher { font-size: 13px; color: var(--gold); opacity: 0.7; }
     .book-desc { font-size: 15px; color: var(--text-muted); line-height: 1.75; margin-top: 0.75rem; }
@@ -501,12 +501,12 @@
     @media (max-width: 540px) { .teachers-row { grid-template-columns: 1fr; } }
     .teacher-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: 16px; padding: 1.75rem; text-align: center; transition: background 0.2s, border-color 0.2s; }
     .teacher-card:hover { background: var(--surface-hover); border-color: var(--border-hover); }
-    .teacher-avatar { width: 72px; height: 72px; border-radius: 50%; border: 1.5px solid var(--border-hover); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', 'Cormorant-fallback', serif; font-size: 26px; color: var(--gold-light); margin: 0 auto 1rem; background: rgba(201,151,58,0.06); }
+    .teacher-avatar { width: 72px; height: 72px; border-radius: 50%; border: 1.5px solid var(--border-hover); display: flex; align-items: center; justify-content: center; font-family: 'EB Garamond', 'EBGaramond-fallback', serif; font-size: 26px; color: var(--gold-light); margin: 0 auto 1rem; background: rgba(201,151,58,0.06); }
     .teacher-photo { width: 120px; height: 120px; border-radius: 50%; border: 1.5px solid var(--border-hover); object-fit: cover; flex-shrink: 0; }
     @media (max-width: 540px) { .teacher-photo { width: 100px; height: 100px; } }
     .teacher-photo-collab { width: 100px; height: 100px; border-radius: 50%; border: 1.5px solid var(--border-hover); object-fit: cover; margin: 0 auto 0.75rem; display: block; }
     @media (max-width: 540px) { .teacher-photo-collab { width: 90px; height: 90px; } }
-    .teacher-name { font-family: 'Cormorant Garamond', 'Cormorant-fallback', serif; font-size: 20px; font-weight: 600; color: var(--text); margin-bottom: 0.3rem; }
+    .teacher-name { font-family: 'EB Garamond', 'EBGaramond-fallback', serif; font-size: 20px; font-weight: 600; color: var(--text); margin-bottom: 0.3rem; }
     .teacher-role { font-size: 12px; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; }
 
     /* CALENDARIO */
@@ -514,12 +514,12 @@
     .event-row { background: var(--surface); border: 0.5px solid var(--border); border-radius: 14px; padding: 1.1rem 1.4rem; display: flex; align-items: center; gap: 1.1rem; flex-wrap: wrap; transition: background 0.2s, transform 0.2s, border-color 0.2s; }
     .event-row:hover { background: var(--surface-hover); border-color: var(--border-hover); transform: translateX(4px); }
     .event-date { text-align: center; min-width: 42px; }
-    .event-day { font-family: 'Cormorant Garamond', 'Cormorant-fallback', serif; font-size: 28px; font-weight: 500; color: var(--gold-light); line-height: 1; }
+    .event-day { font-family: 'EB Garamond', 'EBGaramond-fallback', serif; font-size: 28px; font-weight: 500; color: var(--gold-light); line-height: 1; }
     .event-month { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--text-muted); }
     .event-vline { width: 0.5px; height: 38px; background: var(--border); flex-shrink: 0; }
     .event-info { flex: 1; }
     .event-title { font-size: 16px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
-    .event-sub { font-family: 'Cormorant Garamond', 'Cormorant-fallback', serif; font-size: 16px; font-weight: 600; font-style: italic; color: var(--text); line-height: 1.4; margin-bottom: 2px; }
+    .event-sub { font-family: 'EB Garamond', 'EBGaramond-fallback', serif; font-size: 16px; font-weight: 600; font-style: italic; color: var(--text); line-height: 1.4; margin-bottom: 2px; }
 
     /* BADGE */
     .badge { font-size: 11px; font-weight: 500; padding: 3px 11px; border-radius: 999px; letter-spacing: 0.05em; white-space: nowrap; align-self: center; flex-shrink: 0; }
@@ -595,7 +595,7 @@
       margin-top: -4px;
     }
     .lesson-panel-title {
-      font-family: 'Cormorant Garamond', 'Cormorant-fallback', serif;
+      font-family: 'EB Garamond', 'EBGaramond-fallback', serif;
       font-size: 18px; font-weight: 600;
       color: var(--gold-light); margin-bottom: 0.75rem; line-height: 1.3;
     }
@@ -611,7 +611,7 @@
     }
     .lesson-topics li::before { content: '✦ '; color: var(--gold); font-size: 9px; }
     .lesson-quote {
-      font-family: 'Cormorant Garamond', 'Cormorant-fallback', serif;
+      font-family: 'EB Garamond', 'EBGaramond-fallback', serif;
       font-size: 16px; font-style: normal;
       color: var(--text); opacity: 0.9; line-height: 1.7;
       border-left: 2px solid var(--gold);
@@ -621,7 +621,7 @@
 
     /* TABS ANNO */
     .anno-tab {
-      font-family: 'DM Sans', 'DMSans-fallback', sans-serif;
+      font-family: 'Inter', 'Inter-fallback', sans-serif;
       font-size: 13px; font-weight: 500;
       padding: 6px 16px; border-radius: 999px;
       border: 0.5px solid var(--border);
@@ -651,7 +651,7 @@
       .quote-slide { padding: 1.75rem 1.25rem; }
     }
     .quote-slide-text {
-      font-family: 'Cormorant Garamond', 'Cormorant-fallback', serif;
+      font-family: 'EB Garamond', 'EBGaramond-fallback', serif;
       font-size: clamp(15px, 3vw, 23px); font-style: italic;
       color: var(--text); line-height: 1.75; margin-bottom: 1.25rem; max-width: 100%; margin-left: auto; margin-right: auto;
       word-wrap: break-word; overflow-wrap: break-word;
@@ -667,7 +667,7 @@
     /* CONTATTI */
     .contact-wrapper { display: grid; grid-template-columns: 1fr 1.4fr; gap: 2rem; align-items: start; }
     @media (max-width: 640px) { .contact-wrapper { grid-template-columns: 1fr; } }
-    .contact-info h3 { font-family: 'Cormorant Garamond', 'Cormorant-fallback', serif; font-size: 24px; font-weight: 500; margin-bottom: 0.5rem; color: var(--text); }
+    .contact-info h3 { font-family: 'EB Garamond', 'EBGaramond-fallback', serif; font-size: 24px; font-weight: 500; margin-bottom: 0.5rem; color: var(--text); }
     .contact-info p { font-size: 16px; color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem; }
     .contact-detail { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 15px; color: var(--text-muted); margin-bottom: 0.75rem; }
     .contact-detail-icon { width: 32px; height: 32px; border-radius: 8px; background: rgba(201,151,58,0.08); border: 0.5px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
@@ -675,20 +675,20 @@
     .contact-detail span { color: var(--text); font-size: 15px; }
     .contact-form { background: var(--surface); border: 0.5px solid var(--border); border-radius: 16px; padding: 1.75rem; display: flex; flex-direction: column; gap: 1rem; }
     .field label { display: block; font-size: 11px; font-weight: 500; color: var(--text-muted); margin-bottom: 5px; letter-spacing: 0.12em; text-transform: uppercase; }
-    .field input, .field textarea { width: 100%; font-family: 'DM Sans', 'DMSans-fallback', sans-serif; font-size: 16px; padding: 10px 14px; background: rgba(255,255,255,0.03); border: 0.5px solid var(--border); border-radius: 10px; color: var(--text); outline: none; transition: border-color 0.2s; }
+    .field input, .field textarea { width: 100%; font-family: 'Inter', 'Inter-fallback', sans-serif; font-size: 16px; padding: 10px 14px; background: rgba(255,255,255,0.03); border: 0.5px solid var(--border); border-radius: 10px; color: var(--text); outline: none; transition: border-color 0.2s; }
     .field input:focus, .field textarea:focus { border-color: var(--gold); }
     .field input::placeholder, .field textarea::placeholder { color: var(--text-muted); }
     .field textarea { resize: none; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
-    .submit-btn { padding: 0.85rem; background: linear-gradient(135deg, var(--gold) 0%, #a8782a 100%); border: none; border-radius: 10px; color: #1a1000; font-family: 'DM Sans', 'DMSans-fallback', sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: opacity 0.2s, transform 0.2s; }
+    .submit-btn { padding: 0.85rem; background: linear-gradient(135deg, var(--gold) 0%, #a8782a 100%); border: none; border-radius: 10px; color: #1a1000; font-family: 'Inter', 'Inter-fallback', sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: opacity 0.2s, transform 0.2s; }
     .submit-btn:hover { opacity: 0.85; transform: translateY(-1px); }
     .submit-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
 
-    /* Video facade — lazy inline Vimeo player with CSS custom thumbnail */
+    /* Video facade — lazy inline YouTube player with CSS custom thumbnail */
     .video-facade { position: relative; width: 100%; aspect-ratio: 16/9; border-radius: 16px; overflow: hidden; border: 0.5px solid var(--border); cursor: pointer; background: #0f0b1e; isolation: isolate; }
     .video-facade-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(201,151,58,0.18) 0%, rgba(15,11,30,0.4) 50%, rgba(10,8,20,1) 100%); z-index: 1; }
-    .video-facade-symbol { position: absolute; top: 42%; left: 50%; transform: translate(-50%, -50%); font-family: 'Cormorant Garamond', 'Cormorant-fallback', serif; font-size: clamp(180px, 35vw, 320px); color: rgba(201,151,58,0.08); line-height: 1; z-index: 2; user-select: none; pointer-events: none; }
+    .video-facade-symbol { position: absolute; top: 42%; left: 50%; transform: translate(-50%, -50%); font-family: 'EB Garamond', 'EBGaramond-fallback', serif; font-size: clamp(180px, 35vw, 320px); color: rgba(201,151,58,0.08); line-height: 1; z-index: 2; user-select: none; pointer-events: none; }
     .video-facade-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.25); transition: background 0.2s; z-index: 3; }
     .video-facade:hover .video-facade-overlay,
     .video-facade:focus-visible .video-facade-overlay { background: rgba(0,0,0,0.1); }
@@ -700,9 +700,9 @@
     .video-facade:focus-visible .video-facade-play::before { opacity: 1.3; }
     .video-facade-triangle { width: 0; height: 0; border-top: 14px solid transparent; border-bottom: 14px solid transparent; border-left: 22px solid #1a1000; margin-left: 3px; }
     .video-facade-content { position: absolute; bottom: 1.25rem; left: 1.25rem; right: 1.25rem; text-align: center; z-index: 4; pointer-events: none; }
-    .video-facade-title { font-family: 'Cormorant Garamond', 'Cormorant-fallback', serif; font-size: clamp(18px, 2.5vw, 24px); font-weight: 500; color: var(--gold-light); margin-bottom: 0.15rem; letter-spacing: 0.03em; }
-    .video-facade-sub { font-family: 'Cormorant Garamond', 'Cormorant-fallback', serif; font-size: clamp(14px, 1.8vw, 17px); font-style: italic; color: rgba(255,255,255,0.7); }
-    .video-facade-duration { position: absolute; top: 1rem; right: 1rem; background: rgba(0,0,0,0.6); color: rgba(255,255,255,0.85); font-size: 11px; padding: 3px 8px; border-radius: 4px; font-family: 'DM Sans', 'DMSans-fallback', sans-serif; letter-spacing: 0.05em; z-index: 4; }
+    .video-facade-title { font-family: 'EB Garamond', 'EBGaramond-fallback', serif; font-size: clamp(18px, 2.5vw, 24px); font-weight: 500; color: var(--gold-light); margin-bottom: 0.15rem; letter-spacing: 0.03em; }
+    .video-facade-sub { font-family: 'EB Garamond', 'EBGaramond-fallback', serif; font-size: clamp(14px, 1.8vw, 17px); font-style: italic; color: rgba(255,255,255,0.7); }
+    .video-facade-duration { position: absolute; top: 1rem; right: 1rem; background: rgba(0,0,0,0.6); color: rgba(255,255,255,0.85); font-size: 11px; padding: 3px 8px; border-radius: 4px; font-family: 'Inter', 'Inter-fallback', sans-serif; letter-spacing: 0.05em; z-index: 4; }
     .video-facade iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; z-index: 10; }
     .video-facade:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 
@@ -728,7 +728,7 @@
     .form-feedback.visible { display: block; animation: feedbackFadeIn 0.3s ease; }
     .form-feedback.success { background: rgba(40,160,80,0.1); border: 0.5px solid rgba(40,160,80,0.3); color: #7de0a0; }
     .form-feedback.error { background: rgba(224,125,125,0.08); border: 0.5px solid rgba(224,125,125,0.3); color: #e8a0a0; }
-    .form-feedback strong { display: block; font-family: 'Cormorant Garamond', 'Cormorant-fallback', serif; font-size: 16px; font-weight: 600; margin-bottom: 0.3rem; }
+    .form-feedback strong { display: block; font-family: 'EB Garamond', 'EBGaramond-fallback', serif; font-size: 16px; font-weight: 600; margin-bottom: 0.3rem; }
     @keyframes feedbackFadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
 
     /* Loading spinner inside submit button */
@@ -790,11 +790,11 @@
 
     /* UTILITY CLASSES (extracted from inline styles) */
     .stat-box { background:var(--surface); border:0.5px solid var(--border); border-radius:12px; padding:1rem; text-align:center; }
-    .stat-number { font-size:26px; font-family:'Cormorant Garamond',serif; font-weight:500; color:var(--gold-light); }
+    .stat-number { font-size:26px; font-family:'EB Garamond','EBGaramond-fallback',serif; font-weight:500; color:var(--gold-light); }
     .stat-label { font-size: 12px; color:var(--text-muted); margin-top:0.2rem; }
     .evento-card { background:var(--surface); border:0.5px solid var(--border); border-radius:12px; padding:0.9rem 1.25rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
     .evento-data { text-align:center; min-width:38px; }
-    .evento-giorno { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:500; color:var(--gold-light); line-height:1; }
+    .evento-giorno { font-family:'EB Garamond','EBGaramond-fallback',serif; font-size:22px; font-weight:500; color:var(--gold-light); line-height:1; }
     .evento-mese { font-size: 11px; text-transform:uppercase; letter-spacing:0.12em; color:var(--text-muted); }
     .evento-vline { width:0.5px; height:32px; background:var(--border); flex-shrink:0; }
     .evento-titolo { font-size: 16px; font-weight:500; color:var(--text); }
@@ -898,7 +898,7 @@
 
     /* FOOTER */
     footer { background: rgba(0,0,0,0.55); border-top: 0.5px solid var(--border); color: var(--text-muted); text-align: center; padding: 3rem 2rem 2rem; }
-    .footer-logo { font-family: 'Cormorant Garamond', 'Cormorant-fallback', serif; font-size: 28px; font-weight: 500; color: var(--gold-light); margin-bottom: 0.4rem; letter-spacing: 0.06em; }
+    .footer-logo { font-family: 'EB Garamond', 'EBGaramond-fallback', serif; font-size: 28px; font-weight: 500; color: var(--gold-light); margin-bottom: 0.4rem; letter-spacing: 0.06em; }
     footer p { font-size: 15px; line-height: 1.8; }
     footer a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
     footer a:hover { color: var(--gold-light); }
@@ -917,9 +917,9 @@
        ======================================================================== */
 
     :root {
-      --font-serif: 'EB Garamond', 'Cormorant Garamond', 'Cormorant-fallback', Georgia, serif;
-      --font-sans: 'Inter', 'DM Sans', 'DMSans-fallback', system-ui, sans-serif;
-      --font-display: 'EB Garamond', 'Cormorant Garamond', 'Cormorant-fallback', Georgia, serif;
+      --font-serif: 'EB Garamond', 'EBGaramond-fallback', Georgia, serif;
+      --font-sans: 'Inter', 'Inter-fallback', system-ui, sans-serif;
+      --font-display: 'EB Garamond', 'EBGaramond-fallback', Georgia, serif;
       --serif-tracking-h1: -0.005em;
       --serif-tracking-h2: 0;
       --serif-tracking-small: 0.01em;
@@ -1074,9 +1074,9 @@
 
     /* ==================== PRESET: Editoriale (fisso) ==================== */
     html {
-      --font-serif: 'EB Garamond', Georgia, serif;
-      --font-display: 'EB Garamond', Georgia, serif;
-      --font-sans: 'Inter', system-ui, sans-serif;
+      --font-serif: 'EB Garamond', 'EBGaramond-fallback', Georgia, serif;
+      --font-display: 'EB Garamond', 'EBGaramond-fallback', Georgia, serif;
+      --font-sans: 'Inter', 'Inter-fallback', system-ui, sans-serif;
       --serif-tracking-h1: -0.005em;
       --serif-tracking-h2: 0;
       --headline-leading: 1.12;
@@ -1649,7 +1649,7 @@
   <div class="sr" style="margin-bottom:1.5rem;">
     <p style="font-size: 16px; color:var(--text-muted); line-height:1.8; margin-bottom:1.25rem;">I Rosa-Croce del passato praticavano l'alchimia materiale — trasmutare i metalli vili in oro.</p>
 
-    <blockquote style="margin:1.5rem 0; padding:1rem 1.5rem; border-left:2px solid var(--gold); font-family:'Cormorant Garamond',serif; font-size:19px; font-style:italic; line-height:1.6; color:var(--gold-light);">
+    <blockquote style="margin:1.5rem 0; padding:1rem 1.5rem; border-left:2px solid var(--gold); font-family:'EB Garamond','EBGaramond-fallback',serif; font-size:19px; font-style:italic; line-height:1.6; color:var(--gold-light);">
       Oggi è importante dare priorità all'alchimia spirituale: trasmutare ciascuno dei propri difetti nella sua qualità opposta, acquisire le virtù che fanno la dignità umana.
     </blockquote>
 
@@ -1740,7 +1740,7 @@
       <div class="book-where" style="margin-top:1rem;">
         <span class="book-where-item"><span aria-hidden="true">📚</span> In vendita presso Libreria Roma (P.zza Aldo Moro 13, Bari) — ordinabile in tutte le librerie e sul web</span>
       </div>
-      <p style="color:var(--gold-light); font-style:italic; font-weight:600; margin-top:1rem; font-family:'Cormorant Garamond',serif; font-size:16px;">"Mira all'Abbondanza interiore, e la Ricchezza nella materia sarà una conseguenza. La Realizzazione non è una meta, ma uno stato dell'Essere."</p>
+      <p style="color:var(--gold-light); font-style:italic; font-weight:600; margin-top:1rem; font-family:'EB Garamond','EBGaramond-fallback',serif; font-size:16px;">"Mira all'Abbondanza interiore, e la Ricchezza nella materia sarà una conseguenza. La Realizzazione non è una meta, ma uno stato dell'Essere."</p>
     </div>
   </div>
 
@@ -1750,21 +1750,21 @@
   <p style="margin-top:1.25rem; margin-bottom:0.75rem; font-size: 11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); text-align:center;">Cosa troverai nel libro</p>
   <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:12px;">
     <div class="glass-card" style="padding:1.25rem; border-color:var(--border-hover);">
-      <h4 style="font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:600; color:var(--gold-light); margin-bottom:0.4rem; display:flex; align-items:center; gap:0.5rem;"><span style="color:var(--gold);" aria-hidden="true">🜂</span> 22 Autosabotaggi</h4>
+      <h4 style="font-family:'EB Garamond','EBGaramond-fallback',serif; font-size:18px; font-weight:600; color:var(--gold-light); margin-bottom:0.4rem; display:flex; align-items:center; gap:0.5rem;"><span style="color:var(--gold);" aria-hidden="true">🜂</span> 22 Autosabotaggi</h4>
       <p style="font-size: 15px; color:var(--text-muted); line-height:1.7;">Gli ostacoli che inceppano la Realizzazione — dalla Mancanza di Gratitudine alla Difficoltà a Condividere — diventano Strumenti di Conoscenza di Sé.</p>
     </div>
     <div class="glass-card" style="padding:1.25rem; border-color:var(--border-hover);">
-      <h4 style="font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:600; color:var(--gold-light); margin-bottom:0.4rem; display:flex; align-items:center; gap:0.5rem;"><span style="color:var(--gold);" aria-hidden="true">⚖</span> 6 Leggi Universali</h4>
+      <h4 style="font-family:'EB Garamond','EBGaramond-fallback',serif; font-size:18px; font-weight:600; color:var(--gold-light); margin-bottom:0.4rem; display:flex; align-items:center; gap:0.5rem;"><span style="color:var(--gold);" aria-hidden="true">⚖</span> 6 Leggi Universali</h4>
       <p style="font-size: 15px; color:var(--text-muted); line-height:1.7;">Le Sei Leggi che Sostengono la Ricchezza. Forze Attive con cui sintonizzarsi: la Ricchezza Autentica non si conquista, si accoglie.</p>
     </div>
     <div class="glass-card" style="padding:1.25rem; grid-column:1/-1; border-color:var(--border-hover);">
-      <h4 style="font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:600; color:var(--gold-light); margin-bottom:0.4rem;">3 Archetipi Planetari</h4>
+      <h4 style="font-family:'EB Garamond','EBGaramond-fallback',serif; font-size:18px; font-weight:600; color:var(--gold-light); margin-bottom:0.4rem;">3 Archetipi Planetari</h4>
       <p style="font-size: 15px; color:var(--text-muted); line-height:1.7; margin-bottom:1rem;">Urano, Nettuno e Plutone come Mappe Simboliche per navigare le prove quotidiane e accedere alle tre dimensioni dell'Essere.</p>
 
       <div style="display:flex; gap:0.75rem; align-items:flex-start; padding:0.75rem 0; border-top:0.5px solid rgba(201,151,58,0.12);">
         <div style="font-size:20px; flex-shrink:0; border-left:3px solid #c9973a; padding-left:8px;" aria-hidden="true">♅</div>
         <div>
-          <p style="font-family:'Cormorant Garamond',serif; font-size:16px; font-weight:600; color:var(--text); margin-bottom:0.2rem;">Urano — Libertà e autenticità</p>
+          <p style="font-family:'EB Garamond','EBGaramond-fallback',serif; font-size:16px; font-weight:600; color:var(--text); margin-bottom:0.2rem;">Urano — Libertà e autenticità</p>
           <p style="font-size: 15px; color:var(--text-muted); line-height:1.6;">Prove rapide e destabilizzanti, lampi che squarciano le illusioni. <em style="color:rgba(232,201,122,0.95);">"La verità vi renderà liberi."</em></p>
         </div>
       </div>
@@ -1772,7 +1772,7 @@
       <div style="display:flex; gap:0.75rem; align-items:flex-start; padding:0.75rem 0; border-top:0.5px solid rgba(201,151,58,0.12);">
         <div style="font-size:20px; flex-shrink:0; border-left:3px solid #b49fe0; padding-left:8px;" aria-hidden="true">♆</div>
         <div>
-          <p style="font-family:'Cormorant Garamond',serif; font-size:16px; font-weight:600; color:var(--text); margin-bottom:0.2rem;">Nettuno — Connessione spirituale</p>
+          <p style="font-family:'EB Garamond','EBGaramond-fallback',serif; font-size:16px; font-weight:600; color:var(--text); margin-bottom:0.2rem;">Nettuno — Connessione spirituale</p>
           <p style="font-size: 15px; color:var(--text-muted); line-height:1.6;">Prove sottili, nebbie che dissolvono i confini dell'io. <em style="color:rgba(180,159,224,0.95);">"Cerca prima il regno di Dio e tutte queste cose vi saranno date in aggiunta."</em></p>
         </div>
       </div>
@@ -1780,7 +1780,7 @@
       <div style="display:flex; gap:0.75rem; align-items:flex-start; padding:0.75rem 0; border-top:0.5px solid rgba(201,151,58,0.12);">
         <div style="font-size:20px; flex-shrink:0; border-left:3px solid #e07d7d; padding-left:8px;" aria-hidden="true">♇</div>
         <div>
-          <p style="font-family:'Cormorant Garamond',serif; font-size:16px; font-weight:600; color:var(--text); margin-bottom:0.2rem;">Plutone — Trasformazione e guarigione</p>
+          <p style="font-family:'EB Garamond','EBGaramond-fallback',serif; font-size:16px; font-weight:600; color:var(--text); margin-bottom:0.2rem;">Plutone — Trasformazione e guarigione</p>
           <p style="font-size: 15px; color:var(--text-muted); line-height:1.6;">Crisi ardenti, fuochi che bruciano ciò che non è autentico. <em style="color:rgba(224,125,125,0.95);">"Chi vorrà salvare la propria vita la perderà, ma chi la perderà per causa mia la troverà."</em></p>
         </div>
       </div>
@@ -1807,7 +1807,7 @@
     <div style="display:flex; flex-direction:column; gap:8px;">
       <div style="background:var(--surface); border:0.5px solid var(--border); border-radius:12px; padding:0.9rem 1.25rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
         <div style="text-align:center; min-width:38px;">
-          <p style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:500; color:var(--gold-light); line-height:1;">13</p>
+          <p style="font-family:'EB Garamond','EBGaramond-fallback',serif; font-size:22px; font-weight:500; color:var(--gold-light); line-height:1;">13</p>
           <p style="font-size: 11px; text-transform:uppercase; letter-spacing:0.12em; color:var(--text-muted);">Nov 2025</p>
         </div>
         <div style="width:0.5px; height:32px; background:var(--border); flex-shrink:0;"></div>
@@ -1818,7 +1818,7 @@
       </div>
       <div style="background:var(--surface); border:0.5px solid var(--border); border-radius:12px; padding:0.9rem 1.25rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
         <div style="text-align:center; min-width:38px;">
-          <p style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:500; color:var(--gold-light); line-height:1;">10</p>
+          <p style="font-family:'EB Garamond','EBGaramond-fallback',serif; font-size:22px; font-weight:500; color:var(--gold-light); line-height:1;">10</p>
           <p style="font-size: 11px; text-transform:uppercase; letter-spacing:0.12em; color:var(--text-muted);">Ott 2025</p>
         </div>
         <div style="width:0.5px; height:32px; background:var(--border); flex-shrink:0;"></div>
@@ -1829,7 +1829,7 @@
       </div>
       <div style="background:var(--surface); border:0.5px solid var(--border); border-radius:12px; padding:0.9rem 1.25rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
         <div style="text-align:center; min-width:38px;">
-          <p style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:500; color:var(--gold-light); line-height:1;">27</p>
+          <p style="font-family:'EB Garamond','EBGaramond-fallback',serif; font-size:22px; font-weight:500; color:var(--gold-light); line-height:1;">27</p>
           <p style="font-size: 11px; text-transform:uppercase; letter-spacing:0.12em; color:var(--text-muted);">Set 2025</p>
         </div>
         <div style="width:0.5px; height:32px; background:var(--border); flex-shrink:0;"></div>
@@ -1840,7 +1840,7 @@
       </div>
       <div style="background:var(--surface); border:0.5px solid var(--border); border-radius:12px; padding:0.9rem 1.25rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
         <div style="text-align:center; min-width:38px;">
-          <p style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:500; color:var(--gold-light); line-height:1;">5</p>
+          <p style="font-family:'EB Garamond','EBGaramond-fallback',serif; font-size:22px; font-weight:500; color:var(--gold-light); line-height:1;">5</p>
           <p style="font-size: 11px; text-transform:uppercase; letter-spacing:0.12em; color:var(--text-muted);">Set 2025</p>
         </div>
         <div style="width:0.5px; height:32px; background:var(--border); flex-shrink:0;"></div>
@@ -1851,7 +1851,7 @@
       </div>
       <div style="background:var(--surface); border:0.5px solid var(--border); border-radius:12px; padding:0.9rem 1.25rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
         <div style="text-align:center; min-width:38px;">
-          <p style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:500; color:var(--gold-light); line-height:1;">3</p>
+          <p style="font-family:'EB Garamond','EBGaramond-fallback',serif; font-size:22px; font-weight:500; color:var(--gold-light); line-height:1;">3</p>
           <p style="font-size: 11px; text-transform:uppercase; letter-spacing:0.12em; color:var(--text-muted);">Set 2025</p>
         </div>
         <div style="width:0.5px; height:32px; background:var(--border); flex-shrink:0;"></div>
@@ -1862,7 +1862,7 @@
       </div>
       <div style="background:var(--surface); border:0.5px solid var(--border); border-radius:12px; padding:0.9rem 1.25rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
         <div style="text-align:center; min-width:38px;">
-          <p style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:500; color:var(--gold-light); line-height:1;">19</p>
+          <p style="font-family:'EB Garamond','EBGaramond-fallback',serif; font-size:22px; font-weight:500; color:var(--gold-light); line-height:1;">19</p>
           <p style="font-size: 11px; text-transform:uppercase; letter-spacing:0.12em; color:var(--text-muted);">Lug 2025</p>
         </div>
         <div style="width:0.5px; height:32px; background:var(--border); flex-shrink:0;"></div>
@@ -1909,7 +1909,7 @@
   </div>
 
   <div style="margin-top:1.25rem; text-align:center;">
-    <h3 style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; color:var(--gold-light); margin-bottom:0.5rem;">Complementari, non alternativi</h3>
+    <h3 style="font-family:'EB Garamond','EBGaramond-fallback',serif; font-size:20px; font-weight:600; color:var(--gold-light); margin-bottom:0.5rem;">Complementari, non alternativi</h3>
     <p style="font-size: 16px; color:var(--text-muted); line-height:1.8; max-width:680px; margin:0 auto;">La Scuola e il Percorso Individuale non si escludono: possono essere vissuti insieme, arricchendosi a vicenda. La prima offre Conoscenza e Pratica costante; il secondo, ascolto profondo e sostegno mirato. Insieme, rappresentano un potente strumento di trasformazione e risveglio.</p>
   </div>
 </section>
@@ -2675,7 +2675,7 @@
 <footer>
   <div class="footer-inner">
     <p class="footer-logo">✦ Scuola ContattaTi</p>
-    <p style="margin-top:0.3rem; font-family:'Cormorant Garamond',serif; color:rgba(201,151,58,0.85); font-size:16px;"><span lang="el">Γνῶθι Σεαυτόν</span> — Conosci Te Stesso</p>
+    <p style="margin-top:0.3rem; font-family:'EB Garamond','EBGaramond-fallback',serif; color:rgba(201,151,58,0.85); font-size:16px;"><span lang="el">Γνῶθι Σεαυτόν</span> — Conosci Te Stesso</p>
 
     <nav class="footer-links" aria-label="Link rapidi">
       <a href="#chi-siamo">Chi siamo</a>
@@ -2694,7 +2694,7 @@
 
     <hr class="footer-divider"/>
     <p><a href="tel:+393349991888" aria-label="Chiama Nicolaos al 334 999 1888">334 999 1888</a> &nbsp;·&nbsp; <span id="email-footer"></span></p>
-    <p style="margin-top:0.75rem; font-family:'Cormorant Garamond',serif; font-style:italic; font-size: 16px; color:rgba(201,151,58,0.85);">"Non si tratta di attrarre. Si tratta di ricordare chi siamo."</p>
+    <p style="margin-top:0.75rem; font-family:'EB Garamond','EBGaramond-fallback',serif; font-style:italic; font-size: 16px; color:rgba(201,151,58,0.85);">"Non si tratta di attrarre. Si tratta di ricordare chi siamo."</p>
     <p style="margin-top:0.75rem; font-size: 12px; opacity:0.7;">© 2026 Scuola ContattaTi — Anna Carla Digregorio & Nicolaos Anifantis</p>
   </div>
 </footer>
