@@ -1,0 +1,8 @@
+# Scuola ContattaTi — robots.txt
+# Consenti a tutti i crawler (motori di ricerca e AI) di indicizzare il sito
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://scuolacontattati.com/sitemap.xml
