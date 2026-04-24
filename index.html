@@ -2880,7 +2880,7 @@ document.addEventListener('DOMContentLoaded', function() {
     lista.forEach(function(l){
 
       var w=document.createElement('div');w.className='lesson-wrap';
-      w.innerHTML='<div class="event-row has-detail" role="button" tabindex="0" aria-expanded="false" style="opacity:0.9;border-color:rgba(29,158,117,0.3);"><div class="event-date" style="min-width:32px;"><p style="font-size:20px;color:#5dcaa5;text-align:center;">✦</p></div><div class="event-vline" style="background:rgba(29,158,117,0.3);"></div><div class="event-info"><p class="event-title">'+l.titolo+'</p><p class="event-sub">'+l.sottotitolo+'</p></div><span class="detail-pill" style="background:rgba(29,158,117,0.12);color:#5dcaa5;border-color:rgba(29,158,117,0.3);">Temi \u25be</span><span class="expand-arrow">\u25bc</span></div>'+panelHTML(l);
+      w.innerHTML='<div class="event-row has-detail" role="button" tabindex="0" aria-expanded="false" style="opacity:0.9;border-color:rgba(29,158,117,0.3);"><div class="event-date" style="min-width:32px;"><p style="font-size:20px;color:#5dcaa5;text-align:center;">✦</p></div><div class="event-vline" style="background:rgba(29,158,117,0.3);"></div><div class="event-info"><p class="event-title">'+l.titolo+'</p><p class="event-sub">'+l.titolo.replace(/^Seminario esperienziale \u2014 /,'').replace(/^Residenziale in presenza \u2014 /,'')+'</p></div><span class="detail-pill" style="background:rgba(29,158,117,0.12);color:#5dcaa5;border-color:rgba(29,158,117,0.3);">Temi \u25be</span><span class="expand-arrow">\u25bc</span></div>'+panelHTML(l);
       el.appendChild(w);
       var row=w.querySelector('.event-row'),panel=w.querySelector('.lesson-panel');
       row.addEventListener('click',function(){toggle(row,panel);});
