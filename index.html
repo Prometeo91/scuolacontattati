@@ -2011,91 +2011,48 @@
 
   <!-- TAB BAR -->
   <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:1.25rem;" id="anno-tabs" role="tablist" aria-label="Anno del percorso">
-    <button role="tab" aria-selected="true" aria-controls="panel-anno-1" class="anno-tab active" data-anno="1">Anno 1</button>
-    <button role="tab" aria-selected="false" aria-controls="panel-anno-2" class="anno-tab" data-anno="2">Anno 2</button>
-    <button role="tab" aria-selected="false" aria-controls="panel-anno-3" class="anno-tab" data-anno="3">Anno 3</button>
-    <button role="tab" aria-selected="false" aria-controls="panel-anno-4" class="anno-tab" data-anno="4">Anno 4</button>
-    <button role="tab" aria-selected="false" aria-controls="panel-anno-5" class="anno-tab" data-anno="5">Anno 5</button>
-    <button role="tab" aria-selected="false" aria-controls="panel-anno-6" class="anno-tab" data-anno="6">Anno 6</button>
-    <button role="tab" aria-selected="false" aria-controls="panel-anno-7" class="anno-tab" data-anno="7">Anno 7</button>
-    <button role="tab" aria-selected="false" aria-controls="panel-anno-esp" class="anno-tab" data-anno="esp" style="border-color:rgba(29,158,117,0.5);color:#5dcaa5;">✦ Esperienziali</button>
+    <button id="tab-anno-1" role="tab" aria-selected="true" aria-controls="panel-anno-1" class="anno-tab active" data-anno="1">Anno 1</button>
+    <button id="tab-anno-2" role="tab" aria-selected="false" aria-controls="panel-anno-2" class="anno-tab" data-anno="2">Anno 2</button>
+    <button id="tab-anno-3" role="tab" aria-selected="false" aria-controls="panel-anno-3" class="anno-tab" data-anno="3">Anno 3</button>
+    <button id="tab-anno-4" role="tab" aria-selected="false" aria-controls="panel-anno-4" class="anno-tab" data-anno="4">Anno 4</button>
+    <button id="tab-anno-5" role="tab" aria-selected="false" aria-controls="panel-anno-5" class="anno-tab" data-anno="5">Anno 5</button>
+    <button id="tab-anno-6" role="tab" aria-selected="false" aria-controls="panel-anno-6" class="anno-tab" data-anno="6">Anno 6</button>
+    <button id="tab-anno-7" role="tab" aria-selected="false" aria-controls="panel-anno-7" class="anno-tab" data-anno="7">Anno 7</button>
+    <button id="tab-anno-esp" role="tab" aria-selected="false" aria-controls="panel-anno-esp" class="anno-tab" data-anno="esp" style="border-color:rgba(29,158,117,0.5);color:#5dcaa5;">✦ Esperienziali</button>
   </div>
 
   <!-- PANNELLO ANNO 1 -->
   <div class="anno-panel" id="panel-anno-1" role="tabpanel" aria-labelledby="tab-anno-1">
     <div class="calendar-list" id="calendar-list"></div>
-
-    <div style="margin-top:10px; background:rgba(201,151,58,0.07); border:0.5px solid rgba(201,151,58,0.35); border-radius:14px; padding:1.1rem 1.4rem; display:flex; gap:0.75rem; align-items:flex-start;">
-      <div style="font-size:20px; flex-shrink:0; color:var(--gold);">✦</div>
-      <div>
-        <p style="font-size: 16px; font-weight:500; color:var(--gold-light); margin-bottom:0.3rem;">Le porte sono ancora aperte</p>
-        <p style="font-size: 15px; color:var(--text-muted); line-height:1.7;">Per sostenere concretamente la Scuola, ogni incontro prevede un <strong style="color:var(--text);">contributo di 30€</strong>. Si può partecipare singolarmente o scegliere di accompagnare l'intero ciclo annuale; in quest'ultimo caso, la <strong style="color:var(--text);">sesta lezione è offerta dalla Scuola</strong> (anni 1–3). Tutti gli incontri sono disponibili anche in formato videoregistrato. Se qualcosa in te risuona, scrivici — ti invieremo tutto ciò che serve per unirti a questo viaggio.</p>
-      </div>
-    </div>
+    <div class="porte-aperte-slot"></div>
   </div>
 
   <!-- PANNELLO ANNO 2 -->
   <div class="anno-panel" id="panel-anno-2" role="tabpanel" aria-labelledby="tab-anno-2" style="display:none;">
     <div class="calendar-list" id="calendar-list-anno2"></div>
-    <div style="margin-top:10px; background:rgba(201,151,58,0.07); border:0.5px solid rgba(201,151,58,0.35); border-radius:14px; padding:1.1rem 1.4rem; display:flex; gap:0.75rem; align-items:flex-start;">
-      <div style="font-size:20px; flex-shrink:0; color:var(--gold);">✦</div>
-      <div>
-        <p style="font-size: 16px; font-weight:500; color:var(--gold-light); margin-bottom:0.3rem;">Le porte sono ancora aperte</p>
-        <p style="font-size: 15px; color:var(--text-muted); line-height:1.7;">Per sostenere concretamente la Scuola, ogni incontro prevede un <strong style="color:var(--text);">contributo di 30€</strong>. Si può partecipare singolarmente o scegliere di accompagnare l'intero ciclo annuale; in quest'ultimo caso, la <strong style="color:var(--text);">sesta lezione è offerta dalla Scuola</strong> (anni 1–3). Tutti gli incontri sono disponibili anche in formato videoregistrato. Se qualcosa in te risuona, scrivici — ti invieremo tutto ciò che serve per unirti a questo viaggio.</p>
-      </div>
-    </div>
+    <div class="porte-aperte-slot"></div>
   </div>
 
-  <!-- PANNELLI ANNI 3-7 (placeholder) -->
+  <!-- PANNELLI ANNI 3-7 -->
   <div class="anno-panel" id="panel-anno-3" role="tabpanel" aria-labelledby="tab-anno-3" style="display:none;">
     <div class="calendar-list" id="calendar-list-anno3"></div>
-    <div style="margin-top:10px; background:rgba(201,151,58,0.07); border:0.5px solid rgba(201,151,58,0.35); border-radius:14px; padding:1.1rem 1.4rem; display:flex; gap:0.75rem; align-items:flex-start;">
-      <div style="font-size:20px; flex-shrink:0; color:var(--gold);">✦</div>
-      <div>
-        <p style="font-size: 16px; font-weight:500; color:var(--gold-light); margin-bottom:0.3rem;">Le porte sono ancora aperte</p>
-        <p style="font-size: 15px; color:var(--text-muted); line-height:1.7;">Per sostenere concretamente la Scuola, ogni incontro prevede un <strong style="color:var(--text);">contributo di 30€</strong>. Si può partecipare singolarmente o scegliere di accompagnare l'intero ciclo annuale; in quest'ultimo caso, la <strong style="color:var(--text);">sesta lezione è offerta dalla Scuola</strong> (anni 1–3). Tutti gli incontri sono disponibili anche in formato videoregistrato. Se qualcosa in te risuona, scrivici — ti invieremo tutto ciò che serve per unirti a questo viaggio.</p>
-      </div>
-    </div>
+    <div class="porte-aperte-slot"></div>
   </div>
   <div class="anno-panel" id="panel-anno-4" role="tabpanel" aria-labelledby="tab-anno-4" style="display:none;">
     <div class="calendar-list" id="calendar-list-anno4"></div>
-    <div style="background:rgba(201,151,58,0.07); border:0.5px solid rgba(201,151,58,0.35); border-radius:14px; padding:1.1rem 1.4rem; display:flex; gap:0.75rem; align-items:flex-start;">
-      <div style="font-size:20px; flex-shrink:0; color:var(--gold);">✦</div>
-      <div>
-        <p style="font-size: 16px; font-weight:500; color:var(--gold-light); margin-bottom:0.3rem;">Le porte sono ancora aperte</p>
-        <p style="font-size: 15px; color:var(--text-muted); line-height:1.7;">Per sostenere concretamente la Scuola, ogni incontro prevede un <strong style="color:var(--text);">contributo di 30€</strong>. Si può partecipare singolarmente o scegliere di accompagnare l'intero ciclo annuale; in quest'ultimo caso, la <strong style="color:var(--text);">sesta lezione è offerta dalla Scuola</strong> (anni 1–3). Tutti gli incontri sono disponibili anche in formato videoregistrato. Se qualcosa in te risuona, scrivici — ti invieremo tutto ciò che serve per unirti a questo viaggio.</p>
-      </div>
-    </div>
+    <div class="porte-aperte-slot"></div>
   </div>
   <div class="anno-panel" id="panel-anno-5" role="tabpanel" aria-labelledby="tab-anno-5" style="display:none;">
     <div class="calendar-list" id="calendar-list-anno5"></div>
-    <div style="background:rgba(201,151,58,0.07); border:0.5px solid rgba(201,151,58,0.35); border-radius:14px; padding:1.1rem 1.4rem; display:flex; gap:0.75rem; align-items:flex-start;">
-      <div style="font-size:20px; flex-shrink:0; color:var(--gold);">✦</div>
-      <div>
-        <p style="font-size: 16px; font-weight:500; color:var(--gold-light); margin-bottom:0.3rem;">Le porte sono ancora aperte</p>
-        <p style="font-size: 15px; color:var(--text-muted); line-height:1.7;">Per sostenere concretamente la Scuola, ogni incontro prevede un <strong style="color:var(--text);">contributo di 30€</strong>. Si può partecipare singolarmente o scegliere di accompagnare l'intero ciclo annuale; in quest'ultimo caso, la <strong style="color:var(--text);">sesta lezione è offerta dalla Scuola</strong> (anni 1–3). Tutti gli incontri sono disponibili anche in formato videoregistrato. Se qualcosa in te risuona, scrivici — ti invieremo tutto ciò che serve per unirti a questo viaggio.</p>
-      </div>
-    </div>
+    <div class="porte-aperte-slot"></div>
   </div>
   <div class="anno-panel" id="panel-anno-6" role="tabpanel" aria-labelledby="tab-anno-6" style="display:none;">
     <div class="calendar-list" id="calendar-list-anno6"></div>
-    <div style="background:rgba(201,151,58,0.07); border:0.5px solid rgba(201,151,58,0.35); border-radius:14px; padding:1.1rem 1.4rem; display:flex; gap:0.75rem; align-items:flex-start;">
-      <div style="font-size:20px; flex-shrink:0; color:var(--gold);">✦</div>
-      <div>
-        <p style="font-size: 16px; font-weight:500; color:var(--gold-light); margin-bottom:0.3rem;">Le porte sono ancora aperte</p>
-        <p style="font-size: 15px; color:var(--text-muted); line-height:1.7;">Per sostenere concretamente la Scuola, ogni incontro prevede un <strong style="color:var(--text);">contributo di 30€</strong>. Si può partecipare singolarmente o scegliere di accompagnare l'intero ciclo annuale; in quest'ultimo caso, la <strong style="color:var(--text);">sesta lezione è offerta dalla Scuola</strong> (anni 1–3). Tutti gli incontri sono disponibili anche in formato videoregistrato. Se qualcosa in te risuona, scrivici — ti invieremo tutto ciò che serve per unirti a questo viaggio.</p>
-      </div>
-    </div>
+    <div class="porte-aperte-slot"></div>
   </div>
   <div class="anno-panel" id="panel-anno-7" role="tabpanel" aria-labelledby="tab-anno-7" style="display:none;">
     <div class="calendar-list" id="calendar-list-anno7"></div>
-    <div style="background:rgba(201,151,58,0.07); border:0.5px solid rgba(201,151,58,0.35); border-radius:14px; padding:1.1rem 1.4rem; display:flex; gap:0.75rem; align-items:flex-start;">
-      <div style="font-size:20px; flex-shrink:0; color:var(--gold);">✦</div>
-      <div>
-        <p style="font-size: 16px; font-weight:500; color:var(--gold-light); margin-bottom:0.3rem;">Le porte sono ancora aperte</p>
-        <p style="font-size: 15px; color:var(--text-muted); line-height:1.7;">Per sostenere concretamente la Scuola, ogni incontro prevede un <strong style="color:var(--text);">contributo di 30€</strong>. Si può partecipare singolarmente o scegliere di accompagnare l'intero ciclo annuale; in quest'ultimo caso, la <strong style="color:var(--text);">sesta lezione è offerta dalla Scuola</strong> (anni 1–3). Tutti gli incontri sono disponibili anche in formato videoregistrato. Se qualcosa in te risuona, scrivici — ti invieremo tutto ciò che serve per unirti a questo viaggio.</p>
-      </div>
-    </div>
+    <div class="porte-aperte-slot"></div>
   </div>
 
   <!-- PANNELLO ESPERIENZIALI -->
@@ -2908,6 +2865,18 @@ document.addEventListener('DOMContentLoaded', function() {
   renderAnno(L4,'calendar-list-anno4','Anno 4');
   renderAnno(L2,'calendar-list-anno2','Anno 2');
   renderAnno(L3,'calendar-list-anno3','Anno 3');
+
+  /* BANNER "PORTE APERTE" — generato una sola volta, iniettato in ogni pannello anno */
+  document.querySelectorAll('.porte-aperte-slot').forEach(function(slot){
+    slot.innerHTML=
+      '<div class="porte-aperte">'+
+        '<div style="font-size:20px;flex-shrink:0;color:var(--gold);">✦</div>'+
+        '<div>'+
+          '<p style="font-size:16px;font-weight:500;color:var(--gold-light);margin-bottom:0.3rem;">Le porte sono ancora aperte</p>'+
+          '<p style="font-size:15px;color:var(--text-muted);line-height:1.7;">Per sostenere concretamente la Scuola, ogni incontro prevede un <strong style="color:var(--text);">contributo di 30€</strong>. Si può partecipare singolarmente o scegliere di accompagnare l\u2019intero ciclo annuale; in quest\u2019ultimo caso, la <strong style="color:var(--text);">sesta lezione è offerta dalla Scuola</strong> (anni 1\u20133). Tutti gli incontri sono disponibili anche in formato videoregistrato. Se qualcosa in te risuona, scrivici \u2014 ti invieremo tutto ciò che serve per unirti a questo viaggio.</p>'+
+        '</div>'+
+      '</div>';
+  });
 
   /* TAB ANNI */
   document.querySelectorAll('.anno-tab').forEach(function(tab){
