@@ -20,6 +20,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
   <link rel="manifest" href="site.webmanifest"/>
   <meta name="theme-color" content="#0d0b1a"/>
+  <meta name="color-scheme" content="dark"/>
   <link rel="canonical" href="https://scuolacontattati.com/"/>
   <title>Scuola ContattaTi · Consapevolezza ed Alchimia a Bari</title>
   <meta name="description" content="Percorso di Consapevolezza ed Alchimia a Bari e online. Lavoro su di sé attraverso Antichi Insegnamenti e le 96 Leggi dell'Universo, con Anna Carla e Nicolaos."/>
@@ -861,6 +862,14 @@
       100% { background-position: 20% 20%, 80% 80%, 50% 0%; }
     }
     body::before { animation: bg-drift 30s ease-in-out infinite; background-size: 100% 100%; }
+
+    /* Rispetta le preferenze utente per il moto ridotto */
+    @media (prefers-reduced-motion: reduce) {
+      body::before { animation: none; }
+      .hero-emblem { animation: none; }
+      .hero::before { animation: none; }
+      .sr { transition: none; opacity: 1; transform: none; }
+    }
 
     /* ENHANCED FOOTER */
     .footer-inner { max-width:900px; margin:0 auto; }
@@ -2242,8 +2251,8 @@
     </div>
     <form id="contact-form" class="contact-form" action="https://formspree.io/f/xwvavebr" method="POST" novalidate>
       <div class="form-row">
-        <div class="field"><label for="cf-nome">Nome</label><input id="cf-nome" type="text" name="nome" placeholder="Il tuo nome" required /></div>
-        <div class="field"><label for="cf-email">Email</label><input id="cf-email" type="email" name="email" placeholder="la@tuamail.it" required /></div>
+        <div class="field"><label for="cf-nome">Nome</label><input id="cf-nome" type="text" name="nome" placeholder="Il tuo nome" required autocomplete="name" /></div>
+        <div class="field"><label for="cf-email">Email</label><input id="cf-email" type="email" name="email" placeholder="la@tuamail.it" required autocomplete="email" /></div>
       </div>
       <div class="field"><label for="cf-oggetto">Oggetto</label><input id="cf-oggetto" type="text" name="_subject" placeholder="Es. iscrizione lezione, informazioni..." /></div>
       <div class="field"><label for="cf-messaggio">Messaggio</label><textarea id="cf-messaggio" rows="5" name="messaggio" placeholder="Scrivici liberamente..." required></textarea></div>
