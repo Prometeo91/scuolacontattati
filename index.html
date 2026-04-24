@@ -828,6 +828,85 @@
     .evento-dettaglio { font-size: 13px; color:var(--text-muted); }
     .section-label-small { font-size: 11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:0.75rem; }
     .info-banner { background:rgba(201,151,58,0.06); border:0.5px solid rgba(201,151,58,0.25); border-radius:12px; padding:1rem 1.25rem; }
+
+    /* Body text reusable */
+    .body-text { font-size: 16px; color:var(--text-muted); line-height:1.8; }
+    .body-text-sm { font-size: 15px; color:var(--text-muted); line-height:1.7; }
+    .body-text-xs { font-size: 13px; color:var(--text-muted); }
+    .body-text-xxs { font-size: 12px; color:var(--text-muted); }
+    .text-center { text-align:center; }
+    .text-gold { color:var(--gold); }
+    .text-gold-light { color:var(--gold-light); }
+    .mb-0 { margin-bottom:0; }
+    .mb-025 { margin-bottom:0.25rem; }
+    .mb-05 { margin-bottom:0.5rem; }
+    .mb-075 { margin-bottom:0.75rem; }
+    .mb-1 { margin-bottom:1rem; }
+    .mt-1 { margin-top:1rem; }
+    .mt-125 { margin-top:1.25rem; }
+    .mt-15 { margin-top:1.5rem; }
+    .mt-2 { margin-top:2rem; }
+
+    /* Serif display heading (used inline in Libro, Conduttori, Footer) */
+    .serif-heading { font-family:var(--font-display); font-weight:600; color:var(--gold-light); font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "onum" 1, "calt" 1; }
+    .serif-heading-sm { font-family:var(--font-display); font-size:16px; font-weight:600; color:var(--text); font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "onum" 1, "calt" 1; margin-bottom:0.2rem; }
+    .serif-quote { font-family:var(--font-display); font-style:italic; color:var(--gold-light); font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "onum" 1, "calt" 1; }
+    .serif-footer { font-family:var(--font-display); color:rgba(201,151,58,0.85); font-size:16px; }
+
+    /* Libro: content grid card */
+    .libro-content-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:12px; }
+    .libro-card { padding:1.25rem; border-color:var(--border-hover); }
+    .libro-card-title { font-family:var(--font-display); font-size:18px; font-weight:600; color:var(--gold-light); margin-bottom:0.4rem; display:flex; align-items:center; gap:0.5rem; font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "onum" 1, "calt" 1; }
+    .libro-card-full { grid-column:1/-1; }
+
+    /* Archetipi planetari */
+    .archetype-row { display:flex; gap:0.75rem; align-items:flex-start; padding:0.75rem 0; border-top:0.5px solid rgba(201,151,58,0.12); }
+    .archetype-symbol { font-size:20px; flex-shrink:0; padding-left:8px; }
+    .archetype-symbol-urano { border-left:3px solid #c9973a; }
+    .archetype-symbol-nettuno { border-left:3px solid #b49fe0; }
+    .archetype-symbol-plutone { border-left:3px solid #e07d7d; }
+    .em-urano { color:rgba(232,201,122,0.95); }
+    .em-nettuno { color:rgba(180,159,224,0.95); }
+    .em-plutone { color:rgba(224,125,125,0.95); }
+
+    /* Conduttori: bio card layout */
+    .teacher-card-left { text-align:left; padding:1.75rem; }
+    .teacher-header { display:flex; align-items:center; gap:1.25rem; margin-bottom:1.25rem; }
+    .teacher-bio { font-size: 15px; color:var(--text-muted); line-height:1.8; margin-bottom:0.75rem; }
+
+    /* Bio detail card */
+    .bio-detail { padding:1.25rem 1.5rem; margin-bottom:1rem; }
+    .bio-detail p { font-size: 15px; color:var(--text-muted); line-height:2; }
+    .bio-divider { height:0.5px; background:linear-gradient(90deg,transparent,rgba(201,151,58,0.3),transparent); margin:1rem 0; }
+
+    /* Esperienziali banner */
+    .esp-banner { background:rgba(29,158,117,0.07); border:0.5px solid rgba(29,158,117,0.35); border-radius:14px; padding:1.1rem 1.4rem; display:flex; gap:0.75rem; align-items:flex-start; margin-top:10px; }
+    .esp-banner-title { font-size: 16px; font-weight:500; color:#5dcaa5; margin-bottom:0.3rem; }
+    .anno-tab-esp { border-color:rgba(29,158,117,0.5); color:#5dcaa5; }
+
+    /* Presentazioni list */
+    .pres-list { display:flex; flex-direction:column; gap:8px; }
+
+    /* Book cover image */
+    .book-cover-img { width:120px; height:auto; border-radius:8px; border:1px solid var(--border-hover); flex-shrink:0; }
+
+    /* Section blockquote (chi siamo) */
+    .section-blockquote { margin:1.5rem 0; padding:1rem 1.5rem; border-left:2px solid var(--gold); font-family:var(--font-display); font-size:19px; font-style:italic; line-height:1.6; color:var(--gold-light); }
+
+    /* Footer elements */
+    .footer-copyright { margin-top:0.75rem; font-size: 12px; opacity:0.7; }
+
+    /* Remaining utilities */
+    .flex-1 { flex:1; }
+    .icon-lg { font-size:20px; flex-shrink:0; }
+    .glass-card-center { padding:0.9rem 1.25rem; display:flex; align-items:center; justify-content:center; }
+    .serif-heading-20 { font-size:20px; margin-bottom:0.5rem; }
+    .narrow-text { max-width:680px; margin:0 auto; }
+    .teachers-row-single { grid-template-columns:1fr; }
+    .anno-tabs-wrap { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:1.25rem; }
+    .serif-footer-motto { margin-top:0.3rem; }
+    .serif-footer-quote { margin-top:0.75rem; font-style:italic; }
+    .serif-quote-book { font-size:16px; font-weight:600; }
     .porte-aperte { background:rgba(201,151,58,0.07); border:0.5px solid rgba(201,151,58,0.35); border-radius:14px; padding:1.1rem 1.4rem; display:flex; gap:0.75rem; align-items:flex-start; margin-top:10px; }
     .porte-aperte-esp { background:rgba(29,158,117,0.07); border:0.5px solid rgba(29,158,117,0.35); border-radius:14px; padding:1.1rem 1.4rem; display:flex; gap:0.75rem; align-items:flex-start; margin-top:10px; }
 
@@ -1302,34 +1381,34 @@
   <span class="section-label sr">La nostra visione</span>
   <h2 class="section-title sr">Chi siamo</h2>
   <p class="section-sub sr">Siamo una scuola nata dalla passione per la crescita interiore e la conoscenza esoterica. Il nostro cammino integra Antichi Insegnamenti, Alchimia e le 96 Leggi Universali.</p>
-  <div class="sr" style="margin-bottom:1.5rem;">
-    <p style="font-size: 16px; color:var(--text-muted); line-height:1.8; margin-bottom:1.25rem;">I Rosa-Croce del passato praticavano l'alchimia materiale — trasmutare i metalli vili in oro.</p>
+  <div class="sr mb-15">
+    <p class="body-text mb-125">I Rosa-Croce del passato praticavano l'alchimia materiale — trasmutare i metalli vili in oro.</p>
 
-    <blockquote style="margin:1.5rem 0; padding:1rem 1.5rem; border-left:2px solid var(--gold); font-family:'EB Garamond','EBGaramond-fallback',serif; font-size:19px; font-style:italic; line-height:1.6; color:var(--gold-light);">
+    <blockquote class="section-blockquote">
       Oggi è importante dare priorità all'alchimia spirituale: trasmutare ciascuno dei propri difetti nella sua qualità opposta, acquisire le virtù che fanno la dignità umana.
     </blockquote>
 
-    <p style="font-size: 16px; color:var(--text-muted); line-height:1.8; margin-top:1.25rem;">L'Uomo è degno del suo stato solo se le esprime attraverso ciò che pensa, dice e fa.</p>
+    <p class="body-text mt-125">L'Uomo è degno del suo stato solo se le esprime attraverso ciò che pensa, dice e fa.</p>
   </div>
   <div class="about-grid sr">
     <div class="glass-card">
-      <h3 class="card-title"><span style="color:var(--gold);" aria-hidden="true">☥</span> Antichi Insegnamenti</h3>
+      <h3 class="card-title"><span class="text-gold" aria-hidden="true">☥</span> Antichi Insegnamenti</h3>
       <p class="card-body">Scienza Iniziatica, Quarta Via di Gurdjieff, Magia Ermetica, Antroposofia, Teosofia, Agni Yoga, Enneagramma, Kabbalà, Buddismo, Taoismo, Sciamanesimo. Un patrimonio universale al servizio della conoscenza di sé.</p>
     </div>
     <div class="glass-card">
-      <h3 class="card-title"><span style="color:var(--gold);" aria-hidden="true">⊕</span> In presenza e online</h3>
+      <h3 class="card-title"><span class="text-gold" aria-hidden="true">⊕</span> In presenza e online</h3>
       <p class="card-body">I seminari si svolgono in presenza a Bari e online, per permettere a chiunque di accedere agli insegnamenti.</p>
     </div>
-    <div class="glass-card card-full" style="padding:0.9rem 1.25rem; display:flex; align-items:center; justify-content:center; text-align:center;">
-      <p style="font-size: 15px; color:var(--text-muted); line-height:1.7;"><strong style="color:var(--gold-light);">7 anni di percorso</strong> (3 base + 4 avanzato) · <strong style="color:var(--gold-light);">6 incontri per anno</strong> (3 nei livelli avanzati)</p>
+    <div class="glass-card card-full text-center glass-card-center">
+      <p class="body-text-sm"><strong class="text-gold-light">7 anni di percorso</strong> (3 base + 4 avanzato) · <strong class="text-gold-light">6 incontri per anno</strong> (3 nei livelli avanzati)</p>
     </div>
   </div>
 
 
 
   <!-- VIDEO CONOSCITIVO -->
-  <div style="margin-top:2rem;">
-    <p style="font-size: 11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:0.75rem;">Video di presentazione</p>
+  <div class="mt-2">
+    <p class="section-label-small">Video di presentazione</p>
     <div class="video-facade" data-video-id="PGRpvB_6_rU" role="button" tabindex="0" aria-label="Riproduci il video di presentazione della Scuola ContattaTi">
       <div class="video-facade-bg" aria-hidden="true"></div>
       <div class="video-facade-symbol" aria-hidden="true">✦</div>
@@ -1355,7 +1434,7 @@
   <p class="section-sub">Due pilastri fondamentali che si intrecciano lungo tutto il cammino.</p>
   <div class="two-col sr">
     <div class="pillar-card">
-      <p class="pillar-title"><span style="color:var(--gold);" aria-hidden="true">☽</span> Consapevolezza</p>
+      <p class="pillar-title"><span class="text-gold" aria-hidden="true">☽</span> Consapevolezza</p>
       <ul class="pillar-list">
         <li>Conoscenza di sé — natura inferiore e superiore</li>
         <li>Conoscenza delle 96 Leggi Universali</li>
@@ -1365,7 +1444,7 @@
       </ul>
     </div>
     <div class="pillar-card">
-      <p class="pillar-title"><span style="color:var(--gold);" aria-hidden="true">🜂</span> Alchimia</p>
+      <p class="pillar-title"><span class="text-gold" aria-hidden="true">🜂</span> Alchimia</p>
       <ul class="pillar-list">
         <li>Tramutazione del piombo in oro: Ombra in Luce</li>
         <li>Allenamento pratico con esercizi di Alchimia interiore</li>
@@ -1386,146 +1465,109 @@
   <p class="section-sub">Ricchezza, Abbondanza e Missione personale non sono semplici traguardi, ma energie da attivare. Questo libro è una guida trasformativa, un viaggio di Alchimia interiore dove ogni limite diventa un'opportunità di crescita.</p>
 
   <div class="book-card sr">
-    <img src="images/libro-copertina.jpg" alt="Copertina del libro Ricchezza, Abbondanza e Mission" width="200" height="310" loading="lazy" decoding="async" style="width:120px; height:auto; border-radius:8px; border:1px solid var(--border-hover); flex-shrink:0;" />
+    <img src="images/libro-copertina.jpg" alt="Copertina del libro Ricchezza, Abbondanza e Mission" width="200" height="310" loading="lazy" decoding="async" class="book-cover-img" />
     <div class="book-info">
       <span class="book-label">Gagliano Edizioni</span>
       <h3 class="book-title">Ricchezza, Abbondanza e Mission</h3>
       <p class="book-subtitle">Le chiavi della realizzazione interiore</p>
       <p class="book-authors">Anna Carla Digregorio & Nicolaos Anifantis</p>
       <p class="book-desc">Attraverso le Leggi universali della prosperità e dell'evoluzione spirituale, scoprirai strumenti concreti per dissolvere blocchi, liberarti da schemi limitanti e riappropriarti del tuo potere. Grazie alle chiavi archetipiche e alle antiche saggezze, imparerai a riconoscere l'Abbondanza non come un premio da conquistare, ma come uno stato naturale da abitare.</p>
-      <div class="book-where" style="margin-top:1rem;">
+      <div class="book-where mt-1">
         <span class="book-where-item"><span aria-hidden="true">📚</span> In vendita presso Libreria Roma (P.zza Aldo Moro 13, Bari) — ordinabile in tutte le librerie e sul web</span>
       </div>
-      <p style="color:var(--gold-light); font-style:italic; font-weight:600; margin-top:1rem; font-family:'EB Garamond','EBGaramond-fallback',serif; font-size:16px;">"Mira all'Abbondanza interiore, e la Ricchezza nella materia sarà una conseguenza. La Realizzazione non è una meta, ma uno stato dell'Essere."</p>
+      <p class="serif-quote mt-1 serif-quote-book">"Mira all'Abbondanza interiore, e la Ricchezza nella materia sarà una conseguenza. La Realizzazione non è una meta, ma uno stato dell'Essere."</p>
     </div>
   </div>
 
 
 
   <!-- CONTENUTI DEL LIBRO -->
-  <p style="margin-top:1.25rem; margin-bottom:0.75rem; font-size: 11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); text-align:center;">Cosa troverai nel libro</p>
-  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:12px;">
-    <div class="glass-card" style="padding:1.25rem; border-color:var(--border-hover);">
-      <h4 style="font-family:'EB Garamond','EBGaramond-fallback',serif; font-size:18px; font-weight:600; color:var(--gold-light); margin-bottom:0.4rem; display:flex; align-items:center; gap:0.5rem;"><span style="color:var(--gold);" aria-hidden="true">🜂</span> 22 Autosabotaggi</h4>
-      <p style="font-size: 15px; color:var(--text-muted); line-height:1.7;">Gli ostacoli che inceppano la Realizzazione — dalla Mancanza di Gratitudine alla Difficoltà a Condividere — diventano Strumenti di Conoscenza di Sé.</p>
+  <p class="section-label-small mt-125 text-center">Cosa troverai nel libro</p>
+  <div class="libro-content-grid">
+    <div class="glass-card libro-card">
+      <h4 class="libro-card-title"><span class="text-gold" aria-hidden="true">🜂</span> 22 Autosabotaggi</h4>
+      <p class="body-text-sm">Gli ostacoli che inceppano la Realizzazione — dalla Mancanza di Gratitudine alla Difficoltà a Condividere — diventano Strumenti di Conoscenza di Sé.</p>
     </div>
-    <div class="glass-card" style="padding:1.25rem; border-color:var(--border-hover);">
-      <h4 style="font-family:'EB Garamond','EBGaramond-fallback',serif; font-size:18px; font-weight:600; color:var(--gold-light); margin-bottom:0.4rem; display:flex; align-items:center; gap:0.5rem;"><span style="color:var(--gold);" aria-hidden="true">⚖</span> 6 Leggi Universali</h4>
-      <p style="font-size: 15px; color:var(--text-muted); line-height:1.7;">Le Sei Leggi che Sostengono la Ricchezza. Forze Attive con cui sintonizzarsi: la Ricchezza Autentica non si conquista, si accoglie.</p>
+    <div class="glass-card libro-card">
+      <h4 class="libro-card-title"><span class="text-gold" aria-hidden="true">⚖</span> 6 Leggi Universali</h4>
+      <p class="body-text-sm">Le Sei Leggi che Sostengono la Ricchezza. Forze Attive con cui sintonizzarsi: la Ricchezza Autentica non si conquista, si accoglie.</p>
     </div>
-    <div class="glass-card" style="padding:1.25rem; grid-column:1/-1; border-color:var(--border-hover);">
-      <h4 style="font-family:'EB Garamond','EBGaramond-fallback',serif; font-size:18px; font-weight:600; color:var(--gold-light); margin-bottom:0.4rem;">3 Archetipi Planetari</h4>
-      <p style="font-size: 15px; color:var(--text-muted); line-height:1.7; margin-bottom:1rem;">Urano, Nettuno e Plutone come Mappe Simboliche per navigare le prove quotidiane e accedere alle tre dimensioni dell'Essere.</p>
+    <div class="glass-card libro-card libro-card-full">
+      <h4 class="libro-card-title">3 Archetipi Planetari</h4>
+      <p class="body-text-sm mb-1">Urano, Nettuno e Plutone come Mappe Simboliche per navigare le prove quotidiane e accedere alle tre dimensioni dell'Essere.</p>
 
-      <div style="display:flex; gap:0.75rem; align-items:flex-start; padding:0.75rem 0; border-top:0.5px solid rgba(201,151,58,0.12);">
-        <div style="font-size:20px; flex-shrink:0; border-left:3px solid #c9973a; padding-left:8px;" aria-hidden="true">♅</div>
+      <div class="archetype-row">
+        <div class="archetype-symbol archetype-symbol-urano" aria-hidden="true">♅</div>
         <div>
-          <p style="font-family:'EB Garamond','EBGaramond-fallback',serif; font-size:16px; font-weight:600; color:var(--text); margin-bottom:0.2rem;">Urano — Libertà e autenticità</p>
-          <p style="font-size: 15px; color:var(--text-muted); line-height:1.6;">Prove rapide e destabilizzanti, lampi che squarciano le illusioni. <em style="color:rgba(232,201,122,0.95);">"La verità vi renderà liberi."</em></p>
+          <p class="serif-heading-sm">Urano — Libertà e autenticità</p>
+          <p class="body-text-sm">Prove rapide e destabilizzanti, lampi che squarciano le illusioni. <em class="em-urano">"La verità vi renderà liberi."</em></p>
         </div>
       </div>
 
-      <div style="display:flex; gap:0.75rem; align-items:flex-start; padding:0.75rem 0; border-top:0.5px solid rgba(201,151,58,0.12);">
-        <div style="font-size:20px; flex-shrink:0; border-left:3px solid #b49fe0; padding-left:8px;" aria-hidden="true">♆</div>
+      <div class="archetype-row">
+        <div class="archetype-symbol archetype-symbol-nettuno" aria-hidden="true">♆</div>
         <div>
-          <p style="font-family:'EB Garamond','EBGaramond-fallback',serif; font-size:16px; font-weight:600; color:var(--text); margin-bottom:0.2rem;">Nettuno — Connessione spirituale</p>
-          <p style="font-size: 15px; color:var(--text-muted); line-height:1.6;">Prove sottili, nebbie che dissolvono i confini dell'io. <em style="color:rgba(180,159,224,0.95);">"Cerca prima il regno di Dio e tutte queste cose vi saranno date in aggiunta."</em></p>
+          <p class="serif-heading-sm">Nettuno — Connessione spirituale</p>
+          <p class="body-text-sm">Prove sottili, nebbie che dissolvono i confini dell'io. <em class="em-nettuno">"Cerca prima il regno di Dio e tutte queste cose vi saranno date in aggiunta."</em></p>
         </div>
       </div>
 
-      <div style="display:flex; gap:0.75rem; align-items:flex-start; padding:0.75rem 0; border-top:0.5px solid rgba(201,151,58,0.12);">
-        <div style="font-size:20px; flex-shrink:0; border-left:3px solid #e07d7d; padding-left:8px;" aria-hidden="true">♇</div>
+      <div class="archetype-row">
+        <div class="archetype-symbol archetype-symbol-plutone" aria-hidden="true">♇</div>
         <div>
-          <p style="font-family:'EB Garamond','EBGaramond-fallback',serif; font-size:16px; font-weight:600; color:var(--text); margin-bottom:0.2rem;">Plutone — Trasformazione e guarigione</p>
-          <p style="font-size: 15px; color:var(--text-muted); line-height:1.6;">Crisi ardenti, fuochi che bruciano ciò che non è autentico. <em style="color:rgba(224,125,125,0.95);">"Chi vorrà salvare la propria vita la perderà, ma chi la perderà per causa mia la troverà."</em></p>
+          <p class="serif-heading-sm">Plutone — Trasformazione e guarigione</p>
+          <p class="body-text-sm">Crisi ardenti, fuochi che bruciano ciò che non è autentico. <em class="em-plutone">"Chi vorrà salvare la propria vita la perderà, ma chi la perderà per causa mia la troverà."</em></p>
         </div>
       </div>
     </div>
   </div>
 
   <!-- PRESENTAZIONI (collapsible) -->
-  <div style="margin-top:1.5rem;">
-    <div class="event-row has-detail" role="button" tabindex="0" aria-expanded="false" id="pres-toggle"
-         style="border-color:rgba(201,151,58,0.3); cursor:pointer;">
-      <div class="event-date" style="min-width:32px;">
-        <p style="font-size:20px;color:var(--gold);text-align:center;" aria-hidden="true">📅</p>
+  <div class="mt-15">
+    <div class="event-row has-detail" role="button" tabindex="0" aria-expanded="false" id="pres-toggle">
+      <div class="evento-data">
+        <p class="text-gold icon-lg" aria-hidden="true">📅</p>
       </div>
-      <div class="event-vline"></div>
+      <div class="evento-vline"></div>
       <div class="event-info">
         <p class="event-title">Presentazioni & eventi</p>
-        <p style="font-size: 13px; color:var(--text-muted);">6 eventi tra conferenze, festival e presentazioni</p>
+        <p class="body-text-xs">6 eventi tra conferenze, festival e presentazioni</p>
       </div>
       <span class="detail-pill">Eventi ▾</span>
       <span class="expand-arrow">▼</span>
     </div>
     <div class="lesson-panel" id="pres-panel">
       <div class="lesson-panel-inner">
-    <div style="display:flex; flex-direction:column; gap:8px;">
-      <div style="background:var(--surface); border:0.5px solid var(--border); border-radius:12px; padding:0.9rem 1.25rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
-        <div style="text-align:center; min-width:38px;">
-          <p style="font-family:'EB Garamond','EBGaramond-fallback',serif; font-size:22px; font-weight:500; color:var(--gold-light); line-height:1;">13</p>
-          <p style="font-size: 11px; text-transform:uppercase; letter-spacing:0.12em; color:var(--text-muted);">Nov 2025</p>
-        </div>
-        <div style="width:0.5px; height:32px; background:var(--border); flex-shrink:0;"></div>
-        <div style="flex:1;">
-          <p style="font-size: 16px; font-weight:500; color:var(--text);">Evento letterario — IKOS Formazione</p>
-          <p style="font-size: 13px; color:var(--text-muted);">Via Giovanni Amendola 162/1, Bari</p>
-        </div>
+    <div class="pres-list">
+      <div class="evento-card">
+        <div class="evento-data"><p class="evento-giorno">13</p><p class="evento-mese">Nov 2025</p></div>
+        <div class="evento-vline"></div>
+        <div class="flex-1"><p class="evento-titolo">Evento letterario — IKOS Formazione</p><p class="evento-dettaglio">Via Giovanni Amendola 162/1, Bari</p></div>
       </div>
-      <div style="background:var(--surface); border:0.5px solid var(--border); border-radius:12px; padding:0.9rem 1.25rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
-        <div style="text-align:center; min-width:38px;">
-          <p style="font-family:'EB Garamond','EBGaramond-fallback',serif; font-size:22px; font-weight:500; color:var(--gold-light); line-height:1;">10</p>
-          <p style="font-size: 11px; text-transform:uppercase; letter-spacing:0.12em; color:var(--text-muted);">Ott 2025</p>
-        </div>
-        <div style="width:0.5px; height:32px; background:var(--border); flex-shrink:0;"></div>
-        <div style="flex:1;">
-          <p style="font-size: 16px; font-weight:500; color:var(--text);">Conferenza gratuita — Libreria Roma</p>
-          <p style="font-size: 13px; color:var(--text-muted);">P.zza Aldo Moro 13, Bari</p>
-        </div>
+      <div class="evento-card">
+        <div class="evento-data"><p class="evento-giorno">10</p><p class="evento-mese">Ott 2025</p></div>
+        <div class="evento-vline"></div>
+        <div class="flex-1"><p class="evento-titolo">Conferenza gratuita — Libreria Roma</p><p class="evento-dettaglio">P.zza Aldo Moro 13, Bari</p></div>
       </div>
-      <div style="background:var(--surface); border:0.5px solid var(--border); border-radius:12px; padding:0.9rem 1.25rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
-        <div style="text-align:center; min-width:38px;">
-          <p style="font-family:'EB Garamond','EBGaramond-fallback',serif; font-size:22px; font-weight:500; color:var(--gold-light); line-height:1;">27</p>
-          <p style="font-size: 11px; text-transform:uppercase; letter-spacing:0.12em; color:var(--text-muted);">Set 2025</p>
-        </div>
-        <div style="width:0.5px; height:32px; background:var(--border); flex-shrink:0;"></div>
-        <div style="flex:1;">
-          <p style="font-size: 16px; font-weight:500; color:var(--text);">Macrolibrarsi Fest — Presentazione libro</p>
-          <p style="font-size: 13px; color:var(--text-muted);">Cesena · Fiera del libro consapevole</p>
-        </div>
+      <div class="evento-card">
+        <div class="evento-data"><p class="evento-giorno">27</p><p class="evento-mese">Set 2025</p></div>
+        <div class="evento-vline"></div>
+        <div class="flex-1"><p class="evento-titolo">Macrolibrarsi Fest — Presentazione libro</p><p class="evento-dettaglio">Cesena · Fiera del libro consapevole</p></div>
       </div>
-      <div style="background:var(--surface); border:0.5px solid var(--border); border-radius:12px; padding:0.9rem 1.25rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
-        <div style="text-align:center; min-width:38px;">
-          <p style="font-family:'EB Garamond','EBGaramond-fallback',serif; font-size:22px; font-weight:500; color:var(--gold-light); line-height:1;">5</p>
-          <p style="font-size: 11px; text-transform:uppercase; letter-spacing:0.12em; color:var(--text-muted);">Set 2025</p>
-        </div>
-        <div style="width:0.5px; height:32px; background:var(--border); flex-shrink:0;"></div>
-        <div style="flex:1;">
-          <p style="font-size: 16px; font-weight:500; color:var(--text);">Presentazione Scuola — Il Mondo che Voglio</p>
-          <p style="font-size: 13px; color:var(--text-muted);">Palese (Bari)</p>
-        </div>
+      <div class="evento-card">
+        <div class="evento-data"><p class="evento-giorno">5</p><p class="evento-mese">Set 2025</p></div>
+        <div class="evento-vline"></div>
+        <div class="flex-1"><p class="evento-titolo">Presentazione Scuola — Il Mondo che Voglio</p><p class="evento-dettaglio">Palese (Bari)</p></div>
       </div>
-      <div style="background:var(--surface); border:0.5px solid var(--border); border-radius:12px; padding:0.9rem 1.25rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
-        <div style="text-align:center; min-width:38px;">
-          <p style="font-family:'EB Garamond','EBGaramond-fallback',serif; font-size:22px; font-weight:500; color:var(--gold-light); line-height:1;">3</p>
-          <p style="font-size: 11px; text-transform:uppercase; letter-spacing:0.12em; color:var(--text-muted);">Set 2025</p>
-        </div>
-        <div style="width:0.5px; height:32px; background:var(--border); flex-shrink:0;"></div>
-        <div style="flex:1;">
-          <p style="font-size: 16px; font-weight:500; color:var(--text);">Presentazione Scuola — Libreria Roma</p>
-          <p style="font-size: 13px; color:var(--text-muted);">P.zza Aldo Moro 13, Bari</p>
-        </div>
+      <div class="evento-card">
+        <div class="evento-data"><p class="evento-giorno">3</p><p class="evento-mese">Set 2025</p></div>
+        <div class="evento-vline"></div>
+        <div class="flex-1"><p class="evento-titolo">Presentazione Scuola — Libreria Roma</p><p class="evento-dettaglio">P.zza Aldo Moro 13, Bari</p></div>
       </div>
-      <div style="background:var(--surface); border:0.5px solid var(--border); border-radius:12px; padding:0.9rem 1.25rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
-        <div style="text-align:center; min-width:38px;">
-          <p style="font-family:'EB Garamond','EBGaramond-fallback',serif; font-size:22px; font-weight:500; color:var(--gold-light); line-height:1;">19</p>
-          <p style="font-size: 11px; text-transform:uppercase; letter-spacing:0.12em; color:var(--text-muted);">Lug 2025</p>
-        </div>
-        <div style="width:0.5px; height:32px; background:var(--border); flex-shrink:0;"></div>
-        <div style="flex:1;">
-          <p style="font-size: 16px; font-weight:500; color:var(--text);">Festival Harmoniae Mundi — "Dove dimora la Ricchezza?"</p>
-          <p style="font-size: 13px; color:var(--text-muted);">Masseria La Gatta Matta, Noci (BA)</p>
-        </div>
+      <div class="evento-card">
+        <div class="evento-data"><p class="evento-giorno">19</p><p class="evento-mese">Lug 2025</p></div>
+        <div class="evento-vline"></div>
+        <div class="flex-1"><p class="evento-titolo">Festival Harmoniae Mundi — "Dove dimora la Ricchezza?"</p><p class="evento-dettaglio">Masseria La Gatta Matta, Noci (BA)</p></div>
       </div>
     </div>
       </div>
@@ -1543,7 +1585,7 @@
 
   <div class="two-col">
     <div class="pillar-card">
-      <p class="pillar-title"><span style="color:var(--gold);">✦</span> La Scuola</p>
+      <p class="pillar-title"><span class="text-gold">✦</span> La Scuola</p>
       <ul class="pillar-list">
         <li>Percorso formativo strutturato e condiviso</li>
         <li>Educa a vivere manifestando la propria Anima</li>
@@ -1553,7 +1595,7 @@
       </ul>
     </div>
     <div class="pillar-card">
-      <p class="pillar-title"><span style="color:var(--gold);" aria-hidden="true">☿</span> Percorso Individuale</p>
+      <p class="pillar-title"><span class="text-gold" aria-hidden="true">☿</span> Percorso Individuale</p>
       <ul class="pillar-list">
         <li>Viaggio personalizzato sul tuo obiettivo evolutivo</li>
         <li>Nasce da un momento di crisi o da un passaggio delicato</li>
@@ -1564,9 +1606,9 @@
     </div>
   </div>
 
-  <div style="margin-top:1.25rem; text-align:center;">
-    <h3 style="font-family:'EB Garamond','EBGaramond-fallback',serif; font-size:20px; font-weight:600; color:var(--gold-light); margin-bottom:0.5rem;">Complementari, non alternativi</h3>
-    <p style="font-size: 16px; color:var(--text-muted); line-height:1.8; max-width:680px; margin:0 auto;">La Scuola e il Percorso Individuale non si escludono: possono essere vissuti insieme, arricchendosi a vicenda. La prima offre Conoscenza e Pratica costante; il secondo, ascolto profondo e sostegno mirato. Insieme, rappresentano un potente strumento di trasformazione e risveglio.</p>
+  <div class="mt-125 text-center">
+    <h3 class="serif-heading serif-heading-20">Complementari, non alternativi</h3>
+    <p class="body-text narrow-text">La Scuola e il Percorso Individuale non si escludono: possono essere vissuti insieme, arricchendosi a vicenda. La prima offre Conoscenza e Pratica costante; il secondo, ascolto profondo e sostegno mirato. Insieme, rappresentano un potente strumento di trasformazione e risveglio.</p>
   </div>
 </section>
 
@@ -1578,16 +1620,16 @@
   <h2 class="section-title sr">I conduttori</h2>
   <p class="section-sub">Guide di percorsi individuali e di gruppo, dedicati alla consapevolezza, alla crescita interiore e all'Alchimia trasformativa. Trasmettono con amore, passione e chiarezza ciò che hanno ricevuto, integrato e sperimentato.</p>
 
-  <div class="teachers-row sr" style="margin-bottom:1.5rem;">
-    <div class="teacher-card" style="text-align:left; padding:1.75rem;">
-      <div style="display:flex; align-items:center; gap:1.25rem; margin-bottom:1.25rem;">
+  <div class="teachers-row sr mb-15">
+    <div class="teacher-card teacher-card-left">
+      <div class="teacher-header">
         <img src="images/anna-carla.jpg" alt="Anna Carla Digregorio" loading="lazy" decoding="async" class="teacher-photo" width="120" height="120" />
         <div>
           <p class="teacher-name">Anna Carla Digregorio</p>
           <p class="teacher-role">Conduttrice & autrice</p>
         </div>
       </div>
-      <p style="font-size: 15px; color:var(--text-muted); line-height:1.8; margin-bottom:0.75rem;">Laureata in Farmacia, per oltre undici anni ha gestito una grande Parafarmacia nel cuore di Bari, trasformandola in un centro dedicato alla Salute Integrata.</p>
+      <p class="teacher-bio">Laureata in Farmacia, per oltre undici anni ha gestito una grande Parafarmacia nel cuore di Bari, trasformandola in un centro dedicato alla Salute Integrata.</p>
       <div class="bio-tags">
         <span class="bio-tag tag-ermetica">Scuola Ermetica — Emiliano Soldani</span>
         <span class="bio-break"></span>
@@ -1607,15 +1649,15 @@
         <span class="bio-tag tag-studio">Enneagramma</span>
       </div>
     </div>
-    <div class="teacher-card" style="text-align:left; padding:1.75rem;">
-      <div style="display:flex; align-items:center; gap:1.25rem; margin-bottom:1.25rem;">
+    <div class="teacher-card teacher-card-left">
+      <div class="teacher-header">
         <img src="images/nicolaos.jpg" alt="Nicolaos Anifantis" loading="lazy" decoding="async" class="teacher-photo" width="120" height="120" />
         <div>
           <p class="teacher-name">Nicolaos Anifantis</p>
           <p class="teacher-role">Conduttore & autore</p>
         </div>
       </div>
-      <p style="font-size: 15px; color:var(--text-muted); line-height:1.8; margin-bottom:0.75rem;">Solido background pratico nella produzione farmaceutica industriale. Un percorso di ricerca che unisce scienza, tradizione e spiritualità.</p>
+      <p class="teacher-bio">Solido background pratico nella produzione farmaceutica industriale. Un percorso di ricerca che unisce scienza, tradizione e spiritualità.</p>
       <div class="bio-tags">
         <span class="bio-tag tag-ermetica">Scuola Ermetica — Emiliano Soldani</span>
         <span class="bio-break"></span>
@@ -1638,18 +1680,18 @@
     </div>
   </div>
 
-  <div class="glass-card" style="padding:1.25rem 1.5rem; margin-bottom:1rem;">
-    <p style="font-size: 15px; color:var(--text-muted); line-height:2;">Formatori e Conduttori della Scuola di Consapevolezza ed Alchimia "ContattaTi". Divulgatori di Antichi Insegnamenti e delle 96 Leggi dell'Universo, conducono il progetto di Scuola di Risveglio spirituale della Coscienza in Bari, basato sullo studio e la pratica di Alchimia trasmutativa e magia ermetica, Insegnamenti Cristici, di Enneagramma, di Antroposofia, Teosofia, Cabala, e insegnamenti Arcano-Esoterici, dove le Antiche filosofie vengono collegate a Scienze di confine, nel processo di riunificazione tra materia e Spirito.</p>
-    <div style="height:0.5px; background:linear-gradient(90deg,transparent,rgba(201,151,58,0.3),transparent); margin:1rem 0;"></div>
-    <p style="font-size: 15px; color:var(--text-muted); line-height:2;">Hanno lavorato per 11 anni come imprenditori nel settore farmaceutico, portando nella loro professione il principio che la cura e l'attenzione siano da direzionare all'uomo e non alla sua malattia, la quale non è altro che la voce del proprio squilibrio e disallineamento tra Anima, mente e corpo.</p>
-    <div style="height:0.5px; background:linear-gradient(90deg,transparent,rgba(201,151,58,0.3),transparent); margin:1rem 0;"></div>
-    <p style="font-size: 15px; color:var(--text-muted); line-height:2;">Si occupano di consulenze individuali di crescita ed evoluzione interiore, alchimia trasmutativa, kinesiologia evolutiva, pratica di disidentificazione dall'ego, immaginoterapia del profondo, riconnessione e contatto col Sè ancestrale con pratica sciamanica, mindfulness.</p>
-    <div style="height:0.5px; background:linear-gradient(90deg,transparent,rgba(201,151,58,0.3),transparent); margin:1rem 0;"></div>
-    <p style="font-size: 15px; color:var(--text-muted); line-height:2;">Portano avanti sin dal 1994 anche un Progetto animico di coppia tale da poter essere un esempio concreto di Alchimia, Unione e Comunione attraverso il loro Amore. Assieme hanno seguito lunghi percorsi di crescita interiore e ricerca spirituale che oggi insegnano con Cura e Amore.</p>
+  <div class="glass-card bio-detail">
+    <p>Formatori e Conduttori della Scuola di Consapevolezza ed Alchimia "ContattaTi". Divulgatori di Antichi Insegnamenti e delle 96 Leggi dell'Universo, conducono il progetto di Scuola di Risveglio spirituale della Coscienza in Bari, basato sullo studio e la pratica di Alchimia trasmutativa e magia ermetica, Insegnamenti Cristici, di Enneagramma, di Antroposofia, Teosofia, Cabala, e insegnamenti Arcano-Esoterici, dove le Antiche filosofie vengono collegate a Scienze di confine, nel processo di riunificazione tra materia e Spirito.</p>
+    <div class="bio-divider"></div>
+    <p>Hanno lavorato per 11 anni come imprenditori nel settore farmaceutico, portando nella loro professione il principio che la cura e l'attenzione siano da direzionare all'uomo e non alla sua malattia, la quale non è altro che la voce del proprio squilibrio e disallineamento tra Anima, mente e corpo.</p>
+    <div class="bio-divider"></div>
+    <p>Si occupano di consulenze individuali di crescita ed evoluzione interiore, alchimia trasmutativa, kinesiologia evolutiva, pratica di disidentificazione dall'ego, immaginoterapia del profondo, riconnessione e contatto col Sè ancestrale con pratica sciamanica, mindfulness.</p>
+    <div class="bio-divider"></div>
+    <p>Portano avanti sin dal 1994 anche un Progetto animico di coppia tale da poter essere un esempio concreto di Alchimia, Unione e Comunione attraverso il loro Amore. Assieme hanno seguito lunghi percorsi di crescita interiore e ricerca spirituale che oggi insegnano con Cura e Amore.</p>
   </div>
 
-  <div class="teachers-row" style="grid-template-columns:1fr;">
-    <div class="teacher-card" style="text-align:center;">
+  <div class="teachers-row teachers-row-single">
+    <div class="teacher-card text-center">
       <img src="images/eleonora.jpg" alt="Eleonora Digregorio" loading="lazy" decoding="async" class="teacher-photo-collab" width="100" height="100" />
       <p class="teacher-name">Eleonora Digregorio</p>
       <p class="teacher-role">Collaboratrice lezioni e seminari esperienziali</p>
@@ -1666,7 +1708,7 @@
   <p class="section-sub">Ciclo di 7 anni in presenza a Bari e online — 6 incontri annuali (anni 1–3) e 3 incontri annuali (anni 4–7).</p>
 
   <!-- TAB BAR -->
-  <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:1.25rem;" id="anno-tabs" role="tablist" aria-label="Anno del percorso">
+  <div class="anno-tabs-wrap" id="anno-tabs" role="tablist" aria-label="Anno del percorso">
     <button id="tab-anno-1" role="tab" aria-selected="true" aria-controls="panel-anno-1" class="anno-tab active" data-anno="1">Anno 1</button>
     <button id="tab-anno-2" role="tab" aria-selected="false" aria-controls="panel-anno-2" class="anno-tab" data-anno="2">Anno 2</button>
     <button id="tab-anno-3" role="tab" aria-selected="false" aria-controls="panel-anno-3" class="anno-tab" data-anno="3">Anno 3</button>
@@ -1674,7 +1716,7 @@
     <button id="tab-anno-5" role="tab" aria-selected="false" aria-controls="panel-anno-5" class="anno-tab" data-anno="5">Anno 5</button>
     <button id="tab-anno-6" role="tab" aria-selected="false" aria-controls="panel-anno-6" class="anno-tab" data-anno="6">Anno 6</button>
     <button id="tab-anno-7" role="tab" aria-selected="false" aria-controls="panel-anno-7" class="anno-tab" data-anno="7">Anno 7</button>
-    <button id="tab-anno-esp" role="tab" aria-selected="false" aria-controls="panel-anno-esp" class="anno-tab" data-anno="esp" style="border-color:rgba(29,158,117,0.5);color:#5dcaa5;">✦ Esperienziali</button>
+    <button id="tab-anno-esp" role="tab" aria-selected="false" aria-controls="panel-anno-esp" class="anno-tab anno-tab-esp" data-anno="esp">✦ Esperienziali</button>
   </div>
 
   <!-- PANNELLO ANNO 1 -->
@@ -1714,11 +1756,11 @@
   <!-- PANNELLO ESPERIENZIALI -->
   <div class="anno-panel" id="panel-anno-esp" role="tabpanel" aria-labelledby="tab-anno-esp" style="display:none;">
     <div class="calendar-list" id="calendar-list-esp"></div>
-    <div style="background:rgba(29,158,117,0.07); border:0.5px solid rgba(29,158,117,0.35); border-radius:14px; padding:1.1rem 1.4rem; display:flex; gap:0.75rem; align-items:flex-start; margin-top:10px;">
-      <div style="font-size:20px; flex-shrink:0;">✦</div>
+    <div class="esp-banner">
+      <div class="icon-lg">✦</div>
       <div>
-        <p style="font-size: 16px; font-weight:500; color:#5dcaa5; margin-bottom:0.3rem;">Vuoi partecipare?</p>
-        <p style="font-size: 15px; color:var(--text-muted); line-height:1.7;">I seminari esperienziali vengono riproposti periodicamente. <a href="#contatti" style="color:var(--gold-light);">Scrivici</a> per conoscere le prossime date e i dettagli.</p>
+        <p class="esp-banner-title">Vuoi partecipare?</p>
+        <p class="body-text-sm">I seminari esperienziali vengono riproposti periodicamente. <a href="#contatti" class="text-gold-light">Scrivici</a> per conoscere le prossime date e i dettagli.</p>
       </div>
     </div>
   </div>
@@ -2246,7 +2288,7 @@
       </div>
       <div class="contact-detail">
         <div class="contact-detail-icon" aria-hidden="true">f</div>
-        <div><strong>Facebook</strong><a href="https://www.facebook.com/nicolaosanifantis" target="_blank" rel="noopener" style="color:var(--text);font-size: 15px;text-decoration:none;">ContattaTi</a></div>
+        <div><strong>Facebook</strong><a href="https://www.facebook.com/nicolaosanifantis" target="_blank" rel="noopener" class="contact-link">ContattaTi</a></div>
       </div>
     </div>
     <form id="contact-form" class="contact-form" action="https://formspree.io/f/xwvavebr" method="POST" novalidate>
@@ -2277,7 +2319,7 @@
       </div>
       <button type="submit" class="submit-btn" id="contact-submit">Invia messaggio</button>
       <div class="form-feedback" id="form-feedback" role="status" aria-live="polite"></div>
-      <p style="font-size: 12px; color:var(--text-muted); margin-top:0.25rem; text-align:center;">Riceveremo il tuo messaggio via email e ti risponderemo al più presto.</p>
+      <p class="body-text-xxs text-center mt-025">Riceveremo il tuo messaggio via email e ti risponderemo al più presto.</p>
     </form>
   </div>
 </section>
@@ -2288,7 +2330,7 @@
 <footer>
   <div class="footer-inner">
     <p class="footer-logo">✦ Scuola ContattaTi</p>
-    <p style="margin-top:0.3rem; font-family:'EB Garamond','EBGaramond-fallback',serif; color:rgba(201,151,58,0.85); font-size:16px;"><span lang="el">Γνῶθι Σεαυτόν</span> — Conosci Te Stesso</p>
+    <p class="serif-footer serif-footer-motto"><span lang="el">Γνῶθι Σεαυτόν</span> — Conosci Te Stesso</p>
 
     <nav class="footer-links" aria-label="Link rapidi">
       <a href="#chi-siamo">Chi siamo</a>
@@ -2307,8 +2349,8 @@
 
     <hr class="footer-divider"/>
     <p><a href="tel:+393349991888" aria-label="Chiama Nicolaos al 334 999 1888">334 999 1888</a> &nbsp;·&nbsp; <span id="email-footer"></span></p>
-    <p style="margin-top:0.75rem; font-family:'EB Garamond','EBGaramond-fallback',serif; font-style:italic; font-size: 16px; color:rgba(201,151,58,0.85);">"Non si tratta di attrarre. Si tratta di ricordare chi siamo."</p>
-    <p style="margin-top:0.75rem; font-size: 12px; opacity:0.7;">© 2026 Scuola ContattaTi — Anna Carla Digregorio & Nicolaos Anifantis</p>
+    <p class="serif-footer serif-footer-quote">"Non si tratta di attrarre. Si tratta di ricordare chi siamo."</p>
+    <p class="footer-copyright">© 2026 Scuola ContattaTi — Anna Carla Digregorio & Nicolaos Anifantis</p>
   </div>
 </footer>
 <!-- WhatsApp sticky (mobile) -->
