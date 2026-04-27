@@ -377,21 +377,9 @@
       pointer-events: none;
       transition: border-color 0.25s;
     }
-    /* Angoli — quattro rombi dorati interni */
-    .glass-card::after {
-      content: ''; position: absolute;
-      inset: 0; pointer-events: none; border-radius: inherit;
-      background:
-        radial-gradient(circle at 11px 11px, var(--gold) 0 1.5px, transparent 2px),
-        radial-gradient(circle at calc(100% - 11px) 11px, var(--gold) 0 1.5px, transparent 2px),
-        radial-gradient(circle at 11px calc(100% - 11px), var(--gold) 0 1.5px, transparent 2px),
-        radial-gradient(circle at calc(100% - 11px) calc(100% - 11px), var(--gold) 0 1.5px, transparent 2px);
-      opacity: 0.55;
-      transition: opacity 0.25s;
-    }
+    /* Angoli — rimossi (creavano rumore visivo) */
     .glass-card:hover { background: rgba(255,255,255,0.028); border-color: rgba(201,151,58,0.42); }
     .glass-card:hover::before { border-color: rgba(201,151,58,0.35); }
-    .glass-card:hover::after { opacity: 0.85; }
     .glass-card > * { position: relative; z-index: 1; }
     .card-title { font-family: var(--font-display); font-size: 20px; font-weight: 500; margin-bottom: 0.5rem; color: var(--text); display: flex; align-items: center; gap: 0.5rem; letter-spacing: 0.01em; font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "onum" 1, "calt" 1; font-variant-numeric: oldstyle-nums; }
     .card-body { font-size: 16px; color: var(--text-muted); line-height: 1.72; letter-spacing: 0; }
@@ -432,20 +420,8 @@
       pointer-events: none;
       transition: border-color 0.25s;
     }
-    .pillar-card::after {
-      content: ''; position: absolute;
-      inset: 0; pointer-events: none; border-radius: inherit;
-      background:
-        radial-gradient(circle at 11px 11px, var(--gold) 0 1.5px, transparent 2px),
-        radial-gradient(circle at calc(100% - 11px) 11px, var(--gold) 0 1.5px, transparent 2px),
-        radial-gradient(circle at 11px calc(100% - 11px), var(--gold) 0 1.5px, transparent 2px),
-        radial-gradient(circle at calc(100% - 11px) calc(100% - 11px), var(--gold) 0 1.5px, transparent 2px);
-      opacity: 0.55;
-      transition: opacity 0.25s;
-    }
     .pillar-card:hover { background: rgba(255,255,255,0.028); border-color: rgba(201,151,58,0.42); }
     .pillar-card:hover::before { border-color: rgba(201,151,58,0.35); }
-    .pillar-card:hover::after { opacity: 0.85; }
     .pillar-card > * { position: relative; z-index: 1; }
     .pillar-title { font-family: var(--font-display); font-size: 26px; font-weight: 600; color: var(--gold-light); margin-bottom: 1.25rem; display: flex; flex-direction: column; align-items: flex-start; gap: 0.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(201, 151, 58, 0.15); letter-spacing: 0.01em; font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "onum" 1, "calt" 1; font-variant-numeric: oldstyle-nums; }
     .pillar-title span[aria-hidden="true"] { font-size: 28px; opacity: 0.85; }
@@ -490,20 +466,8 @@
       pointer-events: none;
       transition: border-color 0.25s;
     }
-    .teacher-card::after {
-      content: ''; position: absolute;
-      inset: 0; pointer-events: none; border-radius: inherit;
-      background:
-        radial-gradient(circle at 11px 11px, var(--gold) 0 1.5px, transparent 2px),
-        radial-gradient(circle at calc(100% - 11px) 11px, var(--gold) 0 1.5px, transparent 2px),
-        radial-gradient(circle at 11px calc(100% - 11px), var(--gold) 0 1.5px, transparent 2px),
-        radial-gradient(circle at calc(100% - 11px) calc(100% - 11px), var(--gold) 0 1.5px, transparent 2px);
-      opacity: 0.55;
-      transition: opacity 0.25s;
-    }
     .teacher-card:hover { background: rgba(255,255,255,0.028); border-color: rgba(201,151,58,0.42); }
     .teacher-card:hover::before { border-color: rgba(201,151,58,0.35); }
-    .teacher-card:hover::after { opacity: 0.85; }
     .teacher-card > * { position: relative; z-index: 1; }
     .teacher-avatar { width: 72px; height: 72px; border-radius: 50%; border: 1.5px solid var(--border-hover); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 26px; color: var(--gold-light); margin: 0 auto 1rem; background: rgba(201,151,58,0.06); font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "onum" 1, "calt" 1; font-variant-numeric: oldstyle-nums; }
     .teacher-photo { width: 120px; height: 120px; border-radius: 50%; border: 1.5px solid var(--border-hover); object-fit: cover; flex-shrink: 0; }
