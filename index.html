@@ -261,7 +261,7 @@
     .hero h1 span { color: var(--gold-light); font-weight: 500; }
     .hero-motto { font-family: var(--font-display); font-size: clamp(20px, 3.2vw, 32px); font-weight: 500; color: var(--gold-light); margin-bottom: 0.5rem; letter-spacing: 0.04em; line-height: 1.2; position: relative; z-index: 2; font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "onum" 1, "calt" 1; font-variant-numeric: oldstyle-nums; }
     .hero-motto-sub { font-family: var(--font-display); font-size: clamp(13px, 1.6vw, 16px); color: var(--text); opacity: 0.75; margin-bottom: 2rem; font-style: italic; letter-spacing: 0.1em; position: relative; z-index: 2; font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "onum" 1, "calt" 1; font-variant-numeric: oldstyle-nums; }
-    .hero-motto-sub::after { content: '✦'; display: block; color: var(--gold); font-size: 10px; margin-top: 1.5rem; opacity: 0.6; letter-spacing: 0; }
+    .hero-motto-sub::after { content: '✶'; display: block; color: var(--gold); font-size: 12px; margin-top: 1.5rem; opacity: 0.7; letter-spacing: 0; }
     .hero-slogan { font-family: var(--font-display); font-size: clamp(16px, 2.2vw, 20px); color: var(--text); max-width: 520px; line-height: 1.7; margin-bottom: 2.5rem; position: relative; z-index: 2; opacity: 0.85; letter-spacing: 0.01em; font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "onum" 1, "calt" 1; font-variant-numeric: oldstyle-nums; }
     .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; position: relative; z-index: 2; }
     .btn-primary { display: inline-block; padding: 0.85rem 2.25rem; background: linear-gradient(135deg, var(--gold) 0%, #a8782a 100%); border: none; border-radius: 999px; color: #1a1000; font-size: 15px; font-weight: 500; text-decoration: none; letter-spacing: 0.07em; text-transform: uppercase; transition: opacity 0.2s, transform 0.2s; cursor: pointer; }
@@ -278,6 +278,84 @@
     /* SECTIONS */
     section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
     .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; display: block; }
+
+    /* ── SISTEMA DECORATIVO ── */
+    /* Eyebrow numerato — sostituisce/affianca .section-label */
+    .section-eyebrow {
+      display: flex; align-items: center; justify-content: flex-start;
+      gap: 0.75rem; margin-bottom: 0.75rem;
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold); font-weight: 500;
+    }
+    .section-eyebrow.center { justify-content: center; }
+    .section-eyebrow .roman {
+      font-family: var(--font-display); font-style: italic;
+      font-size: 15px; color: var(--gold-light); letter-spacing: 0.05em;
+      text-transform: none; font-weight: 500;
+      font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "onum" 1;
+    }
+    .section-eyebrow::before,
+    .section-eyebrow::after {
+      content: ''; display: block; width: 36px; height: 0.5px;
+      background: linear-gradient(90deg, transparent 0%, rgba(201,151,58,0.55) 100%);
+    }
+    .section-eyebrow::after {
+      background: linear-gradient(90deg, rgba(201,151,58,0.55) 0%, transparent 100%);
+    }
+
+    /* Filetto epigrafico — separatore tra sezioni con glifo centrale */
+    .epigraphic-rule {
+      display: flex; align-items: center; justify-content: center;
+      gap: 1.25rem; max-width: 700px; margin: 0 auto; padding: 2rem;
+    }
+    .epigraphic-rule::before,
+    .epigraphic-rule::after {
+      content: ''; flex: 1; height: 0.5px;
+      background: linear-gradient(90deg, transparent 0%, rgba(201,151,58,0.08) 15%, rgba(201,151,58,0.45) 50%, rgba(201,151,58,0.08) 85%, transparent 100%);
+    }
+    .epigraphic-rule .glyph {
+      color: var(--gold); font-size: 14px; flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: 0.9rem;
+      letter-spacing: 0.3em;
+    }
+    .epigraphic-rule .glyph::before,
+    .epigraphic-rule .glyph::after {
+      content: '◆'; font-size: 5px; color: var(--gold); opacity: 0.55;
+      transform: translateY(-3px);
+    }
+
+    /* Capolettera — drop cap editoriale (rimosso: non funziona bene su fondo scuro) */
+
+    /* Card corners — quattro rombi dorati negli angoli interni */
+    .card-corners { position: relative; }
+    .card-corners::before,
+    .card-corners::after,
+    .card-corners > .corner-tr,
+    .card-corners > .corner-br {
+      content: ''; position: absolute;
+      width: 5px; height: 5px;
+      background: var(--gold); opacity: 0.55;
+      transform: rotate(45deg);
+      pointer-events: none;
+    }
+    .card-corners::before { top: 10px; left: 10px; }
+    .card-corners::after  { bottom: 10px; left: 10px; }
+    .card-corners > .corner-tr { top: 10px; right: 10px; }
+    .card-corners > .corner-br { bottom: 10px; right: 10px; }
+
+    /* Fleuron — tre rombi distanziati, ornamento da stampa antica */
+    .fleuron {
+      display: flex; align-items: center; justify-content: center;
+      gap: 0.9rem; color: var(--gold); opacity: 0.7;
+      font-size: 7px; letter-spacing: 0;
+      margin-bottom: 1rem;
+    }
+    .fleuron::before,
+    .fleuron::after,
+    .fleuron > span { content: '◆'; }
+    .fleuron > span { font-size: 9px; opacity: 0.85; }
+    .fleuron::before { content: '◆'; }
+    .fleuron::after { content: '◆'; }
     .section-title { font-family: var(--font-display); font-size: clamp(28px,5vw,42px); font-weight: 500; color: var(--text); margin-bottom: 0.75rem; line-height: 1.15; letter-spacing: 0; font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "onum" 1, "calt" 1; font-variant-numeric: oldstyle-nums; }
     .section-sub { font-size: 15px; color: var(--text-muted); max-width: 900px; line-height: 1.72; margin-bottom: 2.5rem; letter-spacing: 0; }
 
@@ -289,7 +367,12 @@
 
     /* QUOTE BLOCK */
     .quote-block { position: relative; border-left: 2px solid var(--gold); padding: 2rem 1.75rem 1.5rem; margin: 2rem 0; background: rgba(201,151,58,0.04); border-radius: 0 12px 12px 0; }
-    .quote-block::before { content: '\201C'; position: absolute; top: -0.5rem; left: 0.75rem; font-family: var(--font-display); font-size: 64px; line-height: 1; color: var(--gold); opacity: 0.35; font-weight: 500; }
+    .quote-block::before {
+      content: '◆  ◆  ◆'; position: absolute; top: -0.6rem; left: 1.25rem;
+      background: var(--bg); padding: 0 0.6rem;
+      font-size: 8px; line-height: 1; color: var(--gold); opacity: 0.7;
+      letter-spacing: 0.1em;
+    }
     .quote-block p { font-family: var(--font-display); font-size: clamp(16px,2.5vw,20px); font-style: italic; font-weight: 400; color: var(--text); line-height: 1.7; margin-bottom: 0.5rem; font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "onum" 1, "calt" 1; font-variant-numeric: oldstyle-nums; }
     .quote-block cite { font-size: 12px; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; }
 
@@ -308,7 +391,7 @@
     .pillar-list { list-style: none; flex: 1; }
     .pillar-list li { font-size: 15px; color: var(--text-muted); line-height: 1.72; padding: 0.5rem 0; border-bottom: 0.5px solid rgba(201,151,58,0.07); letter-spacing: 0; }
     .pillar-list li:last-child { border-bottom: none; }
-    .pillar-list li::before { content: '✦ '; color: var(--gold); font-size: 11px; }
+    .pillar-list li::before { content: '✶ '; color: var(--gold); font-size: 11px; }
 
     /* BOOK */
     .book-card { background: var(--surface); border: 0.5px solid var(--border-hover); border-radius: 16px; padding: 2rem; display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; }
@@ -441,7 +524,7 @@
       padding: 0.2rem 0; border-bottom: 0.5px solid rgba(201,151,58,0.06);
       letter-spacing: 0;
     }
-    .lesson-topics li::before { content: '✦ '; color: var(--gold); font-size: 9px; }
+    .lesson-topics li::before { content: '✶ '; color: var(--gold); font-size: 10px; }
     .lesson-quote {
       font-family: var(--font-display);
       font-size: 16px; font-style: normal;
@@ -1114,7 +1197,7 @@
         transparent 100%);
     }
     #panel-anno-esp .calendar-list .lesson-wrap::before {
-      content: '✦';
+      content: '✶';
       background: transparent;
       color: #5dcaa5;
       width: auto;
@@ -1162,7 +1245,7 @@
 
 <a class="skip-link" href="#chi-siamo">Vai al contenuto</a>
 <nav role="navigation" aria-label="Menu principale">
-  <a class="nav-logo" href="#"><span aria-hidden="true">✦</span> Scuola ContattaTi</a>
+  <a class="nav-logo" href="#"><span aria-hidden="true">✶</span> Scuola ContattaTi</a>
   <button class="nav-toggle" aria-label="Apri menu" aria-expanded="false">☰</button>
   <div class="nav-links" role="menubar">
     <a href="#chi-siamo">Chi siamo</a>
@@ -1192,7 +1275,7 @@
 <main>
 <!-- CHI SIAMO -->
 <section id="chi-siamo">
-  <span class="section-label sr">La nostra visione</span>
+  <div class="section-eyebrow sr"><span class="roman">I</span><span>La nostra visione</span></div>
   <h2 class="section-title sr">Chi siamo</h2>
   <p class="section-sub sr">Siamo una scuola nata dalla passione per la crescita interiore e la conoscenza esoterica. Il nostro cammino integra Antichi Insegnamenti, Alchimia e le 96 Leggi Universali.</p>
   <div class="sr mb-15">
@@ -1225,7 +1308,7 @@
     <p class="section-label-small">Video di presentazione</p>
     <div class="video-facade" data-video-id="PGRpvB_6_rU" role="button" tabindex="0" aria-label="Riproduci il video di presentazione della Scuola ContattaTi">
       <div class="video-facade-bg" aria-hidden="true"></div>
-      <div class="video-facade-symbol" aria-hidden="true">✦</div>
+      <div class="video-facade-symbol" aria-hidden="true">✶</div>
       <div class="video-facade-overlay" aria-hidden="true"></div>
       <div class="video-facade-play" aria-hidden="true">
         <div class="video-facade-triangle"></div>
@@ -1246,11 +1329,11 @@
   </div>
 </section>
 
-<div class="gold-divider"><span>✦</span></div>
+<div class="epigraphic-rule"><span class="glyph">◆</span></div>
 
 <!-- INSEGNAMENTI -->
 <section id="insegnamenti">
-  <span class="section-label">Il percorso</span>
+  <div class="section-eyebrow"><span class="roman">II</span><span>Il percorso</span></div>
   <h2 class="section-title sr">Consapevolezza ed Alchimia</h2>
   <p class="section-sub">Due pilastri fondamentali che si intrecciano lungo tutto il cammino.</p>
   <div class="two-col sr">
@@ -1277,11 +1360,11 @@
   </div>
 </section>
 
-<div class="gold-divider"><span>✦</span></div>
+<div class="epigraphic-rule"><span class="glyph">◆</span></div>
 
 <!-- LIBRO -->
 <section id="libro">
-  <span class="section-label">La pubblicazione</span>
+  <div class="section-eyebrow"><span class="roman">III</span><span>La pubblicazione</span></div>
   <h2 class="section-title sr">Il libro</h2>
   <p class="section-sub">Ricchezza, Abbondanza e Missione personale non sono semplici traguardi, ma energie da attivare. Questo libro è una guida trasformativa, un viaggio di Alchimia interiore dove ogni limite diventa un'opportunità di crescita.</p>
 
@@ -1396,17 +1479,17 @@
   </div>
 </section>
 
-<div class="gold-divider"><span>✦</span></div>
+<div class="epigraphic-rule"><span class="glyph">◆</span></div>
 
 <!-- PERCORSO INDIVIDUALE -->
 <section id="percorso-individuale">
-  <span class="section-label">Accompagnamento personale</span>
+  <div class="section-eyebrow"><span class="roman">IV</span><span>Accompagnamento personale</span></div>
   <h2 class="section-title sr">Percorso Individuale di Alchimia Trasmutativa</h2>
   <p class="section-sub">Oltre alla Scuola, offriamo un viaggio personalizzato costruito sull'obiettivo evolutivo di chi lo intraprende.</p>
 
   <div class="two-col">
     <div class="pillar-card">
-      <p class="pillar-title"><span class="text-gold">✦</span> La Scuola</p>
+      <p class="pillar-title"><span class="text-gold">✶</span> La Scuola</p>
       <ul class="pillar-list">
         <li>Percorso formativo strutturato e condiviso</li>
         <li>Educa a vivere manifestando la propria Anima</li>
@@ -1433,11 +1516,11 @@
   </div>
 </section>
 
-<div class="gold-divider"><span>✦</span></div>
+<div class="epigraphic-rule"><span class="glyph">◆</span></div>
 
 <!-- CONDUTTORI -->
 <section id="conduttori" class="section-band">
-  <span class="section-label">Le guide</span>
+  <div class="section-eyebrow"><span class="roman">V</span><span>Le guide</span></div>
   <h2 class="section-title sr">I conduttori</h2>
   <p class="section-sub">Guide di percorsi individuali e di gruppo, dedicati alla consapevolezza, alla crescita interiore e all'Alchimia trasformativa. Trasmettono con amore, passione e chiarezza ciò che hanno ricevuto, integrato e sperimentato.</p>
 
@@ -1520,11 +1603,11 @@
   </div>
 </section>
 
-<div class="gold-divider"><span>✦</span></div>
+<div class="epigraphic-rule"><span class="glyph">◆</span></div>
 
 <!-- CALENDARIO con logica automatica -->
 <section id="calendario">
-  <span class="section-label">Programma didattico</span>
+  <div class="section-eyebrow"><span class="roman">VI</span><span>Programma didattico</span></div>
   <h2 class="section-title sr">Il percorso</h2>
   <p class="section-sub">Ciclo di 7 anni in presenza a Bari e online — 6 incontri annuali (anni 1–3) e 3 incontri annuali (anni 4–7).</p>
 
@@ -1537,7 +1620,7 @@
     <button id="tab-anno-5" role="tab" aria-selected="false" aria-controls="panel-anno-5" class="anno-tab" data-anno="5">Anno 5</button>
     <button id="tab-anno-6" role="tab" aria-selected="false" aria-controls="panel-anno-6" class="anno-tab" data-anno="6">Anno 6</button>
     <button id="tab-anno-7" role="tab" aria-selected="false" aria-controls="panel-anno-7" class="anno-tab" data-anno="7">Anno 7</button>
-    <button id="tab-anno-esp" role="tab" aria-selected="false" aria-controls="panel-anno-esp" class="anno-tab anno-tab-esp" data-anno="esp">✦ Esperienziali</button>
+    <button id="tab-anno-esp" role="tab" aria-selected="false" aria-controls="panel-anno-esp" class="anno-tab anno-tab-esp" data-anno="esp">✶ Esperienziali</button>
   </div>
 
   <!-- PANNELLO ANNO 1 -->
@@ -1578,7 +1661,7 @@
   <div class="anno-panel" id="panel-anno-esp" role="tabpanel" aria-labelledby="tab-anno-esp" style="display:none;">
     <div class="calendar-list" id="calendar-list-esp"></div>
     <div class="esp-banner">
-      <div class="icon-lg">✦</div>
+      <div class="icon-lg">✶</div>
       <div>
         <p class="esp-banner-title">Vuoi partecipare?</p>
         <p class="body-text-sm">I seminari esperienziali vengono riproposti periodicamente. <a href="#contatti" class="text-gold-light">Scrivici</a> per conoscere le prossime date e i dettagli.</p>
@@ -1589,11 +1672,11 @@
 
 </section>
 
-<div class="gold-divider"><span>✦</span></div>
+<div class="epigraphic-rule"><span class="glyph">◆</span></div>
 
 <!-- PENSIERI & ISPIRAZIONI -->
 <section id="ispirazioni" class="section-band">
-  <span class="section-label">Riflessioni</span>
+  <div class="section-eyebrow"><span class="roman">VII</span><span>Riflessioni</span></div>
   <h2 class="section-title sr">Pensieri & ispirazioni</h2>
   <p class="section-sub">Parole che illuminano il cammino, condivise dai maestri di ogni tempo.</p>
 
@@ -1607,7 +1690,7 @@
       </div>
 
       <div class="quote-slide">
-        <div class="quote-slide-symbol" aria-hidden="true">✦</div>
+        <div class="quote-slide-symbol" aria-hidden="true">✶</div>
         <p class="quote-slide-text">"Colui che vuole veramente impegnarsi nella via del bene deve sapere che non potrà evitare gli attacchi del male. Il male ha il compito di detestarvi e combattervi e, se proseguite nella stessa direzione divina malgrado i suoi attacchi, avete la prova della vostra grande elevazione."</p>
         <p class="quote-slide-author">— Omraam Mikhaël Aïvanhov</p>
       </div>
@@ -2084,11 +2167,11 @@
   </div>
 </section>
 
-<div class="gold-divider"><span>✦</span></div>
+<div class="epigraphic-rule"><span class="glyph">◆</span></div>
 
 <!-- CONTATTI -->
 <section id="contatti">
-  <span class="section-label">Scrivici</span>
+  <div class="section-eyebrow"><span class="roman">VIII</span><span>Scrivici</span></div>
   <h2 class="section-title sr">Contatti</h2>
   <p class="section-sub">Per informazioni e iscrizioni ai seminari e alle lezioni, contattaci direttamente.</p>
   <div class="contact-wrapper sr">
@@ -2150,7 +2233,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <p class="footer-logo">✦ Scuola ContattaTi</p>
+    <p class="footer-logo">✶ Scuola ContattaTi</p>
     <p class="serif-footer serif-footer-motto"><span lang="el">Γνῶθι Σεαυτόν</span> — Conosci Te Stesso</p>
 
     <nav class="footer-links" aria-label="Link rapidi">
@@ -2389,7 +2472,7 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.porte-aperte-slot').forEach(function(slot){
     slot.innerHTML=
       '<div class="porte-aperte">'+
-        '<div style="font-size:20px;flex-shrink:0;color:var(--gold);">✦</div>'+
+        '<div style="font-size:20px;flex-shrink:0;color:var(--gold);">✶</div>'+
         '<div>'+
           '<p style="font-size:16px;font-weight:500;color:var(--gold-light);margin-bottom:0.3rem;">Le porte sono ancora aperte</p>'+
           '<p style="font-size:15px;color:var(--text-muted);line-height:1.7;">Per sostenere concretamente la Scuola, ogni incontro prevede un <strong style="color:var(--text);">contributo di 30€</strong>. Si può partecipare singolarmente o scegliere di accompagnare l\u2019intero ciclo annuale; in quest\u2019ultimo caso, la <strong style="color:var(--text);">sesta lezione è offerta dalla Scuola</strong> (anni 1\u20133). Tutti gli incontri sono disponibili anche in formato videoregistrato. Se qualcosa in te risuona, scrivici \u2014 ti invieremo tutto ciò che serve per unirti a questo viaggio.</p>'+
