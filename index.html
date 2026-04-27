@@ -226,10 +226,7 @@
 
     body::before {
       content: ''; position: fixed; inset: 0;
-      background:
-        radial-gradient(ellipse at 20% 20%, rgba(83,62,138,0.25) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 80%, rgba(139,48,96,0.2) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 0%, rgba(46,31,110,0.3) 0%, transparent 60%);
+      background: radial-gradient(ellipse at 50% 0%, rgba(46,31,110,0.28) 0%, transparent 65%);
       pointer-events: none; z-index: 0;
     }
 
@@ -915,18 +912,17 @@
     .section-band > * { position:relative; z-index:1; max-width:900px; margin-left:auto; margin-right:auto; }
     .section-band { padding:5rem 2rem; max-width:none; }
 
-    /* ANIMATED BACKGROUND */
-    @keyframes bg-drift {
+    /* ANIMATED BACKGROUND — rimossa per coerenza visiva */
+    @keyframes bg-drift-legacy {
       0%   { background-position: 20% 20%, 80% 80%, 50% 0%; }
       33%  { background-position: 30% 30%, 70% 70%, 45% 10%; }
       66%  { background-position: 15% 25%, 85% 75%, 55% 5%; }
       100% { background-position: 20% 20%, 80% 80%, 50% 0%; }
     }
-    body::before { animation: bg-drift 30s ease-in-out infinite; background-size: 100% 100%; }
+    /* bg-drift animation rimossa per coerenza visiva */
 
     /* Rispetta le preferenze utente per il moto ridotto */
     @media (prefers-reduced-motion: reduce) {
-      body::before { animation: none; }
       .hero-emblem { animation: none; }
       .hero::before { animation: none; }
       .sr { transition: none; opacity: 1; transform: none; }
