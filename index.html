@@ -541,19 +541,14 @@
     .badge-green { background: rgba(40,160,80,0.12); color: #7de0a0; border: 0.5px solid rgba(40,160,80,0.3); }
     .badge-muted { background: rgba(255,255,255,0.04); color: var(--text-muted); border: 0.5px solid rgba(255,255,255,0.08); }
 
-    /* stato "in corso" — bordo verde pulsante */
-    .event-row.in-corso { border-color: rgba(40,160,80,0.5); }
-    @keyframes pulse-border {
-      0%, 100% { border-color: rgba(40,160,80,0.4); }
-      50% { border-color: rgba(40,160,80,0.85); }
-    }
-    .event-row.in-corso { animation: pulse-border 2.5s ease-in-out infinite; }
+    /* stato "in corso" — bordo dorato sottile (gemma sulla timeline pulsa, non il bordo) */
+    .event-row.in-corso { border-color: rgba(232,201,122,0.55); }
 
     /* stato "prossima" */
     .event-row.prossima { border-color: rgba(201,151,58,0.5); }
 
     /* stato "passata" */
-    .event-row.passata { opacity: 1; }
+    .event-row.passata { opacity: 0.78; }
 
     /* PANNELLO ESPANDIBILE LEZIONE */
     .lesson-wrap { display: flex; flex-direction: column; }
@@ -1175,8 +1170,9 @@
         transparent 100%);
       pointer-events: none;
     }
+    /* Ornamento al top della linea — rimosso (era ridondante con la prima gemma) */
 
-    /* Wrap lezione: pallino dorato sulla timeline */
+    /* Wrap lezione: gemma dorata sulla timeline (rombo + glow) */
     .calendar-list .lesson-wrap {
       position: relative;
     }
@@ -1185,23 +1181,50 @@
       position: absolute;
       left: -2.3rem;
       top: 1.55rem;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
+      width: 9px;
+      height: 9px;
       background: var(--gold);
+      transform: rotate(45deg);
       box-shadow:
-        0 0 0 3px rgba(20, 15, 8, 1),
+        0 0 0 3px var(--bg, #0d0b1a),
         0 0 0 4px rgba(201, 151, 58, 0.4),
         0 0 14px rgba(201, 151, 58, 0.45);
       z-index: 2;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
     }
     .calendar-list .lesson-wrap:hover::before {
-      transform: scale(1.25);
+      transform: rotate(45deg) scale(1.3);
+      background: var(--gold-light);
       box-shadow:
-        0 0 0 3px rgba(20, 15, 8, 1),
-        0 0 0 5px rgba(201, 151, 58, 0.6),
-        0 0 20px rgba(232, 201, 122, 0.7);
+        0 0 0 3px var(--bg, #0d0b1a),
+        0 0 0 5px rgba(232, 201, 122, 0.6),
+        0 0 22px rgba(232, 201, 122, 0.75);
+    }
+    /* Lezione passata: gemma spenta */
+    .calendar-list .lesson-wrap:has(.event-row.passata)::before {
+      background: rgba(201,151,58,0.35);
+      box-shadow:
+        0 0 0 3px var(--bg, #0d0b1a),
+        0 0 0 4px rgba(201, 151, 58, 0.15);
+    }
+    /* Lezione in corso: gemma pulsante */
+    .calendar-list .lesson-wrap:has(.event-row.in-corso)::before {
+      background: var(--gold-light);
+      animation: gem-pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes gem-pulse {
+      0%, 100% {
+        box-shadow:
+          0 0 0 3px var(--bg, #0d0b1a),
+          0 0 0 4px rgba(232, 201, 122, 0.4),
+          0 0 14px rgba(232, 201, 122, 0.5);
+      }
+      50% {
+        box-shadow:
+          0 0 0 3px var(--bg, #0d0b1a),
+          0 0 0 6px rgba(232, 201, 122, 0.7),
+          0 0 28px rgba(232, 201, 122, 0.95);
+      }
     }
 
     /* Numerazione romana grande a sinistra della card (sopra la timeline) */
