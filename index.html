@@ -281,17 +281,68 @@
       background: linear-gradient(160deg, #f0e8d8, #e8dcc8);
     }
     [data-theme="light"] footer {
-      background: rgba(30,25,18,0.85);
-      --text: #e8e0f0;
-      --text-muted: #c4b8d0;
-      --gold: #c9973a;
-      --gold-light: #e8c97a;
+      background: rgba(30,25,18,0.92);
+      color: #c4b8d0;
+    }
+    [data-theme="light"] footer p,
+    [data-theme="light"] footer .footer-copyright,
+    [data-theme="light"] footer .serif-footer,
+    [data-theme="light"] footer .serif-footer-motto,
+    [data-theme="light"] footer .serif-footer-quote {
+      color: #c4b8d0;
+    }
+    [data-theme="light"] footer .footer-logo {
+      color: #e8c97a;
+    }
+    [data-theme="light"] footer a {
+      color: #c4b8d0;
+    }
+    [data-theme="light"] footer a:hover {
+      color: #e8c97a;
     }
     [data-theme="light"] .footer-inner {
       border-color: rgba(201,151,58,0.3);
     }
     [data-theme="light"] .footer-inner::before {
       border-color: rgba(201,151,58,0.15);
+    }
+    [data-theme="light"] .footer-links {
+      background: transparent;
+    }
+    [data-theme="light"] .footer-links a {
+      color: #c4b8d0;
+    }
+    [data-theme="light"] .footer-links a:hover {
+      color: #e8c97a;
+    }
+    [data-theme="light"] footer nav.footer-links {
+      background: transparent;
+      backdrop-filter: none;
+      border: none;
+    }
+    [data-theme="light"] .footer-social a {
+      color: #c9973a; border-color: rgba(201,151,58,0.3); background: transparent;
+    }
+    [data-theme="light"] .footer-social a:hover {
+      color: #e8c97a; border-color: #c9973a; background: rgba(201,151,58,0.08);
+    }
+    [data-theme="light"] .footer-seal {
+      border-color: rgba(201,151,58,0.45);
+      color: #e8c97a;
+    }
+    [data-theme="light"] .footer-rule::before,
+    [data-theme="light"] .footer-rule::after {
+      background: linear-gradient(90deg, transparent 0%, rgba(201,151,58,0.4) 50%, transparent 100%);
+    }
+    [data-theme="light"] .footer-rule {
+      color: #c9973a;
+    }
+    [data-theme="light"] footer span,
+    [data-theme="light"] footer [id="email-footer"] a {
+      color: #c4b8d0 !important;
+    }
+    [data-theme="light"] footer [id="email-footer"] a:hover {
+      color: #e8c97a !important;
     }
     [data-theme="light"] .back-to-top {
       background: rgba(245,240,232,0.95);
