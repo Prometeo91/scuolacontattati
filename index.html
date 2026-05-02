@@ -28,8 +28,19 @@
   <link rel="shortcut icon" href="favicon.ico"/>
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
   <link rel="manifest" href="site.webmanifest"/>
-  <meta name="theme-color" content="#0d0b1a"/>
-  <meta name="color-scheme" content="dark"/>
+  <meta name="theme-color" content="#0d0b1a" id="metaThemeColor"/>
+  <!-- Anti-flash: applica il tema salvato prima del render -->
+  <script>
+    (function(){
+      var t=localStorage.getItem('sctheme');
+      if(t==='light'){
+        document.documentElement.setAttribute('data-theme','light');
+        var m=document.getElementById('metaThemeColor');
+        if(m)m.content='#f5f0e8';
+      }
+    })();
+  </script>
+  <meta name="color-scheme" content="dark light"/>
   <link rel="canonical" href="https://scuolacontattati.com/"/>
   <title>Scuola ContattaTi · Consapevolezza ed Alchimia a Bari</title>
   <meta name="description" content="Percorso di Consapevolezza ed Alchimia a Bari e online. Lavoro su di sé attraverso Antichi Insegnamenti e le 96 Leggi dell'Universo, con Anna Carla e Nicolaos."/>
@@ -219,6 +230,122 @@
       --font-serif: 'EB Garamond', 'EBGaramond-fallback', Georgia, serif;
       --font-sans: 'Inter', 'Inter-fallback', system-ui, sans-serif;
       --font-display: 'EB Garamond', 'EBGaramond-fallback', Georgia, serif;
+    }
+
+    /* ── TEMA CHIARO ── */
+    [data-theme="light"] {
+      --gold: #9a7420;
+      --gold-light: #7a5a14;
+      --text: #1a1520;
+      --text-muted: #4a4055;
+      --bg: #f5f0e8;
+      --surface: rgba(0,0,0,0.03);
+      --surface-hover: rgba(0,0,0,0.06);
+      --border: rgba(120,90,30,0.18);
+      --border-hover: rgba(120,90,30,0.35);
+    }
+    [data-theme="light"] body::before {
+      background: radial-gradient(ellipse at 50% 0%, rgba(201,151,58,0.08) 0%, transparent 65%);
+    }
+    [data-theme="light"] nav {
+      background: rgba(245,240,232,0.92);
+    }
+    [data-theme="light"] .hero::before {
+      background: radial-gradient(ellipse at center, rgba(201,151,58,0.06) 0%, transparent 60%);
+    }
+    [data-theme="light"] .glass-card,
+    [data-theme="light"] .pillar-card,
+    [data-theme="light"] .teacher-card,
+    [data-theme="light"] .event-row,
+    [data-theme="light"] .quote-slide,
+    [data-theme="light"] .contact-form {
+      background: rgba(255,255,255,0.6);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    [data-theme="light"] .glass-card:hover,
+    [data-theme="light"] .pillar-card:hover,
+    [data-theme="light"] .teacher-card:hover,
+    [data-theme="light"] .event-row:hover {
+      background: rgba(255,255,255,0.85);
+    }
+    [data-theme="light"] .quote-block {
+      background: rgba(201,151,58,0.06);
+    }
+    [data-theme="light"] .quote-block::before {
+      background: var(--bg);
+    }
+    [data-theme="light"] .book-card {
+      background: rgba(255,255,255,0.5);
+    }
+    [data-theme="light"] .book-cover {
+      background: linear-gradient(160deg, #f0e8d8, #e8dcc8);
+    }
+    [data-theme="light"] footer {
+      background: rgba(30,25,18,0.85);
+      --text: #e8e0f0;
+      --text-muted: #c4b8d0;
+      --gold: #c9973a;
+      --gold-light: #e8c97a;
+    }
+    [data-theme="light"] .footer-inner {
+      border-color: rgba(201,151,58,0.3);
+    }
+    [data-theme="light"] .footer-inner::before {
+      border-color: rgba(201,151,58,0.15);
+    }
+    [data-theme="light"] .back-to-top {
+      background: rgba(245,240,232,0.95);
+    }
+    [data-theme="light"] .field input,
+    [data-theme="light"] .field textarea {
+      background: rgba(255,255,255,0.7);
+      color: #1a1520;
+    }
+    [data-theme="light"] .video-facade {
+      background: #f0eadd;
+    }
+    [data-theme="light"] .section-band::before {
+      background: linear-gradient(180deg, rgba(201,151,58,0.04) 0%, rgba(201,151,58,0.08) 50%, rgba(201,151,58,0.04) 100%);
+    }
+    [data-theme="light"] .bio-detail {
+      background: rgba(255,255,255,0.6);
+    }
+    [data-theme="light"] .esp-banner {
+      background: rgba(29,158,117,0.06);
+    }
+    [data-theme="light"] .porte-aperte {
+      background: rgba(201,151,58,0.06);
+    }
+    [data-theme="light"] .porte-aperte-esp {
+      background: rgba(29,158,117,0.06);
+    }
+    [data-theme="light"] .lesson-panel {
+      background: rgba(255,255,255,0.5);
+    }
+    /* Starfield punti dorati: più tenui su chiaro */
+    [data-theme="light"] section#chi-siamo::before,
+    [data-theme="light"] section#ispirazioni::before,
+    [data-theme="light"] .section-stars::before {
+      opacity: 0.4;
+    }
+    /* Theme toggle button */
+    .theme-toggle {
+      background: none; border: 0.5px solid var(--border);
+      border-radius: 999px; padding: 5px 14px 5px 10px;
+      cursor: pointer; color: var(--gold-light);
+      font-size: 13px; line-height: 1;
+      font-family: var(--font-sans); font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+      display: flex; align-items: center; justify-content: center; gap: 5px;
+      white-space: nowrap;
+    }
+    .theme-toggle:hover { border-color: var(--border-hover); color: var(--gold); background: var(--surface); }
+    .theme-toggle-icon { font-size: 16px; line-height: 1; }
+    /* Separatore prima del toggle nella nav desktop */
+    .nav-links .theme-toggle { margin-left: 0.75rem; padding-left: 14px; }
+    @media (max-width: 768px) {
+      .nav-links .theme-toggle { margin-left: 0; margin-top: 0.5rem; align-self: center; }
     }
 
     html { scroll-behavior: smooth; overflow-x: hidden; }
@@ -1456,6 +1583,7 @@
     <a href="#calendario">Il percorso</a>
     <a href="#ispirazioni">Pensieri & ispirazioni</a>
     <a href="#contatti">Contatti</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Cambia tema chiaro/scuro" title="Cambia tema"><span class="theme-toggle-icon">☀</span> Tema chiaro</button>
   </div>
 </nav>
 
@@ -2472,6 +2600,31 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+
+  /* THEME TOGGLE */
+  var themeBtn=document.getElementById('themeToggle');
+  if(themeBtn){
+    var isDark=document.documentElement.getAttribute('data-theme')!=='light';
+    function updThemeBtn(){
+      themeBtn.innerHTML=isDark
+        ?'<span class="theme-toggle-icon">\u2600</span> Tema chiaro'
+        :'<span class="theme-toggle-icon">\u263D</span> Tema scuro';
+    }
+    updThemeBtn();
+    themeBtn.addEventListener('click',function(){
+      isDark=!isDark;
+      if(isDark){
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('sctheme','dark');
+        document.getElementById('metaThemeColor').content='#0d0b1a';
+      } else {
+        document.documentElement.setAttribute('data-theme','light');
+        localStorage.setItem('sctheme','light');
+        document.getElementById('metaThemeColor').content='#f5f0e8';
+      }
+      updThemeBtn();
+    });
+  }
 
   /* EMAIL */
   var u='scuola-contattati',d='libero.it',em=u+'@'+d;
