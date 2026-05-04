@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <!-- Google Analytics (GA4) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2NTMVVV5GB"></script>
+  <!-- Google Analytics (GA4) — caricato solo dopo consenso (GDPR / ePrivacy) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-2NTMVVV5GB');
+    // Consent Mode v2 — default: tutto negato finché l'utente non sceglie
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'functionality_storage': 'granted',
+      'security_storage': 'granted',
+      'wait_for_update': 500
+    });
+    (function(){
+      var c = localStorage.getItem('sc-cookie');
+      if(c === 'accept'){
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-2NTMVVV5GB';
+        document.head.appendChild(s);
+        gtag('config', 'G-2NTMVVV5GB', { 'anonymize_ip': true });
+      }
+    })();
   </script>
 
   <meta charset="UTF-8" />
@@ -1198,6 +1217,85 @@
     .footer-social { display:flex; gap:14px; justify-content:center; margin-top:1.25rem; }
     .footer-social a { display:flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:50%; background:transparent; border:0.5px solid rgba(201,151,58,0.3); color:var(--gold); font-size: 16px; text-decoration:none; transition: all 0.2s; }
     .footer-social a:hover { background:rgba(201,151,58,0.08); border-color:var(--gold); color:var(--gold-light); }
+
+    /* COOKIE BANNER — GDPR / ePrivacy */
+    .cookie-banner {
+      position: fixed;
+      bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+      left: 50%; transform: translateX(-50%);
+      z-index: 9999;
+      max-width: 560px; width: calc(100% - 2rem);
+      background: rgba(13, 11, 26, 0.97);
+      backdrop-filter: blur(16px);
+      border: 0.5px solid var(--border-hover);
+      border-radius: 14px;
+      padding: 1.25rem 1.4rem;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.45), 0 0 0 1px rgba(201,151,58,0.08);
+      font-family: var(--font-sans);
+      animation: cookieSlideUp 0.4s ease;
+    }
+    .cookie-banner::before {
+      content: ''; position: absolute;
+      inset: 6px; border-radius: 9px;
+      border: 0.5px solid rgba(201,151,58,0.12);
+      pointer-events: none;
+    }
+    .cookie-banner > * { position: relative; z-index: 1; }
+    .cookie-banner-title {
+      font-family: var(--font-display); font-size: 17px; font-weight: 600;
+      color: var(--gold-light); margin-bottom: 0.4rem; letter-spacing: 0.01em;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .cookie-banner-title::before {
+      content: '◆'; font-size: 8px; color: var(--gold); opacity: 0.7;
+    }
+    .cookie-banner p {
+      font-size: 14px; color: var(--text-muted); line-height: 1.6;
+      margin-bottom: 1rem; letter-spacing: 0;
+    }
+    .cookie-banner p a { color: var(--gold-light); text-decoration: underline; text-underline-offset: 2px; }
+    .cookie-banner p a:hover { color: var(--gold); }
+    .cookie-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .cookie-btn {
+      flex: 1; min-width: 110px;
+      padding: 0.7rem 1.25rem;
+      border-radius: 999px;
+      font-family: var(--font-sans); font-size: 13px; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      cursor: pointer; transition: opacity 0.2s, transform 0.2s, background 0.2s, border-color 0.2s;
+      text-decoration: none; text-align: center;
+      border: none;
+    }
+    .cookie-btn-accept {
+      background: linear-gradient(135deg, var(--gold) 0%, #a8782a 100%);
+      color: #1a1000;
+    }
+    .cookie-btn-accept:hover { opacity: 0.88; transform: translateY(-1px); }
+    .cookie-btn-reject {
+      background: transparent;
+      border: 0.5px solid var(--border-hover);
+      color: var(--gold-light);
+    }
+    .cookie-btn-reject:hover { background: rgba(201,151,58,0.08); }
+    @keyframes cookieSlideUp {
+      from { opacity: 0; transform: translate(-50%, 20px); }
+      to { opacity: 1; transform: translate(-50%, 0); }
+    }
+    /* tema chiaro */
+    [data-theme="light"] .cookie-banner {
+      background: rgba(245, 240, 232, 0.97);
+      border-color: rgba(120, 90, 30, 0.3);
+    }
+    [data-theme="light"] .cookie-banner-title { color: #7a5a14; }
+    [data-theme="light"] .cookie-btn-reject { color: #7a5a14; border-color: rgba(120,90,30,0.4); }
+    @media (max-width: 480px) {
+      .cookie-banner { padding: 1rem 1.1rem; }
+      .cookie-actions { flex-direction: column; }
+      .cookie-btn { width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .cookie-banner { animation: none; }
+    }
 
     /* WHATSAPP STICKY (mobile only) */
     .wa-sticky {
@@ -2673,6 +2771,8 @@
       <a href="#conduttori">I conduttori</a>
       <a href="#calendario">Il percorso</a>
       <a href="#contatti">Contatti</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="#" id="manageCookies">Gestisci cookie</a>
     </nav>
 
     <div class="footer-social">
@@ -2695,6 +2795,65 @@
 
 <!-- Back to top -->
 <a class="back-to-top" href="#top" id="backToTop" aria-label="Torna in cima"><span aria-hidden="true">↑</span></a>
+
+<!-- Cookie banner GDPR / ePrivacy -->
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-desc" hidden>
+  <p id="cookie-title" class="cookie-banner-title">Privacy &amp; cookie</p>
+  <p id="cookie-desc">
+    Questo sito usa <strong>Google Analytics</strong> per capire in forma anonima e aggregata come viene navigato.
+    Nessun dato personale è venduto o condiviso a fini commerciali. Puoi accettare o rifiutare;
+    in entrambi i casi il sito funziona normalmente. <a href="privacy.html">Leggi l'informativa completa</a>.
+  </p>
+  <div class="cookie-actions">
+    <button type="button" id="cookieReject" class="cookie-btn cookie-btn-reject">Rifiuta</button>
+    <button type="button" id="cookieAccept" class="cookie-btn cookie-btn-accept">Accetto</button>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY = 'sc-cookie';
+  var banner = document.getElementById('cookie-banner');
+  var choice = localStorage.getItem(KEY);
+  if(!choice){ banner.hidden = false; }
+
+  function loadGA(){
+    if(window.__gaLoaded) return;
+    window.__gaLoaded = true;
+    if(typeof gtag === 'function'){
+      gtag('consent', 'update', { 'analytics_storage': 'granted' });
+    }
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-2NTMVVV5GB';
+    document.head.appendChild(s);
+    if(typeof gtag === 'function'){
+      gtag('config', 'G-2NTMVVV5GB', { 'anonymize_ip': true });
+    }
+  }
+
+  document.getElementById('cookieAccept').addEventListener('click', function(){
+    localStorage.setItem(KEY, 'accept');
+    banner.hidden = true;
+    loadGA();
+  });
+  document.getElementById('cookieReject').addEventListener('click', function(){
+    localStorage.setItem(KEY, 'reject');
+    banner.hidden = true;
+    window['ga-disable-G-2NTMVVV5GB'] = true;
+  });
+
+  // Link "Gestisci cookie" nel footer — riapre il banner
+  var manage = document.getElementById('manageCookies');
+  if(manage){
+    manage.addEventListener('click', function(e){
+      e.preventDefault();
+      banner.hidden = false;
+    });
+  }
+  // API globale per riaprire il banner da altre pagine (es. privacy.html)
+  window.scOpenCookieBanner = function(){ banner.hidden = false; };
+})();
+</script>
 
 
 <script>

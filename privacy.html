@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="robots" content="noindex, follow"/>
+  <meta name="author" content="Scuola ContattaTi"/>
+  <meta name="description" content="Informativa sulla privacy e sui cookie del sito Scuola ContattaTi — ai sensi del Regolamento UE 2016/679 (GDPR)."/>
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png"/>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
+  <link rel="manifest" href="site.webmanifest"/>
+  <meta name="theme-color" content="#0d0b1a" id="metaThemeColor"/>
+
+  <!-- Anti-flash: applica il tema salvato prima del render -->
+  <script>
+    (function(){
+      var t=localStorage.getItem('sctheme');
+      if(t==='light'){
+        document.documentElement.setAttribute('data-theme','light');
+        var m=document.getElementById('metaThemeColor');
+        if(m)m.content='#f5f0e8';
+      }
+    })();
+  </script>
+  <meta name="color-scheme" content="dark light"/>
+  <link rel="canonical" href="https://scuolacontattati.com/privacy.html"/>
+  <title>Privacy & Cookie · Scuola ContattaTi</title>
+
+  <!-- Font preload -->
+  <link rel="preload" href="fonts/eb-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    @font-face { font-family:'EB Garamond'; font-weight:400; font-style:normal; font-display:swap;
+      src: url('fonts/eb-garamond-latin-400-normal.woff2') format('woff2'); }
+    @font-face { font-family:'EB Garamond'; font-weight:500; font-style:normal; font-display:swap;
+      src: url('fonts/eb-garamond-latin-500-normal.woff2') format('woff2'); }
+    @font-face { font-family:'EB Garamond'; font-weight:600; font-style:normal; font-display:swap;
+      src: url('fonts/eb-garamond-latin-600-normal.woff2') format('woff2'); }
+    @font-face { font-family:'EB Garamond'; font-weight:400; font-style:italic; font-display:swap;
+      src: url('fonts/eb-garamond-latin-400-italic.woff2') format('woff2'); }
+    @font-face { font-family:'Inter'; font-weight:400; font-style:normal; font-display:swap;
+      src: url('fonts/inter-latin-400-normal.woff2') format('woff2'); }
+    @font-face { font-family:'Inter'; font-weight:500; font-style:normal; font-display:swap;
+      src: url('fonts/inter-latin-500-normal.woff2') format('woff2'); }
+    @font-face { font-family:'Inter'; font-weight:600; font-style:normal; font-display:swap;
+      src: url('fonts/inter-latin-600-normal.woff2') format('woff2'); }
+
+    :root {
+      --gold: #c9973a;
+      --gold-light: #e8c97a;
+      --text: #e8e0f0;
+      --text-muted: #c4b8d0;
+      --bg: #0d0b1a;
+      --surface: rgba(255,255,255,0.04);
+      --border: rgba(201,151,58,0.18);
+      --border-hover: rgba(201,151,58,0.4);
+      --font-serif: 'EB Garamond', Georgia, serif;
+      --font-sans: 'Inter', system-ui, sans-serif;
+      --font-display: 'EB Garamond', Georgia, serif;
+    }
+    [data-theme="light"] {
+      --gold: #9a7420;
+      --gold-light: #7a5a14;
+      --text: #1a1520;
+      --text-muted: #4a4055;
+      --bg: #f5f0e8;
+      --surface: rgba(0,0,0,0.03);
+      --border: rgba(120,90,30,0.18);
+      --border-hover: rgba(120,90,30,0.35);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg); color: var(--text);
+      line-height: 1.72; font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      position: relative; z-index: 1;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(46,31,110,0.28) 0%, transparent 65%);
+      pointer-events: none; z-index: 0;
+    }
+    [data-theme="light"] body::before {
+      background: radial-gradient(ellipse at 50% 0%, rgba(201,151,58,0.08) 0%, transparent 65%);
+    }
+
+    /* NAV */
+    nav.topnav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(13,11,26,0.9); backdrop-filter: blur(16px);
+      border-bottom: 0.5px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2.5rem;
+    }
+    [data-theme="light"] nav.topnav { background: rgba(245,240,232,0.92); }
+    .nav-logo {
+      font-family: var(--font-display); font-size: 20px; font-weight: 600;
+      color: var(--gold-light); letter-spacing: 0.04em; text-decoration: none;
+    }
+    .nav-back {
+      font-family: var(--font-sans); font-size: 14px;
+      color: var(--text-muted); text-decoration: none;
+      letter-spacing: 0.04em; transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--gold-light); }
+
+    /* MAIN */
+    main {
+      max-width: 760px; margin: 0 auto;
+      padding: 4rem 2rem 5rem;
+      position: relative; z-index: 1;
+    }
+
+    .page-eyebrow {
+      display: flex; align-items: center; gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold); font-weight: 500;
+    }
+    .page-eyebrow::after {
+      content: ''; flex: 1; height: 0.5px;
+      background: linear-gradient(90deg, rgba(201,151,58,0.55) 0%, transparent 100%);
+    }
+
+    h1.page-title {
+      font-family: var(--font-display); font-size: clamp(34px, 5vw, 48px);
+      font-weight: 500; color: var(--text);
+      line-height: 1.15; margin-bottom: 0.5rem; letter-spacing: 0.01em;
+    }
+    .page-sub {
+      font-family: var(--font-display); font-style: italic;
+      font-size: 18px; color: var(--gold-light);
+      margin-bottom: 2.5rem; letter-spacing: 0.01em;
+    }
+    .page-updated {
+      font-family: var(--font-sans); font-size: 13px;
+      color: var(--text-muted); margin-bottom: 2.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    h2 {
+      font-family: var(--font-display); font-size: 26px; font-weight: 600;
+      color: var(--gold-light); margin-top: 2.75rem; margin-bottom: 1rem;
+      letter-spacing: 0.01em; line-height: 1.3;
+      display: flex; align-items: baseline; gap: 0.75rem;
+    }
+    h2::before {
+      content: counter(section, upper-roman);
+      font-style: italic; font-weight: 500; font-size: 18px;
+      color: var(--gold); opacity: 0.85; flex-shrink: 0;
+    }
+    main { counter-reset: section; }
+    h2 { counter-increment: section; }
+
+    h3 {
+      font-family: var(--font-display); font-size: 19px; font-weight: 600;
+      color: var(--text); margin-top: 1.5rem; margin-bottom: 0.5rem;
+      letter-spacing: 0.01em;
+    }
+
+    p {
+      font-size: 16px; color: var(--text-muted);
+      line-height: 1.78; margin-bottom: 1rem;
+    }
+    p strong { color: var(--text); font-weight: 600; }
+    a { color: var(--gold-light); text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s; }
+    a:hover { color: var(--gold); }
+
+    ul, ol {
+      margin: 0.5rem 0 1.25rem 0;
+      padding-left: 1.25rem;
+    }
+    li {
+      font-size: 16px; color: var(--text-muted);
+      line-height: 1.78; margin-bottom: 0.5rem;
+      padding-left: 0.25rem;
+    }
+    ul li::marker { color: var(--gold); content: '◆ '; font-size: 9px; }
+    ol li::marker { color: var(--gold); font-family: var(--font-display); font-style: italic; }
+
+    /* CARD */
+    .info-card {
+      position: relative;
+      background: rgba(255,255,255,0.018);
+      border: 0.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem 1.75rem;
+      margin: 1.25rem 0;
+    }
+    [data-theme="light"] .info-card {
+      background: rgba(255,255,255,0.6);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .info-card::before {
+      content: ''; position: absolute;
+      inset: 6px; border-radius: 9px;
+      border: 0.5px solid rgba(201,151,58,0.12);
+      pointer-events: none;
+    }
+    .info-card > * { position: relative; z-index: 1; }
+    .info-card h3 { margin-top: 0; }
+    .info-card p:last-child { margin-bottom: 0; }
+
+    /* TABLE */
+    .data-table {
+      width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem;
+      font-size: 14px;
+    }
+    .data-table th, .data-table td {
+      text-align: left; padding: 0.75rem 0.85rem;
+      border-bottom: 0.5px solid var(--border);
+      vertical-align: top;
+    }
+    .data-table th {
+      font-family: var(--font-sans); font-size: 11px;
+      font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--gold);
+      border-bottom: 1px solid var(--border-hover);
+    }
+    .data-table td { color: var(--text-muted); }
+    .data-table td:first-child { color: var(--text); font-weight: 500; }
+    @media (max-width: 600px) {
+      .data-table { font-size: 13px; }
+      .data-table th, .data-table td { padding: 0.6rem 0.5rem; }
+    }
+
+    /* DIVIDER */
+    .epigraphic-rule {
+      display: flex; align-items: center; justify-content: center;
+      gap: 1.25rem; max-width: 700px; margin: 3rem auto 1rem; padding: 0 2rem;
+    }
+    .epigraphic-rule::before, .epigraphic-rule::after {
+      content: ''; flex: 1; height: 0.5px;
+      background: linear-gradient(90deg, transparent 0%, rgba(201,151,58,0.45) 50%, transparent 100%);
+    }
+    .epigraphic-rule .glyph {
+      color: var(--gold); font-size: 8px; opacity: 0.7;
+      letter-spacing: 0.4em;
+    }
+
+    /* TOC */
+    .toc {
+      position: relative;
+      background: rgba(201,151,58,0.04);
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0 3rem;
+    }
+    [data-theme="light"] .toc { background: rgba(201,151,58,0.06); }
+    .toc-title {
+      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.75rem; font-weight: 500;
+    }
+    .toc ol {
+      list-style: none; padding: 0; margin: 0;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.3rem 1.5rem;
+      counter-reset: toc;
+    }
+    @media (max-width: 540px) { .toc ol { grid-template-columns: 1fr; } }
+    .toc li {
+      counter-increment: toc;
+      font-family: var(--font-sans); font-size: 14px;
+      padding: 0.2rem 0; margin: 0;
+    }
+    .toc li::marker { content: ''; }
+    .toc li::before {
+      content: counter(toc, upper-roman) '. ';
+      font-family: var(--font-display); font-style: italic;
+      color: var(--gold); margin-right: 0.4rem;
+    }
+    .toc a { text-decoration: none; color: var(--text-muted); }
+    .toc a:hover { color: var(--gold-light); }
+
+    /* COOKIE BUTTON */
+    .manage-cookies-btn {
+      display: inline-block; margin-top: 0.5rem;
+      padding: 0.7rem 1.5rem;
+      background: linear-gradient(135deg, var(--gold) 0%, #a8782a 100%);
+      border: none; border-radius: 999px;
+      color: #1a1000; font-family: var(--font-sans);
+      font-size: 13px; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      cursor: pointer; text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .manage-cookies-btn:hover { opacity: 0.88; transform: translateY(-1px); color: #1a1000; }
+
+    /* FOOTER */
+    footer {
+      background: rgba(0,0,0,0.55);
+      border-top: 0.5px solid var(--border);
+      color: var(--text-muted);
+      text-align: center;
+      padding: 3rem 2rem 2.5rem;
+    }
+    [data-theme="light"] footer { background: rgba(30,25,18,0.92); color: #c4b8d0; }
+    [data-theme="light"] footer p { color: #c4b8d0; }
+    [data-theme="light"] footer a { color: #c4b8d0; }
+    [data-theme="light"] footer a:hover { color: #e8c97a; }
+    .footer-logo {
+      font-family: var(--font-display); font-size: 22px; font-weight: 600;
+      color: var(--gold-light); margin-bottom: 0.5rem; letter-spacing: 0.02em;
+    }
+    footer p { font-size: 13px; line-height: 1.7; opacity: 0.85; }
+    footer a { color: var(--gold-light); }
+
+    /* SKIP LINK */
+    .skip-link {
+      position: absolute; top: -100%; left: 1rem;
+      background: var(--gold); color: #1a1000;
+      padding: 0.5rem 1rem; border-radius: 0 0 8px 8px;
+      font-size: 14px; font-weight: 500; z-index: 200;
+      text-decoration: none;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* FOCUS */
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px; border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Vai al contenuto</a>
+
+<nav class="topnav" role="navigation" aria-label="Menu">
+  <a class="nav-logo" href="index.html"><span aria-hidden="true">✶</span> Scuola ContattaTi</a>
+  <a class="nav-back" href="index.html">← Torna alla home</a>
+</nav>
+
+<main id="main-content">
+  <p class="page-eyebrow"><span>Documento legale</span></p>
+  <h1 class="page-title">Privacy &amp; Cookie</h1>
+  <p class="page-sub">Informativa ai sensi del Regolamento UE 2016/679 (GDPR) e del D.Lgs. 196/2003.</p>
+  <p class="page-updated">Ultimo aggiornamento: 4 maggio 2026</p>
+
+  <p>Questa pagina spiega in modo trasparente <strong>quali dati raccogliamo</strong>, <strong>perché</strong>, <strong>per quanto tempo</strong> e <strong>quali diritti hai</strong> nei nostri confronti. Lo facciamo nello stesso spirito con cui conduciamo la Scuola: con onestà, senza nascondere nulla.</p>
+
+  <nav class="toc" aria-label="Indice">
+    <p class="toc-title">In questa pagina</p>
+    <ol>
+      <li><a href="#titolare">Titolare del trattamento</a></li>
+      <li><a href="#dati-raccolti">Quali dati raccogliamo</a></li>
+      <li><a href="#finalita">Finalità e basi giuridiche</a></li>
+      <li><a href="#conservazione">Tempi di conservazione</a></li>
+      <li><a href="#destinatari">Destinatari e trasferimenti</a></li>
+      <li><a href="#cookie">Cookie e strumenti di analisi</a></li>
+      <li><a href="#diritti">I tuoi diritti</a></li>
+      <li><a href="#contatti">Come contattarci</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="titolare">Titolare del trattamento</h2>
+  <p>Il titolare del trattamento dei dati personali raccolti tramite questo sito è la <strong>Scuola ContattaTi</strong>, nelle persone dei suoi conduttori <strong>Anna Carla Digregorio</strong> e <strong>Nicolaos Anifantis</strong>.</p>
+  <div class="info-card">
+    <h3>Riferimenti</h3>
+    <p>
+      <strong>Email:</strong> <a href="/cdn-cgi/l/email-protection#b1c2d2c4deddd09cd2dedfc5d0c5c5d0c5d8f1ddd8d3d4c3de9fd8c5"><span class="__cf_email__" data-cfemail="d8abbbadb7b4b9f5bbb7b6acb9acacb9acb198b4b1babdaab7f6b1ac">[email&#160;protected]</span></a><br/>
+      <strong>Telefono / WhatsApp:</strong> <a href="tel:+393349991888">+39 334 999 1888</a><br/>
+      <strong>Sede operativa:</strong> Bari (indirizzo completo disponibile su richiesta)
+    </p>
+    <p style="font-size:13px; opacity:0.8; margin-top:0.75rem;"><em>I dati di contatto formali del titolare (indirizzo legale completo, eventuale partita IVA o codice fiscale) sono disponibili scrivendo all'indirizzo email indicato.</em></p>
+  </div>
+
+  <h2 id="dati-raccolti">Quali dati raccogliamo</h2>
+  <p>Raccogliamo soltanto i dati che ci dai volontariamente o che il tuo browser invia automaticamente nella normale navigazione di un sito web.</p>
+
+  <h3>Dati che ci fornisci tu</h3>
+  <p>Quando compili il modulo di contatto raccogliamo:</p>
+  <ul>
+    <li><strong>Nome</strong> (obbligatorio) — per poterti rispondere chiamandoti per nome</li>
+    <li><strong>Indirizzo email</strong> (obbligatorio) — per inviarti una risposta</li>
+    <li><strong>Messaggio</strong> (obbligatorio) — il contenuto della tua richiesta</li>
+    <li><strong>Telefono</strong> (facoltativo, se lo inserisci) — solo se preferisci essere ricontattato/a in voce</li>
+  </ul>
+
+  <h3>Dati raccolti automaticamente</h3>
+  <p>Come ogni sito web, riceviamo dal tuo browser informazioni tecniche basilari: tipo di browser, sistema operativo, lingua, pagina di provenienza, data e ora della visita. Se hai dato il consenso ai cookie analitici, raccogliamo anche dati aggregati e anonimizzati su come navighi (vedi sezione <a href="#cookie">Cookie</a>).</p>
+  <p><strong>Non raccogliamo</strong> dati di geolocalizzazione precisa, dati biometrici, dati sanitari, né dati di alcuna delle categorie particolari di cui all'art. 9 GDPR.</p>
+
+  <h2 id="finalita">Finalità e basi giuridiche del trattamento</h2>
+  <table class="data-table">
+    <thead>
+      <tr><th>Finalità</th><th>Base giuridica</th><th>Dati usati</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Rispondere alle richieste inviate via modulo o WhatsApp</td>
+        <td>Esecuzione di misure precontrattuali su richiesta dell'interessato (art. 6.1.b GDPR)</td>
+        <td>Nome, email, telefono, messaggio</td>
+      </tr>
+      <tr>
+        <td>Misurare in forma aggregata l'uso del sito (Google Analytics)</td>
+        <td>Consenso esplicito (art. 6.1.a GDPR)</td>
+        <td>Dati di navigazione anonimizzati</td>
+      </tr>
+      <tr>
+        <td>Difendere i nostri diritti in caso di abusi (es. spam, attacchi)</td>
+        <td>Legittimo interesse (art. 6.1.f GDPR)</td>
+        <td>IP, dati tecnici di sicurezza</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Niente marketing automatico, niente profilazione, niente vendita di dati.</strong> Non usiamo i tuoi dati per inviarti newsletter, offerte commerciali o materiale promozionale a meno che tu non ce lo chieda esplicitamente.</p>
+
+  <h2 id="conservazione">Tempi di conservazione</h2>
+  <ul>
+    <li><strong>Messaggi del modulo contatti:</strong> conservati fino a 24 mesi dall'ultima interazione, poi cancellati. Se diventi allievo/a della Scuola, i dati seguono il rapporto formativo per il tempo strettamente necessario.</li>
+    <li><strong>Dati di Google Analytics:</strong> retention impostata a <strong>14 mesi</strong>, poi cancellati automaticamente da Google.</li>
+    <li><strong>Log tecnici (IP, sicurezza):</strong> conservati al massimo 6 mesi.</li>
+  </ul>
+
+  <h2 id="destinatari">Destinatari e trasferimenti dei dati</h2>
+  <p>I tuoi dati restano accessibili soltanto a chi li deve trattare per le finalità sopra elencate. In particolare:</p>
+  <ul>
+    <li><strong>I conduttori della Scuola</strong> (Anna Carla, Nicolaos), che leggono e rispondono ai messaggi.</li>
+    <li><strong>Il provider del modulo contatti</strong> (servizio di invio email del sito), che riceve il messaggio per consegnarcelo.</li>
+    <li><strong>Google Ireland Ltd.</strong> per il servizio Google Analytics 4 (solo se hai dato il consenso). Google può trasferire dati in Paesi extra-UE; il trasferimento avviene sulla base delle <em>Standard Contractual Clauses</em> approvate dalla Commissione Europea.</li>
+  </ul>
+  <p><strong>Non condividiamo i tuoi dati</strong> con terzi a fini commerciali, pubblicitari o di profilazione.</p>
+
+  <h2 id="cookie">Cookie e strumenti di analisi</h2>
+  <p>Questo sito usa due tipi di cookie:</p>
+
+  <h3>Cookie tecnici (sempre attivi)</h3>
+  <p>Sono i cookie strettamente necessari al funzionamento del sito. Salviamo nel tuo browser, attraverso <code>localStorage</code>, due preferenze:</p>
+  <ul>
+    <li><strong><code>sctheme</code></strong> — la tua scelta di tema (chiaro/scuro), per non chiedertela ad ogni visita.</li>
+    <li><strong><code>sc-cookie</code></strong> — la tua scelta sul banner cookie (accettato / rifiutato), per non mostrartelo di nuovo.</li>
+  </ul>
+  <p>Per questi cookie <strong>non serve il tuo consenso</strong>, perché sono indispensabili per fornirti il servizio richiesto (art. 122 Codice Privacy).</p>
+
+  <h3>Cookie analitici (su consenso)</h3>
+  <p>Solo se accetti dal banner, attiviamo <strong>Google Analytics 4</strong> con queste impostazioni di privacy rafforzate:</p>
+  <ul>
+    <li><strong>IP anonimizzato</strong> — Google riceve un IP troncato, non riconducibile a te.</li>
+    <li><strong>Nessuna pubblicità</strong> — non condividiamo dati con servizi pubblicitari di Google (Ad Storage <em>denied</em>).</li>
+    <li><strong>Consent Mode v2</strong> — finché non scegli, niente analytics partono.</li>
+    <li><strong>Retention 14 mesi</strong> — il minimo configurabile.</li>
+  </ul>
+  <p>Google Analytics ci aiuta a capire, in forma aggregata, quali sezioni del sito sono utili e quali confondono — per migliorarle. Niente di più.</p>
+
+  <p style="margin-top:1.25rem;">Puoi cambiare idea in qualsiasi momento:</p>
+  <p>
+    <a href="index.html#" id="manageCookiesLink" class="manage-cookies-btn">Gestisci le mie preferenze</a>
+  </p>
+
+  <h2 id="diritti">I tuoi diritti</h2>
+  <p>Il GDPR ti riconosce diritti precisi sui tuoi dati. In ogni momento puoi chiederci di:</p>
+  <ul>
+    <li><strong>Accedere</strong> ai dati che abbiamo su di te (art. 15)</li>
+    <li><strong>Rettificare</strong> dati inesatti o incompleti (art. 16)</li>
+    <li><strong>Cancellare</strong> i tuoi dati ("diritto all'oblio", art. 17)</li>
+    <li><strong>Limitare</strong> il trattamento in casi specifici (art. 18)</li>
+    <li><strong>Ricevere</strong> i tuoi dati in formato strutturato e portabile (art. 20)</li>
+    <li><strong>Opporti</strong> al trattamento basato sul legittimo interesse (art. 21)</li>
+    <li><strong>Revocare il consenso</strong> in qualsiasi momento, senza pregiudicare la liceità dei trattamenti precedenti (art. 7)</li>
+  </ul>
+  <p>Per esercitare uno qualsiasi di questi diritti basta scriverci a <a href="/cdn-cgi/l/email-protection#9deefee8f2f1fcb0fef2f3e9fce9e9fce9f4ddf1f4fff8eff2b3f4e9"><span class="__cf_email__" data-cfemail="89faeafce6e5e8a4eae6e7fde8fdfde8fde0c9e5e0ebecfbe6a7e0fd">[email&#160;protected]</span></a>. Risponderemo entro 30 giorni, di persona, senza moduli né burocrazia.</p>
+
+  <div class="info-card">
+    <h3>Reclamo all'autorità di controllo</h3>
+    <p>Se ritieni che il trattamento dei tuoi dati avvenga in violazione del GDPR, hai sempre il diritto di proporre reclamo al <strong>Garante per la protezione dei dati personali</strong>: <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">www.garanteprivacy.it</a>.</p>
+  </div>
+
+  <h2 id="contatti">Come contattarci</h2>
+  <p>Per qualsiasi domanda su questa informativa o sul trattamento dei tuoi dati:</p>
+  <div class="info-card">
+    <p>
+      📧 <a href="/cdn-cgi/l/email-protection#89faeafce6e5e8a4eae6e7fde8fdfde8fde0c9e5e0ebecfbe6a7e0fd"><span class="__cf_email__" data-cfemail="eb98889e84878ac68884859f8a9f9f8a9f82ab8782898e9984c5829f">[email&#160;protected]</span></a><br/>
+      📞 <a href="tel:+393349991888">+39 334 999 1888</a> (Nicolaos)<br/>
+      💬 <a href="https://wa.me/393349991888" target="_blank" rel="noopener">WhatsApp</a>
+    </p>
+  </div>
+
+  <div class="epigraphic-rule" aria-hidden="true"><span class="glyph">◆ &nbsp; ◆ &nbsp; ◆</span></div>
+
+  <p style="text-align:center; font-family:var(--font-display); font-style:italic; color:var(--gold-light); font-size:17px; margin-top:1.5rem;">"Siamo trasparenti perché crediamo che la Verità sia parte del cammino."</p>
+</main>
+
+<footer>
+  <p class="footer-logo">Scuola ContattaTi</p>
+  <p>© 2026 Scuola ContattaTi — Anna Carla Digregorio &amp; Nicolaos Anifantis</p>
+  <p style="margin-top:0.5rem;"><a href="index.html">Torna alla home</a></p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Quando l'utente clicca "Gestisci le mie preferenze", apre la home
+  // e tenta di riaprire il banner cookie (la home espone la chiave da resettare).
+  var manageBtn = document.getElementById('manageCookiesLink');
+  if(manageBtn){
+    manageBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      // Reset della scelta — quando torna in home, il banner ricompare
+      try { localStorage.removeItem('sc-cookie'); } catch(err){}
+      window.location.href = 'index.html#top';
+    });
+  }
+</script>
+
+</body>
+</html>
