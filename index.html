@@ -66,6 +66,7 @@
   <meta property="og:title" content="Scuola ContattaTi · Consapevolezza ed Alchimia a Bari"/>
   <meta property="og:description" content="Scuola di Consapevolezza ed Alchimia a Bari. Un percorso di conoscenza di sé basato su Antichi Insegnamenti, Quarta Via e le 96 Leggi dell'Universo."/>
   <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="Scuola ContattaTi"/>
   <meta property="og:url" content="https://scuolacontattati.com"/>
   <meta property="og:locale" content="it_IT"/>
   <meta property="og:image" content="https://scuolacontattati.com/og-image.png"/>
@@ -466,7 +467,18 @@
       .nav-links .theme-toggle { margin-left: 0; margin-top: 0.5rem; align-self: center; }
     }
 
-    html { scroll-behavior: smooth; overflow-x: hidden; }
+    html { scroll-behavior: smooth; overflow-x: hidden; scroll-padding-top: 5.5rem; }
+
+    /* Ancore: distanza dalla nav sticky quando si naviga via #hash */
+    section[id], header[id], main [id] {
+      scroll-margin-top: 5.5rem;
+    }
+    @media (max-width: 768px) {
+      html { scroll-padding-top: 4.5rem; }
+      section[id], header[id], main [id] {
+        scroll-margin-top: 4.5rem;
+      }
+    }
     body {
       font-family: var(--font-sans);
       background: var(--bg); color: var(--text);
