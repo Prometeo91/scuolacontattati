@@ -2683,6 +2683,15 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('metaThemeColor').content='#f5f0e8';
       }
       updThemeBtn();
+      /* Chiudi menu mobile */
+      var nl=document.querySelector('.nav-links');
+      var nt=document.querySelector('.nav-toggle');
+      if(nl && nl.classList.contains('open')){
+        nl.classList.remove('open');
+        nt.setAttribute('aria-expanded','false');
+        nt.innerHTML='\u2630';
+        nt.setAttribute('aria-label','Apri menu');
+      }
     });
   }
 
