@@ -1892,6 +1892,30 @@
       </ul>
     </div>
   </div>
+
+  <!-- IL METODO: EVOLUZIONE A SPIRALE E LE 3 CHIAVI -->
+  <div class="mt-2 sr">
+    <div class="quote-block">
+      <p>Il cammino della Scuola non è lineare ma a spirale: ogni giro ci riporta sugli stessi nodi da un livello più profondo. Ciò che era invisibile diventa osservabile; ciò che era osservabile diventa trasformabile.</p>
+      <cite>Il metodo della Scuola</cite>
+    </div>
+
+    <p class="section-label-small mt-125">Le 3 chiavi del risveglio</p>
+    <div class="about-grid">
+      <div class="glass-card">
+        <h3 class="card-title"><span class="text-gold" aria-hidden="true">1</span> Presenza e Osservazione</h3>
+        <p class="card-body">Allenare la Presenza, l'Osservazione e il Qui ed Ora. Il Kairos è il tempo verticale in cui la trasformazione accade: senza un'osservazione costante di ciò che è rimosso, non potremo liberarci da traumi e conflitti. La liberazione non è un evento ma un processo spiraliforme che richiede lavoro.</p>
+      </div>
+      <div class="glass-card">
+        <h3 class="card-title"><span class="text-gold" aria-hidden="true">2</span> Il Fuoco Alchemico</h3>
+        <p class="card-body">Trasformare il piombo in oro col fuoco interiore. Non basta avere conoscenze «spirituali»: bisogna trasformare la propria natura. La Scuola ci insegna a stare sulle sensazioni, liberare il processo irrisolto e manifestare la qualità latente bloccata nelle nostre ombre.</p>
+      </div>
+      <div class="glass-card card-full">
+        <h3 class="card-title"><span class="text-gold" aria-hidden="true">3</span> Liberare il Potenziale</h3>
+        <p class="card-body">All'inizio del cammino, il 95% del nostro potenziale è imprigionato da catene, condizionamenti, paure, contraddizioni, ferite, traumi. Queste parti rimangono nell'ombra ma si manifestano in superficie come sabotaggi, reazioni impulsive, blocchi emotivi, sintomi psicosomatici. Ogni giro della spirale ci permette di vedere un nodo da un livello più profondo — un'occasione per liberare memorie antiche, illuminare ciò che era oscuro e manifestare un potenziale più alto.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <div class="epigraphic-rule"><span class="glyph">◆</span></div>
@@ -2928,7 +2952,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function stato(d,m,y){var n=new Date(),s=new Date(y,m-1,d,9,0),e=new Date(y,m-1,d,13,30);if(n>=s&&n<=e)return 'in-corso';if(n>e)return 'passata';return 'futura';}
   function toggle(row,panel){var o=panel.classList.contains('open');document.querySelectorAll('.lesson-panel.open').forEach(function(p){p.classList.remove('open');var r=p.closest('.lesson-wrap').querySelector('.event-row');r.classList.remove('open');r.setAttribute('aria-expanded','false');});if(!o){panel.classList.add('open');row.classList.add('open');row.setAttribute('aria-expanded','true');}}
   function temiHTML(t){return '<ul class="lesson-topics">'+t.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>';}
-  function panelHTML(l){return '<div class="lesson-panel"><div class="lesson-panel-inner"><p class="lesson-panel-title">'+l.titolo+(l.sottotitolo?'<br><span style="font-size:15px;font-weight:500;color:var(--gold-light);font-style:normal;">'+l.sottotitolo+'</span>':'')+'</p>'+temiHTML(l.temi)+(l.citazione?'<div class="lesson-quote">'+l.citazione+'<cite>&mdash; '+l.autore+'</cite></div>':'')+'</div></div>';}
+  function panelHTML(l){return '<div class="lesson-panel"><div class="lesson-panel-inner"><p class="lesson-panel-title">'+l.titolo+(l.sottotitolo?'<br><span style="font-size:15px;font-weight:500;color:var(--gold-light);font-style:normal;">'+l.sottotitolo+'</span>':'')+'</p>'+(l.desc?'<p class="body-text-sm mb-1" style="border-left:2px solid var(--gold);padding-left:0.75rem;">'+l.desc+'</p>':'')+temiHTML(l.temi)+(l.citazione?'<div class="lesson-quote">'+l.citazione+'<cite>&mdash; '+l.autore+'</cite></div>':'')+'</div></div>';}
 
   /* NAV MOBILE TOGGLE */
   var navToggle = document.querySelector('.nav-toggle');
@@ -2994,7 +3018,7 @@ document.addEventListener('DOMContentLoaded', function() {
     {num:3,day:14,month:11,year:2025,titolo:"Oltre la realt\u00e0 tangibile, l'armonia e la perfezione della vita",sottotitolo:'Come cambiare la realt\u00e0 che non ci piace? \u2014 3\u00aa Lezione, 1\u00b0 Anno',temi:['La Tetraktys e i numeri come linguaggio divino','La Legge dell\'Uno','La Legge del Due \u2014 del Tao \u2014 degli Opposti','La Legge del Ritmo','La Legge dell\'Armonia','La Legge di Azione e Reazione','La Legge del Tre','La Legge del Ritorno all\'Uno','Il Cerchio della Vita e l\'Uroboro','La Caduta dall\'Eden','Legge delle Infinite Possibilit\u00e0, il Pi Greco e la Trinit\u00e0','Legge di Reciprocit\u00e0, la Regola Aurea ed Argentea','Tarocchi Evolutivi XIV e XV'],citazione:'"L\'uomo \u00e8 la specie pi\u00f9 folle: venera un Dio invisibile e distrugge una Natura visibile."',autore:'Hubert Reeves'},
     {num:4,day:1,month:1,year:2026,titolo:'Prendi in mano la tua vita',sottotitolo:'Le Leggi Universali \u2014 4\u00aa Lezione, 1\u00b0 Anno',temi:['Legge di Causa Effetto','Responsabilit\u00e0 e Colpa','Legge di Attrazione e Risonanza','Legge dello Specchio','Il Fastidio','Emozioni e Sentimenti','Legge di Creazione Intenzionale','Il Processo Creativo e la Costante di Creazione','Egregore e Effetto Maharishi','I 2 Sistemi Biologici di Risposta alla Vita','La Pineale: DMT, Amandanide e Pinealina','Arcani Evolutivi: La Torre e La Stella'],citazione:'"Tu sei gi\u00e0 ci\u00f2 che vuoi realizzare. Il fine della tua aspirazione esiste gi\u00e0, presente in te."',autore:'Osho'},
     {num:5,day:15,month:2,year:2026,titolo:'Come superare i blocchi e raggiungere gli obiettivi nella vita',sottotitolo:'Le Leggi Universali \u2014 5\u00aa Lezione, 1\u00b0 Anno',temi:['Legge Mistica','Legge del Karma e del Dharma','Tendenza Karmica e Nodi Karmici','Debito e Credito Karmico','Karma positivo e negativo','Legge del Qui ed Ora','Legge del Cambiamento','Il Daimon','Leggi di Umilt\u00e0, Responsabilit\u00e0, Messa a Fuoco e della Crescita','Legge del 7 o dell\'Ottava','Obiettivi da raggiungere, Shock Addizionali ed Ultima Sfida','Legge del Non Attaccamento','Legge dell\'Aspettativa','Legge di Abbondanza','Legge della Reciprocit\u00e0 o dello Scambio Dinamico','Legge del Servizio','Legge dell\'Impermanenza','Legge di Conservazione di Massa'],citazione:'"La felicit\u00e0 \u00e8 un affiorare interiore; \u00e8 un risveglio delle tue energie; \u00e8 un risveglio della tua anima."',autore:'Osho'},
-    {num:6,day:3,month:4,year:2026,titolo:'Come trasformare le emozioni negative in carburante per la propria evoluzione',sottotitolo:'Alchimia: Trasmutazione del Piombo in Oro \u2014 6\u00aa Lezione, 1\u00b0 Anno',temi:['Lo studio a Spirale e la Scuola Iniziatica',"L'Illusione dei Sensi \u2014 Mundus Sensibilis","La Coscienza Extracerebrale \u2014 Mundus Imaginabilis","Creare l'Osservatore ed il Testimone \u2014 Parsifal","Identificazione ed il Ricordo di S\u00e9",'Definizione e caratterizzazione','Le 4 Menti',"Le Emozioni Negative \u2014 Cavalcare la Tigre: la Padronanza di S\u00e9",'Immaginazione Negativa','Immaginazione Creativa','Legge Trasmutativa','Le 3 Fasi dell\'Alchimia Inferior: Nigredo, Albedo, Rubedo','La Cauda Pavonis','La Rinascita: L\'Araba Fenice','Il Chrism','L\'Amor Fati','Arcani Evolutivi: La Luna, il Sole, il Giudizio, il Mondo'],citazione:'"La vita inizia dove finisce la paura."',autore:'Osho'}
+    {num:6,day:3,month:4,year:2026,titolo:'Come trasformare le emozioni negative in carburante per la propria evoluzione',sottotitolo:'Alchimia: Trasmutazione del Piombo in Oro \u2014 6\u00aa Lezione, 1\u00b0 Anno',desc:'Le <strong style="color:var(--text)">Emozioni</strong> (dal latino <em>e/ex-mov\u0113re</em>) sono spinte reattive dell\u2019Ego, movimenti che emergono dal profondo e ci muovono all\u2019esterno. I <strong style="color:var(--text)">Sentimenti</strong> (dal latino <em>sentire</em>) sono percezioni interiori stabili dell\u2019Anima, il vero Sentire. Il cammino alchemico attraversa tre fasi: <strong style="color:var(--text)">Nigredo</strong> (dissoluzione \u2014 dall\u2019Ego all\u2019Anima, Piccola Opera), <strong style="color:var(--text)">Albedo</strong> (purificazione) e <strong style="color:var(--text)">Rubedo</strong> (rinascita \u2014 il punto \u00abIo Sono\u00bb, l\u2019oro). Il primo strumento dell\u2019alchimista \u00e8 il <strong style="color:var(--text)">Fuoco Alchemico</strong>, generato dall\u2019attrito tra il disagio psico-fisico e l\u2019osservazione interiore: \u00e8 questo il fuoco che accende la trasformazione.',temi:['Lo studio a Spirale e la Scuola Iniziatica',"L'Illusione dei Sensi \u2014 Mundus Sensibilis","La Coscienza Extracerebrale \u2014 Mundus Imaginabilis","Creare l'Osservatore ed il Testimone \u2014 Parsifal","Identificazione ed il Ricordo di S\u00e9",'Definizione e caratterizzazione','Le 4 Menti',"Le Emozioni Negative \u2014 Cavalcare la Tigre: la Padronanza di S\u00e9",'Immaginazione Negativa','Immaginazione Creativa','Legge Trasmutativa','Le 3 Fasi dell\'Alchimia Inferior: Nigredo, Albedo, Rubedo','La Cauda Pavonis','La Rinascita: L\'Araba Fenice','Il Chrism','L\'Amor Fati','Arcani Evolutivi: La Luna, il Sole, il Giudizio, il Mondo'],citazione:'"La vita inizia dove finisce la paura."',autore:'Osho'}
   ];
   var list1=document.getElementById('calendar-list');
   if(list1){
