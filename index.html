@@ -392,9 +392,6 @@
       background: #ffffff !important;
       border-color: rgba(120,90,30,0.45) !important;
     }
-    [data-theme="light"] .back-to-top {
-      background: rgba(245,240,232,0.95);
-    }
     [data-theme="light"] .field input,
     [data-theme="light"] .field textarea {
       background: rgba(255,255,255,0.7);
@@ -2217,7 +2214,7 @@
   <h2 class="section-title sr">Pensieri & ispirazioni</h2>
   <p class="section-sub">Parole che illuminano il cammino, condivise dai maestri di ogni tempo.</p>
 
-  <div class="quotes-carousel sr">
+  <div class="quotes-carousel sr" role="region" aria-roledescription="Carosello" aria-label="Citazioni e ispirazioni">
     <div class="quotes-track" id="quotesTrack">
 
       <div class="quote-slide">
@@ -2699,7 +2696,7 @@
 
   <div class="carousel-controls">
     <button class="carousel-btn" id="prevBtn" aria-label="Citazione precedente">&#8592;</button>
-    <span class="carousel-counter" id="carouselCounter" aria-live="polite">1 / 79</span>
+    <span class="carousel-counter" id="carouselCounter" aria-live="polite"></span>
     <button class="carousel-btn" id="nextBtn" aria-label="Citazione successiva">&#8594;</button>
   </div>
 </section>
@@ -2827,6 +2824,13 @@
   var banner = document.getElementById('cookie-banner');
   var choice = localStorage.getItem(KEY);
   if(!choice){ banner.hidden = false; }
+
+  // Cross-page: se l'utente arriva da privacy.html dopo aver rimosso sc-cookie,
+  // il banner potrebbe non apparire subito (race condition con scroll restore).
+  // Ricontrolliamo dopo il load completo.
+  window.addEventListener('load', function(){
+    if(!localStorage.getItem(KEY) && banner.hidden){ banner.hidden = false; }
+  });
 
   function loadGA(){
     if(window.__gaLoaded) return;
@@ -3133,6 +3137,12 @@ document.addEventListener('DOMContentLoaded', function() {
   var track=document.getElementById('quotesTrack');
   if(track){
     var slides=track.querySelectorAll('.quote-slide'),cur=0,timer;
+    /* Accessibilità: etichetta ogni slide */
+    slides.forEach(function(s,i){
+      s.setAttribute('role','group');
+      s.setAttribute('aria-roledescription','Slide');
+      s.setAttribute('aria-label','Citazione '+(i+1)+' di '+slides.length);
+    });
     var counter=document.getElementById('carouselCounter');
     function updCounter(){if(counter)counter.textContent=(cur+1)+' / '+slides.length;}
     function readTime(n){var el=slides[n].querySelector('.quote-slide-text');var words=(el?el.textContent:'').trim().split(/\s+/).length;return Math.max(6000,words*400);}

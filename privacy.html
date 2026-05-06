@@ -134,6 +134,20 @@
       letter-spacing: 0.04em; transition: color 0.2s;
     }
     .nav-back:hover { color: var(--gold-light); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .theme-toggle {
+      background: none; border: 0.5px solid var(--border);
+      border-radius: 999px; padding: 5px 14px 5px 10px;
+      cursor: pointer; color: var(--gold-light);
+      font-size: 13px; line-height: 1;
+      font-family: var(--font-sans); font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+      display: flex; align-items: center; justify-content: center; gap: 5px;
+      white-space: nowrap;
+    }
+    .theme-toggle:hover { border-color: var(--border-hover); color: var(--gold); background: var(--surface); }
+    .theme-toggle-icon { font-size: 16px; line-height: 1; }
 
     /* MAIN */
     main {
@@ -359,7 +373,10 @@
 
 <nav class="topnav" role="navigation" aria-label="Menu">
   <a class="nav-logo" href="index.html"><span aria-hidden="true">✶</span> Scuola ContattaTi</a>
-  <a class="nav-back" href="index.html">← Torna alla home</a>
+  <div class="nav-right">
+    <a class="nav-back" href="index.html">← Torna alla home</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Cambia tema chiaro/scuro" title="Cambia tema"><span class="theme-toggle-icon">☀</span> Tema chiaro</button>
+  </div>
 </nav>
 
 <main id="main-content">
@@ -389,7 +406,7 @@
   <div class="info-card">
     <h3>Riferimenti</h3>
     <p>
-      <strong>Email:</strong> <a href="/cdn-cgi/l/email-protection#94e7f7e1fbf8f5b9f7fbfae0f5e0e0f5e0fdd4f8fdf6f1e6fbbafde0"><span class="__cf_email__" data-cfemail="2c5f4f5943404d014f4342584d58584d58456c40454e495e43024558">[email&#160;protected]</span></a><br/>
+      <strong>Email:</strong> <span id="priv-email-1"></span><br/>
       <strong>Telefono / WhatsApp:</strong> <a href="tel:+393349991888">+39 334 999 1888</a><br/>
       <strong>Sede operativa:</strong> Bari (indirizzo completo disponibile su richiesta)
     </p>
@@ -491,7 +508,7 @@
     <li><strong>Opporti</strong> al trattamento basato sul legittimo interesse (art. 21)</li>
     <li><strong>Revocare il consenso</strong> in qualsiasi momento, senza pregiudicare la liceità dei trattamenti precedenti (art. 7)</li>
   </ul>
-  <p>Per esercitare uno qualsiasi di questi diritti basta scriverci a <a href="/cdn-cgi/l/email-protection#17647462787b763a7478796376636376637e577b7e75726578397e63"><span class="__cf_email__" data-cfemail="304353455f5c511d535f5e44514444514459705c595255425f1e5944">[email&#160;protected]</span></a>. Risponderemo entro 30 giorni, di persona, senza moduli né burocrazia.</p>
+  <p>Per esercitare uno qualsiasi di questi diritti basta scriverci a <span id="priv-email-2"></span>. Risponderemo entro 30 giorni, di persona, senza moduli né burocrazia.</p>
 
   <div class="info-card">
     <h3>Reclamo all'autorità di controllo</h3>
@@ -502,7 +519,7 @@
   <p>Per qualsiasi domanda su questa informativa o sul trattamento dei tuoi dati:</p>
   <div class="info-card">
     <p>
-      📧 <a href="/cdn-cgi/l/email-protection#8af9e9ffe5e6eba7e9e5e4feebfefeebfee3cae6e3e8eff8e5a4e3fe"><span class="__cf_email__" data-cfemail="2c5f4f5943404d014f4342584d58584d58456c40454e495e43024558">[email&#160;protected]</span></a><br/>
+      📧 <span id="priv-email-3"></span><br/>
       📞 <a href="tel:+393349991888">+39 334 999 1888</a> (Nicolaos)<br/>
       💬 <a href="https://wa.me/393349991888" target="_blank" rel="noopener">WhatsApp</a>
     </p>
@@ -519,7 +536,17 @@
   <p style="margin-top:0.5rem;"><a href="index.html">Torna alla home</a></p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
+  /* Email anti-scraping — stessa logica dell'index */
+  (function(){
+    var u='scuola-contattati',d='libero.it',em=u+'@'+d;
+    var lnk='<a href="mailto:'+em+'" style="color:var(--gold-light)">'+em+'</a>';
+    ['priv-email-1','priv-email-2','priv-email-3'].forEach(function(id){
+      var el=document.getElementById(id);
+      if(el) el.innerHTML=lnk;
+    });
+  })();
+</script><script>
   // Quando l'utente clicca "Gestisci le mie preferenze", apre la home
   // e tenta di riaprire il banner cookie (la home espone la chiave da resettare).
   var manageBtn = document.getElementById('manageCookiesLink');
@@ -532,6 +559,31 @@
     });
   }
 </script>
-
-</body>
+<script>
+  /* Theme toggle — stessa logica dell'index */
+  (function(){
+    var btn=document.getElementById('themeToggle');
+    if(!btn)return;
+    var isDark=document.documentElement.getAttribute('data-theme')!=='light';
+    function upd(){
+      btn.innerHTML=isDark
+        ?'<span class="theme-toggle-icon">\u2600</span> Tema chiaro'
+        :'<span class="theme-toggle-icon">\u263D</span> Tema scuro';
+    }
+    upd();
+    btn.addEventListener('click',function(){
+      isDark=!isDark;
+      if(isDark){
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('sctheme','dark');
+        document.getElementById('metaThemeColor').content='#0d0b1a';
+      } else {
+        document.documentElement.setAttribute('data-theme','light');
+        localStorage.setItem('sctheme','light');
+        document.getElementById('metaThemeColor').content='#f5f0e8';
+      }
+      upd();
+    });
+  })();
+</script>
 </html>
