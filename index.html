@@ -1867,6 +1867,11 @@
     /* footer: più aria sopra i contatti */
     .footer-inner > p:first-of-type { margin-top: 0.5rem; }
 
+    /* Definizioni Ricchezza/Abbondanza/Mission: responsive */
+    @media (max-width: 680px) {
+      #libro .about-grid .glass-card > div { grid-template-columns: 1fr !important; }
+    }
+
   </style>
 </head>
 <body id="top">
@@ -2066,11 +2071,13 @@
   <div class="libro-content-grid">
     <div class="glass-card libro-card">
       <h4 class="libro-card-title"><span class="text-gold" aria-hidden="true">🜂</span> 22 Autosabotaggi</h4>
-      <p class="body-text-sm">I meccanismi inconsci che inceppano la Realizzazione, dalla Mancanza di Gratitudine alla Difficoltà a Condividere. Riconoscerli è il primo atto alchemico: ogni limite, visto con consapevolezza, diventa uno strumento di conoscenza di sé e una porta verso la propria qualità opposta.</p>
+      <p class="body-text-sm">I meccanismi inconsci che inceppano la Realizzazione. Riconoscerli è il primo atto alchemico: ogni limite, visto con consapevolezza, diventa uno strumento di conoscenza di sé e una porta verso la propria qualità opposta.</p>
+      <p class="body-text-sm mt-1" style="opacity:0.85;">Tra questi: la paura del cambiamento, la difficoltà a ricevere, il senso di colpa e la vergogna, il non riconoscere il proprio valore, le credenze limitanti sul denaro, la mancanza di gratitudine, la confusione tra impegno e sforzo, l'attaccamento al risultato, l'impazienza, e la disconnessione dal piano materiale.</p>
     </div>
     <div class="glass-card libro-card">
       <h4 class="libro-card-title"><span class="text-gold" aria-hidden="true">⚖</span> 6 Leggi Universali</h4>
       <p class="body-text-sm">La Ricchezza Autentica non si conquista, si accoglie. Le Sei Leggi che sostengono l'Abbondanza sono forze attive con cui sintonizzarsi: frequenze da incarnare nella propria vita, più che norme da seguire.</p>
+      <p class="body-text-sm mt-1" style="opacity:0.85;">Legge della Gestazione, Legge di Attrazione, Legge dell'Aspettativa, Legge del Lasciare Andare, Legge dell'Abbondanza, Legge del Potere Personale.</p>
     </div>
     <div class="glass-card libro-card libro-card-full">
       <h4 class="libro-card-title"><span class="text-gold" aria-hidden="true">☽</span> 3 Archetipi Planetari</h4>
@@ -2080,7 +2087,9 @@
         <div class="archetype-symbol archetype-symbol-urano" aria-hidden="true">♅</div>
         <div>
           <p class="serif-heading-sm">Urano — Libertà e autenticità</p>
-          <p class="body-text-sm">Prove rapide e destabilizzanti, lampi che squarciano le illusioni. <em class="em-urano">"La verità vi renderà liberi."</em></p>
+          <p class="body-text-sm">Liberazione, indipendenza, rottura col passato, intuizione. Urano ci chiede di liberarci da ciò che non siamo per diventare strumento di ciò che siamo venuti a portare. Le sue prove sono cambiamenti improvvisi, epifanie che costringono ad abbandonare vecchie credenze, rivoluzioni interiori che sfidano l'identità personale e sociale.</p>
+          <p class="body-text-sm" style="margin-top:0.5rem; font-style:italic; opacity:0.85;">Come un fulmine che squarcia il cielo, illumina ciò che era nascosto nell'ombra e mostra una nuova strada. Come un albero arido che all'improvviso rinvigorisce.</p>
+          <p class="body-text-sm" style="margin-top:0.4rem;"><em class="em-urano">"La verità vi renderà liberi."</em></p>
         </div>
       </div>
 
@@ -2088,7 +2097,9 @@
         <div class="archetype-symbol archetype-symbol-nettuno" aria-hidden="true">♆</div>
         <div>
           <p class="serif-heading-sm">Nettuno — Connessione spirituale</p>
-          <p class="body-text-sm">Prove sottili, nebbie che dissolvono i confini dell'io. <em class="em-nettuno">"Cerca prima il regno di Dio e tutte queste cose vi saranno date in aggiunta."</em></p>
+          <p class="body-text-sm">Misticismo, guarigione, dissoluzione dell'ego, connessione universale, empatia, compassione. Nettuno ci chiede di dissolvere l'ego egoistico e separativo per ricordarci che tutto è Uno, che ogni essere è parte di un unico grande progetto. Le sue prove si muovono sul confine tra spiritualità e illusione: aumentano la sensibilità, con il rischio della confusione e dell'inganno, chiedendo discernimento.</p>
+          <p class="body-text-sm" style="margin-top:0.5rem; font-style:italic; opacity:0.85;">È l'oceano infinito che avvolge ogni cosa. La nebbia che sfuma i confini. Un fiume che scorre verso il mare: man mano le sue acque si mescolano con quelle dell'oceano, perdendo la loro identità separativa per diventare parte di qualcosa di più grande.</p>
+          <p class="body-text-sm" style="margin-top:0.4rem;"><em class="em-nettuno">"Cercate prima il regno di Dio e la sua giustizia, e tutte queste cose vi saranno date in aggiunta."</em></p>
         </div>
       </div>
 
@@ -2096,9 +2107,52 @@
         <div class="archetype-symbol archetype-symbol-plutone" aria-hidden="true">♇</div>
         <div>
           <p class="serif-heading-sm">Plutone — Trasformazione e guarigione</p>
-          <p class="body-text-sm">Crisi ardenti, fuochi che bruciano ciò che non è autentico. <em class="em-plutone">"Chi vorrà salvare la propria vita la perderà, ma chi la perderà per causa mia la troverà."</em></p>
+          <p class="body-text-sm">Trasformazione profonda, rinnovamento, potere nascosto, rinascita dell'Anima, integrazione dell'Ombra. Plutone ci chiede di affrontare le proprie ombre e attraversare le morti interiori necessarie a far emergere l'oro nascosto: è il cammino dell'alchimista. Le sue prove sono crisi profonde, confronto con l'inconscio, liberazione da attaccamenti distruttivi e dipendenze, rottura di consuetudini e meccanismi reiterati.</p>
+          <p class="body-text-sm" style="margin-top:0.5rem; font-style:italic; opacity:0.85;">È come il fuoco di un vulcano, invisibile agli occhi ma capace di trasformare tutto ciò che tocca. Per anni la lava scorre nelle profondità della terra, accumulando energia, fino a quando un'eruzione improvvisa porta alla luce, distruggendo il vecchio per creare nuova terra fertile.</p>
+          <p class="body-text-sm" style="margin-top:0.4rem;"><em class="em-plutone">"Chi vorrà salvare la propria vita la perderà, ma chi la perderà per causa mia la troverà."</em></p>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- DEFINIZIONI: Ricchezza, Abbondanza, Mission -->
+  <div class="section-eyebrow" style="margin-top:2rem; margin-bottom:1rem;">
+    <span class="roman">✦</span><span>Tre parole, tre dimensioni</span>
+  </div>
+  <div class="about-grid">
+    <div class="glass-card" style="grid-column: 1 / -1;">
+      <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem;">
+        <div>
+          <p class="serif-heading-sm" style="margin-bottom:0.5rem;"><span class="text-gold" aria-hidden="true">✶ </span>Ricchezza</p>
+          <p class="body-text-sm">Ciò che è già dentro di noi e si manifesta all'esterno come riflesso nel piano fisico. Il nostro valore intrinseco si riflette nel mondo attraverso le nostre azioni e il nostro modo di essere.</p>
+        </div>
+        <div>
+          <p class="serif-heading-sm" style="margin-bottom:0.5rem;"><span class="text-gold" aria-hidden="true">✶ </span>Abbondanza</p>
+          <p class="body-text-sm">Il potenziale di tutto ciò che possiamo ricevere e manifestare. Una sensazione interiore di pienezza, una mentalità prospera, una disposizione d'animo. Ci permette di riconoscere la bellezza e le opportunità della vita al di là di ciò che possediamo.</p>
+        </div>
+        <div>
+          <p class="serif-heading-sm" style="margin-bottom:0.5rem;"><span class="text-gold" aria-hidden="true">✶ </span>Mission</p>
+          <p class="body-text-sm">Il faro che illumina il nostro cammino. Il contributo unico che possiamo offrire al mondo, il senso profondo per cui siamo qui. Seguire la propria Mission significa vivere in allineamento con la nostra essenza più autentica.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LE 8 FORME DI RICCHEZZA SECONDO I VEDA -->
+  <div class="section-eyebrow" style="margin-top:2rem; margin-bottom:1rem;">
+    <span class="roman">✦</span><span>Le 8 forme di Ricchezza secondo i Veda</span>
+  </div>
+  <div class="glass-card">
+    <p class="body-text-sm mb-1">Secondo gli antichi testi vedici, la Ricchezza si manifesta in otto forme. Il vero benessere nasce dall'armonia tra tutte queste dimensioni. Oggi la scala di priorità è spesso invertita: partiamo dal basso, dalla sussistenza materiale, dimenticando che la forma più alta di Ricchezza è la conoscenza spirituale interiore.</p>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 4px 1.5rem;">
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">1.</span> Conoscenza spirituale interiore</p>
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">2.</span> Servizio: offrire sé stessi in un progetto di valore</p>
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">3.</span> Fede e coraggio</p>
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">4.</span> Fiducia in sé stessi</p>
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">5.</span> Virtù invisibili: qualità che generano rispetto e onore</p>
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">6.</span> Relazioni sane</p>
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">7.</span> Salute e benessere fisico e mentale</p>
+      <p class="body-text-sm" style="padding:0.35rem 0;"><span class="text-gold">8.</span> Sussistenza e economia solida</p>
     </div>
   </div>
 
@@ -2380,6 +2434,12 @@
         <div class="quote-slide-symbol" aria-hidden="true">☿</div>
         <p class="quote-slide-text">"Una mente grata è una grande mente che alla fine attrae a sé grandi cose."</p>
         <p class="quote-slide-author">— Platone</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Citazione">
+        <div class="quote-slide-symbol" aria-hidden="true">🌀</div>
+        <p class="quote-slide-text">"L'Abbondanza non è qualcosa che acquisisci, ma è qualcosa con cui sintonizzarti."</p>
+        <p class="quote-slide-author">— Wayne Dyer</p>
       </div>
 
       <div class="quote-slide" role="group" aria-label="Citazione">
