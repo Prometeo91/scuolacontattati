@@ -668,8 +668,8 @@
     }
     .card-body { font-size: 16px; color: var(--text-muted); line-height: 1.72; letter-spacing: 0; }
 
-    /* QUOTE BLOCK */
-    .quote-block { position: relative; border-left: 2px solid var(--gold); padding: 2rem 1.75rem 1.5rem; margin: 2rem 0; background: rgba(201,151,58,0.04); border-radius: 0 12px 12px 0; }
+    /* quote-block: coerente con section-blockquote */
+    .quote-block { position: relative; border-left: 3.5px solid var(--gold); padding: 1.4rem 1.75rem 1.4rem 1.5rem; margin: 2rem 0; background: rgba(201,151,58,0.04); border-radius: 0 12px 12px 0; }
     .quote-block::before {
       content: '◆  ◆  ◆'; position: absolute; top: -0.6rem; left: 1.25rem;
       background: var(--bg); padding: 0 0.6rem;
@@ -1143,7 +1143,7 @@
 
     /* Bio detail card */
     .bio-detail { padding:1.25rem 1.5rem; margin-bottom:1rem; }
-    .bio-detail p { font-size: 15px; color:var(--text-muted); line-height:2; }
+    .bio-detail p { font-size: 16px; color:var(--text-muted); line-height:1.85; }
     .bio-divider { height:0.5px; background:linear-gradient(90deg,transparent,rgba(201,151,58,0.3),transparent); margin:1rem 0; }
 
     /* Esperienziali banner */
@@ -1835,6 +1835,38 @@
                   0 4px 16px rgba(201, 151, 58, 0.2);
     }
 
+    /* ── ARMONIZZAZIONE GLOBALE ── */
+
+    /* section-eyebrow con glifo ✦ come sotto-label interno alle sezioni */
+    .section-eyebrow .roman { min-width: 1.2em; text-align: center; }
+
+    /* section-label-small → allineato al sistema eyebrow */
+    .section-label-small {
+      font-size: 11px; letter-spacing:0.18em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:0.75rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .section-label-small::before {
+      content: ''; display: block; width: 24px; height: 0.5px;
+      background: linear-gradient(90deg, transparent, rgba(201,151,58,0.5));
+      flex-shrink: 0;
+    }
+
+    /* Spacing tra p.body-text consecutive: più generoso */
+    .body-text + .body-text { margin-top: 1.5rem; }
+
+    /* card-body: leggero upgrade per leggibilità */
+    .card-body { font-size: 15px; color: var(--text-muted); line-height: 1.78; letter-spacing: 0; }
+
+    /* pillar-card: stessa dimensione testo del card-body */
+    .pillar-list li { font-size: 15px; color: var(--text-muted); line-height: 1.78; padding: 0.5rem 0; border-bottom: 0.5px solid rgba(201,151,58,0.07); letter-spacing: 0; }
+
+    /* contact-info h3 → già rimosso, ma preveniamo stili orfani */
+    .contact-info .section-eyebrow { margin-bottom: 0.75rem; }
+
+    /* footer: più aria sopra i contatti */
+    .footer-inner > p:first-of-type { margin-top: 0.5rem; }
+
   </style>
 </head>
 <body id="top">
@@ -1965,7 +1997,9 @@
       <cite>Il metodo della Scuola</cite>
     </div>
 
-    <p class="section-label-small mt-125">Le 4 chiavi del risveglio</p>
+    <div class="section-eyebrow" style="margin-top:2rem; margin-bottom:1rem;">
+      <span class="roman">✦</span><span>Le 4 chiavi del risveglio</span>
+    </div>
     <div class="chiavi-list">
       <div class="chiave-item glass-card">
         <div class="chiave-num" aria-hidden="true">1</div>
@@ -2025,7 +2059,9 @@
 
 
   <!-- CONTENUTI DEL LIBRO -->
-  <p class="section-label-small mt-125 text-center">Cosa troverai nel libro</p>
+  <div class="section-eyebrow" style="margin-top:2rem; margin-bottom:1rem;">
+    <span class="roman">✦</span><span>Cosa troverai nel libro</span>
+  </div>
   <div class="libro-content-grid">
     <div class="glass-card libro-card">
       <h4 class="libro-card-title"><span class="text-gold" aria-hidden="true">🜂</span> 22 Autosabotaggi</h4>
@@ -2036,7 +2072,7 @@
       <p class="body-text-sm">Le Sei Leggi che Sostengono la Ricchezza. Forze Attive con cui sintonizzarsi: la Ricchezza Autentica non si conquista, si accoglie.</p>
     </div>
     <div class="glass-card libro-card libro-card-full">
-      <h4 class="libro-card-title">3 Archetipi Planetari</h4>
+      <h4 class="libro-card-title"><span class="text-gold" aria-hidden="true">☽</span> 3 Archetipi Planetari</h4>
       <p class="body-text-sm mb-1">Urano, Nettuno e Plutone come Mappe Simboliche per navigare le prove quotidiane e accedere alle tre dimensioni dell'Essere.</p>
 
       <div class="archetype-row">
@@ -2126,6 +2162,9 @@
   <h2 class="section-title sr">Percorso Individuale di Alchimia Trasmutativa</h2>
   <p class="section-sub">Oltre alla Scuola, offriamo un viaggio personalizzato costruito sull'obiettivo evolutivo di chi lo intraprende.</p>
 
+  <div class="section-eyebrow" style="margin-bottom:1rem;">
+    <span class="roman">✦</span><span>Due percorsi, un'unica direzione</span>
+  </div>
   <div class="two-col">
     <div class="pillar-card">
       <p class="pillar-title"><span class="text-gold">✶</span> La Scuola</p>
@@ -2150,7 +2189,7 @@
   </div>
 
   <div class="mt-125 text-center">
-    <h3 class="serif-heading serif-heading-20">Complementari, non alternativi</h3>
+    <div class="section-eyebrow center" style="margin-bottom:0.6rem;"><span class="roman">✦</span><span>Complementari, non alternativi</span></div>
     <p class="body-text narrow-text">La Scuola e il Percorso Individuale non si escludono: possono essere vissuti insieme, arricchendosi a vicenda. La prima offre Conoscenza e Pratica costante; il secondo, ascolto profondo e sostegno mirato. Insieme, rappresentano un potente strumento di trasformazione e risveglio.</p>
   </div>
 </section>
@@ -2158,7 +2197,7 @@
 <div class="epigraphic-rule"><span class="glyph">◆</span></div>
 
 <!-- CONDUTTORI -->
-<section id="conduttori" class="section-band">
+<section id="conduttori">
   <div class="section-eyebrow"><span class="roman">V</span><span>Le guide</span></div>
   <h2 class="section-title sr">I conduttori</h2>
   <p class="section-sub">Guide di percorsi individuali e di gruppo, dedicati alla consapevolezza, alla crescita interiore e all'Alchimia trasformativa. Trasmettono con amore, passione e chiarezza ciò che hanno ricevuto, integrato e sperimentato.</p>
@@ -2233,11 +2272,11 @@
     <p>Portano avanti sin dal 1994 anche un Progetto animico di coppia tale da poter essere un esempio concreto di Alchimia, Unione e Comunione attraverso il loro Amore. Assieme hanno seguito lunghi percorsi di crescita interiore e ricerca spirituale che oggi insegnano con Cura e Amore.</p>
   </div>
 
-  <div class="teachers-row teachers-row-single">
-    <div class="teacher-card text-center">
+  <div class="teachers-row teachers-row-single" style="margin-top:1rem;">
+    <div class="teacher-card teacher-card-left text-center">
       <img src="images/eleonora.jpg" alt="Eleonora Digregorio" loading="lazy" decoding="async" class="teacher-photo-collab" width="100" height="100" />
       <p class="teacher-name">Eleonora Digregorio</p>
-      <p class="teacher-role">Collaboratrice lezioni e seminari esperienziali</p>
+      <p class="teacher-role">Collaboratrice · lezioni e seminari esperienziali</p>
     </div>
   </div>
 </section>
@@ -2248,6 +2287,9 @@
 <section id="calendario">
   <div class="section-eyebrow"><span class="roman">VI</span><span>Programma didattico</span></div>
   <h2 class="section-title sr">Il percorso</h2>
+  <div class="section-eyebrow" style="margin-bottom:1rem; margin-top:0.5rem;">
+    <span class="roman">✦</span><span>La struttura del percorso</span>
+  </div>
   <div class="percorso-blocks">
     <div class="percorso-block">
       <p class="percorso-block-label">Ciclo Base · Anni 1–3 · 6 incontri/anno</p>
@@ -2331,560 +2373,560 @@
   <div class="quotes-carousel sr" role="region" aria-roledescription="Carosello" aria-label="Citazioni e ispirazioni">
     <div class="quotes-track" id="quotesTrack">
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">☿</div>
         <p class="quote-slide-text">"Una mente grata è una grande mente che alla fine attrae a sé grandi cose."</p>
         <p class="quote-slide-author">— Platone</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">✶</div>
         <p class="quote-slide-text">"Colui che vuole veramente impegnarsi nella via del bene deve sapere che non potrà evitare gli attacchi del male. Il male ha il compito di detestarvi e combattervi e, se proseguite nella stessa direzione divina malgrado i suoi attacchi, avete la prova della vostra grande elevazione."</p>
         <p class="quote-slide-author">— Omraam Mikhaël Aïvanhov</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🜂</div>
         <p class="quote-slide-text">"Quando inizi a comprendere davvero le persone, il giudizio svanisce. Ognuno porta dentro di sé battaglie invisibili, ferite nascoste e lezioni ancora in corso. Essere empatici significa vedere oltre i difetti, riconoscere l'anima che c'è dietro le maschere."</p>
         <p class="quote-slide-author">— Riflessione condivisa</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">☯</div>
         <p class="quote-slide-text">"Si racconta che Alessandro il Grande, prima della sua morte, fece tre richieste: che la sua bara fosse portata dai migliori medici, che i suoi tesori fossero sparsi lungo il cammino, e che le sue mani restassero fuori dalla bara. Siamo arrivati a mani vuote e ce ne andiamo a mani vuote."</p>
         <p class="quote-slide-author">— Leggenda di Alessandro il Grande</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🌙</div>
         <p class="quote-slide-text">"L'uomo è la specie più folle: venera un Dio invisibile e distrugge una Natura visibile. Senza rendersi conto che la Natura che sta distruggendo è quel Dio che sta venerando."</p>
         <p class="quote-slide-author">— Hubert Reeves</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">👁</div>
         <p class="quote-slide-text">"Abbiamo accumulato tante ferite e, se non ne siamo consapevoli, tutte le nostre azioni diventano reazioni a quelle ferite. Nella conoscenza di Sé c'è la fine del dolore e quindi l'inizio della saggezza."</p>
         <p class="quote-slide-author">— J. Krishnamurti</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🕊</div>
         <p class="quote-slide-text">"La religione è per chi dorme. La spiritualità è per chi è sveglio. La religione reprime tutto, ti rende falso. La spiritualità trascende tutto, ti rende vero. La spiritualità è Divina, senza regole. È causa dell'Unione."</p>
         <p class="quote-slide-author">— Enzo Palomba</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🌿</div>
         <p class="quote-slide-text">"La Ricchezza non è possesso, ma Presenza. L'Abbondanza non è quantità, ma Qualità dell'Essere. La Missione non è ruolo, ma Espressione dell'Anima in azione."</p>
         <p class="quote-slide-author">— Anna Carla Digregorio & Nicolaos Anifantis</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">✨</div>
         <p class="quote-slide-text">"Non si tratta di attrarre. Si tratta di ricordare chi siamo. E permettere all'oro interiore di emergere."</p>
         <p class="quote-slide-author">— Scuola ContattaTi</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🦋</div>
         <p class="quote-slide-text">"Dal Piombo all'Oro, dal Bruco alla Farfalla: l'alchimia è il potere innato dell'essere umano di trasformare sé stesso. Ogni ostacolo si trasforma in soglia, ogni ferita in portale, ogni talento in offerta."</p>
         <p class="quote-slide-author">— Dal libro Ricchezza, Abbondanza e Mission</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">📜</div>
         <p class="quote-slide-text">"Esistono menti che si interrogano, che desiderano la verità del cuore, la cercano, si sforzano di risolvere i problemi generati dalla vita. Se un uomo ragiona e pensa bene, deve inevitabilmente ritornare a se stesso, ed incominciare dalla soluzione del problema di che cosa egli stesso sia."</p>
         <p class="quote-slide-author">— Georges Ivanovitch Gurdjieff</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🌿</div>
         <p class="quote-slide-text">"La vita di ogni uomo è una via verso sé stesso. Quando odiamo qualcuno, odiamo nella sua immagine qualche cosa che sta dentro di noi. Ciò che non è in noi non ci mette agitazione."</p>
         <p class="quote-slide-author">— Hermann Hesse</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🔥</div>
         <p class="quote-slide-text">"Tu sei già ciò che vuoi realizzare. Il fine della tua aspirazione esiste già, presente in te. Qui e ora, in questo preciso istante, tu sei ciò che è noto come divino."</p>
         <p class="quote-slide-author">— Osho</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🌅</div>
         <p class="quote-slide-text">"La felicità è un affiorare interiore; è un risveglio delle tue energie; è un risveglio della tua anima."</p>
         <p class="quote-slide-author">— Osho</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🦅</div>
         <p class="quote-slide-text">"La vita inizia dove finisce la paura."</p>
         <p class="quote-slide-author">— Osho</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🪞</div>
         <p class="quote-slide-text">"Chi guarda sé stesso rischia di incontrare sé stesso. Lo specchio non lusinga, mostra diligentemente quella faccia che non mostriamo mai al mondo perché la nascondiamo dietro la maschera dell'attore."</p>
         <p class="quote-slide-author">— Carl Gustav Jung</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">❤</div>
         <p class="quote-slide-text">"Atto d'amore è accogliere in noi la nostra parte più ferita e fragile. Arriva il momento in cui ci accorgiamo che l'ultimo degli uomini siamo noi."</p>
         <p class="quote-slide-author">— Carl Gustav Jung</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🌕</div>
         <p class="quote-slide-text">"Colui che cerca non desista dal cercare fino a quando non avrà trovato; quando avrà trovato si stupirà. Quando si sarà stupito, si turberà e dominerà su tutto."</p>
         <p class="quote-slide-author">— Vangelo di Tommaso</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">⚗</div>
         <p class="quote-slide-text">"Racchiudi la Verità nel tuo Cuore, e che essa parli attraverso le tue Opere. La Scienza sarà la tua forza; la Fede la tua spada; e il Silenzio la tua corazza impenetrabile."</p>
         <p class="quote-slide-author">— Ermete Trismegisto</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🌳</div>
         <p class="quote-slide-text">"L'Albero della Vita affonda le sue radici nel tuo stesso cuore."</p>
         <p class="quote-slide-author">— Gialad-ad-din Rumì</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🌸</div>
         <p class="quote-slide-text">"Se potessimo vedere il miracolo di un singolo fiore, la nostra intera vita cambierebbe."</p>
         <p class="quote-slide-author">— Buddha</p>
       </div>
 
-      <div class="quote-slide">
-        <div class="quote-slide-symbol" aria-hidden="true">✨</div>
+      <div class="quote-slide" role="group" aria-label="Citazione">
+        <div class="quote-slide-symbol" aria-hidden="true">🌟</div>
         <p class="quote-slide-text">"Ogni essere è una scintilla del divino. Tu non sei separato dalla globalità. Sei una cosa sola con il sole, la terra, l'aria. Tu non hai una vita. Tu sei la vita."</p>
         <p class="quote-slide-author">— Eckhart Tolle</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">💫</div>
         <p class="quote-slide-text">"Non sottovalutare mai il potere di credere in qualcosa che ancora non esiste. A volte il mondo ha solo bisogno che tu sia il primo a vederlo."</p>
         <p class="quote-slide-author">— Jim Carrey</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">☀</div>
         <p class="quote-slide-text">"L'unico modo in cui l'uomo può contribuire alla costruzione di questa forma gloriosa è quello di coltivare un AMORE PURO, altruistico, benefico, universale. Amore puro diede origine all'universo, amore puro lo sostiene, amore puro lo spinge verso la perfezione."</p>
         <p class="quote-slide-author">— Sapienza Antica</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🦁</div>
         <p class="quote-slide-text">"Quando l'ignoranza urla, l'intelligenza tace. La tua pace e tranquillità valgono di più."</p>
         <p class="quote-slide-author">— Scuola ContattaTi</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🎯</div>
         <p class="quote-slide-text">"Se non state servendo uno scopo più elevato in maniera volontaria, allora non state vivendo, ma solo esistendo."</p>
         <p class="quote-slide-author">— Salvatore Brizzi</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">💛</div>
         <p class="quote-slide-text">"Ogni difficoltà ed ogni sofferenza è una lezione di apprendimento dell'amore."</p>
         <p class="quote-slide-author">— Anna Carla Digregorio</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🌊</div>
         <p class="quote-slide-text">"Chi ha abbandonato l'ego non ha più cose che gli piacciono e cose che non gli piacciono: qualsiasi cosa gli si presenti, ne gioisce. Non pone più condizioni all'esistenza — vive incondizionatamente."</p>
         <p class="quote-slide-author">— Osho, La via della gioia</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🔍</div>
         <p class="quote-slide-text">"Il mondo si fiderebbe più di un guru che lo convinca di essere illuminato, o preferirebbe che gli indicasse quanto è profondo il suo sonno? E tu che leggi, sei sicuro di riuscire a discernere ciò che ti piace da ciò che più ti serve?"</p>
         <p class="quote-slide-author">— Fabio Pietro Iacontino, Intelligentia Solis</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🌀</div>
         <p class="quote-slide-text">"Non chiedersi perché ci è accaduto un certo evento è come usare le parole senza coglierne il significato — come se la parola 'amore' si esaurisse nel suono e non significasse qualcosa di concreto."</p>
         <p class="quote-slide-author">— Salvatore Brizzi</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🎭</div>
         <p class="quote-slide-text">"È sempre il falso che ti fa soffrire: i falsi desideri, le false paure, i falsi valori e i falsi rapporti con la gente. Abbandona il falso e sarai libero dal dolore — la verità rende felici, la verità affranca."</p>
         <p class="quote-slide-author">— Nisargadatta Maharaj</p>
       </div>
 
-      <div class="quote-slide">
-        <div class="quote-slide-symbol" aria-hidden="true">❤️</div>
+      <div class="quote-slide" role="group" aria-label="Citazione">
+        <div class="quote-slide-symbol" aria-hidden="true">💜</div>
         <p class="quote-slide-text">"Il senso del dovere senza amore rende imbronciati. La responsabilità senza amore rende implacabili. La giustizia senza amore rende duri. La saggezza senza amore rende fasulli. Il potere senza amore rende crudeli. La risposta è sempre l'amore."</p>
         <p class="quote-slide-author">— Lao Tzu</p>
       </div>
 
-      <div class="quote-slide">
-        <div class="quote-slide-symbol" aria-hidden="true">🎯</div>
+      <div class="quote-slide" role="group" aria-label="Citazione">
+        <div class="quote-slide-symbol" aria-hidden="true">⚡</div>
         <p class="quote-slide-text">"Non imparerai mai nulla dalla vita se credi di avere sempre ragione."</p>
         <p class="quote-slide-author">— Keanu Reeves</p>
       </div>
 
-      <div class="quote-slide">
-        <div class="quote-slide-symbol" aria-hidden="true">🌱</div>
+      <div class="quote-slide" role="group" aria-label="Citazione">
+        <div class="quote-slide-symbol" aria-hidden="true">🌿</div>
         <p class="quote-slide-text">"Quando siete malati cercate la guarigione, nel senso che volete tornare alla condizione precedente la malattia, ma quella condizione è stata la causa della malattia! Guarire significa invece diventare una persona nuova."</p>
         <p class="quote-slide-author">— Salvatore Brizzi</p>
       </div>
 
-      <div class="quote-slide">
-        <div class="quote-slide-symbol" aria-hidden="true">🔥</div>
+      <div class="quote-slide" role="group" aria-label="Citazione">
+        <div class="quote-slide-symbol" aria-hidden="true">🌋</div>
         <p class="quote-slide-text">"Se una cosa fa male, vuol dire che qualcosa dentro di te è stato represso. Invece di evitare il dolore, entraci dentro — così la ferita è totalmente esposta e comincia a guarire."</p>
         <p class="quote-slide-author">— Osho</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">⚖️</div>
         <p class="quote-slide-text">"L'essere umano è situato al confine tra il mondo inferiore e il mondo superiore. Se si lascia assorbire dalle forze del mondo superiore, diventa un focolaio di correnti luminose. Ma deve mantenere l'equilibrio fra la terra e il Cielo: la sua missione è lavorare sulla terra con i mezzi del Cielo."</p>
         <p class="quote-slide-author">— Omraam Mikhaël Aïvanhov</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">⚔️</div>
         <p class="quote-slide-text">"La Strega insegnò al guerriero l'umiltà e il rispetto. Il Guerriero insegnò alla strega il valore e il coraggio. Insieme insegnarono al mondo l'Amore. Il mondo uccise la strega e rese schiavo il guerriero. Ma non poté impedire all'amore di fare rinascere la strega e liberare il guerriero."</p>
         <p class="quote-slide-author">— Dal web</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">👁️</div>
         <p class="quote-slide-text">"Se escludiamo il male facendo finta che non esista, non vivremmo mai una vita vera. Per vedere la bellezza bisogna svegliarsi, e per svegliarsi bisogna avere il coraggio di vedere le cose come stanno — questa è la cosa più difficile."</p>
         <p class="quote-slide-author">— Giovanni Berti</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🐜</div>
         <p class="quote-slide-text">"Impara a camminare sulla terra chi considera il cielo come vivente. Maestro è chi marcia sicuro sulla Terra. Non rinunciate alla vita terrena senza prima averla ben compresa. Quando l'ora scocca, anche una formica può essere un messaggero."</p>
         <p class="quote-slide-author">— Foglie del Giardino di Morya, Illuminazione 1925</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🔄</div>
         <p class="quote-slide-text">"Consapevolezza e sofferenza sono inversamente proporzionali: se c'è una non c'è l'altra. La consapevolezza unita all'accettazione spalanca i cancelli all'amore. Sei cambiato al tuo interno e, di conseguenza, è cambiato il tuo destino."</p>
         <p class="quote-slide-author">— Roberto Potocniak</p>
       </div>
 
-      <div class="quote-slide">
-        <div class="quote-slide-symbol" aria-hidden="true">🪞</div>
+      <div class="quote-slide" role="group" aria-label="Citazione">
+        <div class="quote-slide-symbol" aria-hidden="true">👁</div>
         <p class="quote-slide-text">"Tutti credono si tratti dell'egoismo delle altre persone, non del loro. Ma l'unica persona al mondo che puoi cambiare è proprio quella dalla quale non ti separi mai. Quando il tuo Cuore si apre, realizzi che l'unico problema del mondo eri tu."</p>
         <p class="quote-slide-author">— Salvatore Brizzi</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">😴</div>
         <p class="quote-slide-text">"Non risolvi un incubo lavorando sull'incubo. L'incubo scompare svegliandosi dallo stato di sonno ipnotico nel quale si stava vivendo. Non lavorare sul sintomo, bensì sulla causa radice."</p>
         <p class="quote-slide-author">— Roberto Potocniak</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">⚡</div>
         <p class="quote-slide-text">"Mantieni la tua anima forte e pulita e tutto andrà bene. Non credere di essere solo, né debole, perché dentro di te ci sono eserciti potenti che nemmeno puoi immaginare. Se elevi il tuo spirito, non c'è niente che possa toccarti. L'unico nemico che devi temere è te stesso."</p>
         <p class="quote-slide-author">— Paracelso</p>
       </div>
 
-      <div class="quote-slide">
-        <div class="quote-slide-symbol" aria-hidden="true">✨</div>
+      <div class="quote-slide" role="group" aria-label="Citazione">
+        <div class="quote-slide-symbol" aria-hidden="true">🔆</div>
         <p class="quote-slide-text">"Gesù non vede il cieco come colui che ha sbagliato, ma come colui che è pronto a manifestare una qualità divina alla massima potenza. Non giudicare dalle apparenze: ogni difficoltà può essere la sfida al massimo livello per il perfezionamento."</p>
         <p class="quote-slide-author">— Scuola ContattaTi</p>
       </div>
 
 
-      <div class="quote-slide">
-        <div class="quote-slide-symbol" aria-hidden="true">🔥</div>
+      <div class="quote-slide" role="group" aria-label="Citazione">
+        <div class="quote-slide-symbol" aria-hidden="true">🕯</div>
         <p class="quote-slide-text">"Il desiderio di longevità è contro natura ed è satanico se non è giustificato dal desiderio di servire più a lungo assecondando la propria missione."</p>
         <p class="quote-slide-author">— Salvatore Brizzi</p>
       </div>
 
-      <div class="quote-slide">
-        <div class="quote-slide-symbol" aria-hidden="true">🪞</div>
+      <div class="quote-slide" role="group" aria-label="Citazione">
+        <div class="quote-slide-symbol" aria-hidden="true">🌙</div>
         <p class="quote-slide-text">"I due passaggi iniziatici per essere pronti ad accedere ad una via oggettiva: 1. La completa disillusione verso il mondo. 2. La completa disillusione verso sé stessi, verso ciò che si crede di essere e di poter fare."</p>
         <p class="quote-slide-author">— Roberto Potocniak</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🌄</div>
         <p class="quote-slide-text">"Tu non puoi cambiare nessuno. Nella vita ci si innalza solo per propria scelta. Tu puoi solo portare avanti la tua Missione mostrando nelle parole e nei fatti un nuovo mondo possibile."</p>
         <p class="quote-slide-author">— Salvatore Brizzi</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">⚡</div>
         <p class="quote-slide-text">"La disobbedienza richiede un'intelligenza di ordine leggermente superiore. La persona intelligente si chiederà prima o poi: perché? Così si diventa responsabili di sé."</p>
         <p class="quote-slide-author">— Osho</p>
       </div>
 
-      <div class="quote-slide">
-        <div class="quote-slide-symbol" aria-hidden="true">❤</div>
+      <div class="quote-slide" role="group" aria-label="Citazione">
+        <div class="quote-slide-symbol" aria-hidden="true">🤍</div>
         <p class="quote-slide-text">"Diffidate delle grandi parole gridate in piazza; rifuggite l'amore generalista, non concreto. Il Vangelo non proclama ideologie… e in questo risiede la sua forza."</p>
         <p class="quote-slide-author">— Salvatore Brizzi</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🌸</div>
         <p class="quote-slide-text">"Fuggire le false tranquillità, aprire gli occhi infinitamente, come è infinita la luce, è sempre un momento di fioritura di sé stessi."</p>
         <p class="quote-slide-author">— Daniel Meurois &amp; Anne Givaudan</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">💗</div>
         <p class="quote-slide-text">"L'amore è forza rivoluzionaria, poiché rovescia l'algida geometria del do ut des. È la cellula della comunità. Amare significa realizzarsi con l'altro, volendo che l'altro sia pienamente."</p>
         <p class="quote-slide-author">— Diego Fusaro</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">💛</div>
         <p class="quote-slide-text">"Non aver paura di fallire… Abbi paura di non averci provato… Abbi paura di non averne goduto nel farlo… Abbi paura di non amare abbastanza ciò che fai… Ma mai del fallimento…"</p>
         <p class="quote-slide-author">— Anna Carla Digregorio</p>
       </div>
 
-      <div class="quote-slide">
-        <div class="quote-slide-symbol" aria-hidden="true">🌊</div>
+      <div class="quote-slide" role="group" aria-label="Citazione">
+        <div class="quote-slide-symbol" aria-hidden="true">💧</div>
         <p class="quote-slide-text">"Abbi Fede e lascia che sia… asseconda con Grazia il torrente dell'Esistenza… e potresti accorgerti che così la vita risulta anche divertente!"</p>
         <p class="quote-slide-author">— Anna Carla Digregorio</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">👁</div>
         <p class="quote-slide-text">"Fino a quando argomenti come Legge dello Specchio, giudizio e Legge di Compensazione non vi sono ben chiari, a cosa mai può servirvi purificare un chakra? Vi addormenterete ancora di più."</p>
         <p class="quote-slide-author">— Salvatore Brizzi</p>
       </div>
 
-      <div class="quote-slide">
-        <div class="quote-slide-symbol" aria-hidden="true">⚗</div>
+      <div class="quote-slide" role="group" aria-label="Citazione">
+        <div class="quote-slide-symbol" aria-hidden="true">🧪</div>
         <p class="quote-slide-text">"Spiritualità fast-food: credere che esistano rimedi facili e rapidi. La trasformazione spirituale non può essere rapida perché il processo stesso consiste nel lasciare la fretta e rispettare i propri ritmi naturali."</p>
         <p class="quote-slide-author">— Angy Scrò</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">☯</div>
         <p class="quote-slide-text">"La Comunione di Coppia è di per sé un riflesso dell'Amore Divino. Comunione di Coppia che è il primo passo verso la Comunione con il Tutto."</p>
         <p class="quote-slide-author">— Anna Carla Digregorio &amp; Nicolaos Anifantis</p>
       </div>
 
-      <div class="quote-slide">
-        <div class="quote-slide-symbol" aria-hidden="true">✨</div>
+      <div class="quote-slide" role="group" aria-label="Citazione">
+        <div class="quote-slide-symbol" aria-hidden="true">💡</div>
         <p class="quote-slide-text">"Abbi Fede, la luce c'è certamente! È lì fuori che ti aspetta… Impegniamoci al massimo per forzare la porta e permetterci di vederla, quella Luce fino ad allora solo teorizzata."</p>
         <p class="quote-slide-author">— Anna Carla Digregorio</p>
       </div>
 
-      <div class="quote-slide">
-        <div class="quote-slide-symbol" aria-hidden="true">✝</div>
+      <div class="quote-slide" role="group" aria-label="Citazione">
+        <div class="quote-slide-symbol" aria-hidden="true">✞</div>
         <p class="quote-slide-text">"Di Gesù non bisogna prenderci solo ciò che ci piace e che ci sembra convenire. Di Lui dobbiamo imparare a prendere anche tutto ciò che rigettiamo perché scardina le nostre convinzioni. Ma alla fine proprio lì si gioca il meglio della vita."</p>
         <p class="quote-slide-author">— Luigi Maria Epicoco</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🔄</div>
         <p class="quote-slide-text">"L'amore è un fenomeno circolare: esce ed entra, amplificandosi sempre più. Più dai, più ricevi. Molti si lamentano di aver dato tanto senza ricevere niente: questo accade sempre quando si dà solo per ricevere… che non è dare, ma mendicare."</p>
         <p class="quote-slide-author">— Roberto Potocniak</p>
       </div>
 
-      <div class="quote-slide">
-        <div class="quote-slide-symbol" aria-hidden="true">🏛</div>
+      <div class="quote-slide" role="group" aria-label="Citazione">
+        <div class="quote-slide-symbol" aria-hidden="true">🗿</div>
         <p class="quote-slide-text">"Considerare la vita come una scuola meravigliosa, come una dura ma salutare palestra dove si temprano le più alte qualità e poteri umani e spirituali. Di fronte a ogni prova, invece delle abituali reazioni di abbattimento, dirsi: quale bene ne posso trarre?"</p>
         <p class="quote-slide-author">— Roberto Assagioli</p>
       </div>
 
-      <div class="quote-slide">
-        <div class="quote-slide-symbol" aria-hidden="true">🦁</div>
+      <div class="quote-slide" role="group" aria-label="Citazione">
+        <div class="quote-slide-symbol" aria-hidden="true">🦅</div>
         <p class="quote-slide-text">"La bellezza ispira resistenza. Lo stato naturale dell'uomo è difendere le cose belle. Stanno attaccando la tua anima. Stanno uccidendo qualsiasi cosa possa ispirare la tua resistenza. È fatto di proposito. Diffidate."</p>
         <p class="quote-slide-author">— Salvatore Brizzi</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">☀</div>
         <p class="quote-slide-text">"Per quanto è possibile, tramite la conoscenza, la fede, la speranza e l'amore, si deve aiutare la vita a mantenersi. Non bisogna permettere alle forze negative di riportare la vittoria."</p>
         <p class="quote-slide-author">— Omraam Mikhaël Aïvanhov</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🌍</div>
         <p class="quote-slide-text">"Tutto lo spirito che non si radica nella materia è volatile ed effimero. Il corpo è l'unico vero tempio dello Spirito. Diamoci da fare, alziamoci le maniche e affrettiamoci lentamente, con i piedi ben radicati a terra."</p>
         <p class="quote-slide-author">— Claudio</p>
       </div>
 
-      <div class="quote-slide">
-        <div class="quote-slide-symbol" aria-hidden="true">🦁</div>
+      <div class="quote-slide" role="group" aria-label="Citazione">
+        <div class="quote-slide-symbol" aria-hidden="true">⚔</div>
         <p class="quote-slide-text">"La verità è come un leone. Non avrai bisogno di difenderla. Lasciala libera. Si difenderà da sola."</p>
         <p class="quote-slide-author">— Sant'Agostino</p>
       </div>
 
-      <div class="quote-slide">
-        <div class="quote-slide-symbol" aria-hidden="true">🔥</div>
+      <div class="quote-slide" role="group" aria-label="Citazione">
+        <div class="quote-slide-symbol" aria-hidden="true">♨️</div>
         <p class="quote-slide-text">"Dico e attesto che il Nostro Potere è diverso. Il Nostro Potere è sacrificio."</p>
         <p class="quote-slide-author">— Foglie del Giardino di Morya, Appello 1924</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">👁</div>
         <p class="quote-slide-text">"La vita reale inizia quando 'Io ci sono' e sono 'Presente a me stesso'. Solo allora posso iniziare a creare un futuro che non sia solo un copia-incolla del mio passato."</p>
         <p class="quote-slide-author">— Roberto Potocniak</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">💞</div>
         <p class="quote-slide-text">"C'è un unico fondamentale requisito perché una relazione sentimentale possa sopravvivere a sé stessa: la presenza di un contenitore più grande, comune ad entrambi. Due 'iniziati' che vivono ogni giornata con la gioia di una nuova scoperta hanno un territorio comune di qualità elevatissima."</p>
         <p class="quote-slide-author">— Antonio Esposito</p>
       </div>
 
-      <div class="quote-slide">
-        <div class="quote-slide-symbol" aria-hidden="true">✨</div>
+      <div class="quote-slide" role="group" aria-label="Citazione">
+        <div class="quote-slide-symbol" aria-hidden="true">🌠</div>
         <p class="quote-slide-text">"Il ricordo di sé è uno stato di meraviglia, nel quale la mente tace. Ti commuovi perché sei vivo, non perché ti è successo qualcosa di particolare. Finalmente, ti senti vivo."</p>
         <p class="quote-slide-author">— Salvatore Brizzi</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🌙</div>
         <p class="quote-slide-text">"Il femminino sacro è la capacità dell'essere umano, nella sua ascesa al Padre, di creare e portare frutti nella materia venendo direttamente fecondato da Dio senza interferenza umana. Sarà questo il femminino sacro che dovremo incarnare."</p>
         <p class="quote-slide-author">— Anna Carla Digregorio</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🕊</div>
         <p class="quote-slide-text">"L'Intelligenza cosmica non comincia mai dalla sofferenza, ma ricorre a quest'ultima solo dopo aver provato di tutto per far riflettere gli umani."</p>
         <p class="quote-slide-author">— Omraam Mikhaël Aïvanhov</p>
       </div>
 
-      <div class="quote-slide">
-        <div class="quote-slide-symbol" aria-hidden="true">🔥</div>
+      <div class="quote-slide" role="group" aria-label="Citazione">
+        <div class="quote-slide-symbol" aria-hidden="true">🔱</div>
         <p class="quote-slide-text">"Non incolpare mai, non lamentarti mai di nessuno, di niente. Il trionfo del vero uomo proviene dalle ceneri del suo errore. Guarda te stesso allo specchio, sarai libero e forte, perché tu stesso sei il tuo destino."</p>
         <p class="quote-slide-author">— Pablo Neruda</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">💡</div>
         <p class="quote-slide-text">"Non è il male che sta aumentando: sta aumentando la luce. Immagini di aver immagazzinato per anni i suoi oggetti in una stanza illuminata da una lampadina da 40 watt. Cambi quella lampadina con una da 100 watt e vedrà cosa accade! Lo sporco sarà evidente."</p>
         <p class="quote-slide-author">— Sai Baba</p>
       </div>
 
-      <div class="quote-slide">
-        <div class="quote-slide-symbol" aria-hidden="true">✝</div>
+      <div class="quote-slide" role="group" aria-label="Citazione">
+        <div class="quote-slide-symbol" aria-hidden="true">🕊</div>
         <p class="quote-slide-text">"Quando risparmi qualcuno, quando lo approvi nei suoi peccati, quando non condividi con lui la Verità, allora non lo ami. Il vero amore si mette in gioco, soffre per l'altro, agisce. Fino alla fine di tutto."</p>
         <p class="quote-slide-author">— Padre Costantino Sturzu</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🌳</div>
         <p class="quote-slide-text">"Sii te stesso in ogni situazione. Nessuna tempesta ha il potere di sradicare le tue radici, se tu non vuoi. Ascolta l'intuito. Solo tu conosci la tua Verità."</p>
         <p class="quote-slide-author">— Yogart</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">💞</div>
         <p class="quote-slide-text">"Il vero scopo della coppia non è tanto 'stare insieme' ma 'creare insieme'. Una coppia che non crea va contro l'impulso dell'Universo. In una coppia si è in 3: tu, io e la relazione. Il mio spazio interiore è sacro, sacro come il tuo."</p>
         <p class="quote-slide-author">— Nicolas Tamayo</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🐉</div>
         <p class="quote-slide-text">"I demoni vanno abbracciati, in quel momento ti apriranno le porte della rinascita. I demoni sono come i draghi, vanno baciati, non vanno uccisi."</p>
         <p class="quote-slide-author">— Bride An Geal</p>
       </div>
 
-      <div class="quote-slide">
-        <div class="quote-slide-symbol" aria-hidden="true">⚗</div>
+      <div class="quote-slide" role="group" aria-label="Citazione">
+        <div class="quote-slide-symbol" aria-hidden="true">🌿</div>
         <p class="quote-slide-text">"La natura superiore vi dice: invece di rimuginare e di cercare la vendetta, cerca piuttosto di utilizzare e trasformare quell'offesa. Tu sei un alchimista, ricaverai dell'oro."</p>
         <p class="quote-slide-author">— Omraam Mikhaël Aïvanhov</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">⚔</div>
         <p class="quote-slide-text">"L'origine della guerra è nel sonno del genere umano. Per cavarvela nei prossimi anni dovete svegliarvi e 'uscire dal genere umano'."</p>
         <p class="quote-slide-author">— Georges I. Gurdjieff, via Salvatore Brizzi</p>
       </div>
 
-      <div class="quote-slide">
-        <div class="quote-slide-symbol" aria-hidden="true">🔥</div>
+      <div class="quote-slide" role="group" aria-label="Citazione">
+        <div class="quote-slide-symbol" aria-hidden="true">🌅</div>
         <p class="quote-slide-text">"L'angolo più oscuro dell'inferno è riservato a coloro che mantengono la loro neutralità in momenti di crisi morale."</p>
         <p class="quote-slide-author">— Dante Alighieri, La Divina Commedia</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🎨</div>
         <p class="quote-slide-text">"Il pittore, lo scienziato, l'uomo curioso: tutti coloro che osservano il mondo con attenzione scoprono dettagli che sfuggono agli altri. È nella capacità di meravigliarsi e di interrogarsi continuamente che nasce la vera conoscenza."</p>
         <p class="quote-slide-author">— Leonardo Da Vinci</p>
       </div>
 
-      <div class="quote-slide">
-        <div class="quote-slide-symbol" aria-hidden="true">🏛</div>
+      <div class="quote-slide" role="group" aria-label="Citazione">
+        <div class="quote-slide-symbol" aria-hidden="true">⚖️</div>
         <p class="quote-slide-text">"Chi si conosce, non si lascia turbare dagli eventi."</p>
         <p class="quote-slide-author">— Seneca</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">♾</div>
         <p class="quote-slide-text">"Che accadrebbe se, un giorno o una notte, un demone ti dicesse: questa vita dovrai viverla ancora innumerevoli volte, e non ci sarà in essa mai niente di nuovo?"</p>
         <p class="quote-slide-author">— Friedrich Nietzsche, L'eterno ritorno</p>
       </div>
 
-      <div class="quote-slide">
-        <div class="quote-slide-symbol" aria-hidden="true">🪞</div>
+      <div class="quote-slide" role="group" aria-label="Citazione">
+        <div class="quote-slide-symbol" aria-hidden="true">💠</div>
         <p class="quote-slide-text">"La verità era uno specchio che cadendo dal cielo si ruppe. Ciascuno ne prese un pezzo e vedendo riflessa in esso la propria immagine, credette di possedere l'intera verità."</p>
         <p class="quote-slide-author">— Jalāl al-Dīn Rūmī</p>
       </div>
 
-      <div class="quote-slide">
-        <div class="quote-slide-symbol" aria-hidden="true">✝</div>
+      <div class="quote-slide" role="group" aria-label="Citazione">
+        <div class="quote-slide-symbol" aria-hidden="true">✡</div>
         <p class="quote-slide-text">"Una volta per tutte ti viene imposto un breve precetto: ama e fa ciò che vuoi. Sia che tu taccia, taci per amore. Sia che tu parli, parla per amore. Sia in te la radice dell'amore, poiché da questa radice non può procedere se non il bene."</p>
         <p class="quote-slide-author">— Sant'Agostino</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🌱</div>
         <p class="quote-slide-text">"Non va piantato un albero il giorno in cui vuoi l'ombra."</p>
         <p class="quote-slide-author">— Proverbio Zen</p>
       </div>
 
-      <div class="quote-slide">
-        <div class="quote-slide-symbol" aria-hidden="true">🌊</div>
+      <div class="quote-slide" role="group" aria-label="Citazione">
+        <div class="quote-slide-symbol" aria-hidden="true">🌀</div>
         <p class="quote-slide-text">"Tutto quello che stai attraversando, ti sta preparando a ciò che hai chiesto."</p>
         <p class="quote-slide-author">— Eckhart Tolle</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🌿</div>
         <p class="quote-slide-text">"Dio dorme nelle pietre, sogna nelle piante, si risveglia nell'animale e diventa cosciente nell'essere umano."</p>
         <p class="quote-slide-author">— Antico aforisma</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">⚖</div>
         <p class="quote-slide-text">"Se l'uomo non è capace di governare le proprie emozioni e le proprie pulsioni, non sarà mai in grado di dominare se stesso."</p>
         <p class="quote-slide-author">— Cicerone</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">💎</div>
         <p class="quote-slide-text">"Per mezzo della Temperanza l'uomo diventa saggio, e soltanto il saggio può sperimentare il piacere autentico — ed è questo che lo renderà differente da un animale."</p>
         <p class="quote-slide-author">— Aristotele</p>
       </div>
 
-      <div class="quote-slide">
-        <div class="quote-slide-symbol" aria-hidden="true">🌱</div>
+      <div class="quote-slide" role="group" aria-label="Citazione">
+        <div class="quote-slide-symbol" aria-hidden="true">🌾</div>
         <p class="quote-slide-text">"Nella bottega di Dio non si vendono i frutti maturi, ma i piccoli semi da coltivare. Vai nel mondo e fai germogliare i doni che Dio ti ha donato."</p>
         <p class="quote-slide-author">— Parabola della bottega dei doni di Dio</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">🎵</div>
         <p class="quote-slide-text">"La geometria è musica solidificata."</p>
         <p class="quote-slide-author">— Pitagora</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">☸</div>
         <p class="quote-slide-text">"La via non è nel cielo: la via si trova nel cuore."</p>
         <p class="quote-slide-author">— Buddha</p>
       </div>
 
-      <div class="quote-slide">
+      <div class="quote-slide" role="group" aria-label="Citazione">
         <div class="quote-slide-symbol" aria-hidden="true">✝</div>
         <p class="quote-slide-text">"Per questo vi dico: tutte le cose che chiedete in preghiera, abbiate fede di averle già ricevute e le avrete."</p>
         <p class="quote-slide-author">— Marco 11:24</p>
@@ -3027,7 +3069,7 @@
   <p class="section-sub">Per informazioni e iscrizioni ai seminari e alle lezioni, contattaci direttamente.</p>
   <div class="contact-wrapper sr">
     <div class="contact-info">
-      <h3>Siamo qui per te</h3>
+      <div class="section-eyebrow" style="margin-bottom:0.75rem;"><span class="roman">✦</span><span>Siamo qui per te</span></div>
       <p>Ogni percorso inizia con una domanda. Scrivici senza impegno — risponderemo il prima possibile.</p>
       <div class="contact-detail">
         <div class="contact-detail-icon" aria-hidden="true"><svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/></svg></div>
@@ -3108,7 +3150,6 @@
     </div>
 
     <hr class="footer-divider"/>
-    <div class="footer-rule" aria-hidden="true" style="margin-top:1.75rem"><span>◆  ◆  ◆</span></div>
     <p><a href="tel:+393349991888" aria-label="Chiama Nicolaos al 334 999 1888">334 999 1888</a> &nbsp;·&nbsp; <span id="email-footer"></span></p>
     <p class="serif-footer serif-footer-quote">"Non si tratta di attrarre. Si tratta di ricordare chi siamo."</p>
     <p class="footer-copyright">© 2026 Scuola ContattaTi — Anna Carla Digregorio & Nicolaos Anifantis</p>
