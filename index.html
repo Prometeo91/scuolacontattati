@@ -149,6 +149,7 @@
 
   <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) — self-hosted, zero dipendenze esterne -->
   <link rel="stylesheet" href="style.css"/>
+
 </head>
 <body id="top">
 
@@ -160,6 +161,7 @@
     <a href="#chi-siamo">Chi siamo</a>
     <a href="#insegnamenti">Insegnamenti</a>
     <a href="#conduttori">I conduttori</a>
+    <a href="#galleria">Galleria</a>
     <a href="#calendario">Il percorso</a>
     <a href="#libro">Il libro</a>
     <a href="#contatti">Contatti</a>
@@ -441,11 +443,46 @@
   </div>
 </section>
 
+
 <div class="epigraphic-rule"><span class="glyph">◆</span></div>
+
+<!-- GALLERIA EVENTI -->
+<section id="galleria">
+  <div class="section-eyebrow"><span class="roman">IV</span><span>La Scuola in azione</span></div>
+  <h2 class="section-title sr">I nostri eventi</h2>
+  <p class="section-sub">Momenti vissuti insieme, tra insegnamento e natura.</p>
+
+  <div class="gallery-event sr">
+    <p class="gallery-event-title">I 7 Chakra — Amare Sé Stessi</p>
+    <p class="gallery-event-sub">8 Luglio 2023 · Masseria Chinunno, Cassano (BA)</p>
+
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-item" data-src="images/gallery/06-foto-gruppo.jpg"><img src="images/gallery/06-foto-gruppo.jpg" alt="Foto di gruppo del seminario I 7 Chakra" loading="lazy" decoding="async"/></div>
+      <div class="gallery-item" data-src="images/gallery/01-nicolaos-parla.jpg"><img src="images/gallery/01-nicolaos-parla.jpg" alt="Nicolaos Anifantis conduce il seminario" loading="lazy" decoding="async"/></div>
+      <div class="gallery-item" data-src="images/gallery/03-anna-carla.jpg"><img src="images/gallery/03-anna-carla.jpg" alt="Anna Carla Digregorio conduce il seminario" loading="lazy" decoding="async"/></div>
+      <div class="gallery-item" data-src="images/gallery/02-sala-platea.jpg"><img src="images/gallery/02-sala-platea.jpg" alt="Platea del seminario nel gazebo" loading="lazy" decoding="async"/></div>
+      <div class="gallery-item" data-src="images/gallery/12-anna-carla-insegna.jpg"><img src="images/gallery/12-anna-carla-insegna.jpg" alt="Anna Carla insegna con lavagna" loading="lazy" decoding="async"/></div>
+      <div class="gallery-item" data-src="images/gallery/10-nicolaos-chakra.jpg"><img src="images/gallery/10-nicolaos-chakra.jpg" alt="Nicolaos con banner dei Chakra" loading="lazy" decoding="async"/></div>
+      <div class="gallery-item gallery-hidden" data-src="images/gallery/08-anna-carla-platea.jpg"><img src="images/gallery/08-anna-carla-platea.jpg" alt="Anna Carla parla alla platea" loading="lazy" decoding="async"/></div>
+      <div class="gallery-item gallery-hidden" data-src="images/gallery/04-nicolaos-tamburo.jpg"><img src="images/gallery/04-nicolaos-tamburo.jpg" alt="Nicolaos con strumenti musicali" loading="lazy" decoding="async"/></div>
+      <div class="gallery-item gallery-hidden" data-src="images/gallery/15-eleonora-tamburo.jpg"><img src="images/gallery/15-eleonora-tamburo.jpg" alt="Eleonora con il tamburo" loading="lazy" decoding="async"/></div>
+      <div class="gallery-item gallery-hidden" data-src="images/gallery/18-anna-carla-palco.jpg"><img src="images/gallery/18-anna-carla-palco.jpg" alt="Anna Carla sul palco" loading="lazy" decoding="async"/></div>
+      <div class="gallery-item gallery-hidden" data-src="images/gallery/07-gazebo-pubblico.jpg"><img src="images/gallery/07-gazebo-pubblico.jpg" alt="Veduta del gazebo durante il seminario" loading="lazy" decoding="async"/></div>
+      <div class="gallery-item gallery-hidden" data-src="images/gallery/09-conduttori-lavagna.jpg"><img src="images/gallery/09-conduttori-lavagna.jpg" alt="I conduttori con la lavagna" loading="lazy" decoding="async"/></div>
+      <div class="gallery-item gallery-hidden" data-src="images/gallery/05-esercizi-natura.jpg"><img src="images/gallery/05-esercizi-natura.jpg" alt="Esercizi in natura" loading="lazy" decoding="async"/></div>
+      <div class="gallery-item gallery-hidden" data-src="images/gallery/16-sala-laterale.jpg"><img src="images/gallery/16-sala-laterale.jpg" alt="Veduta laterale della sala" loading="lazy" decoding="async"/></div>
+      <div class="gallery-item gallery-hidden" data-src="images/gallery/14-pausa-natura.jpg"><img src="images/gallery/14-pausa-natura.jpg" alt="Pausa tra gli alberi" loading="lazy" decoding="async"/></div>
+      <div class="gallery-item gallery-hidden" data-src="images/gallery/17-nicolaos-legge.jpg"><img src="images/gallery/17-nicolaos-legge.jpg" alt="Nicolaos legge" loading="lazy" decoding="async"/></div>
+      <div class="gallery-item gallery-hidden" data-src="images/gallery/11-abbraccio.jpg"><img src="images/gallery/11-abbraccio.jpg" alt="Abbraccio tra partecipanti" loading="lazy" decoding="async"/></div>
+      <div class="gallery-item gallery-hidden" data-src="images/gallery/13-panoramica.jpg"><img src="images/gallery/13-panoramica.jpg" alt="Panoramica del gazebo" loading="lazy" decoding="async"/></div>
+    </div>
+    <button class="gallery-toggle" id="galleryToggle">Mostra tutte le foto ▾</button>
+  </div>
+</section>
 
 <!-- CALENDARIO con logica automatica -->
 <section id="calendario">
-  <div class="section-eyebrow"><span class="roman">IV</span><span>Programma didattico</span></div>
+  <div class="section-eyebrow"><span class="roman">V</span><span>Programma didattico</span></div>
   <h2 class="section-title sr">Il calendario delle lezioni</h2>
   <p class="section-sub">Sette anni di approfondimento progressivo, strutturati in cicli annuali. Ogni lezione si costruisce sulla precedente: non si accumula sapere, ci si trasforma in ciò che si studia.</p>
   <div class="section-eyebrow" style="margin-bottom:1rem; margin-top:0.5rem;">
@@ -1988,6 +2025,72 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
 });
+</script>
+
+<!-- Lightbox -->
+<div class="lightbox-overlay" id="lightbox">
+  <button class="lightbox-close" aria-label="Chiudi">&times;</button>
+  <button class="lightbox-nav lightbox-prev" aria-label="Precedente">&#8249;</button>
+  <button class="lightbox-nav lightbox-next" aria-label="Successiva">&#8250;</button>
+  <img src="" alt=""/>
+  <div class="lightbox-counter"></div>
+</div>
+<script>
+(function(){
+  /* Gallery toggle */
+  var tog=document.getElementById('galleryToggle');
+  var grid=document.getElementById('galleryGrid');
+  if(tog&&grid){
+    var expanded=false;
+    tog.addEventListener('click',function(){
+      expanded=!expanded;
+      grid.classList.toggle('expanded',expanded);
+      tog.textContent=expanded?'Mostra meno \u25b4':'Mostra tutte le foto \u25be';
+    });
+  }
+
+  /* Lightbox */
+  var lb=document.getElementById('lightbox');
+  if(!lb)return;
+  var lbImg=lb.querySelector('img');
+  var lbCounter=lb.querySelector('.lightbox-counter');
+  var items=document.querySelectorAll('.gallery-item');
+  var srcs=[];
+  items.forEach(function(it){srcs.push(it.getAttribute('data-src'));});
+  var cur=0;
+
+  function show(i){
+    cur=(i+srcs.length)%srcs.length;
+    lbImg.src=srcs[cur];
+    lbImg.alt='Foto '+(cur+1)+' di '+srcs.length;
+    lbCounter.textContent=(cur+1)+' / '+srcs.length;
+  }
+
+  items.forEach(function(it,i){
+    it.addEventListener('click',function(){
+      show(i);
+      lb.classList.add('active');
+      document.body.style.overflow='hidden';
+    });
+  });
+
+  function close(){lb.classList.remove('active');document.body.style.overflow='';}
+  lb.querySelector('.lightbox-close').addEventListener('click',close);
+  lb.querySelector('.lightbox-prev').addEventListener('click',function(e){e.stopPropagation();show(cur-1);});
+  lb.querySelector('.lightbox-next').addEventListener('click',function(e){e.stopPropagation();show(cur+1);});
+  lb.addEventListener('click',function(e){if(e.target===lb)close();});
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('active'))return;
+    if(e.key==='Escape')close();
+    if(e.key==='ArrowLeft')show(cur-1);
+    if(e.key==='ArrowRight')show(cur+1);
+  });
+
+  /* Touch/swipe in lightbox */
+  var tx=0,moving=false;
+  lb.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;moving=true;},{passive:true});
+  lb.addEventListener('touchend',function(e){if(!moving)return;moving=false;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50){dx<0?show(cur+1):show(cur-1);}});
+})();
 </script>
 </body>
 </html>
