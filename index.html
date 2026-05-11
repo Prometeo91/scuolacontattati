@@ -252,6 +252,45 @@
       --font-display: 'EB Garamond', 'EBGaramond-fallback', Georgia, serif;
     }
 
+    /* ── FONT FEATURE SHORTCUTS ── */
+    /* display: serif con legature antiche e cifre oldstyle */
+    .ff-d {
+      font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "onum" 1, "calt" 1;
+      font-variant-numeric: oldstyle-nums;
+    }
+    /* tabular: sans con cifre tabulari */
+    .ff-t {
+      font-feature-settings: "kern" 1, "liga" 1, "tnum" 1, "ss01" 1;
+      font-variant-numeric: tabular-nums;
+    }
+    /* Applica font-features display a tutti gli elementi con font-display */
+    .section-title, .section-sub, .section-blockquote,
+    .hero h1, .hero-motto, .hero-motto-sub, .hero-slogan, .hero-eyebrow,
+    .nav-logo,
+    .card-title, .card-body-display,
+    .pillar-title,
+    .teacher-name,
+    .book-cover-title, .book-title, .book-subtitle,
+    .book-label,
+    .quote-block p, .quote-slide-text,
+    .lesson-panel-title, .lesson-quote,
+    .video-facade-title, .video-facade-sub, .video-facade-symbol,
+    .contact-info h3,
+    .footer-logo, .serif-footer, .serif-heading, .serif-heading-sm, .serif-quote,
+    .libro-card-title,
+    .chiave-num,
+    .event-day, .event-sub,
+    .anno-tab {
+      font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "onum" 1, "calt" 1;
+      font-variant-numeric: oldstyle-nums;
+    }
+    /* Applica font-features tabular ai badge e label */
+    .badge, .section-label, .teacher-role, .event-month,
+    .submit-btn, .book-label, .footer-links a {
+      font-feature-settings: "kern" 1, "liga" 1, "tnum" 1, "ss01" 1;
+      font-variant-numeric: tabular-nums;
+    }
+
     /* ── TEMA CHIARO ── */
     [data-theme="light"] {
       --gold: #9a7420;
@@ -501,7 +540,7 @@
       display: flex; align-items: center; justify-content: space-between;
       padding: 1rem 2.5rem; flex-wrap: wrap; gap: 0.75rem;
     }
-    .nav-logo { font-family: var(--font-display); font-size: 20px; font-weight: 600; color: var(--gold-light); letter-spacing: 0.04em; text-decoration: none; font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "onum" 1, "calt" 1; font-variant-numeric: oldstyle-nums; }
+    .nav-logo { font-family: var(--font-display); font-size: 20px; font-weight: 600; color: var(--gold-light); letter-spacing: 0.04em; text-decoration: none; }
     .nav-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
     .nav-links a {
       font-size: 15px; color: var(--text-muted); text-decoration: none;
@@ -666,8 +705,6 @@
       border-radius: 50%;
       flex-shrink: 0;
     }
-    .card-body { font-size: 16px; color: var(--text-muted); line-height: 1.72; letter-spacing: 0; }
-
     /* quote-block: coerente con section-blockquote */
     .quote-block { position: relative; border-left: 3.5px solid var(--gold); padding: 1.4rem 1.75rem 1.4rem 1.5rem; margin: 2rem 0; background: rgba(201,151,58,0.04); border-radius: 0 12px 12px 0; }
     .quote-block::before {
@@ -716,7 +753,6 @@
     .pillar-title { font-family: var(--font-display); font-size: 26px; font-weight: 600; color: var(--gold-light); margin-bottom: 1.25rem; display: flex; flex-direction: column; align-items: flex-start; gap: 0.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(201, 151, 58, 0.15); letter-spacing: 0.01em; font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "onum" 1, "calt" 1; font-variant-numeric: oldstyle-nums; }
     .pillar-title span[aria-hidden="true"] { font-size: 28px; opacity: 0.85; }
     .pillar-list { list-style: none; flex: 1; }
-    .pillar-list li { font-size: 15px; color: var(--text-muted); line-height: 1.72; padding: 0.5rem 0; border-bottom: 0.5px solid rgba(201,151,58,0.07); letter-spacing: 0; }
     .pillar-list li:last-child { border-bottom: none; }
     .pillar-list li::before { content: '✶ '; color: var(--gold); font-size: 11px; }
 
@@ -1250,7 +1286,6 @@
       pointer-events:none; z-index:0;
     }
     .section-band > * { position:relative; z-index:1; max-width:900px; margin-left:auto; margin-right:auto; }
-    .section-band { padding:5rem 2rem; max-width:none; }
 
     /* ANIMATED BACKGROUND — rimossa per coerenza visiva */
     @keyframes bg-drift-legacy {
@@ -1851,9 +1886,6 @@
       background: linear-gradient(90deg, transparent, rgba(201,151,58,0.5));
       flex-shrink: 0;
     }
-
-    /* Spacing tra p.body-text consecutive: più generoso */
-    .body-text + .body-text { margin-top: 1.5rem; }
 
     /* card-body: leggero upgrade per leggibilità */
     .card-body { font-size: 15px; color: var(--text-muted); line-height: 1.78; letter-spacing: 0; }
