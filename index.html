@@ -1740,7 +1740,7 @@ document.addEventListener('DOMContentLoaded', function() {
       else{bc='badge badge-purple';bt=mesiL[l.month-1]+' '+l.year;}
       var sfx=st==='in-corso'?' \u2014 In corso ora':isPr?' \u2736 Prossima':'';
       var w=document.createElement('div');w.className='lesson-wrap';
-      w.innerHTML='<div class="event-row has-detail" role="button" tabindex="0" aria-expanded="false"><div class="event-date"><p class="event-day ev-num">'+toRoman(l.num)+'</p><p class="event-month">Anno 1</p></div><div class="event-vline"></div><div class="event-info"><p class="event-title">Lezione '+toRoman(l.num)+'</p><p class="event-sub">'+l.titolo+'</p></div><span class="detail-pill">Temi \u25be</span><span class="expand-arrow">\u25bc</span></div>'+panelHTML(l);
+      w.innerHTML='<div class="event-row has-detail" role="button" tabindex="0" aria-expanded="false"><div class="event-date"><p class="event-day ev-num">'+toRoman(l.num)+'</p><p class="event-month">Anno 1</p></div><div class="event-vline"></div><div class="event-info"><p class="event-title">Lezione '+toRoman(l.num)+sfx+'</p><p class="event-sub">'+l.titolo+'</p><p style="font-size:13px;color:var(--text-muted);margin-top:2px;">'+l.day+' '+mesiL[l.month-1]+' '+l.year+'</p></div><span class="'+bc+'">'+bt+'</span><span class="detail-pill">Temi \u25be</span><span class="expand-arrow">\u25bc</span></div>'+panelHTML(l);
       list1.appendChild(w);
       var row=w.querySelector('.event-row'),panel=w.querySelector('.lesson-panel');
       row.addEventListener('click',function(){toggle(row,panel);});
