@@ -140,21 +140,42 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* ── TEMA CHIARO ── */
+/* ── TEMA CHIARO — v2 (pergamena + gerarchia oro restituita) ── */
 [data-theme="light"] {
-  --gold: #9a7420;
-  --gold-light: #7a5a14;
-  --text: #1a1520;
-  --text-muted: #4a4055;
-  --bg: #f5f0e8;
-  --surface: rgba(0,0,0,0.03);
-  --surface-hover: rgba(0,0,0,0.06);
+  /* Sfondo pergamena */
+  --bg-1: #f8f2e6;
+  --bg-2: #ede4d0;
+  --bg: #f5f0e8; /* fallback per chi referenzia var(--bg) */
+
+  /* Inchiostri caldi (era #4a4055 grigio freddo) */
+  --text: #2a1f08;
+  --text-muted: #5a4a3a;
+  --text-soft: #7a6852;
+
+  /* Gerarchia ORO a due livelli (era collassata su un solo tono) */
+  --gold: #8a6520;          /* oro scuro — testo, bordi, accenti */
+  --gold-light: #b88a2e;    /* ambra chiara — italici, hover, dettagli */
+  --gold-deep: #6b4f18;     /* oro profondo — alto contrasto */
+
+  --surface: rgba(80,60,30,0.04);
+  --surface-hover: rgba(80,60,30,0.08);
   --border: rgba(120,90,30,0.18);
-  --border-hover: rgba(120,90,30,0.35);
+  --border-hover: rgba(120,90,30,0.4);
 }
+/* Pergamena: gradient warm centro-alto → bordi */
+[data-theme="light"] body {
+  background:
+    radial-gradient(ellipse 1400px 900px at 50% 0%, var(--bg-1) 0%, transparent 70%),
+    linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
+  background-attachment: fixed;
+}
+/* Vignette dall'alto: alba dorata (era fantasma a 0.08) */
 [data-theme="light"] body::before {
-  background: radial-gradient(ellipse at 50% 0%, rgba(201,151,58,0.08) 0%, transparent 65%);
+  background: radial-gradient(ellipse 1200px 600px at 50% -10%, rgba(232,201,122,0.18) 0%, rgba(232,201,122,0.06) 35%, transparent 70%);
 }
+/* Selezione testo coerente con palette */
+[data-theme="light"] ::selection { background: rgba(232,201,122,0.55); color: #2a1f08; }
+[data-theme="light"] ::-moz-selection { background: rgba(232,201,122,0.55); color: #2a1f08; }
 [data-theme="light"] nav {
   background: rgba(245,240,232,0.92);
 }
@@ -174,32 +195,39 @@
   background: rgba(201,151,58,0.1);
   border-color: rgba(120,90,30,0.5);
 }
+/* Card "pergamena rilevata" — shadow calda, leggero sollevamento al hover */
 [data-theme="light"] .glass-card,
 [data-theme="light"] .pillar-card,
 [data-theme="light"] .teacher-card,
 [data-theme="light"] .event-row,
 [data-theme="light"] .quote-slide,
 [data-theme="light"] .contact-form {
-  background: rgba(255,255,255,0.6);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-  border: 0.5px solid rgba(120,90,30,0.12);
+  background: rgba(255,253,247,0.92);
+  box-shadow: 0 2px 14px rgba(80,60,30,0.07);
+  border: 0.5px solid rgba(120,90,30,0.18);
+  transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s, background 0.3s;
 }
 [data-theme="light"] .glass-card:hover,
 [data-theme="light"] .pillar-card:hover,
 [data-theme="light"] .teacher-card:hover,
 [data-theme="light"] .event-row:hover {
-  background: rgba(255,255,255,0.85);
-  border-color: rgba(120,90,30,0.2);
+  background: rgba(255,253,247,0.98);
+  border-color: rgba(120,90,30,0.4);
+  box-shadow: 0 6px 22px rgba(80,60,30,0.1);
+  transform: translateY(-2px);
 }
 [data-theme="light"] .glass-card.card-full.glass-card-center {
   background: rgba(201,151,58,0.08);
   border: 0.5px solid rgba(201,151,58,0.25);
 }
 [data-theme="light"] .quote-block {
-  background: rgba(201,151,58,0.06);
+  background: rgba(184,138,46,0.08);
+  border: 0.5px solid rgba(120,90,30,0.18);
 }
+/* Niente più "buco" var(--bg) — usa il tono pergamena chiaro */
 [data-theme="light"] .quote-block::before {
-  background: var(--bg);
+  background: var(--bg-1);
+  color: var(--gold-light);
 }
 [data-theme="light"] .book-card {
   background: rgba(255,255,255,0.5);
@@ -207,40 +235,43 @@
 [data-theme="light"] .book-cover {
   background: linear-gradient(160deg, #f0e8d8, #e8dcc8);
 }
+/* FOOTER — opzione A: crema scuro armonioso (era marrone quasi-nero) */
 [data-theme="light"] footer {
-  background: rgba(30,25,18,0.92);
-  color: #c4b8d0;
+  background: linear-gradient(180deg, #ede4d0 0%, #e3d9c0 100%);
+  color: var(--text-muted);
+  border-top: 0.5px solid rgba(120,90,30,0.3);
 }
 [data-theme="light"] footer p,
 [data-theme="light"] footer .footer-copyright,
 [data-theme="light"] footer .serif-footer,
 [data-theme="light"] footer .serif-footer-motto,
 [data-theme="light"] footer .serif-footer-quote {
-  color: #c4b8d0;
+  color: var(--text-muted);
 }
 [data-theme="light"] footer .footer-logo {
-  color: #e8c97a;
+  color: var(--gold-deep);
 }
 [data-theme="light"] footer a {
-  color: #c4b8d0;
+  color: var(--text-muted);
 }
 [data-theme="light"] footer a:hover {
-  color: #e8c97a;
+  color: var(--gold);
 }
 [data-theme="light"] .footer-inner {
-  border-color: rgba(201,151,58,0.3);
+  border-color: rgba(120,90,30,0.35);
+  background: rgba(248,242,230,0.5);
 }
 [data-theme="light"] .footer-inner::before {
-  border-color: rgba(201,151,58,0.15);
+  border-color: rgba(120,90,30,0.2);
 }
 [data-theme="light"] .footer-links {
   background: transparent;
 }
 [data-theme="light"] .footer-links a {
-  color: #c4b8d0;
+  color: var(--text-soft);
 }
 [data-theme="light"] .footer-links a:hover {
-  color: #e8c97a;
+  color: var(--gold);
 }
 [data-theme="light"] footer nav.footer-links {
   background: transparent;
@@ -248,28 +279,28 @@
   border: none;
 }
 [data-theme="light"] .footer-social a {
-  color: #c9973a; border-color: rgba(201,151,58,0.3); background: transparent;
+  color: var(--gold); border-color: rgba(120,90,30,0.4); background: transparent;
 }
 [data-theme="light"] .footer-social a:hover {
-  color: #e8c97a; border-color: #c9973a; background: rgba(201,151,58,0.08);
+  color: var(--gold-deep); border-color: var(--gold); background: rgba(184,138,46,0.12);
 }
 [data-theme="light"] .footer-seal {
-  border-color: rgba(201,151,58,0.45);
-  color: #e8c97a;
+  border-color: rgba(120,90,30,0.5);
+  color: var(--gold-deep);
 }
 [data-theme="light"] .footer-rule::before,
 [data-theme="light"] .footer-rule::after {
-  background: linear-gradient(90deg, transparent 0%, rgba(201,151,58,0.4) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(120,90,30,0.5) 50%, transparent 100%);
 }
 [data-theme="light"] .footer-rule {
-  color: #c9973a;
+  color: var(--gold);
 }
 [data-theme="light"] footer span,
 [data-theme="light"] footer [id="email-footer"] a {
-  color: #c4b8d0 !important;
+  color: var(--text-muted) !important;
 }
 [data-theme="light"] footer [id="email-footer"] a:hover {
-  color: #e8c97a !important;
+  color: var(--gold) !important;
 }
 [data-theme="light"] .back-to-top {
   background: rgba(255,255,255,0.95) !important;
@@ -327,10 +358,18 @@
 [data-theme="light"] .event-row.open .detail-pill {
   background: rgba(201,151,58,0.2);
 }
+/* Stelline → punti d'inchiostro su pergamena (inverte logica: era oro chiaro su crema, invisibile) */
 [data-theme="light"] section#chi-siamo::before,
 [data-theme="light"] section#ispirazioni::before,
 [data-theme="light"] .section-stars::before {
-  opacity: 0.4;
+  opacity: 0.85;
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(80,60,30,0.18) 0, rgba(80,60,30,0.18) 1px, transparent 2px),
+    radial-gradient(circle at 72% 15%, rgba(120,90,30,0.14) 0, rgba(120,90,30,0.14) 1px, transparent 2px),
+    radial-gradient(circle at 85% 65%, rgba(80,60,30,0.16) 0, rgba(80,60,30,0.16) 1px, transparent 2px),
+    radial-gradient(circle at 30% 80%, rgba(120,90,30,0.14) 0, rgba(120,90,30,0.14) 1px, transparent 2px),
+    radial-gradient(circle at 55% 45%, rgba(80,60,30,0.10) 0, rgba(80,60,30,0.10) 1px, transparent 2px),
+    radial-gradient(circle at 8% 60%, rgba(120,90,30,0.12) 0, rgba(120,90,30,0.12) 1px, transparent 2px);
 }
 /* Theme toggle button */
 .theme-toggle {
