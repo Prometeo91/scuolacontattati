@@ -1754,15 +1754,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function renderAnno(lista,listId,label){
     var el=document.getElementById(listId);if(!el)return;
+    var prossimaTrovata=false;
     lista.forEach(function(l){
       var w=document.createElement('div');w.className='lesson-wrap';
+      var hasDate=l.day&&l.month&&l.year;
+      var st=hasDate?stato(l.day,l.month,l.year):null;
+      var isPr=st==='futura'&&!prossimaTrovata;
+      if(st==='futura')prossimaTrovata=true;
+      var bc,bt;
+      if(st==='in-corso'){bc='badge badge-green';bt='&#9679; In corso';}
+      else if(st==='passata'){bc='badge badge-muted';bt='Conclusa';}
+      else if(isPr){bc='badge badge-gold';bt='Iscriviti';}
+      else if(st==='futura'){bc='badge badge-purple';bt=mesiL[l.month-1]+' '+l.year;}
+      else{bc='';bt='';}
       if(!l.titolo){
-        // placeholder lezione mancante
-        w.innerHTML='<div class="event-row" style="opacity:0.65;"><div class="event-date"><p class="event-day ev-num">'+toRoman(l.num)+'</p><p class="event-month">'+label+'</p></div><div class="event-vline"></div><div class="event-info"><p class="event-title">Lezione '+toRoman(l.num)+'</p><p class="event-sub">Locandina in arrivo</p></div><span class="badge badge-muted">In arrivo</span></div>';
+        var dataBadge=hasDate?'<span class="'+bc+'">'+bt+'</span>':'<span class="badge badge-muted">In arrivo</span>';
+        w.innerHTML='<div class="event-row" style="opacity:0.65;"><div class="event-date"><p class="event-day ev-num">'+toRoman(l.num)+'</p><p class="event-month">'+label+'</p></div><div class="event-vline"></div><div class="event-info"><p class="event-title">Lezione '+toRoman(l.num)+'</p>'+(hasDate?'<p class="event-sub">'+l.day+' '+mesiL[l.month-1]+' '+l.year+'</p>':'<p class="event-sub">Locandina in arrivo</p>')+'</div>'+dataBadge+'</div>';
         el.appendChild(w);
         return;
       }
-      w.innerHTML='<div class="event-row has-detail" role="button" tabindex="0" aria-expanded="false"><div class="event-date"><p class="event-day ev-num">'+toRoman(l.num)+'</p><p class="event-month">'+label+'</p></div><div class="event-vline"></div><div class="event-info"><p class="event-title">Lezione '+toRoman(l.num)+'</p><p class="event-sub">'+l.titolo+'</p></div><span class="detail-pill">Temi \u25be</span><span class="expand-arrow">\u25bc</span></div>'+panelHTML(l);
+      var badgeHTML=hasDate?'<span class="'+bc+'">'+bt+'</span>':'';
+      var sfx=st==='in-corso'?' \u2014 In corso ora':isPr?' \u2736 Prossima':'';
+      w.innerHTML='<div class="event-row has-detail" role="button" tabindex="0" aria-expanded="false"><div class="event-date"><p class="event-day ev-num">'+toRoman(l.num)+'</p><p class="event-month">'+label+'</p></div><div class="event-vline"></div><div class="event-info"><p class="event-title">Lezione '+toRoman(l.num)+sfx+'</p><p class="event-sub">'+l.titolo+'</p>'+(hasDate?'<p style="font-size:13px;color:var(--text-muted);margin-top:2px;">'+l.day+' '+mesiL[l.month-1]+' '+l.year+'</p>':'')+'</div>'+badgeHTML+'<span class="detail-pill">Temi \u25be</span><span class="expand-arrow">\u25bc</span></div>'+panelHTML(l);
       el.appendChild(w);
       var row=w.querySelector('.event-row'),panel=w.querySelector('.lesson-panel');
       row.addEventListener('click',function(){toggle(row,panel);});
