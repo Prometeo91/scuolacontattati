@@ -1124,7 +1124,7 @@ select:focus-visible {
 /* SECTION VISUAL VARIATION — full-width bands */
 .section-band {
   position:relative; width:100vw; margin-left:calc(-50vw + 50%);
-  padding:5rem 2rem;
+  padding:5rem 2rem; max-width:none;
 }
 .section-band::before {
   content:''; position:absolute; inset:0;
