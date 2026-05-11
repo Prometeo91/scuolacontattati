@@ -174,6 +174,20 @@
   .lightbox-prev{left:16px}
   .lightbox-next{right:16px}
   .lightbox-counter{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.6);font-size:14px;font-family:var(--font-body)}
+
+  /* FAQ */
+  .faq-list{display:flex;flex-direction:column;gap:0.5rem}
+  .faq-item{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color .3s ease}
+  .faq-item[open]{border-color:var(--border-hover)}
+  .faq-question{padding:1.1rem 1.4rem;font-family:var(--font-display);font-size:17px;color:var(--gold-light);cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:1rem;user-select:none}
+  .faq-question::-webkit-details-marker{display:none}
+  .faq-question::after{content:'▾';font-size:14px;color:var(--text-muted);transition:transform .3s ease;flex-shrink:0}
+  .faq-item[open] .faq-question::after{transform:rotate(180deg)}
+  .faq-answer{padding:0 1.4rem 1.2rem;color:var(--text);font-size:15px;line-height:1.7}
+  .faq-answer p{margin-bottom:0.8rem}
+  .faq-answer p:last-child{margin-bottom:0}
+  .faq-answer strong{color:var(--gold-light)}
+  .faq-answer em{color:var(--text-muted)}
   </style>
 </head>
 <body id="top">
@@ -189,6 +203,7 @@
     <a href="#galleria">Galleria</a>
     <a href="#calendario">Il percorso</a>
     <a href="#libro">Il libro</a>
+    <a href="#faq">FAQ</a>
     <a href="#contatti">Contatti</a>
     <a href="#ispirazioni">Ispirazioni</a>
     <button class="theme-toggle" id="themeToggle" aria-label="Cambia tema chiaro/scuro" title="Cambia tema"><span class="theme-toggle-icon">☀</span> Tema chiaro</button>
@@ -226,6 +241,10 @@
     <p class="body-text mt-125">Viviamo in un'epoca in cui temiamo che l'intelligenza artificiale possa sfuggire al nostro controllo. Eppure è esattamente ciò che è già accaduto, da millenni, con la nostra <strong>intelligenza organica</strong>: la macchina biologica ha preso il comando, e l'Anima non riesce più, da sola, a disinserire il pilota automatico. La nostra vita non può ridursi a un'esistenza senza scopo, dettata dalla sopravvivenza. Riallineare il proprio sguardo a quello dell'Anima è il primo atto di libertà. Ciò che all'inizio sembra solo un allenamento a contrasto della meccanicità, a un certo punto diviene un'attitudine naturale: quel seme ha attecchito ed è diventato pianta vivente in noi.</p>
 
     <p class="body-text mt-125">Il primo strumento è il <strong>discernimento</strong>: imparare a distinguere ciò che è autentico da ciò che è meccanico dentro di noi. Questa reazione è mia, o è un automatismo della macchina? Questo pensiero nasce dall'interno o è indotto dall'esterno? Prima impariamo a discernere dentro, e poi sarà semplice discernere anche fuori. Il secondo strumento è il <strong>silenzio</strong>, uno dei più grandi alleati nella vita. Ascoltare il silenzio e osservare l'invisibile sono un'elevata forma di preghiera che può destarci dal sonno della coscienza: abbassare il rumore fuori e dentro di noi per fare chiarezza su chi siamo veramente.</p>
+
+    <p class="body-text mt-125">Chi siamo, in profondità? Se ci osserviamo con sincerità, scopriamo di non essere un blocco unico ma una <strong>pluralità di voci</strong> — come una matrioska affollata di personaggi che si alternano al timone della nostra nave. Uno dice "sì", l'altro frena, un terzo giudica, un quarto fugge. Noi crediamo di scegliere, ma spesso è solo il personaggio più rumoroso a decidere, mentre le parti più silenziose e ferite restano sommerse. Come diceva Goethe, <em>non esiste uomo più schiavo di colui che falsamente si crede libero</em>.</p>
+
+    <p class="body-text mt-125">Il vero lavoro, allora, è quello di un <strong>direttore d'orchestra</strong>: conoscere ogni voce, ogni strumento — come funziona, quando si attiva, cosa produce — e imparare a farli suonare insieme, in una sinfonia coerente con il nostro essere più autentico. Non si tratta di eliminare parti di noi, ma di integrarle. <em>Individuo</em>, dal latino, significa "non diviso": qualcosa di frammentario che impariamo a riunificare. Solo allora potremo vivere una vita congruente con noi stessi e agire da dentro — quella che Aristotele chiamava <em>enérgheia</em>, l'atto puro dell'azione connesso all'essere. Questa è la vera libertà dell'uomo: la deliberata possibilità di scegliere come rispondere a ciò che gli accade.</p>
   </div>
   <div class="about-grid sr" style="margin-top:2rem;">
     <div class="glass-card">
@@ -235,7 +254,7 @@
     <div class="glass-card">
       <h3 class="card-title"><span class="text-gold" aria-hidden="true">⊕</span> Struttura e accesso</h3>
       <p class="card-body">I seminari si svolgono in presenza a Bari e online, per permettere a chiunque di accedere agli insegnamenti, indipendentemente da dove ci si trova.</p>
-      <p class="card-body" style="margin-top:1rem;">Il percorso si articola in <strong class="text-gold-light">7 anni</strong> (3 di base + 4 avanzati), con <strong class="text-gold-light">6 incontri per anno</strong> nei livelli base e 3 nei livelli avanzati. Ogni anno costruisce sul precedente, accompagnando lo studente in una trasformazione progressiva e radicata.</p>
+      <p class="card-body" style="margin-top:1rem;">Il percorso si articola in <strong class="text-gold-light">7 anni</strong> (3 di base + 4 avanzati), con <strong class="text-gold-light">7 incontri per anno</strong> nei livelli base e 3 nei livelli avanzati. Ogni anno costruisce sul precedente, accompagnando lo studente in una trasformazione progressiva e radicata.</p>
     </div>
   </div>
 
@@ -755,6 +774,77 @@
     </div>
   </div>
 
+</section>
+
+
+<div class="epigraphic-rule"><span class="glyph">◆</span></div>
+
+<!-- DOMANDE FREQUENTI -->
+<section id="faq">
+  <div class="section-eyebrow"><span>Domande frequenti</span></div>
+  <h2 class="section-title sr">Quello che ci chiedete più spesso</h2>
+  <p class="section-sub">Le risposte alle domande più comuni per chi si avvicina alla Scuola.</p>
+
+  <div class="faq-list sr">
+
+    <details class="faq-item">
+      <summary class="faq-question">Perché una scuola? Non posso studiare da autodidatta?</summary>
+      <div class="faq-answer">
+        <p>Puoi, certo — e ogni ricerca è preziosa. Ma c'è una differenza sostanziale. L'autodidatta raccoglie informazioni frammentarie da libri, video e corsi diversi: mezze verità che rischiano di non comporsi mai in un quadro completo. Come ci insegna la psicologia della Gestalt, quando al nostro cervello mancano dei dati, li ricostruisce secondo il modello più comodo — non secondo la mappa reale.</p>
+        <p>Una scuola offre invece una <strong>struttura progressiva</strong>, un metodo consolidato che da secoli viene solcato da chi ci ha preceduto. Come Virgilio per Dante, le guide che hanno percorso quel cammino sanno dove si cade, come ci si rialza, cosa sfugge allo sguardo. Se il viaggio interiore è un viaggio, potreste mai raggiungere la destinazione con una mappa inesatta?</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">Serve esperienza pregressa o una formazione spirituale?</summary>
+      <div class="faq-answer">
+        <p>No. Il percorso parte dalle fondamenta e accompagna ciascuno dal punto in cui si trova. L'unico requisito è ciò che in alchimia si chiama la <em>sete dell'anima</em>: quella spinta interiore a conoscerti più a fondo, che — quando nasce — non ti lascia in pace finché non trova risposta. Non servono letture pregresse né competenze specifiche.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">Quanto dura il percorso e come è strutturato?</summary>
+      <div class="faq-answer">
+        <p>La Scuola si articola in <strong>7 anni</strong>: 3 di base e 4 di approfondimento. Anche solo i primi 3 anni costituiscono un percorso completo. Ogni anno prevede <strong>7 lezioni</strong> nei livelli base e 3 nei livelli avanzati, con cadenza di circa un mese e mezzo. Le lezioni si svolgono la <strong>domenica mattina dalle 9:00 alle 13:30</strong>.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">Quanto costa?</summary>
+      <div class="faq-answer">
+        <p>Il contributo è di <strong>30 € a lezione</strong>, pagabile di volta in volta. Per chi preferisce, è disponibile il pacchetto annuale a 150 € anziché 210 €, con una lezione offerta dalla Scuola. Non ci sono vincoli né obblighi: incarniamo il principio della libera scelta. Potete iniziare, fermarvi e riprendere quando volete.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">Posso seguire le lezioni online?</summary>
+      <div class="faq-answer">
+        <p>Sì. Ogni lezione viene registrata e resa disponibile tramite un link YouTube riservato, attivo in modo permanente. Potete rivedere la lezione quante volte desiderate, al vostro ritmo. L'esperienza in presenza resta naturalmente più ricca, ma la modalità online garantisce a chiunque di seguire il percorso indipendentemente da dove si trovi.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">Posso iniziare anche se le lezioni sono già partite?</summary>
+      <div class="faq-answer">
+        <p>Assolutamente sì. Grazie alle registrazioni, puoi recuperare le lezioni precedenti e inserirti nel percorso in qualsiasi momento. Non ci sono sbarramenti né prerequisiti temporali.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">Cosa si studia concretamente?</summary>
+      <div class="faq-answer">
+        <p>Il cuore del percorso è lo studio delle <strong>96 Leggi Universali</strong> — le leggi che regolano il macrocosmo e il microcosmo. Ma la conoscenza è solo metà del lavoro: l'altra metà è la <strong>pratica alchimistica</strong>, cioè la trasmutazione concreta di sé stessi nella vita quotidiana. Tra gli strumenti: Enneagramma, Kabbalà, studio simbolico dei miti e degli archetipi, Magia Ermetica, esercizi di osservazione di sé e meditazioni guidate. Ogni anno costruisce sul precedente, creando un percorso organico e progressivo.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">È una scuola religiosa?</summary>
+      <div class="faq-answer">
+        <p>No. La Scuola integra insegnamenti provenienti da più tradizioni spirituali — dal Vangelo alla sapienza orientale, dall'ermetismo alla psicologia del profondo — cercando il filo comune che le unisce. Il nostro approccio è quello della <em>reductio ad unum</em>: riportare la pluralità degli insegnamenti a un'unica verità di fondo. Non si tratta di fede cieca, ma di una <strong>scienza spirituale</strong> da verificare attraverso la pratica e l'esperienza diretta.</p>
+      </div>
+    </details>
+
+  </div>
 </section>
 
 <div class="epigraphic-rule"><span class="glyph">◆</span></div>
