@@ -1697,6 +1697,9 @@ section#ispirazioni > * { position: relative; z-index: 1; }
     rgba(201, 151, 58, 0.5) 92%,
     transparent 100%);
 }
+#panel-anno-esp .calendar-list .lesson-wrap::before {
+  display: none;
+}
 /* Esperienziali non hanno numerazione */
 #panel-anno-esp .calendar-list .event-date p {
   display: none;
