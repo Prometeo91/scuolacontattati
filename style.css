@@ -1689,31 +1689,13 @@ section#ispirazioni > * { position: relative; z-index: 1; }
   }
 }
 
-/* Pannello esperienziali: stile differenziato (stella dorata) */
+/* Pannello esperienziali: stile dorato coerente */
 #panel-anno-esp .calendar-list::before {
   background: linear-gradient(to bottom,
     transparent 0%,
     rgba(201, 151, 58, 0.5) 8%,
     rgba(201, 151, 58, 0.5) 92%,
     transparent 100%);
-}
-#panel-anno-esp .calendar-list .lesson-wrap::before {
-  content: '✶';
-  background: transparent;
-  color: var(--gold-light);
-  width: auto;
-  height: auto;
-  font-size: 16px;
-  box-shadow: none;
-  line-height: 1;
-  top: 1.5rem;
-  left: -2.35rem;
-  text-shadow: 0 0 12px rgba(201, 151, 58, 0.6);
-  transform: none;
-}
-#panel-anno-esp .calendar-list .lesson-wrap:hover::before {
-  transform: scale(1.2);
-  box-shadow: none;
 }
 /* Esperienziali non hanno numerazione */
 #panel-anno-esp .calendar-list .event-date p {
