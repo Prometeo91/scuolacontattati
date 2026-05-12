@@ -1689,18 +1689,18 @@ section#ispirazioni > * { position: relative; z-index: 1; }
   }
 }
 
-/* Pannello esperienziali: stile differenziato (stella verde) — mantiene il suo look */
+/* Pannello esperienziali: stile differenziato (stella dorata) */
 #panel-anno-esp .calendar-list::before {
   background: linear-gradient(to bottom,
     transparent 0%,
-    rgba(29, 158, 117, 0.5) 8%,
-    rgba(29, 158, 117, 0.5) 92%,
+    rgba(201, 151, 58, 0.5) 8%,
+    rgba(201, 151, 58, 0.5) 92%,
     transparent 100%);
 }
 #panel-anno-esp .calendar-list .lesson-wrap::before {
   content: '✶';
   background: transparent;
-  color: #5dcaa5;
+  color: var(--gold-light);
   width: auto;
   height: auto;
   font-size: 16px;
@@ -1708,7 +1708,7 @@ section#ispirazioni > * { position: relative; z-index: 1; }
   line-height: 1;
   top: 1.5rem;
   left: -2.35rem;
-  text-shadow: 0 0 12px rgba(29, 158, 117, 0.6);
+  text-shadow: 0 0 12px rgba(201, 151, 58, 0.6);
 }
 #panel-anno-esp .calendar-list .lesson-wrap:hover::before {
   transform: scale(1.2);
