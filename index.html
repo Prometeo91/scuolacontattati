@@ -175,6 +175,12 @@
   .lightbox-next{right:16px}
   .lightbox-counter{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.6);font-size:14px;font-family:var(--font-body)}
 
+
+  /* Fix esperienziali: nasconde simbolo JS, tiene solo rombo timeline */
+  #panel-anno-esp .ev-num-esp { display:none !important; }
+  #panel-anno-esp .event-date-esp { display:none !important; }
+  #panel-anno-esp .event-vline-esp { display:none !important; }
+  #panel-anno-esp .calendar-list::before { background:linear-gradient(to bottom, transparent 0%, rgba(201,151,58,0.5) 8%, rgba(201,151,58,0.5) 92%, transparent 100%) !important; }
   /* FAQ */
   .faq-list{display:flex;flex-direction:column;gap:0.5rem}
   .faq-item{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color .3s ease}
