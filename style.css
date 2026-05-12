@@ -1068,9 +1068,9 @@ select:focus-visible {
 .bio-divider { height:0.5px; background:linear-gradient(90deg,transparent,rgba(201,151,58,0.3),transparent); margin:1rem 0; }
 
 /* Esperienziali banner */
-.esp-banner { background:rgba(29,158,117,0.07); border:0.5px solid rgba(29,158,117,0.35); border-radius:14px; padding:1.1rem 1.4rem; display:flex; gap:0.75rem; align-items:flex-start; margin-top:10px; }
-.esp-banner-title { font-size: 16px; font-weight:500; color:#5dcaa5; margin-bottom:0.3rem; }
-.anno-tab-esp { border-color:rgba(29,158,117,0.5); color:#5dcaa5; }
+.esp-banner { background:rgba(201,151,58,0.07); border:0.5px solid rgba(201,151,58,0.35); border-radius:14px; padding:1.1rem 1.4rem; display:flex; gap:0.75rem; align-items:flex-start; margin-top:10px; }
+.esp-banner-title { font-size: 16px; font-weight:500; color:var(--gold-light); margin-bottom:0.3rem; }
+.anno-tab-esp { border-color:rgba(201,151,58,0.5); color:var(--gold-light); }
 .percorso-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.75rem 0 2.5rem; }
 .percorso-block { padding: 1.5rem 1.75rem; border-left: 2px solid rgba(201,151,58,0.3); }
 .percorso-block-label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 0.85rem; }
@@ -1148,7 +1148,7 @@ select:focus-visible {
 .serif-footer-quote { margin-top:0.75rem; font-style:italic; }
 .serif-quote-book { font-size:16px; font-weight:600; }
 .porte-aperte { background:rgba(201,151,58,0.07); border:0.5px solid rgba(201,151,58,0.35); border-radius:14px; padding:1.1rem 1.4rem; display:flex; gap:0.75rem; align-items:flex-start; margin-top:10px; }
-.porte-aperte-esp { background:rgba(29,158,117,0.07); border:0.5px solid rgba(29,158,117,0.35); border-radius:14px; padding:1.1rem 1.4rem; display:flex; gap:0.75rem; align-items:flex-start; margin-top:10px; }
+.porte-aperte-esp { background:rgba(201,151,58,0.07); border:0.5px solid rgba(201,151,58,0.35); border-radius:14px; padding:1.1rem 1.4rem; display:flex; gap:0.75rem; align-items:flex-start; margin-top:10px; }
 
 /* BIO TAGS */
 .bio-tags { display:flex; flex-wrap:wrap; gap:5px; margin-top:0.25rem; }
@@ -1709,6 +1709,7 @@ section#ispirazioni > * { position: relative; z-index: 1; }
   top: 1.5rem;
   left: -2.35rem;
   text-shadow: 0 0 12px rgba(201, 151, 58, 0.6);
+  transform: none;
 }
 #panel-anno-esp .calendar-list .lesson-wrap:hover::before {
   transform: scale(1.2);
@@ -1769,15 +1770,15 @@ section#ispirazioni > * { position: relative; z-index: 1; }
 
 /* Classi generate dinamicamente dal JS */
 .ev-num { font-size: 18px; color: #b49fe0; text-align: center; }
-.ev-num-esp { font-size: 20px; color: #5dcaa5; text-align: center; }
+.ev-num-esp { font-size: 20px; color: var(--gold-light); text-align: center; }
 .event-row-esp {
   opacity: 0.9;
-  border-color: rgba(29,158,117,0.3);
+  border-color: rgba(201,151,58,0.3);
 }
-.event-vline-esp { background: rgba(29,158,117,0.3); }
+.event-vline-esp { background: rgba(201,151,58,0.3); }
 .event-date-esp { min-width: 32px; }
 .detail-pill-esp {
-  background: rgba(29,158,117,0.12);
-  color: #5dcaa5;
-  border-color: rgba(29,158,117,0.3);
+  background: rgba(201,151,58,0.12);
+  color: var(--gold-light);
+  border-color: rgba(201,151,58,0.3);
 }
