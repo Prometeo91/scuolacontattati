@@ -476,7 +476,7 @@ nav {
 @keyframes emblem-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 .hero::before { content: ''; position: absolute; top: 5rem; left: 50%; transform: translateX(-50%); width: 520px; height: 520px; background: radial-gradient(circle, rgba(201, 151, 58, 0.18) 0%, rgba(201, 151, 58, 0.08) 25%, rgba(123, 94, 167, 0.06) 50%, transparent 70%); border-radius: 50%; z-index: 0; pointer-events: none; animation: halo-pulse 6s ease-in-out infinite; }
 @keyframes halo-pulse { 0%, 100% { opacity: 0.7; transform: translateX(-50%) scale(1); } 50% { opacity: 1; transform: translateX(-50%) scale(1.05); } }
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .hero-emblem { width: 150px; height: 150px; }
   .hero::before { width: 380px; height: 380px; }
 }
@@ -629,7 +629,7 @@ section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
 
 /* GRIDS */
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-@media (max-width: 600px) { .about-grid { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } }
 .chiavi-list { display: flex; flex-direction: column; gap: 14px; }
 .chiave-item { display: flex; align-items: flex-start; gap: 1.75rem; padding: 1.5rem 1.75rem; }
 .chiave-num { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 700; color: var(--gold); opacity: 0.25; line-height: 1; flex-shrink: 0; width: 2.5rem; text-align: center; margin-top: -0.15rem; }
@@ -638,7 +638,7 @@ section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
 @media (max-width: 480px) { .chiave-item { flex-direction: column; gap: 0.5rem; } .chiave-num { font-size: 2rem; width: auto; } }
 .card-full { grid-column: 1 / -1; }
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: stretch; }
-@media (max-width: 580px) { .two-col { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
 
 /* PILLAR — stile pergamena */
 .pillar-card {
@@ -669,7 +669,7 @@ section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
 
 /* BOOK */
 .book-card { background: var(--surface); border: 0.5px solid var(--border-hover); border-radius: 14px; padding: 2rem; display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; }
-@media (max-width: 540px) { .book-card { flex-direction: column; align-items: center; text-align: center; } .book-info { text-align: left; } }
+@media (max-width: 640px) { .book-card { flex-direction: column; align-items: center; text-align: center; } .book-info { text-align: left; } }
 .book-cover { width: 100px; height: 140px; border-radius: 8px; background: linear-gradient(160deg, #1a0f00, #3d2400); border: 1px solid var(--border-hover); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0.75rem; flex-shrink: 0; }
 .book-cover-symbol { font-size: 28px; margin-bottom: 0.5rem; }
 .book-cover-title { font-family: var(--font-display); font-size: 11px; color: var(--gold-light); line-height: 1.4; letter-spacing: 0.04em; }
@@ -685,7 +685,7 @@ section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
 
 /* TEACHERS — stile pergamena */
 .teachers-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 2rem; }
-@media (max-width: 540px) { .teachers-row { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .teachers-row { grid-template-columns: 1fr; } }
 .teacher-card {
   position: relative;
   background: rgba(255,255,255,0.018);
@@ -708,9 +708,9 @@ section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
 .teacher-card > * { position: relative; z-index: 1; }
 .teacher-avatar { width: 72px; height: 72px; border-radius: 50%; border: 1.5px solid var(--border-hover); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 26px; color: var(--gold-light); margin: 0 auto 1rem; background: rgba(201,151,58,0.06); }
 .teacher-photo { width: 120px; height: 120px; border-radius: 50%; border: 1.5px solid var(--border-hover); object-fit: cover; flex-shrink: 0; }
-@media (max-width: 540px) { .teacher-photo { width: 100px; height: 100px; } }
+@media (max-width: 640px) { .teacher-photo { width: 100px; height: 100px; } }
 .teacher-photo-collab { width: 100px; height: 100px; border-radius: 50%; border: 1.5px solid var(--border-hover); object-fit: cover; margin: 0 auto 0.75rem; display: block; }
-@media (max-width: 540px) { .teacher-photo-collab { width: 90px; height: 90px; } }
+@media (max-width: 640px) { .teacher-photo-collab { width: 90px; height: 90px; } }
 .teacher-name { font-family: var(--font-display); font-size: 20px; font-weight: 500; color: var(--text); margin-bottom: 0.3rem; letter-spacing: 0.01em; }
 .teacher-role { font-size: 12px; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; font-family: var(--font-sans); }
 
@@ -813,7 +813,7 @@ section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
   gap: 4px 1rem; margin-bottom: 1rem;
   list-style: none;
 }
-@media (max-width: 500px) { .lesson-topics { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .lesson-topics { grid-template-columns: 1fr; } }
 .lesson-topics li {
   font-size: 15px; color: var(--text); line-height: 1.72;
   padding: 0.2rem 0; border-bottom: 0.5px solid rgba(201,151,58,0.06);
@@ -869,7 +869,7 @@ section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
   pointer-events: none;
 }
 .quote-slide > * { position: relative; z-index: 1; }
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .quote-slide { padding: 1.75rem 1.25rem; }
 }
 .quote-slide-text {
@@ -1097,7 +1097,7 @@ select:focus-visible {
 .percorso-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.75rem 0 2.5rem; }
 .percorso-block { padding: 1.5rem 1.75rem; border-left: 2px solid rgba(201,151,58,0.3); }
 .percorso-block-label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 0.85rem; }
-@media (max-width: 680px) { .percorso-blocks { grid-template-columns: 1fr; gap: 1rem; } }
+@media (max-width: 640px) { .percorso-blocks { grid-template-columns: 1fr; gap: 1rem; } }
 
 /* Presentazioni list */
 .pres-list { display:flex; flex-direction:column; gap:8px; }
@@ -1784,7 +1784,7 @@ section#ispirazioni > * { position: relative; z-index: 1; }
 .footer-inner > p:first-of-type { margin-top: 0.5rem; }
 
 /* Definizioni Ricchezza/Abbondanza/Mission: responsive */
-@media (max-width: 680px) {
+@media (max-width: 640px) {
   #libro .about-grid .glass-card > div { grid-template-columns: 1fr !important; }
 }
 
