@@ -1803,3 +1803,7 @@ section#ispirazioni > * { position: relative; z-index: 1; }
   color: var(--gold-light);
   border-color: rgba(201,151,58,0.3);
 }
+
+/* Griglia 3 definizioni (Ricchezza, Abbondanza, Mission) */
+.three-defs-grid { display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; }
+@media(max-width:640px){ .three-defs-grid { grid-template-columns: 1fr; gap: 1.25rem; } }
