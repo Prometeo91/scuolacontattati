@@ -1806,4 +1806,9 @@ section#ispirazioni > * { position: relative; z-index: 1; }
 
 /* Griglia 3 definizioni (Ricchezza, Abbondanza, Mission) */
 .three-defs-grid { display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; }
-@media(max-width:640px){ .three-defs-grid { grid-template-columns: 1fr; gap: 1.25rem; } }
+@media(max-width:640px){
+  .three-defs-grid { grid-template-columns: 1fr; gap: 0; }
+  .three-defs-grid > div { padding: 1.25rem 0; border-bottom: 0.5px solid rgba(201,151,58,0.15); }
+  .three-defs-grid > div:last-child { border-bottom: none; padding-bottom: 0; }
+  .three-defs-grid > div:first-child { padding-top: 0; }
+}
