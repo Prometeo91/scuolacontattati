@@ -191,6 +191,16 @@
     .three-defs-grid>div:last-child{border-bottom:none !important;padding-bottom:0 !important}
     .three-defs-grid>div:first-child{padding-top:0 !important}
   }
+
+  /* Chiavi - approfondisci */
+  .chiave-details{margin-top:0.75rem}
+  .chiave-more{font-family:var(--font-display);font-size:14px;color:var(--gold);cursor:pointer;list-style:none;opacity:0.7;transition:opacity .2s}
+  .chiave-more:hover{opacity:1}
+  .chiave-more::-webkit-details-marker{display:none}
+  .chiave-details[open] .chiave-more{opacity:1}
+  .chiave-extra{margin-top:0.75rem;padding-top:0.75rem;border-top:0.5px solid rgba(201,151,58,0.12)}
+  .chiave-extra p{margin-bottom:0.6rem;font-size:15px;line-height:1.7;color:var(--text-muted)}
+  .chiave-extra p:last-child{margin-bottom:0}
   /* FAQ */
   .faq-list{display:flex;flex-direction:column;gap:0.5rem}
   .faq-item{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color .3s ease}
@@ -352,29 +362,43 @@
         <div class="chiave-num" aria-hidden="true">1</div>
         <div class="chiave-content">
           <h3 class="card-title">Presenza e Osservazione</h3>
-          <p class="card-body">Solo il 5% della nostra vita è conscio. Il restante 95% è governato da programmi inconsci, come un pilota automatico che determina pensieri, emozioni e reazioni al nostro posto. Il primo passo è sviluppare il <strong>Doppio Alchemico</strong>, l'Osservatore interiore: una parte di noi capace di guardare senza giudicare ciò che accade dentro e fuori. Meditare non come pratica ma come atteggiamento mentale: autosservazione, attenzione divisa, introspezione senza filtri. Ogni volta che cediamo inconsapevolmente a un vizio, a una dipendenza, a una reazione automatica, stiamo cedendo la nostra <strong>sovranità</strong>, il potere personale che ci è stato conferito. Riprenderselo inizia con un gesto semplice: osservare. Perché il tempo non guarisce. La presenza sì.</p>
+          <p class="card-body">Solo il 5% della nostra vita è conscio. Il restante 95% è governato da programmi inconsci, come un pilota automatico. Il primo passo è sviluppare il <strong>Doppio Alchemico</strong>, l'Osservatore interiore: osservare senza giudicare. Perché il tempo non guarisce. La presenza sì.</p>
+          <details class="chiave-details"><summary class="chiave-more">Approfondisci ▾</summary><div class="chiave-extra">
+            <p>Meditare non come pratica ma come atteggiamento mentale: autosservazione, attenzione divisa, introspezione senza filtri. Ogni volta che cediamo inconsapevolmente a un vizio, a una dipendenza, a una reazione automatica, stiamo cedendo la nostra <strong>sovranità</strong>, il potere personale che ci è stato conferito. Riprenderselo inizia con un gesto semplice: osservare.</p>
+          </div></details>
         </div>
       </div>
       <div class="chiave-item glass-card">
         <div class="chiave-num" aria-hidden="true">2</div>
         <div class="chiave-content">
           <h3 class="card-title">Il Fuoco Alchemico</h3>
-          <p class="card-body">Le emozioni non elaborate diventano veleni che intossicano corpo, mente e relazioni. Il <strong>Fuoco Alchemico</strong> nasce dall'attrito tra il disagio interiore e l'osservazione consapevole: è il fuoco che accende la trasformazione. Non basta sapere; bisogna <em>diventare</em> ciò che si sa. Il lavoro è simile a una ginnastica posturale della mente: si allentano le vie neurali del pensiero distorto, quelle ipertrofiche che ci fanno reagire da vittime, e si rinforzano le vie del pensiero corretto, fino a quando la nuova postura diventa naturale. Le nostre ferite non sono solo qualcosa da guarire: sono il motore stesso dell'evoluzione. Fanno male, e quel dolore ci attiva al movimento. Ma non possiamo cambiare la nostra vita senza aver cambiato la nostra essenza, altrimenti tutto si rimetterà in coerenza e tornerà come prima. Ciò che viene osservato e nominato perde potere. Il meccanismo non scompare: si vede. E quando si vede, si può scegliere.</p>
+          <p class="card-body">Le emozioni non elaborate diventano veleni che intossicano corpo, mente e relazioni. Il <strong>Fuoco Alchemico</strong> nasce dall'attrito tra il disagio interiore e l'osservazione consapevole: è il fuoco che accende la trasformazione. Non basta sapere; bisogna <em>diventare</em> ciò che si sa.</p>
+          <details class="chiave-details"><summary class="chiave-more">Approfondisci ▾</summary><div class="chiave-extra">
+            <p>Il lavoro è simile a una ginnastica posturale della mente: si allentano le vie neurali del pensiero distorto, quelle ipertrofiche che ci fanno reagire da vittime, e si rinforzano le vie del pensiero corretto, fino a quando la nuova postura diventa naturale.</p>
+            <p>Le nostre ferite non sono solo qualcosa da guarire: sono il motore stesso dell'evoluzione. Ma non possiamo cambiare la nostra vita senza aver cambiato la nostra essenza, altrimenti tutto si rimetterà in coerenza e tornerà come prima. Ciò che viene osservato e nominato perde potere. Il meccanismo non scompare: si vede. E quando si vede, si può scegliere.</p>
+          </div></details>
         </div>
       </div>
       <div class="chiave-item glass-card">
         <div class="chiave-num" aria-hidden="true">3</div>
         <div class="chiave-content">
           <h3 class="card-title">Riprendere le Redini</h3>
-          <p class="card-body">Gurdjieff descrive l'essere umano come una <strong>carrozza senza padrone</strong>: il corpo fisico è la carrozza trascinata senza controllo, le emozioni sono i cavalli impulsivi, la mente è il cocchiere distratto, e la coscienza (l'Anima) è il passeggero addormentato che dovrebbe indicare la direzione. Finché il passeggero dorme, la carrozza va alla deriva. Il lavoro su di sé consiste nel risvegliarlo: riconoscere i propri automatismi, le maschere, i condizionamenti, e gradualmente diventare padroni della propria vita. Non più vittime e schiavi dell'esterno, ma artefici consapevoli del proprio cammino.</p>
+          <p class="card-body">Gurdjieff descrive l'essere umano come una <strong>carrozza senza padrone</strong>: il corpo fisico è la carrozza, le emozioni i cavalli impulsivi, la mente il cocchiere distratto, e la coscienza il passeggero addormentato. Finché il passeggero dorme, la carrozza va alla deriva.</p>
+          <details class="chiave-details"><summary class="chiave-more">Approfondisci ▾</summary><div class="chiave-extra">
+            <p>Il lavoro su di sé consiste nel risvegliarlo: riconoscere i propri automatismi, le maschere, i condizionamenti, e gradualmente diventare padroni della propria vita. Non più vittime e schiavi dell'esterno, ma artefici consapevoli del proprio cammino.</p>
+          </div></details>
         </div>
       </div>
       <div class="chiave-item glass-card">
         <div class="chiave-num" aria-hidden="true">4</div>
         <div class="chiave-content">
           <h3 class="card-title">La Risalita</h3>
-          <p class="card-body">L'antica tradizione descrive il cammino dell'anima come un <strong>Albero della Vita</strong> con dieci frutti, dieci attributi divini che l'essere umano deve incarnare per tornare alla propria origine. Nella discesa, l'anima riceve i semi di ogni attributo; nella risalita, deve piantarli nella terra della propria esistenza e farli crescere. Per farlo dovrà attraversare <strong>sette iniziazioni</strong>, sette periodi di prova che abilitano a nuovi stati di coscienza, e orientarsi grazie al proprio <strong>Raggio Animico</strong>, la nota unica che connette ciascuno alla propria natura divina. Lungo la via, le <strong>sette ferite</strong> dell'anima — rifiuto, abbandono, tradimento, umiliazione, ingiustizia, abuso, negligenza — non sono ostacoli ma materia prima: trasmutarle significa incarnare i <strong>sette talenti spirituali</strong> corrispondenti e costruire, pezzo dopo pezzo, la propria <strong>Pietra Filosofale</strong>. Il cammino non è solo spogliarsi di ciò che non siamo: è riscoprire il <strong>Verbo</strong>, la parola creatrice, e usarlo consapevolmente, con una mente connessa al cuore.</p>
-          <blockquote class="section-blockquote" style="margin-top:1.25rem; font-size:17px;"><em>Abracadabra</em> — io creo come dico.</blockquote>
+          <p class="card-body">L'antica tradizione descrive il cammino dell'anima come un <strong>Albero della Vita</strong> con dieci frutti, dieci attributi divini che l'essere umano deve incarnare per tornare alla propria origine. Per farlo dovrà attraversare <strong>sette iniziazioni</strong> e orientarsi grazie al proprio <strong>Raggio Animico</strong>, la nota unica che connette ciascuno alla propria natura divina.</p>
+          <details class="chiave-details"><summary class="chiave-more">Approfondisci ▾</summary><div class="chiave-extra">
+            <p>Lungo la via, le <strong>sette ferite</strong> dell'anima — rifiuto, abbandono, tradimento, umiliazione, ingiustizia, abuso, negligenza — non sono ostacoli ma materia prima: trasmutarle significa incarnare i <strong>sette talenti spirituali</strong> corrispondenti e costruire, pezzo dopo pezzo, la propria <strong>Pietra Filosofale</strong>.</p>
+            <p>Il cammino non è solo spogliarsi di ciò che non siamo: è riscoprire il <strong>Verbo</strong>, la parola creatrice, e usarlo consapevolmente, con una mente connessa al cuore.</p>
+            <blockquote class="section-blockquote" style="margin-top:1rem; font-size:17px;"><em>Abracadabra</em> — io creo come dico.</blockquote>
+          </div></details>
         </div>
       </div>
     </div>
