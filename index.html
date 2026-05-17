@@ -59,6 +59,19 @@
       }
     })();
   </script>
+  <script>
+    (function(){
+      var l=localStorage.getItem('sc-lang');
+      if(l==='en'){
+        var p=window.location.pathname;
+        if(p.indexOf('/en/')< 0){
+          var enPath=p.replace(/\/?(index\.html)?$/,'/en/index.html').replace(/\/privacy\.html$/,'/en/privacy.html');
+          if(enPath===p) enPath='/en/index.html';
+          window.location.replace(enPath);
+        }
+      }
+    })();
+  </script>
   <meta name="color-scheme" content="dark light"/>
   <link rel="canonical" href="https://scuolacontattati.com/"/>
   <title>Scuola ContattaTi · Consapevolezza ed Alchimia a Bari</title>
@@ -235,7 +248,7 @@
     <a href="#faq">FAQ</a>
     <a href="#contatti">Contatti</a>
     <a href="#ispirazioni">Ispirazioni</a>
-    <a href="en/index.html" class="lang-switch" title="English version">🇬🇧 EN</a>
+    <a href="en/index.html" class="lang-switch" title="English version" onclick="localStorage.setItem('sc-lang','en')">🇬🇧 EN</a>
     <button class="theme-toggle" id="themeToggle" aria-label="Cambia tema chiaro/scuro" title="Cambia tema"><span class="theme-toggle-icon">☀</span> Tema chiaro</button>
   </div>
 </nav>
