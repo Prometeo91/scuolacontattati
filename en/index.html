@@ -226,8 +226,8 @@
   /* Language switcher pill */
   .lang-pill{display:inline-flex;align-items:center;gap:0;border:0.5px solid var(--border);border-radius:999px;padding:2px;margin-right:0.25rem;font-family:var(--font-sans);font-size:12px;font-weight:600;letter-spacing:0.06em}
   .lang-pill a{display:inline-block;padding:4px 10px;border-radius:999px;text-decoration:none;transition:color .2s,background .2s;line-height:1}
-  .lang-pill a.active{background:var(--gold);color:#1a1000}
-  .lang-pill a:not(.active){color:var(--text-muted)}
+  .lang-pill a.lang-active{background:var(--gold);color:#1a1000}
+  .lang-pill a:not(.lang-active){color:var(--text-muted)}
   .lang-pill a:not(.active):hover{color:var(--gold-light)}
   .lang-pill .lang-dot{color:var(--border);font-size:8px;padding:0 1px;user-select:none}
   </style>
@@ -251,7 +251,7 @@
     <a href="#faq">FAQ</a>
     <a href="#contatti">Contact</a>
     <a href="#ispirazioni">Inspirations</a>
-    <span class="lang-pill"><a href="../index.html" onclick="localStorage.setItem('sc-lang','it')">IT</a><span class="lang-dot">·</span><a href="#" class="active">EN</a></span>
+    <span class="lang-pill"><a href="../index.html" onclick="localStorage.setItem('sc-lang','it')">IT</a><span class="lang-dot">·</span><a href="#" class="lang-active">EN</a></span>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme" title="Toggle theme"><span class="theme-toggle-icon">☀</span> Light theme</button>
   </div>
 </nav>
