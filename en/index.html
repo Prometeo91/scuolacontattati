@@ -1,0 +1,2319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Analytics (GA4) — caricato solo dopo consenso (GDPR / ePrivacy) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    // Consent Mode v2 — default: tutto negato finché l'utente non sceglie
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'functionality_storage': 'granted',
+      'security_storage': 'granted',
+      'wait_for_update': 500
+    });
+    (function(){
+      var c = localStorage.getItem('sc-cookie');
+      if(c === 'accept'){
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-2NTMVVV5GB';
+        document.head.appendChild(s);
+        gtag('config', 'G-2NTMVVV5GB', { 'anonymize_ip': true });
+      }
+    })();
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="author" content="Scuola ContattaTi"/>
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="google-site-verification" content="TZUtM4nDXrj2tNXWp7Hp1FRAtMOhQDTUHlKgJvn57mw"/>
+
+  <!-- Font preload (only above-the-fold critical weights) -->
+  <link rel="preload" href="../fonts/eb-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/eb-garamond-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png"/>
+  <link rel="shortcut icon" href="../favicon.ico"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
+  <link rel="manifest" href="../site.webmanifest"/>
+  <meta name="theme-color" content="#0d0b1a" id="metaThemeColor"/>
+  <!-- Anti-flash: applica il tema salvato prima del render -->
+  <script>
+    (function(){
+      var t=localStorage.getItem('sctheme');
+      if(t==='light'){
+        document.documentElement.setAttribute('data-theme','light');
+        var m=document.getElementById('metaThemeColor');
+        if(m)m.content='#f5f0e8';
+      }
+    })();
+  </script>
+  <meta name="color-scheme" content="dark light"/>
+  <link rel="canonical" href="https://scuolacontattati.com/en/"/>
+  <title>Scuola ContattaTi · Awareness and Alchemy in Bari</title>
+  <meta name="description" content="A path of Awareness and Alchemy in Bari, Italy, and online. Self-work through Ancient Teachings and the 96 Universal Laws, with Anna Carla and Nicolaos."/>
+  <meta property="og:title" content="Scuola ContattaTi · Awareness and Alchemy in Bari"/>
+  <meta property="og:description" content="School of Awareness and Alchemy in Bari, Italy. A path of self-knowledge based on Ancient Teachings, the Fourth Way and the 96 Universal Laws."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="Scuola ContattaTi"/>
+  <meta property="og:url" content="https://scuolacontattati.com/en"/>
+  <meta property="og:locale" content="en_GB"/>
+  <meta property="og:image" content="https://scuolacontattati.com/og-image.png"/>
+  <meta property="og:image:width" content="1800"/>
+  <meta property="og:image:height" content="945"/>
+  <meta property="og:image:alt" content="School of Awareness and Alchemy · Conductors: Anna Carla Digregorio &amp; Nicolaos Anifantis. Γνῶθι Σεαυτόν · Know Thyself."/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Scuola ContattaTi · Awareness and Alchemy in Bari"/>
+  <meta name="twitter:description" content="School of Awareness and Alchemy in Bari. A path of self-knowledge through Ancient Teachings and 96 Universal Laws."/>
+  <meta name="twitter:image" content="https://scuolacontattati.com/og-image.png"/>
+
+  <!-- Structured data — Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "Scuola ContattaTi",
+        "alternateName": ["ContattaTi", "Scuola di Consapevolezza ed Alchimia"],
+        "url": "https://scuolacontattati.com"
+      },
+      {
+        "@type": "EducationalOrganization",
+        "@id": "#scuola",
+        "name": "Scuola ContattaTi",
+        "alternateName": "Scuola di Consapevolezza ed Alchimia",
+        "description": "A path of Awareness and Alchemy in Bari, Italy, and online. Study and practice of transmutative Alchemy, Christic Teachings, Enneagram, Anthroposophy, Theosophy, Kabbalah and Arcane-Esoteric teachings.",
+        "url": "https://scuolacontattati.com",
+        "image": "../og-image.png",
+        "logo": "../og-image.png",
+        "email": "scuola-contattati@libero.it",
+        "telephone": "+39-334-999-1888",
+        "sameAs": [
+          "https://www.facebook.com/nicolaosanifantis",
+          "https://wa.me/393349991888"
+        ],
+        "founder": [
+          { "@id": "#nicolaos" },
+          { "@id": "#annacarla" }
+        ],
+        "knowsAbout": [
+          "Alchimia trasmutativa",
+          "Consapevolezza",
+          "Risveglio della Coscienza",
+          "Leggi Universali",
+          "Enneagramma",
+          "Cabala",
+          "Teosofia",
+          "Antroposofia",
+          "Mindfulness"
+        ],
+        "areaServed": {
+          "@type": "City",
+          "name": "Bari"
+        },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "Person",
+        "@id": "#nicolaos",
+        "name": "Nicolaos Anifantis",
+        "jobTitle": "Conductor and Teacher",
+        "worksFor": { "@id": "#scuola" },
+        "telephone": "+39-334-999-1888",
+        "email": "scuola-contattati@libero.it",
+        "sameAs": "https://www.facebook.com/nicolaosanifantis"
+      },
+      {
+        "@type": "Person",
+        "@id": "#annacarla",
+        "name": "Anna Carla Digregorio",
+        "jobTitle": "Conductor and Teacher",
+        "worksFor": { "@id": "#scuola" },
+        "telephone": "+39-392-911-6441"
+      }
+    ]
+  }
+  </script>
+
+  <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) — self-hosted, zero dipendenze esterne -->
+  <link rel="stylesheet" href="../style.css?v=20260511"/>
+
+  <style>
+  .gallery-grid{display:grid !important;grid-template-columns:repeat(3,1fr) !important;gap:8px !important}
+  @media(max-width:768px){.gallery-grid{grid-template-columns:repeat(2,1fr) !important}}
+  @media(max-width:480px){.gallery-grid{grid-template-columns:repeat(2,1fr) !important;gap:6px !important}}
+  .gallery-event{margin-top:1.5rem}
+  .gallery-event-title{font-family:var(--font-display);font-size:22px;font-weight:600;color:var(--gold-light);margin-bottom:.25rem}
+  .gallery-event-sub{font-size:14px;color:var(--text-muted);margin-bottom:1.25rem}
+  .gallery-item{overflow:hidden !important;border-radius:8px;cursor:pointer;max-height:180px !important;height:180px !important}
+  .gallery-item img{width:100% !important;height:180px !important;display:block !important;object-fit:cover !important;transition:transform .35s ease,filter .35s ease}
+  .gallery-item:hover img{transform:scale(1.05);filter:brightness(1.1)}
+  .gallery-hidden{display:none}
+  .gallery-grid.expanded .gallery-hidden{display:block}
+  .gallery-toggle{display:block;margin:1.25rem auto 0;background:none;border:1px solid var(--gold);color:var(--gold-light);font-family:var(--font-display);font-size:15px;padding:.6rem 1.6rem;border-radius:999px;cursor:pointer;transition:all .3s ease}
+  .gallery-toggle:hover{background:var(--gold);color:var(--bg)}
+  .lightbox-overlay{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;opacity:0;transition:opacity .3s ease}
+  .lightbox-overlay.active{display:flex;opacity:1}
+  .lightbox-overlay img{max-width:92vw;max-height:88vh;object-fit:contain;border-radius:6px;box-shadow:0 8px 40px rgba(0,0,0,.6)}
+  .lightbox-close{position:absolute;top:16px;right:20px;font-size:32px;color:#fff;background:none;border:none;cursor:pointer;z-index:10000;line-height:1;opacity:.8;transition:opacity .2s}
+  .lightbox-close:hover{opacity:1}
+  .lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);font-size:36px;color:#fff;background:rgba(255,255,255,.1);border:none;cursor:pointer;padding:12px 16px;border-radius:50%;opacity:.7;transition:opacity .2s;z-index:10000}
+  .lightbox-nav:hover{opacity:1;background:rgba(255,255,255,.18)}
+  .lightbox-prev{left:16px}
+  .lightbox-next{right:16px}
+  .lightbox-counter{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.6);font-size:14px;font-family:var(--font-sans)}
+
+
+  /* Fix esperienziali: nasconde simbolo JS, tiene solo rombo timeline */
+  #panel-anno-esp .ev-num-esp { display:none !important; }
+  #panel-anno-esp .event-date-esp { display:none !important; }
+  #panel-anno-esp .event-vline-esp { display:none !important; }
+  #panel-anno-esp .calendar-list::before { background:linear-gradient(to bottom, transparent 0%, rgba(201,151,58,0.5) 8%, rgba(201,151,58,0.5) 92%, transparent 100%) !important; }
+
+  /* Tre definizioni */
+  .three-defs-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem}
+  /* Tre definizioni mobile */
+  @media(max-width:640px){
+    .three-defs-grid{grid-template-columns:1fr !important;gap:0 !important}
+    .three-defs-grid>div{padding:1.25rem 0 !important;border-bottom:0.5px solid rgba(201,151,58,0.15) !important}
+    .three-defs-grid>div:last-child{border-bottom:none !important;padding-bottom:0 !important}
+    .three-defs-grid>div:first-child{padding-top:0 !important}
+  }
+
+  /* Chiavi - approfondisci */
+  .chiave-details{margin-top:0.75rem}
+  .chiave-more{font-family:var(--font-display);font-size:14px;color:var(--gold);cursor:pointer;list-style:none;opacity:0.7;transition:opacity .2s}
+  .chiave-more:hover{opacity:1}
+  .chiave-more::-webkit-details-marker{display:none}
+  .chiave-details[open] .chiave-more{opacity:1}
+  .chiave-extra{margin-top:0.75rem;padding-top:0.75rem;border-top:0.5px solid rgba(201,151,58,0.12)}
+  .chiave-extra p{margin-bottom:0.6rem;font-size:15px;line-height:1.7;color:var(--text-muted)}
+  .chiave-extra p:last-child{margin-bottom:0}
+  /* FAQ */
+  .faq-list{display:flex;flex-direction:column;gap:0.5rem}
+  .faq-item{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color .3s ease}
+  .faq-item[open]{border-color:var(--border-hover)}
+  .faq-question{padding:1.1rem 1.4rem;font-family:var(--font-display);font-size:17px;color:var(--gold-light);cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:1rem;user-select:none}
+  .faq-question::-webkit-details-marker{display:none}
+  .faq-question::after{content:'▾';font-size:14px;color:var(--text-muted);transition:transform .3s ease;flex-shrink:0}
+  .faq-item[open] .faq-question::after{transform:rotate(180deg)}
+  .faq-answer{padding:0 1.4rem 1.2rem;color:var(--text);font-size:15px;line-height:1.7}
+  .faq-answer p{margin-bottom:0.8rem}
+  .faq-answer p:last-child{margin-bottom:0}
+  .faq-answer strong{color:var(--gold-light)}
+  .faq-answer em{color:var(--text-muted)}
+  </style>
+</head>
+<body id="top">
+
+<!-- Scroll progress bar (sottile barra dorata in cima) -->
+<div class="scroll-progress" aria-hidden="true"></div>
+
+<a class="skip-link" href="#chi-siamo">Skip to content</a>
+<nav aria-label="Main menu">
+  <a class="nav-logo" href="#"><span aria-hidden="true">✶</span> Scuola ContattaTi</a>
+  <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+  <div class="nav-links" role="menubar">
+    <a href="#chi-siamo">About us</a>
+    <a href="#insegnamenti">Teachings</a>
+    <a href="#conduttori">The guides</a>
+    <a href="#galleria">Gallery</a>
+    <a href="#calendario">The path</a>
+    <a href="#libro">The book</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contatti">Contact</a>
+    <a href="#ispirazioni">Inspirations</a>
+    <a href="../index.html" class="lang-switch" title="Versione italiana">🇮🇹 IT</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme" title="Toggle theme"><span class="theme-toggle-icon">☀</span> Light theme</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" role="banner">
+  <img class="hero-emblem" src="../images/logo-scuola.png" alt="Logo Scuola ContattaTi" width="200" height="200" fetchpriority="high" decoding="async"/>
+  <h1>Scuola <span>ContattaTi</span></h1>
+  <p class="hero-motto"><span lang="el">Γνῶθι Σεαυτόν</span></p>
+  <p class="hero-motto-sub">Know Thyself · Oracle of Delphi</p>
+  <p class="hero-slogan">Reclaiming mastery of your own life. A laboratory of awakening through Ancient Teachings, inner Alchemy and the 96 Universal Laws.</p>
+  <div class="hero-ctas">
+    <a href="#calendario" class="btn-primary">Discover the path</a>
+    <a href="#contatti" class="btn-ghost">Contact us</a>
+  </div>
+</header>
+
+<main>
+<!-- CHI SIAMO -->
+<section id="chi-siamo">
+  <div class="section-eyebrow sr"><span>Our vision</span></div>
+  <h2 class="section-title sr">About us</h2>
+  <p class="section-sub sr">A school oriented towards the awakening of consciousness and the conquest of self-mastery. Our path integrates Ancient Teachings, Alchemy and the 96 Universal Laws to reconnect with the deepest dimension of being: the Soul.</p>
+  <div class="sr mb-15">
+    <p class="body-text">Our starting point is the most ancient of teachings: <strong lang="el">Γνῶθι Σεαυτόν</strong> — <em>Know thyself</em>. The ancients inscribed it on the temple of Delphi because they knew that without self-knowledge there is no true freedom. We live mostly asleep: reacting mechanically, driven by conditioning and fears that we mistake for free choices.</p>
+
+    <blockquote class="section-blockquote">
+      The path of Know Thyself is a path of freedom. Spiritual alchemy teaches us to transmute each of our flaws into its opposite quality — lead into gold — transforming what is mechanical into what is conscious.
+    </blockquote>
+
+    <p class="body-text mt-125">Who are we, in depth? If we observe ourselves with sincerity, we discover that we are not a single block but a <strong>plurality of voices</strong>: like a matryoshka crowded with characters who take turns at the helm of our ship. One says "yes", another holds back, a third judges, a fourth flees. We believe we are choosing, but often it is simply the loudest character making the decision, while the more silent and wounded parts remain submerged.</p>
+
+    <blockquote class="section-blockquote">
+      No man is more of a slave than the one who falsely believes himself free.<br/><span style="font-size:13px;color:var(--text-muted);font-style:normal;">— Johann Wolfgang von Goethe</span>
+    </blockquote>
+
+    <p class="body-text mt-125">The true work, then, is that of a <strong>conductor of an orchestra</strong>: knowing every voice, every instrument (how it works, when it activates, what it produces) and learning to make them play together, in a symphony consistent with our most authentic being. The goal is not to eliminate parts of ourselves, but to integrate them. <em>Individuo</em>, from the Latin, means "undivided": something fragmented that we learn to reunify. Only then can we live a life congruent with ourselves and act from within: Aristotle's <em>enérgheia</em>, the pure act of action connected to being. This is true freedom: choosing how to respond to what happens.</p>
+
+    <p class="body-text mt-125">The School was created to offer the instruments of this awakening. Not knowledge to accumulate: a daily practice of observation, presence and self-work that allows us to become masters of our own carriage instead of being dragged by it. It is a <strong>laboratory</strong> in the oldest sense of the word, from the Latin <em>labor</em>, oriented and conscious effort; an effort of the spirit, in which the will of the human being unites with the call to heaven. We live in an age in which we fear that artificial intelligence might escape our control; and yet this is exactly what has already happened, for millennia, with our <strong>organic intelligence</strong>: the biological machine has taken command, and the Soul can no longer, by itself, disengage the autopilot. Realigning one's gaze with that of the Soul is the first act of freedom.</p>
+
+    <p class="body-text mt-125">What at first seems merely an exercise in counteracting mechanicalness, at a certain point becomes a natural attitude: that seed has taken root and become a living plant within us. This is why the School exists: not to give answers, but to provide the instruments with which each person can find their own.</p>
+  </div>
+  <div class="about-grid sr" style="margin-top:2rem;">
+    <div class="glass-card">
+      <h3 class="card-title"><span class="text-gold" aria-hidden="true">☥</span> Ancient Teachings</h3>
+      <p class="card-body">The path draws from diverse traditions: Initiatic Science, Gurdjieff's Fourth Way, Hermetic Magic, Kabbalah, the Enneagram, Anthroposophy, Theosophy, Buddhism, Taoism, Shamanism. Different languages to say the same thing: from the Hindu OM to the Johannine Logos, at the centre there is always a creative sound that gives form to life. The human being is its guardian and co-creator. Their task is to rediscover that programme of the soul, more ancient and deeper than any acquired conditioning.</p>
+    </div>
+    <div class="glass-card">
+      <h3 class="card-title"><span class="text-gold" aria-hidden="true">⊕</span> Structure and access</h3>
+      <p class="card-body">Seminars are held in person in Bari and online, allowing anyone to access the teachings regardless of their location.</p>
+      <p class="card-body" style="margin-top:1rem;">The path spans <strong class="text-gold-light">7 years</strong> (3 foundation + 4 advanced), with regular Sunday sessions. Each year builds on the previous one, accompanying the student through a progressive and rooted transformation.</p>
+    </div>
+  </div>
+
+
+
+  <!-- VIDEO CONOSCITIVO -->
+  <div class="mt-2">
+    <p class="section-label-small">Introduction video</p>
+    <div class="video-facade" data-video-id="PGRpvB_6_rU" role="button" tabindex="0" aria-label="Play the Scuola ContattaTi introduction video">
+      <div class="video-facade-bg" aria-hidden="true"></div>
+      <div class="video-facade-symbol" aria-hidden="true">✶</div>
+      <div class="video-facade-overlay" aria-hidden="true"></div>
+      <div class="video-facade-play" aria-hidden="true">
+        <div class="video-facade-triangle"></div>
+      </div>
+      <div class="video-facade-content">
+        <p class="video-facade-title">A look at the School</p>
+        <p class="video-facade-sub">discover our path</p>
+      </div>
+      <div class="video-facade-duration" aria-hidden="true">13:14</div>
+    </div>
+    <noscript>
+      <p style="text-align:center; margin-top:1rem;">
+        <a href="https://www.youtube.com/watch?v=PGRpvB_6_rU" target="_blank" rel="noopener" style="color:var(--gold-light); font-family:var(--font-display); font-size:16px;">
+          ▶ Watch the introduction video on YouTube
+        </a>
+      </p>
+    </noscript>
+  </div>
+</section>
+
+<div class="epigraphic-rule"><span class="glyph">◆</span></div>
+
+<!-- INSEGNAMENTI -->
+<section id="insegnamenti">
+  <div class="section-eyebrow"><span>The path</span></div>
+  <h2 class="section-title sr">Awareness and Alchemy</h2>
+  <p class="section-sub">What is studied and how we work: the two pillars of the path.</p>
+  <div class="two-col sr">
+    <div class="pillar-card">
+      <p class="pillar-title"><span class="text-gold" aria-hidden="true">☽</span> Awareness</p>
+      <ul class="pillar-list">
+        <li>Self-knowledge — lower and higher nature</li>
+        <li>Knowledge of the 96 Universal Laws</li>
+        <li>Ancient Teachings: Initiatic Science, Fourth Way, Kabbalah, Hermetic Magic, Agni Yoga, Buddhism, Taoism, Shamanism...</li>
+        <li>Understanding of Sacred texts (primarily the Gospel)</li>
+        <li>Symbolic study of Myth and Archetypes</li>
+      </ul>
+    </div>
+    <div class="pillar-card">
+      <p class="pillar-title"><span class="text-gold" aria-hidden="true">🜂</span> Alchemy</p>
+      <ul class="pillar-list">
+        <li>Transmutation of lead into gold: Shadow into Light</li>
+        <li>Practical training with inner Alchemy exercises</li>
+        <li>Application of Universal Laws in daily life</li>
+        <li>Transmuting one's daily life</li>
+        <li>Becoming conscious creators of one's own reality</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- IL METODO: EVOLUZIONE A SPIRALE E LE 3 CHIAVI -->
+  <div class="mt-2 sr">
+    <div class="quote-block">
+      <p>The School's path is not linear but spiral: each turn brings us back to the same knots from a deeper level. What was invisible becomes observable; what was observable becomes transformable.</p>
+      <cite>The School's method</cite>
+    </div>
+
+    <div class="section-eyebrow" style="margin-top:2rem; margin-bottom:1rem;">
+      <span class="roman">✦</span><span>The 4 keys of awakening</span>
+    </div>
+    <div class="chiavi-list">
+      <div class="chiave-item glass-card">
+        <div class="chiave-num" aria-hidden="true">1</div>
+        <div class="chiave-content">
+          <h3 class="card-title">Presence and Observation</h3>
+          <p class="card-body">Only 5% of our life is conscious. The remaining 95% is governed by unconscious programmes, like an autopilot. The first step is to develop the <strong>Alchemical Double</strong>, the inner Observer: observing without judging. Because time does not heal. Presence does.</p>
+          <details class="chiave-details"><summary class="chiave-more">Learn more ▾</summary><div class="chiave-extra">
+            <p>Meditating not as a practice but as a mental attitude: self-observation, divided attention, unfiltered introspection. Every time we unconsciously yield to a vice, an addiction, an automatic reaction, we are surrendering our <strong>sovereignty</strong>, the personal power bestowed upon us. Reclaiming it begins with a simple gesture: observing.</p>
+          </div></details>
+        </div>
+      </div>
+      <div class="chiave-item glass-card">
+        <div class="chiave-num" aria-hidden="true">2</div>
+        <div class="chiave-content">
+          <h3 class="card-title">The Alchemical Fire</h3>
+          <p class="card-body">Unprocessed emotions become poisons that intoxicate body, mind and relationships. The <strong>Alchemical Fire</strong> is born from the friction between inner discomfort and conscious observation: it is the fire that ignites transformation. It is not enough to know; one must <em>become</em> what one knows.</p>
+          <details class="chiave-details"><summary class="chiave-more">Learn more ▾</summary><div class="chiave-extra">
+            <p>The work is similar to postural gymnastics of the mind: loosening the neural pathways of distorted thinking, those hypertrophied ones that make us react as victims, and strengthening the pathways of correct thinking, until the new posture becomes natural.</p>
+            <p>Our wounds are not merely something to heal: they are the very engine of evolution. But we cannot change our life without having changed our essence, otherwise everything will realign and return as before. What is observed and named loses power. The mechanism does not disappear: it is seen. And when it is seen, one can choose.</p>
+          </div></details>
+        </div>
+      </div>
+      <div class="chiave-item glass-card">
+        <div class="chiave-num" aria-hidden="true">3</div>
+        <div class="chiave-content">
+          <h3 class="card-title">Taking Back the Reins</h3>
+          <p class="card-body">Gurdjieff describes the human being as a <strong>carriage without a master</strong>: the physical body is the carriage, the emotions are the impulsive horses, the mind is the distracted coachman, and consciousness is the sleeping passenger. As long as the passenger sleeps, the carriage drifts.</p>
+          <details class="chiave-details"><summary class="chiave-more">Learn more ▾</summary><div class="chiave-extra">
+            <p>Self-work consists of awakening it: recognising one's own automatisms, masks, conditioning, and gradually becoming masters of one's own life. No longer victims and slaves of the external, but conscious creators of one's own path.</p>
+          </div></details>
+        </div>
+      </div>
+      <div class="chiave-item glass-card">
+        <div class="chiave-num" aria-hidden="true">4</div>
+        <div class="chiave-content">
+          <h3 class="card-title">The Ascent</h3>
+          <p class="card-body">Ancient tradition describes the soul's journey as a <strong>Tree of Life</strong> with ten fruits, ten divine attributes that the human being must embody to return to their origin. To do so they must pass through <strong>seven initiations</strong> and orient themselves by their <strong>Soul Ray</strong>, the unique note that connects each person to their divine nature.</p>
+          <details class="chiave-details"><summary class="chiave-more">Learn more ▾</summary><div class="chiave-extra">
+            <p>Along the way, the <strong>seven wounds</strong> of the soul — rejection, abandonment, betrayal, humiliation, injustice, abuse, negligence — are not obstacles but raw material: transmuting them means embodying the corresponding <strong>seven spiritual talents</strong> and building, piece by piece, one's own <strong>Philosopher's Stone</strong>.</p>
+            <p>The journey is not only about shedding what we are not: it is about rediscovering the <strong>Verb</strong>, the creative word, and using it consciously, with a mind connected to the heart.</p>
+            <blockquote class="section-blockquote" style="margin-top:1rem; font-size:17px;"><em>Abracadabra</em> — I create as I speak.</blockquote>
+          </div></details>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  
+  <div class="section-eyebrow" style="margin-top:2.5rem; margin-bottom:1rem;"><span class="roman">✦</span><span>Individual Path of Transmutative Alchemy</span></div>
+  <p class="section-sub">A personalised journey, built upon the specific evolutionary goal of whoever undertakes it. It can arise from a moment of crisis, a delicate passage or the drive to accelerate a transformation already underway.</p>
+
+  <div class="section-eyebrow" style="margin-bottom:1rem;">
+    <span class="roman">✦</span><span>Two paths, one direction</span>
+  </div>
+  <div class="two-col">
+    <div class="pillar-card">
+      <p class="pillar-title"><span class="text-gold">✶</span> The School</p>
+      <ul class="pillar-list">
+        <li>Structured and shared learning path</li>
+        <li>Manifesting one's Soul in daily life</li>
+        <li>Ancient Teachings and 96 Universal Laws</li>
+        <li>Universal tools of Alchemy and self-observation</li>
+        <li>Shared journey with other participants</li>
+      </ul>
+    </div>
+    <div class="pillar-card">
+      <p class="pillar-title"><span class="text-gold" aria-hidden="true">☿</span> Individual Path</p>
+      <ul class="pillar-list">
+        <li>Personalised journey focused on your evolutionary goal</li>
+        <li>Born from a moment of crisis or a delicate transition</li>
+        <li>Working on the Unconscious through targeted sessions</li>
+        <li>Illumination of shadow zones</li>
+        <li>Intimate and concrete transformation</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mt-125 text-center">
+    <div class="section-eyebrow center" style="margin-bottom:0.6rem;"><span class="roman">✦</span><span>Complementary, not alternative</span></div>
+    <p class="body-text narrow-text">In the School you work together with others: studying the Laws, training with exercises, and the group serves as a mirror. In the Individual Path you work on a specific knot of your own, with the focused attention of a conductor. Those who attend the School and encounter a deep block can dissolve it in the individual path; those who begin with the individual path often feel the need for a broader framework. This is why they work well together.</p>
+  </div>
+
+
+</section>
+
+<div class="epigraphic-rule"><span class="glyph">◆</span></div>
+
+<!-- CONDUTTORI -->
+<section id="conduttori">
+  <div class="section-eyebrow"><span>The guides</span></div>
+  <h2 class="section-title sr">The conductors</h2>
+  <p class="section-sub">They have walked for years the path they now teach. They lead individual and group journeys, dedicated to awareness, inner growth and transformative Alchemy.</p>
+
+  <div class="teachers-row sr mb-15">
+    <div class="teacher-card teacher-card-left">
+      <div class="teacher-header">
+        <img src="../images/anna-carla.jpg" alt="Anna Carla Digregorio" loading="lazy" decoding="async" class="teacher-photo" width="120" height="120" />
+        <div>
+          <p class="teacher-name">Anna Carla Digregorio</p>
+          <p class="teacher-role">Conductor & author</p>
+        </div>
+      </div>
+      <p class="teacher-bio">With a degree in Pharmacy, for over eleven years she managed a large Parapharmacy in the heart of Bari, transforming it into a centre dedicated to Integrated Health.</p>
+      <div class="bio-tags">
+        <span class="bio-tag tag-ermetica">Scuola Ermetica — Emiliano Soldani</span>
+        <span class="bio-break"></span>
+        <span class="bio-tag tag-ermetica">Scuola di Risveglio Crisopea — Salvatore Brizzi</span>
+        <span class="bio-break"></span>
+        <span class="bio-tag tag-olistica">Operatrice Olistica</span>
+        <span class="bio-tag tag-olistica">Counselor Olistica</span>
+        <span class="bio-tag tag-olistica">Naturopata</span>
+        <span class="bio-tag tag-olistica">Omeopata</span>
+        <span class="bio-tag tag-olistica">Floriterapeuta</span>
+        <span class="bio-tag tag-coaching">Life Coach</span>
+        <span class="bio-tag tag-coaching">Master PNL Bioetica</span>
+        <span class="bio-tag tag-studio">Kinesiologia Biointegrata</span>
+        <span class="bio-tag tag-studio">Psicosomatica</span>
+        <span class="bio-tag tag-studio">Sciamanesimo</span>
+        <span class="bio-tag tag-studio">PNEI</span>
+        <span class="bio-tag tag-studio">Enneagramma</span>
+      </div>
+    </div>
+    <div class="teacher-card teacher-card-left">
+      <div class="teacher-header">
+        <img src="../images/nicolaos.jpg" alt="Nicolaos Anifantis" loading="lazy" decoding="async" class="teacher-photo" width="120" height="120" />
+        <div>
+          <p class="teacher-name">Nicolaos Anifantis</p>
+          <p class="teacher-role">Conductor & author</p>
+        </div>
+      </div>
+      <p class="teacher-bio">Solid background in industrial pharmaceutical production, combined with a long research path that interweaves science, tradition and spirituality.</p>
+      <div class="bio-tags">
+        <span class="bio-tag tag-ermetica">Scuola Ermetica — Emiliano Soldani</span>
+        <span class="bio-break"></span>
+        <span class="bio-tag tag-ermetica">Scuola di Risveglio Crisopea — Salvatore Brizzi</span>
+        <span class="bio-break"></span>
+        <span class="bio-tag tag-olistica">Operatore Olistico</span>
+        <span class="bio-tag tag-olistica">Counselor Olistico</span>
+        <span class="bio-tag tag-coaching">Life Coach</span>
+        <span class="bio-tag tag-coaching">Master PNL Bioetica</span>
+        <span class="bio-tag tag-studio">Kinesiologia Biointegrata</span>
+        <span class="bio-tag tag-studio">Costellazioni Sistemiche</span>
+        <span class="bio-tag tag-studio">Psicosomatica</span>
+        <span class="bio-tag tag-studio">Sciamanesimo</span>
+        <span class="bio-tag tag-studio">PNEI</span>
+        <span class="bio-tag tag-studio">Enneagramma</span>
+        <span class="bio-tag tag-studio">Mindfulness</span>
+        <span class="bio-tag tag-studio">Reiki</span>
+        <span class="bio-tag tag-studio">Campane Tibetane</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="glass-card bio-detail">
+    <p>For eleven years they worked as entrepreneurs in the pharmaceutical sector, bringing into their profession a principle that already then guided their vision: care should be directed at the human being as a whole, not at the isolated disease. The symptom is always the voice of a deeper imbalance, a misalignment between Soul, mind and body.</p>
+    <div class="bio-divider"></div>
+    <p>That professional path intertwined with years of shared spiritual research: hermetic schools, Christic teachings, the Enneagram, Anthroposophy, Theosophy, Kabbalah, shamanic practices. Different traditions, traversed with rigour and heart, until finding the thread that unites them. Today they transmit what they have received, integrated and lived firsthand, connecting ancient philosophies to frontier sciences in the process of reunification between matter and Spirit.</p>
+    <div class="bio-divider"></div>
+    <p>They offer individual consultations for inner growth and evolution: transmutative alchemy, evolutionary kinesiology, dis-identification from the ego, deep imagery therapy, reconnection with the ancestral Self through shamanic practice and mindfulness.</p>
+    <div class="bio-divider"></div>
+    <p>Since 1994 they have also carried forward a couple soul project: a concrete testimony that Alchemy is not just doctrine, but a reality that is built day by day, in love, in union and in communion. They teach what they live.</p>
+  </div>
+
+  <div class="teachers-row teachers-row-single" style="margin-top:1rem;">
+    <div class="teacher-card teacher-card-left text-center">
+      <img src="../images/eleonora.jpg" alt="Eleonora Digregorio" loading="lazy" decoding="async" class="teacher-photo-collab" width="100" height="100" />
+      <p class="teacher-name">Eleonora Digregorio</p>
+      <p class="teacher-role">Collaborator · lessons and experiential workshops</p>
+      <p class="teacher-bio" style="margin-top:0.75rem; font-size:14px;"><em>Ambula ab intra</em> — walk from within. Eleonora supports the conductors in lessons and experiential workshops, bringing her own daily practice and a sensitivity matured along the School's path.</p>
+    </div>
+  </div>
+</section>
+
+
+<div class="epigraphic-rule"><span class="glyph">◆</span></div>
+
+<!-- GALLERIA EVENTI -->
+<section id="galleria">
+  <div class="section-eyebrow"><span>The School in action</span></div>
+  <h2 class="section-title sr">Our events</h2>
+  <p class="section-sub">Moments lived together, between teaching and nature.</p>
+
+  <div class="gallery-event sr">
+    <p class="gallery-event-title">I 7 Chakra — Amare Sé Stessi</p>
+    <p class="gallery-event-sub">8 Luglio 2023 · Masseria Chinunno, Cassano (BA)</p>
+
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-item" data-src="../images/gallery/06-foto-gruppo.jpg"><img src="../images/gallery/06-foto-gruppo.jpg" alt="Group photo from the 7 Chakras workshop" loading="lazy" decoding="async"/></div>
+      <div class="gallery-item" data-src="../images/gallery/01-nicolaos-parla.jpg"><img src="../images/gallery/01-nicolaos-parla.jpg" alt="Nicolaos Anifantis leads the workshop" loading="lazy" decoding="async"/></div>
+      <div class="gallery-item" data-src="../images/gallery/03-anna-carla.jpg"><img src="../images/gallery/03-anna-carla.jpg" alt="Anna Carla Digregorio leads the workshop" loading="lazy" decoding="async" style="object-position:top"/></div>
+      <div class="gallery-item" data-src="../images/gallery/02-sala-platea.jpg"><img src="../images/gallery/02-sala-platea.jpg" alt="Workshop audience in the gazebo" loading="lazy" decoding="async"/></div>
+      <div class="gallery-item" data-src="../images/gallery/12-anna-carla-insegna.jpg"><img src="../images/gallery/12-anna-carla-insegna.jpg" alt="Anna Carla teaches with whiteboard" loading="lazy" decoding="async" style="object-position:top"/></div>
+      <div class="gallery-item" data-src="../images/gallery/10-nicolaos-chakra.jpg"><img src="../images/gallery/10-nicolaos-chakra.jpg" alt="Nicolaos with Chakra banner" loading="lazy" decoding="async"/></div>
+      <div class="gallery-item gallery-hidden" data-src="../images/gallery/08-anna-carla-platea.jpg"><img src="../images/gallery/08-anna-carla-platea.jpg" alt="Anna Carla speaks to the audience" loading="lazy" decoding="async"/></div>
+      <div class="gallery-item gallery-hidden" data-src="../images/gallery/04-nicolaos-tamburo.jpg"><img src="../images/gallery/04-nicolaos-tamburo.jpg" alt="Nicolaos with musical instruments" loading="lazy" decoding="async"/></div>
+      <div class="gallery-item gallery-hidden" data-src="../images/gallery/15-eleonora-tamburo.jpg"><img src="../images/gallery/15-eleonora-tamburo.jpg" alt="Eleonora with the drum" loading="lazy" decoding="async"/></div>
+      <div class="gallery-item gallery-hidden" data-src="../images/gallery/18-anna-carla-palco.jpg"><img src="../images/gallery/18-anna-carla-palco.jpg" alt="Anna Carla on stage" loading="lazy" decoding="async"/></div>
+      <div class="gallery-item gallery-hidden" data-src="../images/gallery/07-gazebo-pubblico.jpg"><img src="../images/gallery/07-gazebo-pubblico.jpg" alt="View of the gazebo during the workshop" loading="lazy" decoding="async"/></div>
+      <div class="gallery-item gallery-hidden" data-src="../images/gallery/09-conduttori-lavagna.jpg"><img src="../images/gallery/09-conduttori-lavagna.jpg" alt="The conductors with the whiteboard" loading="lazy" decoding="async"/></div>
+      <div class="gallery-item gallery-hidden" data-src="../images/gallery/05-esercizi-natura.jpg"><img src="../images/gallery/05-esercizi-natura.jpg" alt="Exercises in nature" loading="lazy" decoding="async"/></div>
+      <div class="gallery-item gallery-hidden" data-src="../images/gallery/16-sala-laterale.jpg"><img src="../images/gallery/16-sala-laterale.jpg" alt="Side view of the room" loading="lazy" decoding="async"/></div>
+      <div class="gallery-item gallery-hidden" data-src="../images/gallery/14-pausa-natura.jpg"><img src="../images/gallery/14-pausa-natura.jpg" alt="Break among the trees" loading="lazy" decoding="async"/></div>
+      <div class="gallery-item gallery-hidden" data-src="../images/gallery/17-nicolaos-legge.jpg"><img src="../images/gallery/17-nicolaos-legge.jpg" alt="Nicolaos reads" loading="lazy" decoding="async"/></div>
+      <div class="gallery-item gallery-hidden" data-src="../images/gallery/11-abbraccio.jpg"><img src="../images/gallery/11-abbraccio.jpg" alt="Embrace between participants" loading="lazy" decoding="async"/></div>
+      <div class="gallery-item gallery-hidden" data-src="../images/gallery/13-panoramica.jpg"><img src="../images/gallery/13-panoramica.jpg" alt="Panoramic view of the gazebo" loading="lazy" decoding="async"/></div>
+    </div>
+    <button class="gallery-toggle" id="galleryToggle">Show all photos ▾</button>
+  </div>
+</section>
+
+<!-- CALENDAR with automatic logic -->
+<section id="calendario">
+  <div class="section-eyebrow"><span>Curriculum</span></div>
+  <h2 class="section-title sr">The lesson calendar</h2>
+  <p class="section-sub">Seven years of progressive deepening, structured in annual cycles. Each lesson builds upon the previous one: knowledge is not accumulated — one is transformed into what one studies.</p>
+  <div class="section-eyebrow" style="margin-bottom:1rem; margin-top:0.5rem;">
+    <span class="roman">✦</span><span>The structure of the path</span>
+  </div>
+  <div class="percorso-blocks">
+    <div class="percorso-block">
+      <p class="percorso-block-label">Foundation Cycle · Years 1–3 · 7 sessions per year</p>
+      <p class="body-text">The first three years form the foundation of the path. The <strong class="text-gold-light">first year</strong> teaches how to recognise the masks, unconscious mechanisms, and automatic reactions — the outermost circle of the Self. The <strong class="text-gold-light">second year</strong> goes deeper into the unconscious automatic programmes through the Enneagram: everything that, if not deactivated, risks identifying us with a programme rather than with who we truly are. The <strong class="text-gold-light">third year</strong> introduces the Tree of Life and Sacred Geometry, the language through which the universal mind created the proportions of the entire Cosmos, to study the steps of the Soul's ascent, the seven initiations that unlock new states of consciousness, up to the discovery of one's own <strong class="text-gold-light">Soul Ray</strong>: the unique note of the soul that guides the journey and reveals one's vocation in the world. By the end of the foundation cycle, the student has acquired the fundamental tools: discernment, presence, and the ability to reclaim their inner sovereignty.</p>
+    </div>
+    <div class="percorso-block">
+      <p class="percorso-block-label">Advanced Years · Years 4–7 · 3 sessions per year</p>
+      <p class="body-text">The advanced years delve into Hermetic Magic and the Principles of the Kybalion, the Emerald Tablets, the <strong class="text-gold-light">Astral Wounds</strong> (pre-determined trials set by the soul to activate evolutionary movement, transforming each wound into a talent of the spirit) and initiatory Shamanism: a progressive journey towards the christification of the flesh and the realisation of the Self. The <strong class="text-gold-light">seventh year</strong> marks the passage from theory to practice: one no longer studies the fire — one enters the fire. Hermetic Magic becomes operative, Hermeticism converges with Shamanism in the Inner Temple, and the practitioner is no longer a student but an adept in transformation who learns to carry the rite into the world.</p>
+    </div>
+  </div>
+
+  <!-- TAB BAR -->
+  <div class="anno-tabs-wrap" id="anno-tabs" role="tablist" aria-label="Year of the path">
+    <button id="tab-anno-1" role="tab" aria-selected="true" aria-controls="panel-anno-1" class="anno-tab active" data-anno="1">Year 1</button>
+    <button id="tab-anno-2" role="tab" aria-selected="false" aria-controls="panel-anno-2" class="anno-tab" data-anno="2">Year 2</button>
+    <button id="tab-anno-3" role="tab" aria-selected="false" aria-controls="panel-anno-3" class="anno-tab" data-anno="3">Year 3</button>
+    <button id="tab-anno-4" role="tab" aria-selected="false" aria-controls="panel-anno-4" class="anno-tab" data-anno="4">Year 4</button>
+    <button id="tab-anno-5" role="tab" aria-selected="false" aria-controls="panel-anno-5" class="anno-tab" data-anno="5">Year 5</button>
+    <button id="tab-anno-6" role="tab" aria-selected="false" aria-controls="panel-anno-6" class="anno-tab" data-anno="6">Year 6</button>
+    <button id="tab-anno-7" role="tab" aria-selected="false" aria-controls="panel-anno-7" class="anno-tab" data-anno="7">Year 7</button>
+    <button id="tab-anno-esp" role="tab" aria-selected="false" aria-controls="panel-anno-esp" class="anno-tab anno-tab-esp" data-anno="esp">✶ Experientials</button>
+  </div>
+
+  <!-- PANEL YEAR 1 -->
+  <div class="anno-panel" id="panel-anno-1" role="tabpanel" aria-labelledby="tab-anno-1">
+    <div class="calendar-list" id="calendar-list"></div>
+    <div class="porte-aperte-slot"></div>
+  </div>
+
+  <!-- PANEL YEAR 2 -->
+  <div class="anno-panel" id="panel-anno-2" role="tabpanel" aria-labelledby="tab-anno-2" style="display:none;">
+    <div class="calendar-list" id="calendar-list-anno2"></div>
+    <div class="porte-aperte-slot"></div>
+  </div>
+
+  <!-- PANELS YEARS 3-7 -->
+  <div class="anno-panel" id="panel-anno-3" role="tabpanel" aria-labelledby="tab-anno-3" style="display:none;">
+    <div class="calendar-list" id="calendar-list-anno3"></div>
+    <div class="porte-aperte-slot"></div>
+  </div>
+  <div class="anno-panel" id="panel-anno-4" role="tabpanel" aria-labelledby="tab-anno-4" style="display:none;">
+    <div class="calendar-list" id="calendar-list-anno4"></div>
+    <div class="porte-aperte-slot"></div>
+  </div>
+  <div class="anno-panel" id="panel-anno-5" role="tabpanel" aria-labelledby="tab-anno-5" style="display:none;">
+    <div class="calendar-list" id="calendar-list-anno5"></div>
+    <div class="porte-aperte-slot"></div>
+  </div>
+  <div class="anno-panel" id="panel-anno-6" role="tabpanel" aria-labelledby="tab-anno-6" style="display:none;">
+    <div class="calendar-list" id="calendar-list-anno6"></div>
+    <div class="porte-aperte-slot"></div>
+  </div>
+  <div class="anno-panel" id="panel-anno-7" role="tabpanel" aria-labelledby="tab-anno-7" style="display:none;">
+    <div class="calendar-list" id="calendar-list-anno7"></div>
+    <div class="porte-aperte-slot"></div>
+  </div>
+
+  <!-- PANEL EXPERIENTIALS -->
+  <div class="anno-panel" id="panel-anno-esp" role="tabpanel" aria-labelledby="tab-anno-esp" style="display:none;">
+    <div class="calendar-list" id="calendar-list-esp"></div>
+    <div class="esp-banner">
+      <div class="icon-lg">✶</div>
+      <div>
+        <p class="esp-banner-title">Want to participate?</p>
+        <p class="body-text-sm">The experiential workshops are offered periodically. <a href="#contatti" class="text-gold-light">Write to us</a> to find out about upcoming dates and details.</p>
+      </div>
+    </div>
+  </div>
+
+
+</section>
+
+<div class="epigraphic-rule"><span class="glyph">◆</span></div>
+
+
+<!-- BOOK -->
+<section id="libro">
+  <div class="section-eyebrow"><span>The publication</span></div>
+  <h2 class="section-title sr">The book</h2>
+  <p class="section-sub">Anna Carla Digregorio and Nicolaos Anifantis gather in these pages the heart of the School's teachings: a practical path to recognise and dissolve the inner blocks that separate us from our authentic Abundance.</p>
+
+  <div class="book-card sr">
+    <img src="../images/libro-copertina.jpg" alt="Cover of the book Ricchezza, Abbondanza e Mission" width="200" height="310" loading="lazy" decoding="async" class="book-cover-img" />
+    <div class="book-info">
+      <span class="book-label">Gagliano Edizioni</span>
+      <h3 class="book-title">Ricchezza, Abbondanza e Mission</h3>
+      <p class="book-subtitle">The keys to inner realisation</p>
+      <p class="book-authors">Anna Carla Digregorio & Nicolaos Anifantis</p>
+      <p class="book-desc">The universal Laws of prosperity and spiritual evolution become concrete tools to dissolve blocks and release limiting patterns. The archetypal keys and ancient wisdom guide us to recognise Abundance as a natural state to inhabit, not a prize to be won.</p>
+      <div class="book-where mt-1">
+        <span class="book-where-item"><svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 21.5c-1.3-.7-3.2-1.5-5-1.5-1.5 0-2.7.3-3.6.7A1.5 1.5 0 011 19.3V5.7A1.5 1.5 0 012.5 4.2C3.6 3.8 5 3.5 7 3.5c2 0 3.8.8 5 1.5 1.2-.7 3-1.5 5-1.5 2 0 3.4.3 4.5.7A1.5 1.5 0 0123 5.7v13.6a1.5 1.5 0 01-2.4 1.2c-.9-.4-2.1-.7-3.6-.7-1.8 0-3.7.8-5 1.5zM11 7.5C9.8 6.7 8.3 6 7 6c-1.3 0-2.3.2-3 .5V18c.8-.3 1.8-.5 3-.5 1.5 0 2.8.4 4 1V7.5zm2 11c1.2-.6 2.5-1 4-1 1.2 0 2.2.2 3 .5V6.5c-.7-.3-1.7-.5-3-.5-1.3 0-2.8.7-4 1.5V18.5z"/></svg> Available at Libreria Roma (P.zza Aldo Moro 13, Bari) · can be ordered from any bookshop and online</span>
+      </div>
+      <p class="serif-quote mt-1 serif-quote-book">"Mira all'Abbondanza interiore, e la Ricchezza nella materia sarà una conseguenza. La Realizzazione non è una meta, ma uno stato dell'Essere." <em style="font-size:13px; opacity:0.75;">— Anna Carla Digregorio &amp; Nicolaos Anifantis</em></p>
+    </div>
+  </div>
+
+
+
+  <!-- BOOK CONTENTS -->
+  <div class="section-eyebrow" style="margin-top:2rem; margin-bottom:1rem;">
+    <span class="roman">✦</span><span>What you will find in the book</span>
+  </div>
+  <div class="libro-content-grid">
+    <div class="glass-card libro-card">
+      <h4 class="libro-card-title">22 Self-sabotages</h4>
+      <p class="body-text-sm">The unconscious mechanisms that jam Realisation. Recognising them is the first alchemical act: every limit, seen with awareness, becomes a tool for self-knowledge and a doorway towards its opposite quality.</p>
+      <p class="body-text-sm mt-1" style="opacity:0.85;">Among these: the fear of change, the difficulty in receiving, guilt and shame, not recognising one's own worth, limiting beliefs about money, lack of gratitude, confusing commitment with effort, attachment to outcomes, impatience, and disconnection from the material plane.</p>
+    </div>
+    <div class="glass-card libro-card">
+      <h4 class="libro-card-title">6 Universal Laws</h4>
+      <p class="body-text-sm">Authentic Wealth is not conquered — it is welcomed. The Six Laws that sustain Abundance are active forces to attune to: frequencies to embody in one's life, rather than rules to follow.</p>
+      <p class="body-text-sm mt-1" style="opacity:0.85;">Law of Gestation, Law of Attraction, Law of Expectation, Law of Letting Go, Law of Abundance, Law of Personal Power.</p>
+    </div>
+    <div class="glass-card libro-card libro-card-full">
+      <h4 class="libro-card-title">3 Planetary Archetypes</h4>
+      <p class="body-text-sm mb-1">Uranus, Neptune and Pluto as Symbolic Maps to navigate daily trials and access the three dimensions of Being.</p>
+
+      <div class="archetype-row">
+        <div class="archetype-symbol archetype-symbol-urano" aria-hidden="true">♅</div>
+        <div>
+          <p class="serif-heading-sm">Uranus — Freedom and authenticity</p>
+          <p class="body-text-sm">Uranus asks us to free ourselves from what we are not in order to become instruments of what we came to bring. Its trials are sudden changes, epiphanies that force us to abandon old beliefs.</p>
+          <details class="chiave-details"><summary class="chiave-more">Learn more ▾</summary><div class="chiave-extra">
+            <p>Like a bolt of lightning tearing through the sky, it illuminates what was hidden in shadow and reveals a new path. Like a barren tree that suddenly comes back to life.</p>
+            <p><em class="em-urano">"La verità vi renderà liberi."</em></p>
+          </div></details>
+        </div>
+      </div>
+
+      <div class="archetype-row">
+        <div class="archetype-symbol archetype-symbol-nettuno" aria-hidden="true">♆</div>
+        <div>
+          <p class="serif-heading-sm">Neptune — Spiritual connection</p>
+          <p class="body-text-sm">Neptune asks us to dissolve the selfish and separative ego to remind us that all is One, that every being is part of a single great design. Its trials move along the boundary between spirituality and illusion, demanding discernment.</p>
+          <details class="chiave-details"><summary class="chiave-more">Learn more ▾</summary><div class="chiave-extra">
+            <p>It is the infinite ocean that envelops everything. The mist that blurs the boundaries. A river flowing towards the sea: gradually its waters merge with those of the ocean, losing their separative identity to become part of something greater.</p>
+            <p><em class="em-nettuno">"Cercate prima il regno di Dio e la sua giustizia, e tutte queste cose vi saranno date in aggiunta."</em></p>
+          </div></details>
+        </div>
+      </div>
+
+      <div class="archetype-row">
+        <div class="archetype-symbol archetype-symbol-plutone" aria-hidden="true">♇</div>
+        <div>
+          <p class="serif-heading-sm">Pluto — Transformation and healing</p>
+          <p class="body-text-sm">Pluto asks us to face our own shadows and pass through the inner deaths necessary to bring forth the hidden gold: this is the alchemist's path. Its trials are deep crises, confrontation with the unconscious, the breaking of habits and repeated patterns.</p>
+          <details class="chiave-details"><summary class="chiave-more">Learn more ▾</summary><div class="chiave-extra">
+            <p>It is like the fire of a volcano, invisible to the eye but capable of transforming everything it touches. For years the lava flows deep within the earth, accumulating energy, until a sudden eruption brings it to the surface, destroying the old to create new fertile ground.</p>
+            <p><em class="em-plutone">"Chi vorrà salvare la propria vita la perderà, ma chi la perderà per causa mia la troverà."</em></p>
+          </div></details>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DEFINITIONS: Wealth, Abundance, Mission -->
+  <div class="section-eyebrow" style="margin-top:2rem; margin-bottom:1rem;">
+    <span class="roman">✦</span><span>Three words, three dimensions</span>
+  </div>
+  <div class="about-grid">
+    <div class="glass-card" style="grid-column: 1 / -1;">
+      <div class="three-defs-grid">
+        <div>
+          <p class="serif-heading-sm" style="margin-bottom:0.5rem;"><span class="text-gold" aria-hidden="true">✶ </span>Wealth</p>
+          <p class="body-text-sm">What is already within us and manifests outwardly as a reflection on the physical plane. Our intrinsic value is reflected in the world through our actions and our way of being.</p>
+        </div>
+        <div>
+          <p class="serif-heading-sm" style="margin-bottom:0.5rem;"><span class="text-gold" aria-hidden="true">✶ </span>Abundance</p>
+          <p class="body-text-sm">The potential of all that we can receive and manifest. An inner sense of fullness, a prosperous mindset, a disposition of the soul. It allows us to recognise the beauty and opportunities of life beyond what we possess.</p>
+        </div>
+        <div>
+          <p class="serif-heading-sm" style="margin-bottom:0.5rem;"><span class="text-gold" aria-hidden="true">✶ </span>Mission</p>
+          <p class="body-text-sm">The beacon that illuminates our path. The unique contribution we can offer the world, the deep purpose for which we are here. Following one's Mission means living in alignment with our most authentic essence.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LE 8 FORME DI RICCHEZZA SECONDO I VEDA -->
+  <div class="section-eyebrow" style="margin-top:2rem; margin-bottom:1rem;">
+    <span class="roman">✦</span><span>The 8 forms of Wealth according to the Vedas</span>
+  </div>
+  <div class="glass-card">
+    <p class="body-text-sm mb-1">According to the ancient Vedic texts, Wealth manifests in eight forms. True wellbeing arises from harmony among all these dimensions. Today the scale of priorities is often inverted: we start from the bottom, from material subsistence, forgetting that the highest form of Wealth is inner spiritual knowledge.</p>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 4px 1.5rem;">
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">1.</span> Conoscenza spirituale interiore</p>
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">2.</span> Servizio: offrire sé stessi in un progetto di valore</p>
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">3.</span> Fede e coraggio</p>
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">4.</span> Fiducia in sé stessi</p>
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">5.</span> Virtù invisibili: qualità che generano rispetto e onore</p>
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">6.</span> Relazioni sane</p>
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">7.</span> Salute e benessere fisico e mentale</p>
+      <p class="body-text-sm" style="padding:0.35rem 0;"><span class="text-gold">8.</span> Sussistenza e economia solida</p>
+    </div>
+  </div>
+
+  <!-- PRESENTAZIONI (collapsible) -->
+  <div class="mt-15">
+    <div class="event-row has-detail" role="button" tabindex="0" aria-expanded="false" id="pres-toggle">
+      <div class="evento-data">
+        <p class="text-gold icon-lg" aria-hidden="true"><svg class="icon-svg icon-svg-lg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg></p>
+      </div>
+      <div class="evento-vline"></div>
+      <div class="event-info">
+        <p class="event-title">Presentations & events</p>
+        <p class="body-text-xs">6 events including conferences, festivals and presentations</p>
+      </div>
+      <span class="detail-pill">Events ▾</span>
+      <span class="expand-arrow">▼</span>
+    </div>
+    <div class="lesson-panel" id="pres-panel">
+      <div class="lesson-panel-inner">
+    <div class="pres-list">
+      <div class="evento-card">
+        <div class="evento-data"><p class="evento-giorno">13</p><p class="evento-mese">Nov 2025</p></div>
+        <div class="evento-vline"></div>
+        <div class="flex-1"><p class="evento-titolo">Literary event — IKOS Formazione</p><p class="evento-dettaglio">Via Giovanni Amendola 162/1, Bari</p></div>
+      </div>
+      <div class="evento-card">
+        <div class="evento-data"><p class="evento-giorno">10</p><p class="evento-mese">Ott 2025</p></div>
+        <div class="evento-vline"></div>
+        <div class="flex-1"><p class="evento-titolo">Free conference — Libreria Roma</p><p class="evento-dettaglio">P.zza Aldo Moro 13, Bari</p></div>
+      </div>
+      <div class="evento-card">
+        <div class="evento-data"><p class="evento-giorno">27</p><p class="evento-mese">Set 2025</p></div>
+        <div class="evento-vline"></div>
+        <div class="flex-1"><p class="evento-titolo">Macrolibrarsi Fest — Book presentation</p><p class="evento-dettaglio">Cesena · Conscious book fair</p></div>
+      </div>
+      <div class="evento-card">
+        <div class="evento-data"><p class="evento-giorno">5</p><p class="evento-mese">Set 2025</p></div>
+        <div class="evento-vline"></div>
+        <div class="flex-1"><p class="evento-titolo">School presentation — Il Mondo che Voglio</p><p class="evento-dettaglio">Palese (Bari)</p></div>
+      </div>
+      <div class="evento-card">
+        <div class="evento-data"><p class="evento-giorno">3</p><p class="evento-mese">Set 2025</p></div>
+        <div class="evento-vline"></div>
+        <div class="flex-1"><p class="evento-titolo">School presentation — Libreria Roma</p><p class="evento-dettaglio">P.zza Aldo Moro 13, Bari</p></div>
+      </div>
+      <div class="evento-card">
+        <div class="evento-data"><p class="evento-giorno">19</p><p class="evento-mese">Lug 2025</p></div>
+        <div class="evento-vline"></div>
+        <div class="flex-1"><p class="evento-titolo">Festival Harmoniae Mundi — "Dove dimora la Ricchezza?"</p><p class="evento-dettaglio">Masseria La Gatta Matta, Noci (BA)</p></div>
+      </div>
+    </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<div class="epigraphic-rule"><span class="glyph">◆</span></div>
+
+<!-- FREQUENTLY ASKED QUESTIONS -->
+<section id="faq">
+  <div class="section-eyebrow"><span>Frequently asked questions</span></div>
+  <h2 class="section-title sr">What you ask us most often</h2>
+  <p class="section-sub">Answers to the most common questions for those approaching the School.</p>
+
+  <div class="faq-list sr">
+
+    <details class="faq-item">
+      <summary class="faq-question">Why a school? Can't I study on my own?</summary>
+      <div class="faq-answer">
+        <p>You can, of course, and every search is precious. But there is a substantial difference. The self-taught person gathers fragmentary information from different books, videos and courses: half-truths that risk never composing into a complete picture. As Gestalt psychology teaches us, when our brain lacks data, it reconstructs them according to the most convenient model, not according to the real map.</p>
+        <p>A school instead offers a <strong>progressive structure</strong>, a time-tested method that has been walked for centuries by those who came before us. Like Virgil for Dante, the guides who have walked that path know where one falls, how one rises again, what escapes the eye. If the inner journey is a journey, could you ever reach the destination with an inaccurate map?</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">Is previous experience or spiritual training required?</summary>
+      <div class="faq-answer">
+        <p>No. The path starts from the foundations and accompanies each person from wherever they are. The only requirement is what in alchemy is called the <em>thirst of the soul</em>: that inner drive to know oneself more deeply which, once it arises, gives no peace until it finds an answer. No prior reading or specific skills are needed.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">How long is the path and how is it structured?</summary>
+      <div class="faq-answer">
+        <p>The School is structured over <strong>7 years</strong>: 3 foundation years and 4 advanced years. Even just the first 3 years constitute a complete path. Each year includes <strong>7 lessons</strong> in the foundation levels and 3 in the advanced levels, held approximately every six weeks. Lessons take place on <strong>Sunday mornings from 9:00 to 13:30</strong>.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">How much does it cost?</summary>
+      <div class="faq-answer">
+        <p>The contribution is <strong>€30 per lesson</strong>, payable each time. For those who prefer, an annual package is available at €180 instead of €210, with one lesson offered by the School. There are no constraints or obligations: we embody the principle of free choice. You can start, pause, and resume whenever you wish.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">Can I follow the lessons online?</summary>
+      <div class="faq-answer">
+        <p>Yes. Each lesson is recorded and made available through a private YouTube link, permanently active. You can review the lesson as many times as you wish, at your own pace. The in-person experience naturally remains richer, but the online format ensures anyone can follow the path regardless of where they are.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">Can I join even if the lessons have already started?</summary>
+      <div class="faq-answer">
+        <p>Absolutely. Thanks to the recordings, you can catch up on previous lessons and join the path at any time. There are no barriers or time-based prerequisites.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">What is actually studied?</summary>
+      <div class="faq-answer">
+        <p>The heart of the path is the study of the <strong>96 Universal Laws</strong> — the laws that govern the macrocosm and the microcosm. But knowledge is only half the work: the other half is <strong>alchemical practice</strong>, the concrete transmutation of oneself in daily life. Among the tools: the Enneagram, Kabbalah, symbolic study of myths and archetypes, Hermetic Magic, self-observation exercises and guided meditations. Each year builds upon the previous one, creating an organic and progressive path.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">Is this a religious school?</summary>
+      <div class="faq-answer">
+        <p>No. The School integrates teachings from multiple spiritual traditions — from the Gospels to Eastern wisdom, from Hermeticism to depth psychology, seeking the common thread that unites them. Our approach is that of the <em>reductio ad unum</em>: bringing the plurality of teachings back to a single underlying truth. We do not speak of blind faith, but of a <strong>spiritual science</strong> to be verified through practice and direct experience.</p>
+      </div>
+    </details>
+
+  </div>
+</section>
+
+<div class="epigraphic-rule"><span class="glyph">◆</span></div>
+
+<!-- CONTACT -->
+<section id="contatti">
+  <div class="section-eyebrow"><span>Write to us</span></div>
+  <h2 class="section-title sr">Contact</h2>
+  <p class="section-sub">If you feel that something in these pages resonates with you, write to us. We will be happy to answer you.</p>
+  <div class="contact-wrapper sr">
+    <div class="contact-info">
+      <p style="margin-bottom:1rem;">Write to us: we are here.</p>
+      <div class="contact-detail">
+        <div class="contact-detail-icon" aria-hidden="true"><svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/></svg></div>
+        <div><strong>WhatsApp Nicolaos</strong><a class="contact-link" href="https://wa.me/393349991888" target="_blank" rel="noopener">334 999 1888</a></div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon" aria-hidden="true"><svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/></svg></div>
+        <div><strong>WhatsApp Anna Carla</strong><a class="contact-link" href="https://wa.me/393929116441" target="_blank" rel="noopener">392 911 6441</a></div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon" aria-hidden="true"><svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+        <div><strong>Email</strong><span id="email-display"></span></div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon" aria-hidden="true"><svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.12 8.44 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99C18.34 21.12 22 16.99 22 12z"/></svg></div>
+        <div><strong>Facebook</strong><a href="https://www.facebook.com/nicolaosanifantis" target="_blank" rel="noopener" class="contact-link">ContattaTi</a></div>
+      </div>
+    </div>
+    <form id="contact-form" class="contact-form" action="https://formspree.io/f/xwvavebr" method="POST" novalidate>
+      <div class="form-row">
+        <div class="field"><label for="cf-nome">Name</label><input id="cf-nome" type="text" name="nome" placeholder="Your name" required autocomplete="name" /></div>
+        <div class="field"><label for="cf-email">Email</label><input id="cf-email" type="email" name="email" placeholder="your@email.com" required autocomplete="email" /></div>
+      </div>
+      <div class="field"><label for="cf-oggetto">Subject</label><input id="cf-oggetto" type="text" name="_subject" placeholder="E.g. lesson enrolment, information..." /></div>
+      <div class="field"><label for="cf-messaggio">Message</label><textarea id="cf-messaggio" rows="5" name="messaggio" placeholder="Write to us freely..." required></textarea></div>
+      <!-- Honeypot: real users don't see this field; bots fill it and get blocked -->
+      <div class="hp-field" aria-hidden="true">
+        <label for="cf-website">Website (do not fill in)</label>
+        <input id="cf-website" type="text" name="_gotcha" tabindex="-1" autocomplete="off"/>
+      </div>
+      <div class="privacy-consent">
+        <input type="checkbox" id="cf-privacy" name="privacy_consenso" required value="accepted"/>
+        <label for="cf-privacy">
+          I have read the privacy notice and consent to the processing of my data to respond to this request.
+          <details>
+            <summary>Read the privacy notice</summary>
+            <p><strong>Titolare del trattamento:</strong> Nicolaos Anifantis, P.IVA 08713530726, Via Giuseppe Capruzzi 316, 70124 Bari (BA). Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="295a4a5c464548044a46475d485d5d485d406945404b4c5b4607405d">[email&#160;protected]</a>.</p>
+            <p><strong>Purpose:</strong> the data you enter (name, email, message) are used exclusively to respond to you. They are not shared with third parties, nor used for commercial purposes or newsletters.</p>
+            <p><strong>Retention:</strong> messages are kept for the time necessary to manage the conversation, then deleted.</p>
+            <p><strong>Rights:</strong> you may at any time request the deletion of your data by writing to the email address shown above.</p>
+            <p><strong>Form submission:</strong> the message is delivered via the Formspree service (formspree.io), which acts as data processor.</p>
+          </details>
+        </label>
+      </div>
+      <button type="submit" class="submit-btn" id="contact-submit">Send message</button>
+      <div class="form-feedback" id="form-feedback" role="status" aria-live="polite"></div>
+      <p class="body-text-xxs text-center mt-025">We will receive your message by email and respond as soon as possible.</p>
+    </form>
+  </div>
+</section>
+
+<div class="epigraphic-rule"><span class="glyph">◆</span></div>
+
+<!-- THOUGHTS & INSPIRATIONS -->
+<section id="ispirazioni" class="section-band">
+  <div class="section-eyebrow"><span>Reflections</span></div>
+  <h2 class="section-title sr">Thoughts & inspirations</h2>
+  <p class="section-sub">Words that have marked the path. From masters of every age, and from those who walk with the School today.</p>
+
+  <div class="quotes-carousel sr" role="region" aria-roledescription="Carosello" aria-label="Quotes and inspirations">
+    <div class="quotes-track" id="quotesTrack">
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">☿</div>
+        <p class="quote-slide-text">"Una mente grata è una grande mente che alla fine attrae a sé grandi cose."</p>
+        <p class="quote-slide-author">— Platone</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🌀</div>
+        <p class="quote-slide-text">"L'Abbondanza non è qualcosa che acquisisci, ma è qualcosa con cui sintonizzarti."</p>
+        <p class="quote-slide-author">— Wayne Dyer</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">✶</div>
+        <p class="quote-slide-text">"Colui che vuole veramente impegnarsi nella via del bene deve sapere che non potrà evitare gli attacchi del male. Il male ha il compito di detestarvi e combattervi e, se proseguite nella stessa direzione divina malgrado i suoi attacchi, avete la prova della vostra grande elevazione."</p>
+        <p class="quote-slide-author">— Omraam Mikhaël Aïvanhov</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🜂</div>
+        <p class="quote-slide-text">"Quando inizi a comprendere davvero le persone, il giudizio svanisce. Ognuno porta dentro di sé battaglie invisibili, ferite nascoste e lezioni ancora in corso. Essere empatici significa vedere oltre i difetti, riconoscere l'anima che c'è dietro le maschere."</p>
+        <p class="quote-slide-author">— Scuola ContattaTi</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">☯</div>
+        <p class="quote-slide-text">"Si racconta che Alessandro il Grande, prima della sua morte, fece tre richieste: che la sua bara fosse portata dai migliori medici, che i suoi tesori fossero sparsi lungo il cammino, e che le sue mani restassero fuori dalla bara. Siamo arrivati a mani vuote e ce ne andiamo a mani vuote."</p>
+        <p class="quote-slide-author">— Leggenda di Alessandro il Grande</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🌙</div>
+        <p class="quote-slide-text">"L'uomo è la specie più folle: venera un Dio invisibile e distrugge una Natura visibile. Senza rendersi conto che la Natura che sta distruggendo è quel Dio che sta venerando."</p>
+        <p class="quote-slide-author">— Hubert Reeves</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">👁</div>
+        <p class="quote-slide-text">"Abbiamo accumulato tante ferite e, se non ne siamo consapevoli, tutte le nostre azioni diventano reazioni a quelle ferite. Nella conoscenza di Sé c'è la fine del dolore e quindi l'inizio della saggezza."</p>
+        <p class="quote-slide-author">— J. Krishnamurti</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🕊</div>
+        <p class="quote-slide-text">"La religione è per chi dorme. La spiritualità è per chi è sveglio. La religione reprime tutto, ti rende falso. La spiritualità trascende tutto, ti rende vero. La spiritualità è Divina, senza regole. È causa dell'Unione."</p>
+        <p class="quote-slide-author">— Enzo Palomba</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🌿</div>
+        <p class="quote-slide-text">"La Ricchezza non è possesso, ma Presenza. L'Abbondanza non è quantità, ma Qualità dell'Essere. La Missione non è ruolo, ma Espressione dell'Anima in azione."</p>
+        <p class="quote-slide-author">— Anna Carla Digregorio & Nicolaos Anifantis</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">✨</div>
+        <p class="quote-slide-text">"Non si tratta di attrarre. Si tratta di ricordare chi siamo. E permettere all'oro interiore di emergere."</p>
+        <p class="quote-slide-author">— Scuola ContattaTi</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🦋</div>
+        <p class="quote-slide-text">"Dal Piombo all'Oro, dal Bruco alla Farfalla: l'alchimia è il potere innato dell'essere umano di trasformare sé stesso. Ogni ostacolo si trasforma in soglia, ogni ferita in portale, ogni talento in offerta."</p>
+        <p class="quote-slide-author">— Dal libro Ricchezza, Abbondanza e Mission</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">📜</div>
+        <p class="quote-slide-text">"Esistono menti che si interrogano, che desiderano la verità del cuore, la cercano, si sforzano di risolvere i problemi generati dalla vita. Se un uomo ragiona e pensa bene, deve inevitabilmente ritornare a se stesso, ed incominciare dalla soluzione del problema di che cosa egli stesso sia."</p>
+        <p class="quote-slide-author">— Georges Ivanovitch Gurdjieff</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🌿</div>
+        <p class="quote-slide-text">"La vita di ogni uomo è una via verso sé stesso. Quando odiamo qualcuno, odiamo nella sua immagine qualche cosa che sta dentro di noi. Ciò che non è in noi non ci mette agitazione."</p>
+        <p class="quote-slide-author">— Hermann Hesse</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🔥</div>
+        <p class="quote-slide-text">"Tu sei già ciò che vuoi realizzare. Il fine della tua aspirazione esiste già, presente in te. Qui e ora, in questo preciso istante, tu sei ciò che è noto come divino."</p>
+        <p class="quote-slide-author">— Osho</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🌅</div>
+        <p class="quote-slide-text">"La felicità è un affiorare interiore; è un risveglio delle tue energie; è un risveglio della tua anima."</p>
+        <p class="quote-slide-author">— Osho</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🦅</div>
+        <p class="quote-slide-text">"La vita inizia dove finisce la paura."</p>
+        <p class="quote-slide-author">— Osho</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🪞</div>
+        <p class="quote-slide-text">"Chi guarda sé stesso rischia di incontrare sé stesso. Lo specchio non lusinga, mostra diligentemente quella faccia che non mostriamo mai al mondo perché la nascondiamo dietro la maschera dell'attore."</p>
+        <p class="quote-slide-author">— Carl Gustav Jung</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">❤</div>
+        <p class="quote-slide-text">"Atto d'amore è accogliere in noi la nostra parte più ferita e fragile. Arriva il momento in cui ci accorgiamo che l'ultimo degli uomini siamo noi."</p>
+        <p class="quote-slide-author">— Carl Gustav Jung</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🌕</div>
+        <p class="quote-slide-text">"Colui che cerca non desista dal cercare fino a quando non avrà trovato; quando avrà trovato si stupirà. Quando si sarà stupito, si turberà e dominerà su tutto."</p>
+        <p class="quote-slide-author">— Vangelo di Tommaso</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">⚗</div>
+        <p class="quote-slide-text">"Racchiudi la Verità nel tuo Cuore, e che essa parli attraverso le tue Opere. La Scienza sarà la tua forza; la Fede la tua spada; e il Silenzio la tua corazza impenetrabile."</p>
+        <p class="quote-slide-author">— Ermete Trismegisto</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🌳</div>
+        <p class="quote-slide-text">"L'Albero della Vita affonda le sue radici nel tuo stesso cuore."</p>
+        <p class="quote-slide-author">— Gialad-ad-din Rumì</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🌸</div>
+        <p class="quote-slide-text">"Se potessimo vedere il miracolo di un singolo fiore, la nostra intera vita cambierebbe."</p>
+        <p class="quote-slide-author">— Buddha</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🌟</div>
+        <p class="quote-slide-text">"Ogni essere è una scintilla del divino. Tu non sei separato dalla globalità. Sei una cosa sola con il sole, la terra, l'aria. Tu non hai una vita. Tu sei la vita."</p>
+        <p class="quote-slide-author">— Eckhart Tolle</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">💫</div>
+        <p class="quote-slide-text">"Non sottovalutare mai il potere di credere in qualcosa che ancora non esiste. A volte il mondo ha solo bisogno che tu sia il primo a vederlo."</p>
+        <p class="quote-slide-author">— Jim Carrey</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">☀</div>
+        <p class="quote-slide-text">"L'unico modo in cui l'uomo può contribuire alla costruzione di questa forma gloriosa è quello di coltivare un AMORE PURO, altruistico, benefico, universale. Amore puro diede origine all'universo, amore puro lo sostiene, amore puro lo spinge verso la perfezione."</p>
+        <p class="quote-slide-author">— Sapienza Antica</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🦁</div>
+        <p class="quote-slide-text">"Quando l'ignoranza urla, l'intelligenza tace. La tua pace e tranquillità valgono di più."</p>
+        <p class="quote-slide-author">— Scuola ContattaTi</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🎯</div>
+        <p class="quote-slide-text">"Se non state servendo uno scopo più elevato in maniera volontaria, allora non state vivendo, ma solo esistendo."</p>
+        <p class="quote-slide-author">— Salvatore Brizzi</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">💛</div>
+        <p class="quote-slide-text">"Ogni difficoltà ed ogni sofferenza è una lezione di apprendimento dell'amore."</p>
+        <p class="quote-slide-author">— Anna Carla Digregorio</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🌊</div>
+        <p class="quote-slide-text">"Chi ha abbandonato l'ego non ha più cose che gli piacciono e cose che non gli piacciono: qualsiasi cosa gli si presenti, ne gioisce. Non pone più condizioni all'esistenza — vive incondizionatamente."</p>
+        <p class="quote-slide-author">— Osho, La via della gioia</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🔍</div>
+        <p class="quote-slide-text">"Il mondo si fiderebbe più di un guru che lo convinca di essere illuminato, o preferirebbe che gli indicasse quanto è profondo il suo sonno? E tu che leggi, sei sicuro di riuscire a discernere ciò che ti piace da ciò che più ti serve?"</p>
+        <p class="quote-slide-author">— Fabio Pietro Iacontino, Intelligentia Solis</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🌀</div>
+        <p class="quote-slide-text">"Non chiedersi perché ci è accaduto un certo evento è come usare le parole senza coglierne il significato — come se la parola 'amore' si esaurisse nel suono e non significasse qualcosa di concreto."</p>
+        <p class="quote-slide-author">— Salvatore Brizzi</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🎭</div>
+        <p class="quote-slide-text">"È sempre il falso che ti fa soffrire: i falsi desideri, le false paure, i falsi valori e i falsi rapporti con la gente. Abbandona il falso e sarai libero dal dolore — la verità rende felici, la verità affranca."</p>
+        <p class="quote-slide-author">— Nisargadatta Maharaj</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">💜</div>
+        <p class="quote-slide-text">"Il senso del dovere senza amore rende imbronciati. La responsabilità senza amore rende implacabili. La giustizia senza amore rende duri. La saggezza senza amore rende fasulli. Il potere senza amore rende crudeli. La risposta è sempre l'amore."</p>
+        <p class="quote-slide-author">— Lao Tzu</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">⚡</div>
+        <p class="quote-slide-text">"Non imparerai mai nulla dalla vita se credi di avere sempre ragione."</p>
+        <p class="quote-slide-author">— Keanu Reeves</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🌿</div>
+        <p class="quote-slide-text">"Quando siete malati cercate la guarigione, nel senso che volete tornare alla condizione precedente la malattia, ma quella condizione è stata la causa della malattia! Guarire significa invece diventare una persona nuova."</p>
+        <p class="quote-slide-author">— Salvatore Brizzi</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🌋</div>
+        <p class="quote-slide-text">"Se una cosa fa male, vuol dire che qualcosa dentro di te è stato represso. Invece di evitare il dolore, entraci dentro — così la ferita è totalmente esposta e comincia a guarire."</p>
+        <p class="quote-slide-author">— Osho</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">⚖️</div>
+        <p class="quote-slide-text">"L'essere umano è situato al confine tra il mondo inferiore e il mondo superiore. Se si lascia assorbire dalle forze del mondo superiore, diventa un focolaio di correnti luminose. Ma deve mantenere l'equilibrio fra la terra e il Cielo: la sua missione è lavorare sulla terra con i mezzi del Cielo."</p>
+        <p class="quote-slide-author">— Omraam Mikhaël Aïvanhov</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">⚔️</div>
+        <p class="quote-slide-text">"La Strega insegnò al guerriero l'umiltà e il rispetto. Il Guerriero insegnò alla strega il valore e il coraggio. Insieme insegnarono al mondo l'Amore. Il mondo uccise la strega e rese schiavo il guerriero. Ma non poté impedire all'amore di fare rinascere la strega e liberare il guerriero."</p>
+        <p class="quote-slide-author">— Tradizione orale</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">👁️</div>
+        <p class="quote-slide-text">"Se escludiamo il male facendo finta che non esista, non vivremmo mai una vita vera. Per vedere la bellezza bisogna svegliarsi, e per svegliarsi bisogna avere il coraggio di vedere le cose come stanno — questa è la cosa più difficile."</p>
+        <p class="quote-slide-author">— Giovanni Berti</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🐜</div>
+        <p class="quote-slide-text">"Impara a camminare sulla terra chi considera il cielo come vivente. Maestro è chi marcia sicuro sulla Terra. Non rinunciate alla vita terrena senza prima averla ben compresa. Quando l'ora scocca, anche una formica può essere un messaggero."</p>
+        <p class="quote-slide-author">— Foglie del Giardino di Morya, Illuminazione 1925</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🔄</div>
+        <p class="quote-slide-text">"Consapevolezza e sofferenza sono inversamente proporzionali: se c'è una non c'è l'altra. La consapevolezza unita all'accettazione spalanca i cancelli all'amore. Sei cambiato al tuo interno e, di conseguenza, è cambiato il tuo destino."</p>
+        <p class="quote-slide-author">— Roberto Potocniak</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">👁</div>
+        <p class="quote-slide-text">"Tutti credono si tratti dell'egoismo delle altre persone, non del loro. Ma l'unica persona al mondo che puoi cambiare è proprio quella dalla quale non ti separi mai. Quando il tuo Cuore si apre, realizzi che l'unico problema del mondo eri tu."</p>
+        <p class="quote-slide-author">— Salvatore Brizzi</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">😴</div>
+        <p class="quote-slide-text">"Non risolvi un incubo lavorando sull'incubo. L'incubo scompare svegliandosi dallo stato di sonno ipnotico nel quale si stava vivendo. Non lavorare sul sintomo, bensì sulla causa radice."</p>
+        <p class="quote-slide-author">— Roberto Potocniak</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">⚡</div>
+        <p class="quote-slide-text">"Mantieni la tua anima forte e pulita e tutto andrà bene. Non credere di essere solo, né debole, perché dentro di te ci sono eserciti potenti che nemmeno puoi immaginare. Se elevi il tuo spirito, non c'è niente che possa toccarti. L'unico nemico che devi temere è te stesso."</p>
+        <p class="quote-slide-author">— Paracelso</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🔆</div>
+        <p class="quote-slide-text">"Gesù non vede il cieco come colui che ha sbagliato, ma come colui che è pronto a manifestare una qualità divina alla massima potenza. Non giudicare dalle apparenze: ogni difficoltà può essere la sfida al massimo livello per il perfezionamento."</p>
+        <p class="quote-slide-author">— Scuola ContattaTi</p>
+      </div>
+
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🕯</div>
+        <p class="quote-slide-text">"Il desiderio di longevità è contro natura ed è satanico se non è giustificato dal desiderio di servire più a lungo assecondando la propria missione."</p>
+        <p class="quote-slide-author">— Salvatore Brizzi</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🌙</div>
+        <p class="quote-slide-text">"I due passaggi iniziatici per essere pronti ad accedere ad una via oggettiva: 1. La completa disillusione verso il mondo. 2. La completa disillusione verso sé stessi, verso ciò che si crede di essere e di poter fare."</p>
+        <p class="quote-slide-author">— Roberto Potocniak</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🌄</div>
+        <p class="quote-slide-text">"Tu non puoi cambiare nessuno. Nella vita ci si innalza solo per propria scelta. Tu puoi solo portare avanti la tua Missione mostrando nelle parole e nei fatti un nuovo mondo possibile."</p>
+        <p class="quote-slide-author">— Salvatore Brizzi</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">⚡</div>
+        <p class="quote-slide-text">"La disobbedienza richiede un'intelligenza di ordine leggermente superiore. La persona intelligente si chiederà prima o poi: perché? Così si diventa responsabili di sé."</p>
+        <p class="quote-slide-author">— Osho</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🤍</div>
+        <p class="quote-slide-text">"Diffidate delle grandi parole gridate in piazza; rifuggite l'amore generalista, non concreto. Il Vangelo non proclama ideologie… e in questo risiede la sua forza."</p>
+        <p class="quote-slide-author">— Salvatore Brizzi</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🌸</div>
+        <p class="quote-slide-text">"Fuggire le false tranquillità, aprire gli occhi infinitamente, come è infinita la luce, è sempre un momento di fioritura di sé stessi."</p>
+        <p class="quote-slide-author">— Daniel Meurois &amp; Anne Givaudan</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">💗</div>
+        <p class="quote-slide-text">"L'amore è forza rivoluzionaria, poiché rovescia l'algida geometria del do ut des. È la cellula della comunità. Amare significa realizzarsi con l'altro, volendo che l'altro sia pienamente."</p>
+        <p class="quote-slide-author">— Diego Fusaro</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">💛</div>
+        <p class="quote-slide-text">"Non aver paura di fallire… Abbi paura di non averci provato… Abbi paura di non averne goduto nel farlo… Abbi paura di non amare abbastanza ciò che fai… Ma mai del fallimento…"</p>
+        <p class="quote-slide-author">— Anna Carla Digregorio</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">💧</div>
+        <p class="quote-slide-text">"Abbi Fede e lascia che sia… asseconda con Grazia il torrente dell'Esistenza… e potresti accorgerti che così la vita risulta anche divertente!"</p>
+        <p class="quote-slide-author">— Anna Carla Digregorio</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">👁</div>
+        <p class="quote-slide-text">"Fino a quando argomenti come Legge dello Specchio, giudizio e Legge di Compensazione non vi sono ben chiari, a cosa mai può servirvi purificare un chakra? Vi addormenterete ancora di più."</p>
+        <p class="quote-slide-author">— Salvatore Brizzi</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🧪</div>
+        <p class="quote-slide-text">"Spiritualità fast-food: credere che esistano rimedi facili e rapidi. La trasformazione spirituale non può essere rapida perché il processo stesso consiste nel lasciare la fretta e rispettare i propri ritmi naturali."</p>
+        <p class="quote-slide-author">— Angy Scrò</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">☯</div>
+        <p class="quote-slide-text">"La Comunione di Coppia è di per sé un riflesso dell'Amore Divino. Comunione di Coppia che è il primo passo verso la Comunione con il Tutto."</p>
+        <p class="quote-slide-author">— Anna Carla Digregorio &amp; Nicolaos Anifantis</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">💡</div>
+        <p class="quote-slide-text">"Abbi Fede, la luce c'è certamente! È lì fuori che ti aspetta… Impegniamoci al massimo per forzare la porta e permetterci di vederla, quella Luce fino ad allora solo teorizzata."</p>
+        <p class="quote-slide-author">— Anna Carla Digregorio</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">✞</div>
+        <p class="quote-slide-text">"Di Gesù non bisogna prenderci solo ciò che ci piace e che ci sembra convenire. Di Lui dobbiamo imparare a prendere anche tutto ciò che rigettiamo perché scardina le nostre convinzioni. Ma alla fine proprio lì si gioca il meglio della vita."</p>
+        <p class="quote-slide-author">— Luigi Maria Epicoco</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🔄</div>
+        <p class="quote-slide-text">"L'amore è un fenomeno circolare: esce ed entra, amplificandosi sempre più. Più dai, più ricevi. Molti si lamentano di aver dato tanto senza ricevere niente: questo accade sempre quando si dà solo per ricevere… che non è dare, ma mendicare."</p>
+        <p class="quote-slide-author">— Roberto Potocniak</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🗿</div>
+        <p class="quote-slide-text">"Considerare la vita come una scuola meravigliosa, come una dura ma salutare palestra dove si temprano le più alte qualità e poteri umani e spirituali. Di fronte a ogni prova, invece delle abituali reazioni di abbattimento, dirsi: quale bene ne posso trarre?"</p>
+        <p class="quote-slide-author">— Roberto Assagioli</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🦅</div>
+        <p class="quote-slide-text">"La bellezza ispira resistenza. Lo stato naturale dell'uomo è difendere le cose belle. Stanno attaccando la tua anima. Stanno uccidendo qualsiasi cosa possa ispirare la tua resistenza. È fatto di proposito. Diffidate."</p>
+        <p class="quote-slide-author">— Salvatore Brizzi</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">☀</div>
+        <p class="quote-slide-text">"Per quanto è possibile, tramite la conoscenza, la fede, la speranza e l'amore, si deve aiutare la vita a mantenersi. Non bisogna permettere alle forze negative di riportare la vittoria."</p>
+        <p class="quote-slide-author">— Omraam Mikhaël Aïvanhov</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🌍</div>
+        <p class="quote-slide-text">"Tutto lo spirito che non si radica nella materia è volatile ed effimero. Il corpo è l'unico vero tempio dello Spirito. Diamoci da fare, alziamoci le maniche e affrettiamoci lentamente, con i piedi ben radicati a terra."</p>
+        <p class="quote-slide-author">— Sapienza della tradizione</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">⚔</div>
+        <p class="quote-slide-text">"La verità è come un leone. Non avrai bisogno di difenderla. Lasciala libera. Si difenderà da sola."</p>
+        <p class="quote-slide-author">— Sant'Agostino</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">♨️</div>
+        <p class="quote-slide-text">"Dico e attesto che il Nostro Potere è diverso. Il Nostro Potere è sacrificio."</p>
+        <p class="quote-slide-author">— Foglie del Giardino di Morya, Appello 1924</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">👁</div>
+        <p class="quote-slide-text">"La vita reale inizia quando 'Io ci sono' e sono 'Presente a me stesso'. Solo allora posso iniziare a creare un futuro che non sia solo un copia-incolla del mio passato."</p>
+        <p class="quote-slide-author">— Roberto Potocniak</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">💞</div>
+        <p class="quote-slide-text">"C'è un unico fondamentale requisito perché una relazione sentimentale possa sopravvivere a sé stessa: la presenza di un contenitore più grande, comune ad entrambi. Due 'iniziati' che vivono ogni giornata con la gioia di una nuova scoperta hanno un territorio comune di qualità elevatissima."</p>
+        <p class="quote-slide-author">— Antonio Esposito</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🌠</div>
+        <p class="quote-slide-text">"Il ricordo di sé è uno stato di meraviglia, nel quale la mente tace. Ti commuovi perché sei vivo, non perché ti è successo qualcosa di particolare. Finalmente, ti senti vivo."</p>
+        <p class="quote-slide-author">— Salvatore Brizzi</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🌙</div>
+        <p class="quote-slide-text">"Il femminino sacro è la capacità dell'essere umano, nella sua ascesa al Padre, di creare e portare frutti nella materia venendo direttamente fecondato da Dio senza interferenza umana. Sarà questo il femminino sacro che dovremo incarnare."</p>
+        <p class="quote-slide-author">— Anna Carla Digregorio</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🕊</div>
+        <p class="quote-slide-text">"L'Intelligenza cosmica non comincia mai dalla sofferenza, ma ricorre a quest'ultima solo dopo aver provato di tutto per far riflettere gli umani."</p>
+        <p class="quote-slide-author">— Omraam Mikhaël Aïvanhov</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🔱</div>
+        <p class="quote-slide-text">"Non incolpare mai, non lamentarti mai di nessuno, di niente. Il trionfo del vero uomo proviene dalle ceneri del suo errore. Guarda te stesso allo specchio, sarai libero e forte, perché tu stesso sei il tuo destino."</p>
+        <p class="quote-slide-author">— Pablo Neruda</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">💡</div>
+        <p class="quote-slide-text">"Non è il male che sta aumentando: sta aumentando la luce. Immagini di aver immagazzinato per anni i suoi oggetti in una stanza illuminata da una lampadina da 40 watt. Cambi quella lampadina con una da 100 watt e vedrà cosa accade! Lo sporco sarà evidente."</p>
+        <p class="quote-slide-author">— Sai Baba</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🕊</div>
+        <p class="quote-slide-text">"Quando risparmi qualcuno, quando lo approvi nei suoi peccati, quando non condividi con lui la Verità, allora non lo ami. Il vero amore si mette in gioco, soffre per l'altro, agisce. Fino alla fine di tutto."</p>
+        <p class="quote-slide-author">— Padre Costantino Sturzu</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🌳</div>
+        <p class="quote-slide-text">"Sii te stesso in ogni situazione. Nessuna tempesta ha il potere di sradicare le tue radici, se tu non vuoi. Ascolta l'intuito. Solo tu conosci la tua Verità."</p>
+        <p class="quote-slide-author">— Insegnamento spirituale</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">💞</div>
+        <p class="quote-slide-text">"Il vero scopo della coppia non è tanto 'stare insieme' ma 'creare insieme'. Una coppia che non crea va contro l'impulso dell'Universo. In una coppia si è in 3: tu, io e la relazione. Il mio spazio interiore è sacro, sacro come il tuo."</p>
+        <p class="quote-slide-author">— Nicolas Tamayo</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🐉</div>
+        <p class="quote-slide-text">"I demoni vanno abbracciati, in quel momento ti apriranno le porte della rinascita. I demoni sono come i draghi, vanno baciati, non vanno uccisi."</p>
+        <p class="quote-slide-author">— Bride An Geal</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🌿</div>
+        <p class="quote-slide-text">"La natura superiore vi dice: invece di rimuginare e di cercare la vendetta, cerca piuttosto di utilizzare e trasformare quell'offesa. Tu sei un alchimista, ricaverai dell'oro."</p>
+        <p class="quote-slide-author">— Omraam Mikhaël Aïvanhov</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">⚔</div>
+        <p class="quote-slide-text">"L'origine della guerra è nel sonno del genere umano. Per cavarvela nei prossimi anni dovete svegliarvi e 'uscire dal genere umano'."</p>
+        <p class="quote-slide-author">— Georges I. Gurdjieff, via Salvatore Brizzi</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🌅</div>
+        <p class="quote-slide-text">"L'angolo più oscuro dell'inferno è riservato a coloro che mantengono la loro neutralità in momenti di crisi morale."</p>
+        <p class="quote-slide-author">— Dante Alighieri, La Divina Commedia</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🎨</div>
+        <p class="quote-slide-text">"Il pittore, lo scienziato, l'uomo curioso: tutti coloro che osservano il mondo con attenzione scoprono dettagli che sfuggono agli altri. È nella capacità di meravigliarsi e di interrogarsi continuamente che nasce la vera conoscenza."</p>
+        <p class="quote-slide-author">— Leonardo Da Vinci</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">⚖️</div>
+        <p class="quote-slide-text">"Chi si conosce, non si lascia turbare dagli eventi."</p>
+        <p class="quote-slide-author">— Seneca</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">♾</div>
+        <p class="quote-slide-text">"Che accadrebbe se, un giorno o una notte, un demone ti dicesse: questa vita dovrai viverla ancora innumerevoli volte, e non ci sarà in essa mai niente di nuovo?"</p>
+        <p class="quote-slide-author">— Friedrich Nietzsche, L'eterno ritorno</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">💠</div>
+        <p class="quote-slide-text">"La verità era uno specchio che cadendo dal cielo si ruppe. Ciascuno ne prese un pezzo e vedendo riflessa in esso la propria immagine, credette di possedere l'intera verità."</p>
+        <p class="quote-slide-author">— Jalāl al-Dīn Rūmī</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">✡</div>
+        <p class="quote-slide-text">"Una volta per tutte ti viene imposto un breve precetto: ama e fa ciò che vuoi. Sia che tu taccia, taci per amore. Sia che tu parli, parla per amore. Sia in te la radice dell'amore, poiché da questa radice non può procedere se non il bene."</p>
+        <p class="quote-slide-author">— Sant'Agostino</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🌱</div>
+        <p class="quote-slide-text">"Non va piantato un albero il giorno in cui vuoi l'ombra."</p>
+        <p class="quote-slide-author">— Proverbio Zen</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🌀</div>
+        <p class="quote-slide-text">"Tutto quello che stai attraversando, ti sta preparando a ciò che hai chiesto."</p>
+        <p class="quote-slide-author">— Eckhart Tolle</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🌿</div>
+        <p class="quote-slide-text">"Dio dorme nelle pietre, sogna nelle piante, si risveglia nell'animale e diventa cosciente nell'essere umano."</p>
+        <p class="quote-slide-author">— Antico aforisma</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">⚖</div>
+        <p class="quote-slide-text">"Se l'uomo non è capace di governare le proprie emozioni e le proprie pulsioni, non sarà mai in grado di dominare se stesso."</p>
+        <p class="quote-slide-author">— Cicerone</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">💎</div>
+        <p class="quote-slide-text">"Per mezzo della Temperanza l'uomo diventa saggio, e soltanto il saggio può sperimentare il piacere autentico — ed è questo che lo renderà differente da un animale."</p>
+        <p class="quote-slide-author">— Aristotele</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🌾</div>
+        <p class="quote-slide-text">"Nella bottega di Dio non si vendono i frutti maturi, ma i piccoli semi da coltivare. Vai nel mondo e fai germogliare i doni che Dio ti ha donato."</p>
+        <p class="quote-slide-author">— Parabola della bottega dei doni di Dio</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🎵</div>
+        <p class="quote-slide-text">"La geometria è musica solidificata."</p>
+        <p class="quote-slide-author">— Pitagora</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">☸</div>
+        <p class="quote-slide-text">"La via non è nel cielo: la via si trova nel cuore."</p>
+        <p class="quote-slide-author">— Buddha</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">✝</div>
+        <p class="quote-slide-text">"Per questo vi dico: tutte le cose che chiedete in preghiera, abbiate fede di averle già ricevute e le avrete."</p>
+        <p class="quote-slide-author">— Marco 11:24</p>
+      </div>
+      <!-- nuove slide lezione 4 anno 3 -->
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🌅</div>
+        <p class="quote-slide-text">"I due giorni più importanti della vita sono quello in cui sei nato e quello in cui capisci perché."</p>
+        <p class="quote-slide-author">— Mark Twain</p>
+      </div>
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">💫</div>
+        <p class="quote-slide-text">"Io sono venuto nel mondo come luce, perché chiunque crede in me non rimanga nelle tenebre."</p>
+        <p class="quote-slide-author">— Giovanni 12,46</p>
+      </div>
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🌿</div>
+        <p class="quote-slide-text">"Nessuno ha un amore più grande di questo: dare la sua vita per i propri amici."</p>
+        <p class="quote-slide-author">— Giovanni 15,13</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🔥</div>
+        <p class="quote-slide-text">"L'idea di servire Dio ha un senso solo se l'essere umano prende coscienza che la divinità che egli deve servire dimora nella propria anima."</p>
+        <p class="quote-slide-author">— Omraam Mikhaël Aïvanhov</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🌌</div>
+        <p class="quote-slide-text">"Tu non hai una vita, tu sei la vita. L'unica vita, l'unica consapevolezza assume la forma di un uomo o di una donna, un filo d'erba, un cane, un pianeta, il sole, una galassia. Questo è il gioco delle forme, la danza della vita."</p>
+        <p class="quote-slide-author">— Eckhart Tolle</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🪷</div>
+        <p class="quote-slide-text">"Il vero amore è fatto di gentilezza amorevole, di capacità di offrire felicità agli altri, di compassione, di gioia condivisa e di libertà per l'uno e per l'altro."</p>
+        <p class="quote-slide-author">— Thich Nhat Hanh</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">✝</div>
+        <p class="quote-slide-text">"Ti lodo, Padre, Signore del cielo e della terra, perché hai nascosto queste cose ai sapienti e ai dotti e le hai rivelate ai piccoli."</p>
+        <p class="quote-slide-author">— Matteo 11:25</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🤫</div>
+        <p class="quote-slide-text">"Ricerca il vuoto ed il silenzio con tutto il tuo essere, quell'essere stesso fatto di vuoto e silenzio. Ricercandoli ti ritroverai, e ritrovandoti diverrai ciò che cerchi."</p>
+        <p class="quote-slide-author">— Meditazione della Scuola ContattaTi</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🏛</div>
+        <p class="quote-slide-text">"Una vita senza ricerca non è degna per l'uomo di essere vissuta."</p>
+        <p class="quote-slide-author">— Socrate</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">⚗</div>
+        <p class="quote-slide-text">"Di tutto il creato, l'uomo è l'unico essere duplice: mortale secondo la sua corporeità, immortale secondo la sua essenza."</p>
+        <p class="quote-slide-author">— Ermete Trismegisto</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">✨</div>
+        <p class="quote-slide-text">"Tu ora sei quell'anima che in questa terra puoi ricongiungere ciò che viene visto come separato. Tu ora sei quell'anima che attraverso l'amore puoi tornare ad essere quella luce che annulla l'oscurità."</p>
+        <p class="quote-slide-author">— Meditazione della Scuola ContattaTi</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🎭</div>
+        <p class="quote-slide-text">"Tu non sei quella ferita, sei solo identificato con la sua maschera. Lascia andare quell'identificazione e la ferita svanirà."</p>
+        <p class="quote-slide-author">— Meditazione della Scuola ContattaTi</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🔮</div>
+        <p class="quote-slide-text">"La conoscenza è Magia ed è la sola Legge. Non abbiate paura del potere dentro di voi, poiché esso segue la Legge come le stelle nel cielo. Segui e impara la mia Magia. Sappi che tutta la Forza è tua, se lo vorrai."</p>
+        <p class="quote-slide-author">— Toth l'Atlantideo, Tavole di Smeraldo</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🏛</div>
+        <p class="quote-slide-text">"Non cercare il mondo in te stesso, ma trova te stesso nel mondo."</p>
+        <p class="quote-slide-author">— Antico proverbio egizio</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🕯</div>
+        <p class="quote-slide-text">"Non portare il mondo nel rito: porta il rito nel mondo."</p>
+        <p class="quote-slide-author">— Massima iniziatica</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">⏳</div>
+        <p class="quote-slide-text">"Il tempo non guarisce; la presenza sì."</p>
+        <p class="quote-slide-author">— Massima iniziatica</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🌑</div>
+        <p class="quote-slide-text">"I demoni interiori non sono nemici, ma parti rimaste sospese. Quando li vediamo senza paura, quando li ascoltiamo senza giudizio, la loro forma cambia. Ciò che sembrava ombra rivela la sua origine."</p>
+        <p class="quote-slide-author">— Meditazione della Scuola ContattaTi</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">⚡</div>
+        <p class="quote-slide-text">"Il genio è colui che è a suo agio nel disagio."</p>
+        <p class="quote-slide-author">— Joe Dispenza</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🪞</div>
+        <p class="quote-slide-text">"Quando incontri qualcuno ricordati che è un incontro sacro. Come lo vedi ti vedi, come lo tratti ti tratti, come lo pensi ti pensi."</p>
+        <p class="quote-slide-author">— Meditazione della Scuola ContattaTi</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🕊</div>
+        <p class="quote-slide-text">"Scopri chi sei e non avere paura di realizzarlo."</p>
+        <p class="quote-slide-author">— Mahatma Gandhi</p>
+      </div>
+
+      <!-- Quotes from Year 4 transcriptions -->
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🌿</div>
+        <p class="quote-slide-text">"L'amicizia è sempre una dolce responsabilità, mai un'opportunità."</p>
+        <p class="quote-slide-author">— Khalil Gibran</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🌅</div>
+        <p class="quote-slide-text">"Nella mente nasce la sofferenza. Nella mente può essere risolta."</p>
+        <p class="quote-slide-author">— Buddha</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🕯</div>
+        <p class="quote-slide-text">"La verità non è qualcosa da conoscere. È qualcosa da ricordare."</p>
+        <p class="quote-slide-author">— Scuola ContattaTi</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">💠</div>
+        <p class="quote-slide-text">"Mi raccomando a morire vivi."</p>
+        <p class="quote-slide-author">— Georges Ivanovitch Gurdjieff</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🦅</div>
+        <p class="quote-slide-text">"Sei divino, non dimenticarlo mai. Siamo tutti uno, in eterno contatto con l'anima unica."</p>
+        <p class="quote-slide-author">— Giordano Bruno</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">🗿</div>
+        <p class="quote-slide-text">"La gratitudine è la memoria del cuore."</p>
+        <p class="quote-slide-author">— Lao Tzu</p>
+      </div>
+
+      <div class="quote-slide" role="group" aria-label="Quote">
+        <div class="quote-slide-symbol" aria-hidden="true">⚔</div>
+        <p class="quote-slide-text">"Il segreto dell'evoluzione non è diventare qualcuno che non siamo, bensì tirar fuori ciò che siamo realmente."</p>
+        <p class="quote-slide-author">— Ermete Trismegisto</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="carousel-controls">
+    <button class="carousel-btn" id="prevBtn" aria-label="Previous quote">&#8592;</button>
+    <span class="carousel-counter" id="carouselCounter" aria-live="polite"></span>
+    <button class="carousel-btn" id="nextBtn" aria-label="Next quote">&#8594;</button>
+  </div>
+</section>
+
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-seal" aria-hidden="true">✶</div>
+    <p class="footer-logo">Scuola ContattaTi</p>
+    <p class="serif-footer serif-footer-motto"><span lang="el">Γνῶθι Σεαυτόν</span> · Know Thyself</p>
+
+    <div class="footer-rule" aria-hidden="true"><span>◆  ◆  ◆</span></div>
+
+    <nav class="footer-links" aria-label="Quick links">
+      <a href="#chi-siamo">About us</a>
+      <a href="#insegnamenti">Teachings</a>
+      <a href="#conduttori">The guides</a>
+      <a href="#calendario">The path</a>
+      <a href="#libro">The book</a>
+      <a href="#contatti">Contact</a>
+      <a href="../privacy.html">Privacy</a>
+      <a href="#" id="manageCookies">Manage cookies</a>
+    </nav>
+
+    <div class="footer-social">
+      <a href="https://www.facebook.com/nicolaosanifantis" target="_blank" rel="noopener" aria-label="Facebook"><svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.12 8.44 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99C18.34 21.12 22 16.99 22 12z"/></svg></a>
+      <a href="tel:+393349991888" aria-label="Phone"><svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/></svg></a>
+      <a href="https://wa.me/393349991888" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a10 10 0 00-8.6 14.9L2 22l5.2-1.4A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3A8 8 0 1112 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.1-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4-.1-.1-.5-1.3-.7-1.8-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.3c.1.2 1.6 2.4 3.8 3.4.5.2 1 .4 1.3.5.6.2 1.1.1 1.5.1.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1-.1-.1-.3-.2-.5-.3z"/></svg></a>
+    </div>
+
+    <hr class="footer-divider"/>
+    <p><a href="tel:+393349991888" aria-label="Call Nicolaos at 334 999 1888">334 999 1888</a> &nbsp;·&nbsp; <span id="email-footer"></span></p>
+    <p class="serif-footer serif-footer-quote">"It is not about becoming someone. It is about remembering who you already are."</p>
+    <p class="footer-copyright">© 2026 Scuola ContattaTi · Anna Carla Digregorio & Nicolaos Anifantis</p>
+  </div>
+</footer>
+<!-- WhatsApp sticky (mobile) -->
+<a class="wa-sticky" href="https://wa.me/393349991888" target="_blank" rel="noopener" aria-label="Write to us on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.05 21.785h-.01a9.84 9.84 0 01-5.016-1.373l-.36-.214-3.73.978.996-3.635-.235-.374A9.86 9.86 0 012.166 12c0-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zm8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- Back to top -->
+<a class="back-to-top" href="#top" id="backToTop" aria-label="Back to top"><span aria-hidden="true">↑</span></a>
+
+<!-- Cookie banner GDPR / ePrivacy -->
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-desc" hidden>
+  <p id="cookie-title" class="cookie-banner-title">Privacy &amp; cookie</p>
+  <p id="cookie-desc">
+    This site uses <strong>Google Analytics</strong> to understand in anonymous and aggregate form how it is navigated.
+    No personal data is sold or shared for commercial purposes. You can accept or decline;
+    either way the site works normally. <a href="../privacy.html">Read the full privacy notice</a>.
+  </p>
+  <div class="cookie-actions">
+    <button type="button" id="cookieReject" class="cookie-btn cookie-btn-reject">Decline</button>
+    <button type="button" id="cookieAccept" class="cookie-btn cookie-btn-accept">Accept</button>
+  </div>
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="lezioni.js"></script>
+<script>
+(function(){
+  var KEY = 'sc-cookie';
+  var banner = document.getElementById('cookie-banner');
+  var choice = localStorage.getItem(KEY);
+  if(!choice){ banner.hidden = false; }
+
+  // Cross-page: if the user comes from privacy.html after removing sc-cookie,
+  // the banner may not appear immediately (race condition with scroll restore).
+  // Recheck after complete load.
+  window.addEventListener('load', function(){
+    if(!localStorage.getItem(KEY) && banner.hidden){ banner.hidden = false; }
+  });
+
+  function loadGA(){
+    if(window.__gaLoaded) return;
+    window.__gaLoaded = true;
+    if(typeof gtag === 'function'){
+      gtag('consent', 'update', { 'analytics_storage': 'granted' });
+    }
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-2NTMVVV5GB';
+    document.head.appendChild(s);
+    if(typeof gtag === 'function'){
+      gtag('config', 'G-2NTMVVV5GB', { 'anonymize_ip': true });
+    }
+  }
+
+  document.getElementById('cookieAccept').addEventListener('click', function(){
+    localStorage.setItem(KEY, 'accept');
+    banner.hidden = true;
+    loadGA();
+  });
+  document.getElementById('cookieReject').addEventListener('click', function(){
+    localStorage.setItem(KEY, 'reject');
+    banner.hidden = true;
+    window['ga-disable-G-2NTMVVV5GB'] = true;
+  });
+
+  // "Manage cookies" link in footer — reopens the banner
+  var manage = document.getElementById('manageCookies');
+  if(manage){
+    manage.addEventListener('click', function(e){
+      e.preventDefault();
+      banner.hidden = false;
+    });
+  }
+  // Global API to reopen the banner from other pages (e.g. privacy.html)
+  window.scOpenCookieBanner = function(){ banner.hidden = false; };
+})();
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+  /* Convert number to Roman numeral */
+  function toRoman(n){var v=[1,4,5,9,10,40,50,90,100,400,500,900,1000],s=['I','IV','V','IX','X','XL','L','XC','C','CD','D','CM','M'],r='';for(var i=v.length-1;i>=0;i--){while(n>=v[i]){r+=s[i];n-=v[i];}}return r;}
+
+  /* THEME TOGGLE */
+  var themeBtn=document.getElementById('themeToggle');
+  if(themeBtn){
+    var isDark=document.documentElement.getAttribute('data-theme')!=='light';
+    function updThemeBtn(){
+      themeBtn.innerHTML=isDark
+        ?'<span class="theme-toggle-icon">\u2600</span> Light theme'
+        :'<span class="theme-toggle-icon">\u263D</span> Dark theme';
+    }
+    updThemeBtn();
+    themeBtn.addEventListener('click',function(){
+      isDark=!isDark;
+      if(isDark){
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('sctheme','dark');
+        document.getElementById('metaThemeColor').content='#0d0b1a';
+      } else {
+        document.documentElement.setAttribute('data-theme','light');
+        localStorage.setItem('sctheme','light');
+        document.getElementById('metaThemeColor').content='#f5f0e8';
+      }
+      updThemeBtn();
+      /* Close mobile menu */
+      var nl=document.querySelector('.nav-links');
+      var nt=document.querySelector('.nav-toggle');
+      if(nl && nl.classList.contains('open')){
+        nl.classList.remove('open');
+        nt.setAttribute('aria-expanded','false');
+        nt.innerHTML='\u2630';
+        nt.setAttribute('aria-label','Open menu');
+      }
+    });
+  }
+
+  /* EMAIL */
+  var u='scuola-contattati',d='libero.it',em=u+'@'+d;
+  var lnk='<a href="mailto:'+em+'" style="color:var(--text-muted)">'+em+'</a>';
+  var ed=document.getElementById('email-display');
+  var ef=document.getElementById('email-footer');
+  if(ed)ed.innerHTML=lnk; if(ef)ef.innerHTML=lnk;
+
+  /* HELPERS */
+  var mesi=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var mesiL=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  function stato(d,m,y){var n=new Date(),s=new Date(y,m-1,d,9,0),e=new Date(y,m-1,d,13,30);if(n>=s&&n<=e)return 'in-corso';if(n>e)return 'passata';return 'futura';}
+  function toggle(row,panel){var o=panel.classList.contains('open');document.querySelectorAll('.lesson-panel.open').forEach(function(p){p.classList.remove('open');var r=p.closest('.lesson-wrap').querySelector('.event-row');r.classList.remove('open');r.setAttribute('aria-expanded','false');});if(!o){panel.classList.add('open');row.classList.add('open');row.setAttribute('aria-expanded','true');}}
+  function temiHTML(t){return '<ul class="lesson-topics">'+t.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>';}
+  function panelHTML(l){return '<div class="lesson-panel"><div class="lesson-panel-inner"><p class="lesson-panel-title">'+l.titolo+(l.sottotitolo?'<br><span style="font-size:15px;font-weight:500;color:var(--gold-light);font-style:normal;">'+l.sottotitolo+'</span>':'')+'</p>'+(l.desc?'<p class="body-text-sm mb-1" style="border-left:2px solid var(--gold);padding-left:0.75rem;">'+l.desc+'</p>':'')+temiHTML(l.temi)+(l.citazione?'<div class="lesson-quote">'+l.citazione+'<cite>&mdash; '+l.autore+'</cite></div>':'')+'</div></div>';}
+
+  /* NAV MOBILE TOGGLE */
+  var navToggle = document.querySelector('.nav-toggle');
+  var navLinks = document.querySelector('.nav-links');
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', function() {
+      var isOpen = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen);
+      navToggle.innerHTML = isOpen ? '\u2715' : '\u2630';
+      navToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    });
+  }
+
+  /* PRESENTAZIONI PANEL TOGGLE */
+  var presToggle = document.getElementById('pres-toggle');
+  var presPanel = document.getElementById('pres-panel');
+  if (presToggle && presPanel) {
+    function togglePresPanel() {
+      var wasOpen = presPanel.classList.contains('open');
+      presPanel.classList.toggle('open');
+      presToggle.classList.toggle('open');
+      presToggle.setAttribute('aria-expanded', !wasOpen);
+    }
+    presToggle.addEventListener('click', togglePresPanel);
+    presToggle.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        togglePresPanel();
+      }
+    });
+  }
+
+  /* VIDEO FACADE — swap CSS thumbnail with embedded YouTube iframe on user action */
+  function activateVideoFacade(facade) {
+    var videoId = facade.getAttribute('data-video-id');
+    if (!videoId) return;
+    var iframe = document.createElement('iframe');
+    iframe.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0&modestbranding=1';
+    iframe.title = 'Introductory video of the Scuola ContattaTi';
+    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+    iframe.setAttribute('allowfullscreen', '');
+    facade.innerHTML = '';
+    facade.appendChild(iframe);
+    facade.style.cursor = 'default';
+    facade.removeAttribute('role');
+    facade.removeAttribute('tabindex');
+    facade.removeAttribute('aria-label');
+  }
+  document.querySelectorAll('.video-facade').forEach(function(facade) {
+    facade.addEventListener('click', function() { activateVideoFacade(facade); });
+    facade.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        activateVideoFacade(facade);
+      }
+    });
+  });
+
+  /* ANNO 1 */
+  var list1=document.getElementById('calendar-list');
+  if(list1){
+    var prossimaTrovata=false;
+    L1.forEach(function(l){
+      var st=stato(l.day,l.month,l.year);
+      var isPr=st==='futura'&&!prossimaTrovata;
+      if(st==='futura')prossimaTrovata=true;
+      var bc,bt;
+      if(st==='in-corso'){bc='badge badge-green';bt='&#9679; In progress';}
+      else if(st==='passata'){bc='badge badge-muted';bt='Completed';}
+      else if(isPr){bc='badge badge-gold';bt='Enrol';}
+      else{bc='badge badge-purple';bt=mesiL[l.month-1]+' '+l.year;}
+      var sfx=st==='in-corso'?' \u2014 In progress now':isPr?' \u2736 Next':'';
+      var w=document.createElement('div');w.className='lesson-wrap';
+      w.innerHTML='<div class="event-row has-detail" role="button" tabindex="0" aria-expanded="false"><div class="event-date"><p class="event-day ev-num">'+toRoman(l.num)+'</p><p class="event-month">Year 1</p></div><div class="event-vline"></div><div class="event-info"><p class="event-title">Lesson '+toRoman(l.num)+sfx+'</p><p class="event-sub">'+l.titolo+'</p><p style="font-size:13px;color:var(--text-muted);margin-top:2px;">'+l.day+' '+mesiL[l.month-1]+' '+l.year+'</p></div><span class="'+bc+'">'+bt+'</span><span class="detail-pill">Topics \u25be</span><span class="expand-arrow">\u25bc</span></div>'+panelHTML(l);
+      list1.appendChild(w);
+      var row=w.querySelector('.event-row'),panel=w.querySelector('.lesson-panel');
+      row.addEventListener('click',function(){toggle(row,panel);});
+      row.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle(row,panel);}});
+    });
+  }
+
+  /* ANNO 2 */
+
+  /* ANNO 3 */
+
+  function renderAnno(lista,listId,label){
+    var el=document.getElementById(listId);if(!el)return;
+    var prossimaTrovata=false;
+    lista.forEach(function(l){
+      var w=document.createElement('div');w.className='lesson-wrap';
+      var hasDate=l.day&&l.month&&l.year;
+      var st=hasDate?stato(l.day,l.month,l.year):null;
+      var isPr=st==='futura'&&!prossimaTrovata;
+      if(st==='futura')prossimaTrovata=true;
+      var bc,bt;
+      if(st==='in-corso'){bc='badge badge-green';bt='&#9679; In progress';}
+      else if(st==='passata'){bc='badge badge-muted';bt='Completed';}
+      else if(isPr){bc='badge badge-gold';bt='Enrol';}
+      else if(st==='futura'){bc='badge badge-purple';bt=mesiL[l.month-1]+' '+l.year;}
+      else{bc='';bt='';}
+      if(!l.titolo){
+        var dataBadge=hasDate?'<span class="'+bc+'">'+bt+'</span>':'<span class="badge badge-muted">Coming soon</span>';
+        w.innerHTML='<div class="event-row" style="opacity:0.65;"><div class="event-date"><p class="event-day ev-num">'+toRoman(l.num)+'</p><p class="event-month">'+label+'</p></div><div class="event-vline"></div><div class="event-info"><p class="event-title">Lesson '+toRoman(l.num)+'</p>'+(hasDate?'<p class="event-sub">'+l.day+' '+mesiL[l.month-1]+' '+l.year+'</p>':'<p class="event-sub">Details coming soon</p>')+'</div>'+dataBadge+'</div>';
+        el.appendChild(w);
+        return;
+      }
+      var badgeHTML=hasDate?'<span class="'+bc+'">'+bt+'</span>':'';
+      var sfx=st==='in-corso'?' \u2014 In progress now':isPr?' \u2736 Next':'';
+      w.innerHTML='<div class="event-row has-detail" role="button" tabindex="0" aria-expanded="false"><div class="event-date"><p class="event-day ev-num">'+toRoman(l.num)+'</p><p class="event-month">'+label+'</p></div><div class="event-vline"></div><div class="event-info"><p class="event-title">Lesson '+toRoman(l.num)+sfx+'</p><p class="event-sub">'+l.titolo+'</p>'+(hasDate?'<p style="font-size:13px;color:var(--text-muted);margin-top:2px;">'+l.day+' '+mesiL[l.month-1]+' '+l.year+'</p>':'')+'</div>'+badgeHTML+'<span class="detail-pill">Topics \u25be</span><span class="expand-arrow">\u25bc</span></div>'+panelHTML(l);
+      el.appendChild(w);
+      var row=w.querySelector('.event-row'),panel=w.querySelector('.lesson-panel');
+      row.addEventListener('click',function(){toggle(row,panel);});
+      row.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle(row,panel);}});
+    });
+  }
+  /* ANNO 4 */
+
+  /* ANNO 5 */
+  renderAnno(L5,'calendar-list-anno5','Year 5');
+
+  /* ANNO 6 */
+
+  function renderEsp(lista,listId){
+    var el=document.getElementById(listId);if(!el)return;
+    lista.forEach(function(l){
+
+      var w=document.createElement('div');w.className='lesson-wrap';
+      w.innerHTML='<div class="event-row event-row-esp has-detail" role="button" tabindex="0" aria-expanded="false"><div class="event-date event-date-esp"><p class="ev-num-esp">✦</p></div><div class="event-vline event-vline-esp"></div><div class="event-info"><p class="event-sub">'+l.titolo+'</p></div><span class="detail-pill detail-pill-esp">Topics \u25be</span><span class="expand-arrow">\u25bc</span></div>'+panelHTML(l);
+      el.appendChild(w);
+      var row=w.querySelector('.event-row'),panel=w.querySelector('.lesson-panel');
+      row.addEventListener('click',function(){toggle(row,panel);});
+      row.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle(row,panel);}});
+    });
+  }
+  renderEsp(LESP,'calendar-list-esp');
+
+  /* ANNO 7 */
+  renderAnno(L7,'calendar-list-anno7','Year 7');
+
+  renderAnno(L6,'calendar-list-anno6','Year 6');
+
+  renderAnno(L4,'calendar-list-anno4','Year 4');
+  renderAnno(L2,'calendar-list-anno2','Year 2');
+  renderAnno(L3,'calendar-list-anno3','Year 3');
+
+  /* "OPEN DOORS" BANNER — generated once, injected into every year panel */
+  document.querySelectorAll('.porte-aperte-slot').forEach(function(slot){
+    slot.innerHTML=
+      '<div class="porte-aperte">'+
+        '<div style="font-size:20px;flex-shrink:0;color:var(--gold);">✶</div>'+
+        '<div>'+
+          '<p style="font-size:16px;font-weight:500;color:var(--gold-light);margin-bottom:0.3rem;">The doors are still open</p>'+
+          '<p style="font-size:15px;color:var(--text-muted);line-height:1.7;">To concretely support the School, each session has a <strong style="color:var(--text);">contribution of \u20ac30</strong>. You can attend individually or choose to follow the entire annual cycle; in the latter case, the <strong style="color:var(--text);">seventh lesson is offered by the School</strong> (years 1\u20133). All sessions are also available as video recordings. If something resonates within you, write to us \u2014 we will send you everything you need to join this journey.</p>'+
+        '</div>'+
+      '</div>';
+  });
+
+  /* TAB ANNI */
+  document.querySelectorAll('.anno-tab').forEach(function(tab){
+    if(tab.classList.contains('disabled'))return;
+    tab.addEventListener('click',function(){
+      document.querySelectorAll('.anno-tab').forEach(function(t){t.classList.remove('active');t.setAttribute('aria-selected','false');});
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected','true');
+      document.querySelectorAll('.anno-panel').forEach(function(p){p.style.display='none';});
+      var p=document.getElementById('panel-anno-'+tab.dataset.anno);
+      if(p)p.style.display='block';
+    });
+  });
+
+  /* CAROSELLO */
+  var track=document.getElementById('quotesTrack');
+  if(track){
+    var slides=track.querySelectorAll('.quote-slide'),cur=0,timer;
+    /* Accessibility: label each slide */
+    slides.forEach(function(s,i){
+      s.setAttribute('role','group');
+      s.setAttribute('aria-roledescription','Slide');
+      s.setAttribute('aria-label','Quote '+(i+1)+' of '+slides.length);
+    });
+    var counter=document.getElementById('carouselCounter');
+    function updCounter(){if(counter)counter.textContent=(cur+1)+' / '+slides.length;}
+    function readTime(n){var el=slides[n].querySelector('.quote-slide-text');var words=(el?el.textContent:'').trim().split(/\s+/).length;return Math.max(6000,words*400);}
+    function goTo(n){cur=(n+slides.length)%slides.length;track.style.transform='translateX(-'+(cur*100)+'%)';updCounter();clearInterval(timer);timer=setTimeout(function(){goTo(cur+1);},readTime(cur));}
+    document.getElementById('prevBtn').addEventListener('click',function(){goTo(cur-1);});
+    document.getElementById('nextBtn').addEventListener('click',function(){goTo(cur+1);});
+    /* Touch/swipe support */
+    var tx=0,moving=false;
+    track.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;moving=true;},{passive:true});
+    track.addEventListener('touchmove',function(e){e.preventDefault();},{passive:false});
+    track.addEventListener('touchend',function(e){if(!moving)return;moving=false;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40){dx<0?goTo(cur+1):goTo(cur-1);}});
+    timer=setTimeout(function(){goTo(cur+1);},readTime(cur));
+    updCounter();
+  }
+
+  /* CLOSE MOBILE MENU ON LINK CLICK */
+  document.querySelectorAll('.nav-links a').forEach(function(link){
+    link.addEventListener('click',function(){
+      var nl=document.querySelector('.nav-links');
+      var btn=document.querySelector('.nav-toggle');
+      if(nl&&nl.classList.contains('open')){
+        nl.classList.remove('open');
+        btn.setAttribute('aria-expanded','false');
+        btn.innerHTML='☰';
+      }
+    });
+  });
+
+  /* BACK TO TOP */
+  var btt=document.getElementById('backToTop');
+  if(btt){
+    /* Show after ~1 screen of scroll, hide below 0.8 screens — hysteresis to prevent flicker */
+    var bttVisible=false;
+    window.addEventListener('scroll',function(){
+      var vh=window.innerHeight;
+      var y=window.scrollY;
+      if(!bttVisible && y > vh){
+        bttVisible=true;
+        btt.classList.add('visible');
+      } else if(bttVisible && y < vh * 0.8){
+        bttVisible=false;
+        btt.classList.remove('visible');
+      }
+    },{passive:true});
+    btt.addEventListener('click',function(e){
+      e.preventDefault();
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  }
+
+  /* SCROLL REVEAL */
+  var srEls=document.querySelectorAll('.sr');
+  if(srEls.length&&'IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+      });
+    },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+    srEls.forEach(function(el){obs.observe(el);});
+  } else {
+    srEls.forEach(function(el){el.classList.add('visible');});
+  }
+
+  /* CONTACT FORM — AJAX submission with feedback */
+  var cForm=document.getElementById('contact-form');
+  if(cForm){
+    var cBtn=document.getElementById('contact-submit');
+    var cFb=document.getElementById('form-feedback');
+    var cStart=Date.now(); /* anti-bot: track page load time */
+
+    function showFeedback(kind,title,body){
+      cFb.className='form-feedback visible '+kind;
+      cFb.innerHTML='<strong>'+title+'</strong>'+body;
+      /* Scroll the feedback into view smoothly if off-screen */
+      var r=cFb.getBoundingClientRect();
+      if(r.top<0||r.bottom>window.innerHeight){
+        cFb.scrollIntoView({behavior:'smooth',block:'center'});
+      }
+    }
+
+    cForm.addEventListener('submit',function(ev){
+      ev.preventDefault();
+
+      /* Client-side validation — browser's built-in checkValidity() */
+      if(!cForm.checkValidity()){
+        cForm.reportValidity();
+        return;
+      }
+
+      /* Anti-bot: reject if form submitted in < 3 seconds (too fast for humans) */
+      if(Date.now()-cStart<3000){
+        showFeedback('error','Please wait','The form was submitted too quickly. Please try again in a few seconds.');
+        return;
+      }
+
+      /* Honeypot: if the hidden _gotcha field is filled, silently drop */
+      var hp=document.getElementById('cf-website');
+      if(hp&&hp.value){
+        /* Fake success to not tip off the bot */
+        showFeedback('success','Message sent','Thank you, we will reply soon.');
+        cForm.reset();
+        return;
+      }
+
+      /* All checks passed — send via AJAX */
+      cBtn.classList.add('is-loading');
+      cBtn.disabled=true;
+      cFb.classList.remove('visible');
+
+      var data=new FormData(cForm);
+
+      fetch(cForm.action,{
+        method:'POST',
+        body:data,
+        headers:{'Accept':'application/json'}
+      }).then(function(resp){
+        cBtn.classList.remove('is-loading');
+        cBtn.disabled=false;
+        if(resp.ok){
+          showFeedback('success','✓ Message sent','Thank you! We have received your message and will reply as soon as possible.');
+          cForm.reset();
+          cStart=Date.now(); /* reset timer in case of second submission */
+        } else {
+          resp.json().then(function(json){
+            var msg=(json&&json.errors&&json.errors.length)
+              ? json.errors.map(function(e){return e.message;}).join(' ')
+              : 'Something went wrong. Please try writing to us directly via WhatsApp or email.';
+            showFeedback('error','Sending error',msg);
+          }).catch(function(){
+            showFeedback('error','Sending error','Something went wrong. Please try writing to us directly via WhatsApp or email.');
+          });
+        }
+      }).catch(function(){
+        cBtn.classList.remove('is-loading');
+        cBtn.disabled=false;
+        showFeedback('error','Connection error','Unable to send the message. Check your connection and try again, or write to us directly via WhatsApp.');
+      });
+    });
+  }
+
+});
+</script>
+
+<!-- Lightbox -->
+<div class="lightbox-overlay" id="lightbox">
+  <button class="lightbox-close" aria-label="Close">&times;</button>
+  <button class="lightbox-nav lightbox-prev" aria-label="Previous">&#8249;</button>
+  <button class="lightbox-nav lightbox-next" aria-label="Next">&#8250;</button>
+  <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E" alt=""/>
+  <div class="lightbox-counter"></div>
+</div>
+<script>
+(function(){
+  /* Gallery toggle */
+  var tog=document.getElementById('galleryToggle');
+  var grid=document.getElementById('galleryGrid');
+  if(tog&&grid){
+    var expanded=false;
+    tog.addEventListener('click',function(){
+      expanded=!expanded;
+      grid.classList.toggle('expanded',expanded);
+      tog.textContent=expanded?'Show fewer \u25b4':'Show all photos \u25be';
+    });
+  }
+
+  /* Lightbox */
+  var lb=document.getElementById('lightbox');
+  if(!lb)return;
+  var lbImg=lb.querySelector('img');
+  var lbCounter=lb.querySelector('.lightbox-counter');
+  var items=document.querySelectorAll('.gallery-item');
+  var srcs=[];
+  items.forEach(function(it){srcs.push(it.getAttribute('data-src'));});
+  var cur=0;
+
+  function show(i){
+    cur=(i+srcs.length)%srcs.length;
+    lbImg.src=srcs[cur];
+    lbImg.alt='Photo '+(cur+1)+' of '+srcs.length;
+    lbCounter.textContent=(cur+1)+' / '+srcs.length;
+  }
+
+  items.forEach(function(it,i){
+    it.addEventListener('click',function(){
+      show(i);
+      lb.classList.add('active');
+      document.body.style.overflow='hidden';
+    });
+  });
+
+  function close(){lb.classList.remove('active');document.body.style.overflow='';}
+  lb.querySelector('.lightbox-close').addEventListener('click',close);
+  lb.querySelector('.lightbox-prev').addEventListener('click',function(e){e.stopPropagation();show(cur-1);});
+  lb.querySelector('.lightbox-next').addEventListener('click',function(e){e.stopPropagation();show(cur+1);});
+  lb.addEventListener('click',function(e){if(e.target===lb)close();});
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('active'))return;
+    if(e.key==='Escape')close();
+    if(e.key==='ArrowLeft')show(cur-1);
+    if(e.key==='ArrowRight')show(cur+1);
+  });
+
+  /* Touch/swipe in lightbox */
+  var tx=0,moving=false;
+  lb.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;moving=true;},{passive:true});
+  lb.addEventListener('touchend',function(e){if(!moving)return;moving=false;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50){dx<0?show(cur+1):show(cur-1);}});
+})();
+</script>
+<script>
+/* SCROLL PROGRESS + SCROLL-SPY */
+(function(){
+  /* Progress bar */
+  var bar = document.querySelector('.scroll-progress');
+  if (bar) {
+    var ticking = false;
+    function updateProgress() {
+      var doc = document.documentElement;
+      var max = (doc.scrollHeight - window.innerHeight) || 1;
+      var pct = Math.min(1, Math.max(0, window.scrollY / max));
+      bar.style.setProperty('--scroll-pct', pct.toFixed(4));
+      ticking = false;
+    }
+    window.addEventListener('scroll', function(){
+      if (!ticking) { requestAnimationFrame(updateProgress); ticking = true; }
+    }, { passive: true });
+    window.addEventListener('resize', updateProgress, { passive: true });
+    updateProgress();
+  }
+
+  /* Scroll-spy: highlights the menu item of the current section */
+  if (!('IntersectionObserver' in window)) return;
+  var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  if (!navLinks.length) return;
+  var linkById = {};
+  navLinks.forEach(function(a){
+    var id = a.getAttribute('href').slice(1);
+    if (id) linkById[id] = a;
+  });
+  var watched = [];
+  Object.keys(linkById).forEach(function(id){
+    var el = document.getElementById(id);
+    if (el) watched.push(el);
+  });
+  if (!watched.length) return;
+
+  function setActive(id){
+    navLinks.forEach(function(a){
+      a.classList.remove('active');
+      a.removeAttribute('aria-current');
+    });
+    var a = linkById[id];
+    if (a) { a.classList.add('active'); a.setAttribute('aria-current', 'true'); }
+  }
+
+  /* Activation band: invisible line at 30% from the top of the viewport.
+     The section crossing that line becomes "active". */
+  var spy = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) setActive(e.target.id);
+    });
+  }, { rootMargin: '-30% 0px -65% 0px', threshold: 0 });
+  watched.forEach(function(s){ spy.observe(s); });
+})();
+</script>
+</body>
+</html>
