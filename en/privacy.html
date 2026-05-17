@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="robots" content="noindex, follow"/>
+  <meta name="author" content="Scuola ContattaTi"/>
+  <meta name="description" content="Privacy and cookie notice for the Scuola ContattaTi website — pursuant to EU Regulation 2016/679 (GDPR)."/>
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png"/>
+  <link rel="shortcut icon" href="../favicon.ico"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"/>
+  <link rel="manifest" href="../site.webmanifest"/>
+  <meta name="theme-color" content="#0d0b1a" id="metaThemeColor"/>
+
+  <!-- Anti-flash: apply saved theme before render -->
+  <script>
+    (function(){
+      var t=localStorage.getItem('sctheme');
+      if(t==='light'){
+        document.documentElement.setAttribute('data-theme','light');
+        var m=document.getElementById('metaThemeColor');
+        if(m)m.content='#f5f0e8';
+      }
+    })();
+  </script>
+  <meta name="color-scheme" content="dark light"/>
+  <link rel="canonical" href="https://scuolacontattati.com/en/privacy.html"/>
+  <title>Privacy & Cookies · Scuola ContattaTi</title>
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Privacy & Cookies · Scuola ContattaTi"/>
+  <meta property="og:description" content="Privacy and cookie notice for the Scuola ContattaTi website — pursuant to EU Regulation 2016/679 (GDPR)."/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:site_name" content="Scuola ContattaTi"/>
+  <meta property="og:url" content="https://scuolacontattati.com/en/privacy.html"/>
+  <meta property="og:locale" content="en_GB"/>
+  <meta property="og:image" content="https://scuolacontattati.com/og-image.png"/>
+  <meta property="og:image:width" content="1424"/>
+  <meta property="og:image:height" content="752"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Privacy & Cookies · Scuola ContattaTi"/>
+  <meta name="twitter:description" content="Privacy and cookie notice for the Scuola ContattaTi website."/>
+  <meta name="twitter:image" content="https://scuolacontattati.com/og-image.png"/>
+
+  <!-- Font preload -->
+  <link rel="preload" href="../fonts/eb-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    @font-face { font-family:'EB Garamond'; font-weight:400; font-style:normal; font-display:swap;
+      src: url('../fonts/eb-garamond-latin-400-normal.woff2') format('woff2'); }
+    @font-face { font-family:'EB Garamond'; font-weight:500; font-style:normal; font-display:swap;
+      src: url('../fonts/eb-garamond-latin-500-normal.woff2') format('woff2'); }
+    @font-face { font-family:'EB Garamond'; font-weight:600; font-style:normal; font-display:swap;
+      src: url('../fonts/eb-garamond-latin-600-normal.woff2') format('woff2'); }
+    @font-face { font-family:'EB Garamond'; font-weight:400; font-style:italic; font-display:swap;
+      src: url('../fonts/eb-garamond-latin-400-italic.woff2') format('woff2'); }
+    @font-face { font-family:'Inter'; font-weight:400; font-style:normal; font-display:swap;
+      src: url('../fonts/inter-latin-400-normal.woff2') format('woff2'); }
+    @font-face { font-family:'Inter'; font-weight:500; font-style:normal; font-display:swap;
+      src: url('../fonts/inter-latin-500-normal.woff2') format('woff2'); }
+    @font-face { font-family:'Inter'; font-weight:600; font-style:normal; font-display:swap;
+      src: url('../fonts/inter-latin-600-normal.woff2') format('woff2'); }
+
+    :root {
+      --gold: #c9973a;
+      --gold-light: #e8c97a;
+      --text: #e8e0f0;
+      --text-muted: #c4b8d0;
+      --bg: #0d0b1a;
+      --surface: rgba(255,255,255,0.04);
+      --border: rgba(201,151,58,0.18);
+      --border-hover: rgba(201,151,58,0.4);
+      --font-serif: 'EB Garamond', Georgia, serif;
+      --font-sans: 'Inter', system-ui, sans-serif;
+      --font-display: 'EB Garamond', Georgia, serif;
+    }
+    [data-theme="light"] {
+      --gold: #9a7420;
+      --gold-light: #7a5a14;
+      --text: #1a1520;
+      --text-muted: #4a4055;
+      --bg: #f5f0e8;
+      --surface: rgba(0,0,0,0.03);
+      --border: rgba(120,90,30,0.18);
+      --border-hover: rgba(120,90,30,0.35);
+    }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+    main [id] { scroll-margin-top: 5.5rem; }
+    @media (max-width: 768px) {
+      html { scroll-padding-top: 4.5rem; }
+      main [id] { scroll-margin-top: 4.5rem; }
+    }
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg); color: var(--text);
+      line-height: 1.72; font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      position: relative; z-index: 1;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(46,31,110,0.28) 0%, transparent 65%);
+      pointer-events: none; z-index: 0;
+    }
+    [data-theme="light"] body::before {
+      background: radial-gradient(ellipse at 50% 0%, rgba(201,151,58,0.08) 0%, transparent 65%);
+    }
+
+    /* NAV */
+    nav.topnav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(13,11,26,0.9); backdrop-filter: blur(16px);
+      border-bottom: 0.5px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2.5rem;
+    }
+    [data-theme="light"] nav.topnav { background: rgba(245,240,232,0.92); }
+    .nav-logo {
+      font-family: var(--font-display); font-size: 20px; font-weight: 600;
+      color: var(--gold-light); letter-spacing: 0.04em; text-decoration: none;
+    }
+    .nav-back {
+      font-family: var(--font-sans); font-size: 14px;
+      color: var(--text-muted); text-decoration: none;
+      letter-spacing: 0.04em; transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--gold-light); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .theme-toggle {
+      background: none; border: 0.5px solid var(--border);
+      border-radius: 999px; padding: 5px 14px 5px 10px;
+      cursor: pointer; color: var(--gold-light);
+      font-size: 13px; line-height: 1;
+      font-family: var(--font-sans); font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+      display: flex; align-items: center; justify-content: center; gap: 5px;
+      white-space: nowrap;
+    }
+    .theme-toggle:hover { border-color: var(--border-hover); color: var(--gold); background: var(--surface); }
+    .theme-toggle-icon { font-size: 16px; line-height: 1; }
+
+    /* MAIN */
+    main {
+      max-width: 760px; margin: 0 auto;
+      padding: 4rem 2rem 5rem;
+      position: relative; z-index: 1;
+    }
+
+    .page-eyebrow {
+      display: flex; align-items: center; gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold); font-weight: 500;
+    }
+    .page-eyebrow::after {
+      content: ''; flex: 1; height: 0.5px;
+      background: linear-gradient(90deg, rgba(201,151,58,0.55) 0%, transparent 100%);
+    }
+
+    h1.page-title {
+      font-family: var(--font-display); font-size: clamp(34px, 5vw, 48px);
+      font-weight: 500; color: var(--text);
+      line-height: 1.15; margin-bottom: 0.5rem; letter-spacing: 0.01em;
+    }
+    .page-sub {
+      font-family: var(--font-display); font-style: italic;
+      font-size: 18px; color: var(--gold-light);
+      margin-bottom: 2.5rem; letter-spacing: 0.01em;
+    }
+    .page-updated {
+      font-family: var(--font-sans); font-size: 13px;
+      color: var(--text-muted); margin-bottom: 2.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    h2 {
+      font-family: var(--font-display); font-size: 26px; font-weight: 600;
+      color: var(--gold-light); margin-top: 2.75rem; margin-bottom: 1rem;
+      letter-spacing: 0.01em; line-height: 1.3;
+      display: flex; align-items: baseline; gap: 0.75rem;
+    }
+    h2::before {
+      content: counter(section, upper-roman);
+      font-style: italic; font-weight: 500; font-size: 18px;
+      color: var(--gold); opacity: 0.85; flex-shrink: 0;
+    }
+    main { counter-reset: section; }
+    h2 { counter-increment: section; }
+
+    h3 {
+      font-family: var(--font-display); font-size: 19px; font-weight: 600;
+      color: var(--text); margin-top: 1.5rem; margin-bottom: 0.5rem;
+      letter-spacing: 0.01em;
+    }
+
+    p {
+      font-size: 16px; color: var(--text-muted);
+      line-height: 1.78; margin-bottom: 1rem;
+    }
+    p strong { color: var(--text); font-weight: 600; }
+    a { color: var(--gold-light); text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s; }
+    a:hover { color: var(--gold); }
+
+    ul, ol {
+      margin: 0.5rem 0 1.25rem 0;
+      padding-left: 1.25rem;
+    }
+    li {
+      font-size: 16px; color: var(--text-muted);
+      line-height: 1.78; margin-bottom: 0.5rem;
+      padding-left: 0.25rem;
+    }
+    ul li::marker { color: var(--gold); content: '◆ '; font-size: 9px; }
+    ol li::marker { color: var(--gold); font-family: var(--font-display); font-style: italic; }
+
+    /* CARD */
+    .info-card {
+      position: relative;
+      background: rgba(255,255,255,0.018);
+      border: 0.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem 1.75rem;
+      margin: 1.25rem 0;
+    }
+    [data-theme="light"] .info-card {
+      background: rgba(255,255,255,0.6);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .info-card::before {
+      content: ''; position: absolute;
+      inset: 6px; border-radius: 9px;
+      border: 0.5px solid rgba(201,151,58,0.12);
+      pointer-events: none;
+    }
+    .info-card > * { position: relative; z-index: 1; }
+    .info-card h3 { margin-top: 0; }
+    .info-card p:last-child { margin-bottom: 0; }
+
+    /* TABLE */
+    .data-table {
+      width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem;
+      font-size: 14px;
+    }
+    .data-table th, .data-table td {
+      text-align: left; padding: 0.75rem 0.85rem;
+      border-bottom: 0.5px solid var(--border);
+      vertical-align: top;
+    }
+    .data-table th {
+      font-family: var(--font-sans); font-size: 11px;
+      font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--gold);
+      border-bottom: 1px solid var(--border-hover);
+    }
+    .data-table td { color: var(--text-muted); }
+    .data-table td:first-child { color: var(--text); font-weight: 500; }
+    @media (max-width: 600px) {
+      .data-table { font-size: 13px; }
+      .data-table th, .data-table td { padding: 0.6rem 0.5rem; }
+    }
+
+    /* DIVIDER */
+    .epigraphic-rule {
+      display: flex; align-items: center; justify-content: center;
+      gap: 1.25rem; max-width: 700px; margin: 3rem auto 1rem; padding: 0 2rem;
+    }
+    .epigraphic-rule::before, .epigraphic-rule::after {
+      content: ''; flex: 1; height: 0.5px;
+      background: linear-gradient(90deg, transparent 0%, rgba(201,151,58,0.45) 50%, transparent 100%);
+    }
+    .epigraphic-rule .glyph {
+      color: var(--gold); font-size: 8px; opacity: 0.7;
+      letter-spacing: 0.4em;
+    }
+
+    /* TOC */
+    .toc {
+      position: relative;
+      background: rgba(201,151,58,0.04);
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0 3rem;
+    }
+    [data-theme="light"] .toc { background: rgba(201,151,58,0.06); }
+    .toc-title {
+      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.75rem; font-weight: 500;
+    }
+    .toc ol {
+      list-style: none; padding: 0; margin: 0;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.3rem 1.5rem;
+      counter-reset: toc;
+    }
+    @media (max-width: 540px) { .toc ol { grid-template-columns: 1fr; } }
+    .toc li {
+      counter-increment: toc;
+      font-family: var(--font-sans); font-size: 14px;
+      padding: 0.2rem 0; margin: 0;
+    }
+    .toc li::marker { content: ''; }
+    .toc li::before {
+      content: counter(toc, upper-roman) '. ';
+      font-family: var(--font-display); font-style: italic;
+      color: var(--gold); margin-right: 0.4rem;
+    }
+    .toc a { text-decoration: none; color: var(--text-muted); }
+    .toc a:hover { color: var(--gold-light); }
+
+    /* COOKIE BUTTON */
+    .manage-cookies-btn {
+      display: inline-block; margin-top: 0.5rem;
+      padding: 0.7rem 1.5rem;
+      background: linear-gradient(135deg, var(--gold) 0%, #a8782a 100%);
+      border: none; border-radius: 999px;
+      color: #1a1000; font-family: var(--font-sans);
+      font-size: 13px; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      cursor: pointer; text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .manage-cookies-btn:hover { opacity: 0.88; transform: translateY(-1px); color: #1a1000; }
+
+    /* FOOTER */
+    footer {
+      background: rgba(0,0,0,0.55);
+      border-top: 0.5px solid var(--border);
+      color: var(--text-muted);
+      text-align: center;
+      padding: 3rem 2rem 2.5rem;
+    }
+    [data-theme="light"] footer { background: rgba(30,25,18,0.92); color: #c4b8d0; }
+    [data-theme="light"] footer p { color: #c4b8d0; }
+    [data-theme="light"] footer a { color: #c4b8d0; }
+    [data-theme="light"] footer a:hover { color: #e8c97a; }
+    .footer-logo {
+      font-family: var(--font-display); font-size: 22px; font-weight: 600;
+      color: var(--gold-light); margin-bottom: 0.5rem; letter-spacing: 0.02em;
+    }
+    footer p { font-size: 13px; line-height: 1.7; opacity: 0.85; }
+    footer a { color: var(--gold-light); }
+
+    /* SKIP LINK */
+    .skip-link {
+      position: absolute; top: -100%; left: 1rem;
+      background: var(--gold); color: #1a1000;
+      padding: 0.5rem 1rem; border-radius: 0 0 8px 8px;
+      font-size: 14px; font-weight: 500; z-index: 200;
+      text-decoration: none;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* FOCUS */
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px; border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<nav class="topnav" role="navigation" aria-label="Menu">
+  <a class="nav-logo" href="index.html"><span aria-hidden="true">✶</span> Scuola ContattaTi</a>
+  <div class="nav-right">
+    <a class="nav-back" href="index.html">← Back to home</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme" title="Toggle theme"><span class="theme-toggle-icon">☀</span> Light theme</button>
+  </div>
+</nav>
+
+<main id="main-content">
+  <p class="page-eyebrow"><span>Legal document</span></p>
+  <h1 class="page-title">Privacy &amp; Cookies</h1>
+  <p class="page-sub">Notice pursuant to EU Regulation 2016/679 (GDPR) and Italian Legislative Decree 196/2003.</p>
+  <p class="page-updated">Last updated: 4 May 2026</p>
+
+  <p>This page explains transparently <strong>what data we collect</strong>, <strong>why</strong>, <strong>for how long</strong> and <strong>what rights you have</strong> in relation to us. We do this in the same spirit with which we run the School: with honesty, hiding nothing.</p>
+
+  <nav class="toc" aria-label="Table of contents">
+    <p class="toc-title">On this page</p>
+    <ol>
+      <li><a href="#titolare">Data controller</a></li>
+      <li><a href="#dati-raccolti">What data we collect</a></li>
+      <li><a href="#finalita">Purposes and legal bases</a></li>
+      <li><a href="#conservazione">Retention periods</a></li>
+      <li><a href="#destinatari">Recipients and transfers</a></li>
+      <li><a href="#cookie">Cookies and analytics tools</a></li>
+      <li><a href="#diritti">Your rights</a></li>
+      <li><a href="#contatti">How to contact us</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="titolare">Data controller</h2>
+  <p>The controller of the personal data collected through this website is <strong>Nicolaos Anifantis</strong>, conductor of the <strong>Scuola ContattaTi</strong>.</p>
+  <div class="info-card">
+    <h3>Details</h3>
+    <p>
+      <strong>Controller:</strong> Nicolaos Anifantis<br/>
+      <strong>P.IVA:</strong> 08713530726<br/>
+      <strong>C.F.:</strong> NFNNLS76H25A662F<br/>
+      <strong>Address:</strong> Via Giuseppe Capruzzi 316, 70124 Bari (BA)<br/>
+      <strong>Email:</strong> <span id="priv-email-1"></span><br/>
+      <strong>Phone / WhatsApp:</strong> <a href="tel:+393349991888">+39 334 999 1888</a>
+    </p>
+  </div>
+
+  <h2 id="dati-raccolti">What data we collect</h2>
+  <p>We only collect data that you give us voluntarily or that your browser automatically sends during normal website browsing.</p>
+
+  <h3>Data you provide</h3>
+  <p>When you fill in the contact form we collect:</p>
+  <ul>
+    <li><strong>Name</strong> (required) — so we can reply to you by name</li>
+    <li><strong>Email address</strong> (required) — to send you a reply</li>
+    <li><strong>Message</strong> (required) — the content of your request</li>
+    <li><strong>Phone</strong> (optional, if you include it) — only if you prefer to be contacted by voice</li>
+  </ul>
+
+  <h3>Automatically collected data</h3>
+  <p>Like any website, we receive basic technical information from your browser: browser type, operating system, language, referring page, date and time of visit. If you have consented to analytics cookies, we also collect aggregated and anonymised data on how you browse (see the <a href="#cookie">Cookies</a> section).</p>
+  <p>We <strong>do not collect</strong> precise geolocation data, biometric data, health data, or data of any of the special categories referred to in Art. 9 GDPR.</p>
+
+  <h2 id="finalita">Purposes and legal bases of processing</h2>
+  <table class="data-table">
+    <thead>
+      <tr><th>Purpose</th><th>Legal basis</th><th>Data used</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Responding to requests sent via the contact form or WhatsApp</td>
+        <td>Performance of pre-contractual measures at the request of the data subject (Art. 6.1.b GDPR)</td>
+        <td>Name, email, phone, message</td>
+      </tr>
+      <tr>
+        <td>Measuring aggregate website usage (Google Analytics)</td>
+        <td>Explicit consent (Art. 6.1.a GDPR)</td>
+        <td>Anonymised browsing data</td>
+      </tr>
+      <tr>
+        <td>Defending our rights in case of abuse (e.g. spam, attacks)</td>
+        <td>Legitimate interest (Art. 6.1.f GDPR)</td>
+        <td>IP, technical security data</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><strong>No automated marketing, no profiling, no data selling.</strong> We do not use your data to send you newsletters, commercial offers, or promotional material unless you explicitly ask us to.</p>
+
+  <h2 id="conservazione">Retention periods</h2>
+  <ul>
+    <li><strong>Contact form messages:</strong> retained for up to 24 months from the last interaction, then deleted. If you become a student of the School, the data follows the educational relationship for the strictly necessary time.</li>
+    <li><strong>Google Analytics data:</strong> retention set to <strong>14 months</strong>, then automatically deleted by Google.</li>
+    <li><strong>Technical logs (IP, security):</strong> retained for a maximum of 6 months.</li>
+  </ul>
+
+  <h2 id="destinatari">Recipients and data transfers</h2>
+  <p>Your data remains accessible only to those who need to process it for the purposes listed above. In particular:</p>
+  <ul>
+    <li><strong>The School's conductors</strong> (Anna Carla, Nicolaos), who read and reply to messages.</li>
+    <li><strong>The contact form provider</strong> (the site's email delivery service), which receives the message to deliver it to us.</li>
+    <li><strong>Google Ireland Ltd.</strong> for the Google Analytics 4 service (only if you have given consent). Google may transfer data to non-EU countries; the transfer is based on the <em>Standard Contractual Clauses</em> approved by the European Commission.</li>
+  </ul>
+  <p>We <strong>do not share your data</strong> with third parties for commercial, advertising, or profiling purposes.</p>
+
+  <h2 id="cookie">Cookies and analytics tools</h2>
+  <p>This site uses two types of cookies:</p>
+
+  <h3>Technical cookies (always active)</h3>
+  <p>These are the cookies strictly necessary for the site to function. We save two preferences in your browser via <code>localStorage</code>:</p>
+  <ul>
+    <li><strong><code>sctheme</code></strong> — your theme choice (light/dark), so we don't ask you on every visit.</li>
+    <li><strong><code>sc-cookie</code></strong> — your cookie banner choice (accepted / declined), so we don't show it again.</li>
+  </ul>
+  <p>For these cookies <strong>your consent is not required</strong>, as they are essential to provide you with the requested service (Art. 122 Italian Privacy Code).</p>
+
+  <h3>Analytics cookies (with consent)</h3>
+  <p>Only if you accept via the banner do we activate <strong>Google Analytics 4</strong> with these enhanced privacy settings:</p>
+  <ul>
+    <li><strong>Anonymised IP</strong> — Google receives a truncated IP, not traceable to you.</li>
+    <li><strong>No advertising</strong> — we do not share data with Google's advertising services (Ad Storage <em>denied</em>).</li>
+    <li><strong>Consent Mode v2</strong> — until you make a choice, no analytics are triggered.</li>
+    <li><strong>14-month retention</strong> — the minimum configurable.</li>
+  </ul>
+  <p>Google Analytics helps us understand, in aggregate form, which sections of the site are useful and which are confusing — so we can improve them. Nothing more.</p>
+
+  <p style="margin-top:1.25rem;">You can change your mind at any time:</p>
+  <p>
+    <a href="index.html#" id="manageCookiesLink" class="manage-cookies-btn">Manage my preferences</a>
+  </p>
+
+  <h2 id="diritti">Your rights</h2>
+  <p>The GDPR grants you precise rights over your data. At any time you can ask us to:</p>
+  <ul>
+    <li><strong>Access</strong> the data we hold about you (Art. 15)</li>
+    <li><strong>Rectify</strong> inaccurate or incomplete data (Art. 16)</li>
+    <li><strong>Erase</strong> your data ("right to be forgotten", Art. 17)</li>
+    <li><strong>Restrict</strong> processing in specific cases (Art. 18)</li>
+    <li><strong>Receive</strong> your data in a structured and portable format (Art. 20)</li>
+    <li><strong>Object</strong> to processing based on legitimate interest (Art. 21)</li>
+    <li><strong>Withdraw consent</strong> at any time, without affecting the lawfulness of previous processing (Art. 7)</li>
+  </ul>
+  <p>To exercise any of these rights, simply write to us at <span id="priv-email-2"></span>. We will respond within 30 days, personally, without forms or bureaucracy.</p>
+
+  <div class="info-card">
+    <h3>Complaint to the supervisory authority</h3>
+    <p>If you believe that the processing of your data is in breach of the GDPR, you always have the right to lodge a complaint with the <strong>Garante per la protezione dei dati personali</strong> (Italian Data Protection Authority): <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">www.garanteprivacy.it</a>.</p>
+  </div>
+
+  <h2 id="contatti">How to contact us</h2>
+  <p>For any questions about this notice or the processing of your data:</p>
+  <div class="info-card">
+    <p>
+      📧 <span id="priv-email-3"></span><br/>
+      📞 <a href="tel:+393349991888">+39 334 999 1888</a> (Nicolaos)<br/>
+      💬 <a href="https://wa.me/393349991888" target="_blank" rel="noopener">WhatsApp</a>
+    </p>
+  </div>
+
+  <div class="epigraphic-rule" aria-hidden="true"><span class="glyph">◆ &nbsp; ◆ &nbsp; ◆</span></div>
+
+  <p style="text-align:center; font-family:var(--font-display); font-style:italic; color:var(--gold-light); font-size:17px; margin-top:1.5rem;">"We are transparent because we believe that Truth is part of the path."</p>
+</main>
+
+<footer>
+  <p class="footer-logo">Scuola ContattaTi</p>
+  <p>© 2026 Scuola ContattaTi — Anna Carla Digregorio &amp; Nicolaos Anifantis</p>
+  <p style="margin-top:0.5rem;"><a href="index.html">Back to home</a></p>
+</footer>
+
+<script>
+  /* Email anti-scraping — same logic as index */
+  (function(){
+    var u='scuola-contattati',d='libero.it',em=u+'@'+d;
+    var lnk='<a href="mailto:'+em+'" style="color:var(--gold-light)">'+em+'</a>';
+    ['priv-email-1','priv-email-2','priv-email-3'].forEach(function(id){
+      var el=document.getElementById(id);
+      if(el) el.innerHTML=lnk;
+    });
+  })();
+</script><script>
+  // When the user clicks "Manage my preferences", open the home
+  // and attempt to reopen the cookie banner (the home exposes the key to reset).
+  var manageBtn = document.getElementById('manageCookiesLink');
+  if(manageBtn){
+    manageBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      // Reset the choice — when returning home, the banner reappears
+      try { localStorage.removeItem('sc-cookie'); } catch(err){}
+      window.location.href = 'index.html#top';
+    });
+  }
+</script>
+<script>
+  /* Theme toggle — same logic as index */
+  (function(){
+    var btn=document.getElementById('themeToggle');
+    if(!btn)return;
+    var isDark=document.documentElement.getAttribute('data-theme')!=='light';
+    function upd(){
+      btn.innerHTML=isDark
+        ?'<span class="theme-toggle-icon">\u2600</span> Light theme'
+        :'<span class="theme-toggle-icon">\u263D</span> Dark theme';
+    }
+    upd();
+    btn.addEventListener('click',function(){
+      isDark=!isDark;
+      if(isDark){
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('sctheme','dark');
+        document.getElementById('metaThemeColor').content='#0d0b1a';
+      } else {
+        document.documentElement.setAttribute('data-theme','light');
+        localStorage.setItem('sctheme','light');
+        document.getElementById('metaThemeColor').content='#f5f0e8';
+      }
+      upd();
+    });
+  })();
+</script>
+</html>
