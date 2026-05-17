@@ -26,6 +26,14 @@
       }
     })();
   </script>
+  <script>
+    (function(){
+      var l=localStorage.getItem('sc-lang');
+      if(l==='it'){
+        window.location.replace('../privacy.html');
+      }
+    })();
+  </script>
   <meta name="color-scheme" content="dark light"/>
   <link rel="canonical" href="https://scuolacontattati.com/en/privacy.html"/>
   <title>Privacy & Cookies · Scuola ContattaTi</title>
@@ -375,6 +383,7 @@
   <a class="nav-logo" href="index.html"><span aria-hidden="true">✶</span> Scuola ContattaTi</a>
   <div class="nav-right">
     <a class="nav-back" href="index.html">← Back to home</a>
+    <a href="../privacy.html" class="lang-switch" title="Versione italiana" onclick="localStorage.setItem('sc-lang','it')">🇮🇹 IT</a>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme" title="Toggle theme"><span class="theme-toggle-icon">☀</span> Light theme</button>
   </div>
 </nav>

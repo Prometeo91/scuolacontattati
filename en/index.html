@@ -59,6 +59,14 @@
       }
     })();
   </script>
+  <script>
+    (function(){
+      var l=localStorage.getItem('sc-lang');
+      if(l==='it'){
+        window.location.replace('../index.html');
+      }
+    })();
+  </script>
   <meta name="color-scheme" content="dark light"/>
   <link rel="canonical" href="https://scuolacontattati.com/en/"/>
   <title>Scuola ContattaTi · Awareness and Alchemy in Bari</title>
@@ -235,7 +243,7 @@
     <a href="#faq">FAQ</a>
     <a href="#contatti">Contact</a>
     <a href="#ispirazioni">Inspirations</a>
-    <a href="../index.html" class="lang-switch" title="Versione italiana">🇮🇹 IT</a>
+    <a href="../index.html" class="lang-switch" title="Versione italiana" onclick="localStorage.setItem('sc-lang','it')">🇮🇹 IT</a>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme" title="Toggle theme"><span class="theme-toggle-icon">☀</span> Light theme</button>
   </div>
 </nav>
