@@ -251,7 +251,7 @@
     <a href="#faq">FAQ</a>
     <a href="#contatti">Contact</a>
     <a href="#ispirazioni">Inspirations</a>
-    <span class="lang-pill"><a href="../index.html" onclick="localStorage.setItem('sc-lang','it')">IT</a><span class="lang-dot">·</span><a href="#" class="lang-active">EN</a></span>
+    <span class="lang-pill"><a href="../index.html" onclick="localStorage.setItem('sc-lang','it');var s=document.querySelector('.nav-links a[aria-current]');if(s)this.href='../index.html'+s.getAttribute('href');return true;">IT</a><span class="lang-dot">·</span><a href="#" class="lang-active">EN</a></span>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme" title="Toggle theme"><span class="theme-toggle-icon">☀</span> Light theme</button>
   </div>
 </nav>
