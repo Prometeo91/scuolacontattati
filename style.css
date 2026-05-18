@@ -1812,3 +1812,160 @@ section#ispirazioni > * { position: relative; z-index: 1; }
   .three-defs-grid > div:last-child { border-bottom: none; padding-bottom: 0; }
   .three-defs-grid > div:first-child { padding-top: 0; }
 }
+
+
+/* ===== Patch: cornice + ornamenti (aggiunta automatica) ===== */
+
+/* ============================================================
+   CORNICE + ORNAMENTI — addizioni per scuolacontattati.com
+   Aggiungere queste regole alla FINE di style.css.
+   Nessuna regola esistente viene sovrascritta.
+   ============================================================ */
+
+/* ---- HERO: cornice, rombi agli angoli, cerchi, stelle ---- */
+/* (le regole esistenti di .hero hanno già position:relative + overflow:hidden) */
+.hero-frame {
+  position: absolute;
+  inset: 28px;
+  border: 1px solid rgba(201, 151, 58, 0.42);
+  pointer-events: none;
+  z-index: 1;
+}
+.hero-corner {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--gold);
+  transform: rotate(45deg);
+  pointer-events: none;
+  z-index: 2;
+}
+.hero-corner.tl { top: 23px; left: 23px; }
+.hero-corner.tr { top: 23px; right: 23px; }
+.hero-corner.bl { bottom: 23px; left: 23px; }
+.hero-corner.br { bottom: 23px; right: 23px; }
+
+.hero-circles,
+.hero-stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-circles::before,
+.hero-circles::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px solid rgba(201, 151, 58, 0.08);
+}
+.hero-circles::before { width: 580px; height: 580px; }
+.hero-circles::after  { width: 420px; height: 420px; border-color: rgba(201, 151, 58, 0.06); }
+
+.hero-stars i {
+  position: absolute;
+  width: 3px; height: 3px;
+  background: var(--gold);
+  border-radius: 50%;
+  opacity: 0.55;
+  box-shadow: 0 0 4px rgba(201, 151, 58, 0.5);
+}
+.hero-stars i.sm { width: 2px; height: 2px; opacity: 0.4; }
+.hero-stars i.lg { width: 4px; height: 4px; }
+
+/* Tema chiaro: stelle e cornice più scure */
+[data-theme="light"] .hero-frame  { border-color: rgba(120, 90, 30, 0.45); }
+[data-theme="light"] .hero-circles::before,
+[data-theme="light"] .hero-circles::after { border-color: rgba(120, 90, 30, 0.10); }
+[data-theme="light"] .hero-corner { background: rgba(120, 90, 30, 0.85); }
+[data-theme="light"] .hero-stars i { background: rgba(120, 90, 30, 0.7); box-shadow: 0 0 3px rgba(120, 90, 30, 0.4); }
+
+
+/* ---- DIVIDER ornamentale tra sezioni ---- */
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 56px 24px;
+  pointer-events: none;
+  user-select: none;
+}
+.section-divider::before,
+.section-divider::after {
+  content: "";
+  height: 1px;
+  width: 140px;
+  flex-shrink: 1;
+}
+.section-divider::before { background: linear-gradient(90deg, transparent, rgba(201, 151, 58, 0.5)); }
+.section-divider::after  { background: linear-gradient(90deg, rgba(201, 151, 58, 0.5), transparent); }
+
+.section-divider-ornament {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--gold);
+}
+.section-divider-ornament i {
+  display: block;
+  width: 6px; height: 6px;
+  background: var(--gold);
+  transform: rotate(45deg);
+  box-shadow: 0 0 6px rgba(201, 151, 58, 0.4);
+}
+.section-divider-ornament i.mid {
+  width: 10px; height: 10px;
+  box-shadow: 0 0 8px rgba(201, 151, 58, 0.5);
+}
+
+[data-theme="light"] .section-divider::before { background: linear-gradient(90deg, transparent, rgba(120, 90, 30, 0.5)); }
+[data-theme="light"] .section-divider::after  { background: linear-gradient(90deg, rgba(120, 90, 30, 0.5), transparent); }
+[data-theme="light"] .section-divider-ornament i { background: rgba(120, 90, 30, 0.85); box-shadow: 0 0 4px rgba(120, 90, 30, 0.4); }
+
+
+/* ---- BOOK COVER: cornice d'oro con rombi agli angoli ---- */
+.book-cover-wrap {
+  position: relative;
+  padding: 26px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.book-cover-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(201, 151, 58, 0.42);
+  pointer-events: none;
+}
+.book-cover-wrap > .corner {
+  position: absolute;
+  width: 8px; height: 8px;
+  background: var(--gold);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+.book-cover-wrap > .corner.tl { top: 8px; left: 8px; }
+.book-cover-wrap > .corner.tr { top: 8px; right: 8px; }
+.book-cover-wrap > .corner.bl { bottom: 8px; left: 8px; }
+.book-cover-wrap > .corner.br { bottom: 8px; right: 8px; }
+.book-cover-wrap > .stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.book-cover-wrap > .stars i {
+  position: absolute;
+  width: 2px; height: 2px;
+  background: var(--gold);
+  border-radius: 50%;
+  opacity: 0.45;
+  box-shadow: 0 0 3px rgba(201, 151, 58, 0.5);
+}
+
+[data-theme="light"] .book-cover-wrap::before { border-color: rgba(120, 90, 30, 0.45); }
+[data-theme="light"] .book-cover-wrap > .corner { background: rgba(120, 90, 30, 0.85); }
+[data-theme="light"] .book-cover-wrap > .stars i { background: rgba(120, 90, 30, 0.7); }
