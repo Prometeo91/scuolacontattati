@@ -1626,7 +1626,6 @@ section#ispirazioni > * { position: relative; z-index: 1; }
 /* Pseudo-elemento con numero romano, generato via data attr sul lesson-wrap */
 .calendar-list .lesson-wrap {
 }
-.calendar-list {
 .calendar-list .lesson-wrap > .event-row::before {
   content: counter(lezione, upper-roman);
   position: absolute;
