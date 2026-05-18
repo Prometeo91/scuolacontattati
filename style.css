@@ -1811,3 +1811,40 @@ section#ispirazioni > * { position: relative; z-index: 1; }
   .three-defs-grid > div:last-child { border-bottom: none; padding-bottom: 0; }
   .three-defs-grid > div:first-child { padding-top: 0; }
 }
+
+
+/* ============================================================
+   SFONDO — texture noise + vignetta (aggiunta automatica)
+   Solo additivo: nessuna regola esistente sovrascritta.
+   ============================================================ */
+
+/* Noise sottile (~4% opacità) — usa body::after che è libero */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 0.85 0 0 0 0 0.55 0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 200px 200px;
+  mix-blend-mode: overlay;
+}
+
+/* Vignetta radiale + sussurro d'oro caldo in alto — usa html::before (libero) */
+html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at center, transparent 0%, transparent 45%, rgba(0,0,0,0.35) 100%),
+    radial-gradient(ellipse at top, rgba(201,151,58,0.04) 0%, transparent 50%);
+}
+
+/* Tema chiaro: vignetta più tenue, niente bagliore d'oro (già pergamena) */
+[data-theme="light"] body::after { opacity: 0.025; mix-blend-mode: multiply; }
+[data-theme="light"] html::before {
+  background: radial-gradient(ellipse at center, transparent 0%, transparent 50%, rgba(120,90,30,0.15) 100%);
+}
