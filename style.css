@@ -157,8 +157,9 @@
   --text-soft: #7a6852;
 
   /* Gerarchia ORO a due livelli (era collassata su un solo tono) */
-  --gold: #8a6520;          /* oro scuro — testo, bordi, accenti */
-  --gold-light: #b88a2e;    /* ambra chiara — italici, hover, dettagli */
+  /* Toni scuriti per conformità WCAG AA (contrasto ≥4.5:1 su sfondo chiaro) */
+  --gold: #816018;          /* oro scuro — testo, bordi, accenti */
+  --gold-light: #7d5b1c;    /* ambra chiara — italici, hover, dettagli */
   --gold-deep: #6b4f18;     /* oro profondo — alto contrasto */
 
   --surface: rgba(80,60,30,0.04);
