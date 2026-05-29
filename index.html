@@ -163,6 +163,155 @@
   }
   </script>
 
+  <!-- Structured data — FAQPage (rich results per le domande frequenti) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": "https://scuolacontattati.com/#faq",
+    "inLanguage": "it",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Perché una scuola? Non posso studiare da autodidatta?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Si può, e ogni ricerca è preziosa. Ma l'autodidatta raccoglie informazioni frammentarie da libri, video e corsi diversi: mezze verità che rischiano di non comporsi mai in un quadro completo. Una scuola offre invece una struttura progressiva e un metodo consolidato, con guide che hanno già percorso quel cammino e sanno dove si cade e come ci si rialza."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Serve esperienza pregressa o una formazione spirituale?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Il percorso parte dalle fondamenta e accompagna ciascuno dal punto in cui si trova. L'unico requisito è quella che in alchimia si chiama la sete dell'anima: la spinta interiore a conoscersi più a fondo. Non servono letture pregresse né competenze specifiche."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quanto dura il percorso e come è strutturato?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La Scuola si articola in 7 anni: 3 di base e 4 di approfondimento. Anche solo i primi 3 anni costituiscono un percorso completo. Ogni anno prevede 6 lezioni nei livelli base e 3 nei livelli avanzati, con cadenza di circa un mese e mezzo. Le lezioni si svolgono la domenica mattina dalle 9:00 alle 13:30."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quanto costa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Il contributo è di 30 € a lezione, pagabile di volta in volta. Per chi preferisce è disponibile il pacchetto annuale a 180 € anziché 210 €, con una lezione offerta dalla Scuola. Non ci sono vincoli né obblighi: si può iniziare, fermarsi e riprendere quando si vuole."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Posso seguire le lezioni online?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sì. Ogni lezione viene registrata e resa disponibile tramite un link YouTube riservato, attivo in modo permanente. Si può rivedere la lezione quante volte si desidera, al proprio ritmo. L'esperienza in presenza resta più ricca, ma la modalità online permette a chiunque di seguire il percorso indipendentemente da dove si trovi."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Posso iniziare anche se le lezioni sono già partite?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Assolutamente sì. Grazie alle registrazioni si possono recuperare le lezioni precedenti e inserirsi nel percorso in qualsiasi momento. Non ci sono sbarramenti né prerequisiti temporali."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Cosa si studia concretamente?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Il cuore del percorso è lo studio delle 96 Leggi Universali, le leggi che regolano il macrocosmo e il microcosmo. L'altra metà del lavoro è la pratica alchimistica: la trasmutazione concreta di sé stessi nella vita quotidiana. Tra gli strumenti: Enneagramma, Kabbalà, studio simbolico di miti e archetipi, Magia Ermetica, esercizi di osservazione di sé e meditazioni guidate."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "È una scuola religiosa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. La Scuola integra insegnamenti provenienti da più tradizioni spirituali, dal Vangelo alla sapienza orientale, dall'ermetismo alla psicologia del profondo, cercando il filo comune che le unisce. Non si tratta di fede cieca, ma di una scienza spirituale da verificare attraverso la pratica e l'esperienza diretta."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured data — Course (percorso formativo settennale) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "@id": "https://scuolacontattati.com/#corso",
+    "name": "Scuola di Consapevolezza ed Alchimia",
+    "description": "Percorso formativo settennale di Consapevolezza ed Alchimia a Bari e online: 3 anni di base e 4 di approfondimento. Studio delle 96 Leggi Universali e pratica di Alchimia trasmutativa, con Enneagramma, Kabbalà, Magia Ermetica, archetipi e osservazione di sé.",
+    "inLanguage": "it",
+    "url": "https://scuolacontattati.com/#calendario",
+    "provider": { "@id": "#scuola" },
+    "educationalLevel": "Percorso settennale (3 anni base + 4 anni avanzati)",
+    "teaches": [
+      "96 Leggi Universali",
+      "Alchimia trasmutativa",
+      "Enneagramma",
+      "Kabbalà",
+      "Magia Ermetica",
+      "Studio simbolico di miti e archetipi",
+      "Osservazione di sé e presenza"
+    ],
+    "hasCourseInstance": [
+      {
+        "@type": "CourseInstance",
+        "courseMode": "onsite",
+        "name": "Lezioni in presenza — domenica mattina",
+        "courseWorkload": "PT4H30M",
+        "location": {
+          "@type": "Place",
+          "name": "Scuola ContattaTi — Bari",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bari",
+            "addressRegion": "BA",
+            "addressCountry": "IT"
+          }
+        },
+        "courseSchedule": {
+          "@type": "Schedule",
+          "repeatFrequency": "P1M15D",
+          "byDay": "https://schema.org/Sunday",
+          "startTime": "09:00",
+          "endTime": "13:30"
+        }
+      },
+      {
+        "@type": "CourseInstance",
+        "courseMode": "online",
+        "name": "Lezioni online — registrazioni riservate",
+        "courseWorkload": "PT4H30M"
+      }
+    ],
+    "offers": [
+      {
+        "@type": "Offer",
+        "category": "Singola lezione",
+        "price": "30",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://scuolacontattati.com/#calendario"
+      },
+      {
+        "@type": "Offer",
+        "category": "Pacchetto annuale",
+        "price": "180",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://scuolacontattati.com/#calendario"
+      }
+    ]
+  }
+  </script>
+
   <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) — self-hosted, zero dipendenze esterne -->
   <link rel="stylesheet" href="style.css?v=20260511"/>
 
