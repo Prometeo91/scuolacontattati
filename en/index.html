@@ -375,6 +375,19 @@
   .faq-answer strong{color:var(--gold-light)}
   .faq-answer em{color:var(--text-muted)}
 
+  /* Read-more — continuazione di prosa nascosta (riusa il linguaggio di .chiave-more) */
+  .read-more{margin-top:1.25rem}
+  .read-more>summary{font-family:var(--font-display);font-size:15px;color:var(--gold);cursor:pointer;list-style:none;opacity:0.8;transition:opacity .2s;display:inline-flex;align-items:center;gap:0.4rem;user-select:none}
+  .read-more>summary:hover{opacity:1}
+  .read-more>summary::-webkit-details-marker{display:none}
+  .read-more>summary::after{content:'▾';font-size:12px;transition:transform .3s ease}
+  .read-more[open]>summary{opacity:1;margin-bottom:0.5rem}
+  .read-more[open]>summary::after{transform:rotate(180deg)}
+  .read-more .read-more-less{display:none}
+  .read-more[open] .read-more-more{display:none}
+  .read-more[open] .read-more-less{display:inline}
+  .read-more>.body-text:first-of-type{margin-top:0}
+
   /* Language switcher pill */
   .lang-pill{display:inline-flex;align-items:center;gap:0;border:0.5px solid var(--border);border-radius:999px;padding:2px;margin-right:0.25rem;font-family:var(--font-sans);font-size:12px;font-weight:600;letter-spacing:0.06em}
   .lang-pill a{display:inline-block;padding:4px 10px;border-radius:999px;text-decoration:none;transition:color .2s,background .2s;line-height:1}
@@ -442,9 +455,12 @@
 
     <p class="body-text mt-125">The true work, then, is that of a <strong>conductor of an orchestra</strong>: knowing every voice, every instrument (how it works, when it activates, what it produces) and learning to make them play together, in a symphony consistent with our most authentic being. The goal is not to eliminate parts of ourselves, but to integrate them. <em>Individuo</em>, from the Latin, means "undivided": something fragmented that we learn to reunify. Only then can we live a life congruent with ourselves and act from within: Aristotle's <em>enérgheia</em>, the pure act of action connected to being. This is true freedom: choosing how to respond to what happens.</p>
 
-    <p class="body-text mt-125">The School was created to offer the instruments of this awakening. Not knowledge to accumulate: a daily practice of observation, presence and self-work that allows us to become masters of our own carriage instead of being dragged by it. It is a <strong>laboratory</strong> in the oldest sense of the word, from the Latin <em>labor</em>, oriented and conscious effort; an effort of the spirit, in which the will of the human being unites with the call to heaven. We live in an age in which we fear that artificial intelligence might escape our control; and yet this is exactly what has already happened, for millennia, with our <strong>organic intelligence</strong>: the biological machine has taken command, and the Soul can no longer, by itself, disengage the autopilot. Realigning one's gaze with that of the Soul is the first act of freedom.</p>
+    <details class="read-more">
+      <summary><span class="read-more-more">Continue reading</span><span class="read-more-less">Show less</span></summary>
+      <p class="body-text">The School was created to offer the instruments of this awakening. Not knowledge to accumulate: a daily practice of observation, presence and self-work that allows us to become masters of our own carriage instead of being dragged by it. It is a <strong>laboratory</strong> in the oldest sense of the word, from the Latin <em>labor</em>, oriented and conscious effort; an effort of the spirit, in which the will of the human being unites with the call to heaven. We live in an age in which we fear that artificial intelligence might escape our control; and yet this is exactly what has already happened, for millennia, with our <strong>organic intelligence</strong>: the biological machine has taken command, and the Soul can no longer, by itself, disengage the autopilot. Realigning one's gaze with that of the Soul is the first act of freedom.</p>
 
-    <p class="body-text mt-125">What at first seems merely an exercise in counteracting mechanicalness, at a certain point becomes a natural attitude: that seed has taken root and become a living plant within us. This is why the School exists: not to give answers, but to provide the instruments with which each person can find their own.</p>
+      <p class="body-text mt-125">What at first seems merely an exercise in counteracting mechanicalness, at a certain point becomes a natural attitude: that seed has taken root and become a living plant within us. This is why the School exists: not to give answers, but to provide the instruments with which each person can find their own.</p>
+    </details>
   </div>
   <div class="about-grid sr" style="margin-top:2rem;">
     <div class="glass-card">
@@ -862,12 +878,18 @@
     <div class="glass-card libro-card">
       <h4 class="libro-card-title">22 Self-sabotages</h4>
       <p class="body-text-sm">The unconscious mechanisms that jam Realisation. Recognising them is the first alchemical act: every limit, seen with awareness, becomes a tool for self-knowledge and a doorway towards its opposite quality.</p>
-      <p class="body-text-sm mt-1" style="opacity:0.85;">Among these: the fear of change, the difficulty in receiving, guilt and shame, not recognising one's own worth, limiting beliefs about money, lack of gratitude, confusing commitment with effort, attachment to outcomes, impatience, and disconnection from the material plane.</p>
+      <details class="read-more" style="margin-top:0.6rem;">
+        <summary><span class="read-more-more">See some examples</span><span class="read-more-less">Show less</span></summary>
+        <p class="body-text-sm mt-1" style="opacity:0.85;">Among these: the fear of change, the difficulty in receiving, guilt and shame, not recognising one's own worth, limiting beliefs about money, lack of gratitude, confusing commitment with effort, attachment to outcomes, impatience, and disconnection from the material plane.</p>
+      </details>
     </div>
     <div class="glass-card libro-card">
       <h4 class="libro-card-title">6 Universal Laws</h4>
       <p class="body-text-sm">Authentic Wealth is not conquered — it is welcomed. The Six Laws that sustain Abundance are active forces to attune to: frequencies to embody in one's life, rather than rules to follow.</p>
-      
+      <details class="read-more" style="margin-top:0.6rem;">
+        <summary><span class="read-more-more">See the 6 Laws</span><span class="read-more-less">Show less</span></summary>
+        <p class="body-text-sm mt-1" style="opacity:0.85;">Law of Gestation, Law of Attraction, Law of Expectation, Law of Letting Go, Law of Abundance, Law of Personal Power.</p>
+      </details>
     </div>
     <div class="glass-card libro-card libro-card-full">
       <h4 class="libro-card-title">3 Planetary Archetypes</h4>
@@ -940,7 +962,9 @@
   </div>
   <div class="glass-card">
     <p class="body-text-sm mb-1">According to the ancient Vedic texts, Wealth manifests in eight forms. True wellbeing arises from harmony among all these dimensions. Today the scale of priorities is often inverted: we start from the bottom, from material subsistence, forgetting that the highest form of Wealth is inner spiritual knowledge.</p>
-    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 4px 1.5rem;">
+    <details class="read-more" style="margin-top:0.4rem;">
+      <summary><span class="read-more-more">See the 8 forms</span><span class="read-more-less">Show less</span></summary>
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 4px 1.5rem; margin-top:0.5rem;">
       <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">1.</span> Inner spiritual knowledge</p>
       <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">2.</span> Service: offering oneself in a project of value</p>
       <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">3.</span> Faith and courage</p>
@@ -950,6 +974,7 @@
       <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">7.</span> Physical and mental health and wellbeing</p>
       <p class="body-text-sm" style="padding:0.35rem 0;"><span class="text-gold">8.</span> Subsistence and solid economy</p>
     </div>
+    </details>
   </div>
 
   <!-- PRESENTAZIONI (collapsible) -->
