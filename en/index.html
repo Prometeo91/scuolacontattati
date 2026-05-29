@@ -158,6 +158,155 @@
   }
   </script>
 
+  <!-- Structured data — FAQPage (rich results for frequently asked questions) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": "https://scuolacontattati.com/en/#faq",
+    "inLanguage": "en",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why a school? Can't I study on my own?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can, of course, and every search is precious. But the self-taught person gathers fragmentary information from different books, videos and courses: half-truths that risk never coming together into a complete picture. A school instead offers a progressive structure and a consolidated method, with guides who have already walked the path and know where one falls and how to get back up."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is previous experience or spiritual training required?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The path starts from the foundations and accompanies each person from wherever they are. The only requirement is what in alchemy is called the thirst of the soul: that inner drive to know oneself more deeply. No previous reading or specific skills are needed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long is the path and how is it structured?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The School is structured over 7 years: 3 foundation years and 4 advanced years. Even just the first 3 years constitute a complete path. Each year includes 6 lessons at the foundation levels and 3 at the advanced levels, roughly every month and a half. Lessons take place on Sunday mornings from 9:00 to 13:30."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does it cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The contribution is €30 per lesson, payable each time. For those who prefer, an annual package is available at €180 instead of €210, with one lesson offered by the School. There are no ties or obligations: you can start, stop and resume whenever you wish."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I follow the lessons online?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Each lesson is recorded and made available through a private YouTube link, permanently active. You can review the lesson as many times as you wish, at your own pace. The in-person experience remains richer, but the online mode lets anyone follow the path regardless of where they are."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I join even if the lessons have already started?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. Thanks to the recordings, you can catch up on previous lessons and join the path at any time. There are no barriers or time-based prerequisites."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is actually studied?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The heart of the path is the study of the 96 Universal Laws, the laws that govern the macrocosm and the microcosm. The other half of the work is alchemical practice: the concrete transmutation of oneself in daily life. Among the tools: Enneagram, Kabbalah, symbolic study of myths and archetypes, Hermetic Magic, self-observation exercises and guided meditations."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this a religious school?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The School integrates teachings from multiple spiritual traditions, from the Gospels to Eastern wisdom, from Hermeticism to depth psychology, seeking the common thread that unites them. It is not blind faith, but a spiritual science to be verified through practice and direct experience."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured data — Course (seven-year training path) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "@id": "https://scuolacontattati.com/en/#corso",
+    "name": "School of Awareness and Alchemy",
+    "description": "Seven-year training path in Awareness and Alchemy in Bari and online: 3 foundation years and 4 advanced years. Study of the 96 Universal Laws and practice of transmutative Alchemy, with Enneagram, Kabbalah, Hermetic Magic, archetypes and self-observation.",
+    "inLanguage": "en",
+    "url": "https://scuolacontattati.com/en/#calendario",
+    "provider": { "@id": "#scuola" },
+    "educationalLevel": "Seven-year path (3 foundation years + 4 advanced years)",
+    "teaches": [
+      "96 Universal Laws",
+      "Transmutative Alchemy",
+      "Enneagram",
+      "Kabbalah",
+      "Hermetic Magic",
+      "Symbolic study of myths and archetypes",
+      "Self-observation and presence"
+    ],
+    "hasCourseInstance": [
+      {
+        "@type": "CourseInstance",
+        "courseMode": "onsite",
+        "name": "In-person lessons — Sunday morning",
+        "courseWorkload": "PT4H30M",
+        "location": {
+          "@type": "Place",
+          "name": "Scuola ContattaTi — Bari",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bari",
+            "addressRegion": "BA",
+            "addressCountry": "IT"
+          }
+        },
+        "courseSchedule": {
+          "@type": "Schedule",
+          "repeatFrequency": "P1M15D",
+          "byDay": "https://schema.org/Sunday",
+          "startTime": "09:00",
+          "endTime": "13:30"
+        }
+      },
+      {
+        "@type": "CourseInstance",
+        "courseMode": "online",
+        "name": "Online lessons — private recordings",
+        "courseWorkload": "PT4H30M"
+      }
+    ],
+    "offers": [
+      {
+        "@type": "Offer",
+        "category": "Single lesson",
+        "price": "30",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://scuolacontattati.com/en/#calendario"
+      },
+      {
+        "@type": "Offer",
+        "category": "Annual package",
+        "price": "180",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://scuolacontattati.com/en/#calendario"
+      }
+    ]
+  }
+  </script>
+
   <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) — self-hosted, zero dipendenze esterne -->
   <link rel="stylesheet" href="../style.css?v=20260511"/>
 
