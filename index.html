@@ -380,6 +380,19 @@
   .faq-answer strong{color:var(--gold-light)}
   .faq-answer em{color:var(--text-muted)}
 
+  /* Read-more — continuazione di prosa nascosta (riusa il linguaggio di .chiave-more, senza restyling dei paragrafi) */
+  .read-more{margin-top:1.25rem}
+  .read-more>summary{font-family:var(--font-display);font-size:15px;color:var(--gold);cursor:pointer;list-style:none;opacity:0.8;transition:opacity .2s;display:inline-flex;align-items:center;gap:0.4rem;user-select:none}
+  .read-more>summary:hover{opacity:1}
+  .read-more>summary::-webkit-details-marker{display:none}
+  .read-more>summary::after{content:'▾';font-size:12px;transition:transform .3s ease}
+  .read-more[open]>summary{opacity:1;margin-bottom:0.5rem}
+  .read-more[open]>summary::after{transform:rotate(180deg)}
+  .read-more .read-more-less{display:none}
+  .read-more[open] .read-more-more{display:none}
+  .read-more[open] .read-more-less{display:inline}
+  .read-more>.body-text:first-of-type{margin-top:0}
+
   /* Language switcher pill */
   .lang-pill{display:inline-flex;align-items:center;gap:0;border:0.5px solid var(--border);border-radius:999px;padding:2px;margin-right:0.25rem;font-family:var(--font-sans);font-size:12px;font-weight:600;letter-spacing:0.06em}
   .lang-pill a{display:inline-block;padding:4px 10px;border-radius:999px;text-decoration:none;transition:color .2s,background .2s;line-height:1}
@@ -447,9 +460,12 @@
 
     <p class="body-text mt-125">Il vero lavoro, allora, è quello di un <strong>direttore d'orchestra</strong>: conoscere ogni voce, ogni strumento (come funziona, quando si attiva, cosa produce) e imparare a farli suonare insieme, in una sinfonia coerente con il nostro essere più autentico. L'obiettivo non è eliminare parti di noi, ma integrarle. <em>Individuo</em>, dal latino, significa "non diviso": qualcosa di frammentario che impariamo a riunificare. Solo allora potremo vivere una vita congruente con noi stessi e agire da dentro: l'<em>enérgheia</em> di Aristotele, l'atto puro dell'azione connesso all'essere. La vera libertà è questa: scegliere come rispondere a ciò che accade.</p>
 
-    <p class="body-text mt-125">La Scuola nasce per offrire gli strumenti di questo risveglio. Non un sapere da accumulare: una pratica quotidiana di osservazione, presenza e lavoro su di sé che permetta di diventare padroni della propria carrozza anziché esserne trascinati. È un <strong>laboratorio</strong> nel senso più antico del termine, dal latino <em>labor</em>, fatica orientata e consapevole; una fatica dello spirito, in cui la volontà dell'uomo si unisce alla richiesta al cielo. Viviamo in un'epoca in cui temiamo che l'intelligenza artificiale possa sfuggire al nostro controllo; eppure è esattamente ciò che è già accaduto, da millenni, con la nostra <strong>intelligenza organica</strong>: la macchina biologica ha preso il comando, e l'Anima non riesce più, da sola, a disinserire il pilota automatico. Riallineare il proprio sguardo a quello dell'Anima è il primo atto di libertà.</p>
+    <details class="read-more">
+      <summary><span class="read-more-more">Continua a leggere</span><span class="read-more-less">Mostra meno</span></summary>
+      <p class="body-text">La Scuola nasce per offrire gli strumenti di questo risveglio. Non un sapere da accumulare: una pratica quotidiana di osservazione, presenza e lavoro su di sé che permetta di diventare padroni della propria carrozza anziché esserne trascinati. È un <strong>laboratorio</strong> nel senso più antico del termine, dal latino <em>labor</em>, fatica orientata e consapevole; una fatica dello spirito, in cui la volontà dell'uomo si unisce alla richiesta al cielo. Viviamo in un'epoca in cui temiamo che l'intelligenza artificiale possa sfuggire al nostro controllo; eppure è esattamente ciò che è già accaduto, da millenni, con la nostra <strong>intelligenza organica</strong>: la macchina biologica ha preso il comando, e l'Anima non riesce più, da sola, a disinserire il pilota automatico. Riallineare il proprio sguardo a quello dell'Anima è il primo atto di libertà.</p>
 
-    <p class="body-text mt-125">Ciò che all'inizio sembra solo un allenamento a contrasto della meccanicità, a un certo punto diviene un'attitudine naturale: quel seme ha attecchito ed è diventato pianta vivente in noi. Per questo esiste la Scuola: non per dare risposte, ma per fornire gli strumenti con cui ciascuno possa trovare le proprie.</p>
+      <p class="body-text mt-125">Ciò che all'inizio sembra solo un allenamento a contrasto della meccanicità, a un certo punto diviene un'attitudine naturale: quel seme ha attecchito ed è diventato pianta vivente in noi. Per questo esiste la Scuola: non per dare risposte, ma per fornire gli strumenti con cui ciascuno possa trovare le proprie.</p>
+    </details>
   </div>
   <div class="about-grid sr" style="margin-top:2rem;">
     <div class="glass-card">
@@ -865,12 +881,18 @@
     <div class="glass-card libro-card">
       <h4 class="libro-card-title">22 Autosabotaggi</h4>
       <p class="body-text-sm">I meccanismi inconsci che inceppano la Realizzazione. Riconoscerli è il primo atto alchemico: ogni limite, visto con consapevolezza, diventa uno strumento di conoscenza di sé e una porta verso la propria qualità opposta.</p>
-      <p class="body-text-sm mt-1" style="opacity:0.85;">Tra questi: la paura del cambiamento, la difficoltà a ricevere, il senso di colpa e la vergogna, il non riconoscere il proprio valore, le credenze limitanti sul denaro, la mancanza di gratitudine, la confusione tra impegno e sforzo, l'attaccamento al risultato, l'impazienza, e la disconnessione dal piano materiale.</p>
+      <details class="read-more" style="margin-top:0.6rem;">
+        <summary><span class="read-more-more">Vedi alcuni esempi</span><span class="read-more-less">Mostra meno</span></summary>
+        <p class="body-text-sm mt-1" style="opacity:0.85;">Tra questi: la paura del cambiamento, la difficoltà a ricevere, il senso di colpa e la vergogna, il non riconoscere il proprio valore, le credenze limitanti sul denaro, la mancanza di gratitudine, la confusione tra impegno e sforzo, l'attaccamento al risultato, l'impazienza, e la disconnessione dal piano materiale.</p>
+      </details>
     </div>
     <div class="glass-card libro-card">
       <h4 class="libro-card-title">6 Leggi Universali</h4>
       <p class="body-text-sm">La Ricchezza Autentica non si conquista, si accoglie. Le Sei Leggi che sostengono l'Abbondanza sono forze attive con cui sintonizzarsi: frequenze da incarnare nella propria vita, più che norme da seguire.</p>
-      <p class="body-text-sm mt-1" style="opacity:0.85;">Legge della Gestazione, Legge di Attrazione, Legge dell'Aspettativa, Legge del Lasciare Andare, Legge dell'Abbondanza, Legge del Potere Personale.</p>
+      <details class="read-more" style="margin-top:0.6rem;">
+        <summary><span class="read-more-more">Vedi le 6 Leggi</span><span class="read-more-less">Mostra meno</span></summary>
+        <p class="body-text-sm mt-1" style="opacity:0.85;">Legge della Gestazione, Legge di Attrazione, Legge dell'Aspettativa, Legge del Lasciare Andare, Legge dell'Abbondanza, Legge del Potere Personale.</p>
+      </details>
     </div>
     <div class="glass-card libro-card libro-card-full">
       <h4 class="libro-card-title">3 Archetipi Planetari</h4>
@@ -943,7 +965,9 @@
   </div>
   <div class="glass-card">
     <p class="body-text-sm mb-1">Secondo gli antichi testi vedici, la Ricchezza si manifesta in otto forme. Il vero benessere nasce dall'armonia tra tutte queste dimensioni. Oggi la scala di priorità è spesso invertita: partiamo dal basso, dalla sussistenza materiale, dimenticando che la forma più alta di Ricchezza è la conoscenza spirituale interiore.</p>
-    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 4px 1.5rem;">
+    <details class="read-more" style="margin-top:0.4rem;">
+      <summary><span class="read-more-more">Vedi le 8 forme</span><span class="read-more-less">Mostra meno</span></summary>
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 4px 1.5rem; margin-top:0.5rem;">
       <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">1.</span> Conoscenza spirituale interiore</p>
       <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">2.</span> Servizio: offrire sé stessi in un progetto di valore</p>
       <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">3.</span> Fede e coraggio</p>
@@ -952,7 +976,8 @@
       <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">6.</span> Relazioni sane</p>
       <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">7.</span> Salute e benessere fisico e mentale</p>
       <p class="body-text-sm" style="padding:0.35rem 0;"><span class="text-gold">8.</span> Sussistenza e economia solida</p>
-    </div>
+      </div>
+    </details>
   </div>
 
   <!-- PRESENTAZIONI (collapsible) -->
