@@ -1863,9 +1863,11 @@ html::before {
 [data-theme="light"] .seminar-announce{background:linear-gradient(135deg,rgba(129,96,24,0.12),rgba(129,96,24,0.05));border-bottom-color:rgba(129,96,24,0.35);}
 
 /* ===== SEZIONE SEMINARIO ===== */
-.seminar-section{background:rgba(201,151,58,0.04);border:0.5px solid rgba(201,151,58,0.3);border-radius:16px;padding:2rem;margin:0 auto;max-width:1000px;display:grid;grid-template-columns:0.8fr 1fr;gap:2.5rem;align-items:start;}
-@media(max-width:768px){.seminar-section{grid-template-columns:1fr;gap:1.5rem;padding:1.4rem;}.seminar-flyer{order:2;}.seminar-content{order:1;}.seminar-flyer img{max-width:340px;margin:0 auto;}}
-.seminar-flyer img{width:100%;max-width:360px;border-radius:12px;border:1px solid var(--border);display:block;}
+.seminar-section{background:rgba(201,151,58,0.04);border:0.5px solid rgba(201,151,58,0.3);border-radius:16px;padding:2rem;margin:0 auto;max-width:760px;display:flex;flex-direction:column;align-items:center;gap:1.8rem;}
+@media(max-width:768px){.seminar-section{gap:1.5rem;padding:1.4rem;}}
+.seminar-flyer{width:100%;display:flex;justify-content:center;}
+.seminar-flyer img{width:100%;max-width:380px;border-radius:12px;border:1px solid var(--border);display:block;}
+.seminar-content{width:100%;}
 .seminar-content h3{font-family:var(--font-display);color:var(--gold-light);font-size:24px;margin-bottom:0.3rem;line-height:1.25;}
 .seminar-content .seminar-sub{font-style:italic;color:var(--text-muted);font-size:15px;margin-bottom:1.1rem;}
 .seminar-questions{list-style:none;padding:0;margin:0 0 1.2rem;}
