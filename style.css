@@ -1874,9 +1874,10 @@ html::before {
 .seminar-questions li{position:relative;padding-left:1.5rem;margin-bottom:0.55rem;font-size:15px;color:var(--text);line-height:1.5;}
 .seminar-questions li::before{content:"\2728";position:absolute;left:0;top:0;font-size:13px;}
 .seminar-details{border-top:0.5px solid rgba(201,151,58,0.25);padding-top:1.1rem;font-size:14.5px;line-height:1.7;}
-.seminar-details .seminar-detail-row{display:flex;gap:0.5rem;margin-bottom:0.35rem;}
+.seminar-details .seminar-detail-row{display:flex;gap:0.5rem;margin-bottom:0.35rem;justify-content:center;text-align:center;}
 .seminar-details .seminar-detail-icon{flex-shrink:0;}
-.seminar-prices{margin:0.6rem 0 0;padding:0.8rem 1rem;background:rgba(201,151,58,0.06);border-radius:10px;font-size:14px;}
+.seminar-prices{margin:0.9rem 0 0;padding:0.8rem 1rem;background:rgba(201,151,58,0.06);border-radius:10px;font-size:14px;}
 .seminar-prices .price-line{margin-bottom:0.3rem;}
 .seminar-prices .price-line:last-child{margin-bottom:0;}
 .seminar-cta{display:inline-block;margin-top:1.2rem;}
+.seminar-content .seminar-cta-wrap{text-align:center;}
