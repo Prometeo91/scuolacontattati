@@ -523,7 +523,7 @@
 
   <!-- YEAR 7 GRADUATES PHOTO -->
   <figure class="sr" style="margin:3rem auto 0;max-width:900px;text-align:center;">
-    <img src="../images/certificati-settimo-anno.jpg" alt="Year 7 graduates with Anna Carla, Nicolaos and Eleonora — 24 May 2026" loading="lazy" decoding="async" style="width:100%;border-radius:12px;border:1px solid var(--border);"/>
+    <img src="../images/certificati-settimo-anno.jpg" width="1280" height="960" alt="Year 7 graduates with Anna Carla, Nicolaos and Eleonora — 24 May 2026" loading="lazy" decoding="async" style="width:100%;border-radius:12px;border:1px solid var(--border);"/>
     <figcaption style="margin-top:0.75rem;font-size:13px;color:var(--text-muted);font-style:italic;">Year 7 graduates — 24 May 2026</figcaption>
   </figure>
 
@@ -893,7 +893,7 @@
 
   <div class="seminar-section sr">
     <div class="seminar-flyer">
-      <img src="../images/seminario-luglio-2026.jpg" alt="Seminar flyer — Wealth, Abundance and Mission — 26 July 2026" loading="lazy" decoding="async"/>
+      <img src="../images/seminario-luglio-2026.jpg" width="1280" height="863" alt="Seminar flyer — Wealth, Abundance and Mission — 26 July 2026" loading="lazy" decoding="async" id="seminarFlyer" style="cursor:zoom-in;" title="Click to enlarge"/>
     </div>
     <div class="seminar-content">
       <h3>Wealth, Abundance and Mission</h3>
@@ -2592,6 +2592,26 @@ document.addEventListener('DOMContentLoaded', function() {
       if(sessionStorage.getItem('seminarClosed')==='1'){a.style.display='none';}
       c.addEventListener('click',function(){a.style.display='none';try{sessionStorage.setItem('seminarClosed','1');}catch(e){}});
     }
+  })();
+</script>
+
+<!-- Seminar flyer lightbox -->
+<div class="lightbox-overlay" id="flyerLightbox">
+  <button class="lightbox-close" id="flyerClose" aria-label="Close">×</button>
+  <img src="../images/seminario-luglio-2026.jpg" alt="Seminar flyer"/>
+</div>
+<script>
+  (function(){
+    var fl=document.getElementById('seminarFlyer');
+    var ov=document.getElementById('flyerLightbox');
+    if(!fl||!ov)return;
+    var cl=document.getElementById('flyerClose');
+    function open(){ov.classList.add('active');document.body.style.overflow='hidden';}
+    function close(){ov.classList.remove('active');document.body.style.overflow='';}
+    fl.addEventListener('click',open);
+    cl.addEventListener('click',close);
+    ov.addEventListener('click',function(e){if(e.target===ov)close();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&ov.classList.contains('active'))close();});
   })();
 </script>
 </body>
