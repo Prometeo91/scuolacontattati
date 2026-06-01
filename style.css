@@ -1866,7 +1866,7 @@ html::before {
 .seminar-section{background:rgba(201,151,58,0.04);border:0.5px solid rgba(201,151,58,0.3);border-radius:16px;padding:2rem;margin:0 auto;max-width:760px;display:flex;flex-direction:column;align-items:center;gap:1.8rem;}
 @media(max-width:768px){.seminar-section{gap:1.5rem;padding:1.4rem;}}
 .seminar-flyer{width:100%;display:flex;justify-content:center;}
-.seminar-flyer img{width:100%;max-width:380px;border-radius:12px;border:1px solid var(--border);display:block;}
+.seminar-flyer img{width:100%;max-width:380px;height:auto;border-radius:12px;border:1px solid var(--border);display:block;}
 .seminar-content{width:100%;}
 .seminar-content h3{font-family:var(--font-display);color:var(--gold-light);font-size:24px;margin-bottom:0.3rem;line-height:1.25;}
 .seminar-content .seminar-sub{font-style:italic;color:var(--text-muted);font-size:15px;margin-bottom:1.1rem;}
