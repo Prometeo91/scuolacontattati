@@ -412,6 +412,12 @@
 </head>
 <body id="top">
 
+<!-- SUMMER SEMINAR ANNOUNCEMENT -->
+<div class="seminar-announce" id="seminarAnnounce">
+  <span>✨ <strong>Seminar in nature</strong> — Wealth, Abundance and Mission · Sunday 26 July 2026 · <a href="#seminario" class="seminar-announce-link">Find out more →</a></span>
+  <button class="seminar-announce-close" id="seminarAnnounceClose" aria-label="Close announcement">×</button>
+</div>
+
 <!-- Scroll progress bar (sottile barra dorata in cima) -->
 <div class="scroll-progress" aria-hidden="true"></div>
 
@@ -425,6 +431,7 @@
     <a href="#conduttori">The guides</a>
     <a href="#galleria">Gallery</a>
     <a href="#calendario">The path</a>
+    <a href="#seminario">Seminar</a>
     <a href="#libro">The book</a>
     <a href="#faq">FAQ</a>
     <a href="#contatti">Contact</a>
@@ -876,6 +883,43 @@
 
 <div class="epigraphic-rule"><span class="glyph">◆</span></div>
 
+
+
+<!-- SUMMER SEMINAR -->
+<section id="seminario">
+  <div class="section-eyebrow"><span>Special event</span></div>
+  <h2 class="section-title sr">Seminar in nature</h2>
+  <p class="section-sub">A day immersed in nature to explore together three themes that touch the heart of human experience.</p>
+
+  <div class="seminar-section sr">
+    <div class="seminar-flyer">
+      <img src="../images/seminario-luglio-2026.jpg" alt="Seminar flyer — Wealth, Abundance and Mission — 26 July 2026" loading="lazy" decoding="async"/>
+    </div>
+    <div class="seminar-content">
+      <h3>Wealth, Abundance and Mission</h3>
+      <p class="seminar-sub">The Keys to Inner Realisation</p>
+      <ul class="seminar-questions">
+        <li>What is Wealth, truly?</li>
+        <li>When can we call ourselves authentically Abundant?</li>
+        <li>How do we recognise the direction our Soul wishes to follow?</li>
+        <li>What happens when who we are, what we love and what we give begin to speak to one another?</li>
+      </ul>
+      <p class="body-text-sm" style="margin-bottom:1rem;">Not to seek ready-made answers, but to draw closer to ourselves and to what gives meaning to our existence. For those attending for the first time, and for those who feel the call to return and deepen the path.</p>
+      <div class="seminar-details">
+        <div class="seminar-detail-row"><span class="seminar-detail-icon">📅</span><span><strong>Sunday 26 July 2026</strong></span></div>
+        <div class="seminar-detail-row"><span class="seminar-detail-icon">📍</span><span>Masseria Chinunno — Mercadante Forest</span></div>
+        <div class="seminar-prices">
+          <div class="price-line"><strong>€80</strong> — first participation</div>
+          <div class="price-line"><strong>€30</strong> — for those who attended the previous edition</div>
+          <div class="price-line" style="opacity:0.85;">− €10 for each person you bring with you</div>
+        </div>
+      </div>
+      <a href="https://wa.me/393929116441" target="_blank" rel="noopener" class="btn-primary seminar-cta">Information and registration</a>
+    </div>
+  </div>
+</section>
+
+<div class="epigraphic-rule"><span class="glyph">◆</span></div>
 
 <!-- BOOK -->
 <section id="libro">
@@ -1956,6 +2000,7 @@
       <a href="#insegnamenti">Teachings</a>
       <a href="#conduttori">The guides</a>
       <a href="#calendario">The path</a>
+    <a href="#seminario">Seminar</a>
       <a href="#libro">The book</a>
       <a href="#contatti">Contact</a>
       <a href="privacy.html">Privacy</a>
@@ -2175,7 +2220,7 @@ document.addEventListener('DOMContentLoaded', function() {
       else if(st==='passata'){bc='badge badge-muted';bt='Completed';}
       else if(isPr){bc='badge badge-gold';bt='Enrol';}
       else{bc='badge badge-purple';bt=mesiL[l.month-1]+' '+l.year;}
-      var sfx=st==='in-corso'?' \u2014 In progress now':isPr?' \u2736 Next':'';
+      var sfx=st==='in-corso'?' — In progress now':isPr?' \u2736 Next':'';
       var w=document.createElement('div');w.className='lesson-wrap';
       w.innerHTML='<div class="event-row has-detail" role="button" tabindex="0" aria-expanded="false"><div class="event-date"><p class="event-day ev-num">'+toRoman(l.num)+'</p><p class="event-month">Year 1</p></div><div class="event-vline"></div><div class="event-info"><p class="event-title">Lesson '+toRoman(l.num)+sfx+'</p><p class="event-sub">'+l.titolo+'</p><p style="font-size:13px;color:var(--text-muted);margin-top:2px;">'+l.day+' '+mesiL[l.month-1]+' '+l.year+'</p></div><span class="'+bc+'">'+bt+'</span><span class="detail-pill">Topics \u25be</span><span class="expand-arrow">\u25bc</span></div>'+panelHTML(l);
       list1.appendChild(w);
@@ -2211,7 +2256,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
       var badgeHTML=hasDate?'<span class="'+bc+'">'+bt+'</span>':'';
-      var sfx=st==='in-corso'?' \u2014 In progress now':isPr?' \u2736 Next':'';
+      var sfx=st==='in-corso'?' — In progress now':isPr?' \u2736 Next':'';
       w.innerHTML='<div class="event-row has-detail" role="button" tabindex="0" aria-expanded="false"><div class="event-date"><p class="event-day ev-num">'+toRoman(l.num)+'</p><p class="event-month">'+label+'</p></div><div class="event-vline"></div><div class="event-info"><p class="event-title">Lesson '+toRoman(l.num)+sfx+'</p><p class="event-sub">'+l.titolo+'</p>'+(hasDate?'<p style="font-size:13px;color:var(--text-muted);margin-top:2px;">'+l.day+' '+mesiL[l.month-1]+' '+l.year+'</p>':'')+'</div>'+badgeHTML+'<span class="detail-pill">Topics \u25be</span><span class="expand-arrow">\u25bc</span></div>'+panelHTML(l);
       el.appendChild(w);
       var row=w.querySelector('.event-row'),panel=w.querySelector('.lesson-panel');
@@ -2537,6 +2582,17 @@ document.addEventListener('DOMContentLoaded', function() {
   }, { rootMargin: '-30% 0px -65% 0px', threshold: 0 });
   watched.forEach(function(s){ spy.observe(s); });
 })();
+</script>
+<script>
+  // Seminar announcement dismiss
+  (function(){
+    var a=document.getElementById('seminarAnnounce');
+    var c=document.getElementById('seminarAnnounceClose');
+    if(a&&c){
+      if(sessionStorage.getItem('seminarClosed')==='1'){a.style.display='none';}
+      c.addEventListener('click',function(){a.style.display='none';try{sessionStorage.setItem('seminarClosed','1');}catch(e){}});
+    }
+  })();
 </script>
 </body>
 </html>
