@@ -1852,3 +1852,29 @@ html::before {
 [data-theme="light"] html::before {
   background: radial-gradient(ellipse at center, transparent 0%, transparent 50%, rgba(120,90,30,0.15) 100%);
 }
+
+/* ===== ANNUNCIO SEMINARIO ESTIVO ===== */
+.seminar-announce{position:relative;background:linear-gradient(135deg,rgba(201,151,58,0.14),rgba(201,151,58,0.06));border-bottom:0.5px solid rgba(201,151,58,0.4);padding:0.85rem 3rem 0.85rem 1.4rem;text-align:center;font-size:14.5px;color:var(--text);}
+.seminar-announce a.seminar-announce-link{color:var(--gold-light);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(201,151,58,0.5);}
+.seminar-announce a.seminar-announce-link:hover{color:var(--gold);}
+.seminar-announce strong{color:var(--gold-light);font-weight:600;}
+.seminar-announce-close{position:absolute;right:0.9rem;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--text-muted);font-size:20px;line-height:1;cursor:pointer;padding:0.2rem 0.4rem;border-radius:6px;}
+.seminar-announce-close:hover{color:var(--gold-light);background:rgba(201,151,58,0.1);}
+[data-theme="light"] .seminar-announce{background:linear-gradient(135deg,rgba(129,96,24,0.12),rgba(129,96,24,0.05));border-bottom-color:rgba(129,96,24,0.35);}
+
+/* ===== SEZIONE SEMINARIO ===== */
+.seminar-section{background:rgba(201,151,58,0.04);border:0.5px solid rgba(201,151,58,0.3);border-radius:16px;padding:2rem;margin:0 auto;max-width:1000px;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;}
+@media(max-width:768px){.seminar-section{grid-template-columns:1fr;gap:1.5rem;padding:1.4rem;}}
+.seminar-flyer img{width:100%;border-radius:12px;border:1px solid var(--border);display:block;}
+.seminar-content h3{font-family:var(--font-display);color:var(--gold-light);font-size:24px;margin-bottom:0.3rem;line-height:1.25;}
+.seminar-content .seminar-sub{font-style:italic;color:var(--text-muted);font-size:15px;margin-bottom:1.1rem;}
+.seminar-questions{list-style:none;padding:0;margin:0 0 1.2rem;}
+.seminar-questions li{position:relative;padding-left:1.5rem;margin-bottom:0.55rem;font-size:15px;color:var(--text);line-height:1.5;}
+.seminar-questions li::before{content:"\2728";position:absolute;left:0;top:0;font-size:13px;}
+.seminar-details{border-top:0.5px solid rgba(201,151,58,0.25);padding-top:1.1rem;font-size:14.5px;line-height:1.7;}
+.seminar-details .seminar-detail-row{display:flex;gap:0.5rem;margin-bottom:0.35rem;}
+.seminar-details .seminar-detail-icon{flex-shrink:0;}
+.seminar-prices{margin:0.6rem 0 0;padding:0.8rem 1rem;background:rgba(201,151,58,0.06);border-radius:10px;font-size:14px;}
+.seminar-prices .price-line{margin-bottom:0.3rem;}
+.seminar-prices .price-line:last-child{margin-bottom:0;}
+.seminar-cta{display:inline-block;margin-top:1.2rem;}

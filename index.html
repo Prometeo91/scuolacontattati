@@ -417,6 +417,12 @@
 </head>
 <body id="top">
 
+<!-- ANNUNCIO SEMINARIO ESTIVO -->
+<div class="seminar-announce" id="seminarAnnounce">
+  <span>✨ <strong>Seminario in natura</strong> — Ricchezza, Abbondanza e Mission · Domenica 26 luglio 2026 · <a href="#seminario" class="seminar-announce-link">Scopri di più →</a></span>
+  <button class="seminar-announce-close" id="seminarAnnounceClose" aria-label="Chiudi annuncio">×</button>
+</div>
+
 <!-- Scroll progress bar (sottile barra dorata in cima) -->
 <div class="scroll-progress" aria-hidden="true"></div>
 
@@ -430,6 +436,7 @@
     <a href="#conduttori">I conduttori</a>
     <a href="#galleria">Galleria</a>
     <a href="#calendario">Il percorso</a>
+    <a href="#seminario">Seminario</a>
     <a href="#libro">Il libro</a>
     <a href="#faq">FAQ</a>
     <a href="#contatti">Contatti</a>
@@ -879,6 +886,43 @@
 
 <div class="epigraphic-rule"><span class="glyph">◆</span></div>
 
+
+
+<!-- SEMINARIO ESTIVO -->
+<section id="seminario">
+  <div class="section-eyebrow"><span>Evento speciale</span></div>
+  <h2 class="section-title sr">Seminario in natura</h2>
+  <p class="section-sub">Una giornata immersa nella natura per esplorare insieme tre temi che toccano il cuore dell'esperienza umana.</p>
+
+  <div class="seminar-section sr">
+    <div class="seminar-flyer">
+      <img src="images/seminario-luglio-2026.jpg" alt="Locandina del seminario Ricchezza, Abbondanza e Mission — 26 luglio 2026" loading="lazy" decoding="async"/>
+    </div>
+    <div class="seminar-content">
+      <h3>Ricchezza, Abbondanza e Mission</h3>
+      <p class="seminar-sub">Le Chiavi della Realizzazione Interiore</p>
+      <ul class="seminar-questions">
+        <li>Cos'è davvero la Ricchezza?</li>
+        <li>Quando possiamo dirci autenticamente Abbondanti?</li>
+        <li>Come riconoscere la direzione che la nostra Anima desidera seguire?</li>
+        <li>Cosa accade quando ciò che siamo, ciò che amiamo e ciò che doniamo iniziano a dialogare tra loro?</li>
+      </ul>
+      <p class="body-text-sm" style="margin-bottom:1rem;">Non per cercare risposte preconfezionate, ma per avvicinarci a noi stessi e a ciò che dà significato alla nostra esistenza. Rivolto sia a chi partecipa per la prima volta, sia a chi sente il richiamo di ritornare e approfondire.</p>
+      <div class="seminar-details">
+        <div class="seminar-detail-row"><span class="seminar-detail-icon">📅</span><span><strong>Domenica 26 luglio 2026</strong></span></div>
+        <div class="seminar-detail-row"><span class="seminar-detail-icon">📍</span><span>Masseria Chinunno — Bosco di Mercadante</span></div>
+        <div class="seminar-prices">
+          <div class="price-line"><strong>80€</strong> — prima partecipazione</div>
+          <div class="price-line"><strong>30€</strong> — per chi ha già partecipato alla scorsa edizione</div>
+          <div class="price-line" style="opacity:0.85;">− 10€ per ogni persona che porti con te</div>
+        </div>
+      </div>
+      <a href="https://wa.me/393929116441" target="_blank" rel="noopener" class="btn-primary seminar-cta">Informazioni e iscrizioni</a>
+    </div>
+  </div>
+</section>
+
+<div class="epigraphic-rule"><span class="glyph">◆</span></div>
 
 <!-- LIBRO -->
 <section id="libro">
@@ -1959,6 +2003,7 @@
       <a href="#insegnamenti">Insegnamenti</a>
       <a href="#conduttori">I conduttori</a>
       <a href="#calendario">Il percorso</a>
+    <a href="#seminario">Seminario</a>
       <a href="#libro">Il libro</a>
       <a href="#contatti">Contatti</a>
       <a href="privacy.html">Privacy</a>
@@ -2178,7 +2223,7 @@ document.addEventListener('DOMContentLoaded', function() {
       else if(st==='passata'){bc='badge badge-muted';bt='Conclusa';}
       else if(isPr){bc='badge badge-gold';bt='Iscriviti';}
       else{bc='badge badge-purple';bt=mesiL[l.month-1]+' '+l.year;}
-      var sfx=st==='in-corso'?' \u2014 In corso ora':isPr?' \u2736 Prossima':'';
+      var sfx=st==='in-corso'?' — In corso ora':isPr?' \u2736 Prossima':'';
       var w=document.createElement('div');w.className='lesson-wrap';
       w.innerHTML='<div class="event-row has-detail" role="button" tabindex="0" aria-expanded="false"><div class="event-date"><p class="event-day ev-num">'+toRoman(l.num)+'</p><p class="event-month">Anno 1</p></div><div class="event-vline"></div><div class="event-info"><p class="event-title">Lezione '+toRoman(l.num)+sfx+'</p><p class="event-sub">'+l.titolo+'</p><p style="font-size:13px;color:var(--text-muted);margin-top:2px;">'+l.day+' '+mesiL[l.month-1]+' '+l.year+'</p></div><span class="'+bc+'">'+bt+'</span><span class="detail-pill">Temi \u25be</span><span class="expand-arrow">\u25bc</span></div>'+panelHTML(l);
       list1.appendChild(w);
@@ -2214,7 +2259,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
       var badgeHTML=hasDate?'<span class="'+bc+'">'+bt+'</span>':'';
-      var sfx=st==='in-corso'?' \u2014 In corso ora':isPr?' \u2736 Prossima':'';
+      var sfx=st==='in-corso'?' — In corso ora':isPr?' \u2736 Prossima':'';
       w.innerHTML='<div class="event-row has-detail" role="button" tabindex="0" aria-expanded="false"><div class="event-date"><p class="event-day ev-num">'+toRoman(l.num)+'</p><p class="event-month">'+label+'</p></div><div class="event-vline"></div><div class="event-info"><p class="event-title">Lezione '+toRoman(l.num)+sfx+'</p><p class="event-sub">'+l.titolo+'</p>'+(hasDate?'<p style="font-size:13px;color:var(--text-muted);margin-top:2px;">'+l.day+' '+mesiL[l.month-1]+' '+l.year+'</p>':'')+'</div>'+badgeHTML+'<span class="detail-pill">Temi \u25be</span><span class="expand-arrow">\u25bc</span></div>'+panelHTML(l);
       el.appendChild(w);
       var row=w.querySelector('.event-row'),panel=w.querySelector('.lesson-panel');
@@ -2540,6 +2585,17 @@ document.addEventListener('DOMContentLoaded', function() {
   }, { rootMargin: '-30% 0px -65% 0px', threshold: 0 });
   watched.forEach(function(s){ spy.observe(s); });
 })();
+</script>
+<script>
+  // Seminar announcement dismiss
+  (function(){
+    var a=document.getElementById('seminarAnnounce');
+    var c=document.getElementById('seminarAnnounceClose');
+    if(a&&c){
+      if(sessionStorage.getItem('seminarClosed')==='1'){a.style.display='none';}
+      c.addEventListener('click',function(){a.style.display='none';try{sessionStorage.setItem('seminarClosed','1');}catch(e){}});
+    }
+  })();
 </script>
 </body>
 </html>
