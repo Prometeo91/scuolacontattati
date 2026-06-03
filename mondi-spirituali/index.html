@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="theme-color" content="#0d0b1a" id="metaThemeColor" />
+  <meta name="description" content="I Mondi Spirituali — un gioco iniziatico bilingue tratto dagli scritti di Salvatore Brizzi. Scuola ContattaTi." />
+  <title>I Mondi Spirituali · Scuola ContattaTi</title>
+
+  <!-- Anti-flash: applica tema e lingua salvati prima del render -->
+  <script>
+    (function () {
+      try {
+        var th = localStorage.getItem('sctheme');
+        if (th === 'light') {
+          document.documentElement.setAttribute('data-theme', 'light');
+          var m = document.getElementById('metaThemeColor');
+          if (m) m.setAttribute('content', '#f5f0e8');
+        }
+        var lg = localStorage.getItem('sc-lang');
+        document.documentElement.setAttribute('lang', lg === 'en' ? 'en' : 'it');
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Font self-hosted (stessi woff2 del sito, in ../fonts/) -->
+  <link rel="preload" href="../fonts/eb-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="../fonts/eb-garamond-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="../fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="fonts.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- preview/splash per il bundler standalone -->
+  <template id="__bundler_thumbnail">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+      <rect width="100" height="100" fill="#0d0b1a" />
+      <g fill="none" stroke="#c9973a" stroke-width="0.8">
+        <circle cx="50" cy="50" r="30" opacity="0.3" />
+        <circle cx="50" cy="50" r="23" opacity="0.45" />
+        <circle cx="50" cy="50" r="16" opacity="0.6" />
+        <circle cx="50" cy="50" r="9" opacity="0.8" />
+      </g>
+      <circle cx="50" cy="50" r="3" fill="#e8c97a" />
+    </svg>
+  </template>
+
+  <header class="topbar">
+    <a class="brand" id="brandLink" href="../index.html" title="Torna al sito">
+      <span class="brand-seal" aria-hidden="true">✶</span>
+      <span class="brand-text">
+        <span class="brand-school" id="brandSchool">Scuola ContattaTi</span>
+        <span class="brand-game" id="brandGame">I Mondi Spirituali</span>
+      </span>
+    </a>
+    <div class="topbar-right">
+      <span class="lang-pill" role="group" aria-label="Lingua / Language">
+        <button type="button" data-lang="it" class="active">IT</button>
+        <span class="lang-dot">·</span>
+        <button type="button" data-lang="en">EN</button>
+      </span>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambia tema">
+        <span class="ico" aria-hidden="true">☀</span><span class="lbl">Tema chiaro</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="stage"><div id="app"></div></main>
+
+  <script src="data.js"></script>
+  <script src="i18n.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
