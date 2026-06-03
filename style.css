@@ -1881,3 +1881,6 @@ html::before {
 .seminar-prices .price-line:last-child{margin-bottom:0;}
 .seminar-cta{display:inline-block;margin-top:1.2rem;}
 .seminar-content .seminar-cta-wrap{text-align:center;}
+.seminar-badge{display:inline-block;background:rgba(201,151,58,0.15);border:0.5px solid rgba(201,151,58,0.4);color:var(--gold-light);font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;padding:0.3rem 0.7rem;border-radius:999px;margin-bottom:0.7rem;}
+[data-theme="light"] .seminar-badge{background:rgba(129,96,24,0.12);border-color:rgba(129,96,24,0.35);color:#816018;}
+
