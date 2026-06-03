@@ -357,28 +357,29 @@ body::before {
 .memory-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 1.2rem; }
 @media (max-width: 520px) { .memory-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; } }
 .mcard {
-  position: relative; aspect-ratio: 3/4; cursor: pointer; border: none; background: none; padding: 0;
-  perspective: 800px; font: inherit;
+  position: relative; aspect-ratio: 3/4; cursor: pointer; border: none; background: none; padding: 0; font: inherit;
 }
-.mcard-inner { position: absolute; inset: 0; transform-style: preserve-3d; transition: transform 0.45s cubic-bezier(.2,.8,.2,1); }
-.mcard.flipped .mcard-inner, .mcard.matched .mcard-inner { transform: rotateY(180deg); }
+.mcard-inner { position: absolute; inset: 0; transition: transform 0.2s ease; }
+.mcard.flipped .mcard-inner { transform: scale(1.02); }
 .mcard-face {
   position: absolute; inset: 0; border-radius: 12px; display: flex; align-items: center; justify-content: center;
-  text-align: center; padding: 0.5rem; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  text-align: center; padding: 0.5rem; transition: opacity 0.25s ease;
 }
 .mcard-back {
   background: var(--surface-2); border: 0.5px solid var(--border); color: var(--gold);
-  font-size: 22px;
+  font-size: 22px; opacity: 1;
 }
 .mcard-back::before { content: ''; position: absolute; inset: 5px; border-radius: 8px; border: 0.5px solid rgba(201,151,58,0.16); }
 .mcard-front {
-  transform: rotateY(180deg);
   background: rgba(201,151,58,0.08); border: 0.5px solid var(--border-hover);
   font-family: var(--font-display); font-size: clamp(12px, 3vw, 15.5px); font-weight: 500; color: var(--text); line-height: 1.25;
+  opacity: 0;
 }
+.mcard.flipped .mcard-front, .mcard.matched .mcard-front { opacity: 1; }
+.mcard.flipped .mcard-back, .mcard.matched .mcard-back { opacity: 0; }
 .mcard.matched .mcard-front { border-color: var(--green); background: rgba(29,158,117,0.14); color: var(--green-soft); animation: matched-pop 0.4s ease; }
 [data-theme="light"] .mcard.matched .mcard-front { color: #0f7a52; }
-@keyframes matched-pop { 0%,100% { transform: rotateY(180deg) scale(1);} 50% { transform: rotateY(180deg) scale(1.06);} }
+@keyframes matched-pop { 0%,100% { transform: scale(1);} 50% { transform: scale(1.06);} }
 .memory-stats { display: flex; gap: 0.6rem; }
 
 /* ================= RESULTS ================= */
