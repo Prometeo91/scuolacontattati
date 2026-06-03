@@ -431,7 +431,7 @@
     <a href="#conduttori">The guides</a>
     <a href="#galleria">Gallery</a>
     <a href="#calendario">The path</a>
-    <a href="#seminario">Seminar</a>
+    <a href="#seminario">Events</a>
     <a href="#libro">The book</a>
     <a href="#faq">FAQ</a>
     <a href="#contatti">Contact</a>
@@ -885,26 +885,49 @@
 
 
 
-<!-- SUMMER SEMINAR -->
+<!-- UPCOMING EVENTS -->
 <section id="seminario">
-  <div class="section-eyebrow"><span>Special event</span></div>
-  <h2 class="section-title sr">Seminar in nature</h2>
-  <p class="section-sub">A day immersed in nature to explore together three themes that touch the heart of human experience.</p>
+  <div class="section-eyebrow"><span>Events</span></div>
+  <h2 class="section-title sr">Upcoming events</h2>
+  <p class="section-sub">In-person experiences to bring the Teachings into lived life.</p>
 
+  <!-- Event 1: Residential (reserved, 4th year) -->
   <div class="seminar-section sr">
     <div class="seminar-flyer">
-      <img src="../images/seminario-luglio-2026.jpg" width="1280" height="863" alt="Seminar flyer — Wealth, Abundance and Mission — 26 July 2026" loading="lazy" decoding="async" id="seminarFlyer" style="cursor:zoom-in;" title="Click to enlarge"/>
+      <img src="../images/residenziale-giugno-2026.jpg" width="1551" height="1208" alt="Residential experiential retreat flyer - 26-28 June 2026" loading="lazy" decoding="async" id="residenzialeFlyer" style="cursor:zoom-in;height:auto;" title="Click to enlarge"/>
     </div>
     <div class="seminar-content">
-      <h3>Wealth, Abundance and Mission</h3>
-      <p class="seminar-sub">The Keys to Inner Realisation</p>
+      <span class="seminar-badge">Reserved for those who have completed Year 4</span>
+      <h3>Residential experiential retreat</h3>
+      <p class="seminar-sub">Are you ready to ignite your Alchemical Fire and manifest in the Here-and-Now?</p>
+      <p class="body-text-sm" style="margin-bottom:1rem;">An intensive experience to step out of the comfort zone, following Gurdjieff's Fourth Way: the awakening of consciousness happens when we place ourselves in non-ordinary conditions, where parts of us that remain hidden emerge. The "friction" between will and resistance ignites an alchemical fire capable of strengthening Presence.</p>
+      <p class="body-text-sm" style="margin-bottom:0.6rem;"><strong>From Friday 26 to Sunday 28, participants will be invited to:</strong></p>
+      <ul class="seminar-questions">
+        <li>Work in a group through conscious cohabitation, recognising the inner mechanisms that emerge in sharing spaces, time, activities, excursions, meditations and meals.</li>
+        <li>Carry out exercises to get in touch with their inner space, through creativity and expression.</li>
+        <li>Take part in experiences in nature and Presence practices, alongside Self-Mastery training, with the constant guidance of the facilitators.</li>
+      </ul>
+      <div class="seminar-details">
+        <div class="seminar-detail-row"><span class="seminar-detail-icon">📅</span><span><strong>26-27-28 June 2026</strong></span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Event 2: Seminar in nature (open to all) -->
+  <div class="seminar-section sr" style="margin-top:2rem;">
+    <div class="seminar-flyer">
+      <img src="../images/seminario-luglio-2026.jpg" width="1280" height="863" alt="Seminar flyer - Wealth, Abundance and Mission - 26 July 2026" loading="lazy" decoding="async" id="seminarFlyer" style="cursor:zoom-in;height:auto;" title="Click to enlarge"/>
+    </div>
+    <div class="seminar-content">
+      <h3>Seminar in nature</h3>
+      <p class="seminar-sub">Wealth, Abundance and Mission · The Keys to Inner Realisation</p>
       <ul class="seminar-questions">
         <li>What is Wealth, truly?</li>
         <li>When can we call ourselves authentically Abundant?</li>
         <li>How do we recognise the direction our Soul wishes to follow?</li>
         <li>What happens when who we are, what we love and what we give begin to speak to one another?</li>
       </ul>
-      <p class="body-text-sm" style="margin-bottom:1rem;">Not to seek ready-made answers, but to draw closer to ourselves and to what gives meaning to our existence. For those attending for the first time, and for those who feel the call to return and deepen the path.</p>
+      <p class="body-text-sm" style="margin-bottom:1rem;">A day immersed in nature. Not to seek ready-made answers, but to draw closer to ourselves and to what gives meaning to our existence. For those attending for the first time, and for those who feel the call to return and deepen the path.</p>
       <div class="seminar-details">
         <div class="seminar-detail-row"><span class="seminar-detail-icon">📅</span><span><strong>Sunday 26 July 2026</strong></span></div>
         <div class="seminar-detail-row"><span class="seminar-detail-icon">📍</span><span>Masseria Chinunno - Mercadante Forest</span></div>
@@ -2000,7 +2023,7 @@
       <a href="#insegnamenti">Teachings</a>
       <a href="#conduttori">The guides</a>
       <a href="#calendario">The path</a>
-    <a href="#seminario">Seminar</a>
+    <a href="#seminario">Events</a>
       <a href="#libro">The book</a>
       <a href="#contatti">Contact</a>
       <a href="privacy.html">Privacy</a>
@@ -2595,20 +2618,23 @@ document.addEventListener('DOMContentLoaded', function() {
   })();
 </script>
 
-<!-- Seminar flyer lightbox -->
+<!-- Flyer lightbox (handles both flyers) -->
 <div class="lightbox-overlay" id="flyerLightbox">
   <button class="lightbox-close" id="flyerClose" aria-label="Close">×</button>
-  <img src="../images/seminario-luglio-2026.jpg" alt="Seminar flyer"/>
+  <img src="" alt="Event flyer" id="flyerLightboxImg"/>
 </div>
 <script>
   (function(){
-    var fl=document.getElementById('seminarFlyer');
     var ov=document.getElementById('flyerLightbox');
-    if(!fl||!ov)return;
+    if(!ov)return;
+    var img=document.getElementById('flyerLightboxImg');
     var cl=document.getElementById('flyerClose');
-    function open(){ov.classList.add('active');document.body.style.overflow='hidden';}
+    function open(src){img.src=src;ov.classList.add('active');document.body.style.overflow='hidden';}
     function close(){ov.classList.remove('active');document.body.style.overflow='';}
-    fl.addEventListener('click',open);
+    ['seminarFlyer','residenzialeFlyer'].forEach(function(id){
+      var fl=document.getElementById(id);
+      if(fl)fl.addEventListener('click',function(){open(fl.src);});
+    });
     cl.addEventListener('click',close);
     ov.addEventListener('click',function(e){if(e.target===ov)close();});
     document.addEventListener('keydown',function(e){if(e.key==='Escape'&&ov.classList.contains('active'))close();});
