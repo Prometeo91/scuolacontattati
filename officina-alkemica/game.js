@@ -19,9 +19,9 @@
   function loadSeen() { try { return JSON.parse(localStorage.getItem(LS.seen)) || {}; } catch (e) { return {}; } }
   function saveSeen(o) { try { localStorage.setItem(LS.seen, JSON.stringify(o)); } catch (e) {} }
 
-  const MODES = ["fasi", "specchio", "persona", "quiz", "memoria"];
-  const ROMAN = { fasi: "I", specchio: "II", persona: "III", quiz: "IV", memoria: "V" };
-  const GLYPH = { fasi: "△", specchio: "◇", persona: "☉", quiz: "✦", memoria: "❖" };
+  const MODES = ["specchio", "persona", "infsup", "quiz", "memoria"];
+  const ROMAN = { specchio: "I", persona: "II", infsup: "III", quiz: "IV", memoria: "V" };
+  const GLYPH = { specchio: "◇", persona: "☉", infsup: "△", quiz: "✦", memoria: "❖" };
 
   let app;
   let currentScreen = renderHome;
@@ -118,16 +118,6 @@
     return shuffle(itArr.map((_, k) => ({ it: itArr[k], en: enArr[k], correct: k === correctIdx })));
   }
 
-  function buildFasi() {
-    return D.FASI.map(f => ({
-      kind: "fasi",
-      media: () => frag(`<div><div class="entity-group">${esc(L(f.tag))} · ${esc(L(f.title))}</div><div class="q-desc">${esc(L(f.desc))}</div></div>`),
-      prompt: () => L(f.q),
-      options: mcOptions(f.options.it, f.options.en, f.correct),
-      recap: { it: `<b>${f.title.it}</b> — ${f.options.it[f.correct]}`, en: `<b>${f.title.en}</b> — ${f.options.en[f.correct]}` }
-    }));
-  }
-
   function buildSpecchio() {
     return shuffle(D.SPECCHIO).map(s => ({
       kind: "specchio",
@@ -143,10 +133,22 @@
       kind: "persona",
       media: () => frag(`<div class="persona-item">${esc(L(p.item))}</div>`),
       prompt: () => t("personaPrompt"),
-      // 2 opzioni a ordine fisso: Personalità (0) / Anima (1)
       options: [
         { it: I.STR.persona_opt0.it, en: I.STR.persona_opt0.en, correct: p.belongs === 0 },
         { it: I.STR.persona_opt1.it, en: I.STR.persona_opt1.en, correct: p.belongs === 1 }
+      ],
+      recap: { it: `<b>${p.item.it}</b> — ${p.note.it}`, en: `<b>${p.item.en}</b> — ${p.note.en}` }
+    }));
+  }
+
+  function buildInfSup() {
+    return shuffle(D.INF_SUP).map(p => ({
+      kind: "infsup",
+      media: () => frag(`<div class="persona-item">${esc(L(p.item))}</div>`),
+      prompt: () => t("infsupPrompt"),
+      options: [
+        { it: I.STR.infsup_opt0.it, en: I.STR.infsup_opt0.en, correct: p.belongs === 0 },
+        { it: I.STR.infsup_opt1.it, en: I.STR.infsup_opt1.en, correct: p.belongs === 1 }
       ],
       recap: { it: `<b>${p.item.it}</b> — ${p.note.it}`, en: `<b>${p.item.en}</b> — ${p.note.en}` }
     }));
@@ -170,9 +172,9 @@
   function startMode(mode) {
     if (mode === "memoria") { startMemory(); return; }
     let items;
-    if (mode === "fasi") items = buildFasi();
-    else if (mode === "specchio") items = buildSpecchio();
+    if (mode === "specchio") items = buildSpecchio();
     else if (mode === "persona") items = buildPersona();
+    else if (mode === "infsup") items = buildInfSup();
     else if (mode === "quiz") items = buildQuiz();
     R = { mode, items, idx: 0, score: 0, streak: 0, maxStreak: 0, correctCount: 0, answered: false, missed: [], pipStates: items.map(() => "") };
     renderRound();
@@ -206,7 +208,7 @@
     const card = frag(`<div class="qcard"></div>`);
     const media = it.media();
     if (media) card.appendChild(media);
-    const ctxExtra = (R.mode === "fasi") ? " · " + esc(t("fasiNote")) : "";
+    const ctxExtra = "";
     card.appendChild(frag(`<div class="q-context">${esc(t("question"))} ${R.idx + 1} ${esc(t("of"))} ${total}${ctxExtra}</div>`));
     card.appendChild(frag(`<div class="q-prompt">${esc(it.prompt())}</div>`));
 
