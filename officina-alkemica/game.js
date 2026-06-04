@@ -414,8 +414,9 @@
   function updateChrome() {
     const lang = getLang();
     document.querySelectorAll(".lang-pill button").forEach(btn => btn.classList.toggle("active", btn.dataset.lang === lang));
-    document.getElementById("brandGame").textContent = L(I.STR.gameTitle);
+    var bg = document.getElementById("brandGame"); if (bg) bg.textContent = L(I.STR.gameTitle);
     document.getElementById("brandSchool").textContent = L(I.STR.school);
+    var gl = document.getElementById("gamesLink"); if (gl) gl.textContent = getLang() === "en" ? "Games" : "Giochi";
     const bl = document.getElementById("brandLink"); if (bl) bl.setAttribute("title", L(I.STR.backToSite));
     updateThemeBtn();
     document.title = L(I.STR.gameTitle) + " · " + L(I.STR.school);
