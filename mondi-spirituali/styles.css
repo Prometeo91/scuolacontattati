@@ -406,3 +406,15 @@ body::before {
   *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
   .home-halo::before { animation: none; }
 }
+
+
+/* GAMES LINK (topbar) */
+.games-link {
+  background: none; border: 0.5px solid var(--border);
+  border-radius: 999px; padding: 6px 13px; cursor: pointer;
+  color: var(--gold-light); font-size: 12.5px; font-family: var(--font-sans); font-weight: 500;
+  letter-spacing: 0.03em; display: inline-flex; align-items: center; gap: 5px; white-space: nowrap;
+  transition: border-color var(--t-base), color var(--t-fast), background var(--t-base);
+  min-height: 34px; text-decoration: none;
+}
+.games-link:hover { border-color: var(--border-hover); color: var(--gold); background: var(--surface); }
