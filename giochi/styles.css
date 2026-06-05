@@ -104,7 +104,7 @@ body::before {
   background: rgba(201,151,58,0.06);
 }
 .brand-text { display: flex; flex-direction: column; line-height: 1.05; min-width: 0; }
-.brand-school { font-family: var(--font-sans); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); }
+.brand-school { font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.06em; text-transform: none; font-variant-caps: all-small-caps; color: var(--text-muted); }
 .brand-game { font-family: var(--font-display); font-size: 16px; font-weight: 600; color: var(--gold-light); letter-spacing: 0.02em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .topbar-right { display: flex; align-items: center; gap: 0.6rem; }
 
@@ -162,7 +162,7 @@ body::before {
 .gold-rule .g { font-size: 7px; letter-spacing: 0.3em; opacity: 0.7; }
 .eyebrow {
   display: flex; align-items: center; justify-content: center; gap: 0.7rem;
-  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold);
+  font-size: 12px; letter-spacing: 0.06em; text-transform: none; font-variant-caps: all-small-caps; color: var(--gold);
   font-weight: 500; margin-bottom: 0.6rem;
 }
 .eyebrow::before, .eyebrow::after { content: ''; width: 30px; height: 0.5px; background: linear-gradient(90deg, transparent, rgba(201,151,58,0.55)); }
@@ -191,14 +191,14 @@ body::before {
 }
 .home h1 .accent { color: var(--gold-light); }
 .home-sub { font-family: var(--font-display); font-style: italic; font-size: clamp(15px, 2.6vw, 19px); color: var(--text-muted); margin-top: 0.6rem; position: relative; z-index: 1; }
-.home-author { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-top: 0.5rem; position: relative; z-index: 1; }
+.home-author { font-size: 12px; letter-spacing: 0.04em; text-transform: none; font-variant-caps: all-small-caps; color: var(--gold); margin-top: 0.5rem; position: relative; z-index: 1; }
 
 .epigraph {
   font-family: var(--font-display); font-style: italic;
   font-size: clamp(15px, 2.5vw, 18px); color: var(--text); opacity: 0.92;
   max-width: 540px; margin: 1.6rem auto 0.4rem; line-height: 1.65; position: relative; z-index: 1;
 }
-.epigraph-src { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); position: relative; z-index: 1; }
+.epigraph-src { font-size: 12px; letter-spacing: 0.04em; text-transform: none; font-variant-caps: all-small-caps; color: var(--gold); position: relative; z-index: 1; }
 
 /* griglia modalità */
 .modes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 2rem; text-align: left; }
@@ -232,7 +232,7 @@ body::before {
 
 /* barra progresso iniziazione */
 .initiation { margin-top: 2rem; }
-.initiation-label { display: flex; justify-content: space-between; align-items: baseline; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem; }
+.initiation-label { display: flex; justify-content: space-between; align-items: baseline; font-size: 12px; letter-spacing: 0.04em; text-transform: none; font-variant-caps: all-small-caps; color: var(--text-muted); margin-bottom: 0.5rem; }
 .initiation-label b { color: var(--gold-light); font-weight: 600; }
 .bar { height: 5px; border-radius: 3px; background: var(--surface); overflow: hidden; border: 0.5px solid var(--border); }
 .bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--gold), var(--gold-light)); transition: width 0.7s ease; }
@@ -277,7 +277,7 @@ body::before {
   font-family: var(--font-display); font-size: clamp(16px, 2.8vw, 19px); line-height: 1.6;
   color: var(--text); border-left: 2.5px solid var(--gold); padding: 0.3rem 0 0.3rem 1rem; margin: 0.6rem 0 0.2rem;
 }
-.entity-group { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-top: 0.8rem; }
+.entity-group { font-size: 12px; letter-spacing: 0.04em; text-transform: none; font-variant-caps: all-small-caps; color: var(--gold); margin-top: 0.8rem; }
 
 /* persona-item (modalità "Personalità o Anima?") */
 .persona-item {
@@ -398,11 +398,11 @@ body::before {
 }
 .result h2 { font-family: var(--font-display); font-weight: 500; font-size: clamp(26px, 5vw, 36px); color: var(--gold-light); margin-bottom: 0.5rem; }
 .result-score { font-family: var(--font-display); font-size: clamp(40px, 11vw, 64px); color: var(--text); line-height: 1; margin: 0.4rem 0; font-variant-numeric: tabular-nums; }
-.result-score small { font-size: 0.32em; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-top: 0.4rem; }
+.result-score small { font-size: 0.32em; color: var(--text-muted); letter-spacing: 0.04em; text-transform: none; font-variant-caps: all-small-caps; display: block; margin-top: 0.4rem; }
 .result-meta { color: var(--text-muted); font-size: 15px; }
-.result-record { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.6rem; color: var(--gold-light); font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; }
+.result-record { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.6rem; color: var(--gold-light); font-size: 13px; letter-spacing: 0.04em; text-transform: none; font-variant-caps: all-small-caps; }
 .recap { text-align: left; margin: 1.6rem 0 0.4rem; }
-.recap-title { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.7rem; text-align: center; }
+.recap-title { font-size: 12px; letter-spacing: 0.04em; text-transform: none; font-variant-caps: all-small-caps; color: var(--gold); margin-bottom: 0.7rem; text-align: center; }
 .recap-item { font-family: var(--font-display); font-size: 14.5px; color: var(--text-muted); line-height: 1.55; padding: 0.55rem 0; border-top: 0.5px solid var(--border); }
 .recap-item b { color: var(--gold-light); font-weight: 600; }
 .result-actions { display: flex; gap: 0.7rem; justify-content: center; margin-top: 1.6rem; flex-wrap: wrap; }
