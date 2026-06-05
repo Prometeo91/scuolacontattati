@@ -485,7 +485,7 @@ nav {
 .hero h1 { font-family: var(--font-display); font-size: clamp(36px, 7vw, 62px); font-weight: 500; color: var(--text); letter-spacing: 0.02em; line-height: 1.1; margin-bottom: 1.5rem; position: relative; z-index: 2; }
 .hero h1 span { color: var(--gold-light); font-weight: 500; }
 .hero-motto { font-family: var(--font-display); font-size: clamp(20px, 3.2vw, 32px); font-weight: 500; color: var(--gold-light); margin-bottom: 0.5rem; letter-spacing: 0.04em; line-height: 1.2; position: relative; z-index: 2; }
-.hero-motto-sub { font-family: var(--font-display); font-size: clamp(13px, 1.6vw, 16px); color: var(--text); opacity: 0.75; margin-bottom: 2rem; font-style: italic; letter-spacing: 0.1em; position: relative; z-index: 2; }
+.hero-motto-sub { font-family: var(--font-display); font-size: clamp(13px, 1.6vw, 16px); color: var(--text); opacity: 0.75; margin-bottom: 2rem; font-style: italic; letter-spacing: 0.04em; position: relative; z-index: 2; }
 .hero-motto-sub::after { content: '✶'; display: block; color: var(--gold); font-size: 12px; margin-top: 1.5rem; opacity: 0.7; letter-spacing: 0; }
 .hero-slogan { font-family: var(--font-display); font-size: clamp(16px, 2.2vw, 20px); color: var(--text); max-width: 520px; line-height: 1.7; margin-bottom: 2.5rem; position: relative; z-index: 2; opacity: 0.85; letter-spacing: 0.01em; }
 .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; position: relative; z-index: 2; }
@@ -502,14 +502,14 @@ nav {
 
 /* SECTIONS */
 section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
-.section-label { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: none; font-variant-caps: all-small-caps; color: var(--gold); margin-bottom: 0.6rem; display: block; }
+.section-label { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: none; font-variant-caps: all-small-caps; color: var(--gold); margin-bottom: 0.6rem; display: block; }
 
 /* ── SISTEMA DECORATIVO ── */
 /* Eyebrow numerato — sostituisce/affianca .section-label */
 .section-eyebrow {
   display: flex; align-items: center; justify-content: flex-start;
   gap: 0.75rem; margin-bottom: 0.75rem;
-  font-size: 12px; letter-spacing: 0.14em; text-transform: none; font-variant-caps: all-small-caps;
+  font-size: 12px; letter-spacing: 0.06em; text-transform: none; font-variant-caps: all-small-caps;
   color: var(--gold); font-weight: 600;
 }
 .section-eyebrow.center { justify-content: center; }
@@ -582,7 +582,7 @@ section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
 .fleuron::before { content: '◆'; }
 .fleuron::after { content: '◆'; }
 .section-title { font-family: var(--font-display); font-size: clamp(28px,5vw,42px); font-weight: 500; color: var(--text); margin-bottom: 0.75rem; line-height: 1.15; letter-spacing: 0; }
-.section-sub { font-size: 15px; color: var(--text-muted); max-width: 65ch; line-height: 1.72; margin-bottom: 2.5rem; letter-spacing: 0; }
+.section-sub { font-size: 15px; color: var(--text-muted); max-width: 60ch; line-height: 1.72; margin-bottom: 2.5rem; letter-spacing: 0; }
 
 /* GLASS CARD — stile "pergamena": doppio filetto interno + angoli ornamentali */
 .glass-card {
@@ -625,8 +625,8 @@ section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
   font-size: 8px; line-height: 1; color: var(--gold); opacity: 0.7;
   letter-spacing: 0.1em;
 }
-.quote-block p { font-family: var(--font-display); font-size: clamp(16px,2.5vw,20px); font-style: italic; font-weight: 400; color: var(--text); line-height: 1.7; margin-bottom: 0.5rem; }
-.quote-block cite { font-size: 13px; color: var(--gold); letter-spacing: 0.06em; text-transform: none; font-variant-caps: all-small-caps; }
+.quote-block p { font-family: var(--font-display); font-size: clamp(16px,2.5vw,20px); font-style: italic; font-weight: 400; color: var(--text); line-height: 1.7; margin-bottom: 0.5rem; max-width: 60ch; }
+.quote-block cite { font-size: 13px; color: var(--gold); letter-spacing: 0.03em; text-transform: none; font-variant-caps: all-small-caps; }
 
 /* GRIDS */
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -678,7 +678,7 @@ section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
 .book-cover-symbol { font-size: 28px; margin-bottom: 0.5rem; }
 .book-cover-title { font-family: var(--font-display); font-size: 11px; color: var(--gold-light); line-height: 1.4; letter-spacing: 0.04em; }
 .book-info { flex: 1; }
-.book-label { font-size: 12px; color: var(--gold); letter-spacing: 0.1em; text-transform: none; font-variant-caps: all-small-caps; margin-bottom: 0.5rem; display: block; font-family: var(--font-sans); }
+.book-label { font-size: 12px; color: var(--gold); letter-spacing: 0.04em; text-transform: none; font-variant-caps: all-small-caps; margin-bottom: 0.5rem; display: block; font-family: var(--font-sans); }
 .book-title { font-family: var(--font-display); font-size: clamp(18px,3vw,24px); font-weight: 500; color: var(--text); margin-bottom: 0.25rem; line-height: 1.2; letter-spacing: 0.01em; }
 .book-subtitle { font-family: var(--font-display); font-size: 15px; font-style: italic; font-weight: 400; color: var(--text-muted); margin-bottom: 1rem; letter-spacing: 0.01em; }
 .book-authors { font-size: 15px; color: var(--text-muted); margin-bottom: 0.25rem; line-height: 1.72; letter-spacing: 0; }
@@ -716,7 +716,7 @@ section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
 .teacher-photo-collab { width: 100px; height: 100px; border-radius: 50%; border: 1.5px solid var(--border-hover); object-fit: cover; margin: 0 auto 0.75rem; display: block; }
 @media (max-width: 640px) { .teacher-photo-collab { width: 90px; height: 90px; } }
 .teacher-name { font-family: var(--font-display); font-size: 20px; font-weight: 500; color: var(--text); margin-bottom: 0.3rem; letter-spacing: 0.01em; }
-.teacher-role { font-size: 13px; color: var(--gold); letter-spacing: 0.06em; text-transform: none; font-variant-caps: all-small-caps; font-family: var(--font-sans); }
+.teacher-role { font-size: 13px; color: var(--gold); letter-spacing: 0.02em; text-transform: none; font-variant-caps: all-small-caps; font-family: var(--font-sans); }
 
 /* CALENDARIO — event-row stile pergamena (più snella) */
 .calendar-list { display: flex; flex-direction: column; gap: 10px; }
@@ -733,7 +733,7 @@ section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
 .event-row:hover { background: rgba(255,255,255,0.028); border-color: rgba(201,151,58,0.42); }
 .event-date { text-align: center; min-width: 42px; }
 .event-day { font-family: var(--font-display); font-size: 32px; font-weight: 500; color: var(--gold-light); line-height: 1; font-variant-numeric: lining-nums tabular-nums; font-feature-settings: "kern" 1, "lnum" 1, "tnum" 1; }
-.event-month { font-size: 12px; text-transform: none; font-variant-caps: all-small-caps; letter-spacing: 0.08em; color: var(--text-muted); font-family: var(--font-sans); }
+.event-month { font-size: 12px; text-transform: none; font-variant-caps: all-small-caps; letter-spacing: 0.03em; color: var(--text-muted); font-family: var(--font-sans); }
 .event-vline { width: 0.5px; height: 38px; background: var(--border); flex-shrink: 0; }
 .event-info { flex: 1; }
 .event-title { font-size: 16px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
@@ -806,6 +806,7 @@ section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
   border-radius: 0 0 14px 14px;
   padding: 1.25rem 1.5rem 1.5rem;
   margin-top: -4px;
+  line-height: 1.7;
 }
 .lesson-panel-title {
   font-family: var(--font-display);
@@ -832,7 +833,7 @@ section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
   border-left: 2px solid var(--gold);
   padding-left: 0.75rem; margin-top: 0.5rem;
 }
-.lesson-quote cite { display: block; font-size: 13px; color: var(--gold); margin-top: 0.3rem; letter-spacing: 0.05em; text-transform: none; font-variant-caps: all-small-caps; font-style: normal; }
+.lesson-quote cite { display: block; font-size: 13px; color: var(--gold); margin-top: 0.3rem; letter-spacing: 0.03em; text-transform: none; font-variant-caps: all-small-caps; font-style: normal; }
 
 /* TABS ANNO */
 .anno-tab {
@@ -880,10 +881,10 @@ section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
 .quote-slide-text {
   font-family: var(--font-display);
   font-size: clamp(15px, 3vw, 23px); font-style: italic; font-weight: 400;
-  color: var(--text); line-height: 1.75; margin-bottom: 1.25rem; max-width: 100%; margin-left: auto; margin-right: auto;
+  color: var(--text); line-height: 1.75; margin-bottom: 1.25rem; max-width: 55ch; margin-left: auto; margin-right: auto;
   word-wrap: break-word; overflow-wrap: break-word;
 }
-.quote-slide-author { font-size: 13px; color: var(--gold); letter-spacing: 0.08em; text-transform: none; font-variant-caps: all-small-caps; }
+.quote-slide-author { font-size: 13px; color: var(--gold); letter-spacing: 0.03em; text-transform: none; font-variant-caps: all-small-caps; }
 .quote-slide-symbol { font-size: 32px; margin-bottom: 1rem; opacity: 0.5; }
 
 .carousel-controls { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 1.25rem; }
@@ -898,7 +899,7 @@ section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
 .contact-info p { font-size: 16px; color: var(--text-muted); line-height: 1.72; margin-bottom: 1.5rem; letter-spacing: 0; }
 .contact-detail { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 15px; color: var(--text-muted); margin-bottom: 0.75rem; }
 .contact-detail-icon { width: 32px; height: 32px; border-radius: 8px; background: rgba(201,151,58,0.08); border: 0.5px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
-.contact-detail strong { display: block; font-size: 12px; color: var(--gold); letter-spacing: 0.06em; text-transform: none; font-variant-caps: all-small-caps; margin-bottom: 1px; }
+.contact-detail strong { display: block; font-size: 12px; color: var(--gold); letter-spacing: 0.03em; text-transform: none; font-variant-caps: all-small-caps; margin-bottom: 1px; }
 .contact-detail span { color: var(--text); font-size: 15px; }
 .contact-form {
   position: relative;
@@ -916,7 +917,7 @@ section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
   pointer-events: none;
 }
 .contact-form > * { position: relative; z-index: 1; }
-.field label { display: block; font-size: 12px; font-weight: 500; color: var(--text-muted); margin-bottom: 5px; letter-spacing: 0.08em; text-transform: none; font-variant-caps: all-small-caps; }
+.field label { display: block; font-size: 12px; font-weight: 500; color: var(--text-muted); margin-bottom: 5px; letter-spacing: 0.04em; text-transform: none; font-variant-caps: all-small-caps; }
 .field input, .field textarea { width: 100%; font-family: var(--font-sans); font-size: 16px; padding: 10px 14px; background: rgba(255,255,255,0.03); border: 0.5px solid var(--border); border-radius: 10px; color: var(--text); outline: none; transition: border-color 0.2s; font-feature-settings: "kern" 1, "liga" 1; }
 .field input:focus, .field textarea:focus { border-color: var(--gold); }
 .field input::placeholder, .field textarea::placeholder { color: var(--text-muted); }
@@ -1037,19 +1038,20 @@ select:focus-visible {
 .evento-card { background:var(--surface); border:0.5px solid var(--border); border-radius:12px; padding:0.9rem 1.25rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
 .evento-data { text-align:center; min-width:38px; }
 .evento-giorno { font-family:var(--font-display); font-size:22px; font-weight:500; color:var(--gold-light); line-height:1; font-variant-numeric: lining-nums tabular-nums; font-feature-settings: "kern" 1, "lnum" 1, "tnum" 1; }
-.evento-mese { font-size: 12px; text-transform:none; font-variant-caps:all-small-caps; letter-spacing:0.08em; color:var(--text-muted); }
+.evento-mese { font-size: 12px; text-transform:none; font-variant-caps:all-small-caps; letter-spacing:0.03em; color:var(--text-muted); }
 .evento-vline { width:0.5px; height:32px; background:var(--border); flex-shrink:0; }
 .evento-titolo { font-size: 16px; font-weight:500; color:var(--text); }
 .evento-dettaglio { font-size: 13px; color:var(--text-muted); }
-.section-label-small { font-size: 12px; letter-spacing:0.1em; text-transform:none; font-variant-caps:all-small-caps; color:var(--gold); margin-bottom:0.75rem; }
+.section-label-small { font-size: 12px; letter-spacing:0.04em; text-transform:none; font-variant-caps:all-small-caps; color:var(--gold); margin-bottom:0.75rem; }
 .info-banner { background:rgba(201,151,58,0.06); border:0.5px solid rgba(201,151,58,0.25); border-radius:12px; padding:1rem 1.25rem; }
 
 /* Body text reusable */
-.body-text { font-size: 16px; color:var(--text-muted); line-height:1.85; max-width:65ch; }
+figcaption { max-width: 60ch; }
+.body-text { font-size: 16px; color:var(--text-muted); line-height:1.85; max-width:60ch; }
 .body-text + .body-text, .body-text.mt-125 { margin-top: 1.5rem; }
-.body-text-sm { font-size: 15px; color:var(--text-muted); line-height:1.7; max-width:65ch; }
-.body-text-xs { font-size: 13px; color:var(--text-muted); max-width:65ch; }
-.body-text-xxs { font-size: 12px; color:var(--text-muted); max-width:65ch; }
+.body-text-sm { font-size: 15px; color:var(--text-muted); line-height:1.7; max-width:60ch; }
+.body-text-xs { font-size: 13px; color:var(--text-muted); max-width:60ch; }
+.body-text-xxs { font-size: 12px; color:var(--text-muted); max-width:60ch; }
 .text-center { text-align:center; }
 .text-gold { color:var(--gold); }
 .text-gold-light { color:var(--gold-light); }
@@ -1088,7 +1090,7 @@ select:focus-visible {
 /* Conduttori: bio card layout */
 .teacher-card-left { text-align:left; padding:1.75rem; }
 .teacher-header { display:flex; align-items:center; gap:1.25rem; margin-bottom:1.25rem; }
-.teacher-bio { font-size: 15px; color:var(--text-muted); line-height:1.8; margin-bottom:0.75rem; }
+.teacher-bio { font-size: 15px; color:var(--text-muted); line-height:1.8; margin-bottom:0.75rem; max-width: 60ch; }
 
 /* Bio detail card */
 .bio-detail { padding:1.25rem 1.5rem; margin-bottom:1rem; }
@@ -1101,7 +1103,7 @@ select:focus-visible {
 .anno-tab-esp { border-color:rgba(201,151,58,0.5); color:var(--gold-light); }
 .percorso-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.75rem 0 2.5rem; }
 .percorso-block { padding: 1.5rem 1.75rem; border-left: 2px solid rgba(201,151,58,0.3); }
-.percorso-block-label { font-size: 12px; letter-spacing: 0.1em; text-transform: none; font-variant-caps: all-small-caps; color: var(--gold); font-weight: 600; margin-bottom: 0.85rem; }
+.percorso-block-label { font-size: 12px; letter-spacing: 0.04em; text-transform: none; font-variant-caps: all-small-caps; color: var(--gold); font-weight: 600; margin-bottom: 0.85rem; }
 @media (max-width: 640px) { .percorso-blocks { grid-template-columns: 1fr; gap: 1rem; } }
 
 /* Presentazioni list */
@@ -1136,6 +1138,7 @@ select:focus-visible {
   font-style: italic;
   line-height: 1.72;
   color: var(--gold-light);
+  max-width: 60ch;
   background: rgba(201,151,58,0.04);
   border-radius: 0 10px 10px 0;
   position: relative;
@@ -1239,7 +1242,7 @@ select:focus-visible {
 }
 .footer-inner > * { position: relative; z-index: 1; }
 .footer-links { display:flex; flex-wrap:wrap; gap:1.5rem; justify-content:center; margin-bottom:0; }
-.footer-links a { font-size: 13px; color:var(--text-muted); text-decoration:none; letter-spacing:0.08em; transition: color var(--t-fast); text-transform: none; font-variant-caps: all-small-caps; font-family: var(--font-sans); }
+.footer-links a { font-size: 13px; color:var(--text-muted); text-decoration:none; letter-spacing: 0.04em; transition: color var(--t-fast); text-transform: none; font-variant-caps: all-small-caps; font-family: var(--font-sans); }
 .footer-links a:hover { color:var(--gold-light); }
 .footer-social { display:flex; gap:14px; justify-content:center; margin-top:1.25rem; }
 .footer-social a { display:flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:50%; background:transparent; border:0.5px solid rgba(201,151,58,0.3); color:var(--gold); font-size: 16px; text-decoration:none; transition: all 0.2s; }
@@ -1288,7 +1291,7 @@ select:focus-visible {
   padding: 0.7rem 1.25rem;
   border-radius: 999px;
   font-family: var(--font-sans); font-size: 13px; font-weight: 500;
-  letter-spacing: 0.08em; text-transform: none; font-variant-caps: all-small-caps;
+  letter-spacing: 0.04em; text-transform: none; font-variant-caps: all-small-caps;
   cursor: pointer; transition: opacity 0.2s, transform 0.2s, background 0.2s, border-color 0.2s;
   text-decoration: none; text-align: center;
   border: none;
@@ -1671,7 +1674,7 @@ section#ispirazioni > * { position: relative; z-index: 1; }
   font-family: var(--font-display);
   font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.04em;
   text-transform: none; font-variant-caps: all-small-caps;
   color: var(--gold);
   opacity: 0.85;
@@ -1765,7 +1768,7 @@ section#ispirazioni > * { position: relative; z-index: 1; }
 
 /* section-label-small → allineato al sistema eyebrow */
 .section-label-small {
-  font-size: 12px; letter-spacing:0.1em; text-transform:none; font-variant-caps:all-small-caps;
+  font-size: 12px; letter-spacing:0.04em; text-transform:none; font-variant-caps:all-small-caps;
   color:var(--gold); margin-bottom:0.75rem;
   display: flex; align-items: center; gap: 0.5rem;
 }
@@ -1776,7 +1779,7 @@ section#ispirazioni > * { position: relative; z-index: 1; }
 }
 
 /* card-body: leggero upgrade per leggibilità */
-.card-body { font-size: 15px; color: var(--text-muted); line-height: 1.78; letter-spacing: 0; }
+.card-body { font-size: 15px; color: var(--text-muted); line-height: 1.78; letter-spacing: 0; max-width: 60ch; }
 
 /* pillar-card: stessa dimensione testo del card-body */
 .pillar-list li { font-size: 15px; color: var(--text-muted); line-height: 1.78; padding: 0.5rem 0; border-bottom: 0.5px solid rgba(201,151,58,0.07); letter-spacing: 0; }
