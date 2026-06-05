@@ -443,7 +443,7 @@
     <a href="#ispirazioni">Ispirazioni</a>
     <a href="#giochi">Giochi</a>
     <span class="lang-pill"><a href="#" class="lang-active">IT</a><span class="lang-dot">·</span><a href="en/index.html" onclick="localStorage.setItem('sc-lang','en');var s=document.querySelector('.nav-links a[aria-current]');if(s)this.href='en/index.html'+s.getAttribute('href');return true;">EN</a></span>
-    <button class="theme-toggle" id="themeToggle" aria-label="Cambia tema chiaro/scuro" title="Cambia tema"><span class="theme-toggle-icon">☀</span> Tema chiaro</button>
+    <button class="theme-toggle" id="themeToggle" aria-label="Cambia tema chiaro/scuro" title="Cambia tema"><span class="theme-toggle-icon"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="10" cy="10" r="3.5"/><line x1="10" y1="2.5" x2="10" y2="4.5"/><line x1="10" y1="15.5" x2="10" y2="17.5"/><line x1="2.5" y1="10" x2="4.5" y2="10"/><line x1="15.5" y1="10" x2="17.5" y2="10"/><line x1="4.7" y1="4.7" x2="6.1" y2="6.1"/><line x1="13.9" y1="13.9" x2="15.3" y2="15.3"/><line x1="4.7" y1="15.3" x2="6.1" y2="13.9"/><line x1="13.9" y1="6.1" x2="15.3" y2="4.7"/></svg></span> Tema chiaro</button>
   </div>
 </nav>
 
@@ -2175,9 +2175,11 @@ document.addEventListener('DOMContentLoaded', function() {
   if(themeBtn){
     var isDark=document.documentElement.getAttribute('data-theme')!=='light';
     function updThemeBtn(){
+      var soleSvg='<svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="10" cy="10" r="3.5"/><line x1="10" y1="2.5" x2="10" y2="4.5"/><line x1="10" y1="15.5" x2="10" y2="17.5"/><line x1="2.5" y1="10" x2="4.5" y2="10"/><line x1="15.5" y1="10" x2="17.5" y2="10"/><line x1="4.7" y1="4.7" x2="6.1" y2="6.1"/><line x1="13.9" y1="13.9" x2="15.3" y2="15.3"/><line x1="4.7" y1="15.3" x2="6.1" y2="13.9"/><line x1="13.9" y1="6.1" x2="15.3" y2="4.7"/></svg>';
+      var lunaSvg='<svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14.3 13.5A6.5 6.5 0 0 1 6.5 5.7 6.5 6.5 0 1 0 14.3 13.5z"/></svg>';
       themeBtn.innerHTML=isDark
-        ?'<span class="theme-toggle-icon">\u2600</span> Tema chiaro'
-        :'<span class="theme-toggle-icon">\u263D</span> Tema scuro';
+        ?'<span class="theme-toggle-icon">'+soleSvg+'</span> Tema chiaro'
+        :'<span class="theme-toggle-icon">'+lunaSvg+'</span> Tema scuro';
     }
     updThemeBtn();
     themeBtn.addEventListener('click',function(){
