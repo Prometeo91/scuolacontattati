@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="theme-color" content="#0d0b1a" id="metaThemeColor" />
+  <meta name="description" content="La Sacra Sessualità — gioco iniziatico bilingue. Scuola ContattaTi." />
+  <title>La Sacra Sessualità · Scuola ContattaTi</title>
+  <script>
+    (function(){try{if(localStorage.getItem('sctheme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.getElementById('metaThemeColor');if(m)m.setAttribute('content','#f5f0e8');}var lg=localStorage.getItem('sc-lang');document.documentElement.setAttribute('lang',lg==='en'?'en':'it');}catch(e){}})();
+  </script>
+  <link rel="stylesheet" href="../giochi/fonts.css" />
+  <link rel="stylesheet" href="../giochi/styles.css" />
+</head>
+<body>
+  <template id="__bundler_thumbnail">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#0d0b1a"/><circle cx="50" cy="50" r="20" fill="none" stroke="#c9973a" stroke-width="1.4"/><circle cx="50" cy="50" r="5" fill="#e8c97a"/></svg>
+  </template>
+  <header class="topbar">
+    <a class="brand" id="brandLink" href="../index.html" title="Torna al sito">
+      <span class="brand-seal" aria-hidden="true">✶</span>
+      <span class="brand-text"><span class="brand-school" id="brandSchool">Scuola ContattaTi</span></span>
+    </a>
+    <div class="topbar-right">
+      <a class="games-link" href="../index.html#giochi" id="gamesLink">Giochi</a>
+      <span class="lang-pill" role="group" aria-label="Lingua / Language">
+        <button type="button" data-lang="it" class="active">IT</button>
+        <span class="lang-dot">·</span>
+        <button type="button" data-lang="en">EN</button>
+      </span>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambia tema">
+        <span class="ico" aria-hidden="true">☀</span><span class="lbl">Tema chiaro</span>
+      </button>
+    </div>
+  </header>
+  <main class="stage"><div id="app"></div></main>
+  <script src="data.js"></script>
+  <script src="i18n.js"></script>
+  <script src="../giochi/engine.js"></script>
+</body>
+</html>
