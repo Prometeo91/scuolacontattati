@@ -396,14 +396,14 @@
   .nav-links .theme-toggle { margin-left: 0; margin-top: 0.5rem; align-self: center; }
 }
 
-html { scroll-behavior: smooth; overflow-x: hidden; scroll-padding-top: 5.5rem; }
+html { scroll-behavior: smooth; overflow-x: hidden; scroll-padding-top: 1rem; }
 
 /* Ancore: distanza dalla nav sticky quando si naviga via #hash */
 section[id], header[id], main [id] {
   scroll-margin-top: 0;
 }
 @media (max-width: 768px) {
-  html { scroll-padding-top: 4.5rem; }
+  html { scroll-padding-top: 0.5rem; }
   section[id], header[id], main [id] {
     scroll-margin-top: 0;
   }
