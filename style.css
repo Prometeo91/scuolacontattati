@@ -400,12 +400,12 @@ html { scroll-behavior: smooth; overflow-x: hidden; scroll-padding-top: 5.5rem; 
 
 /* Ancore: distanza dalla nav sticky quando si naviga via #hash */
 section[id], header[id], main [id] {
-  scroll-margin-top: 5.5rem;
+  scroll-margin-top: 0;
 }
 @media (max-width: 768px) {
   html { scroll-padding-top: 4.5rem; }
   section[id], header[id], main [id] {
-    scroll-margin-top: 4.5rem;
+    scroll-margin-top: 0;
   }
 }
 body {
