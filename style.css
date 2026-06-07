@@ -712,6 +712,14 @@ section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
 .book-content-num { font-family: var(--font-display); font-size: clamp(36px,5vw,48px); font-weight: 700; color: var(--gold); opacity: 0.3; line-height: 1; margin-bottom: 0.25rem; }
 .book-content-label { font-family: var(--font-display); font-size: 17px; font-weight: 500; color: var(--gold-light); margin-bottom: 0.5rem; }
 .book-content-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+/* Expandable book content cards */
+.book-content-card { cursor: pointer; }
+.book-content-summary { list-style: none; display: flex; flex-direction: column; align-items: center; }
+.book-content-summary::-webkit-details-marker { display: none; }
+.book-content-summary::after { content: '▾'; font-size: 11px; color: var(--gold); opacity: 0.6; margin-top: 0.5rem; transition: transform 0.3s ease; }
+.book-content-card[open] .book-content-summary::after { transform: rotate(180deg); }
+.book-content-detail { text-align: left; margin-top: 1rem; padding-top: 1rem; border-top: 0.5px solid rgba(201,151,58,0.15); }
+.book-content-card[open] { grid-column: 1 / -1; }
 @media (max-width: 700px) {
   .book-editorial { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
   .book-cover-wrap { position: static; max-width: 220px; margin: 0 auto; }
