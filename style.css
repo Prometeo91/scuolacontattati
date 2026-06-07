@@ -716,8 +716,9 @@ section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
 .book-content-card { cursor: pointer; }
 .book-content-summary { list-style: none; display: flex; flex-direction: column; align-items: center; }
 .book-content-summary::-webkit-details-marker { display: none; }
-.book-content-summary::after { content: '▾'; font-size: 11px; color: var(--gold); opacity: 0.6; margin-top: 0.5rem; transition: transform 0.3s ease; }
-.book-content-card[open] .book-content-summary::after { transform: rotate(180deg); }
+.book-content-summary::after { content: 'Approfondisci ▾'; font-family: var(--font-sans); font-size: 12px; font-weight: 500; color: var(--gold-light); margin-top: 0.75rem; padding: 4px 14px; border-radius: 999px; border: 0.5px solid var(--border); background: var(--surface); transition: background 0.25s, border-color 0.25s; letter-spacing: 0.04em; }
+.book-content-card:hover .book-content-summary::after { background: var(--surface-hover); border-color: var(--border-hover); }
+.book-content-card[open] .book-content-summary::after { content: 'Mostra meno ▴'; background: var(--surface-hover); border-color: var(--border-hover); }
 .book-content-detail { text-align: left; margin-top: 1rem; padding-top: 1rem; border-top: 0.5px solid rgba(201,151,58,0.15); }
 .book-content-card[open] { grid-column: 1 / -1; }
 @media (max-width: 700px) {
