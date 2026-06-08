@@ -473,6 +473,35 @@ nav {
   .scroll-progress { transition: none; }
 }
 
+/* SFONDO VIVO — gradiente che respira */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: 
+    radial-gradient(ellipse 80% 60% at 20% 30%, rgba(30,18,50,0.7) 0%, transparent 70%),
+    radial-gradient(ellipse 70% 50% at 80% 70%, rgba(15,25,45,0.6) 0%, transparent 70%),
+    radial-gradient(ellipse 90% 80% at 50% 50%, rgba(20,12,35,0.4) 0%, transparent 80%);
+  background-color: var(--bg);
+  animation: sfondo-respira 35s ease-in-out infinite;
+  will-change: background-position;
+}
+@keyframes sfondo-respira {
+  0% { background-position: 0% 0%, 100% 100%, 50% 50%; }
+  25% { background-position: 30% 20%, 70% 80%, 40% 60%; }
+  50% { background-position: 60% 40%, 40% 60%, 60% 40%; }
+  75% { background-position: 20% 60%, 80% 30%, 30% 70%; }
+  100% { background-position: 0% 0%, 100% 100%, 50% 50%; }
+}
+[data-theme="light"] body::before {
+  background: 
+    radial-gradient(ellipse 80% 60% at 20% 30%, rgba(232,201,122,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 70% 50% at 80% 70%, rgba(180,150,90,0.04) 0%, transparent 70%),
+    radial-gradient(ellipse 90% 80% at 50% 50%, rgba(200,170,100,0.03) 0%, transparent 80%);
+  background-color: var(--bg-1);
+}
+
 /* HERO */
 .hero { position: relative; min-height: auto; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 6rem 2rem 4rem; overflow: hidden; }
 .hero-emblem { width: 200px; height: 200px; margin-bottom: 1.75rem; position: relative; z-index: 2; filter: drop-shadow(0 8px 32px rgba(201, 151, 58, 0.25)); animation: emblem-float 8s ease-in-out infinite; }
