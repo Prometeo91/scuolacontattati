@@ -903,6 +903,14 @@
     <div class="seminar-content">
       <span class="seminar-badge">Riservato a chi ha completato il 4° anno</span>
       <h3>Residenziale esperienziale in presenza</h3>
+      <div class="seminar-countdown" id="countdown1" data-target="2026-06-26T09:00:00+02:00">
+        <div class="countdown-number"><span class="countdown-value cd-days">-</span><span class="countdown-label">giorni</span></div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-number"><span class="countdown-value cd-hours">-</span><span class="countdown-label">ore</span></div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-number"><span class="countdown-value cd-mins">-</span><span class="countdown-label">min</span></div>
+        <span class="countdown-tag"><span class="pulse-dot"></span> Iscrizioni aperte</span>
+      </div>
       <p class="seminar-sub">Sei pronto ad accendere il tuo Fuoco Alchemico e manifestarti nel Qui-e-Ora?</p>
       <p class="body-text-sm" style="margin-bottom:1rem;">Un'esperienza intensiva per uscire dalla zona di comfort, secondo la Quarta Via di Gurdjieff: il risveglio della coscienza avviene quando ci si pone in condizioni non ordinarie, dove emergono parti di noi che restano nascoste. Lo "sfregamento" tra volontà e resistenza accende un fuoco alchemico capace di rafforzare la Presenza.</p>
       <p class="body-text-sm" style="margin-bottom:0.6rem;"><strong>Da venerdì 26 a domenica 28, i partecipanti saranno invitati a:</strong></p>
@@ -925,6 +933,14 @@
     </div>
     <div class="seminar-content">
       <h3>Seminario in natura</h3>
+      <div class="seminar-countdown" id="countdown2" data-target="2026-07-26T09:00:00+02:00">
+        <div class="countdown-number"><span class="countdown-value cd-days">-</span><span class="countdown-label">giorni</span></div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-number"><span class="countdown-value cd-hours">-</span><span class="countdown-label">ore</span></div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-number"><span class="countdown-value cd-mins">-</span><span class="countdown-label">min</span></div>
+        <span class="countdown-tag"><span class="pulse-dot"></span> Iscrizioni aperte</span>
+      </div>
       <p class="seminar-sub">Ricchezza, Abbondanza e Mission · Le Chiavi della Realizzazione Interiore</p>
       <ul class="seminar-questions">
         <li>Cos'è davvero la Ricchezza?</li>
@@ -2094,6 +2110,25 @@ document.addEventListener('DOMContentLoaded', function() {
 })();
 </script>
 <script>
+  // Countdown eventi
+  (function(){
+    function upd(){
+      var wraps=document.querySelectorAll('.seminar-countdown[data-target]');
+      var now=new Date();
+      wraps.forEach(function(w){
+        var t=new Date(w.getAttribute('data-target'));
+        var diff=t-now;
+        var ds=w.querySelector('.cd-days'),hs=w.querySelector('.cd-hours'),ms=w.querySelector('.cd-mins'),tag=w.querySelector('.countdown-tag');
+        if(diff<=0){w.classList.add('countdown-past');ds.textContent='0';hs.textContent='0';ms.textContent='0';if(tag)tag.innerHTML='Evento concluso';return;}
+        ds.textContent=Math.floor(diff/86400000);
+        hs.textContent=Math.floor((diff%86400000)/3600000);
+        ms.textContent=Math.floor((diff%3600000)/60000);
+        if(Math.floor(diff/86400000)<7)w.classList.add('countdown-urgent');
+      });
+    }
+    upd();setInterval(upd,60000);
+  })();
+
   // Seminar announcement dismiss
   (function(){
     var a=document.getElementById('seminarAnnounce');

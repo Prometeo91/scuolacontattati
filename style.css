@@ -2017,6 +2017,25 @@ html::before {
 .seminar-announce-close:hover{color:var(--gold-light);background:rgba(201,151,58,0.1);}
 [data-theme="light"] .seminar-announce{background:linear-gradient(135deg,rgba(129,96,24,0.12),rgba(129,96,24,0.05));border-bottom-color:rgba(129,96,24,0.35);}
 
+/* ===== COUNTDOWN EVENTI ===== */
+.seminar-countdown{display:inline-flex;align-items:center;gap:0.5rem;margin-bottom:1rem;flex-wrap:wrap}
+.countdown-number{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:52px;padding:6px 10px;background:rgba(201,151,58,0.08);border:0.5px solid rgba(201,151,58,0.35);border-radius:10px}
+.countdown-value{font-family:var(--font-display);font-size:28px;font-weight:600;color:var(--gold-light);line-height:1.1}
+.countdown-label{font-family:var(--font-sans);font-size:10px;font-weight:500;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;opacity:0.8}
+.countdown-sep{font-family:var(--font-display);font-size:20px;color:var(--gold);opacity:0.4;margin:0 2px}
+.countdown-tag{display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-sans);font-size:12px;font-weight:500;color:var(--gold-light);letter-spacing:0.06em;margin-left:0.75rem;padding:4px 12px;border-radius:999px;background:rgba(201,151,58,0.1);border:0.5px solid rgba(201,151,58,0.25)}
+.countdown-tag .pulse-dot{width:6px;height:6px;border-radius:50%;background:#7de0a0;animation:cd-pulse 2s ease-in-out infinite}
+@keyframes cd-pulse{0%,100%{box-shadow:0 0 0 0 rgba(125,224,160,0.4)}50%{box-shadow:0 0 0 4px rgba(125,224,160,0.1)}}
+.countdown-urgent .countdown-number{background:rgba(220,80,60,0.08);border-color:rgba(220,80,60,0.4)}
+.countdown-urgent .countdown-value{color:#f0a090}
+.countdown-urgent .countdown-label{color:#e07060}
+.countdown-urgent .countdown-tag{background:rgba(220,80,60,0.1);border-color:rgba(220,80,60,0.3);color:#f0a090}
+.countdown-urgent .pulse-dot{background:#f07060}
+.countdown-past .countdown-tag{background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.08);color:var(--text-muted)}
+@media(max-width:480px){.countdown-number{min-width:44px;padding:5px 8px}.countdown-value{font-size:22px}.countdown-tag{margin-left:0;margin-top:0.5rem}}
+[data-theme="light"] .countdown-number{background:rgba(201,151,58,0.06)}
+[data-theme="light"] .countdown-urgent .countdown-number{background:rgba(220,80,60,0.06)}
+
 /* ===== SEZIONE SEMINARIO ===== */
 .seminar-section{background:rgba(201,151,58,0.04);border:0.5px solid rgba(201,151,58,0.3);border-radius:16px;padding:2rem;margin:0 auto;max-width:760px;display:flex;flex-direction:column;align-items:center;gap:1.8rem;}
 @media(max-width:768px){.seminar-section{gap:1.5rem;padding:1.4rem;}}
