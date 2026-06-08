@@ -494,7 +494,7 @@
       <p class="body-text mt-125">Ciò che all'inizio sembra solo un allenamento a contrasto della meccanicità, a un certo punto diviene un'attitudine naturale: quel seme ha attecchito ed è diventato pianta vivente in noi. Per questo esiste la Scuola: non per dare risposte, ma per fornire gli strumenti con cui ciascuno possa trovare le proprie.</p>
     </details>
   </div>
-  <div class="about-grid sr" style="margin-top:2rem;">
+  <div class="about-grid sr sr-stagger" style="margin-top:2rem;">
     <div class="glass-card">
       <h3 class="card-title"><img src="images/icon-insegnamenti.svg" style="width:22px;height:22px;vertical-align:middle" alt=""> Antichi Insegnamenti</h3>
       <p class="card-body">Il percorso attinge da tradizioni diverse: Scienza Iniziatica, Quarta Via di Gurdjieff, Magia Ermetica, Kabbalà, Enneagramma, Antroposofia, Teosofia, Buddismo, Taoismo, Sciamanesimo. Lingue differenti per dire la stessa cosa: dall'OM induista al Logos giovanneo, al centro c'è sempre un suono creativo che dà forma alla vita. L'uomo ne è custode e co-creatore. Il suo compito è riscoprire quel programma dell'anima, più antico e profondo di qualsiasi condizionamento acquisito.</p>
@@ -995,7 +995,7 @@
   <div class="section-eyebrow" style="margin-top:1rem; margin-bottom:1rem;">
     <span class="roman">✦</span><span>Cosa troverai nel libro</span>
   </div>
-  <div class="book-contents-grid sr">
+  <div class="book-contents-grid sr sr-stagger">
     <details class="book-content-card">
       <summary class="book-content-summary">
         <div class="book-content-num">22</div>
@@ -1323,7 +1323,7 @@
   <div class="section-eyebrow"><span>Initiatic trials</span></div>
   <h2 class="section-title sr">Learn by playing</h2>
   <p class="section-sub sr" style="margin-bottom:1.5rem">Quizzes, scenarios and memory · 5-minute games · we recommend starting with <em>The Awakening</em></p>
-  <div class="sr" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px">
+  <div class="sr sr-stagger" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px">
     <a class="glass-card" href="../il-risveglio/" onclick="try{localStorage.setItem('sc-lang','en')}catch(e){}" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:12px;padding:16px 18px">
       <img src="../giochi/icon-risveglio.svg" style="width:28px;height:28px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(72%) sepia(50%) saturate(500%) hue-rotate(5deg)" alt="">
       <span><strong style="color:var(--gold-light);font-size:.95rem">The Awakening</strong><br><span style="color:var(--text-muted);font-size:.8rem;line-height:1.4">Sleep, presence and self-remembering</span></span>
@@ -1363,7 +1363,7 @@
   <div class="section-eyebrow"><span>Adventures</span></div>
   <h3 class="section-title sr" style="font-size:clamp(22px,4vw,32px)">The inner path</h3>
   <p class="section-sub sr" style="margin-bottom:1.5rem">Interactive stories with save · 10–20 minute sessions</p>
-  <div class="sr" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">
+  <div class="sr sr-stagger" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">
     <a class="glass-card" href="../il-cammino-alchimista/" onclick="try{localStorage.setItem('sc-lang','en')}catch(e){}" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:14px;padding:20px 22px">
       <img src="../giochi/icon-cammino.svg" style="width:36px;height:36px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(72%) sepia(50%) saturate(500%) hue-rotate(5deg)" alt="">
       <span><strong style="color:var(--gold-light);font-size:1rem">The Alchemist's Path</strong><br><span style="color:var(--text-muted);font-size:.82rem;line-height:1.4">Interactive journey in 3 acts · Nigredo, Albedo, Rubedo</span></span>
@@ -1438,6 +1438,18 @@
 </div>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 <script src="lezioni.js"></script>
+<script>
+/* SR-STAGGER observer (app.js handles .sr; this adds .sr-stagger) */
+(function(){
+  if(!('IntersectionObserver' in window))return;
+  var els=document.querySelectorAll('.sr-stagger');
+  if(!els.length)return;
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){obs.observe(el);});
+})();
+</script>
 <script>
 /* COUNTDOWN EVENTI */
 (function(){
