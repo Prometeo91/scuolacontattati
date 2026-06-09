@@ -259,18 +259,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   /* BANNER "PORTE APERTE" rimosso: il messaggio del contributo è stato elevato in un elemento .contributo visibile in cima alla sezione (una sola fonte, niente duplicazioni). */
 
-  /* TAB ANNI */
-  document.querySelectorAll('.anno-tab').forEach(function(tab){
-    if(tab.classList.contains('disabled'))return;
-    tab.addEventListener('click',function(){
-      document.querySelectorAll('.anno-tab').forEach(function(t){t.classList.remove('active');t.setAttribute('aria-selected','false');});
-      tab.classList.add('active');
-      tab.setAttribute('aria-selected','true');
-      document.querySelectorAll('.anno-panel').forEach(function(p){p.style.display='none';});
-      var p=document.getElementById('panel-anno-'+tab.dataset.anno);
-      if(p)p.style.display='block';
-    });
-  });
+  /* TAB ANNI — gestito inline in index.html (click + navigazione da tastiera WAI-ARIA) */
 
   /* CAROSELLO */
   var track=document.getElementById('quotesTrack');
@@ -332,18 +321,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  /* SCROLL REVEAL */
-  var srEls=document.querySelectorAll('.sr');
-  if(srEls.length&&'IntersectionObserver' in window){
-    var obs=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
-      });
-    },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
-    srEls.forEach(function(el){obs.observe(el);});
-  } else {
-    srEls.forEach(function(el){el.classList.add('visible');});
-  }
+  /* SCROLL REVEAL — gestito inline in index.html (observer .sr + .sr-stagger)
+     per garantire visibilità del contenuto anche se app.js non carica */
 
   /* CONTACT FORM — AJAX submission with feedback */
   var cForm=document.getElementById('contact-form');
@@ -547,7 +526,6 @@ document.addEventListener('DOMContentLoaded', function() {
       c.addEventListener('click',function(){a.style.display='none';try{sessionStorage.setItem('seminarClosed','1');}catch(e){}});
     }
   })();
-</script>
 
 /* ── FLYER LIGHTBOX ── */
   (function(){
@@ -565,4 +543,3 @@ document.addEventListener('DOMContentLoaded', function() {
     ov.addEventListener('click',function(e){if(e.target===ov)close();});
     document.addEventListener('keydown',function(e){if(e.key==='Escape'&&ov.classList.contains('active'))close();});
   })();
-</script>
