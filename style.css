@@ -421,12 +421,6 @@ body {
   position: relative; z-index: 1;
 }
 
-body::before {
-  content: ''; position: fixed; inset: 0;
-  background: radial-gradient(ellipse at 50% 0%, rgba(46,31,110,0.28) 0%, transparent 65%);
-  pointer-events: none; z-index: 0;
-}
-
 /* NAV */
 nav {
   position: sticky; top: 0; z-index: 100;
@@ -485,7 +479,6 @@ body::before {
     radial-gradient(ellipse 90% 80% at 50% 50%, rgba(20,12,35,0.4) 0%, transparent 80%);
   background-color: var(--bg);
   animation: sfondo-respira 35s ease-in-out infinite;
-  will-change: background-position;
 }
 @keyframes sfondo-respira {
   0% { background-position: 0% 0%, 100% 100%, 50% 50%; }
