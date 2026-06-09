@@ -84,7 +84,7 @@
   <meta property="og:description" content="Scuola di Consapevolezza ed Alchimia a Bari. Percorso di risveglio attraverso la Quarta Via, l’Enneagramma, l’Alchimia e le 96 Leggi dell’Universo."/>
   <meta property="og:type" content="website"/>
   <meta property="og:site_name" content="Scuola ContattaTi"/>
-  <meta property="og:url" content="https://scuolacontattati.com"/>
+  <meta property="og:url" content="https://scuolacontattati.com/"/>
   <meta property="og:locale" content="it_IT"/>
   <meta property="og:image" content="https://scuolacontattati.com/og-image.png"/>
   <meta property="og:image:width" content="1800"/>
@@ -113,8 +113,8 @@
         "alternateName": "Scuola di Consapevolezza ed Alchimia",
         "description": "Percorso di Consapevolezza ed Alchimia a Bari e online. Studio e pratica di Alchimia trasmutativa, Insegnamenti Cristici, Enneagramma, Antroposofia, Teosofia, Cabala e insegnamenti Arcano-Esoterici.",
         "url": "https://scuolacontattati.com",
-        "image": "og-image.png",
-        "logo": "og-image.png",
+        "image": "https://scuolacontattati.com/og-image.png",
+        "logo": "https://scuolacontattati.com/og-image.png",
         "email": "scuola-contattati@libero.it",
         "telephone": "+39-334-999-1888",
         "sameAs": [
@@ -1479,6 +1479,38 @@
     });
   }
   upd();setInterval(upd,60000);
+})();
+</script>
+<script>
+/* TAB ANNI — click + navigazione da tastiera (WAI-ARIA tablist) */
+(function(){
+  var tabs=document.querySelectorAll('.anno-tab');
+  if(!tabs.length)return;
+  function activate(tab){
+    tabs.forEach(function(t){t.classList.remove('active');t.setAttribute('aria-selected','false');t.setAttribute('tabindex','-1');});
+    tab.classList.add('active');
+    tab.setAttribute('aria-selected','true');
+    tab.setAttribute('tabindex','0');
+    tab.focus();
+    document.querySelectorAll('.anno-panel').forEach(function(p){p.style.display='none';});
+    var p=document.getElementById('panel-anno-'+tab.dataset.anno);
+    if(p)p.style.display='block';
+  }
+  tabs.forEach(function(tab,i){
+    if(tab.classList.contains('disabled'))return;
+    tab.addEventListener('click',function(){activate(tab);});
+    tab.addEventListener('keydown',function(e){
+      var idx=Array.prototype.indexOf.call(tabs,tab);
+      var next=-1;
+      if(e.key==='ArrowRight'||e.key==='ArrowDown'){next=(idx+1)%tabs.length;}
+      else if(e.key==='ArrowLeft'||e.key==='ArrowUp'){next=(idx-1+tabs.length)%tabs.length;}
+      else if(e.key==='Home'){next=0;}
+      else if(e.key==='End'){next=tabs.length-1;}
+      if(next>=0){e.preventDefault();activate(tabs[next]);}
+    });
+    /* Solo il tab attivo è raggiungibile via Tab key */
+    if(!tab.classList.contains('active'))tab.setAttribute('tabindex','-1');
+  });
 })();
 </script>
 <script>
