@@ -52,7 +52,7 @@
   <!-- Anti-flash: applica il tema salvato prima del render -->
   <script>
     (function(){
-      var t=localStorage.getItem('sctheme');
+      try{var t=localStorage.getItem('sctheme')}catch(e){return}
       if(t==='light'){
         document.documentElement.setAttribute('data-theme','light');
         var m=document.getElementById('metaThemeColor');
@@ -62,7 +62,7 @@
   </script>
   <script>
     (function(){
-      var l=localStorage.getItem('sc-lang');
+      try{var l=localStorage.getItem('sc-lang')}catch(e){return}
       if(l==='en'){
         var p=window.location.pathname;
         if(p.indexOf('/en/')< 0){
