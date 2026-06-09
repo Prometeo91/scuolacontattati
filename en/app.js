@@ -259,18 +259,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   /* "OPEN DOORS" BANNER removed: the contribution message has been elevated into a visible .contributo element at the top of the section (single source, no duplication). */
 
-  /* TAB ANNI */
-  document.querySelectorAll('.anno-tab').forEach(function(tab){
-    if(tab.classList.contains('disabled'))return;
-    tab.addEventListener('click',function(){
-      document.querySelectorAll('.anno-tab').forEach(function(t){t.classList.remove('active');t.setAttribute('aria-selected','false');});
-      tab.classList.add('active');
-      tab.setAttribute('aria-selected','true');
-      document.querySelectorAll('.anno-panel').forEach(function(p){p.style.display='none';});
-      var p=document.getElementById('panel-anno-'+tab.dataset.anno);
-      if(p)p.style.display='block';
-    });
-  });
+  /* YEAR TABS — handled inline in index.html (click + WAI-ARIA keyboard navigation) */
 
   /* CAROSELLO */
   var track=document.getElementById('quotesTrack');
@@ -332,18 +321,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  /* SCROLL REVEAL */
-  var srEls=document.querySelectorAll('.sr');
-  if(srEls.length&&'IntersectionObserver' in window){
-    var obs=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
-      });
-    },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
-    srEls.forEach(function(el){obs.observe(el);});
-  } else {
-    srEls.forEach(function(el){el.classList.add('visible');});
-  }
+  /* SCROLL REVEAL — handled inline in index.html (observer .sr + .sr-stagger)
+     to guarantee content visibility even if app.js fails to load */
 
   /* CONTACT FORM — AJAX submission with feedback */
   var cForm=document.getElementById('contact-form');
@@ -547,7 +526,6 @@ document.addEventListener('DOMContentLoaded', function() {
       c.addEventListener('click',function(){a.style.display='none';try{sessionStorage.setItem('seminarClosed','1');}catch(e){}});
     }
   })();
-</script>
 
 /* ── FLYER LIGHTBOX ── */
   (function(){
