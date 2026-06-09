@@ -112,8 +112,8 @@
         "alternateName": "School of Awareness and Alchemy",
         "description": "Path of Awareness and Alchemy in Bari and online. Study and practice of transmutative Alchemy, Christic Teachings, the Enneagram, Anthroposophy, Theosophy, Kabbalah and Arcane-Esoteric teachings.",
         "url": "https://scuolacontattati.com",
-        "image": "og-image.png",
-        "logo": "og-image.png",
+        "image": "https://scuolacontattati.com/og-image.png",
+        "logo": "https://scuolacontattati.com/og-image.png",
         "email": "scuola-contattati@libero.it",
         "telephone": "+39-334-999-1888",
         "sameAs": [
@@ -1478,6 +1478,38 @@
     });
   }
   upd();setInterval(upd,60000);
+})();
+</script>
+<script>
+/* YEAR TABS — click + keyboard navigation (WAI-ARIA tablist) */
+(function(){
+  var tabs=document.querySelectorAll('.anno-tab');
+  if(!tabs.length)return;
+  function activate(tab){
+    tabs.forEach(function(t){t.classList.remove('active');t.setAttribute('aria-selected','false');t.setAttribute('tabindex','-1');});
+    tab.classList.add('active');
+    tab.setAttribute('aria-selected','true');
+    tab.setAttribute('tabindex','0');
+    tab.focus();
+    document.querySelectorAll('.anno-panel').forEach(function(p){p.style.display='none';});
+    var p=document.getElementById('panel-anno-'+tab.dataset.anno);
+    if(p)p.style.display='block';
+  }
+  tabs.forEach(function(tab,i){
+    if(tab.classList.contains('disabled'))return;
+    tab.addEventListener('click',function(){activate(tab);});
+    tab.addEventListener('keydown',function(e){
+      var idx=Array.prototype.indexOf.call(tabs,tab);
+      var next=-1;
+      if(e.key==='ArrowRight'||e.key==='ArrowDown'){next=(idx+1)%tabs.length;}
+      else if(e.key==='ArrowLeft'||e.key==='ArrowUp'){next=(idx-1+tabs.length)%tabs.length;}
+      else if(e.key==='Home'){next=0;}
+      else if(e.key==='End'){next=tabs.length-1;}
+      if(next>=0){e.preventDefault();activate(tabs[next]);}
+    });
+    /* Only the active tab is reachable via Tab key */
+    if(!tab.classList.contains('active'))tab.setAttribute('tabindex','-1');
+  });
 })();
 </script>
 <script>
