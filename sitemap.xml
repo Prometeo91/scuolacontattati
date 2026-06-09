@@ -6,7 +6,7 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://scuolacontattati.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://scuolacontattati.com/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://scuolacontattati.com/"/>
-    <lastmod>2026-06-05</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -15,7 +15,7 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://scuolacontattati.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://scuolacontattati.com/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://scuolacontattati.com/"/>
-    <lastmod>2026-06-05</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -34,5 +34,73 @@
     <lastmod>2026-05-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
+  </url>
+
+  <!-- Giochi iniziatici — pagine bilingui (lingua via preferenza utente) -->
+  <url>
+    <loc>https://scuolacontattati.com/il-risveglio/</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/la-responsabilita/</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/le-emozioni/</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/il-corpo-e-lanima/</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/le-leggi-cosmiche/</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/i-mondi-invisibili/</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/il-guerriero/</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/la-sacra-sessualita/</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/il-cammino-alchimista/</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/apprendista-del-mago/</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/i-sette-piani/</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>
