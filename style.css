@@ -1329,8 +1329,10 @@ select:focus-visible {
 /* GIOCHI — griglia e card */
 .giochi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
 .giochi-grid-lg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
-.gioco-card{text-decoration:none;color:inherit;display:flex;align-items:center;gap:12px;padding:16px 18px}
-.gioco-card-lg{text-decoration:none;color:inherit;display:flex;align-items:center;gap:14px;padding:20px 22px}
+.gioco-card{text-decoration:none;color:inherit;display:flex;align-items:center;gap:12px;padding:16px 18px;position:relative}
+.gioco-card-lg{text-decoration:none;color:inherit;display:flex;align-items:center;gap:14px;padding:20px 22px;position:relative}
+/* Sigillo conquistato sulla card del gioco */
+.card-sigillo{position:absolute;top:8px;right:10px;font-size:14px;color:var(--gold-light);text-shadow:0 0 10px rgba(232,201,122,0.5);pointer-events:none}
 .gioco-icon{width:28px;height:28px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(72%) sepia(50%) saturate(500%) hue-rotate(5deg)}
 .gioco-icon-lg{width:36px;height:36px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(72%) sepia(50%) saturate(500%) hue-rotate(5deg)}
 .gioco-title{color:var(--gold-light);font-size:.95rem}
