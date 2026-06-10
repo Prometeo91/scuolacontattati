@@ -91,7 +91,7 @@ function renderScene(key){
         const contBtn=frag(`<button class="btn btn-primary">${esc(t("continua"))} →</button>`);
         contBtn.addEventListener("click",()=>{
           if(nextScene&&nextScene.ending){
-            S.ended=true;S.endingKey=nextScene.ending;save();
+            S.ended=true;S.endingKey=nextScene.ending;save();try{localStorage.setItem("sc-adv-sigillo",String(Date.now()));}catch(e){}
             renderScene(ch.next);
           } else {
             renderScene(ch.next);
@@ -106,7 +106,7 @@ function renderScene(key){
     card.appendChild(choicesW);
   } else {
     // Ending scene
-    S.ended=true;S.endingKey=sc.ending;save();
+    S.ended=true;S.endingKey=sc.ending;save();try{localStorage.setItem("sc-adv-sigillo",String(Date.now()));}catch(e){}
     const foot=frag('<div class="rpg-foot" style="margin-top:1.2rem;flex-wrap:wrap;justify-content:center"></div>');
     const seeBtn=frag(`<button class="btn btn-primary">${esc(t("yourEnding"))} →</button>`);
     seeBtn.addEventListener("click",()=>renderEnding(sc.ending));
