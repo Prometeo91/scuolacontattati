@@ -247,6 +247,7 @@ function renderEnding(){
     n.appendChild(frag(`<h2>${esc(t("gameOver"))}</h2>`));
     n.appendChild(frag(`<div class="rpg-profile-desc">${esc(t("gameOverText"))}</div>`));
   } else {
+    try{localStorage.setItem("sc-dng-sigillo",String(Date.now()));}catch(e){}
     n.appendChild(frag(`<h2>${esc(t("victory"))}</h2>`));
     n.appendChild(frag(`<div class="rpg-profile-level">${esc(t("luce"))}: ${S.luce}/${D.maxLuce} — ${esc(t("plane"))} ${Math.min(S.plane+1,7)}/7</div>`));
     n.appendChild(frag(`<div class="rpg-profile-archetype">${esc(t("end_"+endKey))}</div>`));
