@@ -332,7 +332,7 @@ function renderActComplete(){
   n.appendChild(buildStatsPanel());
   const btn=frag(`<button class="btn btn-primary" style="margin-top:1.5rem">${esc(isLastAct?t("seeProfile"):t("nextAct"))} →</button>`);
   btn.addEventListener("click",()=>{
-    if(isLastAct){S.completed=true;save();renderProfile();}
+    if(isLastAct){S.completed=true;save();try{localStorage.setItem("sc-rpg-sigillo",String(Date.now()));}catch(e){}renderProfile();}
     else{S.act++;S.scene=0;S.bossPhase=0;S.answered=false;S.chosenIdx=-1;renderActIntro();}
   });
   n.appendChild(btn);
