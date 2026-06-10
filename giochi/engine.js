@@ -9,9 +9,21 @@
   const D = window.GAME_DATA, I = window.GAME_I18N;
   const LS_LANG = "sc-lang", LS_THEME = "sctheme";
   const LS_BEST = "sc-" + D.id + "-best", LS_SEEN = "sc-" + D.id + "-seen";
+  const LS_POOL = "sc-" + D.id + "-pool", LS_ACC = "sc-" + D.id + "-acc", LS_SIG = "sc-" + D.id + "-sigillo";
+  const SIG_THRESHOLD = 0.7;
 
   function getLang() { return localStorage.getItem(LS_LANG) === "en" ? "en" : "it"; }
   const t = I.makeT(getLang);
+  /* Stringhe aggiuntive con fallback (non richiedono modifiche agli i18n.js) */
+  const EXTRA = {
+    reviewErrors: { it: "Rivedi gli errori", en: "Review your mistakes" },
+    reviewTag: { it: "Ripasso errori", en: "Error review" },
+    sigilloEarned: { it: "Sigillo conquistato!", en: "Seal earned!" },
+    sigilloEarnedSub: { it: "Hai superato ogni prova di questo gioco.", en: "You have passed every trial of this game." },
+    sigilloHave: { it: "✦ Sigillo conquistato", en: "✦ Seal earned" },
+    sigilloHint: { it: "Supera ogni prova con almeno il 70% di risposte esatte per conquistare il Sigillo", en: "Pass every trial with at least 70% correct answers to earn the Seal" }
+  };
+  function tx(key) { const e = I.STR[key]; if (e) return L(e); const x = EXTRA[key]; return x ? (x[getLang()] || x.it) : key; }
   function L(obj) { if (!obj) return ""; const l = getLang(); return obj[l] != null ? obj[l] : obj.it; }
 
   function loadJ(k) { try { return JSON.parse(localStorage.getItem(k)) || {}; } catch(e) { return {}; } }
@@ -55,11 +67,12 @@
     });
     node.appendChild(grid);
     // Progress
-    const init = frag(`<div class="initiation"><div class="initiation-label"><span>${esc(t("initiationProgress"))}</span><b>${pct}%</b></div><div class="bar"><i></i></div><button class="reset-btn">${esc(t("resetProgress"))}</button></div>`);
+    const hasSig = !!localStorage.getItem(LS_SIG);
+    const init = frag(`<div class="initiation">${hasSig?'<div class="sigillo-badge">'+esc(tx("sigilloHave"))+'</div>':''}<div class="initiation-label"><span>${esc(t("initiationProgress"))}</span><b>${pct}%</b></div><div class="bar"><i></i></div>${hasSig?'':'<div class="sigillo-hint">'+esc(tx("sigilloHint"))+'</div>'}<button class="reset-btn">${esc(t("resetProgress"))}</button></div>`);
     node.appendChild(init);
     mount(node);
     requestAnimationFrame(()=>{ const b=node.querySelector(".bar i"); if(b) b.style.width=pct+"%"; });
-    init.querySelector(".reset-btn").addEventListener("click",()=>{ if(confirm(t("resetConfirm"))){ localStorage.removeItem(LS_BEST); localStorage.removeItem(LS_SEEN); renderHome(); }});
+    init.querySelector(".reset-btn").addEventListener("click",()=>{ if(confirm(t("resetConfirm"))){ localStorage.removeItem(LS_BEST); localStorage.removeItem(LS_SEEN); localStorage.removeItem(LS_POOL); localStorage.removeItem(LS_ACC); localStorage.removeItem(LS_SIG); renderHome(); }});
   }
 
   function buildRings() {
@@ -89,7 +102,19 @@
       });
     }
     if (md.type === "quiz") {
-      return pickN(md.items, md.count || 10).map(q => ({
+      const n = md.count || 10;
+      /* Rotazione intelligente: preferisci domande mai viste in partite precedenti */
+      const pool = loadJ(LS_POOL); let used = Array.isArray(pool[modeKey]) ? pool[modeKey] : [];
+      const idxs = md.items.map((_, i) => i);
+      const fresh = idxs.filter(i => used.indexOf(i) < 0);
+      let chosen;
+      if (fresh.length >= n) { chosen = shuffle(fresh).slice(0, n); }
+      else {
+        chosen = shuffle(fresh.concat(shuffle(idxs.filter(i => fresh.indexOf(i) < 0)).slice(0, n - fresh.length)));
+        used = [];
+      }
+      used = used.concat(chosen); pool[modeKey] = used; saveJ(LS_POOL, pool);
+      return chosen.map(ci => md.items[ci]).map(q => ({
         kind: modeKey, media: ()=>null, prompt: ()=>L(q.q),
         options: shuffle(q.options.it.map((_,k)=>({ it:q.options.it[k], en:q.options.en[k], correct:k===q.correct }))),
         recap: { it: q.note.it, en: q.note.en }
@@ -104,7 +129,12 @@
     const md = D.modeDefs[mode];
     if (md.type === "memory") { startMemory(mode); return; }
     const items = buildItems(mode);
-    R = { mode, items, idx:0, score:0, streak:0, maxStreak:0, correctCount:0, answered:false, missed:[], pipStates:items.map(()=>"") };
+    R = { mode, items, idx:0, score:0, streak:0, maxStreak:0, correctCount:0, answered:false, missed:[], pipStates:items.map(()=>""), review:false };
+    renderRound();
+  }
+
+  function startReview(missed, mode) {
+    R = { mode, items: shuffle(missed), idx:0, score:0, streak:0, maxStreak:0, correctCount:0, answered:false, missed:[], pipStates:missed.map(()=>""), review:true };
     renderRound();
   }
 
@@ -114,7 +144,7 @@
     const it=R.items[R.idx], total=R.items.length;
     const node = frag(`<div class="round"></div>`);
     node.appendChild(backButton());
-    node.appendChild(frag(`<div class="round-head"><div class="round-title">${esc(L(I.STR["mode_"+R.mode+"_t"]))}</div><div class="round-stats"><span class="stat-chip">${esc(t("score"))} <b>${R.score}</b></span><span class="stat-chip streak${R.streak>=3?" hot":""}">${esc(t("streak"))} <b>${R.streak}</b></span></div></div>`));
+    node.appendChild(frag(`<div class="round-head"><div class="round-title">${esc(L(I.STR["mode_"+R.mode+"_t"]))}${R.review?' <span class="review-chip">'+esc(tx("reviewTag"))+'</span>':''}</div><div class="round-stats"><span class="stat-chip">${esc(t("score"))} <b>${R.score}</b></span><span class="stat-chip streak${R.streak>=3?" hot":""}">${esc(t("streak"))} <b>${R.streak}</b></span></div></div>`));
     const pips = frag(`<div class="pips"></div>`);
     R.pipStates.forEach((st,i)=>{ let cls="pip"; if(st==="ok") cls+=" done"; else if(st==="no") cls+=" wrong"; else if(i===R.idx) cls+=" current"; pips.appendChild(frag(`<div class="${cls}"></div>`)); });
     node.appendChild(pips);
@@ -155,10 +185,28 @@
   function restoreAnswered(card,optsWrap,it){ optsWrap.querySelectorAll(".option").forEach((b,k)=>{ b.disabled=true; if(it.options[k].correct) b.classList.add("correct"); else b.classList.add("dim"); }); showFeedback(card,R.pipStates[R.idx]==="ok",it); }
   function nextQuestion(){ if(R.idx>=R.items.length-1){ finishRound(); return; } R.idx++; R.answered=false; renderRound(); }
 
+  /* Accuratezza migliore per prova + controllo Sigillo */
+  function updateAccAndSeal(mode, pct) {
+    const acc = loadJ(LS_ACC);
+    if (pct > (acc[mode] || 0)) { acc[mode] = pct; saveJ(LS_ACC, acc); }
+    if (localStorage.getItem(LS_SIG)) return false;
+    const accNow = loadJ(LS_ACC);
+    if (D.modes.every(m => (accNow[m] || 0) >= SIG_THRESHOLD)) {
+      try { localStorage.setItem(LS_SIG, String(Date.now())); } catch(e) {}
+      return true;
+    }
+    return false;
+  }
+
   function finishRound() {
-    const best=loadJ(LS_BEST), seen=loadJ(LS_SEEN); seen[R.mode]=true; saveJ(LS_SEEN,seen);
-    let isRecord=false; if(best[R.mode]==null||R.score>best[R.mode]){ best[R.mode]=R.score; isRecord=R.score>0; saveJ(LS_BEST,best); }
-    renderResult({ mode:R.mode, score:R.score, correct:R.correctCount, total:R.items.length, isRecord, missed:R.missed.slice() });
+    const pct = R.items.length ? R.correctCount / R.items.length : 0;
+    let isRecord = false, newSeal = false;
+    if (!R.review) {
+      const best=loadJ(LS_BEST), seen=loadJ(LS_SEEN); seen[R.mode]=true; saveJ(LS_SEEN,seen);
+      if(best[R.mode]==null||R.score>best[R.mode]){ best[R.mode]=R.score; isRecord=R.score>0; saveJ(LS_BEST,best); }
+      newSeal = updateAccAndSeal(R.mode, pct);
+    }
+    renderResult({ mode:R.mode, score:R.score, correct:R.correctCount, total:R.items.length, isRecord, missed:R.missed.slice(), review:R.review, newSeal });
   }
 
   /* ============ RESULT ============ */
@@ -170,12 +218,15 @@
     const node=frag(`<div class="result"></div>`);
     node.appendChild(frag(`<div class="result-seal">${seal}</div>`));
     node.appendChild(frag(`<h2>${esc(t(tierKey))}</h2>`));
+    if(res.review) node.appendChild(frag(`<div class="review-chip" style="margin-bottom:.6rem">${esc(tx("reviewTag"))}</div>`));
+    if(res.newSeal) node.appendChild(frag(`<div class="sigillo-earned"><div class="sigillo-earned-glyph">✦</div><div class="sigillo-earned-title">${esc(tx("sigilloEarned"))}</div><div class="sigillo-earned-sub">${esc(tx("sigilloEarnedSub"))}</div></div>`));
     if(res.mode&&D.modeDefs[res.mode]&&D.modeDefs[res.mode].type==="memory") node.appendChild(frag(`<div class="result-score">${res.moves}<small>${esc(t("moves"))}</small></div>`));
     else { node.appendChild(frag(`<div class="result-score">${res.score}<small>${esc(t("points"))}</small></div>`)); node.appendChild(frag(`<div class="result-meta">${esc(t("accuracy"))}: <b>${res.correct}/${res.total}</b></div>`)); }
     if(res.isRecord) node.appendChild(frag(`<div class="result-record">✦ ${esc(t("newRecord"))}</div>`));
     if(res.missed&&res.missed.length){ const recap=frag(`<div class="recap"></div>`); recap.appendChild(frag(`<div class="recap-title">${esc(t("recap"))}</div>`)); res.missed.slice(0,6).forEach(m=>recap.appendChild(frag(`<div class="recap-item">${L(m.recap)}</div>`))); node.appendChild(recap); }
     const actions=frag(`<div class="result-actions"></div>`);
-    const again=frag(`<button class="btn btn-primary">${esc(t("playAgain"))}</button>`); again.addEventListener("click",()=>startMode(res.mode));
+    if(res.missed&&res.missed.length){ const rev=frag(`<button class="btn btn-primary">${esc(tx("reviewErrors"))} (${res.missed.length})</button>`); rev.addEventListener("click",()=>startReview(res.missed,res.mode)); actions.appendChild(rev); }
+    const again=frag(`<button class="btn ${res.missed&&res.missed.length?"btn-ghost":"btn-primary"}">${esc(t("playAgain"))}</button>`); again.addEventListener("click",()=>startMode(res.mode));
     const menu=frag(`<button class="btn btn-ghost">${esc(t("backToMenu"))}</button>`); menu.addEventListener("click",renderHome);
     actions.appendChild(again); actions.appendChild(menu); node.appendChild(actions); mount(node);
   }
@@ -212,7 +263,8 @@
   function finishMemory() {
     const md=D.modeDefs[memMode]; const best=loadJ(LS_BEST),seen=loadJ(LS_SEEN); seen[memMode]=true; saveJ(LS_SEEN,seen);
     let isRecord=false; if(best[memMode]==null||M.moves<best[memMode]){best[memMode]=M.moves;isRecord=true;saveJ(LS_BEST,best);}
-    renderResult({mode:memMode,moves:M.moves,correct:md.items.length,total:md.items.length,isRecord,missed:[]});
+    const newSeal = updateAccAndSeal(memMode, 1);
+    renderResult({mode:memMode,moves:M.moves,correct:md.items.length,total:md.items.length,isRecord,missed:[],newSeal});
   }
 
   /* ============ CHROME ============ */
