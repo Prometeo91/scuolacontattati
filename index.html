@@ -1429,6 +1429,10 @@
       <img src="giochi/icon-sessualita.svg" class="gioco-icon" alt="">
       <span><strong class="gioco-title">La Sacra Sessualità</strong><br><span class="gioco-sub">Coppia, sessualità sacra e il Cuore</span></span>
     </a>
+    <a class="glass-card gioco-card" href="i-cinque-veicoli/" onclick="try{localStorage.setItem('sc-lang','it')}catch(e){}">
+      <img src="giochi/icon-veicoli.svg" class="gioco-icon" alt="">
+      <span><strong class="gioco-title">I Cinque Veicoli</strong><br><span class="gioco-sub">Aura, chakra e mondi sottili</span></span>
+    </a>
   </div>
 
   <!-- ── Avventure ── -->
@@ -1448,6 +1452,10 @@
     <a class="glass-card gioco-card-lg" href="i-sette-piani/" onclick="try{localStorage.setItem('sc-lang','it')}catch(e){}">
       <img src="giochi/icon-sette-piani.svg" class="gioco-icon-lg" alt="">
       <span><strong class="gioco-title-lg">I Sette Piani</strong><br><span class="gioco-sub-lg">Esplorazione verticale · 7 piani · 6 guardiani</span></span>
+    </a>
+    <a class="glass-card gioco-card-lg" href="il-grande-viaggio/" onclick="try{localStorage.setItem('sc-lang','it')}catch(e){}">
+      <img src="giochi/icon-viaggio.svg" class="gioco-icon-lg" alt="">
+      <span><strong class="gioco-title-lg">Il Grande Viaggio</strong><br><span class="gioco-sub-lg">Il ciclo morte-rinascita · 6 tappe · 6 custodi</span></span>
     </a>
   </div>
 </section>
@@ -1743,7 +1751,7 @@
 <script>
 /* SIGILLI GIOCHI — mostra ✦ sulle card dei giochi completati */
 (function(){
-  var SIG={'il-risveglio':'sc-risveglio-sigillo','la-responsabilita':'sc-resp-sigillo','le-emozioni':'sc-emoz-sigillo','il-corpo-e-lanima':'sc-corpo-sigillo','le-leggi-cosmiche':'sc-leggi-sigillo','i-mondi-invisibili':'sc-mondi-sigillo','il-guerriero':'sc-guerr-sigillo','la-sacra-sessualita':'sc-sess-sigillo','il-cammino-alchimista':'sc-rpg-sigillo','apprendista-del-mago':'sc-adv-sigillo','i-sette-piani':'sc-dng-sigillo'};
+  var SIG={'il-risveglio':'sc-risveglio-sigillo','la-responsabilita':'sc-resp-sigillo','le-emozioni':'sc-emoz-sigillo','il-corpo-e-lanima':'sc-corpo-sigillo','le-leggi-cosmiche':'sc-leggi-sigillo','i-mondi-invisibili':'sc-mondi-sigillo','il-guerriero':'sc-guerr-sigillo','la-sacra-sessualita':'sc-sess-sigillo','i-cinque-veicoli':'sc-veicoli-sigillo','il-cammino-alchimista':'sc-rpg-sigillo','apprendista-del-mago':'sc-adv-sigillo','i-sette-piani':'sc-dng-sigillo','il-grande-viaggio':'sc-viaggio-sigillo'};
   document.querySelectorAll('a.gioco-card[href], a.gioco-card-lg[href]').forEach(function(a){
     var f=a.getAttribute('href').replace(/^\.\.\//,'').replace(/\/(index\.html)?$/,'');
     var k=SIG[f];
