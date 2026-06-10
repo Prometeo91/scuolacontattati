@@ -1739,5 +1739,16 @@
 })();
 </script>
 <script src="../app.js" defer></script>
+<script>
+/* GAME SEALS — show ✦ on completed game cards */
+(function(){
+  var SIG={'il-risveglio':'sc-risveglio-sigillo','la-responsabilita':'sc-resp-sigillo','le-emozioni':'sc-emoz-sigillo','il-corpo-e-lanima':'sc-corpo-sigillo','le-leggi-cosmiche':'sc-leggi-sigillo','i-mondi-invisibili':'sc-mondi-sigillo','il-guerriero':'sc-guerr-sigillo','la-sacra-sessualita':'sc-sess-sigillo','il-cammino-alchimista':'sc-rpg-sigillo','apprendista-del-mago':'sc-adv-sigillo','i-sette-piani':'sc-dng-sigillo'};
+  document.querySelectorAll('a.gioco-card[href], a.gioco-card-lg[href]').forEach(function(a){
+    var f=a.getAttribute('href').replace(/^\.\.\//,'').replace(/\/(index\.html)?$/,'');
+    var k=SIG[f];
+    if(k){try{if(localStorage.getItem(k)){var s=document.createElement('span');s.className='card-sigillo';s.title='Seal earned';s.setAttribute('aria-label','Seal earned');s.textContent='✦';a.appendChild(s);}}catch(e){}}
+  });
+})();
+</script>
 </body>
 </html>
