@@ -543,3 +543,20 @@ document.addEventListener('DOMContentLoaded', function() {
     ov.addEventListener('click',function(e){if(e.target===ov)close();});
     document.addEventListener('keydown',function(e){if(e.key==='Escape'&&ov.classList.contains('active'))close();});
   })();
+
+/* ── HASH RE-SCROLL ──
+   Quando si arriva da link esterno con #ancora (es. #giochi da Facebook),
+   il browser scrolla prima che il JS popoli i contenuti dinamici sopra
+   (oracolo citazioni, carosello), spostando la sezione dopo lo scroll.
+   Ri-scrolliamo all'ancora a caricamento completo. */
+(function(){
+  if(!location.hash) return;
+  var id = location.hash.slice(1);
+  function rescroll(){
+    var el = document.getElementById(id);
+    if(el) el.scrollIntoView();
+  }
+  window.addEventListener('load', function(){
+    setTimeout(rescroll, 150);
+  });
+})();
