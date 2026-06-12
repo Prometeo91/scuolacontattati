@@ -495,7 +495,7 @@
 <body id="top">
 
 <!-- ANNUNCIO SEMINARIO ESTIVO -->
-<div class="seminar-announce" id="seminarAnnounce">
+<div class="seminar-announce" id="seminarAnnounce" data-expires="2026-07-26">
   <span>✨ <strong>Nature Seminar</strong> — Wealth, Abundance and Mission · Sunday 26 July 2026 · <a href="#seminario" class="seminar-announce-link">Learn more →</a></span>
   <button class="seminar-announce-close" id="seminarAnnounceClose" aria-label="Close announcement">×</button>
 </div>
@@ -968,7 +968,7 @@
   <p class="section-sub">In-person experiences to bring the Teachings into lived life.</p>
 
   <!-- Evento 1: Residenziale (riservato 4° anno) -->
-  <div class="seminar-section sr">
+  <div class="seminar-section sr" data-expires="2026-06-28">
     <div class="seminar-flyer">
       <img src="../images/residenziale-giugno-2026.jpg" width="1551" height="1208" alt="Poster for the in-person experiential residential - 26-28 June 2026" loading="lazy" decoding="async" id="residenzialeFlyer" style="cursor:zoom-in;height:auto;" title="Click to enlarge"/>
     </div>
@@ -999,7 +999,7 @@
   </div>
 
   <!-- Evento 2: Seminario in natura (aperto a tutti) -->
-  <div class="seminar-section sr" style="margin-top:2rem;">
+  <div class="seminar-section sr" data-expires="2026-07-26" style="margin-top:2rem;">
     <div class="seminar-flyer">
       <img src="../images/seminario-luglio-2026.jpg" width="1280" height="863" alt="Poster for the seminar Wealth, Abundance and Mission - 26 July 2026" loading="lazy" decoding="async" id="seminarFlyer" style="cursor:zoom-in;height:auto;" title="Click to enlarge"/>
     </div>
@@ -1188,45 +1188,14 @@
       <div class="evento-vline"></div>
       <div class="event-info">
         <p class="event-title">Presentations & events</p>
-        <p class="body-text-xs">6 events including conferences, festivals and presentations</p>
+        <p class="body-text-xs" id="presCount">6 events including conferences, festivals and presentations</p>
       </div>
       <span class="detail-pill">Events ▾</span>
       <span class="expand-arrow">▼</span>
     </div>
     <div class="lesson-panel" id="pres-panel">
       <div class="lesson-panel-inner">
-    <div class="pres-list">
-      <div class="evento-card">
-        <div class="evento-data"><p class="evento-giorno">13</p><p class="evento-mese">Nov 2025</p></div>
-        <div class="evento-vline"></div>
-        <div class="flex-1"><p class="evento-titolo">Literary event — IKOS Formazione</p><p class="evento-dettaglio">Via Giovanni Amendola 162/1, Bari</p></div>
-      </div>
-      <div class="evento-card">
-        <div class="evento-data"><p class="evento-giorno">10</p><p class="evento-mese">Oct 2025</p></div>
-        <div class="evento-vline"></div>
-        <div class="flex-1"><p class="evento-titolo">Free conference — Libreria Roma</p><p class="evento-dettaglio">P.zza Aldo Moro 13, Bari</p></div>
-      </div>
-      <div class="evento-card">
-        <div class="evento-data"><p class="evento-giorno">27</p><p class="evento-mese">Sep 2025</p></div>
-        <div class="evento-vline"></div>
-        <div class="flex-1"><p class="evento-titolo">Macrolibrarsi Fest — Book presentation</p><p class="evento-dettaglio">Cesena · Conscious book fair</p></div>
-      </div>
-      <div class="evento-card">
-        <div class="evento-data"><p class="evento-giorno">5</p><p class="evento-mese">Sep 2025</p></div>
-        <div class="evento-vline"></div>
-        <div class="flex-1"><p class="evento-titolo">School presentation — Il Mondo che Voglio</p><p class="evento-dettaglio">Palese (Bari)</p></div>
-      </div>
-      <div class="evento-card">
-        <div class="evento-data"><p class="evento-giorno">3</p><p class="evento-mese">Sep 2025</p></div>
-        <div class="evento-vline"></div>
-        <div class="flex-1"><p class="evento-titolo">School presentation — Libreria Roma</p><p class="evento-dettaglio">P.zza Aldo Moro 13, Bari</p></div>
-      </div>
-      <div class="evento-card">
-        <div class="evento-data"><p class="evento-giorno">19</p><p class="evento-mese">Jul 2025</p></div>
-        <div class="evento-vline"></div>
-        <div class="flex-1"><p class="evento-titolo">Festival Harmoniae Mundi — "Where does Wealth dwell?"</p><p class="evento-dettaglio">Masseria La Gatta Matta, Noci (BA)</p></div>
-      </div>
-    </div>
+    <div class="pres-list" id="presList"></div>
       </div>
     </div>
   </div>
@@ -1599,132 +1568,11 @@
   });
 })();
 </script>
+<script src="../data/citazioni.js"></script>
 <script>
 /* ORACOLO ISPIRAZIONI */
 (function(){
-  var quotes = [
-  {t:'A grateful mind is a great mind which eventually attracts great things to itself.',a:'Plato'},
-  {t:'Abundance is not something you acquire. It is something you tune into.',a:'Wayne Dyer'},
-  {t:'Whoever truly wishes to walk the path of goodness must know they cannot avoid the attacks of evil. If you continue in the same divine direction despite its attacks, you have proof of your great elevation.',a:'Omraam Mikhaël Aïvanhov'},
-  {t:'When you truly begin to understand people, judgement vanishes. Everyone carries invisible battles, hidden wounds and lessons still in progress. Being empathetic means seeing beyond flaws, recognising the soul behind the masks.',a:'Scuola ContattaTi'},
-  {t:'It is said that Alexander the Great, before his death, made three requests: that his coffin be carried by the finest doctors, that his treasures be scattered along the path, and that his hands remain outside the coffin. We arrived empty-handed and we leave empty-handed.',a:'Legend of Alexander the Great'},
-  {t:'Humankind is the most insane species: it worships an invisible God and destroys a visible Nature. Without realising that the Nature it is destroying is the God it is worshipping.',a:'Hubert Reeves'},
-  {t:'We have accumulated so many wounds and, if we are not aware of them, all our actions become reactions to those wounds. In self-knowledge lies the end of suffering and therefore the beginning of wisdom.',a:'J. Krishnamurti'},
-  {t:'Religion is for those who sleep. Spirituality is for those who are awake. Religion represses everything, makes you false. Spirituality transcends everything, makes you true. Spirituality is Divine, without rules. It is the cause of Union.',a:'Enzo Palomba'},
-  {t:'Wealth is not possession, but Presence. Abundance is not quantity, but Quality of Being. Mission is not a role, but the Expression of the Soul in action.',a:'Anna Carla Digregorio & Nicolaos Anifantis'},
-  {t:'It is not about attracting. It is about remembering who we are. And allowing the inner gold to emerge.',a:'Scuola ContattaTi'},
-  {t:'From Lead to Gold, from Caterpillar to Butterfly: alchemy is the innate power of the human being to transform oneself. Every obstacle becomes a threshold, every wound a portal, every talent an offering.',a:'From the book Wealth, Abundance and Mission'},
-  {t:'There are minds that question, that desire the truth of the heart, seek it, strive to solve the problems generated by life. If a man reasons and thinks well, he must inevitably return to himself and begin by solving the problem of what he himself is.',a:'Georges Ivanovitch Gurdjieff'},
-  {t:'Every man\'s life is a way toward himself. When we hate someone, we hate something in their image that lies within us. What is not in us does not disturb us.',a:'Hermann Hesse'},
-  {t:'You are already what you wish to realise. The aim of your aspiration already exists, present within you. Here and now, at this very moment, you are what is known as divine.',a:'Osho'},
-  {t:'Happiness is an inner blossoming; it is an awakening of your energies; it is an awakening of your soul.',a:'Osho'},
-  {t:'Life begins where fear ends.',a:'Osho'},
-  {t:'Whoever looks at himself risks encountering himself. The mirror does not flatter, it diligently shows that face we never show the world because we hide it behind the actor\'s mask.',a:'Carl Gustav Jung'},
-  {t:'An act of love is to welcome within us our most wounded and fragile part. There comes a moment when we realise that the last of men is ourselves.',a:'Carl Gustav Jung'},
-  {t:'Let the seeker not cease from seeking until they find; when they find they shall be astonished. When astonished, they shall be troubled and shall rule over all.',a:'Gospel of Thomas'},
-  {t:'Enclose the Truth in your Heart, and let it speak through your Works. Science shall be your strength; Faith your sword; and Silence your impenetrable armour.',a:'Hermes Trismegistus'},
-  {t:'The Tree of Life sinks its roots into your very heart.',a:'Jalāl ad-Dīn Rūmī'},
-  {t:'If we could see the miracle of a single flower, our entire life would change.',a:'Buddha'},
-  {t:'Every being is a spark of the divine. You are not separate from the whole. You are one with the sun, the earth, the air. You do not have a life. You are life.',a:'Eckhart Tolle'},
-  {t:'Never underestimate the power of believing in something that does not yet exist. Sometimes the world just needs you to be the first to see it.',a:'Jim Carrey'},
-  {t:'The only way man can contribute to the building of this glorious form is to cultivate a PURE, selfless, beneficent, universal LOVE. Pure love gave birth to the universe, pure love sustains it, pure love drives it toward perfection.',a:'Ancient Wisdom'},
-  {t:'When ignorance shouts, intelligence remains silent. Your peace and tranquillity are worth more.',a:'Scuola ContattaTi'},
-  {t:'If you are not serving a higher purpose voluntarily, then you are not living, merely existing.',a:'Salvatore Brizzi'},
-  {t:'Every difficulty and every suffering is a lesson in learning love.',a:'Anna Carla Digregorio'},
-  {t:'Whoever has abandoned the ego no longer has things they like and things they dislike: whatever comes their way, they rejoice in it. They no longer place conditions on existence — they live unconditionally.',a:'Osho, The Way of Joy'},
-  {t:'Would the world trust a guru who convinces it of being enlightened, or would it prefer one who shows how deep its sleep is? And you who read, are you sure you can discern what pleases you from what serves you most?',a:'Fabio Pietro Iacontino, Intelligentia Solis'},
-  {t:'Not asking ourselves why a certain event happened to us is like using words without grasping their meaning — as if the word \'love\' were exhausted by its sound and did not signify something concrete.',a:'Salvatore Brizzi'},
-  {t:'It is always the false that makes you suffer: false desires, false fears, false values and false relationships with people. Abandon the false and you shall be free from pain — truth makes happy, truth liberates.',a:'Nisargadatta Maharaj'},
-  {t:'Duty without love makes you sullen. Responsibility without love makes you relentless. Justice without love makes you hard. Wisdom without love makes you fake. Power without love makes you cruel. The answer is always love.',a:'Lao Tzu'},
-  {t:'You will never learn anything from life if you think you are always right.',a:'Keanu Reeves'},
-  {t:'When you are ill you seek healing, meaning you want to return to the condition before the illness, but that condition was the cause of the illness! To heal means to become a new person.',a:'Salvatore Brizzi'},
-  {t:'If something hurts, it means something within you has been repressed. Instead of avoiding the pain, go into it — so the wound is fully exposed and begins to heal.',a:'Osho'},
-  {t:'The human being stands on the boundary between the lower world and the higher world. If absorbed by the forces of the higher world, they become a beacon of luminous currents. But they must maintain the balance between earth and Heaven: their mission is to work on earth with the means of Heaven.',a:'Omraam Mikhaël Aïvanhov'},
-  {t:'The Witch taught the warrior humility and respect. The Warrior taught the witch valour and courage. Together they taught the world Love. The world killed the witch and enslaved the warrior. But it could not prevent love from rebirting the witch and freeing the warrior.',a:'Oral tradition'},
-  {t:'If we exclude evil by pretending it does not exist, we would never live a true life. To see beauty one must awaken, and to awaken one must have the courage to see things as they are — this is the most difficult thing.',a:'Giovanni Berti'},
-  {t:'Those who consider heaven as living learn to walk upon the earth. A Master is one who walks confidently on Earth. Do not renounce earthly life without first having understood it. When the hour strikes, even an ant can be a messenger.',a:'Leaves of Morya\'s Garden, Illumination 1925'},
-  {t:'Awareness and suffering are inversely proportional: where one exists, the other does not. Awareness united with acceptance flings open the gates of love. You have changed within, and consequently, your destiny has changed.',a:'Roberto Potocniak'},
-  {t:'Everyone believes it is about other people\'s selfishness, not their own. But the only person in the world you can change is the one you never part from. When your Heart opens, you realise the only problem in the world was you.',a:'Salvatore Brizzi'},
-  {t:'You do not solve a nightmare by working on the nightmare. The nightmare vanishes by waking up from the hypnotic sleep in which you were living. Do not work on the symptom, but on the root cause.',a:'Roberto Potocniak'},
-  {t:'Keep your soul strong and clean and all will be well. Do not believe yourself alone or weak, for within you are powerful armies you cannot even imagine. If you elevate your spirit, nothing can touch you. The only enemy you need fear is yourself.',a:'Paracelsus'},
-  {t:'Jesus does not see the blind man as one who has sinned, but as one ready to manifest a divine quality at full power. Do not judge by appearances: every difficulty may be the highest-level challenge for perfection.',a:'Scuola ContattaTi'},
-  {t:'The desire for longevity is against nature and is satanic if not justified by the desire to serve longer in accordance with one\'s mission.',a:'Salvatore Brizzi'},
-  {t:'The two initiatic passages to be ready to access an objective way: 1. Complete disillusionment with the world. 2. Complete disillusionment with oneself, with what one believes oneself to be and to be capable of doing.',a:'Roberto Potocniak'},
-  {t:'You cannot change anyone. In life one rises only by one\'s own choice. You can only carry forward your Mission by showing, in words and deeds, a new possible world.',a:'Salvatore Brizzi'},
-  {t:'Disobedience requires an intelligence of a slightly higher order. The intelligent person will sooner or later ask: why? Thus one becomes responsible for oneself.',a:'Osho'},
-  {t:'Beware of grand words shouted in the square; flee generalised, non-concrete love. The Gospel proclaims no ideologies… and therein lies its strength.',a:'Salvatore Brizzi'},
-  {t:'To flee false tranquillities, to open one\'s eyes infinitely, as infinite is the light, is always a moment of flowering of oneself.',a:'Daniel Meurois & Anne Givaudan'},
-  {t:'Love is a revolutionary force, for it overturns the cold geometry of quid pro quo. It is the cell of community. To love means to realise oneself with the other, willing that the other be fully.',a:'Diego Fusaro'},
-  {t:'Do not be afraid to fail… Be afraid of not having tried… Be afraid of not having enjoyed it… Be afraid of not loving what you do enough… But never of failure…',a:'Anna Carla Digregorio'},
-  {t:'Have Faith and let it be… flow with Grace along the torrent of Existence… and you might notice that life turns out to be fun too!',a:'Anna Carla Digregorio'},
-  {t:'Until topics like the Law of the Mirror, judgement and the Law of Compensation are truly clear to you, what good could purifying a chakra possibly do? You will only fall deeper asleep.',a:'Salvatore Brizzi'},
-  {t:'Fast-food spirituality: believing that easy and quick remedies exist. Spiritual transformation cannot be rapid because the process itself consists in leaving haste behind and respecting one\'s own natural rhythms.',a:'Angy Scrò'},
-  {t:'The Communion of Couple is in itself a reflection of Divine Love. Communion of Couple that is the first step toward Communion with the All.',a:'Anna Carla Digregorio & Nicolaos Anifantis'},
-  {t:'Have Faith — the light is certainly there! It is out there waiting for you… Let us commit fully to forcing the door open and allowing ourselves to see it, that Light hitherto only theorised.',a:'Anna Carla Digregorio'},
-  {t:'Of Jesus we must not take only what we like and what seems to suit us. From Him we must also learn to take everything we reject because it upends our convictions. But in the end, that is precisely where the best of life is played.',a:'Luigi Maria Epicoco'},
-  {t:'Love is a circular phenomenon: it goes out and comes in, ever amplifying. The more you give, the more you receive. Many complain of having given much without receiving anything: this always happens when one gives only to receive… which is not giving, but begging.',a:'Roberto Potocniak'},
-  {t:'Consider life as a wonderful school, as a tough but salutary gymnasium where the highest human and spiritual qualities and powers are tempered. Faced with every trial, instead of the usual reactions of dejection, tell yourself: what good can I draw from this?',a:'Roberto Assagioli'},
-  {t:'Beauty inspires resistance. The natural state of the human being is to defend beautiful things. They are attacking your soul. They are killing anything that could inspire your resistance. It is done on purpose. Beware.',a:'Salvatore Brizzi'},
-  {t:'As far as possible, through knowledge, faith, hope and love, one must help life sustain itself. One must not allow negative forces to carry the victory.',a:'Omraam Mikhaël Aïvanhov'},
-  {t:'All spirit that does not root itself in matter is volatile and ephemeral. The body is the only true temple of the Spirit. Let us get to work, roll up our sleeves and hasten slowly, with our feet firmly rooted in the ground.',a:'Wisdom of the tradition'},
-  {t:'Truth is like a lion. You will not need to defend it. Set it free. It will defend itself.',a:'St Augustine'},
-  {t:'I say and attest that Our Power is different. Our Power is sacrifice.',a:'Leaves of Morya\'s Garden, The Call 1924'},
-  {t:'Real life begins when \'I am here\' and \'I am present to myself.\' Only then can I begin to create a future that is not just a copy-paste of my past.',a:'Roberto Potocniak'},
-  {t:'There is one fundamental requirement for a romantic relationship to survive itself: the presence of a larger container, common to both. Two \'initiates\' who live each day with the joy of a new discovery share a territory of the highest quality.',a:'Antonio Esposito'},
-  {t:'Self-remembering is a state of wonder, in which the mind falls silent. You are moved because you are alive, not because something particular has happened. At last, you feel alive.',a:'Salvatore Brizzi'},
-  {t:'The sacred feminine is the capacity of the human being, in their ascent to the Father, to create and bear fruit in matter while being directly fertilised by God without human interference. This is the sacred feminine we shall have to embody.',a:'Anna Carla Digregorio'},
-  {t:'Cosmic Intelligence never begins with suffering, but resorts to it only after having tried everything to make humans reflect.',a:'Omraam Mikhaël Aïvanhov'},
-  {t:'Never blame, never complain about anyone or anything. The triumph of the true man comes from the ashes of his error. Look at yourself in the mirror, you will be free and strong, for you yourself are your destiny.',a:'Pablo Neruda'},
-  {t:'It is not that evil is increasing: the light is increasing. Imagine having stored your belongings for years in a room lit by a 40-watt bulb. Switch it for a 100-watt one and see what happens! The dirt becomes evident.',a:'Sai Baba'},
-  {t:'When you spare someone, when you approve of their sins, when you do not share the Truth with them, then you do not love them. True love puts itself on the line, suffers for the other, acts. To the very end.',a:'Father Constantino Sturzu'},
-  {t:'Be yourself in every situation. No storm has the power to uproot you, if you do not wish it. Listen to intuition. Only you know your Truth.',a:'Spiritual teaching'},
-  {t:'The true purpose of a couple is not so much to \'be together\' but to \'create together.\' A couple that does not create goes against the impulse of the Universe. In a couple there are 3: you, me and the relationship. My inner space is sacred, sacred like yours.',a:'Nicolas Tamayo'},
-  {t:'Demons must be embraced; in that moment they will open the doors of rebirth. Demons are like dragons — they must be kissed, not killed.',a:'Bride An Geal'},
-  {t:'The higher nature tells you: instead of brooding and seeking revenge, try instead to use and transform that offence. You are an alchemist — you will draw gold from it.',a:'Omraam Mikhaël Aïvanhov'},
-  {t:'The origin of war lies in the sleep of the human race. To get through the coming years you must wake up and \'leave the human race.\'',a:'Georges I. Gurdjieff, via Salvatore Brizzi'},
-  {t:'The darkest corner of hell is reserved for those who maintain their neutrality in times of moral crisis.',a:'Dante Alighieri, The Divine Comedy'},
-  {t:'The painter, the scientist, the curious one: all who observe the world attentively discover details that escape others. It is in the capacity to wonder and to question ceaselessly that true knowledge is born.',a:'Leonardo Da Vinci'},
-  {t:'Those who know themselves are not disturbed by events.',a:'Seneca'},
-  {t:'What would happen if, one day or one night, a demon told you: this life you must live once more and innumerable times more, and there will never be anything new in it?',a:'Friedrich Nietzsche, The Eternal Return'},
-  {t:'The truth was a mirror that, falling from heaven, shattered. Everyone took a piece and, seeing their own image reflected in it, believed they possessed the entire truth.',a:'Jalāl al-Dīn Rūmī'},
-  {t:'Once and for all, a short precept is laid upon you: love and do what you will. Whether you keep silent, keep silent out of love. Whether you speak, speak out of love. Let the root of love be within you, for from this root nothing but good can spring.',a:'St Augustine'},
-  {t:'Do not plant a tree on the day you want shade.',a:'Zen proverb'},
-  {t:'Everything you are going through is preparing you for what you asked for.',a:'Eckhart Tolle'},
-  {t:'God sleeps in stones, dreams in plants, awakens in animals and becomes conscious in the human being.',a:'Ancient aphorism'},
-  {t:'If a man is not capable of governing his own emotions and impulses, he will never be able to master himself.',a:'Cicero'},
-  {t:'Through Temperance man becomes wise, and only the wise can experience authentic pleasure — and this is what will make him different from an animal.',a:'Aristotle'},
-  {t:'In God\'s shop, ripe fruits are not sold — only small seeds to cultivate. Go into the world and make the gifts God gave you flourish.',a:'Parable of God\'s gift shop'},
-  {t:'Geometry is solidified music.',a:'Pythagoras'},
-  {t:'The way is not in the sky: the way is in the heart.',a:'Buddha'},
-  {t:'Therefore I say to you: whatever things you ask in prayer, believe that you have already received them and you shall have them.',a:'Mark 11:24'},
-  {t:'The two most important days in your life are the day you are born and the day you find out why.',a:'Mark Twain'},
-  {t:'I have come into the world as a light, so that whoever believes in me should not remain in darkness.',a:'John 12:46'},
-  {t:'No one has greater love than this: to lay down one\'s life for one\'s friends.',a:'John 15:13'},
-  {t:'The idea of serving God has meaning only if the human being becomes aware that the divinity they must serve dwells within their own soul.',a:'Omraam Mikhaël Aïvanhov'},
-  {t:'You do not have a life, you are life. The one life, the one consciousness takes the form of a man or a woman, a blade of grass, a dog, a planet, the sun, a galaxy. This is the play of forms, the dance of life.',a:'Eckhart Tolle'},
-  {t:'True love is made of loving kindness, of the ability to offer happiness to others, of compassion, of shared joy and of freedom for one and the other.',a:'Thich Nhat Hanh'},
-  {t:'I praise you, Father, Lord of heaven and earth, because you have hidden these things from the wise and learned and revealed them to little children.',a:'Matthew 11:25'},
-  {t:'Seek emptiness and silence with all your being, that very being made of emptiness and silence. In seeking them you will find yourself, and in finding yourself you will become what you seek.',a:'Meditation of Scuola ContattaTi'},
-  {t:'An unexamined life is not worth living for a human being.',a:'Socrates'},
-  {t:'Of all creation, man is the only dual being: mortal according to his corporeal nature, immortal according to his essence.',a:'Hermes Trismegistus'},
-  {t:'You are now that soul which in this earth can reunite what is seen as separate. You are now that soul which through love can return to being that light which annuls the darkness.',a:'Meditation of Scuola ContattaTi'},
-  {t:'You are not that wound — you are merely identified with its mask. Let go of that identification and the wound will vanish.',a:'Meditation of Scuola ContattaTi'},
-  {t:'Knowledge is Magic and is the only Law. Do not be afraid of the power within you, for it follows the Law as the stars in the sky. Follow and learn my Magic. Know that all the Force is yours, if you will it.',a:'Thoth the Atlantean, Emerald Tablets'},
-  {t:'Do not seek the world in yourself, but find yourself in the world.',a:'Ancient Egyptian proverb'},
-  {t:'Do not bring the world into the rite: bring the rite into the world.',a:'Initiatic maxim'},
-  {t:'Time does not heal; presence does.',a:'Initiatic maxim'},
-  {t:'Inner demons are not enemies, but parts left in suspension. When we see them without fear, when we listen to them without judgement, their form changes. What seemed shadow reveals its origin.',a:'Meditation of Scuola ContattaTi'},
-  {t:'Genius is one who is at ease in discomfort.',a:'Joe Dispenza'},
-  {t:'When you meet someone, remember that it is a sacred encounter. How you see them, you see yourself; how you treat them, you treat yourself; how you think of them, you think of yourself.',a:'Meditation of Scuola ContattaTi'},
-  {t:'Find out who you are and do not be afraid to be it.',a:'Mahatma Gandhi'},
-  {t:'Friendship is always a sweet responsibility, never an opportunity.',a:'Khalil Gibran'},
-  {t:'In the mind suffering is born. In the mind it can be resolved.',a:'Buddha'},
-  {t:'Truth is not something to be known. It is something to be remembered.',a:'Scuola ContattaTi'},
-  {t:'I urge you to die alive.',a:'Georges Ivanovitch Gurdjieff'},
-  {t:'You are divine — never forget it. We are all one, in eternal contact with the single soul.',a:'Giordano Bruno'},
-  {t:'Gratitude is the memory of the heart.',a:'Lao Tzu'},
-  {t:'The secret of evolution is not becoming someone we are not, but bringing forth what we truly are.',a:'Hermes Trismegistus'}
-];
+  var quotes = window.SC_QUOTES.map(function(q){return q.en;});
   var textEl=document.getElementById('quoteText');
   var authorEl=document.getElementById('quoteAuthor');
   var counterEl=document.getElementById('quoteCounter');
@@ -1753,6 +1601,7 @@
   next();
 })();
 </script>
+<script src="../data/eventi.js" defer></script>
 <script src="../app.js" defer></script>
 <script>
 /* GAME SEALS — show ✦ on completed game cards */
