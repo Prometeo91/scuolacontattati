@@ -2,6 +2,7 @@
 (function(){
 "use strict";
 window.DUNGEON_DATA = {
+  id: "dng",
   maxLuce: 14,
   startLuce: 7,
   planes: [

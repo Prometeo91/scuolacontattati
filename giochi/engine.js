@@ -7,13 +7,11 @@
 (function () {
   "use strict";
   const D = window.GAME_DATA, I = window.GAME_I18N;
-  const LS_LANG = "sc-lang", LS_THEME = "sctheme";
+  const C = window.GameCore(I);
+  const t = C.t, getLang = C.getLang, L = C.L, frag = C.frag, esc = C.esc, mount = C.mount;
   const LS_BEST = "sc-" + D.id + "-best", LS_SEEN = "sc-" + D.id + "-seen";
   const LS_POOL = "sc-" + D.id + "-pool", LS_ACC = "sc-" + D.id + "-acc", LS_SIG = "sc-" + D.id + "-sigillo";
   const SIG_THRESHOLD = 0.7;
-
-  function getLang() { return localStorage.getItem(LS_LANG) === "en" ? "en" : "it"; }
-  const t = I.makeT(getLang);
   /* Stringhe aggiuntive con fallback (non richiedono modifiche agli i18n.js) */
   const EXTRA = {
     reviewErrors: { it: "Rivedi gli errori", en: "Review your mistakes" },
@@ -24,18 +22,14 @@
     sigilloHint: { it: "Supera ogni prova con almeno il 70% di risposte esatte per conquistare il Sigillo", en: "Pass every trial with at least 70% correct answers to earn the Seal" }
   };
   function tx(key) { const e = I.STR[key]; if (e) return L(e); const x = EXTRA[key]; return x ? (x[getLang()] || x.it) : key; }
-  function L(obj) { if (!obj) return ""; const l = getLang(); return obj[l] != null ? obj[l] : obj.it; }
 
   function loadJ(k) { try { return JSON.parse(localStorage.getItem(k)) || {}; } catch(e) { return {}; } }
   function saveJ(k,o) { try { localStorage.setItem(k, JSON.stringify(o)); } catch(e) {} }
 
-  let app, currentScreen;
+  let currentScreen;
   function shuffle(a) { const b=a.slice(); for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];} return b; }
   function pickN(a,n) { return shuffle(a).slice(0,n); }
-  function esc(s) { return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
   function letter(i) { return String.fromCharCode(65+i); }
-  function mount(node) { app.innerHTML=""; app.appendChild(node); }
-  function frag(h) { const d=document.createElement("div"); d.innerHTML=h.trim(); return d.firstElementChild; }
 
   /* ============ HOME ============ */
   function renderHome() {
@@ -267,28 +261,8 @@
     renderResult({mode:memMode,moves:M.moves,correct:md.items.length,total:md.items.length,isRecord,missed:[],newSeal});
   }
 
-  /* ============ CHROME ============ */
+  /* ============ CHROME — condiviso in game-core.js ============ */
   function backButton(){ const b=frag(`<button class="btn-back">← ${esc(t("backToMenu"))}</button>`); b.addEventListener("click",()=>{R=null;M=null;memMode=null;renderHome();}); return b; }
-  function setLang(lang){ localStorage.setItem(LS_LANG,lang); document.documentElement.setAttribute("lang",lang); updateChrome(); currentScreen(); }
-  function updateChrome(){
-    const lang=getLang();
-    document.querySelectorAll(".lang-pill button").forEach(btn=>btn.classList.toggle("active",btn.dataset.lang===lang));
-    document.getElementById("brandSchool").textContent=L(I.STR.school);
-    const gl=document.getElementById("gamesLink"); if(gl) gl.textContent=lang==="en"?"Games":"Giochi";
-    const bl=document.getElementById("brandLink"); if(bl) bl.setAttribute("title",L(I.STR.backToSite));
-    updateThemeBtn(); document.title=L(I.STR.gameTitle)+" · "+L(I.STR.school);
-  }
-  function isLight(){ return document.documentElement.getAttribute("data-theme")==="light"; }
-  var _soleSvg='<svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="10" cy="10" r="3.5"/><line x1="10" y1="2.5" x2="10" y2="4.5"/><line x1="10" y1="15.5" x2="10" y2="17.5"/><line x1="2.5" y1="10" x2="4.5" y2="10"/><line x1="15.5" y1="10" x2="17.5" y2="10"/><line x1="4.7" y1="4.7" x2="6.1" y2="6.1"/><line x1="13.9" y1="13.9" x2="15.3" y2="15.3"/><line x1="4.7" y1="15.3" x2="6.1" y2="13.9"/><line x1="13.9" y1="6.1" x2="15.3" y2="4.7"/></svg>';
-  var _lunaSvg='<svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14.3 13.5A6.5 6.5 0 0 1 6.5 5.7 6.5 6.5 0 1 0 14.3 13.5z"/></svg>';
-  function updateThemeBtn(){ const btn=document.getElementById("themeToggle"); if(!btn) return; const light=isLight(); btn.querySelector(".ico").innerHTML=light?_lunaSvg:_soleSvg; btn.querySelector(".lbl").textContent=light?t("themeDark"):t("themeLight"); }
-  function toggleTheme(){ const meta=document.getElementById("metaThemeColor"); if(isLight()){document.documentElement.removeAttribute("data-theme");localStorage.setItem(LS_THEME,"dark");if(meta)meta.content="#0d0b1a";}else{document.documentElement.setAttribute("data-theme","light");localStorage.setItem(LS_THEME,"light");if(meta)meta.content="#f5f0e8";} updateThemeBtn(); }
-
-  function init(){
-    app=document.getElementById("app"); document.documentElement.setAttribute("lang",getLang());
-    document.querySelectorAll(".lang-pill button").forEach(btn=>btn.addEventListener("click",()=>setLang(btn.dataset.lang)));
-    const tt=document.getElementById("themeToggle"); if(tt) tt.addEventListener("click",toggleTheme);
-    updateChrome(); renderHome();
-  }
-  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",init); else init();
+  C.onLangChange = function(){ currentScreen(); };
+  C.init(renderHome);
 })();
