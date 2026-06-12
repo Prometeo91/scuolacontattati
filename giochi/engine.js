@@ -61,12 +61,12 @@
     });
     node.appendChild(grid);
     // Progress
-    const hasSig = !!localStorage.getItem(LS_SIG);
+    let hasSig=false; try{ hasSig = !!localStorage.getItem(LS_SIG); }catch(err){}
     const init = frag(`<div class="initiation">${hasSig?'<div class="sigillo-badge">'+esc(tx("sigilloHave"))+'</div>':''}<div class="initiation-label"><span>${esc(t("initiationProgress"))}</span><b>${pct}%</b></div><div class="bar"><i></i></div>${hasSig?'':'<div class="sigillo-hint">'+esc(tx("sigilloHint"))+'</div>'}<button class="reset-btn">${esc(t("resetProgress"))}</button></div>`);
     node.appendChild(init);
     mount(node);
     requestAnimationFrame(()=>{ const b=node.querySelector(".bar i"); if(b) b.style.width=pct+"%"; });
-    init.querySelector(".reset-btn").addEventListener("click",()=>{ if(confirm(t("resetConfirm"))){ localStorage.removeItem(LS_BEST); localStorage.removeItem(LS_SEEN); localStorage.removeItem(LS_POOL); localStorage.removeItem(LS_ACC); localStorage.removeItem(LS_SIG); renderHome(); }});
+    init.querySelector(".reset-btn").addEventListener("click",()=>{ if(confirm(t("resetConfirm"))){ try{ localStorage.removeItem(LS_BEST); localStorage.removeItem(LS_SEEN); localStorage.removeItem(LS_POOL); localStorage.removeItem(LS_ACC); localStorage.removeItem(LS_SIG); }catch(err){} renderHome(); }});
   }
 
   function buildRings() {
@@ -183,7 +183,7 @@
   function updateAccAndSeal(mode, pct) {
     const acc = loadJ(LS_ACC);
     if (pct > (acc[mode] || 0)) { acc[mode] = pct; saveJ(LS_ACC, acc); }
-    if (localStorage.getItem(LS_SIG)) return false;
+    try{ if (localStorage.getItem(LS_SIG)) return false; }catch(err){ return false; }
     const accNow = loadJ(LS_ACC);
     if (D.modes.every(m => (accNow[m] || 0) >= SIG_THRESHOLD)) {
       try { localStorage.setItem(LS_SIG, String(Date.now())); } catch(e) {}

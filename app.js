@@ -60,18 +60,23 @@ var SC_T = SC_EN ? {
   foto:'Foto'
 };
 
+/* ── STORAGE SICURO — localStorage può lanciare SecurityError se l'utente
+      blocca tutti i cookie: questi helper non devono mai uccidere lo script ── */
+function lsGet(k){try{return localStorage.getItem(k);}catch(e){return null;}}
+function lsSet(k,v){try{localStorage.setItem(k,v);}catch(e){}}
+
 /* ── COOKIE BANNER (GDPR / ePrivacy) ── */
 (function(){
   var KEY = 'sc-cookie';
   var banner = document.getElementById('cookie-banner');
-  var choice = localStorage.getItem(KEY);
+  var choice = lsGet(KEY);
   if(!choice){ banner.hidden = false; }
 
   // Cross-page: se l'utente arriva da privacy.html dopo aver rimosso sc-cookie,
   // il banner potrebbe non apparire subito (race condition con scroll restore).
   // Ricontrolliamo dopo il load completo.
   window.addEventListener('load', function(){
-    if(!localStorage.getItem(KEY) && banner.hidden){ banner.hidden = false; }
+    if(!lsGet(KEY) && banner.hidden){ banner.hidden = false; }
   });
 
   function loadGA(){
@@ -90,12 +95,12 @@ var SC_T = SC_EN ? {
   }
 
   document.getElementById('cookieAccept').addEventListener('click', function(){
-    localStorage.setItem(KEY, 'accept');
+    lsSet(KEY, 'accept');
     banner.hidden = true;
     loadGA();
   });
   document.getElementById('cookieReject').addEventListener('click', function(){
-    localStorage.setItem(KEY, 'reject');
+    lsSet(KEY, 'reject');
     banner.hidden = true;
     window['ga-disable-G-2NTMVVV5GB'] = true;
   });
@@ -173,11 +178,11 @@ document.addEventListener('DOMContentLoaded', function() {
       isDark=!isDark;
       if(isDark){
         document.documentElement.removeAttribute('data-theme');
-        localStorage.setItem('sctheme','dark');
+        lsSet('sctheme','dark');
         document.getElementById('metaThemeColor').content='#0d0b1a';
       } else {
         document.documentElement.setAttribute('data-theme','light');
-        localStorage.setItem('sctheme','light');
+        lsSet('sctheme','light');
         document.getElementById('metaThemeColor').content='#f5f0e8';
       }
       updThemeBtn();
@@ -618,7 +623,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var a=document.getElementById('seminarAnnounce');
     var c=document.getElementById('seminarAnnounceClose');
     if(a&&c){
-      if(sessionStorage.getItem('seminarClosed')==='1'){a.style.display='none';}
+      try{if(sessionStorage.getItem('seminarClosed')==='1'){a.style.display='none';}}catch(e){}
       c.addEventListener('click',function(){a.style.display='none';try{sessionStorage.setItem('seminarClosed','1');}catch(e){}});
     }
   })();

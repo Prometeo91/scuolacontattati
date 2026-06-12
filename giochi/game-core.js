@@ -18,7 +18,10 @@ if('serviceWorker' in navigator){
 }
 
 window.GameCore=function(I){
-  function getLang(){return localStorage.getItem(LS_LANG)==="en"?"en":"it";}
+  /* storage sicuro: con i cookie bloccati localStorage lancia SecurityError */
+  function lsGet(k){try{return localStorage.getItem(k);}catch(e){return null;}}
+  function lsSet(k,v){try{localStorage.setItem(k,v);}catch(e){}}
+  function getLang(){return lsGet(LS_LANG)==="en"?"en":"it";}
   const t=I.makeT(getLang);
   function L(o){if(!o)return"";const l=getLang();return o[l]!=null?o[l]:o.it;}
   function frag(h){const d=document.createElement("div");d.innerHTML=h.trim();return d.firstElementChild;}
@@ -32,7 +35,7 @@ window.GameCore=function(I){
   const _soleSvg='<svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="10" cy="10" r="3.5"/><line x1="10" y1="2.5" x2="10" y2="4.5"/><line x1="10" y1="15.5" x2="10" y2="17.5"/><line x1="2.5" y1="10" x2="4.5" y2="10"/><line x1="15.5" y1="10" x2="17.5" y2="10"/><line x1="4.7" y1="4.7" x2="6.1" y2="6.1"/><line x1="13.9" y1="13.9" x2="15.3" y2="15.3"/><line x1="4.7" y1="15.3" x2="6.1" y2="13.9"/><line x1="13.9" y1="6.1" x2="15.3" y2="4.7"/></svg>';
   const _lunaSvg='<svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14.3 13.5A6.5 6.5 0 0 1 6.5 5.7 6.5 6.5 0 1 0 14.3 13.5z"/></svg>';
   function updateThemeBtn(){const btn=document.getElementById("themeToggle");if(!btn)return;const light=isLight();btn.querySelector(".ico").innerHTML=light?_lunaSvg:_soleSvg;btn.querySelector(".lbl").textContent=light?t("themeDark"):t("themeLight");}
-  function toggleTheme(){const meta=document.getElementById("metaThemeColor");if(isLight()){document.documentElement.removeAttribute("data-theme");localStorage.setItem(LS_THEME,"dark");if(meta)meta.content="#0d0b1a";}else{document.documentElement.setAttribute("data-theme","light");localStorage.setItem(LS_THEME,"light");if(meta)meta.content="#f5f0e8";}updateThemeBtn();}
+  function toggleTheme(){const meta=document.getElementById("metaThemeColor");if(isLight()){document.documentElement.removeAttribute("data-theme");lsSet(LS_THEME,"dark");if(meta)meta.content="#0d0b1a";}else{document.documentElement.setAttribute("data-theme","light");lsSet(LS_THEME,"light");if(meta)meta.content="#f5f0e8";}updateThemeBtn();}
 
   /* ── Lingua + intestazione pagina ── */
   function updateChrome(){
@@ -44,7 +47,7 @@ window.GameCore=function(I){
     updateThemeBtn();document.title=L(I.STR.gameTitle)+" · "+L(I.STR.school);
   }
   function setLang(lang){
-    localStorage.setItem(LS_LANG,lang);document.documentElement.setAttribute("lang",lang);updateChrome();
+    lsSet(LS_LANG,lang);document.documentElement.setAttribute("lang",lang);updateChrome();
     if(core.onLangChange)core.onLangChange();
   }
 
