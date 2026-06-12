@@ -20,7 +20,7 @@ var SC_T = SC_EN ? {
   inCorsoOra:' — In progress now', prossima:' ✶ Next',
   anno:'Year', lezione:'Lesson', temi:'Topics',
   inArrivo:'Coming soon', locandinaInArrivo:'Details coming soon',
-  citazione:'Quote', di:'of',
+  di:'of',
   presEventi:'events including conferences, festivals and presentations',
   formAttendiTitolo:'Please wait',
   formAttendiTesto:'The form was submitted too quickly. Please try again in a few seconds.',
@@ -33,7 +33,7 @@ var SC_T = SC_EN ? {
   formConnTitolo:'Connection error',
   formConnTesto:'Unable to send the message. Check your connection and try again, or write to us directly via WhatsApp.',
   mostraMeno:'Show fewer ▴', mostraTutte:'Show all photos ▾',
-  foto:'Photo'
+  foto:'Photo', fotoPrec:'Previous photo', fotoSucc:'Next photo', chiudi:'Close'
 } : {
   temaChiaro:'Tema chiaro', temaScuro:'Tema scuro',
   apriMenu:'Apri menu', chiudiMenu:'Chiudi menu',
@@ -44,7 +44,7 @@ var SC_T = SC_EN ? {
   inCorsoOra:' — In corso ora', prossima:' ✶ Prossima',
   anno:'Anno', lezione:'Lezione', temi:'Temi',
   inArrivo:'In arrivo', locandinaInArrivo:'Locandina in arrivo',
-  citazione:'Citazione', di:'di',
+  di:'di',
   presEventi:'eventi tra conferenze, festival e presentazioni',
   formAttendiTitolo:'Attendi un momento',
   formAttendiTesto:'Il modulo è stato inviato troppo velocemente. Riprova tra qualche secondo.',
@@ -57,21 +57,26 @@ var SC_T = SC_EN ? {
   formConnTitolo:'Errore di connessione',
   formConnTesto:'Impossibile inviare il messaggio. Verifica la tua connessione e riprova, oppure scrivici direttamente via WhatsApp.',
   mostraMeno:'Mostra meno ▴', mostraTutte:'Mostra tutte le foto ▾',
-  foto:'Foto'
+  foto:'Foto', fotoPrec:'Foto precedente', fotoSucc:'Foto successiva', chiudi:'Chiudi'
 };
+
+/* ── STORAGE SICURO — localStorage può lanciare SecurityError se l'utente
+      blocca tutti i cookie: questi helper non devono mai uccidere lo script ── */
+function lsGet(k){try{return localStorage.getItem(k);}catch(e){return null;}}
+function lsSet(k,v){try{localStorage.setItem(k,v);}catch(e){}}
 
 /* ── COOKIE BANNER (GDPR / ePrivacy) ── */
 (function(){
   var KEY = 'sc-cookie';
   var banner = document.getElementById('cookie-banner');
-  var choice = localStorage.getItem(KEY);
+  var choice = lsGet(KEY);
   if(!choice){ banner.hidden = false; }
 
   // Cross-page: se l'utente arriva da privacy.html dopo aver rimosso sc-cookie,
   // il banner potrebbe non apparire subito (race condition con scroll restore).
   // Ricontrolliamo dopo il load completo.
   window.addEventListener('load', function(){
-    if(!localStorage.getItem(KEY) && banner.hidden){ banner.hidden = false; }
+    if(!lsGet(KEY) && banner.hidden){ banner.hidden = false; }
   });
 
   function loadGA(){
@@ -90,12 +95,12 @@ var SC_T = SC_EN ? {
   }
 
   document.getElementById('cookieAccept').addEventListener('click', function(){
-    localStorage.setItem(KEY, 'accept');
+    lsSet(KEY, 'accept');
     banner.hidden = true;
     loadGA();
   });
   document.getElementById('cookieReject').addEventListener('click', function(){
-    localStorage.setItem(KEY, 'reject');
+    lsSet(KEY, 'reject');
     banner.hidden = true;
     window['ga-disable-G-2NTMVVV5GB'] = true;
   });
@@ -108,8 +113,6 @@ var SC_T = SC_EN ? {
       banner.hidden = false;
     });
   }
-  // API globale per riaprire il banner da altre pagine (es. privacy.html)
-  window.scOpenCookieBanner = function(){ banner.hidden = false; };
 })();
 
 /* ── MAIN APP (DOMContentLoaded) ── */
@@ -173,11 +176,11 @@ document.addEventListener('DOMContentLoaded', function() {
       isDark=!isDark;
       if(isDark){
         document.documentElement.removeAttribute('data-theme');
-        localStorage.setItem('sctheme','dark');
+        lsSet('sctheme','dark');
         document.getElementById('metaThemeColor').content='#0d0b1a';
       } else {
         document.documentElement.setAttribute('data-theme','light');
-        localStorage.setItem('sctheme','light');
+        lsSet('sctheme','light');
         document.getElementById('metaThemeColor').content='#f5f0e8';
       }
       updThemeBtn();
@@ -357,31 +360,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   /* TAB ANNI — gestito inline in index.html (click + navigazione da tastiera WAI-ARIA) */
 
-  /* CAROSELLO */
-  var track=document.getElementById('quotesTrack');
-  if(track){
-    var slides=track.querySelectorAll('.quote-slide'),cur=0,timer;
-    /* Accessibilità: etichetta ogni slide */
-    slides.forEach(function(s,i){
-      s.setAttribute('role','group');
-      s.setAttribute('aria-roledescription','Slide');
-      s.setAttribute('aria-label',SC_T.citazione+' '+(i+1)+' '+SC_T.di+' '+slides.length);
-    });
-    var counter=document.getElementById('carouselCounter');
-    function updCounter(){if(counter)counter.textContent=(cur+1)+' / '+slides.length;}
-    function readTime(n){var el=slides[n].querySelector('.quote-slide-text');var words=(el?el.textContent:'').trim().split(/\s+/).length;return Math.max(6000,words*400);}
-    function goTo(n){cur=(n+slides.length)%slides.length;track.style.transform='translateX(-'+(cur*100)+'%)';updCounter();clearInterval(timer);timer=setTimeout(function(){goTo(cur+1);},readTime(cur));}
-    document.getElementById('prevBtn').addEventListener('click',function(){goTo(cur-1);});
-    document.getElementById('nextBtn').addEventListener('click',function(){goTo(cur+1);});
-    /* Touch/swipe support */
-    var tx=0,moving=false;
-    track.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;moving=true;},{passive:true});
-    track.addEventListener('touchmove',function(e){e.preventDefault();},{passive:false});
-    track.addEventListener('touchend',function(e){if(!moving)return;moving=false;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40){dx<0?goTo(cur+1):goTo(cur-1);}});
-    timer=setTimeout(function(){goTo(cur+1);},readTime(cur));
-    updCounter();
-  }
-
   /* CLOSE MOBILE MENU ON LINK CLICK */
   document.querySelectorAll('.nav-links a').forEach(function(link){
     link.addEventListener('click',function(){
@@ -514,8 +492,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  /* Lightbox */
+  /* Lightbox — il markup storico è andato perso in un vecchio upload:
+     se manca lo ricostruiamo qui, riusando le classi .lightbox-* già nel CSS */
   var lb=document.getElementById('lightbox');
+  if(!lb && document.querySelector('.gallery-item')){
+    lb=document.createElement('div');
+    lb.id='lightbox';
+    lb.className='lightbox-overlay';
+    lb.innerHTML='<button class="lightbox-close" aria-label="'+SC_T.chiudi+'">\u00d7</button>'+
+      '<button class="lightbox-nav lightbox-prev" aria-label="'+SC_T.fotoPrec+'">\u2039</button>'+
+      '<img src="" alt=""/>'+
+      '<button class="lightbox-nav lightbox-next" aria-label="'+SC_T.fotoSucc+'">\u203a</button>'+
+      '<div class="lightbox-counter" aria-hidden="true"></div>';
+    document.body.appendChild(lb);
+  }
   if(!lb)return;
   var lbImg=lb.querySelector('img');
   var lbCounter=lb.querySelector('.lightbox-counter');
@@ -531,16 +521,38 @@ document.addEventListener('DOMContentLoaded', function() {
     lbCounter.textContent=(cur+1)+' / '+srcs.length;
   }
 
+  /* Accessibilità: dialog + focus management */
+  lb.setAttribute('role','dialog');
+  lb.setAttribute('aria-modal','true');
+  lb.setAttribute('aria-label',SC_T.foto);
+  var lbClose=lb.querySelector('.lightbox-close');
+  var lastFocus=null;
+  function openAt(i,origin){
+    lastFocus=origin||document.activeElement;
+    show(i);
+    lb.classList.add('active');
+    document.body.style.overflow='hidden';
+    if(lbClose)lbClose.focus();
+  }
+
   items.forEach(function(it,i){
-    it.addEventListener('click',function(){
-      show(i);
-      lb.classList.add('active');
-      document.body.style.overflow='hidden';
+    /* da tastiera: i div diventano bottoni */
+    it.setAttribute('tabindex','0');
+    it.setAttribute('role','button');
+    var im=it.querySelector('img');
+    if(im&&im.alt)it.setAttribute('aria-label',im.alt);
+    it.addEventListener('click',function(){openAt(i,it);});
+    it.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();openAt(i,it);}
     });
   });
 
-  function close(){lb.classList.remove('active');document.body.style.overflow='';}
-  lb.querySelector('.lightbox-close').addEventListener('click',close);
+  function close(){
+    lb.classList.remove('active');
+    document.body.style.overflow='';
+    if(lastFocus&&lastFocus.focus)lastFocus.focus();
+  }
+  lbClose.addEventListener('click',close);
   lb.querySelector('.lightbox-prev').addEventListener('click',function(e){e.stopPropagation();show(cur-1);});
   lb.querySelector('.lightbox-next').addEventListener('click',function(e){e.stopPropagation();show(cur+1);});
   lb.addEventListener('click',function(e){if(e.target===lb)close();});
@@ -549,6 +561,14 @@ document.addEventListener('DOMContentLoaded', function() {
     if(e.key==='Escape')close();
     if(e.key==='ArrowLeft')show(cur-1);
     if(e.key==='ArrowRight')show(cur+1);
+    if(e.key==='Tab'){
+      var f=lb.querySelectorAll('button');
+      if(!f.length)return;
+      var first=f[0],last=f[f.length-1];
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+      else if(!lb.contains(document.activeElement)){e.preventDefault();first.focus();}
+    }
   });
 
   /* Touch/swipe in lightbox */
@@ -618,7 +638,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var a=document.getElementById('seminarAnnounce');
     var c=document.getElementById('seminarAnnounceClose');
     if(a&&c){
-      if(sessionStorage.getItem('seminarClosed')==='1'){a.style.display='none';}
+      try{if(sessionStorage.getItem('seminarClosed')==='1'){a.style.display='none';}}catch(e){}
       c.addEventListener('click',function(){a.style.display='none';try{sessionStorage.setItem('seminarClosed','1');}catch(e){}});
     }
   })();
@@ -626,14 +646,40 @@ document.addEventListener('DOMContentLoaded', function() {
 /* ── FLYER LIGHTBOX ── */
   (function(){
     var ov=document.getElementById('flyerLightbox');
+    if(!ov && (document.getElementById('seminarFlyer')||document.getElementById('residenzialeFlyer'))){
+      /* markup perso in un vecchio upload: lo ricostruiamo riusando .lightbox-overlay */
+      ov=document.createElement('div');
+      ov.id='flyerLightbox';
+      ov.className='lightbox-overlay';
+      ov.innerHTML='<button class="lightbox-close" id="flyerClose" aria-label="'+SC_T.chiudi+'">\u00d7</button><img id="flyerLightboxImg" src="" alt=""/>';
+      document.body.appendChild(ov);
+    }
     if(!ov)return;
     var img=document.getElementById('flyerLightboxImg');
     var cl=document.getElementById('flyerClose');
-    function open(src){img.src=src;ov.classList.add('active');document.body.style.overflow='hidden';}
-    function close(){ov.classList.remove('active');document.body.style.overflow='';}
+    ov.setAttribute('role','dialog');
+    ov.setAttribute('aria-modal','true');
+    var lastFocus=null;
+    function open(src,origin){
+      lastFocus=origin||document.activeElement;
+      img.src=src;ov.classList.add('active');document.body.style.overflow='hidden';
+      if(cl)cl.focus();
+    }
+    function close(){
+      ov.classList.remove('active');document.body.style.overflow='';
+      if(lastFocus&&lastFocus.focus)lastFocus.focus();
+    }
     ['seminarFlyer','residenzialeFlyer'].forEach(function(id){
       var fl=document.getElementById(id);
-      if(fl)fl.addEventListener('click',function(){open(fl.src);});
+      if(!fl)return;
+      /* le locandine diventano attivabili da tastiera */
+      fl.setAttribute('tabindex','0');
+      fl.setAttribute('role','button');
+      if(fl.title)fl.setAttribute('aria-label',fl.title);
+      fl.addEventListener('click',function(){open(fl.src,fl);});
+      fl.addEventListener('keydown',function(e){
+        if(e.key==='Enter'||e.key===' '){e.preventDefault();open(fl.src,fl);}
+      });
     });
     cl.addEventListener('click',close);
     ov.addEventListener('click',function(e){if(e.target===ov)close();});

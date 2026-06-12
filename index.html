@@ -19,7 +19,8 @@
       'wait_for_update': 500
     });
     (function(){
-      var c = localStorage.getItem('sc-cookie');
+      var c = null;
+      try{ c = localStorage.getItem('sc-cookie'); }catch(e){}
       if(c === 'accept'){
         gtag('consent', 'update', { 'analytics_storage': 'granted' });
         var s = document.createElement('script');
@@ -385,7 +386,7 @@
   ]
   </script>
  <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) — self-hosted, zero dipendenze esterne -->
-  <link rel="stylesheet" href="style.css?v=20260612"/>
+  <link rel="stylesheet" href="style.css?v=20260612b"/>
   <noscript><style>.sr,.sr-stagger>*{opacity:1!important;transform:none!important}</style></noscript>
 
   <style>
@@ -1042,7 +1043,7 @@
   <!-- Layout editoriale -->
   <div class="book-editorial sr">
     <div class="book-cover-wrap">
-      <img src="images/libro-copertina-hq.jpg" alt="Copertina del libro Ricchezza, Abbondanza e Mission" class="book-cover-editorial" width="280" loading="lazy" decoding="async"/>
+      <img src="images/libro-copertina-hq.jpg" height="416" alt="Copertina del libro Ricchezza, Abbondanza e Mission" class="book-cover-editorial" width="280" loading="lazy" decoding="async"/>
     </div>
     <div class="book-text-editorial">
       <span class="book-publisher-tag">Gagliano Edizioni</span>
@@ -1316,7 +1317,7 @@
           Ho letto l'informativa e acconsento al trattamento dei miei dati per rispondere a questa richiesta.
           <details>
             <summary>Leggi l'informativa</summary>
-            <p><strong>Titolare del trattamento:</strong> Nicolaos Anifantis, P.IVA 08713530726, Via Giuseppe Capruzzi 316, 70124 Bari (BA). Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="295a4a5c464548044a46475d485d5d485d406945404b4c5b4607405d">[email&#160;protected]</a>.</p>
+            <p><strong>Titolare del trattamento:</strong> Nicolaos Anifantis, P.IVA 08713530726, Via Giuseppe Capruzzi 316, 70124 Bari (BA). Email: <a href="mailto:scuola-contattati@libero.it">scuola-contattati@libero.it</a>.</p>
             <p><strong>Finalità:</strong> i dati che inserisci (nome, email, messaggio) vengono usati esclusivamente per risponderti. Non vengono ceduti a terzi, non vengono usati per finalità commerciali o newsletter.</p>
             <p><strong>Conservazione:</strong> i messaggi vengono conservati il tempo necessario a gestire la conversazione, poi eliminati.</p>
             <p><strong>Diritti:</strong> puoi in qualsiasi momento chiedere la cancellazione dei tuoi dati scrivendoci all'indirizzo email che compare qui sopra.</p>
@@ -1494,8 +1495,7 @@
     <button type="button" id="cookieAccept" class="cookie-btn cookie-btn-accept">Accetto</button>
   </div>
 </div>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-<script src="lezioni.js"></script>
+<script src="lezioni.js" defer></script>
 <script>
 /* SCROLL REVEAL (.sr) + STAGGER (.sr-stagger) — inline per autonomia da app.js */
 (function(){

@@ -19,7 +19,8 @@
       'wait_for_update': 500
     });
     (function(){
-      var c = localStorage.getItem('sc-cookie');
+      var c = null;
+      try{ c = localStorage.getItem('sc-cookie'); }catch(e){}
       if(c === 'accept'){
         gtag('consent', 'update', { 'analytics_storage': 'granted' });
         var s = document.createElement('script');
@@ -384,7 +385,7 @@
   ]
   </script>
  <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) — self-hosted, zero dipendenze esterne -->
-  <link rel="stylesheet" href="../style.css?v=20260612"/>
+  <link rel="stylesheet" href="../style.css?v=20260612b"/>
   <noscript><style>.sr,.sr-stagger>*{opacity:1!important;transform:none!important}</style></noscript>
 
   <style>
@@ -1041,7 +1042,7 @@
   <!-- Layout editoriale -->
   <div class="book-editorial sr">
     <div class="book-cover-wrap">
-      <img src="../images/libro-copertina-hq.jpg" alt="Copertina del libro Ricchezza, Abbondanza e Mission" class="book-cover-editorial" width="280" loading="lazy" decoding="async"/>
+      <img src="../images/libro-copertina-hq.jpg" height="416" alt="Copertina del libro Ricchezza, Abbondanza e Mission" class="book-cover-editorial" width="280" loading="lazy" decoding="async"/>
     </div>
     <div class="book-text-editorial">
       <span class="book-publisher-tag">Gagliano Edizioni</span>
@@ -1315,7 +1316,7 @@
           I have read the privacy notice and consent to the processing of my data to respond to this request.
           <details>
             <summary>Read the privacy notice</summary>
-            <p><strong>Data controller:</strong> Nicolaos Anifantis, P.IVA 08713530726, Via Giuseppe Capruzzi 316, 70124 Bari (BA). Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="295a4a5c464548044a46475d485d5d485d406945404b4c5b4607405d">[email&#160;protected]</a>.</p>
+            <p><strong>Data controller:</strong> Nicolaos Anifantis, P.IVA 08713530726, Via Giuseppe Capruzzi 316, 70124 Bari (BA). Email: <a href="mailto:scuola-contattati@libero.it">scuola-contattati@libero.it</a>.</p>
             <p><strong>Purpose:</strong> the data you enter (name, email, message) are used exclusively to reply to you. They are not shared with third parties, nor used for commercial purposes or newsletters.</p>
             <p><strong>Retention:</strong> messages are kept for the time necessary to manage the conversation, then deleted.</p>
             <p><strong>Rights:</strong> you may request the deletion of your data at any time by writing to the email address shown above.</p>
@@ -1493,8 +1494,7 @@
     <button type="button" id="cookieAccept" class="cookie-btn cookie-btn-accept">Accept</button>
   </div>
 </div>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-<script src="../lezioni.js"></script>
+<script src="../lezioni.js" defer></script>
 <script>
 /* SCROLL REVEAL (.sr) + STAGGER (.sr-stagger) — inline for app.js independence */
 (function(){
