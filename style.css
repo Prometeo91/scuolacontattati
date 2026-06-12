@@ -460,15 +460,15 @@ body::before {
 .hero { position: relative; min-height: auto; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 6rem 2rem 4rem; overflow: hidden; }
 .hero-emblem { width: 200px; height: 200px; margin-bottom: 1.75rem; position: relative; z-index: 2; filter: drop-shadow(0 8px 32px rgba(201, 151, 58, 0.25)); animation: emblem-float 8s ease-in-out infinite; }
 @keyframes emblem-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-.hero::before { content: ''; position: absolute; top: 5rem; left: 50%; transform: translateX(-50%); width: 520px; height: 520px; background: radial-gradient(circle, rgba(201, 151, 58, 0.18) 0%, rgba(201, 151, 58, 0.08) 25%, rgba(123, 94, 167, 0.06) 50%, transparent 70%); border-radius: 50%; z-index: 0; pointer-events: none; animation: halo-pulse 6s ease-in-out infinite; }
+.hero::before { content: ''; position: absolute; top: 5rem; left: 50%; transform: translateX(-50%); width: 520px; height: 520px; background: radial-gradient(circle, rgba(201, 151, 58, 0.10) 0%, rgba(201, 151, 58, 0.05) 25%, rgba(123, 94, 167, 0.035) 50%, transparent 70%); border-radius: 50%; z-index: 0; pointer-events: none; animation: halo-pulse 6s ease-in-out infinite; }
 @keyframes halo-pulse { 0%, 100% { opacity: 0.7; transform: translateX(-50%) scale(1); } 50% { opacity: 1; transform: translateX(-50%) scale(1.05); } }
 @media (max-width: 640px) {
   .hero-emblem { width: 150px; height: 150px; }
   .hero::before { width: 380px; height: 380px; }
 }
-.hero h1 { font-family: var(--font-display); font-size: clamp(36px, 7vw, 62px); font-weight: 500; color: var(--text); letter-spacing: 0.02em; line-height: 1.1; margin-bottom: 1.5rem; position: relative; z-index: 2; }
+.hero h1 { font-family: var(--font-display); font-size: clamp(34px, 6.4vw, 54px); font-weight: 500; color: var(--text); letter-spacing: 0.02em; line-height: 1.1; margin-bottom: 1.5rem; position: relative; z-index: 2; }
 .hero h1 span { color: var(--gold-light); font-weight: 500; }
-.hero-motto { font-family: var(--font-display); font-size: clamp(20px, 3.2vw, 32px); font-weight: 500; color: var(--gold-light); margin-bottom: 0.5rem; letter-spacing: 0.04em; line-height: 1.2; position: relative; z-index: 2; }
+.hero-motto { font-family: var(--font-display); font-size: clamp(24px, 4vw, 40px); font-weight: 500; color: var(--gold-light); margin-bottom: 0.5rem; letter-spacing: 0.04em; line-height: 1.2; position: relative; z-index: 2; }
 .hero-motto-sub { font-family: var(--font-display); font-size: clamp(13px, 1.6vw, 16px); color: var(--text); opacity: 0.75; margin-bottom: 2rem; font-style: italic; letter-spacing: 0.1em; position: relative; z-index: 2; }
 .hero-motto-sub::after { content: '✶'; display: block; color: var(--gold); font-size: 12px; margin-top: 1.5rem; opacity: 0.7; letter-spacing: 0; }
 .hero-slogan { font-family: var(--font-display); font-size: clamp(16px, 2.2vw, 20px); color: var(--text); max-width: 520px; line-height: 1.7; margin-bottom: 2.5rem; position: relative; z-index: 2; opacity: 0.85; letter-spacing: 0.01em; }
@@ -1892,7 +1892,9 @@ html::before {
 }
 
 /* ===== ANNUNCIO SEMINARIO ESTIVO ===== */
-.seminar-announce{position:relative;background:linear-gradient(135deg,rgba(201,151,58,0.14),rgba(201,151,58,0.06));border-bottom:0.5px solid rgba(201,151,58,0.4);padding:0.85rem 3rem 0.85rem 1.4rem;text-align:center;font-size:14.5px;color:var(--text);}
+.seminar-announce{position:relative;background:linear-gradient(135deg,rgba(201,151,58,0.14),rgba(201,151,58,0.06));border-bottom:0.5px solid rgba(201,151,58,0.4);padding:0.55rem 2.8rem 0.55rem 1rem;text-align:center;font-size:13.5px;color:var(--text);}
+.seminar-announce>span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+@media (max-width: 480px){ .seminar-announce>span{white-space:normal;overflow:visible;} }
 .seminar-announce a.seminar-announce-link{color:var(--gold-light);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(201,151,58,0.5);}
 .seminar-announce a.seminar-announce-link:hover{color:var(--gold);}
 .seminar-announce strong{color:var(--gold-light);font-weight:600;}
