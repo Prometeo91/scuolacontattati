@@ -20,7 +20,7 @@ var SC_T = SC_EN ? {
   inCorsoOra:' — In progress now', prossima:' ✶ Next',
   anno:'Year', lezione:'Lesson', temi:'Topics',
   inArrivo:'Coming soon', locandinaInArrivo:'Details coming soon',
-  citazione:'Quote', di:'of',
+  di:'of',
   presEventi:'events including conferences, festivals and presentations',
   formAttendiTitolo:'Please wait',
   formAttendiTesto:'The form was submitted too quickly. Please try again in a few seconds.',
@@ -44,7 +44,7 @@ var SC_T = SC_EN ? {
   inCorsoOra:' — In corso ora', prossima:' ✶ Prossima',
   anno:'Anno', lezione:'Lezione', temi:'Temi',
   inArrivo:'In arrivo', locandinaInArrivo:'Locandina in arrivo',
-  citazione:'Citazione', di:'di',
+  di:'di',
   presEventi:'eventi tra conferenze, festival e presentazioni',
   formAttendiTitolo:'Attendi un momento',
   formAttendiTesto:'Il modulo è stato inviato troppo velocemente. Riprova tra qualche secondo.',
@@ -113,8 +113,6 @@ function lsSet(k,v){try{localStorage.setItem(k,v);}catch(e){}}
       banner.hidden = false;
     });
   }
-  // API globale per riaprire il banner da altre pagine (es. privacy.html)
-  window.scOpenCookieBanner = function(){ banner.hidden = false; };
 })();
 
 /* ── MAIN APP (DOMContentLoaded) ── */
@@ -361,31 +359,6 @@ document.addEventListener('DOMContentLoaded', function() {
   /* BANNER "PORTE APERTE" rimosso: il messaggio del contributo è stato elevato in un elemento .contributo visibile in cima alla sezione (una sola fonte, niente duplicazioni). */
 
   /* TAB ANNI — gestito inline in index.html (click + navigazione da tastiera WAI-ARIA) */
-
-  /* CAROSELLO */
-  var track=document.getElementById('quotesTrack');
-  if(track){
-    var slides=track.querySelectorAll('.quote-slide'),cur=0,timer;
-    /* Accessibilità: etichetta ogni slide */
-    slides.forEach(function(s,i){
-      s.setAttribute('role','group');
-      s.setAttribute('aria-roledescription','Slide');
-      s.setAttribute('aria-label',SC_T.citazione+' '+(i+1)+' '+SC_T.di+' '+slides.length);
-    });
-    var counter=document.getElementById('carouselCounter');
-    function updCounter(){if(counter)counter.textContent=(cur+1)+' / '+slides.length;}
-    function readTime(n){var el=slides[n].querySelector('.quote-slide-text');var words=(el?el.textContent:'').trim().split(/\s+/).length;return Math.max(6000,words*400);}
-    function goTo(n){cur=(n+slides.length)%slides.length;track.style.transform='translateX(-'+(cur*100)+'%)';updCounter();clearInterval(timer);timer=setTimeout(function(){goTo(cur+1);},readTime(cur));}
-    document.getElementById('prevBtn').addEventListener('click',function(){goTo(cur-1);});
-    document.getElementById('nextBtn').addEventListener('click',function(){goTo(cur+1);});
-    /* Touch/swipe support */
-    var tx=0,moving=false;
-    track.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;moving=true;},{passive:true});
-    track.addEventListener('touchmove',function(e){e.preventDefault();},{passive:false});
-    track.addEventListener('touchend',function(e){if(!moving)return;moving=false;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40){dx<0?goTo(cur+1):goTo(cur-1);}});
-    timer=setTimeout(function(){goTo(cur+1);},readTime(cur));
-    updCounter();
-  }
 
   /* CLOSE MOBILE MENU ON LINK CLICK */
   document.querySelectorAll('.nav-links a').forEach(function(link){

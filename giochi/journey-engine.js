@@ -162,7 +162,6 @@ function handleRoomChoice(idx,rm,card,choicesW,wrap,p){
   // Update luce bar
   const luceEl=wrap.querySelector(".luce-fill");
   if(luceEl)luceEl.style.width=Math.round(Math.max(0,S.luce)/D.maxLuce*100)+"%";
-  const luceVal=wrap.querySelector("[style*='tabular-nums']");
   // Check game over
   if(S.luce<=0){
     S.ended=true;S.endingKey="gameOver";save();

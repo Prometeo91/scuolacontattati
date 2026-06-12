@@ -28,7 +28,6 @@
 
   let currentScreen;
   function shuffle(a) { const b=a.slice(); for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];} return b; }
-  function pickN(a,n) { return shuffle(a).slice(0,n); }
   function letter(i) { return String.fromCharCode(65+i); }
 
   /* ============ HOME ============ */

@@ -158,9 +158,6 @@
   [data-theme="light"] body { background-attachment: scroll; }
 }
 /* Vignette dall'alto: alba dorata (era fantasma a 0.08) */
-[data-theme="light"] body::before {
-  background: radial-gradient(ellipse 1200px 600px at 50% -10%, rgba(232,201,122,0.18) 0%, rgba(232,201,122,0.06) 35%, transparent 70%);
-}
 /* Selezione testo coerente con palette */
 [data-theme="light"] ::selection { background: rgba(232,201,122,0.55); color: #2a1f08; }
 [data-theme="light"] ::-moz-selection { background: rgba(232,201,122,0.55); color: #2a1f08; }
@@ -790,7 +787,7 @@ section#insegnamenti, section#seminario, section#faq {
 .teacher-role { font-size: 12px; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; font-family: var(--font-sans); }
 
 /* CALENDARIO — event-row stile pergamena (più snella) */
-.calendar-list { display: flex; flex-direction: column; gap: 10px; }
+.calendar-list { display: flex; flex-direction: column; gap: 14px; position: relative; padding-left: 3.5rem; }
 .event-row {
   position: relative;
   background: rgba(255,255,255,0.018);
@@ -1117,7 +1114,6 @@ select:focus-visible {
 .evento-vline { width:0.5px; height:32px; background:var(--border); flex-shrink:0; }
 .evento-titolo { font-size: 16px; font-weight:500; color:var(--text); }
 .evento-dettaglio { font-size: 13px; color:var(--text-muted); }
-.section-label-small { font-size: 11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:0.75rem; }
 
 /* Body text reusable */
 .body-text { font-size: 17px; color:var(--text-reading); line-height:1.8; max-width: 68ch; }
@@ -1585,11 +1581,6 @@ section#ispirazioni > * { position: relative; z-index: 1; }
    ========================================================== */
 
 /* Container: aggiunge la linea dorata verticale continua a sinistra */
-.calendar-list {
-  position: relative;
-  padding-left: 3.5rem;
-  gap: 14px;
-}
 .calendar-list::before {
   content: '';
   position: absolute;
@@ -1678,8 +1669,6 @@ section#ispirazioni > * { position: relative; z-index: 1; }
   display: none;
 }
 /* Pseudo-elemento con numero romano, generato via data attr sul lesson-wrap */
-.calendar-list .lesson-wrap {
-}
 .calendar-list .lesson-wrap > .event-row::before {
   content: counter(lezione, upper-roman);
   position: absolute;
