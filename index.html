@@ -496,7 +496,7 @@
 <body id="top">
 
 <!-- ANNUNCIO SEMINARIO ESTIVO -->
-<div class="seminar-announce" id="seminarAnnounce">
+<div class="seminar-announce" id="seminarAnnounce" data-expires="2026-07-26">
   <span>✨ <strong>Seminario in natura</strong> — Ricchezza, Abbondanza e Mission · Domenica 26 luglio 2026 · <a href="#seminario" class="seminar-announce-link">Scopri di più →</a></span>
   <button class="seminar-announce-close" id="seminarAnnounceClose" aria-label="Chiudi annuncio">×</button>
 </div>
@@ -969,7 +969,7 @@
   <p class="section-sub">Esperienze in presenza per portare gli Insegnamenti nella vita vissuta.</p>
 
   <!-- Evento 1: Residenziale (riservato 4° anno) -->
-  <div class="seminar-section sr">
+  <div class="seminar-section sr" data-expires="2026-06-28">
     <div class="seminar-flyer">
       <img src="images/residenziale-giugno-2026.jpg" width="1551" height="1208" alt="Locandina del Residenziale esperienziale in presenza - 26-28 giugno 2026" loading="lazy" decoding="async" id="residenzialeFlyer" style="cursor:zoom-in;height:auto;" title="Clicca per ingrandire"/>
     </div>
@@ -1000,7 +1000,7 @@
   </div>
 
   <!-- Evento 2: Seminario in natura (aperto a tutti) -->
-  <div class="seminar-section sr" style="margin-top:2rem;">
+  <div class="seminar-section sr" data-expires="2026-07-26" style="margin-top:2rem;">
     <div class="seminar-flyer">
       <img src="images/seminario-luglio-2026.jpg" width="1280" height="863" alt="Locandina del seminario Ricchezza, Abbondanza e Mission - 26 luglio 2026" loading="lazy" decoding="async" id="seminarFlyer" style="cursor:zoom-in;height:auto;" title="Clicca per ingrandire"/>
     </div>
@@ -1189,45 +1189,14 @@
       <div class="evento-vline"></div>
       <div class="event-info">
         <p class="event-title">Presentazioni & eventi</p>
-        <p class="body-text-xs">6 eventi tra conferenze, festival e presentazioni</p>
+        <p class="body-text-xs" id="presCount">6 eventi tra conferenze, festival e presentazioni</p>
       </div>
       <span class="detail-pill">Eventi ▾</span>
       <span class="expand-arrow">▼</span>
     </div>
     <div class="lesson-panel" id="pres-panel">
       <div class="lesson-panel-inner">
-    <div class="pres-list">
-      <div class="evento-card">
-        <div class="evento-data"><p class="evento-giorno">13</p><p class="evento-mese">Nov 2025</p></div>
-        <div class="evento-vline"></div>
-        <div class="flex-1"><p class="evento-titolo">Evento letterario — IKOS Formazione</p><p class="evento-dettaglio">Via Giovanni Amendola 162/1, Bari</p></div>
-      </div>
-      <div class="evento-card">
-        <div class="evento-data"><p class="evento-giorno">10</p><p class="evento-mese">Ott 2025</p></div>
-        <div class="evento-vline"></div>
-        <div class="flex-1"><p class="evento-titolo">Conferenza gratuita — Libreria Roma</p><p class="evento-dettaglio">P.zza Aldo Moro 13, Bari</p></div>
-      </div>
-      <div class="evento-card">
-        <div class="evento-data"><p class="evento-giorno">27</p><p class="evento-mese">Set 2025</p></div>
-        <div class="evento-vline"></div>
-        <div class="flex-1"><p class="evento-titolo">Macrolibrarsi Fest — Presentazione libro</p><p class="evento-dettaglio">Cesena · Fiera del libro consapevole</p></div>
-      </div>
-      <div class="evento-card">
-        <div class="evento-data"><p class="evento-giorno">5</p><p class="evento-mese">Set 2025</p></div>
-        <div class="evento-vline"></div>
-        <div class="flex-1"><p class="evento-titolo">Presentazione Scuola — Il Mondo che Voglio</p><p class="evento-dettaglio">Palese (Bari)</p></div>
-      </div>
-      <div class="evento-card">
-        <div class="evento-data"><p class="evento-giorno">3</p><p class="evento-mese">Set 2025</p></div>
-        <div class="evento-vline"></div>
-        <div class="flex-1"><p class="evento-titolo">Presentazione Scuola — Libreria Roma</p><p class="evento-dettaglio">P.zza Aldo Moro 13, Bari</p></div>
-      </div>
-      <div class="evento-card">
-        <div class="evento-data"><p class="evento-giorno">19</p><p class="evento-mese">Lug 2025</p></div>
-        <div class="evento-vline"></div>
-        <div class="flex-1"><p class="evento-titolo">Festival Harmoniae Mundi — "Dove dimora la Ricchezza?"</p><p class="evento-dettaglio">Masseria La Gatta Matta, Noci (BA)</p></div>
-      </div>
-    </div>
+    <div class="pres-list" id="presList"></div>
       </div>
     </div>
   </div>
@@ -1600,132 +1569,11 @@
   });
 })();
 </script>
+<script src="data/citazioni.js"></script>
 <script>
 /* ORACOLO ISPIRAZIONI */
 (function(){
-  var quotes = [
-  {t:'Una mente grata è una grande mente che alla fine attrae a sé grandi cose.',a:'Platone'},
-  {t:'L\'Abbondanza non è qualcosa che acquisisci, ma è qualcosa con cui sintonizzarti.',a:'Wayne Dyer'},
-  {t:'Colui che vuole veramente impegnarsi nella via del bene deve sapere che non potrà evitare gli attacchi del male. Il male ha il compito di detestarvi e combattervi e, se proseguite nella stessa direzione divina malgrado i suoi attacchi, avete la prova della vostra grande elevazione.',a:'Omraam Mikhaël Aïvanhov'},
-  {t:'Quando inizi a comprendere davvero le persone, il giudizio svanisce. Ognuno porta dentro di sé battaglie invisibili, ferite nascoste e lezioni ancora in corso. Essere empatici significa vedere oltre i difetti, riconoscere l\'anima che c\'è dietro le maschere.',a:'Scuola ContattaTi'},
-  {t:'Si racconta che Alessandro il Grande, prima della sua morte, fece tre richieste: che la sua bara fosse portata dai migliori medici, che i suoi tesori fossero sparsi lungo il cammino, e che le sue mani restassero fuori dalla bara. Siamo arrivati a mani vuote e ce ne andiamo a mani vuote.',a:'Leggenda di Alessandro il Grande'},
-  {t:'L\'uomo è la specie più folle: venera un Dio invisibile e distrugge una Natura visibile. Senza rendersi conto che la Natura che sta distruggendo è quel Dio che sta venerando.',a:'Hubert Reeves'},
-  {t:'Abbiamo accumulato tante ferite e, se non ne siamo consapevoli, tutte le nostre azioni diventano reazioni a quelle ferite. Nella conoscenza di Sé c\'è la fine del dolore e quindi l\'inizio della saggezza.',a:'J. Krishnamurti'},
-  {t:'La religione è per chi dorme. La spiritualità è per chi è sveglio. La religione reprime tutto, ti rende falso. La spiritualità trascende tutto, ti rende vero. La spiritualità è Divina, senza regole. È causa dell\'Unione.',a:'Enzo Palomba'},
-  {t:'La Ricchezza non è possesso, ma Presenza. L\'Abbondanza non è quantità, ma Qualità dell\'Essere. La Missione non è ruolo, ma Espressione dell\'Anima in azione.',a:'Anna Carla Digregorio & Nicolaos Anifantis'},
-  {t:'Non si tratta di attrarre. Si tratta di ricordare chi siamo. E permettere all\'oro interiore di emergere.',a:'Scuola ContattaTi'},
-  {t:'Dal Piombo all\'Oro, dal Bruco alla Farfalla: l\'alchimia è il potere innato dell\'essere umano di trasformare sé stesso. Ogni ostacolo si trasforma in soglia, ogni ferita in portale, ogni talento in offerta.',a:'Dal libro Ricchezza, Abbondanza e Mission'},
-  {t:'Esistono menti che si interrogano, che desiderano la verità del cuore, la cercano, si sforzano di risolvere i problemi generati dalla vita. Se un uomo ragiona e pensa bene, deve inevitabilmente ritornare a se stesso, ed incominciare dalla soluzione del problema di che cosa egli stesso sia.',a:'Georges Ivanovitch Gurdjieff'},
-  {t:'La vita di ogni uomo è una via verso sé stesso. Quando odiamo qualcuno, odiamo nella sua immagine qualche cosa che sta dentro di noi. Ciò che non è in noi non ci mette agitazione.',a:'Hermann Hesse'},
-  {t:'Tu sei già ciò che vuoi realizzare. Il fine della tua aspirazione esiste già, presente in te. Qui e ora, in questo preciso istante, tu sei ciò che è noto come divino.',a:'Osho'},
-  {t:'La felicità è un affiorare interiore; è un risveglio delle tue energie; è un risveglio della tua anima.',a:'Osho'},
-  {t:'La vita inizia dove finisce la paura.',a:'Osho'},
-  {t:'Chi guarda sé stesso rischia di incontrare sé stesso. Lo specchio non lusinga, mostra diligentemente quella faccia che non mostriamo mai al mondo perché la nascondiamo dietro la maschera dell\'attore.',a:'Carl Gustav Jung'},
-  {t:'Atto d\'amore è accogliere in noi la nostra parte più ferita e fragile. Arriva il momento in cui ci accorgiamo che l\'ultimo degli uomini siamo noi.',a:'Carl Gustav Jung'},
-  {t:'Colui che cerca non desista dal cercare fino a quando non avrà trovato; quando avrà trovato si stupirà. Quando si sarà stupito, si turberà e dominerà su tutto.',a:'Vangelo di Tommaso'},
-  {t:'Racchiudi la Verità nel tuo Cuore, e che essa parli attraverso le tue Opere. La Scienza sarà la tua forza; la Fede la tua spada; e il Silenzio la tua corazza impenetrabile.',a:'Ermete Trismegisto'},
-  {t:'L\'Albero della Vita affonda le sue radici nel tuo stesso cuore.',a:'Gialad-ad-din Rumì'},
-  {t:'Se potessimo vedere il miracolo di un singolo fiore, la nostra intera vita cambierebbe.',a:'Buddha'},
-  {t:'Ogni essere è una scintilla del divino. Tu non sei separato dalla globalità. Sei una cosa sola con il sole, la terra, l\'aria. Tu non hai una vita. Tu sei la vita.',a:'Eckhart Tolle'},
-  {t:'Non sottovalutare mai il potere di credere in qualcosa che ancora non esiste. A volte il mondo ha solo bisogno che tu sia il primo a vederlo.',a:'Jim Carrey'},
-  {t:'L\'unico modo in cui l\'uomo può contribuire alla costruzione di questa forma gloriosa è quello di coltivare un AMORE PURO, altruistico, benefico, universale. Amore puro diede origine all\'universo, amore puro lo sostiene, amore puro lo spinge verso la perfezione.',a:'Sapienza Antica'},
-  {t:'Quando l\'ignoranza urla, l\'intelligenza tace. La tua pace e tranquillità valgono di più.',a:'Scuola ContattaTi'},
-  {t:'Se non state servendo uno scopo più elevato in maniera volontaria, allora non state vivendo, ma solo esistendo.',a:'Salvatore Brizzi'},
-  {t:'Ogni difficoltà ed ogni sofferenza è una lezione di apprendimento dell\'amore.',a:'Anna Carla Digregorio'},
-  {t:'Chi ha abbandonato l\'ego non ha più cose che gli piacciono e cose che non gli piacciono: qualsiasi cosa gli si presenti, ne gioisce. Non pone più condizioni all\'esistenza — vive incondizionatamente.',a:'Osho, La via della gioia'},
-  {t:'Il mondo si fiderebbe più di un guru che lo convinca di essere illuminato, o preferirebbe che gli indicasse quanto è profondo il suo sonno? E tu che leggi, sei sicuro di riuscire a discernere ciò che ti piace da ciò che più ti serve?',a:'Fabio Pietro Iacontino, Intelligentia Solis'},
-  {t:'Non chiedersi perché ci è accaduto un certo evento è come usare le parole senza coglierne il significato — come se la parola \'amore\' si esaurisse nel suono e non significasse qualcosa di concreto.',a:'Salvatore Brizzi'},
-  {t:'È sempre il falso che ti fa soffrire: i falsi desideri, le false paure, i falsi valori e i falsi rapporti con la gente. Abbandona il falso e sarai libero dal dolore — la verità rende felici, la verità affranca.',a:'Nisargadatta Maharaj'},
-  {t:'Il senso del dovere senza amore rende imbronciati. La responsabilità senza amore rende implacabili. La giustizia senza amore rende duri. La saggezza senza amore rende fasulli. Il potere senza amore rende crudeli. La risposta è sempre l\'amore.',a:'Lao Tzu'},
-  {t:'Non imparerai mai nulla dalla vita se credi di avere sempre ragione.',a:'Keanu Reeves'},
-  {t:'Quando siete malati cercate la guarigione, nel senso che volete tornare alla condizione precedente la malattia, ma quella condizione è stata la causa della malattia! Guarire significa invece diventare una persona nuova.',a:'Salvatore Brizzi'},
-  {t:'Se una cosa fa male, vuol dire che qualcosa dentro di te è stato represso. Invece di evitare il dolore, entraci dentro — così la ferita è totalmente esposta e comincia a guarire.',a:'Osho'},
-  {t:'L\'essere umano è situato al confine tra il mondo inferiore e il mondo superiore. Se si lascia assorbire dalle forze del mondo superiore, diventa un focolaio di correnti luminose. Ma deve mantenere l\'equilibrio fra la terra e il Cielo: la sua missione è lavorare sulla terra con i mezzi del Cielo.',a:'Omraam Mikhaël Aïvanhov'},
-  {t:'La Strega insegnò al guerriero l\'umiltà e il rispetto. Il Guerriero insegnò alla strega il valore e il coraggio. Insieme insegnarono al mondo l\'Amore. Il mondo uccise la strega e rese schiavo il guerriero. Ma non poté impedire all\'amore di fare rinascere la strega e liberare il guerriero.',a:'Tradizione orale'},
-  {t:'Se escludiamo il male facendo finta che non esista, non vivremmo mai una vita vera. Per vedere la bellezza bisogna svegliarsi, e per svegliarsi bisogna avere il coraggio di vedere le cose come stanno — questa è la cosa più difficile.',a:'Giovanni Berti'},
-  {t:'Impara a camminare sulla terra chi considera il cielo come vivente. Maestro è chi marcia sicuro sulla Terra. Non rinunciate alla vita terrena senza prima averla ben compresa. Quando l\'ora scocca, anche una formica può essere un messaggero.',a:'Foglie del Giardino di Morya, Illuminazione 1925'},
-  {t:'Consapevolezza e sofferenza sono inversamente proporzionali: se c\'è una non c\'è l\'altra. La consapevolezza unita all\'accettazione spalanca i cancelli all\'amore. Sei cambiato al tuo interno e, di conseguenza, è cambiato il tuo destino.',a:'Roberto Potocniak'},
-  {t:'Tutti credono si tratti dell\'egoismo delle altre persone, non del loro. Ma l\'unica persona al mondo che puoi cambiare è proprio quella dalla quale non ti separi mai. Quando il tuo Cuore si apre, realizzi che l\'unico problema del mondo eri tu.',a:'Salvatore Brizzi'},
-  {t:'Non risolvi un incubo lavorando sull\'incubo. L\'incubo scompare svegliandosi dallo stato di sonno ipnotico nel quale si stava vivendo. Non lavorare sul sintomo, bensì sulla causa radice.',a:'Roberto Potocniak'},
-  {t:'Mantieni la tua anima forte e pulita e tutto andrà bene. Non credere di essere solo, né debole, perché dentro di te ci sono eserciti potenti che nemmeno puoi immaginare. Se elevi il tuo spirito, non c\'è niente che possa toccarti. L\'unico nemico che devi temere è te stesso.',a:'Paracelso'},
-  {t:'Gesù non vede il cieco come colui che ha sbagliato, ma come colui che è pronto a manifestare una qualità divina alla massima potenza. Non giudicare dalle apparenze: ogni difficoltà può essere la sfida al massimo livello per il perfezionamento.',a:'Scuola ContattaTi'},
-  {t:'Il desiderio di longevità è contro natura ed è satanico se non è giustificato dal desiderio di servire più a lungo assecondando la propria missione.',a:'Salvatore Brizzi'},
-  {t:'I due passaggi iniziatici per essere pronti ad accedere ad una via oggettiva: 1. La completa disillusione verso il mondo. 2. La completa disillusione verso sé stessi, verso ciò che si crede di essere e di poter fare.',a:'Roberto Potocniak'},
-  {t:'Tu non puoi cambiare nessuno. Nella vita ci si innalza solo per propria scelta. Tu puoi solo portare avanti la tua Missione mostrando nelle parole e nei fatti un nuovo mondo possibile.',a:'Salvatore Brizzi'},
-  {t:'La disobbedienza richiede un\'intelligenza di ordine leggermente superiore. La persona intelligente si chiederà prima o poi: perché? Così si diventa responsabili di sé.',a:'Osho'},
-  {t:'Diffidate delle grandi parole gridate in piazza; rifuggite l\'amore generalista, non concreto. Il Vangelo non proclama ideologie… e in questo risiede la sua forza.',a:'Salvatore Brizzi'},
-  {t:'Fuggire le false tranquillità, aprire gli occhi infinitamente, come è infinita la luce, è sempre un momento di fioritura di sé stessi.',a:'Daniel Meurois &amp; Anne Givaudan'},
-  {t:'L\'amore è forza rivoluzionaria, poiché rovescia l\'algida geometria del do ut des. È la cellula della comunità. Amare significa realizzarsi con l\'altro, volendo che l\'altro sia pienamente.',a:'Diego Fusaro'},
-  {t:'Non aver paura di fallire… Abbi paura di non averci provato… Abbi paura di non averne goduto nel farlo… Abbi paura di non amare abbastanza ciò che fai… Ma mai del fallimento…',a:'Anna Carla Digregorio'},
-  {t:'Abbi Fede e lascia che sia… asseconda con Grazia il torrente dell\'Esistenza… e potresti accorgerti che così la vita risulta anche divertente!',a:'Anna Carla Digregorio'},
-  {t:'Fino a quando argomenti come Legge dello Specchio, giudizio e Legge di Compensazione non vi sono ben chiari, a cosa mai può servirvi purificare un chakra? Vi addormenterete ancora di più.',a:'Salvatore Brizzi'},
-  {t:'Spiritualità fast-food: credere che esistano rimedi facili e rapidi. La trasformazione spirituale non può essere rapida perché il processo stesso consiste nel lasciare la fretta e rispettare i propri ritmi naturali.',a:'Angy Scrò'},
-  {t:'La Comunione di Coppia è di per sé un riflesso dell\'Amore Divino. Comunione di Coppia che è il primo passo verso la Comunione con il Tutto.',a:'Anna Carla Digregorio &amp; Nicolaos Anifantis'},
-  {t:'Abbi Fede, la luce c\'è certamente! È lì fuori che ti aspetta… Impegniamoci al massimo per forzare la porta e permetterci di vederla, quella Luce fino ad allora solo teorizzata.',a:'Anna Carla Digregorio'},
-  {t:'Di Gesù non bisogna prenderci solo ciò che ci piace e che ci sembra convenire. Di Lui dobbiamo imparare a prendere anche tutto ciò che rigettiamo perché scardina le nostre convinzioni. Ma alla fine proprio lì si gioca il meglio della vita.',a:'Luigi Maria Epicoco'},
-  {t:'L\'amore è un fenomeno circolare: esce ed entra, amplificandosi sempre più. Più dai, più ricevi. Molti si lamentano di aver dato tanto senza ricevere niente: questo accade sempre quando si dà solo per ricevere… che non è dare, ma mendicare.',a:'Roberto Potocniak'},
-  {t:'Considerare la vita come una scuola meravigliosa, come una dura ma salutare palestra dove si temprano le più alte qualità e poteri umani e spirituali. Di fronte a ogni prova, invece delle abituali reazioni di abbattimento, dirsi: quale bene ne posso trarre?',a:'Roberto Assagioli'},
-  {t:'La bellezza ispira resistenza. Lo stato naturale dell\'uomo è difendere le cose belle. Stanno attaccando la tua anima. Stanno uccidendo qualsiasi cosa possa ispirare la tua resistenza. È fatto di proposito. Diffidate.',a:'Salvatore Brizzi'},
-  {t:'Per quanto è possibile, tramite la conoscenza, la fede, la speranza e l\'amore, si deve aiutare la vita a mantenersi. Non bisogna permettere alle forze negative di riportare la vittoria.',a:'Omraam Mikhaël Aïvanhov'},
-  {t:'Tutto lo spirito che non si radica nella materia è volatile ed effimero. Il corpo è l\'unico vero tempio dello Spirito. Diamoci da fare, alziamoci le maniche e affrettiamoci lentamente, con i piedi ben radicati a terra.',a:'Sapienza della tradizione'},
-  {t:'La verità è come un leone. Non avrai bisogno di difenderla. Lasciala libera. Si difenderà da sola.',a:'Sant\'Agostino'},
-  {t:'Dico e attesto che il Nostro Potere è diverso. Il Nostro Potere è sacrificio.',a:'Foglie del Giardino di Morya, Appello 1924'},
-  {t:'La vita reale inizia quando \'Io ci sono\' e sono \'Presente a me stesso\'. Solo allora posso iniziare a creare un futuro che non sia solo un copia-incolla del mio passato.',a:'Roberto Potocniak'},
-  {t:'C\'è un unico fondamentale requisito perché una relazione sentimentale possa sopravvivere a sé stessa: la presenza di un contenitore più grande, comune ad entrambi. Due \'iniziati\' che vivono ogni giornata con la gioia di una nuova scoperta hanno un territorio comune di qualità elevatissima.',a:'Antonio Esposito'},
-  {t:'Il ricordo di sé è uno stato di meraviglia, nel quale la mente tace. Ti commuovi perché sei vivo, non perché ti è successo qualcosa di particolare. Finalmente, ti senti vivo.',a:'Salvatore Brizzi'},
-  {t:'Il femminino sacro è la capacità dell\'essere umano, nella sua ascesa al Padre, di creare e portare frutti nella materia venendo direttamente fecondato da Dio senza interferenza umana. Sarà questo il femminino sacro che dovremo incarnare.',a:'Anna Carla Digregorio'},
-  {t:'L\'Intelligenza cosmica non comincia mai dalla sofferenza, ma ricorre a quest\'ultima solo dopo aver provato di tutto per far riflettere gli umani.',a:'Omraam Mikhaël Aïvanhov'},
-  {t:'Non incolpare mai, non lamentarti mai di nessuno, di niente. Il trionfo del vero uomo proviene dalle ceneri del suo errore. Guarda te stesso allo specchio, sarai libero e forte, perché tu stesso sei il tuo destino.',a:'Pablo Neruda'},
-  {t:'Non è il male che sta aumentando: sta aumentando la luce. Immagini di aver immagazzinato per anni i suoi oggetti in una stanza illuminata da una lampadina da 40 watt. Cambi quella lampadina con una da 100 watt e vedrà cosa accade! Lo sporco sarà evidente.',a:'Sai Baba'},
-  {t:'Quando risparmi qualcuno, quando lo approvi nei suoi peccati, quando non condividi con lui la Verità, allora non lo ami. Il vero amore si mette in gioco, soffre per l\'altro, agisce. Fino alla fine di tutto.',a:'Padre Costantino Sturzu'},
-  {t:'Sii te stesso in ogni situazione. Nessuna tempesta ha il potere di sradicare le tue radici, se tu non vuoi. Ascolta l\'intuito. Solo tu conosci la tua Verità.',a:'Insegnamento spirituale'},
-  {t:'Il vero scopo della coppia non è tanto \'stare insieme\' ma \'creare insieme\'. Una coppia che non crea va contro l\'impulso dell\'Universo. In una coppia si è in 3: tu, io e la relazione. Il mio spazio interiore è sacro, sacro come il tuo.',a:'Nicolas Tamayo'},
-  {t:'I demoni vanno abbracciati, in quel momento ti apriranno le porte della rinascita. I demoni sono come i draghi, vanno baciati, non vanno uccisi.',a:'Bride An Geal'},
-  {t:'La natura superiore vi dice: invece di rimuginare e di cercare la vendetta, cerca piuttosto di utilizzare e trasformare quell\'offesa. Tu sei un alchimista, ricaverai dell\'oro.',a:'Omraam Mikhaël Aïvanhov'},
-  {t:'L\'origine della guerra è nel sonno del genere umano. Per cavarvela nei prossimi anni dovete svegliarvi e \'uscire dal genere umano\'.',a:'Georges I. Gurdjieff, via Salvatore Brizzi'},
-  {t:'L\'angolo più oscuro dell\'inferno è riservato a coloro che mantengono la loro neutralità in momenti di crisi morale.',a:'Dante Alighieri, La Divina Commedia'},
-  {t:'Il pittore, lo scienziato, l\'uomo curioso: tutti coloro che osservano il mondo con attenzione scoprono dettagli che sfuggono agli altri. È nella capacità di meravigliarsi e di interrogarsi continuamente che nasce la vera conoscenza.',a:'Leonardo Da Vinci'},
-  {t:'Chi si conosce, non si lascia turbare dagli eventi.',a:'Seneca'},
-  {t:'Che accadrebbe se, un giorno o una notte, un demone ti dicesse: questa vita dovrai viverla ancora innumerevoli volte, e non ci sarà in essa mai niente di nuovo?',a:'Friedrich Nietzsche, L\'eterno ritorno'},
-  {t:'La verità era uno specchio che cadendo dal cielo si ruppe. Ciascuno ne prese un pezzo e vedendo riflessa in esso la propria immagine, credette di possedere l\'intera verità.',a:'Jalāl al-Dīn Rūmī'},
-  {t:'Una volta per tutte ti viene imposto un breve precetto: ama e fa ciò che vuoi. Sia che tu taccia, taci per amore. Sia che tu parli, parla per amore. Sia in te la radice dell\'amore, poiché da questa radice non può procedere se non il bene.',a:'Sant\'Agostino'},
-  {t:'Non va piantato un albero il giorno in cui vuoi l\'ombra.',a:'Proverbio Zen'},
-  {t:'Tutto quello che stai attraversando, ti sta preparando a ciò che hai chiesto.',a:'Eckhart Tolle'},
-  {t:'Dio dorme nelle pietre, sogna nelle piante, si risveglia nell\'animale e diventa cosciente nell\'essere umano.',a:'Antico aforisma'},
-  {t:'Se l\'uomo non è capace di governare le proprie emozioni e le proprie pulsioni, non sarà mai in grado di dominare se stesso.',a:'Cicerone'},
-  {t:'Per mezzo della Temperanza l\'uomo diventa saggio, e soltanto il saggio può sperimentare il piacere autentico — ed è questo che lo renderà differente da un animale.',a:'Aristotele'},
-  {t:'Nella bottega di Dio non si vendono i frutti maturi, ma i piccoli semi da coltivare. Vai nel mondo e fai germogliare i doni che Dio ti ha donato.',a:'Parabola della bottega dei doni di Dio'},
-  {t:'La geometria è musica solidificata.',a:'Pitagora'},
-  {t:'La via non è nel cielo: la via si trova nel cuore.',a:'Buddha'},
-  {t:'Per questo vi dico: tutte le cose che chiedete in preghiera, abbiate fede di averle già ricevute e le avrete.',a:'Marco 11:24'},
-  {t:'I due giorni più importanti della vita sono quello in cui sei nato e quello in cui capisci perché.',a:'Mark Twain'},
-  {t:'Io sono venuto nel mondo come luce, perché chiunque crede in me non rimanga nelle tenebre.',a:'Giovanni 12,46'},
-  {t:'Nessuno ha un amore più grande di questo: dare la sua vita per i propri amici.',a:'Giovanni 15,13'},
-  {t:'L\'idea di servire Dio ha un senso solo se l\'essere umano prende coscienza che la divinità che egli deve servire dimora nella propria anima.',a:'Omraam Mikhaël Aïvanhov'},
-  {t:'Tu non hai una vita, tu sei la vita. L\'unica vita, l\'unica consapevolezza assume la forma di un uomo o di una donna, un filo d\'erba, un cane, un pianeta, il sole, una galassia. Questo è il gioco delle forme, la danza della vita.',a:'Eckhart Tolle'},
-  {t:'Il vero amore è fatto di gentilezza amorevole, di capacità di offrire felicità agli altri, di compassione, di gioia condivisa e di libertà per l\'uno e per l\'altro.',a:'Thich Nhat Hanh'},
-  {t:'Ti lodo, Padre, Signore del cielo e della terra, perché hai nascosto queste cose ai sapienti e ai dotti e le hai rivelate ai piccoli.',a:'Matteo 11:25'},
-  {t:'Ricerca il vuoto ed il silenzio con tutto il tuo essere, quell\'essere stesso fatto di vuoto e silenzio. Ricercandoli ti ritroverai, e ritrovandoti diverrai ciò che cerchi.',a:'Meditazione della Scuola ContattaTi'},
-  {t:'Una vita senza ricerca non è degna per l\'uomo di essere vissuta.',a:'Socrate'},
-  {t:'Di tutto il creato, l\'uomo è l\'unico essere duplice: mortale secondo la sua corporeità, immortale secondo la sua essenza.',a:'Ermete Trismegisto'},
-  {t:'Tu ora sei quell\'anima che in questa terra puoi ricongiungere ciò che viene visto come separato. Tu ora sei quell\'anima che attraverso l\'amore puoi tornare ad essere quella luce che annulla l\'oscurità.',a:'Meditazione della Scuola ContattaTi'},
-  {t:'Tu non sei quella ferita, sei solo identificato con la sua maschera. Lascia andare quell\'identificazione e la ferita svanirà.',a:'Meditazione della Scuola ContattaTi'},
-  {t:'La conoscenza è Magia ed è la sola Legge. Non abbiate paura del potere dentro di voi, poiché esso segue la Legge come le stelle nel cielo. Segui e impara la mia Magia. Sappi che tutta la Forza è tua, se lo vorrai.',a:'Toth l\'Atlantideo, Tavole di Smeraldo'},
-  {t:'Non cercare il mondo in te stesso, ma trova te stesso nel mondo.',a:'Antico proverbio egizio'},
-  {t:'Non portare il mondo nel rito: porta il rito nel mondo.',a:'Massima iniziatica'},
-  {t:'Il tempo non guarisce; la presenza sì.',a:'Massima iniziatica'},
-  {t:'I demoni interiori non sono nemici, ma parti rimaste sospese. Quando li vediamo senza paura, quando li ascoltiamo senza giudizio, la loro forma cambia. Ciò che sembrava ombra rivela la sua origine.',a:'Meditazione della Scuola ContattaTi'},
-  {t:'Il genio è colui che è a suo agio nel disagio.',a:'Joe Dispenza'},
-  {t:'Quando incontri qualcuno ricordati che è un incontro sacro. Come lo vedi ti vedi, come lo tratti ti tratti, come lo pensi ti pensi.',a:'Meditazione della Scuola ContattaTi'},
-  {t:'Scopri chi sei e non avere paura di realizzarlo.',a:'Mahatma Gandhi'},
-  {t:'L\'amicizia è sempre una dolce responsabilità, mai un\'opportunità.',a:'Khalil Gibran'},
-  {t:'Nella mente nasce la sofferenza. Nella mente può essere risolta.',a:'Buddha'},
-  {t:'La verità non è qualcosa da conoscere. È qualcosa da ricordare.',a:'Scuola ContattaTi'},
-  {t:'Mi raccomando a morire vivi.',a:'Georges Ivanovitch Gurdjieff'},
-  {t:'Sei divino, non dimenticarlo mai. Siamo tutti uno, in eterno contatto con l\'anima unica.',a:'Giordano Bruno'},
-  {t:'La gratitudine è la memoria del cuore.',a:'Lao Tzu'},
-  {t:'Il segreto dell\'evoluzione non è diventare qualcuno che non siamo, bensì tirar fuori ciò che siamo realmente.',a:'Ermete Trismegisto'}
-];
+  var quotes = window.SC_QUOTES.map(function(q){return q.it;});
   var textEl=document.getElementById('quoteText');
   var authorEl=document.getElementById('quoteAuthor');
   var counterEl=document.getElementById('quoteCounter');
@@ -1754,6 +1602,7 @@
   next();
 })();
 </script>
+<script src="data/eventi.js" defer></script>
 <script src="app.js" defer></script>
 <script>
 /* SIGILLI GIOCHI — mostra ✦ sulle card dei giochi completati */
