@@ -12,6 +12,11 @@
 "use strict";
 const LS_LANG="sc-lang", LS_THEME="sctheme";
 
+/* Service worker: i giochi visitati restano disponibili offline */
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>{navigator.serviceWorker.register('/sw.js').catch(()=>{});});
+}
+
 window.GameCore=function(I){
   function getLang(){return localStorage.getItem(LS_LANG)==="en"?"en":"it";}
   const t=I.makeT(getLang);

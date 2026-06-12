@@ -142,6 +142,19 @@ document.addEventListener('DOMContentLoaded', function() {
         if(nl) nl.style.display='none';
       }
     }
+    /* JSON-LD: rimuovi gli Event con endDate superata. Google esegue il JS,
+       quindi evita structured data di eventi passati senza interventi a mano.
+       Tocca solo gli script ld+json in forma array (il blocco eventi). */
+    document.querySelectorAll('script[type="application/ld+json"]').forEach(function(sc){
+      var data;try{data=JSON.parse(sc.textContent);}catch(e){return;}
+      if(!Array.isArray(data))return;
+      var kept=data.filter(function(o){
+        return !(o && o['@type']==='Event' && o.endDate && new Date(o.endDate)<now);
+      });
+      if(kept.length===data.length)return;
+      if(kept.length===0){sc.parentNode.removeChild(sc);}
+      else{sc.textContent=JSON.stringify(kept,null,2);}
+    });
   })();
 
   /* THEME TOGGLE */
@@ -378,6 +391,7 @@ document.addEventListener('DOMContentLoaded', function() {
         nl.classList.remove('open');
         btn.setAttribute('aria-expanded','false');
         btn.innerHTML='☰';
+        btn.setAttribute('aria-label',SC_T.apriMenu);
       }
     });
   });
@@ -625,6 +639,14 @@ document.addEventListener('DOMContentLoaded', function() {
     ov.addEventListener('click',function(e){if(e.target===ov)close();});
     document.addEventListener('keydown',function(e){if(e.key==='Escape'&&ov.classList.contains('active'))close();});
   })();
+
+/* ── SERVICE WORKER — cache offline per pagine e giochi visitati ── */
+(function(){
+  if(!('serviceWorker' in navigator))return;
+  window.addEventListener('load',function(){
+    navigator.serviceWorker.register('/sw.js').catch(function(){});
+  });
+})();
 
 /* ── HASH RE-SCROLL ──
    Quando si arriva da link esterno con #ancora (es. #giochi da Facebook),
