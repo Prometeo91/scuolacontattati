@@ -1229,18 +1229,18 @@ select:focus-visible {
 .serif-footer-quote { margin-top:0.75rem; font-style:italic; }
 
 /* GIOCHI — griglia e card */
-.giochi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
-.giochi-grid-lg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
-.gioco-card{text-decoration:none;color:inherit;display:flex;align-items:center;gap:12px;padding:16px 18px;position:relative}
+.giochi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.giochi-grid-lg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.gioco-card{text-decoration:none;color:inherit;display:flex;align-items:center;gap:14px;padding:18px 20px;position:relative}
 .gioco-card-lg{text-decoration:none;color:inherit;display:flex;align-items:center;gap:14px;padding:20px 22px;position:relative}
 /* Sigillo conquistato sulla card del gioco */
 .card-sigillo{position:absolute;top:8px;right:10px;font-size:14px;color:var(--gold-light);text-shadow:0 0 10px rgba(232,201,122,0.5);pointer-events:none}
 .gioco-icon{width:28px;height:28px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(72%) sepia(50%) saturate(500%) hue-rotate(5deg)}
 .gioco-icon-lg{width:36px;height:36px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(72%) sepia(50%) saturate(500%) hue-rotate(5deg)}
-.gioco-title{color:var(--gold-light);font-size:.95rem}
-.gioco-title-lg{color:var(--gold-light);font-size:1rem}
-.gioco-sub{color:var(--text-muted);font-size:.8rem;line-height:1.4}
-.gioco-sub-lg{color:var(--text-muted);font-size:.82rem;line-height:1.4}
+.gioco-title{color:var(--gold-light);font-size:1.05rem}
+.gioco-title-lg{color:var(--gold-light);font-size:1.1rem}
+.gioco-sub{color:var(--text-muted);font-size:.85rem;line-height:1.45}
+.gioco-sub-lg{color:var(--text-muted);font-size:.87rem;line-height:1.45}
 
 /* BIO TAGS */
 .bio-tag { font-size: 11px; padding:3px 10px; border-radius:999px; letter-spacing:0.03em; white-space:nowrap; }
@@ -1904,8 +1904,8 @@ html::before {
 
 /* ===== COUNTDOWN EVENTI ===== */
 .seminar-countdown{display:inline-flex;align-items:center;gap:0.5rem;margin-bottom:1rem;flex-wrap:wrap}
-.countdown-number{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:52px;padding:6px 10px;background:rgba(201,151,58,0.08);border:0.5px solid rgba(201,151,58,0.35);border-radius:10px}
-.countdown-value{font-family:var(--font-display);font-size:28px;font-weight:600;color:var(--gold-light);line-height:1.1}
+.countdown-number{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:58px;padding:7px 11px;background:rgba(201,151,58,0.08);border:0.5px solid rgba(201,151,58,0.35);border-radius:10px}
+.countdown-value{font-family:var(--font-display);font-size:32px;font-weight:600;color:var(--gold-light);line-height:1.1;font-variant-numeric:tabular-nums}
 .countdown-label{font-family:var(--font-sans);font-size:10px;font-weight:500;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;opacity:0.8}
 .countdown-sep{font-family:var(--font-display);font-size:20px;color:var(--gold);opacity:0.4;margin:0 2px}
 .countdown-tag{display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-sans);font-size:12px;font-weight:500;color:var(--gold-light);letter-spacing:0.06em;margin-left:0.75rem;padding:4px 12px;border-radius:999px;background:rgba(201,151,58,0.1);border:0.5px solid rgba(201,151,58,0.25)}
@@ -1925,7 +1925,7 @@ html::before {
 .seminar-section{background:rgba(201,151,58,0.04);border:0.5px solid rgba(201,151,58,0.3);border-radius:16px;padding:2rem;margin:0 auto;max-width:760px;display:flex;flex-direction:column;align-items:center;gap:1.8rem;}
 @media(max-width:768px){.seminar-section{gap:1.5rem;padding:1.4rem;}}
 .seminar-flyer{width:100%;display:flex;justify-content:center;}
-.seminar-flyer img{width:100%;max-width:380px;height:auto;border-radius:12px;border:1px solid var(--border);display:block;}
+.seminar-flyer img{width:100%;max-width:400px;height:auto;border-radius:8px;border:1px solid var(--border-hover);padding:10px;background:var(--surface);box-shadow:var(--card-shadow);display:block;}
 .seminar-content{width:100%;}
 .seminar-content h3{font-family:var(--font-display);color:var(--gold-light);font-size:24px;margin-bottom:0.3rem;line-height:1.25;}
 .seminar-content .seminar-sub{font-style:italic;color:var(--text-muted);font-size:15px;margin-bottom:1.1rem;}
