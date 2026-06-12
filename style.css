@@ -91,6 +91,9 @@
   --gold-light: #e8c97a;
   --text: #e8e0f0;
   --text-muted: #c4b8d0;
+  --text-reading: #dcd5e6;  /* lettura lunga: un soffio sotto --text per non abbagliare */
+  --band: rgba(201,151,58,0.035);  /* fascia di ritmo a piena larghezza */
+  --card-shadow: 0 1px 2px rgba(0,0,0,0.25);
   --bg: #0d0b1a;
   --surface: rgba(255,255,255,0.04);
   --surface-hover: rgba(255,255,255,0.07);
@@ -127,6 +130,9 @@
   /* Inchiostri caldi (era #4a4055 grigio freddo) */
   --text: #2a1f08;
   --text-muted: #5a4a3a;
+  --text-reading: #3a2c14;
+  --band: rgba(120,90,30,0.05);
+  --card-shadow: 0 1px 3px rgba(80,60,30,0.10), 0 4px 18px rgba(80,60,30,0.07);
   --text-soft: #7a6852;
 
   /* Gerarchia ORO a due livelli (era collassata su un solo tono) */
@@ -135,10 +141,10 @@
   --gold-light: #7d5b1c;    /* ambra chiara — italici, hover, dettagli */
   --gold-deep: #6b4f18;     /* oro profondo — alto contrasto */
 
-  --surface: rgba(80,60,30,0.04);
-  --surface-hover: rgba(80,60,30,0.08);
-  --border: rgba(120,90,30,0.18);
-  --border-hover: rgba(120,90,30,0.4);
+  --surface: rgba(80,60,30,0.07);
+  --surface-hover: rgba(80,60,30,0.12);
+  --border: rgba(120,90,30,0.30);
+  --border-hover: rgba(120,90,30,0.55);
 }
 /* Pergamena: gradient warm centro-alto → bordi */
 [data-theme="light"] body {
@@ -473,7 +479,13 @@ body::before {
 .btn-ghost:hover { background: rgba(201,151,58,0.08); transform: translateY(-2px); }
 
 /* SECTIONS */
-section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
+section { padding: clamp(4rem, 9vw, 6.5rem) 2rem; max-width: 900px; margin: 0 auto; }
+/* Fasce di ritmo — fondo alternato a piena larghezza (full-bleed via box-shadow+clip) */
+section#insegnamenti, section#seminario, section#faq {
+  background: var(--band);
+  box-shadow: 0 0 0 100vmax var(--band);
+  clip-path: inset(0 -100vmax);
+}
 
 /* ── SISTEMA DECORATIVO ── */
 /* Eyebrow numerato */
@@ -523,7 +535,7 @@ section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
 /* Capolettera — drop cap editoriale (rimosso: non funziona bene su fondo scuro) */
 
 .section-title { font-family: var(--font-display); font-size: clamp(28px,5vw,42px); font-weight: 500; color: var(--text); margin-bottom: 0.75rem; line-height: 1.15; letter-spacing: 0; }
-.section-sub { font-size: 15px; color: var(--text-muted); max-width: 900px; line-height: 1.72; margin-bottom: 2.5rem; letter-spacing: 0; }
+.section-sub { font-size: 17px; color: var(--text-reading); max-width: 68ch; line-height: 1.75; margin-bottom: 2.5rem; letter-spacing: 0; }
 
 /* GLASS CARD — stile "pergamena": doppio filetto interno + angoli ornamentali */
 .glass-card {
@@ -533,7 +545,7 @@ section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
   border-radius: 14px;
   padding: 1.85rem 1.85rem;
   transition: border-color var(--t-base), background var(--t-base), box-shadow var(--t-base);
-  box-shadow: 0 1px 2px rgba(0,0,0,0.25), inset 0 0 0 0 rgba(201,151,58,0);
+  box-shadow: var(--card-shadow), inset 0 0 0 0 rgba(201,151,58,0);
 }
 /* Doppio filetto interno — cornice oro distanziata dal bordo */
 .glass-card::before {
@@ -1108,9 +1120,9 @@ select:focus-visible {
 .section-label-small { font-size: 11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:0.75rem; }
 
 /* Body text reusable */
-.body-text { font-size: 16px; color:var(--text-muted); line-height:1.85; }
+.body-text { font-size: 17px; color:var(--text-reading); line-height:1.8; max-width: 68ch; }
 .body-text + .body-text, .body-text.mt-125 { margin-top: 1.5rem; }
-.body-text-sm { font-size: 15px; color:var(--text-muted); line-height:1.7; }
+.body-text-sm { font-size: 16px; color:var(--text-reading); line-height:1.75; }
 .body-text-xs { font-size: 13px; color:var(--text-muted); }
 .body-text-xxs { font-size: 12px; color:var(--text-muted); }
 .text-center { text-align:center; }
@@ -1137,7 +1149,7 @@ select:focus-visible {
 .em-plutone { color:rgba(224,125,125,0.95); }
 
 /* Conduttori: bio card layout */
-.teacher-bio { font-size: 15px; color:var(--text-muted); line-height:1.8; margin-bottom:0.75rem; }
+.teacher-bio { font-size: 16px; color:var(--text-reading); line-height:1.8; margin-bottom:0.75rem; }
 
 /* Bio detail card */
 .bio-divider { height:0.5px; background:linear-gradient(90deg,transparent,rgba(201,151,58,0.3),transparent); margin:1rem 0; }
@@ -1801,10 +1813,10 @@ section#ispirazioni > * { position: relative; z-index: 1; }
 }
 
 /* card-body: leggero upgrade per leggibilità */
-.card-body { font-size: 15px; color: var(--text-muted); line-height: 1.78; letter-spacing: 0; }
+.card-body { font-size: 16px; color: var(--text-reading); line-height: 1.78; letter-spacing: 0; }
 
 /* pillar-card: stessa dimensione testo del card-body */
-.pillar-list li { font-size: 15px; color: var(--text-muted); line-height: 1.78; padding: 0.5rem 0; border-bottom: 0.5px solid rgba(201,151,58,0.07); letter-spacing: 0; }
+.pillar-list li { font-size: 16px; color: var(--text-reading); line-height: 1.78; padding: 0.5rem 0; border-bottom: 0.5px solid rgba(201,151,58,0.07); letter-spacing: 0; }
 
 /* contact-info h3 → già rimosso, ma preveniamo stili orfani */
 .contact-info .section-eyebrow { margin-bottom: 0.75rem; }
