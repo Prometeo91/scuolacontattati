@@ -106,38 +106,13 @@
 }
 
 /* ── FONT FEATURE SHORTCUTS ── */
-/* display: serif con legature antiche e cifre oldstyle */
-.ff-d {
-  font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "onum" 1, "calt" 1;
-  font-variant-numeric: oldstyle-nums;
-}
-/* tabular: sans con cifre tabulari */
-.ff-t {
-  font-feature-settings: "kern" 1, "liga" 1, "tnum" 1, "ss01" 1;
-  font-variant-numeric: tabular-nums;
-}
 /* Applica font-features display a tutti gli elementi con font-display */
-.section-title, .section-sub, .section-blockquote,
-.hero h1, .hero-motto, .hero-motto-sub, .hero-slogan, .hero-eyebrow,
-.nav-logo,
-.card-title, .card-body-display,
-.pillar-title,
-.teacher-name,
-.quote-block p, .quote-oracle-text,
-.lesson-panel-title, .lesson-quote,
-.video-facade-title, .video-facade-sub, .video-facade-symbol,
-.contact-info h3,
-.footer-logo, .serif-footer, .serif-heading, .serif-heading-sm, .serif-quote,
-.libro-card-title,
-.chiave-num,
-.event-day, .event-sub,
-.anno-tab {
+.section-title, .section-sub, .section-blockquote, .hero h1, .hero-motto, .hero-motto-sub, .hero-slogan, .nav-logo, .card-title, .pillar-title, .teacher-name, .quote-block p, .quote-oracle-text, .lesson-panel-title, .lesson-quote, .video-facade-title, .video-facade-sub, .video-facade-symbol, .contact-info h3, .footer-logo, .serif-footer, .serif-heading-sm, .chiave-num, .event-day, .event-sub, .anno-tab {
   font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "onum" 1, "calt" 1;
   font-variant-numeric: oldstyle-nums;
 }
 /* Applica font-features tabular ai badge e label */
-.badge, .section-label, .teacher-role, .event-month,
-.submit-btn, .footer-links a {
+.badge, .teacher-role, .event-month, .submit-btn, .footer-links a {
   font-feature-settings: "kern" 1, "liga" 1, "tnum" 1, "ss01" 1;
   font-variant-numeric: tabular-nums;
 }
@@ -205,7 +180,6 @@
 /* Card "pergamena rilevata" — shadow calda, leggero sollevamento al hover */
 [data-theme="light"] .glass-card,
 [data-theme="light"] .pillar-card,
-[data-theme="light"] .teacher-card,
 [data-theme="light"] .event-row,
 [data-theme="light"] .quote-oracle,
 [data-theme="light"] .contact-form {
@@ -216,16 +190,11 @@
 }
 [data-theme="light"] .glass-card:hover,
 [data-theme="light"] .pillar-card:hover,
-[data-theme="light"] .teacher-card:hover,
 [data-theme="light"] .event-row:hover {
   background: rgba(255,253,247,0.98);
   border-color: rgba(120,90,30,0.4);
   box-shadow: 0 6px 22px rgba(80,60,30,0.1);
   transform: translateY(-2px);
-}
-[data-theme="light"] .glass-card.card-full.glass-card-center {
-  background: rgba(201,151,58,0.08);
-  border: 0.5px solid rgba(201,151,58,0.25);
 }
 [data-theme="light"] .quote-block {
   background: rgba(184,138,46,0.08);
@@ -323,9 +292,6 @@
 [data-theme="light"] .section-band::before {
   background: linear-gradient(180deg, rgba(201,151,58,0.04) 0%, rgba(201,151,58,0.08) 50%, rgba(201,151,58,0.04) 100%);
 }
-[data-theme="light"] .bio-detail {
-  background: rgba(255,255,255,0.6);
-}
 [data-theme="light"] .esp-banner {
   background: rgba(29,158,117,0.06);
 }
@@ -355,8 +321,7 @@
 }
 /* Stelline → punti d'inchiostro su pergamena (inverte logica: era oro chiaro su crema, invisibile) */
 [data-theme="light"] section#chi-siamo::before,
-[data-theme="light"] section#ispirazioni::before,
-[data-theme="light"] .section-stars::before {
+[data-theme="light"] section#ispirazioni::before {
   opacity: 0.85;
   background-image:
     radial-gradient(circle at 15% 20%, rgba(80,60,30,0.18) 0, rgba(80,60,30,0.18) 1px, transparent 2px),
@@ -495,7 +460,6 @@ body::before {
   .hero-emblem { width: 150px; height: 150px; }
   .hero::before { width: 380px; height: 380px; }
 }
-.hero-eyebrow { font-family: var(--font-display); font-size: clamp(14px,2vw,17px); font-weight: 500; color: var(--gold); letter-spacing: 0.01em; margin-bottom: 0.75rem; }
 .hero h1 { font-family: var(--font-display); font-size: clamp(36px, 7vw, 62px); font-weight: 500; color: var(--text); letter-spacing: 0.02em; line-height: 1.1; margin-bottom: 1.5rem; position: relative; z-index: 2; }
 .hero h1 span { color: var(--gold-light); font-weight: 500; }
 .hero-motto { font-family: var(--font-display); font-size: clamp(20px, 3.2vw, 32px); font-weight: 500; color: var(--gold-light); margin-bottom: 0.5rem; letter-spacing: 0.04em; line-height: 1.2; position: relative; z-index: 2; }
@@ -508,18 +472,11 @@ body::before {
 .btn-ghost { display: inline-block; padding: 0.85rem 2.25rem; background: transparent; border: 0.5px solid var(--border-hover); border-radius: 999px; color: var(--gold-light); font-size: 15px; text-decoration: none; letter-spacing: 0.07em; text-transform: uppercase; transition: background 0.2s, transform 0.2s; cursor: pointer; }
 .btn-ghost:hover { background: rgba(201,151,58,0.08); transform: translateY(-2px); }
 
-/* DIVIDER */
-.gold-divider { display: flex; align-items: center; gap: 1.5rem; max-width: 700px; margin: 0 auto; padding: 2rem 2rem; }
-.gold-divider::before, .gold-divider::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, transparent 0%, rgba(201, 151, 58, 0.08) 20%, rgba(201, 151, 58, 0.5) 50%, rgba(201, 151, 58, 0.08) 80%, transparent 100%); }
-.gold-divider span { color: var(--gold); font-size: 14px; flex-shrink: 0; display: inline-flex; align-items: center; gap: 1rem; letter-spacing: 0.3em; }
-.gold-divider span::before, .gold-divider span::after { content: '◆'; font-size: 6px; color: var(--gold); opacity: 0.6; transform: translateY(-2px); }
-
 /* SECTIONS */
 section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
-.section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; display: block; }
 
 /* ── SISTEMA DECORATIVO ── */
-/* Eyebrow numerato — sostituisce/affianca .section-label */
+/* Eyebrow numerato */
 .section-eyebrow {
   display: flex; align-items: center; justify-content: flex-start;
   gap: 0.75rem; margin-bottom: 0.75rem;
@@ -565,36 +522,6 @@ section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
 
 /* Capolettera — drop cap editoriale (rimosso: non funziona bene su fondo scuro) */
 
-/* Card corners — quattro rombi dorati negli angoli interni */
-.card-corners { position: relative; }
-.card-corners::before,
-.card-corners::after,
-.card-corners > .corner-tr,
-.card-corners > .corner-br {
-  content: ''; position: absolute;
-  width: 5px; height: 5px;
-  background: var(--gold); opacity: 0.55;
-  transform: rotate(45deg);
-  pointer-events: none;
-}
-.card-corners::before { top: 10px; left: 10px; }
-.card-corners::after  { bottom: 10px; left: 10px; }
-.card-corners > .corner-tr { top: 10px; right: 10px; }
-.card-corners > .corner-br { bottom: 10px; right: 10px; }
-
-/* Fleuron — tre rombi distanziati, ornamento da stampa antica */
-.fleuron {
-  display: flex; align-items: center; justify-content: center;
-  gap: 0.9rem; color: var(--gold); opacity: 0.7;
-  font-size: 7px; letter-spacing: 0;
-  margin-bottom: 1rem;
-}
-.fleuron::before,
-.fleuron::after,
-.fleuron > span { content: '◆'; }
-.fleuron > span { font-size: 9px; opacity: 0.85; }
-.fleuron::before { content: '◆'; }
-.fleuron::after { content: '◆'; }
 .section-title { font-family: var(--font-display); font-size: clamp(28px,5vw,42px); font-weight: 500; color: var(--text); margin-bottom: 0.75rem; line-height: 1.15; letter-spacing: 0; }
 .section-sub { font-size: 15px; color: var(--text-muted); max-width: 900px; line-height: 1.72; margin-bottom: 2.5rem; letter-spacing: 0; }
 
@@ -651,7 +578,6 @@ section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
 .chiave-content { flex: 1; }
 .chiave-content .card-title { margin-bottom: 0.6rem; }
 @media (max-width: 480px) { .chiave-item { flex-direction: column; gap: 0.5rem; } .chiave-num { font-size: 2rem; width: auto; } }
-.card-full { grid-column: 1 / -1; }
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: stretch; }
 @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
 
@@ -848,11 +774,6 @@ section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
 [data-theme="light"] .conductor-photo-lg { box-shadow: 0 4px 20px rgba(80,60,30,0.12); }
 [data-theme="light"] .shared-story { background: rgba(255,253,247,0.92); box-shadow: 0 2px 14px rgba(80,60,30,0.07); }
 [data-theme="light"] .collab-card { background: rgba(255,253,247,0.92); box-shadow: 0 2px 14px rgba(80,60,30,0.07); }
-.teacher-avatar { width: 72px; height: 72px; border-radius: 50%; border: 1.5px solid var(--border-hover); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 26px; color: var(--gold-light); margin: 0 auto 1rem; background: rgba(201,151,58,0.06); }
-.teacher-photo { width: 120px; height: 120px; border-radius: 50%; border: 1.5px solid var(--border-hover); object-fit: cover; flex-shrink: 0; }
-@media (max-width: 640px) { .teacher-photo { width: 100px; height: 100px; } }
-.teacher-photo-collab { width: 100px; height: 100px; border-radius: 50%; border: 1.5px solid var(--border-hover); object-fit: cover; margin: 0 auto 0.75rem; display: block; }
-@media (max-width: 640px) { .teacher-photo-collab { width: 90px; height: 90px; } }
 .teacher-name { font-family: var(--font-display); font-size: 20px; font-weight: 500; color: var(--text); margin-bottom: 0.3rem; letter-spacing: 0.01em; }
 .teacher-role { font-size: 12px; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; font-family: var(--font-sans); }
 
@@ -987,9 +908,6 @@ section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
 .anno-tab.active { background: rgba(201,151,58,0.15); border-color: rgba(201,151,58,0.5); color: var(--gold-light); }
 .anno-tab.disabled { opacity: 0.4; cursor: default; }
 .anno-tab.disabled:hover { background: var(--surface); border-color: var(--border); color: var(--text-muted); }
-.location-box span { font-size: 20px; }
-.location-box p { font-size: 15px; color: var(--text-muted); line-height: 1.6; }
-.location-box strong { color: var(--gold-light); font-size: 15px; }
 
 /* PENSIERI & ISPIRAZIONI — see oracle styles below */
 
@@ -1163,7 +1081,6 @@ select:focus-visible {
   border-color: var(--gold);
 }
 /* Buttons that are already gold — brighten outline for contrast */
-.btn-gold:focus-visible,
 .video-facade-play:focus-visible,
 .back-to-top:focus-visible {
   outline-color: var(--gold-light);
@@ -1181,9 +1098,6 @@ select:focus-visible {
 /* (carousel counter removed — oracle uses .quote-oracle-counter) */
 
 /* UTILITY CLASSES (extracted from inline styles) */
-.stat-box { background:var(--surface); border:0.5px solid var(--border); border-radius:12px; padding:1rem; text-align:center; }
-.stat-number { font-size:26px; font-family:var(--font-display); font-weight:500; color:var(--gold-light); font-variant-numeric: lining-nums tabular-nums; font-feature-settings: "kern" 1, "lnum" 1, "tnum" 1; }
-.stat-label { font-size: 12px; color:var(--text-muted); margin-top:0.2rem; }
 .evento-card { background:var(--surface); border:0.5px solid var(--border); border-radius:12px; padding:0.9rem 1.25rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
 .evento-data { text-align:center; min-width:38px; }
 .evento-giorno { font-family:var(--font-display); font-size:22px; font-weight:500; color:var(--gold-light); line-height:1; font-variant-numeric: lining-nums tabular-nums; font-feature-settings: "kern" 1, "lnum" 1, "tnum" 1; }
@@ -1192,7 +1106,6 @@ select:focus-visible {
 .evento-titolo { font-size: 16px; font-weight:500; color:var(--text); }
 .evento-dettaglio { font-size: 13px; color:var(--text-muted); }
 .section-label-small { font-size: 11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:0.75rem; }
-.info-banner { background:rgba(201,151,58,0.06); border:0.5px solid rgba(201,151,58,0.25); border-radius:12px; padding:1rem 1.25rem; }
 
 /* Body text reusable */
 .body-text { font-size: 16px; color:var(--text-muted); line-height:1.85; }
@@ -1203,10 +1116,6 @@ select:focus-visible {
 .text-center { text-align:center; }
 .text-gold { color:var(--gold); }
 .text-gold-light { color:var(--gold-light); }
-.mb-0 { margin-bottom:0; }
-.mb-025 { margin-bottom:0.25rem; }
-.mb-05 { margin-bottom:0.5rem; }
-.mb-075 { margin-bottom:0.75rem; }
 .mb-1 { margin-bottom:1rem; }
 .mt-1 { margin-top:1rem; }
 .mt-125 { margin-top:1.25rem; }
@@ -1214,16 +1123,8 @@ select:focus-visible {
 .mt-2 { margin-top:2rem; }
 
 /* Serif display heading (used inline in Libro, Conduttori, Footer) */
-.serif-heading { font-family:var(--font-display); font-weight:600; color:var(--gold-light); }
 .serif-heading-sm { font-family:var(--font-display); font-size:16px; font-weight:600; color:var(--text); margin-bottom:0.2rem; }
-.serif-quote { font-family:var(--font-display); font-style:italic; color:var(--gold-light); }
 .serif-footer { font-family:var(--font-display); color:rgba(201,151,58,0.85); font-size:16px; }
-
-/* Libro: content grid card */
-.libro-content-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:12px; }
-.libro-card { padding:1.25rem; border-color:var(--border-hover); }
-.libro-card-title { font-family:var(--font-display); font-size:18px; font-weight: 500; color:var(--gold-light); margin-bottom:0.4rem; display:flex; align-items:center; gap:0.5rem; }
-.libro-card-full { grid-column:1/-1; }
 
 /* Archetipi planetari */
 .archetype-row { display:flex; gap:0.75rem; align-items:flex-start; padding:0.75rem 0; border-top:0.5px solid rgba(201,151,58,0.12); }
@@ -1236,13 +1137,9 @@ select:focus-visible {
 .em-plutone { color:rgba(224,125,125,0.95); }
 
 /* Conduttori: bio card layout */
-.teacher-card-left { text-align:left; padding:1.75rem; }
-.teacher-header { display:flex; align-items:center; gap:1.25rem; margin-bottom:1.25rem; }
 .teacher-bio { font-size: 15px; color:var(--text-muted); line-height:1.8; margin-bottom:0.75rem; }
 
 /* Bio detail card */
-.bio-detail { padding:1.25rem 1.5rem; margin-bottom:1rem; }
-.bio-detail p { font-size: 16px; color:var(--text-muted); line-height:1.85; }
 .bio-divider { height:0.5px; background:linear-gradient(90deg,transparent,rgba(201,151,58,0.3),transparent); margin:1rem 0; }
 
 /* Esperienziali banner */
@@ -1256,9 +1153,6 @@ select:focus-visible {
 
 /* Presentazioni list */
 .pres-list { display:flex; flex-direction:column; gap:8px; }
-
-/* Book cover image */
-.book-cover-img { width:120px; height:auto; border-radius:8px; border:1px solid var(--border-hover); flex-shrink:0; }
 
 /* Chi siamo: separatore ornamentale sotto il titolo */
 #chi-siamo .section-sub {
@@ -1317,14 +1211,10 @@ select:focus-visible {
 /* Remaining utilities */
 .flex-1 { flex:1; }
 .icon-lg { font-size:20px; flex-shrink:0; }
-.glass-card-center { padding:0.9rem 1.25rem; display:flex; align-items:center; justify-content:center; }
-.serif-heading-20 { font-size:20px; margin-bottom:0.5rem; }
 .narrow-text { max-width:680px; margin:0 auto; }
-.teachers-row-single { grid-template-columns:1fr; }
 .anno-tabs-wrap { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:1.25rem; }
 .serif-footer-motto { margin-top:0.3rem; }
 .serif-footer-quote { margin-top:0.75rem; font-style:italic; }
-.serif-quote-book { font-size:16px; font-weight:600; }
 
 /* GIOCHI — griglia e card */
 .giochi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
@@ -1341,11 +1231,9 @@ select:focus-visible {
 .gioco-sub-lg{color:var(--text-muted);font-size:.82rem;line-height:1.4}
 
 /* BIO TAGS */
-.bio-tags { display:flex; flex-wrap:wrap; gap:5px; margin-top:0.25rem; }
 .bio-tag { font-size: 11px; padding:3px 10px; border-radius:999px; letter-spacing:0.03em; white-space:nowrap; }
 .tag-ermetica { background:rgba(201,151,58,0.12); color:var(--gold-light); border:0.5px solid rgba(201,151,58,0.3); }
 /* Forza un a-capo: i badge dorati occupano l'intera larghezza disponibile del loro "slot" */
-.bio-break { flex-basis:100%; height:0; margin:0; padding:0; border:0; }
 .tag-olistica { background:rgba(123,94,167,0.12); color:#b49fe0; border:0.5px solid rgba(123,94,167,0.25); }
 .tag-coaching { background:rgba(40,160,80,0.1); color:#7de0a0; border:0.5px solid rgba(40,160,80,0.25); }
 .tag-studio { background:rgba(255,255,255,0.04); color:var(--text-muted); border:0.5px solid rgba(255,255,255,0.1); }
@@ -1363,12 +1251,6 @@ select:focus-visible {
 .section-band > * { position:relative; z-index:1; max-width:900px; margin-left:auto; margin-right:auto; }
 
 /* ANIMATED BACKGROUND — rimossa per coerenza visiva */
-@keyframes bg-drift-legacy {
-  0%   { background-position: 20% 20%, 80% 80%, 50% 0%; }
-  33%  { background-position: 30% 30%, 70% 70%, 45% 10%; }
-  66%  { background-position: 15% 25%, 85% 75%, 55% 5%; }
-  100% { background-position: 20% 20%, 80% 80%, 50% 0%; }
-}
 /* bg-drift animation rimossa per coerenza visiva */
 
 /* Rispetta le preferenze utente per il moto ridotto */
@@ -1604,26 +1486,6 @@ footer a:hover { color: var(--gold-light); }
 }
 
 /* SECTION DECORATIONS */
-
-/* Pattern punti dorati (tipo stelle) — per alcune sezioni */
-.section-stars {
-  position: relative;
-}
-.section-stars::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(circle at 15% 20%, rgba(201, 151, 58, 0.18) 0, rgba(201, 151, 58, 0.18) 1px, transparent 2px),
-    radial-gradient(circle at 72% 15%, rgba(232, 201, 122, 0.12) 0, rgba(232, 201, 122, 0.12) 1px, transparent 2px),
-    radial-gradient(circle at 85% 65%, rgba(201, 151, 58, 0.15) 0, rgba(201, 151, 58, 0.15) 1px, transparent 2px),
-    radial-gradient(circle at 30% 80%, rgba(232, 201, 122, 0.12) 0, rgba(232, 201, 122, 0.12) 1px, transparent 2px),
-    radial-gradient(circle at 55% 45%, rgba(201, 151, 58, 0.1) 0, rgba(201, 151, 58, 0.1) 1px, transparent 2px),
-    radial-gradient(circle at 8% 60%, rgba(232, 201, 122, 0.1) 0, rgba(232, 201, 122, 0.1) 1px, transparent 2px);
-  pointer-events: none;
-  z-index: 0;
-}
-.section-stars > * { position: relative; z-index: 1; }
 
 /* Sezione "Chi siamo" — starfield dorato */
 section#chi-siamo {
