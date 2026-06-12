@@ -1943,3 +1943,6 @@ html::before {
 .seminar-badge{display:inline-block;background:rgba(201,151,58,0.15);border:0.5px solid rgba(201,151,58,0.4);color:var(--gold-light);font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;padding:0.3rem 0.7rem;border-radius:999px;margin-bottom:0.7rem;}
 [data-theme="light"] .seminar-badge{background:rgba(129,96,24,0.12);border-color:rgba(129,96,24,0.35);color:#816018;}
 
+
+/* Contatore del lightbox gallery (markup ricostruito da app.js) */
+.lightbox-counter{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);color:#fff;font-size:13px;letter-spacing:0.08em;opacity:0.85;}

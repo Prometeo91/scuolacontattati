@@ -33,7 +33,7 @@ var SC_T = SC_EN ? {
   formConnTitolo:'Connection error',
   formConnTesto:'Unable to send the message. Check your connection and try again, or write to us directly via WhatsApp.',
   mostraMeno:'Show fewer ▴', mostraTutte:'Show all photos ▾',
-  foto:'Photo'
+  foto:'Photo', fotoPrec:'Previous photo', fotoSucc:'Next photo', chiudi:'Close'
 } : {
   temaChiaro:'Tema chiaro', temaScuro:'Tema scuro',
   apriMenu:'Apri menu', chiudiMenu:'Chiudi menu',
@@ -57,7 +57,7 @@ var SC_T = SC_EN ? {
   formConnTitolo:'Errore di connessione',
   formConnTesto:'Impossibile inviare il messaggio. Verifica la tua connessione e riprova, oppure scrivici direttamente via WhatsApp.',
   mostraMeno:'Mostra meno ▴', mostraTutte:'Mostra tutte le foto ▾',
-  foto:'Foto'
+  foto:'Foto', fotoPrec:'Foto precedente', fotoSucc:'Foto successiva', chiudi:'Chiudi'
 };
 
 /* ── STORAGE SICURO — localStorage può lanciare SecurityError se l'utente
@@ -519,8 +519,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  /* Lightbox */
+  /* Lightbox — il markup storico è andato perso in un vecchio upload:
+     se manca lo ricostruiamo qui, riusando le classi .lightbox-* già nel CSS */
   var lb=document.getElementById('lightbox');
+  if(!lb && document.querySelector('.gallery-item')){
+    lb=document.createElement('div');
+    lb.id='lightbox';
+    lb.className='lightbox-overlay';
+    lb.innerHTML='<button class="lightbox-close" aria-label="'+SC_T.chiudi+'">\u00d7</button>'+
+      '<button class="lightbox-nav lightbox-prev" aria-label="'+SC_T.fotoPrec+'">\u2039</button>'+
+      '<img src="" alt=""/>'+
+      '<button class="lightbox-nav lightbox-next" aria-label="'+SC_T.fotoSucc+'">\u203a</button>'+
+      '<div class="lightbox-counter" aria-hidden="true"></div>';
+    document.body.appendChild(lb);
+  }
   if(!lb)return;
   var lbImg=lb.querySelector('img');
   var lbCounter=lb.querySelector('.lightbox-counter');
@@ -536,16 +548,38 @@ document.addEventListener('DOMContentLoaded', function() {
     lbCounter.textContent=(cur+1)+' / '+srcs.length;
   }
 
+  /* Accessibilità: dialog + focus management */
+  lb.setAttribute('role','dialog');
+  lb.setAttribute('aria-modal','true');
+  lb.setAttribute('aria-label',SC_T.foto);
+  var lbClose=lb.querySelector('.lightbox-close');
+  var lastFocus=null;
+  function openAt(i,origin){
+    lastFocus=origin||document.activeElement;
+    show(i);
+    lb.classList.add('active');
+    document.body.style.overflow='hidden';
+    if(lbClose)lbClose.focus();
+  }
+
   items.forEach(function(it,i){
-    it.addEventListener('click',function(){
-      show(i);
-      lb.classList.add('active');
-      document.body.style.overflow='hidden';
+    /* da tastiera: i div diventano bottoni */
+    it.setAttribute('tabindex','0');
+    it.setAttribute('role','button');
+    var im=it.querySelector('img');
+    if(im&&im.alt)it.setAttribute('aria-label',im.alt);
+    it.addEventListener('click',function(){openAt(i,it);});
+    it.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();openAt(i,it);}
     });
   });
 
-  function close(){lb.classList.remove('active');document.body.style.overflow='';}
-  lb.querySelector('.lightbox-close').addEventListener('click',close);
+  function close(){
+    lb.classList.remove('active');
+    document.body.style.overflow='';
+    if(lastFocus&&lastFocus.focus)lastFocus.focus();
+  }
+  lbClose.addEventListener('click',close);
   lb.querySelector('.lightbox-prev').addEventListener('click',function(e){e.stopPropagation();show(cur-1);});
   lb.querySelector('.lightbox-next').addEventListener('click',function(e){e.stopPropagation();show(cur+1);});
   lb.addEventListener('click',function(e){if(e.target===lb)close();});
@@ -554,6 +588,14 @@ document.addEventListener('DOMContentLoaded', function() {
     if(e.key==='Escape')close();
     if(e.key==='ArrowLeft')show(cur-1);
     if(e.key==='ArrowRight')show(cur+1);
+    if(e.key==='Tab'){
+      var f=lb.querySelectorAll('button');
+      if(!f.length)return;
+      var first=f[0],last=f[f.length-1];
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+      else if(!lb.contains(document.activeElement)){e.preventDefault();first.focus();}
+    }
   });
 
   /* Touch/swipe in lightbox */
@@ -631,14 +673,40 @@ document.addEventListener('DOMContentLoaded', function() {
 /* ── FLYER LIGHTBOX ── */
   (function(){
     var ov=document.getElementById('flyerLightbox');
+    if(!ov && (document.getElementById('seminarFlyer')||document.getElementById('residenzialeFlyer'))){
+      /* markup perso in un vecchio upload: lo ricostruiamo riusando .lightbox-overlay */
+      ov=document.createElement('div');
+      ov.id='flyerLightbox';
+      ov.className='lightbox-overlay';
+      ov.innerHTML='<button class="lightbox-close" id="flyerClose" aria-label="'+SC_T.chiudi+'">\u00d7</button><img id="flyerLightboxImg" src="" alt=""/>';
+      document.body.appendChild(ov);
+    }
     if(!ov)return;
     var img=document.getElementById('flyerLightboxImg');
     var cl=document.getElementById('flyerClose');
-    function open(src){img.src=src;ov.classList.add('active');document.body.style.overflow='hidden';}
-    function close(){ov.classList.remove('active');document.body.style.overflow='';}
+    ov.setAttribute('role','dialog');
+    ov.setAttribute('aria-modal','true');
+    var lastFocus=null;
+    function open(src,origin){
+      lastFocus=origin||document.activeElement;
+      img.src=src;ov.classList.add('active');document.body.style.overflow='hidden';
+      if(cl)cl.focus();
+    }
+    function close(){
+      ov.classList.remove('active');document.body.style.overflow='';
+      if(lastFocus&&lastFocus.focus)lastFocus.focus();
+    }
     ['seminarFlyer','residenzialeFlyer'].forEach(function(id){
       var fl=document.getElementById(id);
-      if(fl)fl.addEventListener('click',function(){open(fl.src);});
+      if(!fl)return;
+      /* le locandine diventano attivabili da tastiera */
+      fl.setAttribute('tabindex','0');
+      fl.setAttribute('role','button');
+      if(fl.title)fl.setAttribute('aria-label',fl.title);
+      fl.addEventListener('click',function(){open(fl.src,fl);});
+      fl.addEventListener('keydown',function(e){
+        if(e.key==='Enter'||e.key===' '){e.preventDefault();open(fl.src,fl);}
+      });
     });
     cl.addEventListener('click',close);
     ov.addEventListener('click',function(e){if(e.target===ov)close();});
