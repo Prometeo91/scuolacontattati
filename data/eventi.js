@@ -8,8 +8,8 @@
    ═══════════════════════════════════════════════════ */
 window.SC_EVENTI = [
   {day:26, month:6, year:2026,
-   it:{titolo:'Residenziale esperienziale in presenza', dettaglio:'Puglia · 26-28 giugno 2026'},
-   en:{titolo:'In-person experiential residential', dettaglio:'Apulia · 26-28 June 2026'}},
+   it:{titolo:'Residenziale esperienziale in presenza', dettaglio:'Tre giorni intensivi secondo la Quarta Via di Gurdjieff: convivenza consapevole, esercizi di Presenza ed esperienze in natura · Puglia'},
+   en:{titolo:'In-person experiential residential', dettaglio:'Three-day intensive following Gurdjieff\'s Fourth Way: conscious cohabitation, Presence exercises and nature experiences · Apulia'}},
   {day:13, month:11, year:2025,
    it:{titolo:'Evento letterario — IKOS Formazione', dettaglio:'Via Giovanni Amendola 162/1, Bari'},
    en:{titolo:'Literary event — IKOS Formazione', dettaglio:'Via Giovanni Amendola 162/1, Bari'}},
