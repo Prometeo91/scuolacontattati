@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+import LessonPage from '../../../components/LessonPage.astro';
+
+export async function getStaticPaths() {
+  const lezioni = await getCollection('lezioni');
+  return lezioni.map((lezione) => ({
+    params: { slug: lezione.id },
+    props: { lezione },
+  }));
+}
+
+const { lezione } = Astro.props;
+---
+
+<LessonPage locale="en" lezione={lezione} />

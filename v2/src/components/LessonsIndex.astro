@@ -1,0 +1,88 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { t, formatDate, localePath } from '../i18n/strings.js';
+
+const { locale } = Astro.props;
+const S = t(locale);
+
+const lezioni = await getCollection('lezioni');
+const anni = [...new Set(lezioni.map((l) => l.data.anno))].sort((a, b) => a - b);
+const perAnno = anni.map((anno) => ({
+  anno,
+  lezioni: lezioni.filter((l) => l.data.anno === anno).sort((a, b) => a.data.num - b.data.num),
+}));
+---
+
+<Base locale={locale} title={S.navLessons} description={S.lessonsLead}>
+  <section class="section">
+    <div class="container">
+      <h1>{S.lessonsTitle}</h1>
+      <p class="muted">{S.lessonsLead}</p>
+
+      {
+        perAnno.map(({ anno, lezioni }) => (
+          <section class="year-block">
+            <h2>
+              <span class="year-roman">{['I', 'II', 'III', 'IV', 'V', 'VI', 'VII'][anno - 1]}</span>
+              {S.year} {anno}
+            </h2>
+            <ol class="lesson-grid">
+              {lezioni.map((l) => (
+                <li>
+                  <a class="card lesson-card" href={localePath(locale, `/lezioni/${l.id}/`)}>
+                    <p class="eyebrow">
+                      {S.lesson} {l.data.num}
+                      {l.data.data && <> · {formatDate(l.data.data, locale)}</>}
+                    </p>
+                    <h3>{l.data.titolo}</h3>
+                    <p class="muted lesson-sub">{l.data.sottotitolo}</p>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </section>
+        ))
+      }
+    </div>
+  </section>
+</Base>
+
+<style>
+  .year-block {
+    margin-top: var(--space-4);
+  }
+  .year-block h2 {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+  }
+  .year-roman {
+    color: var(--accent-2);
+    font-size: 0.9em;
+  }
+  .lesson-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+    gap: var(--space-2);
+  }
+  .lesson-card {
+    display: block;
+    height: 100%;
+    color: inherit;
+  }
+  .lesson-card:hover {
+    text-decoration: none;
+  }
+  .lesson-card h3 {
+    color: var(--accent);
+    margin-bottom: var(--space-1);
+  }
+  .lesson-sub {
+    font-size: 0.9rem;
+    margin: 0;
+  }
+</style>

@@ -1,0 +1,65 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { t, formatDate, localePath } from '../i18n/strings.js';
+
+const { locale } = Astro.props;
+const S = t(locale);
+
+const lezioni = await getCollection('lezioni');
+const oggi = new Date();
+const prossima = lezioni
+  .filter((l) => l.data.data && l.data.data >= oggi)
+  .sort((a, b) => a.data.data - b.data.data)[0];
+---
+
+<Base locale={locale} description={S.heroLead}>
+  <section class="section hero">
+    <div class="container">
+      <p class="eyebrow">{S.tagline}</p>
+      <h1>{S.schoolName}</h1>
+      <p class="hero-lead">{S.heroLead}</p>
+      <a class="btn" href={localePath(locale, '/lezioni/')}>{S.ctaLessons}</a>
+    </div>
+  </section>
+
+  {
+    prossima && (
+      <section class="section">
+        <div class="container">
+          <p class="eyebrow">{S.nextLesson}</p>
+          <a class="card next-lesson" href={localePath(locale, `/lezioni/${prossima.id}/`)}>
+            <h2>{prossima.data.titolo}</h2>
+            <p class="muted">
+              {formatDate(prossima.data.data, locale)} — {S.year} {prossima.data.anno},{' '}
+              {S.lesson} {prossima.data.num}
+            </p>
+            <p>{prossima.data.sottotitolo}</p>
+          </a>
+        </div>
+      </section>
+    )
+  }
+</Base>
+
+<style>
+  .hero {
+    padding-block: var(--space-5);
+  }
+  .hero-lead {
+    font-size: 1.15rem;
+    color: var(--text-2);
+    margin-bottom: var(--space-3);
+  }
+  .next-lesson {
+    display: block;
+    color: inherit;
+    max-width: var(--measure);
+  }
+  .next-lesson:hover {
+    text-decoration: none;
+  }
+  .next-lesson h2 {
+    color: var(--accent);
+  }
+</style>
