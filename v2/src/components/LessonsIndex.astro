@@ -1,0 +1,246 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { t, formatDate, localePath } from '../i18n/strings.js';
+import calendario from '../data/calendario.json';
+import insegnamenti from '../data/insegnamenti.json';
+
+const { locale } = Astro.props;
+const S = t(locale);
+const CAL = calendario[locale] ?? calendario.it;
+const chiaviT = insegnamenti.chiavi[locale] ?? insegnamenti.chiavi.it;
+const dueT = insegnamenti.due_percorsi[locale] ?? insegnamenti.due_percorsi.it;
+const indivT = insegnamenti.percorso_individuale[locale] ?? insegnamenti.percorso_individuale.it;
+const complT = insegnamenti.complementari[locale] ?? insegnamenti.complementari.it;
+
+const lezioni = await getCollection('lezioni');
+const anni = [...new Set(lezioni.map((l) => l.data.anno))].sort((a, b) => a - b);
+const perAnno = anni.map((anno) => ({
+  anno,
+  lezioni: lezioni.filter((l) => l.data.anno === anno).sort((a, b) => a.data.num - b.data.num),
+}));
+---
+
+<Base locale={locale} title={S.navLessons} description={S.lessonsLead}>
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">{CAL.eyebrow}</p>
+      <h1>{S.lessonsTitle}</h1>
+      <p class="muted">{CAL.sottotitolo}</p>
+
+      <section class="struttura">
+        <p class="eyebrow">{CAL.struttura_eyebrow}</p>
+        <div class="blocchi">
+          {
+            CAL.blocchi.map((blocco) => (
+              <div class="card">
+                <h3>{blocco.label}</h3>
+                <p class="muted" set:html={blocco.html} />
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="struttura">
+        <p class="eyebrow">{chiaviT.eyebrow}</p>
+        <div class="chiavi">
+          {
+            insegnamenti.chiavi.lista.map((chiave) => {
+              const K = chiave[locale] ?? chiave.it;
+              return (
+                <details class="card">
+                  <summary>
+                    <span class="numero">{chiave.num}</span> {K.titolo}
+                  </summary>
+                  <p set:html={K.testo} />
+                  {K.approfondimento && <p class="muted" set:html={K.approfondimento} />}
+                  {K.citazione_finale && <blockquote set:html={K.citazione_finale} />}
+                </details>
+              );
+            })
+          }
+        </div>
+      </section>
+
+      <section class="struttura">
+        <p class="eyebrow">{CAL.contributo.eyebrow}</p>
+        <div class="blocchi">
+          {
+            CAL.contributo.voci.map((voce) => (
+              <div class="card contributo">
+                <p class="importo">
+                  {voce.importo} <span class="unita">{voce.unita}</span>
+                  {voce.prezzo_pieno && <s class="muted">{voce.prezzo_pieno}</s>}
+                </p>
+                <p class="muted">{voce.nota}</p>
+              </div>
+            ))
+          }
+        </div>
+        <p class="muted trust">{CAL.contributo.trust}</p>
+      </section>
+
+      {
+        perAnno.map(({ anno, lezioni }) => (
+          <section class="year-block">
+            <h2>
+              <span class="year-roman">{['I', 'II', 'III', 'IV', 'V', 'VI', 'VII'][anno - 1]}</span>
+              {S.year} {anno}
+            </h2>
+            <ol class="lesson-grid">
+              {lezioni.map((l) => (
+                <li>
+                  <a class="card lesson-card" href={localePath(locale, `/lezioni/${l.id}/`)}>
+                    <p class="eyebrow">
+                      {S.lesson} {l.data.num}
+                      {l.data.data && <> · {formatDate(l.data.data, locale)}</>}
+                    </p>
+                    <h3>{l.data.titolo}</h3>
+                    <p class="muted lesson-sub">{l.data.sottotitolo}</p>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </section>
+        ))
+      }
+
+      <section class="struttura">
+        <p class="eyebrow">{dueT.eyebrow}</p>
+        <div class="blocchi">
+          {
+            insegnamenti.due_percorsi.colonne.map((colonna) => {
+              const D = colonna[locale] ?? colonna.it;
+              return (
+                <div class="card">
+                  <img src={'/' + colonna.icona} alt="" width="36" height="36" loading="lazy" />
+                  <h3>{D.titolo}</h3>
+                  <ul class="voci">
+                    {D.voci.map((voce) => (
+                      <li>{voce}</li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })
+          }
+        </div>
+        <div class="card individuale">
+          <p class="eyebrow">{indivT.eyebrow}</p>
+          <p set:html={indivT.testo} />
+          <p class="eyebrow">{complT.eyebrow}</p>
+          <p class="muted" set:html={complT.testo} />
+          <a class="btn" href={localePath(locale, '/contatti/')}>{S.navContacts}</a>
+        </div>
+      </section>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .struttura {
+    margin-block: var(--space-4);
+  }
+  .blocchi {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: var(--space-2);
+  }
+  .blocchi :global(strong) {
+    color: var(--accent);
+  }
+  .chiavi {
+    display: grid;
+    gap: var(--space-1);
+    max-width: var(--measure);
+  }
+  .chiavi summary {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+  .chiavi summary:hover {
+    color: var(--accent);
+  }
+  .chiavi p {
+    margin-top: var(--space-2);
+    color: var(--text-2);
+  }
+  .numero {
+    color: var(--accent-2);
+    margin-right: 0.3rem;
+  }
+  .contributo .importo {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--accent);
+    margin-bottom: 0.3rem;
+  }
+  .unita {
+    font-size: 0.9rem;
+    color: var(--text-3);
+  }
+  .contributo s {
+    font-size: 0.9rem;
+    margin-left: 0.4rem;
+  }
+  .trust {
+    margin-top: var(--space-2);
+    font-size: 0.9rem;
+  }
+  .voci {
+    padding-left: 1.2rem;
+    color: var(--text-2);
+    margin: 0;
+  }
+  .voci li {
+    margin-bottom: 0.35rem;
+  }
+  .individuale {
+    margin-top: var(--space-2);
+    max-width: var(--measure);
+  }
+  .individuale .eyebrow {
+    margin-top: var(--space-2);
+  }
+  .individuale .eyebrow:first-child {
+    margin-top: 0;
+  }
+  .year-block {
+    margin-top: var(--space-4);
+  }
+  .year-block h2 {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+  }
+  .year-roman {
+    color: var(--accent-2);
+    font-size: 0.9em;
+  }
+  .lesson-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+    gap: var(--space-2);
+  }
+  .lesson-card {
+    display: block;
+    height: 100%;
+    color: inherit;
+  }
+  .lesson-card:hover {
+    text-decoration: none;
+  }
+  .lesson-card h3 {
+    color: var(--accent);
+    margin-bottom: var(--space-1);
+  }
+  .lesson-sub {
+    font-size: 0.9rem;
+    margin: 0;
+  }
+</style>

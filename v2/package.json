@@ -1,0 +1,19 @@
+{
+  "name": "scuolacontattati-v2",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "import:lezioni": "node scripts/import-lezioni.mjs",
+    "import:dati": "node scripts/import-dati.mjs",
+    "copy:giochi": "node scripts/copy-giochi.mjs",
+    "publish:root": "node scripts/publish-root.mjs"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
+    "astro": "^5.18.2"
+  }
+}

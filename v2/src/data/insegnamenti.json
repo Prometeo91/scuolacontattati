@@ -1,0 +1,220 @@
+{
+  "it": {
+    "eyebrow": "Il percorso",
+    "titolo": "Consapevolezza ed Alchimia",
+    "sottotitolo": "Cosa si studia e come si lavora: i due pilastri del percorso."
+  },
+  "en": {
+    "eyebrow": "The path",
+    "titolo": "Awareness & Alchemy",
+    "sottotitolo": "What we study and how we work: the two pillars of the path."
+  },
+  "pilastri": [
+    {
+      "it": {
+        "titolo": "Consapevolezza",
+        "voci": [
+          "Conoscenza di sé — natura inferiore e superiore",
+          "Conoscenza delle 96 Leggi Universali",
+          "Antichi Insegnamenti: Scienza Iniziatica, Quarta Via, Kabbalà, Magia Ermetica, Agni Yoga, Buddismo, Taoismo, Sciamanesimo...",
+          "Comprensione dei libri Sacri (in primis il Vangelo)",
+          "Studio simbolico del Mito e degli Archetipi"
+        ]
+      },
+      "en": {
+        "titolo": "Awareness",
+        "voci": [
+          "Self-knowledge — lower and higher nature",
+          "Knowledge of the 96 Universal Laws",
+          "Ancient Teachings: Initiatic Science, Fourth Way, Kabbalah, Hermetic Magic, Agni Yoga, Buddhism, Taoism, Shamanism...",
+          "Understanding of Sacred Texts (primarily the Gospel)",
+          "Symbolic study of Myth and Archetypes"
+        ]
+      }
+    },
+    {
+      "it": {
+        "titolo": "Alchimia",
+        "voci": [
+          "Tramutazione del piombo in oro: Ombra in Luce",
+          "Allenamento pratico con esercizi di Alchimia interiore",
+          "Applicazione delle Leggi Universali nella vita quotidiana",
+          "Trasmutare la propria quotidianità",
+          "Diventare artefici consapevoli della propria realtà"
+        ]
+      },
+      "en": {
+        "titolo": "Alchemy",
+        "voci": [
+          "Transmutation of lead into gold: Shadow into Light",
+          "Practical training with inner Alchemy exercises",
+          "Applying the Universal Laws in daily life",
+          "Transmuting one's everyday life",
+          "Becoming conscious creators of one's own reality"
+        ]
+      }
+    }
+  ],
+  "metodo": {
+    "it": {
+      "citazione": "Il cammino della Scuola non è lineare ma a spirale: ogni giro ci riporta sugli stessi nodi da un livello più profondo. Ciò che era invisibile diventa osservabile; ciò che era osservabile diventa trasformabile.",
+      "fonte": "Il metodo della Scuola"
+    },
+    "en": {
+      "citazione": "The School's path is not linear but spiral: each turn brings us back to the same knots from a deeper level. What was invisible becomes observable; what was observable becomes transformable.",
+      "fonte": "The School's method"
+    }
+  },
+  "chiavi": {
+    "it": { "eyebrow": "Le 4 chiavi del risveglio", "label_apri": "Approfondisci", "label_chiudi": "Mostra meno" },
+    "en": { "eyebrow": "The 4 keys to awakening", "label_apri": "Read more", "label_chiudi": "Show less" },
+    "lista": [
+      {
+        "num": 1,
+        "it": {
+          "titolo": "Presenza e Osservazione",
+          "testo": "Solo il 5% della nostra vita è conscio. Il restante 95% è governato da programmi inconsci, come un pilota automatico. Il primo passo è sviluppare il <strong>Doppio Alchemico</strong>, l'Osservatore interiore: osservare senza giudicare. Perché il tempo non guarisce. La presenza sì.",
+          "approfondimento": [
+            "Meditare non come pratica ma come atteggiamento mentale: autosservazione, attenzione divisa, introspezione senza filtri. Ogni volta che cediamo inconsapevolmente a un vizio, a una dipendenza, a una reazione automatica, stiamo cedendo la nostra <strong>sovranità</strong>, il potere personale che ci è stato conferito. Riprenderselo inizia con un gesto semplice: osservare."
+          ]
+        },
+        "en": {
+          "titolo": "Presence & Observation",
+          "testo": "Only 5% of our life is conscious. The remaining 95% is governed by unconscious programmes, like an autopilot. The first step is to develop the <strong>Alchemical Double</strong>, the inner Observer: observing without judging. Because time does not heal. Presence does.",
+          "approfondimento": [
+            "Meditating not as a practice but as a mental attitude: self-observation, divided attention, unfiltered introspection. Every time we unconsciously give in to a vice, an addiction, an automatic reaction, we are surrendering our <strong>sovereignty</strong>, the personal power that was bestowed upon us. Reclaiming it begins with a simple gesture: observing."
+          ]
+        }
+      },
+      {
+        "num": 2,
+        "it": {
+          "titolo": "Il Fuoco Alchemico",
+          "testo": "Le emozioni non elaborate diventano veleni che intossicano corpo, mente e relazioni. Il <strong>Fuoco Alchemico</strong> nasce dall'attrito tra il disagio interiore e l'osservazione consapevole: è il fuoco che accende la trasformazione. Non basta sapere; bisogna <em>diventare</em> ciò che si sa.",
+          "approfondimento": [
+            "Il lavoro è simile a una ginnastica posturale della mente: si allentano le vie neurali del pensiero distorto, quelle ipertrofiche che ci fanno reagire da vittime, e si rinforzano le vie del pensiero corretto, fino a quando la nuova postura diventa naturale.",
+            "Le nostre ferite non sono solo qualcosa da guarire: sono il motore stesso dell'evoluzione. Ma non possiamo cambiare la nostra vita senza aver cambiato la nostra essenza, altrimenti tutto si rimetterà in coerenza e tornerà come prima. Ciò che viene osservato e nominato perde potere. Il meccanismo non scompare: si vede. E quando si vede, si può scegliere."
+          ]
+        },
+        "en": {
+          "titolo": "The Alchemical Fire",
+          "testo": "Unprocessed emotions become poisons that intoxicate body, mind and relationships. The <strong>Alchemical Fire</strong> arises from the friction between inner discomfort and conscious observation: it is the fire that ignites transformation. Knowing is not enough; one must <em>become</em> what one knows.",
+          "approfondimento": [
+            "The work is similar to postural exercise for the mind: we loosen the neural pathways of distorted thinking, the hypertrophic ones that make us react as victims, and strengthen the pathways of correct thinking, until the new posture becomes natural.",
+            "Our wounds are not merely something to heal: they are the very engine of evolution. But we cannot change our life without having changed our essence, otherwise everything will realign and return to how it was before. What is observed and named loses its power. The mechanism does not vanish: it becomes visible. And when it is visible, one can choose."
+          ]
+        }
+      },
+      {
+        "num": 3,
+        "it": {
+          "titolo": "Riprendere le Redini",
+          "testo": "Gurdjieff descrive l'essere umano come una <strong>carrozza senza padrone</strong>: il corpo fisico è la carrozza, le emozioni i cavalli impulsivi, la mente il cocchiere distratto, e la coscienza il passeggero addormentato. Finché il passeggero dorme, la carrozza va alla deriva.",
+          "approfondimento": [
+            "Il lavoro su di sé consiste nel risvegliarlo: riconoscere i propri automatismi, le maschere, i condizionamenti, e gradualmente diventare padroni della propria vita. Non più vittime e schiavi dell'esterno, ma artefici consapevoli del proprio cammino."
+          ]
+        },
+        "en": {
+          "titolo": "Taking Back the Reins",
+          "testo": "Gurdjieff describes the human being as a <strong>carriage without a master</strong>: the physical body is the carriage, the emotions are the impulsive horses, the mind the distracted coachman, and consciousness the sleeping passenger. As long as the passenger sleeps, the carriage drifts.",
+          "approfondimento": [
+            "The work on oneself consists in awakening the passenger: recognising one's automatisms, masks, conditioning, and gradually becoming masters of one's own life. No longer victims and slaves of the external, but conscious creators of one's own path."
+          ]
+        }
+      },
+      {
+        "num": 4,
+        "it": {
+          "titolo": "La Risalita",
+          "testo": "L'antica tradizione descrive il cammino dell'anima come un <strong>Albero della Vita</strong> con dieci frutti, dieci attributi divini che l'essere umano deve incarnare per tornare alla propria origine. Per farlo dovrà attraversare <strong>sette iniziazioni</strong> e orientarsi grazie al proprio <strong>Raggio Animico</strong>, la nota unica che connette ciascuno alla propria natura divina.",
+          "approfondimento": [
+            "Lungo la via, le <strong>sette ferite</strong> dell'anima — rifiuto, abbandono, tradimento, umiliazione, ingiustizia, abuso, negligenza — non sono ostacoli ma materia prima: trasmutarle significa incarnare i <strong>sette talenti spirituali</strong> corrispondenti e costruire, pezzo dopo pezzo, la propria <strong>Pietra Filosofale</strong>.",
+            "Il cammino non è solo spogliarsi di ciò che non siamo: è riscoprire il <strong>Verbo</strong>, la parola creatrice, e usarlo consapevolmente, con una mente connessa al cuore."
+          ],
+          "citazione_finale": "<em>Abracadabra</em> — io creo come dico."
+        },
+        "en": {
+          "titolo": "The Ascent",
+          "testo": "Ancient tradition describes the soul's journey as a <strong>Tree of Life</strong> with ten fruits, ten divine attributes that the human being must embody to return to their origin. To do so they must traverse <strong>seven initiations</strong> and orient themselves through their own <strong>Soul Ray</strong>, the unique note that connects each person to their divine nature.",
+          "approfondimento": [
+            "Along the way, the <strong>seven wounds</strong> of the soul — rejection, abandonment, betrayal, humiliation, injustice, abuse, negligence — are not obstacles but raw material: transmuting them means embodying the corresponding <strong>seven spiritual talents</strong> and building, piece by piece, one's own <strong>Philosopher's Stone</strong>.",
+            "The path is not merely shedding what we are not: it is rediscovering the <strong>Word</strong>, the creative utterance, and using it consciously, with a mind connected to the heart."
+          ],
+          "citazione_finale": "<em>Abracadabra</em> — I create as I speak."
+        }
+      }
+    ]
+  },
+  "percorso_individuale": {
+    "it": {
+      "eyebrow": "Percorso Individuale di Alchimia Trasmutativa",
+      "testo": "Un viaggio personalizzato, costruito sull'obiettivo evolutivo specifico di chi lo intraprende. Può nascere da un momento di crisi, da un passaggio delicato o dalla spinta ad accelerare una trasformazione già in atto."
+    },
+    "en": {
+      "eyebrow": "Individual Transmutative Alchemy Path",
+      "testo": "A personalised journey, built around the specific evolutionary goal of the person undertaking it. It may arise from a moment of crisis, a delicate transition, or the drive to accelerate a transformation already underway."
+    }
+  },
+  "due_percorsi": {
+    "it": { "eyebrow": "Due percorsi, un'unica direzione" },
+    "en": { "eyebrow": "Two paths, one direction" },
+    "colonne": [
+      {
+        "icona": "images/icon-scuola.svg",
+        "it": {
+          "titolo": "La Scuola",
+          "voci": [
+            "Percorso formativo strutturato e condiviso",
+            "Manifestare la propria Anima nella vita quotidiana",
+            "Antichi Insegnamenti e 96 Leggi dell'Universo",
+            "Strumenti universali di Alchimia e osservazione di sé",
+            "Cammino condiviso con altri partecipanti"
+          ]
+        },
+        "en": {
+          "titolo": "The School",
+          "voci": [
+            "Structured and shared educational path",
+            "Manifesting one's Soul in daily life",
+            "Ancient Teachings and the 96 Universal Laws",
+            "Universal tools of Alchemy and self-observation",
+            "Shared journey with other participants"
+          ]
+        }
+      },
+      {
+        "icona": "images/icon-individuale.svg",
+        "it": {
+          "titolo": "Percorso Individuale",
+          "voci": [
+            "Viaggio personalizzato sul tuo obiettivo evolutivo",
+            "Nasce da un momento di crisi o da un passaggio delicato",
+            "Lavoro sull'Inconscio attraverso incontri mirati",
+            "Illuminazione delle zone d'ombra",
+            "Trasformazione intima e concreta"
+          ]
+        },
+        "en": {
+          "titolo": "Individual Path",
+          "voci": [
+            "Personalised journey based on your evolutionary goal",
+            "Arises from a moment of crisis or a delicate transition",
+            "Work on the Unconscious through targeted sessions",
+            "Illumination of shadow areas",
+            "Intimate and concrete transformation"
+          ]
+        }
+      }
+    ]
+  },
+  "complementari": {
+    "it": {
+      "eyebrow": "Complementari, non alternativi",
+      "testo": "Nella Scuola lavori insieme agli altri: studi le Leggi, ti alleni con gli esercizi, e il gruppo fa da specchio. Nel Percorso Individuale lavori su un nodo specifico, tuo, con l'ascolto mirato di un conduttore. Chi frequenta la Scuola e incontra un blocco profondo può scioglierlo nel percorso individuale; chi inizia dall'individuale spesso sente il bisogno di una cornice più ampia. Per questo funzionano bene insieme."
+    },
+    "en": {
+      "eyebrow": "Complementary, not alternative",
+      "testo": "In the School you work together with others: you study the Laws, train with exercises, and the group acts as a mirror. In the Individual Path you work on a specific knot of your own, with the focused listening of a guide. Those attending the School who encounter a deep block can dissolve it in the individual path; those starting from the individual path often feel the need for a broader framework. That is why they work well together."
+    }
+  }
+}

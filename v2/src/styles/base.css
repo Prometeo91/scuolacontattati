@@ -1,0 +1,198 @@
+@import './tokens.css';
+
+/* Font self-hosted (copiati da /fonts del sito attuale) */
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/eb-garamond-latin-400-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/eb-garamond-latin-500-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/eb-garamond-latin-500-italic.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/eb-garamond-latin-600-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/inter-latin-400-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/inter-latin-500-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/inter-latin-600-normal.woff2') format('woff2');
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  transition: background var(--transition), color var(--transition);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.2;
+  text-wrap: balance;
+  margin: 0 0 var(--space-2);
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+h2 {
+  font-size: clamp(1.5rem, 3.5vw, 2.1rem);
+}
+h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+p {
+  margin: 0 0 var(--space-2);
+  max-width: var(--measure);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 62rem;
+  margin-inline: auto;
+  padding-inline: var(--space-3);
+}
+
+.section {
+  padding-block: var(--space-4);
+}
+
+/* Card: superficie + bordo 1px + radius, niente ombre pesanti */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  box-shadow: var(--shadow);
+  transition: border-color var(--transition);
+}
+.card:hover {
+  border-color: var(--accent-2);
+}
+
+/* CTA primaria: outline oro nel tema scuro, piena oro scuro nel chiaro */
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.4rem;
+  border: 1px solid var(--accent-2);
+  border-radius: var(--radius);
+  color: var(--accent);
+  font-weight: 500;
+  transition: background var(--transition), color var(--transition);
+}
+.btn:hover {
+  text-decoration: none;
+  background: var(--accent-2);
+  color: var(--bg);
+}
+[data-theme='light'] .btn {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+}
+[data-theme='light'] .btn:hover {
+  background: var(--accent-2);
+  border-color: var(--accent-2);
+}
+
+.eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+  margin-bottom: var(--space-1);
+}
+
+.muted {
+  color: var(--text-3);
+}
+
+blockquote {
+  margin: var(--space-3) 0;
+  padding-left: var(--space-2);
+  border-left: 2px solid var(--accent-2);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--text-2);
+  max-width: var(--measure);
+}
+blockquote footer {
+  margin-top: var(--space-1);
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: 0.85rem;
+  color: var(--text-3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

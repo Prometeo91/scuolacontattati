@@ -1,0 +1,48 @@
+{
+  "sezione": {
+    "it": {
+      "eyebrow": "La Scuola in azione",
+      "titolo": "I nostri eventi",
+      "sottotitolo": "Momenti vissuti insieme, tra insegnamento e natura.",
+      "toggle_mostra": "Mostra tutte le foto ▾",
+      "toggle_nascondi": "Mostra meno ▴"
+    },
+    "en": {
+      "eyebrow": "The School in action",
+      "titolo": "Our events",
+      "sottotitolo": "Moments lived together, between teaching and nature.",
+      "toggle_mostra": "Show all photos ▾",
+      "toggle_nascondi": "Show fewer ▴"
+    }
+  },
+  "evento": {
+    "it": {
+      "titolo": "I 7 Chakra — Amare Sé Stessi",
+      "sottotitolo": "8 Luglio 2023 · Masseria Chinunno, Cassano (BA)"
+    },
+    "en": {
+      "titolo": "The 7 Chakras — Loving Oneself",
+      "sottotitolo": "8 July 2023 · Masseria Chinunno, Cassano (BA)"
+    }
+  },
+  "foto": [
+    { "src": "images/gallery/06-foto-gruppo.webp", "thumb": "images/gallery/06-foto-gruppo-thumb.webp", "nascosta": false, "it": { "alt": "Foto di gruppo del seminario I 7 Chakra" }, "en": { "alt": "Group photo from the 7 Chakras seminar" } },
+    { "src": "images/gallery/01-nicolaos-parla.webp", "thumb": "images/gallery/01-nicolaos-parla-thumb.webp", "nascosta": false, "it": { "alt": "Nicolaos Anifantis conduce il seminario" }, "en": { "alt": "Nicolaos Anifantis leads the seminar" } },
+    { "src": "images/gallery/03-anna-carla.webp", "thumb": "images/gallery/03-anna-carla-thumb.webp", "nascosta": false, "object_position": "top", "it": { "alt": "Anna Carla Digregorio conduce il seminario" }, "en": { "alt": "Anna Carla Digregorio leads the seminar" } },
+    { "src": "images/gallery/02-sala-platea.webp", "thumb": "images/gallery/02-sala-platea-thumb.webp", "nascosta": false, "it": { "alt": "Platea del seminario nel gazebo" }, "en": { "alt": "Seminar audience in the gazebo" } },
+    { "src": "images/gallery/12-anna-carla-insegna.webp", "thumb": "images/gallery/12-anna-carla-insegna-thumb.webp", "nascosta": false, "object_position": "top", "it": { "alt": "Anna Carla insegna con lavagna" }, "en": { "alt": "Anna Carla teaching at the whiteboard" } },
+    { "src": "images/gallery/10-nicolaos-chakra.webp", "thumb": "images/gallery/10-nicolaos-chakra-thumb.webp", "nascosta": false, "it": { "alt": "Nicolaos con banner dei Chakra" }, "en": { "alt": "Nicolaos with the Chakra banner" } },
+    { "src": "images/gallery/08-anna-carla-platea.webp", "thumb": "images/gallery/08-anna-carla-platea-thumb.webp", "nascosta": true, "it": { "alt": "Anna Carla parla alla platea" }, "en": { "alt": "Anna Carla speaks to the audience" } },
+    { "src": "images/gallery/04-nicolaos-tamburo.webp", "thumb": "images/gallery/04-nicolaos-tamburo-thumb.webp", "nascosta": true, "it": { "alt": "Nicolaos con strumenti musicali" }, "en": { "alt": "Nicolaos with musical instruments" } },
+    { "src": "images/gallery/15-eleonora-tamburo.webp", "thumb": "images/gallery/15-eleonora-tamburo-thumb.webp", "nascosta": true, "it": { "alt": "Eleonora con il tamburo" }, "en": { "alt": "Eleonora with the drum" } },
+    { "src": "images/gallery/18-anna-carla-palco.webp", "thumb": "images/gallery/18-anna-carla-palco-thumb.webp", "nascosta": true, "it": { "alt": "Anna Carla sul palco" }, "en": { "alt": "Anna Carla on stage" } },
+    { "src": "images/gallery/07-gazebo-pubblico.webp", "thumb": "images/gallery/07-gazebo-pubblico-thumb.webp", "nascosta": true, "it": { "alt": "Veduta del gazebo durante il seminario" }, "en": { "alt": "View of the gazebo during the seminar" } },
+    { "src": "images/gallery/09-conduttori-lavagna.webp", "thumb": "images/gallery/09-conduttori-lavagna-thumb.webp", "nascosta": true, "it": { "alt": "I conduttori con la lavagna" }, "en": { "alt": "The guides at the whiteboard" } },
+    { "src": "images/gallery/05-esercizi-natura.webp", "thumb": "images/gallery/05-esercizi-natura-thumb.webp", "nascosta": true, "it": { "alt": "Esercizi in natura" }, "en": { "alt": "Exercises in nature" } },
+    { "src": "images/gallery/16-sala-laterale.webp", "thumb": "images/gallery/16-sala-laterale-thumb.webp", "nascosta": true, "it": { "alt": "Veduta laterale della sala" }, "en": { "alt": "Side view of the hall" } },
+    { "src": "images/gallery/14-pausa-natura.webp", "thumb": "images/gallery/14-pausa-natura-thumb.webp", "nascosta": true, "it": { "alt": "Pausa tra gli alberi" }, "en": { "alt": "Break among the trees" } },
+    { "src": "images/gallery/17-nicolaos-legge.webp", "thumb": "images/gallery/17-nicolaos-legge-thumb.webp", "nascosta": true, "it": { "alt": "Nicolaos legge" }, "en": { "alt": "Nicolaos reads" } },
+    { "src": "images/gallery/11-abbraccio.webp", "thumb": "images/gallery/11-abbraccio-thumb.webp", "nascosta": true, "it": { "alt": "Abbraccio tra partecipanti" }, "en": { "alt": "Embrace between participants" } },
+    { "src": "images/gallery/13-panoramica.webp", "thumb": "images/gallery/13-panoramica-thumb.webp", "nascosta": true, "it": { "alt": "Panoramica del gazebo" }, "en": { "alt": "Panoramic view of the gazebo" } }
+  ]
+}

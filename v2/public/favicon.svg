@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  
+  <circle cx="32" cy="32" r="32" fill="#0d0b1a"></circle>
+  
+  <g fill="#7b5ea7" fill-opacity="0.9" stroke="#c9973a" stroke-width="1.5" stroke-linejoin="round">
+    <polygon points="32,4 56,46 8,46"></polygon>
+    <polygon points="32,60 8,18 56,18"></polygon>
+  </g>
+  
+  <g transform="translate(32,32)">
+    <circle r="14" fill="#0d0b1a" stroke="#e8c97a" stroke-width="1.5"></circle>
+    <path d="M 0,-14 A 14,14 0 0,1 0,14 A 7,7 0 0,1 0,0 A 7,7 0 0,0 0,-14 Z" fill="#e8e0f0"></path>
+    <circle cx="0" cy="-7" r="2" fill="#0d0b1a"></circle>
+    <circle cx="0" cy="7" r="2" fill="#e8e0f0"></circle>
+  </g>
+</svg>

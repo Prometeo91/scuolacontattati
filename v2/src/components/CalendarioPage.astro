@@ -1,0 +1,166 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { t, formatDate, localePath } from '../i18n/strings.js';
+import eventi from '../data/eventi.json';
+import calendario from '../data/calendario.json';
+import esperienziali from '../data/esperienziali.json';
+
+const { locale } = Astro.props;
+const S = t(locale);
+const CAL = calendario[locale] ?? calendario.it;
+
+const ESP_TITOLO = { it: 'Seminari esperienziali', en: 'Experiential seminars' };
+
+const oggi = new Date();
+oggi.setHours(0, 0, 0, 0);
+
+const lezioni = (await getCollection('lezioni'))
+  .filter((l) => l.data.data && l.data.data >= oggi)
+  .sort((a, b) => a.data.data - b.data.data);
+
+const conData = eventi.map((e) => ({
+  ...e,
+  data: new Date(e.year, e.month - 1, e.day),
+}));
+const futuri = conData.filter((e) => e.data >= oggi).sort((a, b) => a.data - b.data);
+const passati = conData.filter((e) => e.data < oggi).sort((a, b) => b.data - a.data);
+
+/* JSON-LD Schema.org: le lezioni e gli eventi futuri come Event,
+   per comparire nei risultati ricchi di Google (SEO locale Bari). */
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    ...lezioni.map((l) => ({
+      '@type': 'EducationEvent',
+      name: l.data.titolo,
+      description: l.data.sottotitolo,
+      startDate: l.data.data.toISOString().slice(0, 10),
+      eventAttendanceMode: 'https://schema.org/MixedEventAttendanceMode',
+      location: { '@type': 'Place', name: 'Bari', address: 'Bari, Italia' },
+      organizer: { '@type': 'Organization', name: 'Scuola ContattaTi', url: 'https://scuolacontattati.com' },
+      url: new URL(localePath(locale, `/lezioni/${l.id}/`), Astro.site).href,
+    })),
+    ...futuri.map((e) => ({
+      '@type': 'Event',
+      name: e[locale]?.titolo ?? e.it.titolo,
+      description: e[locale]?.dettaglio ?? e.it.dettaglio,
+      startDate: e.data.toISOString().slice(0, 10),
+      location: { '@type': 'Place', name: e[locale]?.dettaglio ?? e.it.dettaglio },
+      organizer: { '@type': 'Organization', name: 'Scuola ContattaTi', url: 'https://scuolacontattati.com' },
+    })),
+  ],
+};
+---
+
+<Base locale={locale} title={CAL.titolo} description={CAL.sottotitolo}>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <section class="section container">
+    <p class="eyebrow">{CAL.eyebrow}</p>
+    <h1>{CAL.titolo}</h1>
+    <p class="muted">{CAL.sottotitolo}</p>
+
+    <h2>{S.upcomingLessons}</h2>
+    {lezioni.length === 0 && <p class="muted">—</p>}
+    <ol class="timeline">
+      {
+        lezioni.map((l) => (
+          <li class="card evento">
+            <p class="eyebrow">
+              {formatDate(l.data.data, locale)} · {S.year} {l.data.anno}
+            </p>
+            <h3>
+              <a href={localePath(locale, `/lezioni/${l.id}/`)}>{l.data.titolo}</a>
+            </h3>
+            <p class="muted dettaglio">{l.data.sottotitolo}</p>
+          </li>
+        ))
+      }
+    </ol>
+
+    {
+      futuri.length > 0 && (
+        <>
+          <h2>{S.upcomingEvents}</h2>
+          <ol class="timeline">
+            {futuri.map((e) => (
+              <li class="card evento">
+                <p class="eyebrow">{formatDate(e.data, locale)}</p>
+                <h3>{e[locale]?.titolo ?? e.it.titolo}</h3>
+                <p class="muted dettaglio">{e[locale]?.dettaglio ?? e.it.dettaglio}</p>
+              </li>
+            ))}
+          </ol>
+        </>
+      )
+    }
+
+    <h2>{ESP_TITOLO[locale] ?? ESP_TITOLO.it}</h2>
+    <ol class="timeline">
+      {
+        esperienziali.map((seminario) => (
+          <li class="card evento">
+            <h3>{seminario.titolo}</h3>
+            <p class="muted dettaglio">{seminario.sottotitolo}</p>
+            {seminario.citazione && (
+              <blockquote>
+                {seminario.citazione}
+                {seminario.autore && <footer>— {seminario.autore}</footer>}
+              </blockquote>
+            )}
+          </li>
+        ))
+      }
+    </ol>
+    <div class="card esp-banner">
+      <h3>{CAL.esp_banner.titolo}</h3>
+      <p
+        class="muted"
+        set:html={CAL.esp_banner.html.replace(/#contatti/g, localePath(locale, '/contatti/'))}
+      />
+    </div>
+
+    <h2>{S.pastEvents}</h2>
+    <ol class="timeline passati">
+      {
+        passati.map((e) => (
+          <li class="card evento">
+            <p class="eyebrow">{formatDate(e.data, locale)}</p>
+            <h3>{e[locale]?.titolo ?? e.it.titolo}</h3>
+            <p class="muted dettaglio">{e[locale]?.dettaglio ?? e.it.dettaglio}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+</Base>
+
+<style>
+  h2 {
+    margin-top: var(--space-4);
+  }
+  .timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-2);
+  }
+  .evento h3 {
+    margin-bottom: 0.3rem;
+  }
+  .dettaglio {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+  .passati .evento {
+    opacity: 0.75;
+  }
+  .esp-banner {
+    margin-top: var(--space-2);
+    max-width: var(--measure);
+  }
+  .esp-banner p {
+    margin: 0;
+  }
+</style>

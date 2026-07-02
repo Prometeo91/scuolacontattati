@@ -1,0 +1,65 @@
+{
+  "it": {
+    "eyebrow": "Eventi",
+    "titolo": "Prossimi eventi",
+    "sottotitolo": "Esperienze in presenza per portare gli Insegnamenti nella vita vissuta."
+  },
+  "en": {
+    "eyebrow": "Events",
+    "titolo": "Upcoming events",
+    "sottotitolo": "In-person experiences to bring the Teachings into lived life."
+  },
+  "eventi": [
+    {
+      "id": "seminario-luglio-2026",
+      "immagine": "images/seminario-luglio-2026.webp",
+      "expires": "2026-07-26",
+      "countdown_target": "2026-07-26T09:00:00+02:00",
+      "cta_url": "https://wa.me/393929116441",
+      "it": {
+        "titolo": "Seminario in natura",
+        "sottotitolo": "Ricchezza, Abbondanza e Mission · Le Chiavi della Realizzazione Interiore",
+        "immagine_alt": "Locandina del seminario Ricchezza, Abbondanza e Mission - 26 luglio 2026",
+        "immagine_title": "Clicca per ingrandire",
+        "countdown_labels": { "giorni": "giorni", "ore": "ore", "min": "min", "tag": "Iscrizioni aperte", "concluso": "Evento concluso" },
+        "domande": [
+          "Cos'è davvero la Ricchezza?",
+          "Quando possiamo dirci autenticamente Abbondanti?",
+          "Come riconoscere la direzione che la nostra Anima desidera seguire?",
+          "Cosa accade quando ciò che siamo, ciò che amiamo e ciò che doniamo iniziano a dialogare tra loro?"
+        ],
+        "testo": "Una giornata immersa nella natura. Non per cercare risposte preconfezionate, ma per avvicinarci a noi stessi e a ciò che dà significato alla nostra esistenza. Rivolto sia a chi partecipa per la prima volta, sia a chi sente il richiamo di ritornare e approfondire.",
+        "data": "Domenica 26 luglio 2026",
+        "luogo": "Masseria Chinunno - Bosco di Mercadante",
+        "prezzi": [
+          "<strong>80€</strong> - prima partecipazione",
+          "<strong>30€</strong> - per chi ha già partecipato alla scorsa edizione",
+          "− 10€ per ogni persona che porti con te"
+        ],
+        "cta_label": "Informazioni e iscrizioni"
+      },
+      "en": {
+        "titolo": "Nature seminar",
+        "sottotitolo": "Wealth, Abundance and Mission · The Keys to Inner Realisation",
+        "immagine_alt": "Poster for the seminar Wealth, Abundance and Mission - 26 July 2026",
+        "immagine_title": "Click to enlarge",
+        "countdown_labels": { "giorni": "days", "ore": "hours", "min": "min", "tag": "Registrations open", "concluso": "Event ended" },
+        "domande": [
+          "What is Wealth, really?",
+          "When can we truly call ourselves Abundant?",
+          "How do we recognise the direction our Soul wishes to follow?",
+          "What happens when who we are, what we love and what we give begin to speak to one another?"
+        ],
+        "testo": "A day immersed in nature. Not to seek ready-made answers, but to draw closer to ourselves and to what gives meaning to our existence. Open to both first-time participants and those who feel the call to return and go deeper.",
+        "data": "Sunday 26 July 2026",
+        "luogo": "Masseria Chinunno - Bosco di Mercadante",
+        "prezzi": [
+          "<strong>80€</strong> - first-time attendance",
+          "<strong>30€</strong> - for those who attended the previous edition",
+          "− 10€ for each person you bring along"
+        ],
+        "cta_label": "Information & registration"
+      }
+    }
+  ]
+}

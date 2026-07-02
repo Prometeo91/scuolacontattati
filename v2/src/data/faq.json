@@ -1,0 +1,96 @@
+{
+  "sezione": {
+    "it": {
+      "eyebrow": "Domande frequenti",
+      "titolo": "Quello che ci chiedete più spesso",
+      "sottotitolo": "Le risposte alle domande più comuni per chi si avvicina alla Scuola."
+    },
+    "en": {
+      "eyebrow": "Frequently asked questions",
+      "titolo": "What you ask us most often",
+      "sottotitolo": "Answers to the most common questions for those approaching the School."
+    }
+  },
+  "faq": [
+    {
+      "it": {
+        "q": "Perché una scuola? Non posso studiare da autodidatta?",
+        "a": "<p>Potete, certo, e ogni ricerca è preziosa. Ma c'è una differenza sostanziale. L'autodidatta raccoglie informazioni frammentarie da libri, video e corsi diversi: mezze verità che rischiano di non comporsi mai in un quadro completo. Come ci insegna la psicologia della Gestalt, quando al nostro cervello mancano dei dati, li ricostruisce secondo il modello più comodo, non secondo la mappa reale.</p><p>Una scuola offre invece una <strong>struttura progressiva</strong>, un metodo consolidato che da secoli viene solcato da chi ci ha preceduto. Come Virgilio per Dante, le guide che hanno percorso quel cammino sanno dove si cade, come ci si rialza, cosa sfugge allo sguardo. Se il viaggio interiore è un viaggio, potreste mai raggiungere la destinazione con una mappa inesatta?</p>"
+      },
+      "en": {
+        "q": "Why a school? Can't I study on my own?",
+        "a": "<p>You can, of course, and every search is precious. But there is a substantial difference. The self-taught person gathers fragmented information from different books, videos and courses: half-truths that risk never composing into a complete picture. As Gestalt psychology teaches us, when our brain lacks data, it reconstructs it according to the most convenient model, not according to the real map.</p><p>A school instead offers a <strong>progressive structure</strong>, a consolidated method that has been travelled for centuries by those who preceded us. Like Virgil for Dante, the guides who have walked that path know where one falls, how to get back up, what escapes the eye. If the inner journey is a journey, could you ever reach the destination with an inaccurate map?</p>"
+      }
+    },
+    {
+      "it": {
+        "q": "Serve esperienza pregressa o una formazione spirituale?",
+        "a": "<p>No. Il percorso parte dalle fondamenta e accompagna ciascuno dal punto in cui si trova. L'unico requisito è ciò che in alchimia si chiama la <em>sete dell'anima</em>: quella spinta interiore a conoscersi più a fondo che, quando nasce, non lascia in pace finché non trova risposta. Non servono letture pregresse né competenze specifiche.</p>"
+      },
+      "en": {
+        "q": "Is prior experience or spiritual training required?",
+        "a": "<p>No. The path starts from the foundations and accompanies each person from wherever they are. The only requirement is what in alchemy is called the <em>thirst of the soul</em>: that inner drive to know oneself more deeply which, once it arises, does not rest until it finds an answer. No prior reading or specific skills are needed.</p>"
+      }
+    },
+    {
+      "it": {
+        "q": "Quanto dura il percorso e come è strutturato?",
+        "a": "<p>La Scuola si articola in <strong>7 anni</strong>: 3 di base e 4 di approfondimento. Anche solo i primi 3 anni costituiscono un percorso completo. Ogni anno prevede <strong>7 lezioni</strong> nei livelli base e 3 nei livelli avanzati, con cadenza di circa un mese e mezzo. Le lezioni si svolgono la <strong>domenica mattina dalle 9:00 alle 13:30</strong>.</p>"
+      },
+      "en": {
+        "q": "How long does the path last and how is it structured?",
+        "a": "<p>The School spans <strong>7 years</strong>: 3 foundational and 4 advanced. Even just the first 3 years constitute a complete path. Each year includes <strong>7 lessons</strong> at the foundational levels and 3 at the advanced levels, at intervals of about six weeks. Lessons take place on <strong>Sunday mornings from 9:00 to 13:30</strong>.</p>"
+      }
+    },
+    {
+      "it": {
+        "q": "Quanto costa?",
+        "a": "<p>Il contributo è di <strong>30 € a lezione</strong>, pagabile di volta in volta. Per chi preferisce, è disponibile il pacchetto annuale (anni 1-3, 7 lezioni) a 180 € anziché 210 €, con una lezione offerta dalla Scuola. Non ci sono vincoli né obblighi: incarniamo il principio della libera scelta. Potete iniziare, fermarvi e riprendere quando volete.</p>"
+      },
+      "en": {
+        "q": "How much does it cost?",
+        "a": "<p>The contribution is <strong>30 € per lesson</strong>, payable each time. For those who prefer, an annual package is available (years 1-3, 7 lessons) at 180 € instead of 210 €, with one lesson offered by the School. There are no ties or obligations: we embody the principle of free choice. You can start, pause and resume whenever you wish.</p>"
+      }
+    },
+    {
+      "it": {
+        "q": "Posso seguire le lezioni online?",
+        "a": "<p>Sì. Ogni lezione viene registrata e resa disponibile tramite un link YouTube riservato, attivo in modo permanente. Potete rivedere la lezione quante volte desiderate, al vostro ritmo. L'esperienza in presenza resta naturalmente più ricca, ma la modalità online garantisce a chiunque di seguire il percorso indipendentemente da dove si trovi.</p>"
+      },
+      "en": {
+        "q": "Can I follow the lessons online?",
+        "a": "<p>Yes. Every lesson is recorded and made available through a reserved YouTube link, active permanently. You can rewatch the lesson as many times as you like, at your own pace. The in-person experience is naturally richer, but the online option ensures anyone can follow the path regardless of their location.</p>"
+      }
+    },
+    {
+      "it": {
+        "q": "Posso iniziare anche se le lezioni sono già partite?",
+        "a": "<p>Assolutamente sì. Grazie alle registrazioni, potete recuperare le lezioni precedenti e inserirvi nel percorso in qualsiasi momento. Non ci sono sbarramenti né prerequisiti temporali.</p>"
+      },
+      "en": {
+        "q": "Can I start even if lessons have already begun?",
+        "a": "<p>Absolutely yes. Thanks to the recordings, you can catch up on previous lessons and join the path at any time. There are no barriers or time-bound prerequisites.</p>"
+      }
+    },
+    {
+      "it": {
+        "q": "Cosa si studia concretamente?",
+        "a": "<p>Il cuore del percorso è lo studio delle <strong>96 Leggi Universali</strong> — le leggi che regolano il macrocosmo e il microcosmo. Ma la conoscenza è solo metà del lavoro: l'altra metà è la <strong>pratica alchimistica</strong>, cioè la trasmutazione concreta di sé stessi nella vita quotidiana. Tra gli strumenti: Enneagramma, Kabbalà, studio simbolico dei miti e degli archetipi, Magia Ermetica, esercizi di osservazione di sé e meditazioni guidate. Ogni anno costruisce sul precedente, creando un percorso organico e progressivo.</p>"
+      },
+      "en": {
+        "q": "What do you actually study?",
+        "a": "<p>The heart of the path is the study of the <strong>96 Universal Laws</strong> — the laws that govern the macrocosm and the microcosm. But knowledge is only half the work: the other half is <strong>alchemical practice</strong>, that is, the concrete transmutation of oneself in daily life. Among the tools: the Enneagram, Kabbalah, symbolic study of myths and archetypes, Hermetic Magic, self-observation exercises and guided meditations. Each year builds on the previous one, creating an organic and progressive path.</p>"
+      }
+    },
+    {
+      "it": {
+        "q": "È una scuola religiosa?",
+        "a": "<p>No. La Scuola integra insegnamenti provenienti da più tradizioni spirituali — dal Vangelo alla sapienza orientale, dall'ermetismo alla psicologia del profondo, cercando il filo comune che le unisce. Il nostro approccio è quello della <em>reductio ad unum</em>: riportare la pluralità degli insegnamenti a un'unica verità di fondo. Non parliamo di fede cieca, ma di una <strong>scienza spirituale</strong> da verificare attraverso la pratica e l'esperienza diretta.</p>"
+      },
+      "en": {
+        "q": "Is it a religious school?",
+        "a": "<p>No. The School integrates teachings from multiple spiritual traditions — from the Gospel to Eastern wisdom, from Hermeticism to depth psychology, seeking the common thread that unites them. Our approach is one of <em>reductio ad unum</em>: bringing the plurality of teachings back to a single underlying truth. We are not speaking of blind faith, but of a <strong>spiritual science</strong> to be verified through practice and direct experience.</p>"
+      }
+    }
+  ]
+}
