@@ -1,0 +1,212 @@
+{
+  "copertina": "images/libro-copertina-hq.jpg",
+  "copertina_alt_versione": "images/libro-copertina.jpg",
+  "editore": "Gagliano Edizioni",
+  "titolo": "Ricchezza, Abbondanza e Mission",
+  "autori": "Anna Carla Digregorio & Nicolaos Anifantis",
+  "it": {
+    "eyebrow": "La pubblicazione",
+    "titolo_sezione": "Il libro",
+    "sottotitolo_sezione": "Anna Carla Digregorio e Nicolaos Anifantis raccolgono in queste pagine il cuore degli insegnamenti della Scuola: un percorso pratico per riconoscere e sciogliere i blocchi interiori che separano dalla propria Abbondanza autentica.",
+    "copertina_alt": "Copertina del libro Ricchezza, Abbondanza e Mission",
+    "sottotitolo_libro": "Le chiavi della realizzazione interiore",
+    "descrizione": "Le Leggi universali della prosperità e dell'evoluzione spirituale diventano strumenti concreti per dissolvere blocchi e sciogliere schemi limitanti. Le chiavi archetipiche e le antiche saggezze guidano a riconoscere l'Abbondanza come uno stato naturale da abitare, non un premio da conquistare.",
+    "citazione": "Mira all'Abbondanza interiore, e la Ricchezza nella materia sarà una conseguenza. La Realizzazione non è una meta, ma uno stato dell'Essere.",
+    "citazione_autori": "Anna Carla Digregorio & Nicolaos Anifantis",
+    "dove": [
+      "📖 Libreria Roma — P.zza Aldo Moro 13, Bari",
+      "🌐 Ordinabile in tutte le librerie e sul web"
+    ]
+  },
+  "en": {
+    "eyebrow": "The publication",
+    "titolo_sezione": "The Book",
+    "sottotitolo_sezione": "Anna Carla Digregorio and Nicolaos Anifantis gather in these pages the heart of the School's teachings: a practical path to recognise and dissolve the inner blocks that separate us from our authentic Abundance.",
+    "copertina_alt": "Copertina del libro Ricchezza, Abbondanza e Mission",
+    "sottotitolo_libro": "The keys to inner realisation",
+    "descrizione": "The universal Laws of prosperity and spiritual evolution become concrete tools to dissolve blocks and release limiting patterns. Archetypal keys and ancient wisdoms guide us to recognise Abundance as a natural state to inhabit, not a prize to conquer.",
+    "citazione": "Aim for inner Abundance, and Wealth in matter will follow. Realisation is not a destination, but a state of Being.",
+    "citazione_autori": "Anna Carla Digregorio & Nicolaos Anifantis",
+    "dove": [
+      "📖 Libreria Roma — P.zza Aldo Moro 13, Bari",
+      "🌐 Available at all bookshops and online"
+    ]
+  },
+  "contenuti": {
+    "it": { "eyebrow": "Cosa troverai nel libro" },
+    "en": { "eyebrow": "What you will find in the book" },
+    "card": [
+      {
+        "num": "22",
+        "it": {
+          "label": "Autosabotaggi",
+          "desc": "I meccanismi inconsci che inceppano la Realizzazione. Riconoscerli è il primo atto alchemico.",
+          "dettaglio": [
+            "I meccanismi inconsci che inceppano la Realizzazione. Riconoscerli è il primo atto alchemico: ogni limite, visto con consapevolezza, diventa uno strumento di conoscenza di sé e una porta verso la propria qualità opposta.",
+            "Tra questi: la paura del cambiamento, la difficoltà a ricevere, il senso di colpa e la vergogna, il non riconoscere il proprio valore, le credenze limitanti sul denaro, la mancanza di gratitudine, la confusione tra impegno e sforzo, l'attaccamento al risultato, l'impazienza, e la disconnessione dal piano materiale."
+          ]
+        },
+        "en": {
+          "label": "Self-sabotages",
+          "desc": "The unconscious mechanisms that hinder Realisation. Recognising them is the first alchemical act.",
+          "dettaglio": [
+            "The unconscious mechanisms that hinder Realisation. Recognising them is the first alchemical act: every limitation, seen with awareness, becomes a tool of self-knowledge and a doorway to its opposite quality.",
+            "Among these: fear of change, difficulty in receiving, guilt and shame, not recognising one's own value, limiting beliefs about money, lack of gratitude, confusion between commitment and effort, attachment to outcomes, impatience, and disconnection from the material plane."
+          ]
+        }
+      },
+      {
+        "num": "6",
+        "it": {
+          "label": "Leggi Universali",
+          "desc": "Le forze che sostengono l'Abbondanza: frequenze da incarnare nella propria vita.",
+          "dettaglio": [
+            "La Ricchezza Autentica non si conquista, si accoglie. Le Sei Leggi che sostengono l'Abbondanza sono forze attive con cui sintonizzarsi: frequenze da incarnare nella propria vita, più che norme da seguire.",
+            "Legge della Gestazione, Legge di Attrazione, Legge dell'Aspettativa, Legge del Lasciare Andare, Legge dell'Abbondanza, Legge del Potere Personale."
+          ]
+        },
+        "en": {
+          "label": "Universal Laws",
+          "desc": "The forces that sustain Abundance: frequencies to embody in one's life.",
+          "dettaglio": [
+            "Authentic Wealth is not conquered — it is welcomed. The Six Laws that sustain Abundance are active forces to attune to: frequencies to embody in one's life, rather than rules to follow.",
+            "Law of Gestation, Law of Attraction, Law of Expectation, Law of Letting Go, Law of Abundance, Law of Personal Power."
+          ]
+        }
+      },
+      {
+        "num": "3",
+        "it": {
+          "label": "Archetipi Planetari",
+          "desc": "Urano, Nettuno e Plutone come mappe simboliche per navigare le prove quotidiane.",
+          "dettaglio": [
+            "Urano, Nettuno e Plutone come Mappe Simboliche per navigare le prove quotidiane e accedere alle tre dimensioni dell'Essere."
+          ]
+        },
+        "en": {
+          "label": "Planetary Archetypes",
+          "desc": "Uranus, Neptune and Pluto as symbolic maps to navigate daily trials.",
+          "dettaglio": [
+            "Uranus, Neptune and Pluto as symbolic maps to navigate daily trials and access the three dimensions of Being."
+          ]
+        },
+        "archetipi": [
+          {
+            "simbolo": "♅",
+            "it": {
+              "titolo": "Urano — Libertà e autenticità",
+              "testo": "Urano ci chiede di liberarci da ciò che non siamo per diventare strumento di ciò che siamo venuti a portare. Le sue prove sono cambiamenti improvvisi, epifanie che costringono ad abbandonare vecchie credenze.",
+              "approfondimento": [
+                "Come un fulmine che squarcia il cielo, illumina ciò che era nascosto nell'ombra e mostra una nuova strada. Come un albero arido che all'improvviso rinvigorisce.",
+                "<em class=\"em-urano\">\"La verità vi renderà liberi.\"</em>"
+              ]
+            },
+            "en": {
+              "titolo": "Uranus — Freedom and authenticity",
+              "testo": "Uranus asks us to free ourselves from what we are not, to become instruments of what we came to bring. Its trials are sudden changes, epiphanies that force us to abandon old beliefs.",
+              "approfondimento": [
+                "Like a bolt of lightning that rips through the sky, it illuminates what was hidden in shadow and reveals a new path. Like a barren tree that suddenly comes back to life.",
+                "<em class=\"em-urano\">\"The truth shall set you free.\"</em>"
+              ]
+            }
+          },
+          {
+            "simbolo": "♆",
+            "it": {
+              "titolo": "Nettuno — Connessione spirituale",
+              "testo": "Nettuno ci chiede di dissolvere l'ego egoistico e separativo per ricordarci che tutto è Uno, che ogni essere è parte di un unico grande progetto. Le sue prove si muovono sul confine tra spiritualità e illusione, chiedendo discernimento.",
+              "approfondimento": [
+                "È l'oceano infinito che avvolge ogni cosa. La nebbia che sfuma i confini. Un fiume che scorre verso il mare: man mano le sue acque si mescolano con quelle dell'oceano, perdendo la loro identità separativa per diventare parte di qualcosa di più grande.",
+                "<em class=\"em-nettuno\">\"Cercate prima il regno di Dio e la sua giustizia, e tutte queste cose vi saranno date in aggiunta.\"</em>"
+              ]
+            },
+            "en": {
+              "titolo": "Neptune — Spiritual connection",
+              "testo": "Neptune asks us to dissolve the selfish and separative ego to remember that all is One, that every being is part of a single great design. Its trials move on the boundary between spirituality and illusion, demanding discernment.",
+              "approfondimento": [
+                "It is the infinite ocean that envelops everything. The mist that blurs boundaries. A river flowing toward the sea: gradually its waters merge with those of the ocean, losing their separative identity to become part of something greater.",
+                "<em class=\"em-nettuno\">\"Seek first the kingdom of God and His righteousness, and all these things shall be added unto you.\"</em>"
+              ]
+            }
+          },
+          {
+            "simbolo": "♇",
+            "it": {
+              "titolo": "Plutone — Trasformazione e guarigione",
+              "testo": "Plutone ci chiede di affrontare le proprie ombre e attraversare le morti interiori necessarie a far emergere l'oro nascosto: è il cammino dell'alchimista. Le sue prove sono crisi profonde, confronto con l'inconscio, rottura di consuetudini e meccanismi reiterati.",
+              "approfondimento": [
+                "È come il fuoco di un vulcano, invisibile agli occhi ma capace di trasformare tutto ciò che tocca. Per anni la lava scorre nelle profondità della terra, accumulando energia, fino a quando un'eruzione improvvisa porta alla luce, distruggendo il vecchio per creare nuova terra fertile.",
+                "<em class=\"em-plutone\">\"Chi vorrà salvare la propria vita la perderà, ma chi la perderà per causa mia la troverà.\"</em>"
+              ]
+            },
+            "en": {
+              "titolo": "Pluto — Transformation and healing",
+              "testo": "Pluto asks us to face our own shadows and pass through the inner deaths necessary to bring out the hidden gold: it is the alchemist's journey. Its trials are deep crises, confrontation with the unconscious, breaking of habits and repeated patterns.",
+              "approfondimento": [
+                "It is like the fire of a volcano, invisible to the eye but capable of transforming everything it touches. For years the lava flows in the depths of the earth, accumulating energy, until a sudden eruption brings it to light, destroying the old to create new fertile ground.",
+                "<em class=\"em-plutone\">\"Whoever wishes to save their life will lose it, but whoever loses it for my sake will find it.\"</em>"
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "tre_definizioni": {
+    "it": { "eyebrow": "Tre parole, tre dimensioni" },
+    "en": { "eyebrow": "Three words, three dimensions" },
+    "voci": [
+      {
+        "it": { "titolo": "Ricchezza", "testo": "Ciò che è già dentro di noi e si manifesta all'esterno come riflesso nel piano fisico. Il nostro valore intrinseco si riflette nel mondo attraverso le nostre azioni e il nostro modo di essere." },
+        "en": { "titolo": "Wealth", "testo": "What is already within us and manifests outwardly as a reflection in the physical plane. Our intrinsic value is reflected in the world through our actions and our way of being." }
+      },
+      {
+        "it": { "titolo": "Abbondanza", "testo": "Il potenziale di tutto ciò che possiamo ricevere e manifestare. Una sensazione interiore di pienezza, una mentalità prospera, una disposizione d'animo. Ci permette di riconoscere la bellezza e le opportunità della vita al di là di ciò che possediamo." },
+        "en": { "titolo": "Abundance", "testo": "The potential of all we can receive and manifest. An inner feeling of fullness, a prosperous mindset, a disposition of the soul. It allows us to recognise the beauty and opportunities of life beyond what we possess." }
+      },
+      {
+        "it": { "titolo": "Mission", "testo": "Il faro che illumina il nostro cammino. Il contributo unico che possiamo offrire al mondo, il senso profondo per cui siamo qui. Seguire la propria Mission significa vivere in allineamento con la nostra essenza più autentica." },
+        "en": { "titolo": "Mission", "testo": "The lighthouse that illuminates our path. The unique contribution we can offer to the world, the deep purpose for which we are here. Following one's Mission means living in alignment with our most authentic essence." }
+      }
+    ]
+  },
+  "otto_forme": {
+    "it": {
+      "eyebrow": "Le 8 forme di Ricchezza secondo i Veda",
+      "intro": "Secondo gli antichi testi vedici, la Ricchezza si manifesta in otto forme. Il vero benessere nasce dall'armonia tra tutte queste dimensioni. Oggi la scala di priorità è spesso invertita: partiamo dal basso, dalla sussistenza materiale, dimenticando che la forma più alta di Ricchezza è la conoscenza spirituale interiore.",
+      "label_apri": "Vedi le 8 forme",
+      "label_chiudi": "Mostra meno",
+      "forme": [
+        "Conoscenza spirituale interiore",
+        "Servizio: offrire sé stessi in un progetto di valore",
+        "Fede e coraggio",
+        "Fiducia in sé stessi",
+        "Virtù invisibili: qualità che generano rispetto e onore",
+        "Relazioni sane",
+        "Salute e benessere fisico e mentale",
+        "Sussistenza e economia solida"
+      ]
+    },
+    "en": {
+      "eyebrow": "The 8 Forms of Wealth according to the Vedas",
+      "intro": "According to the ancient Vedic texts, Wealth manifests in eight forms. True well-being arises from the harmony of all these dimensions. Today the scale of priorities is often inverted: we start from the bottom, from material subsistence, forgetting that the highest form of Wealth is inner spiritual knowledge.",
+      "label_apri": "See the 8 forms",
+      "label_chiudi": "Show less",
+      "forme": [
+        "Inner spiritual knowledge",
+        "Service: offering oneself in a project of value",
+        "Faith and courage",
+        "Self-confidence",
+        "Invisible virtues: qualities that generate respect and honour",
+        "Healthy relationships",
+        "Physical and mental health and well-being",
+        "Subsistence and solid economy"
+      ]
+    }
+  },
+  "presentazioni": {
+    "nota": "Blocco collassabile in fondo alla sezione #libro; l'elenco eventi è renderizzato da app.js con i dati SC_EVENTI di data/eventi.js.",
+    "it": { "titolo": "Presentazioni & eventi", "conteggio": "6 eventi tra conferenze, festival e presentazioni", "pill": "Eventi ▾" },
+    "en": { "titolo": "Presentations & events", "conteggio": "6 events including conferences, festivals and presentations", "pill": "Events ▾" }
+  }
+}

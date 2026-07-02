@@ -1,0 +1,100 @@
+{
+  "it": {
+    "eyebrow": "La nostra visione",
+    "titolo": "Chi siamo",
+    "sottotitolo": "Una scuola orientata al risveglio della coscienza e alla conquista della padronanza di sé. Il nostro percorso integra Antichi Insegnamenti, Alchimia e le 96 Leggi Universali per riconnetterci con la dimensione più profonda dell'essere: l'Anima.",
+    "paragrafi": [
+      { "tipo": "paragrafo", "html": "Il nostro punto di partenza è il più antico degli insegnamenti: <strong lang=\"el\">Γνῶθι Σεαυτόν</strong> — <em>Conosci te stesso</em>. Gli antichi lo incisero sul tempio di Delfi perché sapevano che senza conoscenza di sé non esiste vera libertà. Viviamo per lo più addormentati: reagiamo meccanicamente, guidati da condizionamenti e paure che scambiamo per scelte libere." },
+      { "tipo": "citazione", "html": "Non esiste uomo più schiavo di colui che falsamente si crede libero.", "autore": "Johann Wolfgang von Goethe" }
+    ],
+    "read_more": {
+      "label_apri": "Continua a leggere",
+      "label_chiudi": "Mostra meno",
+      "paragrafi": [
+        { "tipo": "citazione", "html": "La via del Conosci te stesso è una via di libertà. L'alchimia spirituale ci insegna a trasmutare ciascuno dei propri difetti nella sua qualità opposta — il piombo in oro — trasformando ciò che è meccanico in ciò che è consapevole." },
+        { "tipo": "paragrafo", "html": "Chi siamo, in profondità? Se ci osserviamo con sincerità, scopriamo di non essere un blocco unico ma una <strong>pluralità di voci</strong>: come una matrioska affollata di personaggi che si alternano al timone della nostra nave. Uno dice \"sì\", l'altro frena, un terzo giudica, un quarto fugge. Noi crediamo di scegliere, ma spesso è solo il personaggio più rumoroso a decidere, mentre le parti più silenziose e ferite restano sommerse." },
+        { "tipo": "paragrafo", "html": "Il vero lavoro, allora, è quello di un <strong>direttore d'orchestra</strong>: conoscere ogni voce, ogni strumento (come funziona, quando si attiva, cosa produce) e imparare a farli suonare insieme, in una sinfonia coerente con il nostro essere più autentico. L'obiettivo non è eliminare parti di noi, ma integrarle. <em>Individuo</em>, dal latino, significa \"non diviso\": qualcosa di frammentario che impariamo a riunificare. Solo allora potremo vivere una vita congruente con noi stessi e agire da dentro: l'<em>enérgheia</em> di Aristotele, l'atto puro dell'azione connesso all'essere. La vera libertà è questa: scegliere come rispondere a ciò che accade." },
+        { "tipo": "paragrafo", "html": "La Scuola nasce per offrire gli strumenti di questo risveglio. Non un sapere da accumulare: una pratica quotidiana di osservazione, presenza e lavoro su di sé che permetta di diventare padroni della propria carrozza anziché esserne trascinati. È un <strong>laboratorio</strong> nel senso più antico del termine, dal latino <em>labor</em>, fatica orientata e consapevole; una fatica dello spirito, in cui la volontà dell'uomo si unisce alla richiesta al cielo. Viviamo in un'epoca in cui temiamo che l'intelligenza artificiale possa sfuggire al nostro controllo; eppure è esattamente ciò che è già accaduto, da millenni, con la nostra <strong>intelligenza organica</strong>: la macchina biologica ha preso il comando, e l'Anima non riesce più, da sola, a disinserire il pilota automatico. Riallineare il proprio sguardo a quello dell'Anima è il primo atto di libertà." },
+        { "tipo": "paragrafo", "html": "Ciò che all'inizio sembra solo un allenamento a contrasto della meccanicità, a un certo punto diviene un'attitudine naturale: quel seme ha attecchito ed è diventato pianta vivente in noi. Per questo esiste la Scuola: non per dare risposte, ma per fornire gli strumenti con cui ciascuno possa trovare le proprie." }
+      ]
+    },
+    "video": {
+      "label": "Video di presentazione",
+      "titolo": "Uno sguardo sulla Scuola",
+      "sottotitolo": "conosci il nostro cammino",
+      "aria_label": "Riproduci il video di presentazione della Scuola ContattaTi",
+      "noscript_link": "▶ Guarda il video di presentazione su YouTube"
+    },
+    "foto_gruppo": {
+      "alt": "I diplomati del 7° Anno con Anna Carla, Nicolaos ed Eleonora — 24 maggio 2026",
+      "didascalia": "Sette anni di cammino, una nuova soglia · I diplomati del 7° Anno - 24 Maggio 2026"
+    }
+  },
+  "en": {
+    "eyebrow": "Our vision",
+    "titolo": "About us",
+    "sottotitolo": "A school devoted to the awakening of consciousness and the mastery of the self. Our path weaves Ancient Teachings, Alchemy and the 96 Universal Laws to reconnect with the deepest dimension of being: the Soul.",
+    "paragrafi": [
+      { "tipo": "paragrafo", "html": "Our starting point is the most ancient of teachings: <strong lang=\"el\">Γνῶθι Σεαυτόν</strong> — <em>Know thyself</em>. The ancients carved it on the temple of Delphi because they knew that without self-knowledge there is no true freedom. We live mostly asleep: reacting mechanically, driven by conditioning and fears that we mistake for free choices." },
+      { "tipo": "citazione", "html": "No man is more enslaved than the one who falsely believes himself free.", "autore": "Johann Wolfgang von Goethe" }
+    ],
+    "read_more": {
+      "label_apri": "Continue reading",
+      "label_chiudi": "Show less",
+      "paragrafi": [
+        { "tipo": "citazione", "html": "The path of Know thyself is a path of freedom. Spiritual alchemy teaches us to transmute each of our flaws into its opposite quality — lead into gold — transforming what is mechanical into what is conscious." },
+        { "tipo": "paragrafo", "html": "Who are we, deep down? If we observe ourselves honestly, we discover we are not a single block but a <strong>plurality of voices</strong>: like a matryoshka crowded with characters taking turns at the helm of our ship. One says \"yes,\" another holds back, a third judges, a fourth flees. We believe we choose, yet often it is merely the loudest character making the decision, while the quieter, wounded parts remain submerged." },
+        { "tipo": "paragrafo", "html": "The real work, then, is that of an <strong>orchestra conductor</strong>: getting to know each voice, each instrument (how it works, when it activates, what it produces) and learning to make them play together, in a symphony consistent with our most authentic being. The goal is not to eliminate parts of ourselves, but to integrate them. <em>Individuum</em>, from Latin, means \"undivided\": something fragmented that we learn to reunify. Only then can we live a life congruent with ourselves and act from within: Aristotle's <em>enérgheia</em>, the pure act of action connected to being. True freedom is this: choosing how to respond to what happens." },
+        { "tipo": "paragrafo", "html": "The School was created to offer the tools for this awakening. Not knowledge to accumulate, but a daily practice of observation, presence and work on oneself that allows us to become masters of our own carriage rather than being dragged by it. It is a <strong>laboratory</strong> in the most ancient sense of the word, from the Latin <em>labor</em>, oriented and conscious effort; an effort of the spirit, in which human will unites with the call to heaven. We live in an age where we fear artificial intelligence may escape our control; yet this is exactly what has already happened, for millennia, with our <strong>organic intelligence</strong>: the biological machine has taken command, and the Soul can no longer, on its own, disengage the autopilot. Realigning one's gaze with that of the Soul is the first act of freedom." },
+        { "tipo": "paragrafo", "html": "What at first seems like mere training against mechanicity, at some point becomes a natural attitude: that seed has taken root and become a living plant within us. This is why the School exists: not to give answers, but to provide the tools with which each person can find their own." }
+      ]
+    },
+    "video": {
+      "label": "Introduction video",
+      "titolo": "A look at the School",
+      "sottotitolo": "discover our path",
+      "aria_label": "Play the Scuola ContattaTi introduction video",
+      "noscript_link": "▶ Watch the introduction video on YouTube"
+    },
+    "foto_gruppo": {
+      "alt": "The 7th Year graduates with Anna Carla, Nicolaos and Eleonora — 24 May 2026",
+      "didascalia": "Seven years of journey, a new threshold · The 7th Year graduates - 24 May 2026"
+    }
+  },
+  "punti": [
+    {
+      "icona": "images/icon-insegnamenti.svg",
+      "it": {
+        "titolo": "Antichi Insegnamenti",
+        "testo": "Il percorso attinge da tradizioni diverse: Scienza Iniziatica, Quarta Via di Gurdjieff, Magia Ermetica, Kabbalà, Enneagramma, Antroposofia, Teosofia, Buddismo, Taoismo, Sciamanesimo. Lingue differenti per dire la stessa cosa: dall'OM induista al Logos giovanneo, al centro c'è sempre un suono creativo che dà forma alla vita. L'uomo ne è custode e co-creatore. Il suo compito è riscoprire quel programma dell'anima, più antico e profondo di qualsiasi condizionamento acquisito."
+      },
+      "en": {
+        "titolo": "Ancient Teachings",
+        "testo": "The path draws from diverse traditions: Initiatic Science, Gurdjieff's Fourth Way, Hermetic Magic, Kabbalah, the Enneagram, Anthroposophy, Theosophy, Buddhism, Taoism, Shamanism. Different languages saying the same thing: from the Hindu OM to the Johannine Logos, at the centre there is always a creative sound that shapes life. The human being is its guardian and co-creator. Their task is to rediscover that programme of the soul, more ancient and profound than any acquired conditioning."
+      }
+    },
+    {
+      "icona": "images/icon-accesso.svg",
+      "it": {
+        "titolo": "Struttura e accesso",
+        "testi": [
+          "I seminari si svolgono in presenza a Bari e online, per permettere a chiunque di accedere agli insegnamenti, indipendentemente da dove ci si trova.",
+          "Il percorso si articola in <strong class=\"text-gold-light\">7 anni</strong> (3 di base + 4 avanzati), con incontri domenicali a cadenza regolare. Ogni anno costruisce sul precedente, accompagnando lo studente in una trasformazione progressiva e radicata."
+        ]
+      },
+      "en": {
+        "titolo": "Structure & access",
+        "testi": [
+          "Seminars are held in person in Bari and online, allowing anyone to access the teachings regardless of their location.",
+          "The path spans <strong class=\"text-gold-light\">7 years</strong> (3 foundational + 4 advanced), with Sunday meetings at regular intervals. Each year builds on the previous one, guiding the student through a progressive and grounded transformation."
+        ]
+      }
+    }
+  ],
+  "video_meta": {
+    "youtube_id": "PGRpvB_6_rU",
+    "durata": "13:14",
+    "url": "https://www.youtube.com/watch?v=PGRpvB_6_rU"
+  },
+  "foto_gruppo_src": "images/certificati-settimo-anno.webp"
+}

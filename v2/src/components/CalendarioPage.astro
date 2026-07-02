@@ -3,9 +3,14 @@ import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import { t, formatDate, localePath } from '../i18n/strings.js';
 import eventi from '../data/eventi.json';
+import calendario from '../data/calendario.json';
+import esperienziali from '../data/esperienziali.json';
 
 const { locale } = Astro.props;
 const S = t(locale);
+const CAL = calendario[locale] ?? calendario.it;
+
+const ESP_TITOLO = { it: 'Seminari esperienziali', en: 'Experiential seminars' };
 
 const oggi = new Date();
 oggi.setHours(0, 0, 0, 0);
@@ -48,10 +53,12 @@ const jsonLd = {
 };
 ---
 
-<Base locale={locale} title={S.navCalendar} description={S.lessonsLead}>
+<Base locale={locale} title={CAL.titolo} description={CAL.sottotitolo}>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <section class="section container">
-    <h1>{S.navCalendar}</h1>
+    <p class="eyebrow">{CAL.eyebrow}</p>
+    <h1>{CAL.titolo}</h1>
+    <p class="muted">{CAL.sottotitolo}</p>
 
     <h2>{S.upcomingLessons}</h2>
     {lezioni.length === 0 && <p class="muted">—</p>}
@@ -88,6 +95,31 @@ const jsonLd = {
       )
     }
 
+    <h2>{ESP_TITOLO[locale] ?? ESP_TITOLO.it}</h2>
+    <ol class="timeline">
+      {
+        esperienziali.map((seminario) => (
+          <li class="card evento">
+            <h3>{seminario.titolo}</h3>
+            <p class="muted dettaglio">{seminario.sottotitolo}</p>
+            {seminario.citazione && (
+              <blockquote>
+                {seminario.citazione}
+                {seminario.autore && <footer>— {seminario.autore}</footer>}
+              </blockquote>
+            )}
+          </li>
+        ))
+      }
+    </ol>
+    <div class="card esp-banner">
+      <h3>{CAL.esp_banner.titolo}</h3>
+      <p
+        class="muted"
+        set:html={CAL.esp_banner.html.replace(/#contatti/g, localePath(locale, '/contatti/'))}
+      />
+    </div>
+
     <h2>{S.pastEvents}</h2>
     <ol class="timeline passati">
       {
@@ -123,5 +155,12 @@ const jsonLd = {
   }
   .passati .evento {
     opacity: 0.75;
+  }
+  .esp-banner {
+    margin-top: var(--space-2);
+    max-width: var(--measure);
+  }
+  .esp-banner p {
+    margin: 0;
   }
 </style>

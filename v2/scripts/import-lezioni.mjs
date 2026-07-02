@@ -36,6 +36,15 @@ function frontmatter(obj) {
   return `---\n${lines.join('\n')}\n---\n`;
 }
 
+/* LESP: seminari esperienziali senza data/numero — non entrano nella
+   collection lezioni, vanno in un file dati per la pagina calendario. */
+if (ctx.LESP) {
+  const espFile = resolve(here, '../src/data/esperienziali.json');
+  mkdirSync(dirname(espFile), { recursive: true });
+  writeFileSync(espFile, JSON.stringify(ctx.LESP, null, 2) + '\n');
+  console.log(`esperienziali: ${ctx.LESP.length} → ${espFile}`);
+}
+
 let totale = 0;
 for (let anno = 1; anno <= 7; anno++) {
   const lezioni = ctx['L' + anno] || [];

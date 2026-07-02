@@ -16,7 +16,7 @@ const S = t(locale);
         <a href={localePath(locale, '/chi-siamo/')}>{S.navSchool}</a>
         <a href={localePath(locale, '/lezioni/')}>{S.navLessons}</a>
         <a href={localePath(locale, '/calendario/')}>{S.navCalendar}</a>
-        <a href="/giochi/">{S.navGames}</a>
+        <a href={localePath(locale, '/giochi/')}>{S.navGames}</a>
         <a href={localePath(locale, '/contatti/')}>{S.navContacts}</a>
       </span>
       <span class="lang-pill" role="group" aria-label={S.langLabel}>

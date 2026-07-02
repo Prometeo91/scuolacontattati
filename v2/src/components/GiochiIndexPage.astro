@@ -1,0 +1,81 @@
+---
+import Base from '../layouts/Base.astro';
+import { t } from '../i18n/strings.js';
+import catalogo from '../data/giochi.json';
+
+const { locale } = Astro.props;
+const S = t(locale);
+const T = catalogo.sezione[locale] ?? catalogo.sezione.it;
+
+const prove = catalogo.giochi.filter((g) => g.categoria === 'prova');
+const avventure = catalogo.giochi.filter((g) => g.categoria !== 'prova');
+
+const gruppi = [
+  { testi: T.prove, giochi: prove },
+  { testi: T.avventure, giochi: avventure },
+];
+---
+
+<Base locale={locale} title={S.navGames} description={T.prove.sottotitolo.replace(/<[^>]+>/g, '')}>
+  <section class="section container">
+    <h1>{S.navGames}</h1>
+
+    {
+      gruppi.map(({ testi, giochi }) => (
+        <section class="gruppo">
+          <p class="eyebrow">{testi.eyebrow}</p>
+          <h2>{testi.titolo}</h2>
+          <p class="muted" set:html={testi.sottotitolo} />
+          <ul class="giochi-grid">
+            {giochi.map((g) => {
+              const G = g[locale] ?? g.it;
+              return (
+                <li>
+                  <a class="card gioco" href={`/giochi/${g.slug}/`}>
+                    <img src={'/' + g.icona} alt="" width="48" height="48" loading="lazy" />
+                    <h3>{G.titolo}</h3>
+                    <p class="muted tagline">{G.tagline}</p>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      ))
+    }
+  </section>
+
+  <style>
+    .gruppo {
+      margin-top: var(--space-4);
+    }
+    .giochi-grid {
+      list-style: none;
+      margin: var(--space-2) 0 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+      gap: var(--space-2);
+    }
+    .gioco {
+      display: block;
+      height: 100%;
+      color: inherit;
+      text-align: center;
+    }
+    .gioco:hover {
+      text-decoration: none;
+    }
+    .gioco img {
+      margin-bottom: var(--space-1);
+    }
+    .gioco h3 {
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+    }
+    .tagline {
+      font-size: 0.85rem;
+      margin: 0;
+    }
+  </style>
+</Base>

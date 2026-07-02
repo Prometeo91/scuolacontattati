@@ -1,0 +1,323 @@
+---
+import Base from '../layouts/Base.astro';
+import { t } from '../i18n/strings.js';
+import chiSiamo from '../data/chi-siamo.json';
+import conduttori from '../data/conduttori.json';
+import galleria from '../data/galleria.json';
+
+const { locale } = Astro.props;
+const S = t(locale);
+const C = chiSiamo[locale] ?? chiSiamo.it;
+const K = conduttori.sezione[locale] ?? conduttori.sezione.it;
+const G = galleria.sezione[locale] ?? galleria.sezione.it;
+const GE = galleria.evento[locale] ?? galleria.evento.it;
+
+/* Il "continua a leggere" della one-page qui non serve: la pagina è
+   dedicata, quindi il testo completo è visibile (meglio anche per SEO). */
+const paragrafi = [...C.paragrafi, ...C.read_more.paragrafi];
+const video = chiSiamo.video_meta;
+---
+
+<Base locale={locale} title={C.titolo} description={C.sottotitolo}>
+  <article class="section container">
+    <p class="eyebrow">{C.eyebrow}</p>
+    <h1>{C.titolo}</h1>
+    <p class="sottotitolo">{C.sottotitolo}</p>
+
+    <div class="prosa">
+      {
+        paragrafi.map((p) =>
+          p.tipo === 'citazione' ? (
+            <blockquote>
+              <span set:html={p.html} />
+              {p.autore && <footer>— {p.autore}</footer>}
+            </blockquote>
+          ) : (
+            <p set:html={p.html} />
+          )
+        )
+      }
+    </div>
+
+    <div class="punti">
+      {
+        chiSiamo.punti.map((punto) => {
+          const P = punto[locale] ?? punto.it;
+          return (
+            <div class="card punto">
+              <img src={'/' + punto.icona} alt="" width="40" height="40" loading="lazy" />
+              <h2>{P.titolo}</h2>
+              {P.testo && <p set:html={P.testo} />}
+              {P.testi && P.testi.map((testo) => <p set:html={testo} />)}
+            </div>
+          );
+        })
+      }
+    </div>
+
+    <section class="video-box card">
+      <p class="eyebrow">{C.video.label}</p>
+      <h2>{C.video.titolo}</h2>
+      <p class="muted">{C.video.sottotitolo} · {video.durata}</p>
+      <div class="video-slot" id="video-slot" data-yt={video.youtube_id}>
+        <button type="button" class="btn" id="video-play" aria-label={C.video.aria_label}>
+          ▶ {C.video.label}
+        </button>
+        <noscript>
+          <a href={video.url} target="_blank" rel="noopener">{C.video.noscript_link}</a>
+        </noscript>
+      </div>
+    </section>
+
+    <figure class="foto-gruppo">
+      <img
+        src={'/' + chiSiamo.foto_gruppo_src}
+        alt={C.foto_gruppo.alt}
+        loading="lazy"
+      />
+      <figcaption class="muted">{C.foto_gruppo.didascalia}</figcaption>
+    </figure>
+  </article>
+
+  <section class="section container" id="conduttori">
+    <p class="eyebrow">{K.eyebrow}</p>
+    <h2 class="h1">{K.titolo}</h2>
+    <p class="sottotitolo">{K.sottotitolo}</p>
+
+    <div class="conduttori-grid">
+      {
+        conduttori.conduttori.map((c) => {
+          const P = c[locale] ?? c.it;
+          return (
+            <article class="card conduttore">
+              <img class="ritratto" src={'/' + c.foto} alt={c.nome} loading="lazy" />
+              <h3>{c.nome}</h3>
+              <p class="eyebrow">{P.ruolo}</p>
+              <p set:html={P.bio} />
+              {P.tags && (
+                <>
+                  <p class="tags-label muted">{K.label_tags}</p>
+                  <ul class="tags">
+                    {P.tags.map((tag) => (
+                      <li>{tag.testo}</li>
+                    ))}
+                  </ul>
+                </>
+              )}
+            </article>
+          );
+        })
+      }
+    </div>
+  </section>
+
+  <section class="section container" id="galleria">
+    <p class="eyebrow">{G.eyebrow}</p>
+    <h2 class="h1">{G.titolo}</h2>
+    <p class="sottotitolo">{G.sottotitolo}</p>
+    <p class="muted">{GE.titolo} · {GE.sottotitolo}</p>
+
+    <div class="galleria-grid" id="galleria-grid">
+      {
+        galleria.foto.map((f) => {
+          const A = f[locale] ?? f.it;
+          return (
+            <a
+              href={'/' + f.src}
+              class:list={['foto', { nascosta: f.nascosta }]}
+              data-lightbox
+            >
+              <img src={'/' + f.thumb} alt={A.alt} loading="lazy" />
+            </a>
+          );
+        })
+      }
+    </div>
+    <button class="btn" type="button" id="galleria-toggle" data-mostra={G.toggle_mostra} data-nascondi={G.toggle_nascondi}>
+      {G.toggle_mostra}
+    </button>
+
+    <dialog id="lightbox">
+      <button type="button" id="lightbox-close" aria-label="Chiudi">✕</button>
+      <img src="" alt="" id="lightbox-img" />
+    </dialog>
+  </section>
+
+  <script>
+    /* Video YouTube: nessuna richiesta a YouTube finché non si clicca (privacy) */
+    const slot = document.getElementById('video-slot');
+    document.getElementById('video-play')?.addEventListener('click', () => {
+      const id = slot.dataset.yt;
+      slot.innerHTML = `<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1" title="Video" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+    });
+
+    /* Toggle "mostra tutte le foto" */
+    const toggle = document.getElementById('galleria-toggle');
+    const grid = document.getElementById('galleria-grid');
+    toggle?.addEventListener('click', () => {
+      const aperta = grid.classList.toggle('aperta');
+      toggle.textContent = aperta ? toggle.dataset.nascondi : toggle.dataset.mostra;
+    });
+
+    /* Lightbox */
+    const box = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    document.querySelectorAll('[data-lightbox]').forEach((a) => {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        img.src = a.getAttribute('href');
+        img.alt = a.querySelector('img')?.alt ?? '';
+        box.showModal();
+      });
+    });
+    document.getElementById('lightbox-close')?.addEventListener('click', () => box.close());
+    box?.addEventListener('click', (e) => {
+      if (e.target === box) box.close();
+    });
+  </script>
+
+  <style>
+    .sottotitolo {
+      font-size: 1.1rem;
+      color: var(--text-2);
+    }
+    .prosa {
+      margin-top: var(--space-3);
+    }
+    .prosa :global(strong) {
+      color: var(--accent);
+    }
+    .h1 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+    }
+    .punti {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+      gap: var(--space-2);
+      margin-block: var(--space-4);
+    }
+    .punto img {
+      margin-bottom: var(--space-1);
+    }
+    .punto h2 {
+      font-size: 1.2rem;
+    }
+    .punto :global(strong) {
+      color: var(--accent);
+    }
+    .video-box {
+      margin-block: var(--space-4);
+      max-width: var(--measure);
+    }
+    .video-slot :global(iframe) {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      height: auto;
+      border-radius: var(--radius);
+    }
+    .foto-gruppo {
+      margin: var(--space-4) 0;
+    }
+    .foto-gruppo img {
+      max-width: 100%;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+    .foto-gruppo figcaption {
+      margin-top: var(--space-1);
+      font-size: 0.85rem;
+    }
+    .conduttori-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+      gap: var(--space-2);
+      margin-top: var(--space-3);
+    }
+    .ritratto {
+      width: 7rem;
+      height: 7rem;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid var(--accent-2);
+      margin-bottom: var(--space-2);
+    }
+    .conduttore h3 {
+      margin-bottom: 0.2rem;
+    }
+    .tags-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.4rem;
+    }
+    .tags {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .tags li {
+      font-size: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.15rem 0.6rem;
+      color: var(--text-2);
+    }
+    .galleria-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+      gap: var(--space-1);
+      margin-block: var(--space-3) var(--space-2);
+    }
+    .foto img {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      transition: border-color var(--transition);
+    }
+    .foto:hover img {
+      border-color: var(--accent-2);
+    }
+    .foto.nascosta {
+      display: none;
+    }
+    .galleria-grid.aperta .foto.nascosta {
+      display: block;
+    }
+    #lightbox {
+      background: none;
+      border: none;
+      max-width: min(92vw, 70rem);
+      max-height: 92vh;
+      padding: 0;
+    }
+    #lightbox::backdrop {
+      background: rgba(6, 4, 16, 0.85);
+    }
+    #lightbox img {
+      max-width: 100%;
+      max-height: 88vh;
+      border-radius: var(--radius);
+      display: block;
+    }
+    #lightbox-close {
+      position: absolute;
+      top: 0.4rem;
+      right: 0.4rem;
+      z-index: 1;
+      background: rgba(6, 4, 16, 0.6);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 2.2rem;
+      height: 2.2rem;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+  </style>
+</Base>

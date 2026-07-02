@@ -4,10 +4,10 @@
    dei giochi (public/giochi/) restano identici al sito attuale, così
    i salvataggi in localStorage sono preservati. La lingua la gestisce
    l'engine stesso (bottoni data-lang), quindi niente variante /en/. */
-import giochi from '../../data/giochi.json';
+import catalogo from '../../data/giochi.json';
 
 export function getStaticPaths() {
-  return giochi.map((g) => ({ params: { slug: g.slug }, props: { gioco: g } }));
+  return catalogo.giochi.map((g) => ({ params: { slug: g.slug }, props: { gioco: g } }));
 }
 
 const { gioco } = Astro.props;
@@ -30,11 +30,11 @@ const canonical = new URL(`/giochi/${gioco.slug}/`, Astro.site);
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="color-scheme" content="dark light" />
     <meta name="theme-color" content="#0d0b1a" id="metaThemeColor" />
-    <meta name="description" content={gioco.meta_desc?.it ?? gioco.it.desc} />
+    <meta name="description" content={gioco.meta_desc?.it ?? gioco.it.tagline} />
     <title>{gioco.title_head}</title>
     <link rel="canonical" href={canonical} />
     <meta property="og:title" content={gioco.title_head} />
-    <meta property="og:description" content={gioco.meta_desc?.it ?? gioco.it.desc} />
+    <meta property="og:description" content={gioco.meta_desc?.it ?? gioco.it.tagline} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={new URL('/og-image.jpg', Astro.site)} />
