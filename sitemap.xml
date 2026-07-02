@@ -1,1 +1,130 @@
-<?xml version="1.0" encoding="UTF-8"?><sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><sitemap><loc>https://scuolacontattati.com/sitemap-0.xml</loc></sitemap></sitemapindex>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://scuolacontattati.com/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scuolacontattati.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scuolacontattati.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scuolacontattati.com/"/>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scuolacontattati.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scuolacontattati.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scuolacontattati.com/"/>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scuolacontattati.com/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scuolacontattati.com/en/privacy.html"/>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/en/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scuolacontattati.com/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scuolacontattati.com/en/privacy.html"/>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+
+  <!-- Giochi iniziatici — pagine bilingui (lingua via preferenza utente) -->
+  <url>
+    <loc>https://scuolacontattati.com/il-risveglio/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/la-responsabilita/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/le-emozioni/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/il-corpo-e-lanima/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/le-leggi-cosmiche/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/i-mondi-invisibili/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/il-guerriero/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/la-sacra-sessualita/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/il-cammino-alchimista/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/apprendista-del-mago/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/i-sette-piani/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/la-magia-bianca/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/i-cinque-veicoli/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/il-grande-viaggio/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/il-sentiero-iniziazione/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>

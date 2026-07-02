@@ -1,14 +1,47 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8"/>
-<title>Scuola ContattaTi</title>
-<meta name="robots" content="noindex"/>
-<link rel="canonical" href="https://scuolacontattati.com/giochi/il-grande-viaggio/"/>
-<meta http-equiv="refresh" content="0; url=/giochi/il-grande-viaggio/"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#0d0b1a" id="metaThemeColor">
+  <title>Il Grande Viaggio · Scuola ContattaTi</title>
+  <meta name="description" content="Il ciclo della coscienza: morte, cielo e ritorno. Gioco iniziatico gratuito e bilingue della Scuola ContattaTi."/>
+  <link rel="canonical" href="https://scuolacontattati.com/il-grande-viaggio/"/>
+  <meta property="og:title" content="Il Grande Viaggio · Scuola ContattaTi"/>
+  <meta property="og:description" content="Il ciclo della coscienza: morte, cielo e ritorno. Gioco iniziatico gratuito e bilingue della Scuola ContattaTi."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://scuolacontattati.com/il-grande-viaggio/"/>
+  <meta property="og:image" content="https://scuolacontattati.com/og-image.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <script>(function(){try{if(localStorage.getItem('sctheme')==='light'){document.documentElement.setAttribute('data-theme','light');}var lg=localStorage.getItem('sc-lang');document.documentElement.setAttribute('lang',lg==='en'?'en':'it');}catch(e){}})();</script>
+  <link rel="stylesheet" href="../giochi/fonts.css">
+  <link rel="stylesheet" href="../giochi/styles.css">
+  <link rel="stylesheet" href="../il-cammino-alchimista/rpg.css">
 </head>
 <body>
-<p><a href="/giochi/il-grande-viaggio/">Il gioco si è spostato qui / The game has moved here</a></p>
-<script>location.replace('/giochi/il-grande-viaggio/'+location.hash);</script>
+  <header class="topbar">
+    <a class="brand" id="brandLink" href="../index.html" title="Torna al sito">
+      <span class="brand-seal" aria-hidden="true">✦</span>
+      <span class="brand-text"><span class="brand-school" id="brandSchool">Scuola ContattaTi</span></span>
+    </a>
+    <div class="topbar-right">
+      <a class="games-link" href="../index.html#giochi" id="gamesLink">Giochi</a>
+      <span class="lang-pill" role="group">
+        <button type="button" data-lang="it" class="active">IT</button>
+        <span class="lang-dot">·</span>
+        <button type="button" data-lang="en">EN</button>
+      </span>
+      <button class="theme-toggle" id="themeToggle" type="button">
+        <span class="ico" aria-hidden="true">☀</span>
+        <span class="lbl">Tema chiaro</span>
+      </button>
+    </div>
+  </header>
+  <main class="stage"><div id="app"></div></main>
+  <script src="data.js"></script>
+  <script src="i18n.js"></script>
+  <script src="../giochi/game-core.js"></script>
+  <script src="../giochi/journey-engine.js"></script>
 </body>
 </html>
