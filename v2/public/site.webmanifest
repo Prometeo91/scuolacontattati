@@ -1,0 +1,13 @@
+{
+  "name": "Scuola ContattaTi — Consapevolezza ed Alchimia",
+  "short_name": "ContattaTi",
+  "description": "Percorso di Consapevolezza ed Alchimia a Bari e online con Anna Carla DiGregorio e Nicolaos Anifantis.",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#0d0b1a",
+  "background_color": "#0d0b1a",
+  "display": "standalone",
+  "lang": "it"
+}

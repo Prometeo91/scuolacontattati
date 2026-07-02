@@ -7,9 +7,12 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "import:lezioni": "node scripts/import-lezioni.mjs"
+    "import:lezioni": "node scripts/import-lezioni.mjs",
+    "import:dati": "node scripts/import-dati.mjs",
+    "copy:giochi": "node scripts/copy-giochi.mjs"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
     "astro": "^5.18.2"
   }
 }
