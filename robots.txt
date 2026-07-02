@@ -4,8 +4,5 @@
 User-agent: *
 Allow: /
 
-# Sorgente del social card (non utile in ricerca)
-Disallow: /og-image.html
-
-# Sitemap
-Sitemap: https://scuolacontattati.com/sitemap.xml
+# Sitemap (generata in build da @astrojs/sitemap)
+Sitemap: https://scuolacontattati.com/sitemap-index.xml
