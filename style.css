@@ -578,6 +578,18 @@ section#insegnamenti, section#seminario, section#faq {
 .quote-block p { font-family: var(--font-display); font-size: clamp(16px,2.5vw,20px); font-style: italic; font-weight: 400; color: var(--text); line-height: 1.7; margin-bottom: 0.5rem; }
 .quote-block cite { font-size: 12px; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; }
 
+/* PERCORSO SETTENNALE */
+.percorso-grid { display: flex; flex-direction: column; gap: 12px; margin-top: 1rem; }
+.percorso-card { display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.25rem 1.5rem; }
+.percorso-num { font-family: var(--font-display); font-size: clamp(2.2rem, 4.5vw, 3rem); font-weight: 700; color: var(--gold); opacity: 0.25; line-height: 1; flex-shrink: 0; width: 2.2rem; text-align: center; margin-top: -0.1rem; font-feature-settings: "kern" 1, "liga" 1, "onum" 1; }
+.percorso-content { flex: 1; position: relative; z-index: 1; }
+.percorso-title { font-family: var(--font-display); font-size: 19px; font-weight: 500; color: var(--text); margin-bottom: 0.35rem; letter-spacing: 0.01em; font-feature-settings: "kern" 1, "liga" 1, "dlig" 1; }
+.percorso-desc { font-size: 14px; color: var(--text-muted); line-height: 1.55; }
+.percorso-badge { display: inline-block; font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); background: rgba(201,151,58,0.08); border: 0.5px solid rgba(201,151,58,0.2); border-radius: 4px; padding: 0.15rem 0.5rem; margin-bottom: 0.5rem; }
+.ciclo-divider { display: flex; align-items: center; gap: 0.8rem; margin: 1.25rem 0 0.75rem; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); opacity: 0.7; }
+.ciclo-divider::before, .ciclo-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); opacity: 0.5; }
+@media (max-width: 480px) { .percorso-card { flex-direction: column; gap: 0.4rem; padding: 1rem 1.15rem; } .percorso-num { font-size: 2rem; width: auto; } }
+
 /* GRIDS */
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } }
