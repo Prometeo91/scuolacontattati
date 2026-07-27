@@ -7,6 +7,9 @@
    generata automaticamente nella lingua giusta.
    ═══════════════════════════════════════════════════ */
 window.SC_EVENTI = [
+  {day:26, month:7, year:2026,
+   it:{titolo:'Seminario in natura — Ricchezza, Abbondanza e Mission', dettaglio:'Una giornata immersa nella natura dedicata alle Chiavi della Realizzazione Interiore · Masseria Chinunno, Bosco di Mercadante (BA)'},
+   en:{titolo:'Nature seminar — Wealth, Abundance and Mission', dettaglio:'A day immersed in nature dedicated to the Keys to Inner Realisation · Masseria Chinunno, Bosco di Mercadante (BA)'}},
   {day:26, month:6, year:2026,
    it:{titolo:'Residenziale esperienziale in presenza', dettaglio:'Tre giorni intensivi secondo la Quarta Via di Gurdjieff: convivenza consapevole, esercizi di Presenza ed esperienze in natura · Puglia'},
    en:{titolo:'In-person experiential residential', dettaglio:'Three-day intensive following Gurdjieff\'s Fourth Way: conscious cohabitation, Presence exercises and nature experiences · Apulia'}},
