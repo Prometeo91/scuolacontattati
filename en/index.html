@@ -63,8 +63,11 @@
   </script>
   <script>
     (function(){
+      /* Torna all'italiano solo se l'utente ha scelto esplicitamente IT.
+         Senza preferenza salvata l'URL vince: chi arriva su /en/ da Google,
+         da un link condiviso o da un crawler resta in inglese. */
       try{var l=localStorage.getItem('sc-lang')}catch(e){return}
-      if(l==='it'||!l){
+      if(l==='it'){
         var p=window.location.pathname;
         if(p.indexOf('/en/')>=0){
           var itPath=p.replace(/\/en\//,'/');
