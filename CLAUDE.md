@@ -1,0 +1,67 @@
+# CLAUDE.md — Contesto per le sessioni Claude
+
+Sito della **Scuola ContattaTi** (Scuola di Consapevolezza ed Alchimia, Bari), gestito da Fabio (Prometeo91). Produzione: **https://scuolacontattati.com**, servita dal branch `main`.
+
+## Cosa è questo progetto (e cosa NON è)
+
+- Sito statico **single-page vanilla** (HTML/CSS/JS), **nessun build step**. Non introdurre framework o bundler.
+- **Storia importante**: è esistita una v2 in Astro (cartella `v2/`, PR #21) portata in produzione e poi **revertata** (PR #22) — il sito attuale è la pagina singola originale. Non riproporre la migrazione ad Astro se non richiesto esplicitamente.
+- Due lingue: `index.html` (it) e `en/index.html` (en). **Ogni modifica ai contenuti va applicata a entrambi i file**, è l'errore più facile da commettere.
+
+## Workflow git
+
+- Sviluppo su branch di lavoro (es. `claude/school-website-redesign-qtpjfr`), poi merge su `main` e push: `main` = produzione, la modifica è live appena pushata.
+- Fabio spesso chiede "pushalo direttamente" = merge su `main` e push. In assenza di indicazioni, chiedere o pushare solo sul branch di lavoro.
+- Messaggi di commit in italiano, descrittivi.
+
+## File chiave
+
+| File | Ruolo |
+|---|---|
+| `index.html` | Tutto il sito it (~1600 righe): sezioni `#chi-siamo`, `#insegnamenti`, `#conduttori`, `#galleria`, `#calendario`, `#seminario`, `#libro`, `#faq`, `#contatti`, `#ispirazioni`, `#giochi` |
+| `en/index.html` | Versione inglese speculare |
+| `style.css` | Tutti gli stili, design system a variabili CSS |
+| `app.js` | Tema chiaro/scuro, countdown eventi, scroll-reveal, lightbox, service worker |
+| `lezioni.js` | **Fonte di verità** dei contenuti delle lezioni: array `L1`…`L7` (un array per anno di corso, con titoli, temi, date, citazioni). Consultarlo prima di scrivere qualsiasi testo sul percorso di studi |
+| `data/eventi.js`, `data/citazioni.js` | Dati eventi e citazioni |
+| `deisgn.md` | Design system (nota: il nome file ha il typo, lasciarlo così) |
+| `seminario.html`, `en/seminario.html` | Landing con meta Open Graph per condivisione WhatsApp/Facebook del seminario; fanno redirect a `/#seminario` |
+
+## Fatti di dominio (verificati con Fabio)
+
+- Percorso **settennale**: ciclo base 3 anni con **7 lezioni l'anno** (dal 2025/26; prima erano 6), ciclo avanzato 4 anni con 3 lezioni l'anno.
+- Conduttori: Anna Carla Digregorio e Nicolaos Anifantis. Anna Carla comunica novità via WhatsApp che spesso vanno riportate sul sito.
+- Libro: *Ricchezza, Abbondanza e Mission* (Gagliano Edizioni).
+- Eventi con `data-expires` nel markup e countdown gestiti da `app.js`; schema.org JSON-LD (`Event`) nell'`<head>` da tenere allineato ai dettagli mostrati in pagina (orari inclusi).
+
+## Design system (regole rigide)
+
+- Tema scuro "Officina" (default): fondo `#0d0b1a`, oro `#e8c97a`/`#c9973a`. Tema chiaro "Pergamena": fondo `#f5f0e8`. Dettagli completi in `deisgn.md`.
+- **Mai hardcodare un colore**: ogni colore è una coppia di variabili CSS (scuro+chiaro).
+- Tipografia: EB Garamond (display, weight 500–600) + Inter (testo). Mai altre famiglie.
+- Componenti card: pattern `.glass-card` con doppio bordo (pseudo-elemento `::before` con `inset`).
+- Animazioni d'ingresso: classe `.sr` (scroll-reveal via IntersectionObserver).
+- Niente effetti "da videogioco" sul sito istituzionale: l'atmosfera la fanno palette, tipografia, spaziature.
+
+## Screenshot / verifica visiva
+
+Playwright è installato ma la CLI non combacia col browser preinstallato. Usare l'API Node con path esplicito:
+
+```js
+const { chromium } = require('playwright-core');
+const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' }); // verificare la versione in /opt/pw-browsers
+const page = await browser.newPage({ colorScheme: 'dark' }); // il default del container è light
+// Le sezioni .sr sono invisibili in headless finché non scrollate: forzarle
+await page.evaluate(() => document.querySelectorAll('.sr').forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; }));
+```
+
+Fabio spesso chiede un **mockup/screenshot prima di implementare**: preparare una preview, mostrarla, aspettare l'ok ("procedi").
+
+## Giochi didattici
+
+15 giochi (Phaser 3), ognuno in una cartella propria (`il-risveglio/`, `apprendista-del-mago/`, …) con `index.html` + `data.js` + `i18n.js`; engine e stili condivisi in `giochi/`. Raramente oggetto di modifiche: toccare solo se richiesto.
+
+## Comunicazione con Fabio
+
+- Parla italiano: rispondere in italiano.
+- Preferisce modifiche incrementali e concrete al sito così com'è; proporre, mostrare, poi implementare dopo conferma.
