@@ -1947,3 +1947,8 @@ html::before {
 
 /* Contatore del lightbox gallery (markup ricostruito da app.js) */
 .lightbox-counter{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);color:#fff;font-size:13px;letter-spacing:0.08em;opacity:0.85;}
+
+/* Pulsante Portale Allievi */
+.btn-portale{display:inline-flex;align-items:center;gap:.45rem;padding:6px 15px;border-radius:999px;background:rgba(201,151,58,.1);border:0.5px solid rgba(201,151,58,.45);color:var(--gold);font-size:13px;font-weight:600;letter-spacing:.04em;text-decoration:none;white-space:nowrap;transition:all .25s ease}
+.btn-portale:hover{background:var(--gold);color:#1a1000}
+.btn-portale img{width:15px;height:15px;display:block}
