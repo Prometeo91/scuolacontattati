@@ -246,5 +246,17 @@ window.SC_QUOTES = [
 {it:{t:"La gratitudine è la memoria del cuore.",a:"Lao Tzu"},
  en:{t:"Gratitude is the memory of the heart.",a:"Lao Tzu"}},
 {it:{t:"Il segreto dell'evoluzione non è diventare qualcuno che non siamo, bensì tirar fuori ciò che siamo realmente.",a:"Ermete Trismegisto"},
- en:{t:"The secret of evolution is not becoming someone we are not, but bringing forth what we truly are.",a:"Hermes Trismegistus"}}
+ en:{t:"The secret of evolution is not becoming someone we are not, but bringing forth what we truly are.",a:"Hermes Trismegistus"}},
+{it:{t:"Quanto più a fondo scava il dolore nel nostro cuore, tanta più gioia potremo contenere.",a:"Kahlil Gibran"},
+ en:{t:"The deeper that sorrow carves into your being, the more joy you can contain.",a:"Kahlil Gibran"}},
+{it:{t:"Chi non è pronto a morire non è pronto per la libertà. Di fronte alla morte la Fiamma del Cuore arde con la massima intensità.",a:"Draco Daatson, Guerrieri Metropolitani"},
+ en:{t:"Whoever is not ready to die is not ready for freedom. In the face of death the Flame of the Heart burns with the greatest intensity.",a:"Draco Daatson, Metropolitan Warriors"}},
+{it:{t:"Quando sei in uno stato di gratitudine sei in uno stato di ricezione.",a:"Joe Dispenza"},
+ en:{t:"When you are in a state of gratitude, you are in a state of receivership.",a:"Joe Dispenza"}},
+{it:{t:"Non si nasce nel momento in cui si entra in questa dimensione, si nasce nel momento in cui si prende in mano la propria vita.",a:"Eduardo Muscarà"},
+ en:{t:"We are not born the moment we enter this dimension; we are born the moment we take our life into our own hands.",a:"Eduardo Muscarà"}},
+{it:{t:"La natura parla un linguaggio che non è quello che vediamo ma quello che possiamo sentire; secondo me i gelsomini parlano attraverso il profumo. L'apertura della rosa l'ho sempre vista come un insegnamento: senti che lo fa per te che la stai guardando, perché non ha altro scopo.",a:"Franco Battiato"},
+ en:{t:"Nature speaks a language that is not what we see but what we can feel; to me, jasmine speaks through its scent. I have always seen the opening of a rose as a teaching: you feel it does so for you who are watching, because it has no other purpose.",a:"Franco Battiato"}},
+{it:{t:"Io sono il mare: non sono una goccia che si perde nel mare, ma sono il mare che si riconosce nella goccia. Tutti i fiumi trovano una via per giungere al mare, perché si riconoscono in lui trovando se stessi. Quello che sappiamo è una goccia, quello che non sappiamo è un oceano. Sii il mare, mia piccola grande Anima.",a:"Nicolaos Anifantis"},
+ en:{t:"I am the sea: I am not a drop lost in the sea, I am the sea that recognises itself in the drop. All rivers find a way to reach the sea, because they recognise themselves in it and so find themselves. What we know is a drop, what we do not know is an ocean. Be the sea, my little great Soul.",a:"Nicolaos Anifantis"}}
 ];
