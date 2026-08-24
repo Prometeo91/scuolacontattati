@@ -12,6 +12,8 @@ Cartella di **staging**: qui va caricato il materiale preso dalla sezione "Foto"
 | `citazioni/` | Immagini con citazioni e aforismi |
 | `locandine/` | Locandine di eventi, presentazioni, seminari |
 | `grafiche/` | Grafiche didattiche e di presentazione (schemi, bio dei conduttori, immagini composite) |
+| `post/` | Screenshot di interi post Facebook (testo + immagine): riflessioni di Nicolaos, citazioni commentate |
+| `testi/` | Testi dei post in formato .txt, già pronti per un eventuale riuso sul sito |
 
 Non serve rinominare i file: basta che finiscano nella cartella giusta. Se di una foto si sa il contesto (evento, data), è utile indicarlo nel messaggio di commit o in un file di testo accanto.
 
