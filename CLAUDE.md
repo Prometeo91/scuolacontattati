@@ -34,6 +34,7 @@ Sito della **Scuola ContattaTi** (Scuola di Consapevolezza ed Alchimia, Bari), g
 - Conduttori: Anna Carla Digregorio e Nicolaos Anifantis. Anna Carla comunica novità via WhatsApp che spesso vanno riportate sul sito.
 - Libro: *Ricchezza, Abbondanza e Mission* (Gagliano Edizioni).
 - Eventi con `data-expires` nel markup e countdown gestiti da `app.js`; schema.org JSON-LD (`Event`) nell'`<head>` da tenere allineato ai dettagli mostrati in pagina (orari inclusi).
+- **Ogni modifica a `style.css` richiede il cache-bust**: aggiornare il `?v=` del link a style.css in `index.html` E `en/index.html`, la voce CORE in `sw.js` e incrementare la `VERSION` del service worker. Altrimenti i visitatori di ritorno vedono il CSS vecchio (stale-while-revalidate) e i nuovi elementi appaiono senza stile.
 
 ## Design system (regole rigide)
 
