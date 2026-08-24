@@ -11,6 +11,7 @@ Cartella di **staging**: qui va caricato il materiale preso dalla sezione "Foto"
 | `foto/` | Fotografie di lezioni, seminari, momenti di gruppo |
 | `citazioni/` | Immagini con citazioni e aforismi |
 | `locandine/` | Locandine di eventi, presentazioni, seminari |
+| `grafiche/` | Grafiche didattiche e di presentazione (schemi, bio dei conduttori, immagini composite) |
 
 Non serve rinominare i file: basta che finiscano nella cartella giusta. Se di una foto si sa il contesto (evento, data), è utile indicarlo nel messaggio di commit o in un file di testo accanto.
 
