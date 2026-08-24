@@ -590,6 +590,26 @@ section#insegnamenti, section#seminario, section#faq {
 .ciclo-divider::before, .ciclo-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); opacity: 0.5; }
 @media (max-width: 480px) { .percorso-card { flex-direction: column; gap: 0.4rem; padding: 1rem 1.15rem; } .percorso-num { font-size: 2rem; width: auto; } }
 
+/* CARROZZA DI GURDJIEFF — card illustrata in #insegnamenti */
+.carrozza-card { display: flex; gap: 2rem; align-items: flex-start; margin-top: 2rem; }
+.carrozza-img-wrap { flex: 0 0 280px; border-radius: 10px; overflow: hidden; background: #fff; }
+.carrozza-img-wrap img { width: 100%; height: auto; display: block; }
+.carrozza-content { flex: 1; min-width: 0; }
+.carrozza-eyebrow { font-family: var(--font-sans); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+.carrozza-title { font-family: var(--font-display); font-size: 26px; font-weight: 600; color: var(--gold-light); margin-bottom: 0.75rem; line-height: 1.25; font-feature-settings: "kern" 1, "liga" 1, "dlig" 1; }
+.carrozza-text { font-family: var(--font-display); font-size: 17px; line-height: 1.65; color: var(--text-reading); margin-bottom: 1rem; }
+.carrozza-text-sm { font-size: 15.5px; }
+.carrozza-legend { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem 0.8rem; margin-bottom: 1.2rem; }
+.carrozza-legend-item { font-family: var(--font-sans); font-size: 13px; color: var(--text-muted); }
+.carrozza-legend-item strong { color: var(--gold-light); font-weight: 500; }
+.carrozza-quote { font-family: var(--font-display); font-style: italic; font-size: 16px; line-height: 1.55; color: var(--gold-light); border-left: 2px solid var(--border); padding-left: 1rem; margin-top: 1rem; }
+.carrozza-source { font-family: var(--font-sans); font-size: 12px; color: var(--text-muted); margin-top: 0.4rem; font-style: normal; }
+@media (max-width: 700px) {
+  .carrozza-card { flex-direction: column; gap: 1.25rem; }
+  .carrozza-img-wrap { flex: none; width: 100%; max-width: 340px; margin: 0 auto; }
+  .carrozza-legend { grid-template-columns: 1fr; }
+}
+
 /* GRIDS */
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } }
