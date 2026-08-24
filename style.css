@@ -588,7 +588,10 @@ section#insegnamenti, section#seminario, section#faq {
 .percorso-badge { display: inline-block; font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); background: rgba(201,151,58,0.08); border: 0.5px solid rgba(201,151,58,0.2); border-radius: 4px; padding: 0.15rem 0.5rem; margin-bottom: 0.5rem; }
 .ciclo-divider { display: flex; align-items: center; gap: 0.8rem; margin: 1.25rem 0 0.75rem; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); opacity: 0.7; }
 .ciclo-divider::before, .ciclo-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); opacity: 0.5; }
-@media (max-width: 480px) { .percorso-card { flex-direction: column; gap: 0.4rem; padding: 1rem 1.15rem; } .percorso-num { font-size: 2rem; width: auto; } }
+.percorso-side { display: flex; flex-direction: column; align-items: center; gap: 0.45rem; flex-shrink: 0; }
+.percorso-side .percorso-num { font-size: 1.35rem; width: auto; margin-top: 0; }
+.percorso-emblem { width: 84px; height: 84px; display: block; border-radius: 9px; border: 0.5px solid var(--border); object-fit: cover; }
+@media (max-width: 480px) { .percorso-card { flex-direction: column; gap: 0.4rem; padding: 1rem 1.15rem; } .percorso-num { font-size: 2rem; width: auto; } .percorso-side { flex-direction: row; gap: 0.7rem; } .percorso-side .percorso-num { font-size: 1.25rem; } .percorso-emblem { width: 64px; height: 64px; } }
 
 /* CARROZZA DI GURDJIEFF — card illustrata in #insegnamenti */
 .carrozza-card { display: flex; gap: 2rem; align-items: flex-start; margin-top: 2rem; }
