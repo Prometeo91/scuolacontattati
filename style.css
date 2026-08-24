@@ -608,6 +608,10 @@ section#insegnamenti, section#seminario, section#faq {
 .carrozza-quote { font-family: var(--font-display); font-style: italic; font-size: 16px; line-height: 1.55; color: var(--gold-light); border-left: 2px solid var(--border); padding-left: 1rem; margin-top: 1rem; }
 .carrozza-source { font-family: var(--font-sans); font-size: 12px; color: var(--text-muted); margin-top: 0.4rem; font-style: normal; }
 
+/* EMBLEMI CHI-SIAMO — tavole in testa alle card Antichi Insegnamenti / Struttura e accesso */
+.pillar-emblem { border-radius: 10px; border: 0.5px solid var(--border); overflow: hidden; margin-bottom: 1.1rem; }
+.pillar-emblem img { width: 100%; height: auto; aspect-ratio: 16/10; object-fit: cover; display: block; }
+
 /* RIFLESSIONI — "Dal quaderno della Scuola" in #ispirazioni */
 .riflessioni-list { display: flex; flex-direction: column; gap: 14px; max-width: 820px; margin: 0 auto; }
 .riflessione-item .card-title { margin-bottom: 0.2rem; }
