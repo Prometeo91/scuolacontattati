@@ -616,9 +616,12 @@ section#insegnamenti, section#seminario, section#faq {
 .chiavi-list { display: flex; flex-direction: column; gap: 14px; }
 .chiave-item { display: flex; align-items: flex-start; gap: 1.75rem; padding: 1.5rem 1.75rem; }
 .chiave-num { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 700; color: var(--gold); opacity: 0.25; line-height: 1; flex-shrink: 0; width: 2.5rem; text-align: center; margin-top: -0.15rem; }
+.chiave-side { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; flex-shrink: 0; }
+.chiave-side .chiave-num { font-size: 1.5rem; width: auto; margin-top: 0; }
+.chiave-emblem { width: 104px; height: 104px; display: block; border-radius: 10px; border: 0.5px solid var(--border); object-fit: cover; }
 .chiave-content { flex: 1; }
 .chiave-content .card-title { margin-bottom: 0.6rem; }
-@media (max-width: 480px) { .chiave-item { flex-direction: column; gap: 0.5rem; } .chiave-num { font-size: 2rem; width: auto; } }
+@media (max-width: 480px) { .chiave-item { flex-direction: column; gap: 0.5rem; } .chiave-num { font-size: 2rem; width: auto; } .chiave-side { flex-direction: row; gap: 0.75rem; } .chiave-side .chiave-num { font-size: 1.4rem; } .chiave-emblem { width: 72px; height: 72px; } }
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: stretch; }
 @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
 
