@@ -1066,7 +1066,9 @@ section#insegnamenti, section#seminario, section#faq {
 
 /* Video facade — lazy inline YouTube player with CSS custom thumbnail */
 .video-facade { position: relative; width: 100%; aspect-ratio: 16/9; border-radius: 16px; overflow: hidden; border: 0.5px solid var(--border); cursor: pointer; background: #0f0b1e; isolation: isolate; }
-.video-facade-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(201,151,58,0.18) 0%, rgba(15,11,30,0.4) 50%, rgba(10,8,20,1) 100%); z-index: 1; }
+.video-facade-bg { position: absolute; inset: 0; background:
+  linear-gradient(to bottom, rgba(10,8,20,0.32) 0%, rgba(10,8,20,0.16) 45%, rgba(10,8,20,0.74) 100%),
+  url('images/video-cammino.webp') center / cover no-repeat; z-index: 1; }
 .video-facade-symbol { position: absolute; top: 42%; left: 50%; transform: translate(-50%, -50%); font-family: var(--font-display); font-size: clamp(180px, 35vw, 320px); color: rgba(201,151,58,0.08); line-height: 1; z-index: 2; user-select: none; pointer-events: none; }
 .video-facade-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.25); transition: background var(--t-base); z-index: 3; }
 .video-facade:hover .video-facade-overlay,
