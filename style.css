@@ -455,6 +455,13 @@ body::before {
 
 /* HERO */
 .hero { position: relative; min-height: auto; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 6rem 2rem 4rem; overflow: hidden; }
+/* Cielo stellato inciso, solo tema scuro: velo scuro sopra l'immagine per dosarla, sfumatura verso il fondo pagina */
+.hero {
+  background:
+    linear-gradient(to bottom, rgba(13,11,26,0.78) 0%, rgba(13,11,26,0.88) 55%, var(--bg) 96%),
+    url('images/hero-cielo.webp') center top / cover no-repeat;
+}
+[data-theme="light"] .hero { background: none; }
 .hero-emblem { width: 200px; height: 200px; margin-bottom: 1.75rem; position: relative; z-index: 2; filter: drop-shadow(0 8px 32px rgba(201, 151, 58, 0.25)); animation: emblem-float 8s ease-in-out infinite; }
 @keyframes emblem-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 .hero::before { content: ''; position: absolute; top: 5rem; left: 50%; transform: translateX(-50%); width: 520px; height: 520px; background: radial-gradient(circle, rgba(201, 151, 58, 0.10) 0%, rgba(201, 151, 58, 0.05) 25%, rgba(123, 94, 167, 0.035) 50%, transparent 70%); border-radius: 50%; z-index: 0; pointer-events: none; animation: halo-pulse 6s ease-in-out infinite; }
