@@ -46,20 +46,43 @@ function planeIndicator(){
   return w;
 }
 
+var GIOCO_EMBLEMI = {
+    'il-risveglio':'gioco-risveglio', 'la-responsabilita':'gioco-responsabilita',
+    'le-emozioni':'gioco-emozioni', 'il-corpo-e-lanima':'gioco-anima',
+    'le-leggi-cosmiche':'gioco-leggi', 'i-mondi-invisibili':'gioco-mondi',
+    'il-guerriero':'gioco-guerriero', 'la-sacra-sessualita':'gioco-sessualita',
+    'i-cinque-veicoli':'gioco-veicoli', 'la-magia-bianca':'gioco-magia',
+    'il-cammino-alchimista':'gioco-cammino', 'apprendista-del-mago':'gioco-apprendista',
+    'i-sette-piani':'gioco-sette-piani', 'il-grande-viaggio':'gioco-viaggio',
+    'il-sentiero-iniziazione':'gioco-sentiero'
+};
+function buildEmblema(){
+    try{
+    var seg=location.pathname.split('/').filter(Boolean);
+    var dir=seg.length&&seg[seg.length-1].indexOf('.')>-1?seg[seg.length-2]:seg[seg.length-1];
+    var nome=GIOCO_EMBLEMI[dir];
+      if(!nome) return null;
+      return frag('<div class="home-emblema"><img src="../images/'+nome+'.webp" alt="" width="400" height="400" decoding="async"/></div>');
+    }catch(e){ return null; }
+  }
+
 /* ══════════ SCREENS ══════════ */
 
 function renderTitle(){
   S=load()||freshState();
   const n=frag('<div class="home"></div>');
   const halo=frag('<div class="home-halo"></div>');
-  // 7-layer symbol
-  const sym=frag('<div class="planes-diagram" style="width:130px;height:130px"></div>');
-  const sizes=[130,110,92,76,62,48,36];
-  const colors=D.planes.map(p=>p.color);
-  sizes.forEach((s,i)=>{
-    sym.appendChild(frag(`<div class="ring" style="width:${s}px;height:${s}px;border-color:${colors[i]||'rgba(201,151,58,0.3)'};opacity:0.5;left:50%;top:50%;transform:translate(-50%,-50%)"></div>`));
-  });
-  sym.appendChild(frag('<div class="core"></div>'));
+  // Emblema del gioco (fallback: cerchi concentrici)
+  let sym=buildEmblema();
+  if(!sym){
+    sym=frag('<div class="planes-diagram" style="width:130px;height:130px"></div>');
+    const sizes=[130,110,92,76,62,48,36];
+    const colors=D.planes.map(p=>p.color);
+    sizes.forEach((s,i)=>{
+      sym.appendChild(frag(`<div class="ring" style="width:${s}px;height:${s}px;border-color:${colors[i]||'rgba(201,151,58,0.3)'};opacity:0.5;left:50%;top:50%;transform:translate(-50%,-50%)"></div>`));
+    });
+    sym.appendChild(frag('<div class="core"></div>'));
+  }
   halo.appendChild(sym);
   halo.appendChild(frag(`<h1>${L(I.STR.gameTitle_html)}</h1>`));
   halo.appendChild(frag(`<div class="home-sub">${esc(L(I.STR.gameKicker))}</div>`));

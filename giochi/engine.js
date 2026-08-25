@@ -38,7 +38,7 @@
     const node = frag(`<div class="home"></div>`);
     // Halo
     const halo = frag(`<div class="home-halo"></div>`);
-    halo.appendChild(buildRings());
+    halo.appendChild(buildEmblema()||buildRings());
     halo.appendChild(frag(`<h1>${L(I.STR.gameTitle_html) || esc(L(I.STR.gameTitle))}</h1>`));
     halo.appendChild(frag(`<div class="home-sub">${esc(L(I.STR.gameKicker))}</div>`));
     halo.appendChild(frag(`<div class="home-author">${esc(L(I.STR.fromAuthor))}</div>`));
@@ -66,6 +66,26 @@
     mount(node);
     requestAnimationFrame(()=>{ const b=node.querySelector(".bar i"); if(b) b.style.width=pct+"%"; });
     init.querySelector(".reset-btn").addEventListener("click",()=>{ if(confirm(t("resetConfirm"))){ try{ localStorage.removeItem(LS_BEST); localStorage.removeItem(LS_SEEN); localStorage.removeItem(LS_POOL); localStorage.removeItem(LS_ACC); localStorage.removeItem(LS_SIG); }catch(err){} renderHome(); }});
+  }
+
+  var GIOCO_EMBLEMI = {
+    'il-risveglio':'gioco-risveglio', 'la-responsabilita':'gioco-responsabilita',
+    'le-emozioni':'gioco-emozioni', 'il-corpo-e-lanima':'gioco-anima',
+    'le-leggi-cosmiche':'gioco-leggi', 'i-mondi-invisibili':'gioco-mondi',
+    'il-guerriero':'gioco-guerriero', 'la-sacra-sessualita':'gioco-sessualita',
+    'i-cinque-veicoli':'gioco-veicoli', 'la-magia-bianca':'gioco-magia',
+    'il-cammino-alchimista':'gioco-cammino', 'apprendista-del-mago':'gioco-apprendista',
+    'i-sette-piani':'gioco-sette-piani', 'il-grande-viaggio':'gioco-viaggio',
+    'il-sentiero-iniziazione':'gioco-sentiero'
+  };
+  function buildEmblema(){
+    try{
+      var seg=location.pathname.split('/').filter(Boolean);
+      var dir=seg.length&&seg[seg.length-1].indexOf('.')>-1?seg[seg.length-2]:seg[seg.length-1];
+      var nome=GIOCO_EMBLEMI[dir];
+      if(!nome) return null;
+      return frag('<div class="home-emblema"><img src="../images/'+nome+'.webp" alt="" width="400" height="400" decoding="async"/></div>');
+    }catch(e){ return null; }
   }
 
   function buildRings() {
