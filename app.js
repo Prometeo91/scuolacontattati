@@ -33,6 +33,7 @@ var SC_T = SC_EN ? {
   formConnTitolo:'Connection error',
   formConnTesto:'Unable to send the message. Check your connection and try again, or write to us directly via WhatsApp.',
   mostraMeno:'Show fewer ▴', mostraTutte:'Show all photos ▾',
+  mostraRiflessioni:'Show all reflections ▾', menoRiflessioni:'Show fewer ▴',
   foto:'Photo', fotoPrec:'Previous photo', fotoSucc:'Next photo', chiudi:'Close'
 } : {
   temaChiaro:'Tema chiaro', temaScuro:'Tema scuro',
@@ -57,6 +58,7 @@ var SC_T = SC_EN ? {
   formConnTitolo:'Errore di connessione',
   formConnTesto:'Impossibile inviare il messaggio. Verifica la tua connessione e riprova, oppure scrivici direttamente via WhatsApp.',
   mostraMeno:'Mostra meno ▴', mostraTutte:'Mostra tutte le foto ▾',
+  mostraRiflessioni:'Mostra tutte le riflessioni ▾', menoRiflessioni:'Mostra meno ▴',
   foto:'Foto', fotoPrec:'Foto precedente', fotoSucc:'Foto successiva', chiudi:'Chiudi'
 };
 
@@ -489,6 +491,18 @@ document.addEventListener('DOMContentLoaded', function() {
       expanded=!expanded;
       grid.classList.toggle('expanded',expanded);
       tog.textContent=expanded?SC_T.mostraMeno:SC_T.mostraTutte;
+    });
+  }
+
+  /* Riflessioni toggle — stesso pattern della galleria */
+  var rtog=document.getElementById('riflessioniToggle');
+  var rlist=document.getElementById('riflessioniList');
+  if(rtog&&rlist){
+    var rExp=false;
+    rtog.addEventListener('click',function(){
+      rExp=!rExp;
+      rlist.classList.toggle('expanded',rExp);
+      rtog.textContent=rExp?SC_T.menoRiflessioni:SC_T.mostraRiflessioni;
     });
   }
 
