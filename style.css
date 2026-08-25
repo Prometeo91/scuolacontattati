@@ -1291,6 +1291,7 @@ select:focus-visible {
 /* Sigillo conquistato sulla card del gioco */
 .card-sigillo{position:absolute;top:8px;right:10px;font-size:14px;color:var(--gold-light);text-shadow:0 0 10px rgba(232,201,122,0.5);pointer-events:none}
 .gioco-icon{width:28px;height:28px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(72%) sepia(50%) saturate(500%) hue-rotate(5deg)}
+.gioco-emblema{width:48px;height:48px;flex-shrink:0;border-radius:8px;border:0.5px solid var(--border);object-fit:cover;display:block}
 .gioco-icon-lg{width:36px;height:36px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(72%) sepia(50%) saturate(500%) hue-rotate(5deg)}
 .gioco-title{color:var(--gold-light);font-size:1.05rem}
 .gioco-title-lg{color:var(--gold-light);font-size:1.1rem}
