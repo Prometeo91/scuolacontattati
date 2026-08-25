@@ -60,7 +60,7 @@ function renderTitle(){
   const n=frag('<div class="home"></div>');
   const halo=frag('<div class="home-halo"></div>');
   // alchemical symbol
-  const sym=frag('<div class="planes-diagram" style="width:120px;height:120px"><div class="ring" style="width:120px;height:120px;border-color:rgba(201,151,58,0.3);left:50%;top:50%;transform:translate(-50%,-50%)"></div><div class="ring" style="width:80px;height:80px;border-color:rgba(201,151,58,0.4);left:50%;top:50%;transform:translate(-50%,-50%)"></div><div class="ring" style="width:44px;height:44px;border-color:rgba(201,151,58,0.5);left:50%;top:50%;transform:translate(-50%,-50%)"></div><div class="core"></div></div>');
+  const sym=frag('<div class="home-emblema"><img src="../images/gioco-cammino.webp" alt="" width="400" height="400" decoding="async"/></div>');
   halo.appendChild(sym);
   halo.appendChild(frag(`<h1>${L(I.STR.gameTitle_html)}</h1>`));
   halo.appendChild(frag(`<div class="home-sub">${esc(L(I.STR.gameKicker))}</div>`));
