@@ -483,7 +483,7 @@ body::before {
 .btn-ghost:hover { background: rgba(201,151,58,0.08); transform: translateY(-2px); }
 
 /* SECTIONS */
-section { padding: clamp(4rem, 9vw, 6.5rem) 2rem; max-width: 900px; margin: 0 auto; }
+section { padding: clamp(3rem, 7vw, 5rem) 2rem; max-width: 900px; margin: 0 auto; }
 /* Fasce di ritmo — fondo alternato a piena larghezza (full-bleed via box-shadow+clip) */
 section#insegnamenti, section#seminario, section#faq {
   background: var(--band);
@@ -842,7 +842,7 @@ section#insegnamenti, section#seminario, section#faq {
 [data-theme="light"] .shared-story { background: rgba(255,253,247,0.92); box-shadow: 0 2px 14px rgba(80,60,30,0.07); }
 [data-theme="light"] .collab-card { background: rgba(255,253,247,0.92); box-shadow: 0 2px 14px rgba(80,60,30,0.07); }
 .collab-group-photo {
-  text-align: center; margin: 2.5rem auto 2.5rem; max-width: 520px;
+  text-align: center; margin: 2.5rem auto 0; max-width: 520px;
 }
 .collab-group-photo img {
   width: 100%; border-radius: 16px;
