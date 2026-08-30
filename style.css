@@ -483,7 +483,7 @@ body::before {
 .btn-ghost:hover { background: rgba(201,151,58,0.08); transform: translateY(-2px); }
 
 /* SECTIONS */
-section { padding: clamp(4rem, 9vw, 6.5rem) 2rem; max-width: 900px; margin: 0 auto; }
+section { padding: clamp(3rem, 7vw, 5rem) 2rem; max-width: 900px; margin: 0 auto; }
 /* Fasce di ritmo — fondo alternato a piena larghezza (full-bleed via box-shadow+clip) */
 section#insegnamenti, section#seminario, section#faq {
   background: var(--band);
