@@ -199,15 +199,6 @@
   box-shadow: 0 6px 22px rgba(80,60,30,0.1);
   transform: translateY(-2px);
 }
-[data-theme="light"] .quote-block {
-  background: rgba(184,138,46,0.08);
-  border: 0.5px solid rgba(120,90,30,0.18);
-}
-/* Niente più "buco" var(--bg) — usa il tono pergamena chiaro */
-[data-theme="light"] .quote-block::before {
-  background: var(--bg-1);
-  color: var(--gold-light);
-}
 /* FOOTER — opzione A: crema scuro armonioso (era marrone quasi-nero) */
 [data-theme="light"] footer {
   background: linear-gradient(180deg, #ede4d0 0%, #e3d9c0 100%);
