@@ -18,14 +18,21 @@ Sito della **Scuola ContattaTi** (Scuola di Consapevolezza ed Alchimia, Bari), g
 
 | File | Ruolo |
 |---|---|
-| `index.html` | Tutto il sito it (~1600 righe): sezioni `#chi-siamo`, `#insegnamenti`, `#conduttori`, `#galleria`, `#calendario`, `#seminario`, `#libro`, `#faq`, `#contatti`, `#ispirazioni`, `#giochi` |
+| `index.html` | Tutto il sito it (~1750 righe): sezioni `#chi-siamo`, `#insegnamenti`, `#conduttori`, `#galleria`, `#calendario`, `#libro`, `#faq`, `#contatti`, `#ispirazioni`, `#giochi` |
 | `en/index.html` | Versione inglese speculare |
 | `style.css` | Tutti gli stili, design system a variabili CSS |
 | `app.js` | Tema chiaro/scuro, countdown eventi, scroll-reveal, lightbox, service worker |
 | `lezioni.js` | **Fonte di verità** dei contenuti delle lezioni: array `L1`…`L7` (un array per anno di corso, con titoli, temi, date, citazioni). Consultarlo prima di scrivere qualsiasi testo sul percorso di studi |
 | `data/eventi.js`, `data/citazioni.js` | Dati eventi e citazioni |
 | `deisgn.md` | Design system (nota: il nome file ha il typo, lasciarlo così) |
-| `seminario.html`, `en/seminario.html` | Landing con meta Open Graph per condivisione WhatsApp/Facebook del seminario; fanno redirect a `/#seminario` |
+
+## Seminari in evidenza (pattern ricorrente, oggi non attivo)
+
+Quando c'è un seminario da promuovere si ricrea una sezione `#seminario` in entrambi gli index, più due landing `seminario.html` e `en/seminario.html` con i meta Open Graph per la condivisione su WhatsApp/Facebook, che rimandano a `/#seminario`.
+
+Oggi **non esistono**: sezione e landing sono state rimosse col commit `2722cf3`, passato il seminario del 26 luglio 2026. Il meccanismo però è ancora in `app.js`: i blocchi `.seminar-section` con `data-expires` vengono nascosti a scadenza e, quando sono scaduti tutti, spariscono anche la sezione `#seminario` e la sua voce di menu. Il codice è protetto da `if(sem)`, quindi in assenza della sezione non fa nulla. Per il prossimo seminario basta ricreare il markup.
+
+Resta in repo `images/seminario-luglio-2026.webp`, non più referenziata da nessun file.
 
 ## Fatti di dominio (verificati con Fabio)
 
