@@ -162,6 +162,25 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   })();
 
+  /* RIPRESA — quanto manca alla prossima lezione.
+     Legge data-date (AAAA-MM-GG) dall'elemento #ripresa-count e scrive
+     "Tra N giorni" / "Domani" / "È oggi". Il banner che lo contiene ha il
+     proprio data-expires, quindi qui non serve gestire il caso passato. */
+  (function(){
+    var el=document.getElementById('ripresa-count');
+    if(!el)return;
+    var target=el.getAttribute('data-date');
+    if(!target)return;
+    var end=new Date(target+'T00:00:00');
+    if(isNaN(end))return;
+    var oggi=new Date();oggi.setHours(0,0,0,0);
+    var giorni=Math.round((end-oggi)/86400000);
+    if(giorni<0)return;
+    if(giorni===0){el.innerHTML=SC_EN?'<strong>Today</strong>':'<strong>È oggi</strong>';}
+    else if(giorni===1){el.innerHTML=SC_EN?'<strong>Tomorrow</strong>':'<strong>È domani</strong>';}
+    else{el.innerHTML=SC_EN?'In <strong>'+giorni+' days</strong>':'Tra <strong>'+giorni+' giorni</strong>';}
+  })();
+
   /* THEME TOGGLE */
   var themeBtn=document.getElementById('themeToggle');
   if(themeBtn){

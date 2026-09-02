@@ -199,6 +199,22 @@
       },
       {
         "@type": "Question",
+        "name": "Dove si svolgono le lezioni in presenza?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Presso MeetingRoom — Via Argiro 135, 3° piano, Bari. La sede è a pochi minuti dalla stazione centrale e a breve distanza dal parcheggio Gestipark Battisti (Ateneo). La domenica i parcheggi a strisce blu del centro sono gratuiti. Si inizia alle 9:00 e si termina alle 13:30."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Cosa devo portare alle lezioni?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Una penna e un quaderno dedicato, che accompagna per l'intero ciclo della Scuola: lo chiamiamo «Quaderno Conosci Te Stesso». È lo specchio scritto del proprio cammino, dove annotare intuizioni, osservazioni su di sé ed esercizi."
+        }
+      },
+      {
+        "@type": "Question",
         "name": "Quanto costa?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -270,11 +286,13 @@
         "courseWorkload": "PT4H30M",
         "location": {
           "@type": "Place",
-          "name": "Scuola ContattaTi — Bari",
+          "name": "MeetingRoom — Scuola ContattaTi",
           "address": {
             "@type": "PostalAddress",
+            "streetAddress": "Via Argiro 135, 3° piano",
             "addressLocality": "Bari",
             "addressRegion": "BA",
+            "postalCode": "70121",
             "addressCountry": "IT"
           }
         },
@@ -415,6 +433,16 @@
   .contributo-divider{width:0.5px;background:var(--border);align-self:stretch}
   .contributo-trust{font-size:13px;color:var(--text-muted);letter-spacing:0.03em;margin-top:1.25rem;padding-top:1.1rem;border-top:0.5px solid var(--border);text-align:center}
   @media(max-width:560px){.contributo{padding:1.5rem 1.3rem}.contributo-row{gap:1.25rem}.contributo-divider{display:none}}
+
+  /* Ripresa — banner della prossima lezione, sparisce da solo via data-expires */
+  .ripresa{margin:1.75rem 0 0;border:0.5px solid var(--border-hover);border-radius:12px;background:var(--surface);padding:1.5rem 1.75rem;text-align:center}
+  .ripresa-eyebrow{font-family:var(--font-sans);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.65rem}
+  .ripresa-title{font-family:var(--font-display);font-size:25px;font-weight:500;color:var(--gold-light);line-height:1.25}
+  .ripresa-sub{font-family:var(--font-display);font-size:17px;color:var(--text-reading);margin-top:0.4rem;line-height:1.4}
+  .ripresa-count{font-family:var(--font-sans);font-size:14px;letter-spacing:0.05em;color:var(--text-muted);margin-top:0.85rem}
+  .ripresa-count strong{color:var(--gold-light);font-weight:600}
+  .ripresa-note{font-size:13px;color:var(--text-muted);margin-top:1rem;padding-top:0.9rem;border-top:0.5px solid var(--border);line-height:1.65}
+  @media(max-width:560px){.ripresa{padding:1.3rem 1.1rem}.ripresa-title{font-size:21px}.ripresa-sub{font-size:15px}}
 
   /* Language switcher pill */
   .lang-pill{display:inline-flex;align-items:center;gap:0;border:0.5px solid var(--border);border-radius:999px;padding:2px;margin-right:0.25rem;font-family:var(--font-sans);font-size:12px;font-weight:600;letter-spacing:0.06em}
@@ -911,6 +939,18 @@
   <div class="section-eyebrow"><span>Programma didattico</span></div>
   <h2 class="section-title sr">Il calendario delle lezioni</h2>
   <p class="section-sub">Sette anni di approfondimento progressivo, strutturati in cicli annuali. Ogni lezione si costruisce sulla precedente: non si accumula sapere, ci si trasforma in ciò che si studia.</p>
+
+  <!-- RIPRESA — prossima lezione. data-expires = ultimo giorno di visibilità:
+       il banner sparisce da solo il giorno dopo. Per la prossima ripartenza
+       aggiornare data-expires, data-date e i testi. -->
+  <div class="ripresa sr" data-expires="2026-09-13">
+    <p class="ripresa-eyebrow">Si riparte</p>
+    <p class="ripresa-title">Domenica 13 settembre</p>
+    <p class="ripresa-sub">2° Anno · Il Tao: la scelta tra il Bene ed il Male ed il Libero Arbitrio</p>
+    <p class="ripresa-count" id="ripresa-count" data-date="2026-09-13"></p>
+    <p class="ripresa-note">Ore 9:00–13:30 · MeetingRoom, Via Argiro 135 (3° piano), Bari<br/>Portate con voi una penna e il vostro «Quaderno Conosci Te Stesso»</p>
+  </div>
+
   <!-- CONTRIBUTO — messaggio elevato dal banner Porte Aperte, reso visibile una volta sola -->
   <div class="contributo sr">
     <p class="contributo-eyebrow">Il contributo</p>
@@ -1192,6 +1232,20 @@
       <summary class="faq-question">Quanto dura il percorso e come è strutturato?</summary>
       <div class="faq-answer">
         <p>La Scuola si articola in <strong>7 anni</strong>: 3 di base e 4 di approfondimento. Anche solo i primi 3 anni costituiscono un percorso completo. Ogni anno prevede <strong>7 lezioni</strong> nei livelli base e 3 nei livelli avanzati, con cadenza di circa un mese e mezzo. Le lezioni si svolgono la <strong>domenica mattina dalle 9:00 alle 13:30</strong>.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">Dove si svolgono le lezioni in presenza?</summary>
+      <div class="faq-answer">
+        <p>Presso <strong>MeetingRoom</strong> — <strong>Via Argiro 135, 3° piano, Bari</strong>. La sede è a pochi minuti dalla stazione centrale e a breve distanza dal parcheggio Gestipark Battisti (Ateneo). La domenica i parcheggi a strisce blu del centro sono <strong>gratuiti</strong>: arrivando per tempo è possibile lasciare l'auto anche accanto alla sede. Vi chiediamo la massima puntualità: si inizia alle 9:00.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">Cosa devo portare alle lezioni?</summary>
+      <div class="faq-answer">
+        <p>Una penna e un quaderno dedicato, che vi accompagnerà per l'intero ciclo della Scuola: lo chiamiamo <strong>«Quaderno Conosci Te Stesso»</strong>. Non è un semplice blocco per appunti — è lo specchio scritto del vostro cammino, dove annotare intuizioni, osservazioni su di sé ed esercizi. Rileggerlo negli anni è uno degli strumenti più potenti del percorso.</p>
       </div>
     </details>
 
