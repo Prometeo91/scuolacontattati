@@ -18,14 +18,21 @@ Sito della **Scuola ContattaTi** (Scuola di Consapevolezza ed Alchimia, Bari), g
 
 | File | Ruolo |
 |---|---|
-| `index.html` | Tutto il sito it (~1600 righe): sezioni `#chi-siamo`, `#insegnamenti`, `#conduttori`, `#galleria`, `#calendario`, `#seminario`, `#libro`, `#faq`, `#contatti`, `#ispirazioni`, `#giochi` |
+| `index.html` | Tutto il sito it (~1750 righe): sezioni `#chi-siamo`, `#insegnamenti`, `#conduttori`, `#galleria`, `#calendario`, `#libro`, `#faq`, `#contatti`, `#ispirazioni`, `#giochi` |
 | `en/index.html` | Versione inglese speculare |
 | `style.css` | Tutti gli stili, design system a variabili CSS |
 | `app.js` | Tema chiaro/scuro, countdown eventi, scroll-reveal, lightbox, service worker |
 | `lezioni.js` | **Fonte di verità** dei contenuti delle lezioni: array `L1`…`L7` (un array per anno di corso, con titoli, temi, date, citazioni). Consultarlo prima di scrivere qualsiasi testo sul percorso di studi |
 | `data/eventi.js`, `data/citazioni.js` | Dati eventi e citazioni |
 | `deisgn.md` | Design system (nota: il nome file ha il typo, lasciarlo così) |
-| `seminario.html`, `en/seminario.html` | Landing con meta Open Graph per condivisione WhatsApp/Facebook del seminario; fanno redirect a `/#seminario` |
+
+## Seminari in evidenza (pattern ricorrente, oggi non attivo)
+
+Quando c'è un seminario da promuovere si ricrea una sezione `#seminario` in entrambi gli index, più due landing `seminario.html` e `en/seminario.html` con i meta Open Graph per la condivisione su WhatsApp/Facebook, che rimandano a `/#seminario`.
+
+Oggi **non esistono**: sezione e landing sono state rimosse col commit `2722cf3`, passato il seminario del 26 luglio 2026. Il meccanismo però è ancora in `app.js`: i blocchi `.seminar-section` con `data-expires` vengono nascosti a scadenza e, quando sono scaduti tutti, spariscono anche la sezione `#seminario` e la sua voce di menu. Il codice è protetto da `if(sem)`, quindi in assenza della sezione non fa nulla. Per il prossimo seminario basta ricreare il markup.
+
+Resta in repo `images/seminario-luglio-2026.webp`, non più referenziata da nessun file.
 
 ## Fatti di dominio (verificati con Fabio)
 
@@ -45,6 +52,15 @@ Sito della **Scuola ContattaTi** (Scuola di Consapevolezza ed Alchimia, Bari), g
 - Animazioni d'ingresso: classe `.sr` (scroll-reveal via IntersectionObserver).
 - Niente effetti "da videogioco" sul sito istituzionale: l'atmosfera la fanno palette, tipografia, spaziature.
 
+### Prima di modificare una regola CSS
+
+È l'errore che si ripete più spesso su questo progetto: si cambia la regola base e restano indietro quelle che la sovrascrivono. Sono già successi due casi — una regola orfana settanta righe più in basso, e due override `[data-theme="light"]` che continuavano a dipingere una scatola appena rimossa.
+
+1. **Cercare chi la sovrascrive**, prima di toccarla: `grep -n 'nome-classe' style.css` sull'intero file, non solo intorno alla regola. In `style.css` ci sono **77 regole `[data-theme="light"]` sparse dalla riga 124 alla 1972**: circa due terzi stanno nel blocco iniziale (righe 100-300), il resto è disseminato ovunque. Non basta guardare in un punto solo.
+2. **Se la regola aveva un `[data-theme="light"]` a supporto di ciò che si sta rimuovendo, quell'override va rimosso insieme.** Un `background` o un `border` di tema chiaro sopravvissuto ridipinge quello che si è appena tolto, e senza il padding che lo reggeva il risultato è peggiore di prima.
+3. **Verificare ogni componente toccato in entrambi i temi.** Controllarne uno solo non basta: due componenti con lo stesso trattamento possono divergere, perché uno ha override di tema e l'altro no. Il tema chiaro si attiva con `document.documentElement.setAttribute('data-theme','light')`, non con `colorScheme` di Playwright.
+4. **Le regole rimaste senza usi vanno cancellate**, non lasciate lì: `grep -rl 'selettore' --include='*.html' --include='*.css' --include='*.js' .` per confermare che non serva più a nessuno, giochi compresi.
+
 ## Screenshot / verifica visiva
 
 Playwright è installato ma la CLI non combacia col browser preinstallato. Usare l'API Node con path esplicito:
@@ -62,6 +78,20 @@ Fabio spesso chiede un **mockup/screenshot prima di implementare**: preparare un
 ## Giochi didattici
 
 15 giochi (Phaser 3), ognuno in una cartella propria (`il-risveglio/`, `apprendista-del-mago/`, …) con `index.html` + `data.js` + `i18n.js`; engine e stili condivisi in `giochi/`. Raramente oggetto di modifiche: toccare solo se richiesto.
+
+## Stile di scrittura (vale per la copy del sito e per le risposte in chat)
+
+**Niente prosa manierata.** La prosa manierata sostituisce l'affermazione diretta con metafora e ornamento. Al posto di «un parametro che conviene variare» il manierato scrive «una manopola da girare»; al posto di «questo punto conta ancora» scrive «questo punto si guadagna il posto». Sono frasi che esistono per mettere in mostra chi scrive, non per trasmettere l'idea, e il lettore se ne accorge. È per questo che la prosa manierata irrita: costringe il lettore a lavorare di più perché chi scrive possa esibirsi. Ed è anche imprecisa, perché la metafora si porta dietro connotazioni che chi scrive non ha scelto e non controlla. Il rimedio è dire quello che si intende dire: **quando esiste l'espressione letterale, usare quella.**
+
+Versione breve, se serve ricordarsela in fretta: *rimuovere ogni prosa manierata.*
+
+In più, tell stilistici già trovati e ripuliti su questo sito (non reintrodurli):
+
+- **Il chiasmo «non X, ma Y»** — «non si accumula sapere, ci si trasforma in ciò che si studia», «non per dare risposte, ma per fornire gli strumenti». È la figura retorica più riconoscibile come scrittura da AI. Girare la frase in positivo.
+- **L'em-dash retorico** a metà periodo. Gli em-dash *strutturali* (`Scuola Ermetica — Emiliano Soldani`, `MeetingRoom — Via Argiro 135`, `義 Gi — Onestà e Giustizia`) sono corretti e vanno lasciati.
+- **Le triplette** decorative («consapevolezza, crescita interiore e Alchimia trasformativa») quando due termini bastano.
+
+**Non correggere mai i testi altrui.** Le citazioni firmate dai conduttori, le riflessioni nel quaderno della Scuola, i brani di autori terzi (Bushido, fra Anto Rados, ecc.) restano come sono, anche quando contengono gli stessi pattern. Si interviene solo sulla copy scritta per il sito.
 
 ## Comunicazione con Fabio
 
