@@ -335,7 +335,7 @@
     </script>
 
  <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) — self-hosted, zero dipendenze esterne -->
-  <link rel="stylesheet" href="../style.css?v=20260831b"/>
+  <link rel="stylesheet" href="../style.css?v=20260902a"/>
   <noscript><style>.sr,.sr-stagger>*{opacity:1!important;transform:none!important}</style></noscript>
 
   <style>
@@ -373,13 +373,15 @@
   #panel-anno-esp .calendar-list::before { background:linear-gradient(to bottom, transparent 0%, rgba(201,151,58,0.5) 8%, rgba(201,151,58,0.5) 92%, transparent 100%) !important; }
 
   /* Tre definizioni */
-  .three-defs-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem}
-  /* Tre definizioni mobile */
+  .defs-editorial{margin:0}
+  .def-row{display:grid;grid-template-columns:minmax(150px,210px) 1fr;gap:2.2rem;padding:1.7rem 0;border-top:0.5px solid var(--border)}
+  .def-row:last-child{border-bottom:0.5px solid var(--border)}
+  .defs-editorial dt{font-family:var(--font-display);font-size:27px;font-weight:500;color:var(--gold-light);line-height:1.12;padding-top:0.1rem}
+  .defs-editorial dd{margin:0;font-size:15px;line-height:1.75;color:var(--text-reading)}
+  /* Definizioni mobile: termine sopra, testo sotto */
   @media(max-width:640px){
-    .three-defs-grid{grid-template-columns:1fr !important;gap:0 !important}
-    .three-defs-grid>div{padding:1.25rem 0 !important;border-bottom:0.5px solid rgba(201,151,58,0.15) !important}
-    .three-defs-grid>div:last-child{border-bottom:none !important;padding-bottom:0 !important}
-    .three-defs-grid>div:first-child{padding-top:0 !important}
+    .def-row{grid-template-columns:1fr !important;gap:0.45rem !important;padding:1.35rem 0 !important}
+    .defs-editorial dt{font-size:22px !important}
   }
 
   /* Chiavi - approfondisci */
@@ -607,7 +609,7 @@
     </div>
 
     <div class="section-eyebrow" style="margin-top:2rem; margin-bottom:1rem;">
-      <span class="roman">✦</span><span>The 4 keys to awakening</span>
+      <span>The 4 keys to awakening</span>
     </div>
     <div class="chiavi-list">
       <div class="chiave-item glass-card">
@@ -660,7 +662,7 @@
 
   
   <!-- SEVEN-YEAR PATH -->
-  <div class="section-eyebrow" style="margin-top:2.5rem; margin-bottom:1rem;"><span class="roman">✦</span><span>The path year by year</span></div>
+  <div class="section-eyebrow" style="margin-top:2.5rem; margin-bottom:1rem;"><span>The path year by year</span></div>
   <p class="section-sub">Seven years of inner work. The first three form a complete cycle; the following four deepen the operative practice.</p>
 
   <div class="percorso-grid sr">
@@ -747,11 +749,11 @@
     </div>
   </div>
 
-  <div class="section-eyebrow" style="margin-top:2.5rem; margin-bottom:1rem;"><span class="roman">✦</span><span>Individual Transmutative Alchemy Path</span></div>
+  <div class="section-eyebrow" style="margin-top:2.5rem; margin-bottom:1rem;"><span>Individual Transmutative Alchemy Path</span></div>
   <p class="section-sub">A personalised journey, built around the specific evolutionary goal of the person undertaking it. It may arise from a moment of crisis, a delicate transition, or the drive to accelerate a transformation already underway.</p>
 
   <div class="section-eyebrow" style="margin-bottom:1rem;">
-    <span class="roman">✦</span><span>Two paths, one direction</span>
+    <span>Two paths, one direction</span>
   </div>
   <div class="two-col">
     <div class="pillar-card">
@@ -779,7 +781,7 @@
   </div>
 
   <div class="mt-125 text-center">
-    <div class="section-eyebrow center" style="margin-bottom:0.6rem;"><span class="roman">✦</span><span>Complementary, not alternative</span></div>
+    <div class="section-eyebrow center" style="margin-bottom:0.6rem;"><span>Complementary, not alternative</span></div>
     <p class="body-text narrow-text">In the School you work together with others: you study the Laws, train with exercises, and the group acts as a mirror. In the Individual Path you work on a specific knot of your own, with the focused listening of a guide. Those attending the School who encounter a deep block can dissolve it in the individual path; those starting from the individual path often feel the need for a broader framework. That is why they work well together.</p>
   </div>
 
@@ -1066,7 +1068,7 @@
 
   <!-- Contenuti — 3 card riassuntive -->
   <div class="section-eyebrow" style="margin-top:1rem; margin-bottom:1rem;">
-    <span class="roman">✦</span><span>What you will find in the book</span>
+    <span>What you will find in the book</span>
   </div>
   <div class="book-contents-grid sr sr-stagger">
     <details class="book-content-card">
@@ -1136,32 +1138,28 @@
     </details>
   </div>
 
-  <!-- DEFINIZIONI: Ricchezza, Abbondanza, Mission -->
-  <div class="section-eyebrow" style="margin-top:2rem; margin-bottom:1rem;">
-    <span class="roman">✦</span><span>Three words, three dimensions</span>
+  <!-- DEFINIZIONI: le tre parole — blocco editoriale, non a griglia -->
+  <div class="section-eyebrow" style="margin-top:2.5rem; margin-bottom:1.4rem;">
+    <span>Three words, three dimensions</span>
   </div>
-  <div class="about-grid">
-    <div class="glass-card" style="grid-column: 1 / -1;">
-      <div class="three-defs-grid">
-        <div>
-          <p class="serif-heading-sm" style="margin-bottom:0.5rem;"><span class="text-gold" aria-hidden="true">✶ </span>Wealth</p>
-          <p class="body-text-sm">What is already within us and manifests outwardly as a reflection in the physical plane. Our intrinsic value is reflected in the world through our actions and our way of being.</p>
-        </div>
-        <div>
-          <p class="serif-heading-sm" style="margin-bottom:0.5rem;"><span class="text-gold" aria-hidden="true">✶ </span>Abundance</p>
-          <p class="body-text-sm">The potential of all we can receive and manifest. An inner feeling of fullness, a prosperous mindset, a disposition of the soul. It allows us to recognise the beauty and opportunities of life beyond what we possess.</p>
-        </div>
-        <div>
-          <p class="serif-heading-sm" style="margin-bottom:0.5rem;"><span class="text-gold" aria-hidden="true">✶ </span>Mission</p>
-          <p class="body-text-sm">The lighthouse that illuminates our path. The unique contribution we can offer to the world, the deep purpose for which we are here. Following one's Mission means living in alignment with our most authentic essence.</p>
-        </div>
-      </div>
+  <dl class="defs-editorial">
+    <div class="def-row">
+      <dt>Wealth</dt>
+      <dd>What is already within us and manifests outwardly as a reflection in the physical plane. Our intrinsic value is reflected in the world through our actions and our way of being.</dd>
     </div>
-  </div>
+    <div class="def-row">
+      <dt>Abundance</dt>
+      <dd>The potential of all we can receive and manifest. An inner feeling of fullness, a prosperous mindset, a disposition of the soul. It allows us to recognise the beauty and opportunities of life beyond what we possess.</dd>
+    </div>
+    <div class="def-row">
+      <dt>Mission</dt>
+      <dd>The lighthouse that illuminates our path. The unique contribution we can offer to the world, the deep purpose for which we are here. Following one's Mission means living in alignment with our most authentic essence.</dd>
+    </div>
+  </dl>
 
   <!-- LE 8 FORME DI RICCHEZZA SECONDO I VEDA -->
   <div class="section-eyebrow" style="margin-top:2rem; margin-bottom:1rem;">
-    <span class="roman">✦</span><span>The 8 Forms of Wealth according to the Vedas</span>
+    <span>The 8 Forms of Wealth according to the Vedas</span>
   </div>
   <div class="glass-card">
     <p class="body-text-sm mb-1">According to the ancient Vedic texts, Wealth manifests in eight forms. True well-being arises from the harmony of all these dimensions. Today the scale of priorities is often inverted: we start from the bottom, from material subsistence, forgetting that the highest form of Wealth is inner spiritual knowledge.</p>
@@ -1370,7 +1368,7 @@
     <p class="quote-oracle-counter" id="quoteCounter"></p>
   </div>
 
-  <div class="section-eyebrow" style="margin-top:3rem; margin-bottom:1rem;"><span class="roman">✦</span><span>From the School's notebook</span></div>
+  <div class="section-eyebrow" style="margin-top:3rem; margin-bottom:1rem;"><span>From the School's notebook</span></div>
   <p class="section-sub">Reflections shared over the years by the guides, taken from the School's diary.</p>
 
   <div class="riflessioni-list" id="riflessioniList">

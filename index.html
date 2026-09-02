@@ -333,7 +333,7 @@
     </script>
 
  <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) — self-hosted, zero dipendenze esterne -->
-  <link rel="stylesheet" href="style.css?v=20260831b"/>
+  <link rel="stylesheet" href="style.css?v=20260902a"/>
   <noscript><style>.sr,.sr-stagger>*{opacity:1!important;transform:none!important}</style></noscript>
 
   <style>
@@ -371,13 +371,15 @@
   #panel-anno-esp .calendar-list::before { background:linear-gradient(to bottom, transparent 0%, rgba(201,151,58,0.5) 8%, rgba(201,151,58,0.5) 92%, transparent 100%) !important; }
 
   /* Tre definizioni */
-  .three-defs-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem}
-  /* Tre definizioni mobile */
+  .defs-editorial{margin:0}
+  .def-row{display:grid;grid-template-columns:minmax(150px,210px) 1fr;gap:2.2rem;padding:1.7rem 0;border-top:0.5px solid var(--border)}
+  .def-row:last-child{border-bottom:0.5px solid var(--border)}
+  .defs-editorial dt{font-family:var(--font-display);font-size:27px;font-weight:500;color:var(--gold-light);line-height:1.12;padding-top:0.1rem}
+  .defs-editorial dd{margin:0;font-size:15px;line-height:1.75;color:var(--text-reading)}
+  /* Definizioni mobile: termine sopra, testo sotto */
   @media(max-width:640px){
-    .three-defs-grid{grid-template-columns:1fr !important;gap:0 !important}
-    .three-defs-grid>div{padding:1.25rem 0 !important;border-bottom:0.5px solid rgba(201,151,58,0.15) !important}
-    .three-defs-grid>div:last-child{border-bottom:none !important;padding-bottom:0 !important}
-    .three-defs-grid>div:first-child{padding-top:0 !important}
+    .def-row{grid-template-columns:1fr !important;gap:0.45rem !important;padding:1.35rem 0 !important}
+    .defs-editorial dt{font-size:22px !important}
   }
 
   /* Chiavi - approfondisci */
@@ -605,7 +607,7 @@
     </div>
 
     <div class="section-eyebrow" style="margin-top:2rem; margin-bottom:1rem;">
-      <span class="roman">✦</span><span>Le 4 chiavi del risveglio</span>
+      <span>Le 4 chiavi del risveglio</span>
     </div>
     <div class="chiavi-list">
       <div class="chiave-item glass-card">
@@ -658,7 +660,7 @@
 
   
   <!-- PERCORSO SETTENNALE -->
-  <div class="section-eyebrow" style="margin-top:2.5rem; margin-bottom:1rem;"><span class="roman">✦</span><span>Il percorso anno per anno</span></div>
+  <div class="section-eyebrow" style="margin-top:2.5rem; margin-bottom:1rem;"><span>Il percorso anno per anno</span></div>
   <p class="section-sub">Sette anni di lavoro su di sé. I primi tre formano un ciclo completo; i successivi quattro approfondiscono la pratica operativa.</p>
 
   <div class="percorso-grid sr">
@@ -745,11 +747,11 @@
     </div>
   </div>
 
-  <div class="section-eyebrow" style="margin-top:2.5rem; margin-bottom:1rem;"><span class="roman">✦</span><span>Percorso Individuale di Alchimia Trasmutativa</span></div>
+  <div class="section-eyebrow" style="margin-top:2.5rem; margin-bottom:1rem;"><span>Percorso Individuale di Alchimia Trasmutativa</span></div>
   <p class="section-sub">Un viaggio personalizzato, costruito sull'obiettivo evolutivo specifico di chi lo intraprende. Può nascere da un momento di crisi, da un passaggio delicato o dalla spinta ad accelerare una trasformazione già in atto.</p>
 
   <div class="section-eyebrow" style="margin-bottom:1rem;">
-    <span class="roman">✦</span><span>Due percorsi, un'unica direzione</span>
+    <span>Due percorsi, un'unica direzione</span>
   </div>
   <div class="two-col">
     <div class="pillar-card">
@@ -777,7 +779,7 @@
   </div>
 
   <div class="mt-125 text-center">
-    <div class="section-eyebrow center" style="margin-bottom:0.6rem;"><span class="roman">✦</span><span>Complementari, non alternativi</span></div>
+    <div class="section-eyebrow center" style="margin-bottom:0.6rem;"><span>Complementari, non alternativi</span></div>
     <p class="body-text narrow-text">Nella Scuola lavori insieme agli altri: studi le Leggi, ti alleni con gli esercizi, e il gruppo fa da specchio. Nel Percorso Individuale lavori su un nodo specifico, tuo, con l'ascolto mirato di un conduttore. Chi frequenta la Scuola e incontra un blocco profondo può scioglierlo nel percorso individuale; chi inizia dall'individuale spesso sente il bisogno di una cornice più ampia. Per questo funzionano bene insieme.</p>
   </div>
 
@@ -1065,7 +1067,7 @@
 
   <!-- Contenuti — 3 card riassuntive -->
   <div class="section-eyebrow" style="margin-top:1rem; margin-bottom:1rem;">
-    <span class="roman">✦</span><span>Cosa troverai nel libro</span>
+    <span>Cosa troverai nel libro</span>
   </div>
   <div class="book-contents-grid sr sr-stagger">
     <details class="book-content-card">
@@ -1135,32 +1137,28 @@
     </details>
   </div>
 
-  <!-- DEFINIZIONI: Ricchezza, Abbondanza, Mission -->
-  <div class="section-eyebrow" style="margin-top:2rem; margin-bottom:1rem;">
-    <span class="roman">✦</span><span>Tre parole, tre dimensioni</span>
+  <!-- DEFINIZIONI: le tre parole — blocco editoriale, non a griglia -->
+  <div class="section-eyebrow" style="margin-top:2.5rem; margin-bottom:1.4rem;">
+    <span>Tre parole, tre dimensioni</span>
   </div>
-  <div class="about-grid">
-    <div class="glass-card" style="grid-column: 1 / -1;">
-      <div class="three-defs-grid">
-        <div>
-          <p class="serif-heading-sm" style="margin-bottom:0.5rem;"><span class="text-gold" aria-hidden="true">✶ </span>Ricchezza</p>
-          <p class="body-text-sm">Ciò che è già dentro di noi e si manifesta all'esterno come riflesso nel piano fisico. Il nostro valore intrinseco si riflette nel mondo attraverso le nostre azioni e il nostro modo di essere.</p>
-        </div>
-        <div>
-          <p class="serif-heading-sm" style="margin-bottom:0.5rem;"><span class="text-gold" aria-hidden="true">✶ </span>Abbondanza</p>
-          <p class="body-text-sm">Il potenziale di tutto ciò che possiamo ricevere e manifestare. Una sensazione interiore di pienezza, una mentalità prospera, una disposizione d'animo. Ci permette di riconoscere la bellezza e le opportunità della vita al di là di ciò che possediamo.</p>
-        </div>
-        <div>
-          <p class="serif-heading-sm" style="margin-bottom:0.5rem;"><span class="text-gold" aria-hidden="true">✶ </span>Mission</p>
-          <p class="body-text-sm">Il faro che illumina il nostro cammino. Il contributo unico che possiamo offrire al mondo, il senso profondo per cui siamo qui. Seguire la propria Mission significa vivere in allineamento con la nostra essenza più autentica.</p>
-        </div>
-      </div>
+  <dl class="defs-editorial">
+    <div class="def-row">
+      <dt>Ricchezza</dt>
+      <dd>Ciò che è già dentro di noi e si manifesta all'esterno come riflesso nel piano fisico. Il nostro valore intrinseco si riflette nel mondo attraverso le nostre azioni e il nostro modo di essere.</dd>
     </div>
-  </div>
+    <div class="def-row">
+      <dt>Abbondanza</dt>
+      <dd>Il potenziale di tutto ciò che possiamo ricevere e manifestare. Una sensazione interiore di pienezza, una mentalità prospera, una disposizione d'animo. Ci permette di riconoscere la bellezza e le opportunità della vita al di là di ciò che possediamo.</dd>
+    </div>
+    <div class="def-row">
+      <dt>Mission</dt>
+      <dd>Il faro che illumina il nostro cammino. Il contributo unico che possiamo offrire al mondo, il senso profondo per cui siamo qui. Seguire la propria Mission significa vivere in allineamento con la nostra essenza più autentica.</dd>
+    </div>
+  </dl>
 
   <!-- LE 8 FORME DI RICCHEZZA SECONDO I VEDA -->
   <div class="section-eyebrow" style="margin-top:2rem; margin-bottom:1rem;">
-    <span class="roman">✦</span><span>Le 8 forme di Ricchezza secondo i Veda</span>
+    <span>Le 8 forme di Ricchezza secondo i Veda</span>
   </div>
   <div class="glass-card">
     <p class="body-text-sm mb-1">Secondo gli antichi testi vedici, la Ricchezza si manifesta in otto forme. Il vero benessere nasce dall'armonia tra tutte queste dimensioni. Oggi la scala di priorità è spesso invertita: partiamo dal basso, dalla sussistenza materiale, dimenticando che la forma più alta di Ricchezza è la conoscenza spirituale interiore.</p>
@@ -1369,7 +1367,7 @@
     <p class="quote-oracle-counter" id="quoteCounter"></p>
   </div>
 
-  <div class="section-eyebrow" style="margin-top:3rem; margin-bottom:1rem;"><span class="roman">✦</span><span>Dal quaderno della Scuola</span></div>
+  <div class="section-eyebrow" style="margin-top:3rem; margin-bottom:1rem;"><span>Dal quaderno della Scuola</span></div>
   <p class="section-sub">Riflessioni condivise negli anni dai conduttori, riprese dal diario della Scuola.</p>
 
   <div class="riflessioni-list" id="riflessioniList">
