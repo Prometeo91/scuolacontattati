@@ -1887,12 +1887,6 @@ section#ispirazioni > * { position: relative; z-index: 1; }
 /* footer: più aria sopra i contatti */
 .footer-inner > p:first-of-type { margin-top: 0.5rem; }
 
-/* Definizioni Ricchezza/Abbondanza/Mission: responsive */
-@media (max-width: 640px) {
-  #libro .about-grid .glass-card > div { grid-template-columns: 1fr !important; }
-}
-
-
 /* Classi generate dinamicamente dal JS */
 .ev-num { font-size: 18px; color: #b49fe0; text-align: center; }
 .ev-num-esp { font-size: 20px; color: var(--gold-light); text-align: center; }
