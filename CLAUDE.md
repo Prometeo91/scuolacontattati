@@ -52,6 +52,15 @@ Resta in repo `images/seminario-luglio-2026.webp`, non più referenziata da ness
 - Animazioni d'ingresso: classe `.sr` (scroll-reveal via IntersectionObserver).
 - Niente effetti "da videogioco" sul sito istituzionale: l'atmosfera la fanno palette, tipografia, spaziature.
 
+### Prima di modificare una regola CSS
+
+È l'errore che si ripete più spesso su questo progetto: si cambia la regola base e restano indietro quelle che la sovrascrivono. Sono già successi due casi — una regola orfana settanta righe più in basso, e due override `[data-theme="light"]` che continuavano a dipingere una scatola appena rimossa.
+
+1. **Cercare chi la sovrascrive**, prima di toccarla: `grep -n 'nome-classe' style.css` sull'intero file, non solo intorno alla regola. In `style.css` ci sono **77 regole `[data-theme="light"]` sparse dalla riga 124 alla 1972**: circa due terzi stanno nel blocco iniziale (righe 100-300), il resto è disseminato ovunque. Non basta guardare in un punto solo.
+2. **Se la regola aveva un `[data-theme="light"]` a supporto di ciò che si sta rimuovendo, quell'override va rimosso insieme.** Un `background` o un `border` di tema chiaro sopravvissuto ridipinge quello che si è appena tolto, e senza il padding che lo reggeva il risultato è peggiore di prima.
+3. **Verificare ogni componente toccato in entrambi i temi.** Controllarne uno solo non basta: due componenti con lo stesso trattamento possono divergere, perché uno ha override di tema e l'altro no. Il tema chiaro si attiva con `document.documentElement.setAttribute('data-theme','light')`, non con `colorScheme` di Playwright.
+4. **Le regole rimaste senza usi vanno cancellate**, non lasciate lì: `grep -rl 'selettore' --include='*.html' --include='*.css' --include='*.js' .` per confermare che non serva più a nessuno, giochi compresi.
+
 ## Screenshot / verifica visiva
 
 Playwright è installato ma la CLI non combacia col browser preinstallato. Usare l'API Node con path esplicito:
