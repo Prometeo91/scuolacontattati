@@ -288,5 +288,11 @@ window.SC_QUOTES = [
 {it:{t:"L'uomo non è un essere ma un processo, non un essere ma un divenire. Il cane nasce e muore cane: la situazione non è necessariamente la stessa per quanto riguarda l'uomo. L'uomo può nascere uomo e morire come Gautama il Buddha.",a:"Osho"},
  en:{t:"Man is not a being but a process, not a being but a becoming. A dog is born a dog and dies a dog: the situation is not necessarily the same for man. Man can be born a man and die as Gautama the Buddha.",a:"Osho"}},
 {it:{t:"Essere se stessi in un mondo che cerca continuamente di uniformarti è la più grande delle conquiste.",a:"Ralph Waldo Emerson"},
- en:{t:"To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.",a:"Ralph Waldo Emerson"}}
+ en:{t:"To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.",a:"Ralph Waldo Emerson"}},
+{it:{t:"Rendi cosciente l'inconscio, altrimenti sarà lui a dirigere la tua vita e tu lo chiamerai destino.",a:"Carl Gustav Jung"},
+ en:{t:"Make the unconscious conscious, otherwise it will direct your life and you will call it fate.",a:"Carl Gustav Jung"}},
+{it:{t:"Non basta sapere, bisogna diventare ciò che si sa.",a:"Pitagora"},
+ en:{t:"It is not enough to know, one must become what one knows.",a:"Pythagoras"}},
+{it:{t:"Chi conosce gli altri è saggio, chi conosce sé stesso è illuminato.",a:"Lao Tzu"},
+ en:{t:"He who knows others is wise, he who knows himself is enlightened.",a:"Lao Tzu"}}
 ];
