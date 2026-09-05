@@ -417,6 +417,22 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  /* SHARE SITE BUTTON */
+  var shareBtn=document.getElementById('shareSiteBtn');
+  if(shareBtn){
+    var siteURL='https://www.scuolacontattati.com';
+    shareBtn.addEventListener('click',function(){
+      if(navigator.share){
+        navigator.share({title:'Scuola ContattaTi',url:siteURL}).catch(function(){});
+      } else {
+        navigator.clipboard.writeText(siteURL).then(function(){
+          var toast=document.getElementById('shareToast');
+          if(toast){toast.classList.add('show');setTimeout(function(){toast.classList.remove('show');},2000);}
+        }).catch(function(){});
+      }
+    });
+  }
+
   /* SCROLL REVEAL — gestito inline in index.html (observer .sr + .sr-stagger)
      per garantire visibilità del contenuto anche se app.js non carica */
 

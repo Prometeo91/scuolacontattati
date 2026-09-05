@@ -266,6 +266,16 @@
 [data-theme="light"] footer [id="email-footer"] a:hover {
   color: var(--gold) !important;
 }
+[data-theme="light"] .share-site-btn {
+  background: rgba(255,255,255,0.95) !important;
+  color: var(--gold) !important;
+  border-color: rgba(120,90,30,0.25) !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+}
+[data-theme="light"] .share-site-btn .share-toast {
+  background: var(--gold) !important;
+  color: #fff !important;
+}
 [data-theme="light"] .back-to-top {
   background: rgba(255,255,255,0.95) !important;
   color: var(--gold) !important;
@@ -1451,10 +1461,45 @@ select:focus-visible {
 .wa-sticky svg { width:26px; height:26px; fill:#fff; }
 @media (min-width:769px) { .wa-sticky { display:none; } }
 
+/* SHARE SITE BUTTON */
+.share-site-btn {
+  position:fixed;
+  bottom:calc(1.25rem + env(safe-area-inset-bottom, 0px));
+  right:calc(1.25rem + env(safe-area-inset-right, 0px));
+  z-index:89;
+  width:48px; height:48px; border-radius:50%;
+  background:rgba(13,11,26,0.95); border:1px solid var(--gold);
+  color:var(--gold-light);
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer;
+  transition:transform 0.2s, box-shadow 0.2s, background 0.2s, border-color 0.2s;
+  -webkit-tap-highlight-color:transparent;
+  box-shadow:0 4px 12px rgba(0,0,0,0.3);
+}
+.share-site-btn svg { width:22px; height:22px; fill:currentColor; }
+@media (hover: hover) {
+  .share-site-btn:hover { transform:scale(1.08); background:var(--surface-hover); border-color:var(--gold-light); }
+}
+.share-site-btn:active { transform:scale(0.92); transition:transform 0.1s; }
+.share-site-btn .share-toast {
+  position:absolute; bottom:calc(100% + 8px); right:0;
+  background:var(--gold); color:#0d0b1a;
+  font-family:var(--font-body); font-size:13px; font-weight:600;
+  padding:6px 12px; border-radius:8px; white-space:nowrap;
+  opacity:0; transform:translateY(4px); pointer-events:none;
+  transition:opacity 0.3s, transform 0.3s;
+}
+.share-site-btn .share-toast.show { opacity:1; transform:translateY(0); }
+@media (max-width:768px) {
+  .share-site-btn {
+    bottom:calc(1.25rem + 52px + 12px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
 /* BACK TO TOP */
 .back-to-top {
   position:fixed;
-  bottom:calc(1.25rem + env(safe-area-inset-bottom, 0px));
+  bottom:calc(1.25rem + 48px + 12px + env(safe-area-inset-bottom, 0px));
   right:calc(1.25rem + env(safe-area-inset-right, 0px));
   z-index:9998;
   width:44px; height:44px; border-radius:50%;
@@ -1473,10 +1518,10 @@ select:focus-visible {
 }
 /* Tactile feedback on click/tap */
 .back-to-top:active { transform:scale(0.92); transition:transform 0.1s; }
-/* On mobile, lift the back-to-top above the WhatsApp sticky (52px + 12px gap) */
+/* On mobile, lift above WhatsApp sticky (52px + 12px) + share button (48px + 12px) */
 @media (max-width:768px) {
   .back-to-top {
-    bottom:calc(1.25rem + 52px + 12px + env(safe-area-inset-bottom, 0px));
+    bottom:calc(1.25rem + 52px + 12px + 48px + 12px + env(safe-area-inset-bottom, 0px));
   }
 }
 
