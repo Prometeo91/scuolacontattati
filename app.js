@@ -426,13 +426,21 @@ document.addEventListener('DOMContentLoaded', function() {
       var toast=document.getElementById('shareToast');
       if(toast){toast.classList.add('show');setTimeout(function(){toast.classList.remove('show');},2000);}
     };
-    shareBtn.addEventListener('click',function(){
-      if(navigator.share){
-        navigator.share({title:'Scuola ContattaTi',url:siteURL}).catch(function(){});
-      } else if(navigator.clipboard && navigator.clipboard.writeText){
+    var copyLink=function(){
+      if(navigator.clipboard && navigator.clipboard.writeText){
         navigator.clipboard.writeText(siteURL).then(showToast).catch(function(){ window.prompt('Link',siteURL); });
       } else {
         window.prompt('Link',siteURL);
+      }
+    };
+    shareBtn.addEventListener('click',function(){
+      if(navigator.share){
+        /* Se la share sheet non si apre (errore diverso dall'annullamento dell'utente), copia il link */
+        navigator.share({title:'Scuola ContattaTi',url:siteURL}).catch(function(err){
+          if(!err || err.name!=='AbortError') copyLink();
+        });
+      } else {
+        copyLink();
       }
     });
   }
