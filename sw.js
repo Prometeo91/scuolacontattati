@@ -11,14 +11,14 @@
    MANUTENZIONE: quando cambia il ?v= di style.css o app.js nei due
    index, aggiorna la voce in CORE e incrementa VERSION.
    ═══════════════════════════════════════════════════ */
-var VERSION = 'sc-cache-v32';
+var VERSION = 'sc-cache-v33';
 var CORE = [
   '/',
   '/style.css?v=20260905b',
   '/app.js?v=20260905c',
   '/lezioni.js',
   '/data/citazioni.js',
-  '/data/eventi.js',
+  '/data/eventi.js?v=20260908a',
   '/site.webmanifest'
 ];
 
