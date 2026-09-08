@@ -7,6 +7,9 @@
    generata automaticamente nella lingua giusta.
    ═══════════════════════════════════════════════════ */
 window.SC_EVENTI = [
+  {day:13, month:9, year:2026,
+   it:{titolo:'Festival Nuova Umanità — "Un viaggio nel Tao"', dettaglio:'Come ogni scelta modella la realtà: lo stesso tema della 1ª lezione del 2° anno, tenuta quella mattina · Parco Gargasole, Via Donato Gargasole 18, Bari · Ingresso libero'},
+   en:{titolo:'Festival Nuova Umanità — "A journey into the Tao"', dettaglio:'How every choice shapes reality: the same theme as the 1st lesson of Year 2, held that morning · Parco Gargasole, Via Donato Gargasole 18, Bari · Free entry'}},
   {day:26, month:7, year:2026,
    it:{titolo:'Seminario in natura — Ricchezza, Abbondanza e Mission', dettaglio:'Una giornata immersa nella natura dedicata alle Chiavi della Realizzazione Interiore · Masseria Chinunno, Bosco di Mercadante (BA)'},
    en:{titolo:'Nature seminar — Wealth, Abundance and Mission', dettaglio:'A day immersed in nature dedicated to the Keys to Inner Realisation · Masseria Chinunno, Bosco di Mercadante (BA)'}},
