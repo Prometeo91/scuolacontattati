@@ -52,6 +52,17 @@ Resta in repo `images/seminario-luglio-2026.webp`, non più referenziata da ness
 - Animazioni d'ingresso: classe `.sr` (scroll-reveal via IntersectionObserver).
 - Niente effetti "da videogioco" sul sito istituzionale: l'atmosfera la fanno palette, tipografia, spaziature.
 
+### Tic visivi da non introdurre
+
+L'equivalente visivo dei tell di scrittura: elementi che gli LLM aggiungono per abitudine e che rendono una pagina riconoscibile come generata. Da evitare se non li chiede Fabio:
+
+- **Pallini pulsanti** e puntini animati come indicatori di stato.
+- **Bordo colorato su un solo lato** della card (la barretta verticale a sinistra).
+- **Numeri monospace 01 · 02 · 03** a scandire una sequenza di passi.
+- **Gradienti accesi** su testo o pulsanti, e glow diffusi.
+
+Attenzione a non confonderli con scelte già stabilite del sito: il piccolo testo sopra i titoli (`.section-eyebrow`) somiglia a un tic ma è parte del design system, e va lasciato. Il criterio è la coerenza con `deisgn.md`, non l'elenco in sé.
+
 ### Prima di modificare una regola CSS
 
 È l'errore che si ripete più spesso su questo progetto: si cambia la regola base e restano indietro quelle che la sovrascrivono. Sono già successi due casi — una regola orfana settanta righe più in basso, e due override `[data-theme="light"]` che continuavano a dipingere una scatola appena rimossa.
@@ -63,14 +74,35 @@ Resta in repo `images/seminario-luglio-2026.webp`, non più referenziata da ness
 
 ## Screenshot / verifica visiva
 
-Playwright è installato ma la CLI non combacia col browser preinstallato. Usare l'API Node con path esplicito:
+Playwright è installato ma la CLI non combacia col browser preinstallato. Se `require('playwright-core')` fallisce: `npm install --no-save playwright-core`. Usare l'API Node con path esplicito:
 
 ```js
 const { chromium } = require('playwright-core');
 const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' }); // verificare la versione in /opt/pw-browsers
-const page = await browser.newPage({ colorScheme: 'dark' }); // il default del container è light
+const ctx = await browser.newContext({
+  viewport: { width: 390, height: 844 },
+  deviceScaleFactor: 2,        // i telefoni veri sono 2-3x: a 1x i bordi da 1px spariscono
+  colorScheme: 'dark'          // il default del container è light
+});
+// Sopprime il cookie banner, che copre l'angolo in basso a destra (pulsanti sticky).
+// 'reject' evita anche di caricare Google Analytics.
+await ctx.addInitScript(() => { try { localStorage.setItem('sc-cookie','reject'); } catch(e){} });
+const page = await ctx.newPage();
+await page.goto('http://127.0.0.1:8080/');   // servire con: python3 -m http.server 8080 --bind 127.0.0.1
 // Le sezioni .sr sono invisibili in headless finché non scrollate: forzarle
 await page.evaluate(() => document.querySelectorAll('.sr').forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; }));
+```
+
+Due trappole che fanno perdere tempo, entrambe già costate diversi tentativi a vuoto:
+
+- **`clip` usa le coordinate del documento, non della viewport.** Dopo uno `scrollTo(0, 3000)` un `clip:{y:600}` fotografa la cima della pagina, e si ottiene un ritaglio vuoto che sembra un elemento mancante.
+- **Per un elemento `position:fixed` (pulsanti sticky, banner) usare `page.locator('#id').screenshot()`**, che lo inquadra da solo ed è l'unico modo affidabile: nello screenshot della viewport a pagina scrollata gli elementi fissi possono non comparire.
+
+Quando un elemento non si vede nello screenshot, prima di concludere che manca controllare che sia davvero renderizzato:
+
+```js
+await page.evaluate(() => { const e=document.getElementById('id'), r=e.getBoundingClientRect();
+  return {x:r.x, y:r.y, w:r.width, op:getComputedStyle(e).opacity}; });
 ```
 
 Fabio spesso chiede un **mockup/screenshot prima di implementare**: preparare una preview, mostrarla, aspettare l'ok ("procedi").
