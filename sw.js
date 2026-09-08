@@ -8,16 +8,17 @@
      → risposta immediata dalla cache, aggiornamento in background
    I giochi visitati almeno una volta funzionano offline.
    Per invalidare tutto: incrementare VERSION.
-   MANUTENZIONE: quando cambia il ?v= di style.css o app.js nei due
-   index, aggiorna la voce in CORE e incrementa VERSION.
+   MANUTENZIONE: ogni file in CORE con ?v= (style.css, app.js,
+   lezioni.js, data/*.js) va aggiornato qui e nei due index quando
+   cambia, incrementando VERSION.
    ═══════════════════════════════════════════════════ */
-var VERSION = 'sc-cache-v33';
+var VERSION = 'sc-cache-v34';
 var CORE = [
   '/',
   '/style.css?v=20260905b',
   '/app.js?v=20260905c',
-  '/lezioni.js',
-  '/data/citazioni.js',
+  '/lezioni.js?v=20260908a',
+  '/data/citazioni.js?v=20260908a',
   '/data/eventi.js?v=20260908a',
   '/site.webmanifest'
 ];

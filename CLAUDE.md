@@ -41,7 +41,7 @@ Resta in repo `images/seminario-luglio-2026.webp`, non più referenziata da ness
 - Conduttori: Anna Carla Digregorio e Nicolaos Anifantis. Anna Carla comunica novità via WhatsApp che spesso vanno riportate sul sito.
 - Libro: *Ricchezza, Abbondanza e Mission* (Gagliano Edizioni).
 - Eventi con `data-expires` nel markup e countdown gestiti da `app.js`; schema.org JSON-LD (`Event`) nell'`<head>` da tenere allineato ai dettagli mostrati in pagina (orari inclusi).
-- **Ogni modifica a `style.css` o `app.js` richiede il cache-bust**: aggiornare il `?v=` del link/script in `index.html` E `en/index.html`, la voce CORE in `sw.js` e incrementare la `VERSION` del service worker. Altrimenti i visitatori di ritorno vedono il file vecchio (stale-while-revalidate): nuovi elementi senza stile, o nuovi pulsanti a cui il JS vecchio non risponde (è successo col pulsante Condividi: su desktop funzionava, sul telefono già in cache no).
+- **Ogni modifica a `style.css`, `app.js`, `lezioni.js`, `data/citazioni.js` o `data/eventi.js` richiede il cache-bust**: aggiornare il `?v=` del link/script in `index.html` E `en/index.html`, la voce CORE in `sw.js` e incrementare la `VERSION` del service worker. Altrimenti i visitatori di ritorno vedono il file vecchio (stale-while-revalidate): nuovi elementi senza stile, nuovi pulsanti a cui il JS vecchio non risponde (è successo col pulsante Condividi: su desktop funzionava, sul telefono già in cache no), una lezione o un evento aggiunti che non compaiono fino alla seconda visita. Vale per qualunque file venga aggiunto a CORE in futuro.
 
 ## Design system (regole rigide)
 
