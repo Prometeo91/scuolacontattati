@@ -335,8 +335,8 @@
     </script>
 
  <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) — self-hosted, zero dipendenze esterne -->
-  <link rel="stylesheet" href="../style.css?v=20260910"/>
-  <noscript><style>.sr,.sr-stagger>*{opacity:1!important;transform:none!important}</style></noscript>
+  <link rel="stylesheet" href="../style.css?v=20260910d"/>
+  <noscript><style>.sr{opacity:1!important;transform:none!important}</style></noscript>
 
   <style>
   .gallery-grid{display:grid !important;grid-template-columns:repeat(3,1fr) !important;gap:8px !important}
@@ -345,18 +345,18 @@
   .gallery-event{margin-top:1.5rem}
   .gallery-event-title{font-family:var(--font-display);font-size:22px;font-weight:600;color:var(--gold-light);margin-bottom:.25rem}
   .gallery-event-sub{font-size:14px;color:var(--text-muted);margin-bottom:1.25rem}
-  .gallery-item{overflow:hidden !important;border-radius:8px;cursor:pointer;aspect-ratio:4/3}
+  .gallery-item{overflow:hidden !important;border-radius: var(--radius-md);cursor:pointer;aspect-ratio:4/3}
   .gallery-item img{width:100% !important;height:100% !important;display:block !important;object-fit:cover !important;transition:transform .35s ease,filter .35s ease}
   .gallery-item:hover img{transform:scale(1.05);filter:brightness(1.1)}
   .gallery-hidden{display:none}
   .riflessione-hidden{display:none}
   .riflessioni-list.expanded .riflessione-hidden{display:block}
   .gallery-grid.expanded .gallery-hidden{display:block}
-  .gallery-toggle{display:block;margin:1.25rem auto 0;background:none;border:1px solid var(--gold);color:var(--gold-light);font-family:var(--font-display);font-size:15px;padding:.6rem 1.6rem;border-radius:999px;cursor:pointer;transition:all .3s ease}
+  .gallery-toggle{display:block;margin:1.25rem auto 0;background:none;border:1px solid var(--gold);color:var(--gold-light);font-family:var(--font-display);font-size:15px;padding:.6rem 1.6rem;border-radius: var(--radius-sm);cursor:pointer;transition:all .3s ease}
   .gallery-toggle:hover{background:var(--gold);color:var(--bg)}
   .lightbox-overlay{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;opacity:0;transition:opacity .3s ease}
   .lightbox-overlay.active{display:flex;opacity:1}
-  .lightbox-overlay img{max-width:92vw;max-height:88vh;object-fit:contain;border-radius:6px;box-shadow:0 8px 40px rgba(0,0,0,.6)}
+  .lightbox-overlay img{max-width:92vw;max-height:88vh;object-fit:contain;border-radius: var(--radius-sm);box-shadow:0 8px 40px rgba(0,0,0,.6)}
   .lightbox-close{position:absolute;top:16px;right:20px;font-size:32px;color:#fff;background:none;border:none;cursor:pointer;z-index:10000;line-height:1;opacity:.8;transition:opacity .2s}
   .lightbox-close:hover{opacity:1}
   .lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);font-size:36px;color:#fff;background:rgba(255,255,255,.1);border:none;cursor:pointer;padding:12px 16px;border-radius:50%;opacity:.7;transition:opacity .2s;z-index:10000}
@@ -400,7 +400,7 @@
   .chiave-extra p:last-child{margin-bottom:0}
   /* FAQ */
   .faq-list{display:flex;flex-direction:column;gap:0.5rem}
-  .faq-item{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color .3s ease}
+  .faq-item{background:var(--surface);border:1px solid var(--border);border-radius: var(--radius-md);overflow:hidden;transition:border-color .3s ease}
   .faq-item[open]{border-color:var(--border-hover)}
   .faq-question{padding:1.1rem 1.4rem;font-family:var(--font-display);font-size:17px;color:var(--gold-light);cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:1rem;user-select:none}
   .faq-question::-webkit-details-marker{display:none}
@@ -426,7 +426,7 @@
   .read-more>.body-text:first-of-type{margin-top:0}
 
   /* Contributo — elemento sobrio (eleva il messaggio del banner Porte Aperte, mostrato una volta sola). NON una pricing table. */
-  .contributo{margin:2rem 0 0.5rem;border:0.5px solid var(--border);border-radius:12px;background:var(--surface);padding:1.75rem 2rem}
+  .contributo{margin:2rem 0 0.5rem;border:0.5px solid var(--border);border-radius: var(--radius-lg);background:var(--surface);padding:1.75rem 2rem}
   .contributo-eyebrow{font-family:var(--font-sans);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1.1rem}
   .contributo-row{display:flex;align-items:stretch;gap:2rem;flex-wrap:wrap}
   .contributo-item{flex:1;min-width:200px}
@@ -439,7 +439,7 @@
   @media(max-width:560px){.contributo{padding:1.5rem 1.3rem}.contributo-row{gap:1.25rem}.contributo-divider{display:none}}
 
   /* Ripresa — banner della prossima lezione, sparisce da solo via data-expires */
-  .ripresa{margin:1.75rem 0 0;border:0.5px solid var(--border-hover);border-radius:12px;background:var(--surface);padding:1.5rem 1.75rem;text-align:center}
+  .ripresa{margin:1.75rem 0 0;border:0.5px solid var(--border-hover);border-radius: var(--radius-lg);background:var(--surface);padding:1.5rem 1.75rem;text-align:center}
   .ripresa-eyebrow{font-family:var(--font-sans);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.65rem}
   .ripresa-title{font-family:var(--font-display);font-size:25px;font-weight:500;color:var(--gold-light);line-height:1.25}
   .ripresa-sub{font-family:var(--font-display);font-size:17px;color:var(--text-reading);margin-top:0.4rem;line-height:1.4}
@@ -449,8 +449,8 @@
   @media(max-width:560px){.ripresa{padding:1.3rem 1.1rem}.ripresa-title{font-size:21px}.ripresa-sub{font-size:15px}}
 
   /* Language switcher pill */
-  .lang-pill{display:inline-flex;align-items:center;gap:0;border:0.5px solid var(--border);border-radius:999px;padding:2px;margin-right:0.25rem;font-family:var(--font-sans);font-size:12px;font-weight:600;letter-spacing:0.06em}
-  .lang-pill a{display:inline-block;padding:4px 10px;border-radius:999px;text-decoration:none;transition:color .2s,background .2s;line-height:1}
+  .lang-pill{display:inline-flex;align-items:center;gap:0;border:0.5px solid var(--border);border-radius: var(--radius-pill);padding:2px;margin-right:0.25rem;font-family:var(--font-sans);font-size:12px;font-weight:600;letter-spacing:0.06em}
+  .lang-pill a{display:inline-block;padding:4px 10px;border-radius: var(--radius-pill);text-decoration:none;transition:color .2s,background .2s;line-height:1}
   .lang-pill a.lang-active{background:var(--gold);color:#1a1000}
   .lang-pill a:not(.lang-active){color:var(--text-muted)}
   .lang-pill a:not(.active):hover{color:var(--gold-light)}
@@ -496,9 +496,9 @@
 <main>
 <!-- CHI SIAMO -->
 <section id="chi-siamo">
-  <div class="section-eyebrow sr"><span>Our vision</span></div>
-  <h2 class="section-title sr">About us</h2>
-  <p class="section-sub sr">A school devoted to the awakening of consciousness and the mastery of the self. Our path weaves Ancient Teachings, Alchemy and the 96 Universal Laws to reconnect with the deepest dimension of being: the Soul.</p>
+  <div class="section-eyebrow"><span>Our vision</span></div>
+  <h2 class="section-title">About us</h2>
+  <p class="section-sub">A school devoted to the awakening of consciousness and the mastery of the self. Our path weaves Ancient Teachings, Alchemy and the 96 Universal Laws to reconnect with the deepest dimension of being: the Soul.</p>
   <div class="sr mb-15">
     <p class="body-text">Our starting point is the most ancient of teachings: <strong lang="el">Γνῶθι Σεαυτόν</strong> — <em>Know thyself</em>. The ancients carved it on the temple of Delphi because they knew that without self-knowledge there is no true freedom. We live mostly asleep: reacting mechanically, driven by conditioning and fears that we mistake for free choices.</p>
 
@@ -526,7 +526,7 @@
       <p class="body-text mt-125">What at first seems like mere training against mechanicity, at some point becomes a natural attitude: that seed has taken root and become a living plant within us. The School exists for this: to put into each person's hands the tools with which to find their own answers.</p>
     </details>
   </div>
-  <div class="about-grid sr sr-stagger" style="margin-top:2rem;">
+  <div class="about-grid sr" style="margin-top:2rem;">
     <div class="glass-card">
       <div class="pillar-emblem" aria-hidden="true"><img src="../images/chisiamo-libro.webp" alt="" width="860" height="860" loading="lazy" decoding="async" style="object-position:50% 62%"/></div>
       <h3 class="card-title">Ancient Teachings</h3>
@@ -569,7 +569,7 @@
 
   <!-- FOTO DI GRUPPO CERTIFICATI -->
   <figure class="sr" style="margin:3rem auto 0;max-width:900px;text-align:center;">
-    <img src="../images/certificati-settimo-anno.webp" width="1280" height="960" alt="The 7th Year graduates with Anna Carla, Nicolaos and Eleonora — 24 May 2026" loading="lazy" decoding="async" style="width:100%;height:auto;border-radius:12px;border:1px solid var(--border);"/>
+    <img src="../images/certificati-settimo-anno.webp" width="1280" height="960" alt="The 7th Year graduates with Anna Carla, Nicolaos and Eleonora — 24 May 2026" loading="lazy" decoding="async" style="width:100%;height:auto;border-radius: var(--radius-lg);border:1px solid var(--border);"/>
     <figcaption style="margin-top:0.75rem;font-size:13px;color:var(--text-muted);font-style:italic;">Seven years of journey, a new threshold · The 7th Year graduates - 24 May 2026</figcaption>
   </figure>
 
@@ -578,7 +578,7 @@
 <!-- INSEGNAMENTI -->
 <section id="insegnamenti">
   <div class="section-eyebrow"><span>The path</span></div>
-  <h2 class="section-title sr">Awareness & Alchemy</h2>
+  <h2 class="section-title">Awareness & Alchemy</h2>
   <p class="section-sub">What we study and how we work: the two pillars of the path.</p>
   <div class="two-col sr">
     <div class="pillar-card">
@@ -795,7 +795,7 @@
 <!-- CONDUTTORI -->
 <section id="conduttori">
   <div class="section-eyebrow"><span>The guides</span></div>
-  <h2 class="section-title sr">The Guides</h2>
+  <h2 class="section-title">The Guides</h2>
   <p class="section-sub">They have walked for years the path they now teach. They lead individual and group journeys dedicated to awareness, inner growth and transformative Alchemy.</p>
 
   <!-- ANNA CARLA — foto a sinistra -->
@@ -897,7 +897,7 @@
 <!-- GALLERIA EVENTI -->
 <section id="galleria">
   <div class="section-eyebrow"><span>The School in action</span></div>
-  <h2 class="section-title sr">Our events</h2>
+  <h2 class="section-title">Our events</h2>
   <p class="section-sub">Moments lived together, between teaching and nature.</p>
 
   <div class="gallery-event sr">
@@ -945,7 +945,7 @@
 <!-- CALENDARIO con logica automatica -->
 <section id="calendario">
   <div class="section-eyebrow"><span>Course programme</span></div>
-  <h2 class="section-title sr">Lesson calendar</h2>
+  <h2 class="section-title">Lesson calendar</h2>
   <p class="section-sub">Seven years of progressive deepening, structured in annual cycles. Each lesson builds on the previous one, and what you study is then tested in everyday life.</p>
 
   <!-- RIPRESA — prossima lezione. data-expires = ultimo giorno di visibilità:
@@ -1045,7 +1045,7 @@
 <!-- LIBRO -->
 <section id="libro">
   <div class="section-eyebrow"><span>The publication</span></div>
-  <h2 class="section-title sr">The Book</h2>
+  <h2 class="section-title">The Book</h2>
   <p class="section-sub">Anna Carla Digregorio and Nicolaos Anifantis gather in these pages the heart of the School's teachings: a practical path to recognise and dissolve the inner blocks that separate us from our authentic Abundance.</p>
 
   <!-- Layout editoriale -->
@@ -1074,7 +1074,7 @@
   <div class="section-eyebrow" style="margin-top:1rem; margin-bottom:1rem;">
     <span>What you will find in the book</span>
   </div>
-  <div class="book-contents-grid sr sr-stagger">
+  <div class="book-contents-grid sr">
     <details class="book-content-card">
       <summary class="book-content-summary">
         <div class="book-content-emblem" aria-hidden="true"><img src="../images/libro-nodo.webp" alt="" width="860" height="860" loading="lazy" decoding="async" style="object-position:50% 55%"/></div>
@@ -1211,7 +1211,7 @@
 <!-- DOMANDE FREQUENTI -->
 <section id="faq">
   <div class="section-eyebrow"><span>Frequently asked questions</span></div>
-  <h2 class="section-title sr">What you ask us most often</h2>
+  <h2 class="section-title">What you ask us most often</h2>
   <p class="section-sub">Answers to the most common questions for those approaching the School.</p>
 
   <div class="faq-list sr">
@@ -1302,7 +1302,7 @@
 <!-- CONTATTI -->
 <section id="contatti">
   <div class="section-eyebrow"><span>Write to us</span></div>
-  <h2 class="section-title sr">Contact</h2>
+  <h2 class="section-title">Contact</h2>
   <p class="section-sub">If you feel something in these pages resonates with you, write to us. We will be happy to reply.</p>
   <div class="contact-wrapper sr">
     <div class="contact-info">
@@ -1362,7 +1362,7 @@
 <!-- PENSIERI & ISPIRAZIONI -->
 <section id="ispirazioni" class="section-band">
   <div class="section-eyebrow"><span>Reflections</span></div>
-  <h2 class="section-title sr">Thoughts & Inspirations</h2>
+  <h2 class="section-title">Thoughts & Inspirations</h2>
   <p class="section-sub">Words that have marked the journey. From masters of all ages, and from those who walk with the School today.</p>
 
   <div class="quote-oracle sr" id="quoteOracle">
@@ -1383,7 +1383,7 @@
   <p class="section-sub">Reflections shared over the years by the guides, taken from the School's diary.</p>
 
   <div class="riflessioni-list" id="riflessioniList">
-    <div class="glass-card riflessione-item sr">
+    <div class="glass-card riflessione-item">
       <h3 class="card-title">The WE as a state of consciousness</h3>
       <p class="riflessione-firma">Anna Carla Digregorio &amp; Nicolaos Anifantis</p>
       <p class="card-body">The WE is not a bond: it is a state of deep union with the other. A state of consciousness that nothing and no one can disturb from outside.</p>
@@ -1395,7 +1395,7 @@
       </div></details>
     </div>
 
-    <div class="glass-card riflessione-item sr">
+    <div class="glass-card riflessione-item">
       <h3 class="card-title">Are you the content or the container?</h3>
       <p class="riflessione-firma">Nicolaos Anifantis</p>
       <p class="card-body">In Japan a broken vase is repaired with gold: it is kintsugi, and the vase becomes more beautiful than before. But I have stopped repairing that vase with gold.</p>
@@ -1407,7 +1407,7 @@
       </div></details>
     </div>
 
-    <div class="glass-card riflessione-item sr">
+    <div class="glass-card riflessione-item">
       <h3 class="card-title">Grandfather, your eyes spoke to me</h3>
       <p class="riflessione-firma">Nicolaos Anifantis</p>
       <p class="card-body">My grandfather hardly ever spoke, and the few times he did, he spoke in Greek. I, a child born and raised in Italy, never knew his ideas, his values, his dreams. But his eyes spoke to me.</p>
@@ -1418,7 +1418,7 @@
       </div></details>
     </div>
 
-    <div class="glass-card riflessione-item riflessione-hidden sr">
+    <div class="glass-card riflessione-item riflessione-hidden">
       <h3 class="card-title">Bach flowers and health</h3>
       <p class="riflessione-firma">Anna Carla Digregorio &amp; Nicolaos Anifantis</p>
       <p class="card-body">"As long as Soul and personality are at peace, happiness and health are realised. When instead the personality strays from the path traced by the soul, conflict arises: from this conflict spring illness and unhappiness" <em>(E. Bach, Heal Thyself)</em>.</p>
@@ -1433,7 +1433,7 @@
       </div></details>
     </div>
 
-    <div class="glass-card riflessione-item riflessione-hidden sr">
+    <div class="glass-card riflessione-item riflessione-hidden">
       <h3 class="card-title">Death and the greater design</h3>
       <p class="riflessione-firma">Scuola ContattaTi</p>
       <p class="card-body">The death of a young person: unjust. And the suffering of their loved ones? That too. Death in general is unjust! And yet everything has an important meaning, even when to our mortal eyes it seems incomprehensible.</p>
@@ -1445,7 +1445,7 @@
       </div></details>
     </div>
 
-    <div class="glass-card riflessione-item riflessione-hidden sr">
+    <div class="glass-card riflessione-item riflessione-hidden">
       <h3 class="card-title">The Our Father spoken by God</h3>
       <p class="riflessione-firma">Traditional text</p>
       <p class="card-body">Have you ever wondered how God would say the "Our Father"? Or rather: the "My Child".</p>
@@ -1459,7 +1459,7 @@
       </div></details>
     </div>
 
-    <div class="glass-card riflessione-item riflessione-hidden sr">
+    <div class="glass-card riflessione-item riflessione-hidden">
       <h3 class="card-title">Act of abandonment to Jesus</h3>
       <p class="riflessione-firma">Don Dolindo Ruotolo</p>
       <p class="card-body">"Why do you confuse yourselves by worrying? Leave the care of your affairs to me and everything will be peaceful. Every act of true, blind, complete surrender to me produces the effect you desire and resolves all difficult situations."</p>
@@ -1470,7 +1470,7 @@
       </div></details>
     </div>
 
-    <div class="glass-card riflessione-item sr">
+    <div class="glass-card riflessione-item">
       <h3 class="card-title">The 7 Values of the Samurai</h3>
       <p class="riflessione-firma">Anna Carla Digregorio &amp; Nicolaos Anifantis</p>
       <p class="card-body">The Bushido rests on seven principles to which the samurai must scrupulously adhere. They are not rules of combat: they are seven ways of standing in the world, and each of them is a daily testing ground.</p>
@@ -1486,7 +1486,7 @@
       </div></details>
     </div>
 
-    <div class="glass-card riflessione-item sr">
+    <div class="glass-card riflessione-item">
       <h3 class="card-title">Minutes of Heaven</h3>
       <p class="riflessione-firma">fra Anto Rados</p>
       <p class="card-body">The moment you are living is all you have: if you convince yourself of this, you will come to realise that you need nothing else — only to live the present moment to the full.</p>
@@ -1506,9 +1506,9 @@
 <section id="giochi" style="padding-top:2rem !important;scroll-margin-top:1rem">
   <!-- ── Initiatic Trials ── -->
   <div class="section-eyebrow"><span>Initiatic trials</span></div>
-  <h2 class="section-title sr">Learn by playing</h2>
-  <p class="section-sub sr" style="margin-bottom:1.5rem">Quizzes, scenarios and memory · 5-minute games · we recommend starting with <em>The Awakening</em></p>
-  <div class="sr sr-stagger giochi-grid">
+  <h2 class="section-title">Learn by playing</h2>
+  <p class="section-sub" style="margin-bottom:1.5rem">Quizzes, scenarios and memory · 5-minute games · we recommend starting with <em>The Awakening</em></p>
+  <div class="sr giochi-grid">
     <a class="glass-card gioco-card" href="../il-risveglio/" onclick="try{localStorage.setItem('sc-lang','en')}catch(e){}">
       <img src="../images/gioco-risveglio.webp" class="gioco-emblema" alt="" width="400" height="400" loading="lazy" decoding="async">
       <span><strong class="gioco-title">The Awakening</strong><br><span class="gioco-sub">Sleep, presence and self-remembering</span></span>
@@ -1554,9 +1554,9 @@
   <!-- ── Adventures ── -->
   <div style="display:flex;justify-content:center;padding:1.5rem 0"><div style="width:60px;height:0.5px;background:linear-gradient(90deg,transparent,rgba(201,151,58,0.5),transparent)"></div></div>
   <div class="section-eyebrow"><span>Adventures</span></div>
-  <h3 class="section-title sr" style="font-size:clamp(22px,4vw,32px)">The inner path</h3>
-  <p class="section-sub sr" style="margin-bottom:1.5rem">Interactive stories with save · 10–20 minute sessions</p>
-  <div class="sr sr-stagger giochi-grid-lg">
+  <h3 class="section-title" style="font-size:clamp(22px,4vw,32px)">The inner path</h3>
+  <p class="section-sub" style="margin-bottom:1.5rem">Interactive stories with save · 10–20 minute sessions</p>
+  <div class="sr giochi-grid-lg">
     <a class="glass-card gioco-card-lg" href="../il-cammino-alchimista/" onclick="try{localStorage.setItem('sc-lang','en')}catch(e){}">
       <img src="../images/gioco-cammino.webp" class="gioco-emblema gioco-emblema-lg" alt="" width="400" height="400" loading="lazy" decoding="async">
       <span><strong class="gioco-title-lg">The Alchemist's Path</strong><br><span class="gioco-sub-lg">Interactive journey in 3 acts · Nigredo, Albedo, Rubedo</span></span>
@@ -1648,7 +1648,7 @@
 </div>
 <script src="../lezioni.js?v=20260908a" defer></script>
 <script>
-/* SCROLL REVEAL (.sr) + STAGGER (.sr-stagger) — inline for app.js independence */
+/* SCROLL REVEAL (.sr) — inline for app.js independence */
 (function(){
   var srEls=document.querySelectorAll('.sr');
   if('IntersectionObserver' in window){
@@ -1659,14 +1659,6 @@
   } else {
     srEls.forEach(function(el){el.classList.add('visible');});
   }
-
-  /* SR-STAGGER: children appear in sequence */
-  var stEls=document.querySelectorAll('.sr-stagger');
-  if(!stEls.length)return;
-  var obs2=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs2.unobserve(e.target);}});
-  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
-  stEls.forEach(function(el){obs2.observe(el);});
 })();
 </script>
 <script>

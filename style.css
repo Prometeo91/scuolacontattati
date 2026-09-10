@@ -87,6 +87,15 @@
 }
 
 :root {
+  /* Scala dei raggi: xs marcature e badge quadrati, sm pulsanti e controlli,
+     md campi ed emblemi, lg card e riquadri media, pill solo per i tag di stato.
+     lg-inner = lg meno l'inset 6px del doppio bordo delle card. */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-lg-inner: 8px;
+  --radius-pill: 999px;
   --gold: #c9973a;
   --gold-light: #e8c97a;
   --text: #e8e0f0;
@@ -197,7 +206,6 @@
   background: rgba(255,253,247,0.98);
   border-color: rgba(120,90,30,0.4);
   box-shadow: 0 6px 22px rgba(80,60,30,0.1);
-  transform: translateY(-2px);
 }
 /* FOOTER — opzione A: crema scuro armonioso (era marrone quasi-nero) */
 [data-theme="light"] footer {
@@ -334,7 +342,7 @@
 /* Theme toggle button */
 .theme-toggle {
   background: none; border: 0.5px solid var(--border);
-  border-radius: 999px; padding: 5px 14px 5px 10px;
+  border-radius: var(--radius-pill); padding: 5px 14px 5px 10px;
   cursor: pointer; color: var(--gold-light);
   font-size: 13px; line-height: 1;
   font-family: var(--font-sans); font-weight: 500;
@@ -472,9 +480,9 @@ body::before {
 .hero-motto-sub::after { content: '✶'; display: block; color: var(--gold); font-size: 12px; margin-top: 1.5rem; opacity: 0.7; letter-spacing: 0; }
 .hero-slogan { font-family: var(--font-display); font-size: clamp(16px, 2.2vw, 20px); color: var(--text); max-width: 520px; line-height: 1.7; margin-bottom: 2.5rem; position: relative; z-index: 2; opacity: 0.85; letter-spacing: 0.01em; }
 .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; position: relative; z-index: 2; }
-.btn-primary { display: inline-block; padding: 0.8rem 2rem; background: var(--gold); border: none; border-radius: 6px; color: var(--bg); font-family: var(--font-display); font-size: 16px; font-weight: 600; text-decoration: none; letter-spacing: 0.04em; transition: background 0.2s; cursor: pointer; }
+.btn-primary { display: inline-block; padding: 0.8rem 2rem; background: var(--gold); border: none; border-radius: var(--radius-sm); color: var(--bg); font-family: var(--font-display); font-size: 16px; font-weight: 600; text-decoration: none; letter-spacing: 0.04em; transition: background 0.2s; cursor: pointer; }
 .btn-primary:hover { background: var(--gold-light); }
-.btn-ghost { display: inline-block; padding: 0.8rem 2rem; background: transparent; border: 1px solid var(--border-hover); border-radius: 6px; color: var(--gold-light); font-family: var(--font-display); font-size: 16px; font-weight: 500; text-decoration: none; letter-spacing: 0.04em; transition: background 0.2s, border-color 0.2s; cursor: pointer; }
+.btn-ghost { display: inline-block; padding: 0.8rem 2rem; background: transparent; border: 1px solid var(--border-hover); border-radius: var(--radius-sm); color: var(--gold-light); font-family: var(--font-display); font-size: 16px; font-weight: 500; text-decoration: none; letter-spacing: 0.04em; transition: background 0.2s, border-color 0.2s; cursor: pointer; }
 .btn-ghost:hover { background: rgba(201,151,58,0.08); border-color: var(--gold); }
 
 /* SECTIONS */
@@ -535,7 +543,7 @@ section#insegnamenti, section#seminario, section#faq {
   position: relative;
   background: rgba(255,255,255,0.018);
   border: 0.5px solid var(--border);
-  border-radius: 14px;
+  border-radius: var(--radius-lg);
   padding: 1.85rem 1.85rem;
   transition: border-color var(--t-base), background var(--t-base), box-shadow var(--t-base);
   box-shadow: var(--card-shadow), inset 0 0 0 0 rgba(201,151,58,0);
@@ -543,13 +551,13 @@ section#insegnamenti, section#seminario, section#faq {
 /* Doppio filetto interno — cornice oro distanziata dal bordo */
 .glass-card::before {
   content: ''; position: absolute;
-  inset: 6px; border-radius: 9px;
+  inset: 6px; border-radius: var(--radius-lg-inner);
   border: 0.5px solid rgba(201,151,58,0.12);
   pointer-events: none;
   transition: border-color var(--t-base);
 }
 /* Angoli — rimossi (creavano rumore visivo) */
-.glass-card:hover { background: rgba(255,255,255,0.032); border-color: rgba(201,151,58,0.5); box-shadow: 0 6px 24px rgba(201,151,58,0.1), 0 2px 8px rgba(0,0,0,0.3); transform: translateY(-2px); }
+.glass-card:hover { background: rgba(255,255,255,0.032); border-color: rgba(201,151,58,0.5); box-shadow: 0 6px 24px rgba(201,151,58,0.1), 0 2px 8px rgba(0,0,0,0.3); }
 .glass-card:hover::before { border-color: rgba(201,151,58,0.4); }
 .glass-card > * { position: relative; z-index: 1; }
 .card-title { font-family: var(--font-display); font-size: 20px; font-weight: 500; margin-bottom: 0.6rem; color: var(--text); display: flex; align-items: center; gap: 0.6rem; letter-spacing: 0.01em; }
@@ -581,17 +589,17 @@ section#insegnamenti, section#seminario, section#faq {
 .percorso-content { flex: 1; position: relative; z-index: 1; }
 .percorso-title { font-family: var(--font-display); font-size: 19px; font-weight: 500; color: var(--text); margin-bottom: 0.35rem; letter-spacing: 0.01em; font-feature-settings: "kern" 1, "liga" 1, "dlig" 1; }
 .percorso-desc { font-size: 14px; color: var(--text-muted); line-height: 1.55; }
-.percorso-badge { display: inline-block; font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); background: rgba(201,151,58,0.08); border: 0.5px solid rgba(201,151,58,0.2); border-radius: 4px; padding: 0.15rem 0.5rem; margin-bottom: 0.5rem; }
+.percorso-badge { display: inline-block; font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); background: rgba(201,151,58,0.08); border: 0.5px solid rgba(201,151,58,0.2); border-radius: var(--radius-xs); padding: 0.15rem 0.5rem; margin-bottom: 0.5rem; }
 .ciclo-divider { display: flex; align-items: center; gap: 0.8rem; margin: 1.25rem 0 0.75rem; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); opacity: 0.7; }
 .ciclo-divider::before, .ciclo-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); opacity: 0.5; }
 .percorso-side { display: flex; flex-direction: column; align-items: center; gap: 0.45rem; flex-shrink: 0; }
 .percorso-side .percorso-num { font-size: 1.35rem; width: auto; margin-top: 0; }
-.percorso-emblem { width: 84px; height: 84px; display: block; border-radius: 9px; border: 0.5px solid var(--border); object-fit: cover; }
+.percorso-emblem { width: 84px; height: 84px; display: block; border-radius: var(--radius-md); border: 0.5px solid var(--border); object-fit: cover; }
 @media (max-width: 480px) { .percorso-card { flex-direction: column; gap: 0.4rem; padding: 1rem 1.15rem; } .percorso-num { font-size: 2rem; width: auto; } .percorso-side { flex-direction: row; gap: 0.7rem; } .percorso-side .percorso-num { font-size: 1.25rem; } .percorso-emblem { width: 64px; height: 64px; } }
 
 /* CARROZZA DI GURDJIEFF — card illustrata in #insegnamenti */
 .carrozza-card { display: flex; gap: 2rem; align-items: flex-start; margin-top: 2rem; }
-.carrozza-img-wrap { flex: 0 0 280px; border-radius: 10px; overflow: hidden; border: 0.5px solid var(--border); }
+.carrozza-img-wrap { flex: 0 0 280px; border-radius: var(--radius-md); overflow: hidden; border: 0.5px solid var(--border); }
 .carrozza-img-wrap img { width: 100%; height: auto; display: block; }
 .carrozza-content { flex: 1; min-width: 0; }
 .carrozza-eyebrow { font-family: var(--font-sans); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
@@ -605,11 +613,11 @@ section#insegnamenti, section#seminario, section#faq {
 .carrozza-source { font-family: var(--font-sans); font-size: 12px; color: var(--text-muted); margin-top: 0.4rem; font-style: normal; }
 
 /* EMBLEMI CHI-SIAMO — tavole in testa alle card Antichi Insegnamenti / Struttura e accesso */
-.pillar-emblem { border-radius: 10px; border: 0.5px solid var(--border); overflow: hidden; margin-bottom: 1.1rem; }
+.pillar-emblem { border-radius: var(--radius-md); border: 0.5px solid var(--border); overflow: hidden; margin-bottom: 1.1rem; }
 .pillar-emblem img { width: 100%; height: auto; aspect-ratio: 16/10; object-fit: cover; display: block; }
 
 /* EMBLEMI CONTENUTI LIBRO — medaglioni quadrati nelle tre card riassuntive */
-.book-content-emblem { width: 150px; height: 150px; margin: 0 auto 0.9rem; border-radius: 8px; border: 0.5px solid var(--border); overflow: hidden; }
+.book-content-emblem { width: 150px; height: 150px; margin: 0 auto 0.9rem; border-radius: var(--radius-md); border: 0.5px solid var(--border); overflow: hidden; }
 .book-content-emblem img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* RIFLESSIONI — "Dal quaderno della Scuola" in #ispirazioni */
@@ -630,7 +638,7 @@ section#insegnamenti, section#seminario, section#faq {
 .chiave-num { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 700; color: var(--gold); opacity: 0.25; line-height: 1; flex-shrink: 0; width: 2.5rem; text-align: center; margin-top: -0.15rem; }
 .chiave-side { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; flex-shrink: 0; }
 .chiave-side .chiave-num { font-size: 1.5rem; width: auto; margin-top: 0; }
-.chiave-emblem { width: 104px; height: 104px; display: block; border-radius: 10px; border: 0.5px solid var(--border); object-fit: cover; }
+.chiave-emblem { width: 104px; height: 104px; display: block; border-radius: var(--radius-md); border: 0.5px solid var(--border); object-fit: cover; }
 .chiave-content { flex: 1; }
 .chiave-content .card-title { margin-bottom: 0.6rem; }
 @media (max-width: 480px) { .chiave-item { flex-direction: column; gap: 0.5rem; } .chiave-num { font-size: 2rem; width: auto; } .chiave-side { flex-direction: row; gap: 0.75rem; } .chiave-side .chiave-num { font-size: 1.4rem; } .chiave-emblem { width: 72px; height: 72px; } }
@@ -642,7 +650,7 @@ section#insegnamenti, section#seminario, section#faq {
   position: relative;
   background: rgba(255,255,255,0.018);
   border: 0.5px solid var(--border);
-  border-radius: 14px;
+  border-radius: var(--radius-lg);
   padding: 1.85rem;
   display: flex; flex-direction: column;
   box-shadow: 0 1px 2px rgba(0,0,0,0.25);
@@ -650,7 +658,7 @@ section#insegnamenti, section#seminario, section#faq {
 }
 .pillar-card::before {
   content: ''; position: absolute;
-  inset: 6px; border-radius: 9px;
+  inset: 6px; border-radius: var(--radius-lg-inner);
   border: 0.5px solid rgba(201,151,58,0.12);
   pointer-events: none;
   transition: border-color var(--t-base);
@@ -674,7 +682,7 @@ section#insegnamenti, section#seminario, section#faq {
 }
 .book-cover-wrap { position: sticky; top: 6rem; perspective: 800px; }
 .book-cover-editorial {
-  width: 100%; height: auto; border-radius: 4px;
+  width: 100%; height: auto; border-radius: var(--radius-xs);
   box-shadow: 12px 12px 30px rgba(0,0,0,0.5), 4px 4px 10px rgba(0,0,0,0.3), inset -2px 0 4px rgba(255,255,255,0.05);
   transform: rotateY(-3deg);
   transition: transform 0.5s ease, box-shadow 0.5s ease;
@@ -693,14 +701,14 @@ section#insegnamenti, section#seminario, section#faq {
 .book-quote-editorial { font-family: var(--font-display); font-size: 17px; font-style: italic; color: var(--text); line-height: 1.7; border-left: 3px solid var(--gold); padding-left: 1.25rem; margin: 1.5rem 0; opacity: 0.9; }
 .book-quote-editorial cite { display: block; font-size: 12px; font-style: normal; color: var(--gold); margin-top: 0.4rem; letter-spacing: 0.08em; text-transform: uppercase; }
 .book-where-editorial { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.25rem; }
-.book-where-pill { font-size: 13px; padding: 6px 14px; border-radius: 999px; background: rgba(201,151,58,0.1); border: 0.5px solid rgba(201,151,58,0.3); color: var(--gold-light); display: inline-flex; align-items: center; gap: 6px; }
+.book-where-pill { font-size: 13px; padding: 6px 14px; border-radius: var(--radius-pill); background: rgba(201,151,58,0.1); border: 0.5px solid rgba(201,151,58,0.3); color: var(--gold-light); display: inline-flex; align-items: center; gap: 6px; }
 .book-contents-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
 .book-content-card {
   position: relative; background: rgba(255,255,255,0.018); border: 0.5px solid var(--border);
-  border-radius: 14px; padding: 1.5rem; text-align: center;
+  border-radius: var(--radius-lg); padding: 1.5rem; text-align: center;
   transition: border-color 0.25s, background 0.25s;
 }
-.book-content-card::before { content: ''; position: absolute; inset: 6px; border-radius: 9px; border: 0.5px solid rgba(201,151,58,0.12); pointer-events: none; }
+.book-content-card::before { content: ''; position: absolute; inset: 6px; border-radius: var(--radius-lg-inner); border: 0.5px solid rgba(201,151,58,0.12); pointer-events: none; }
 .book-content-card:hover { background: rgba(255,255,255,0.032); border-color: rgba(201,151,58,0.42); }
 .book-content-card > * { position: relative; z-index: 1; }
 .book-content-num { font-family: var(--font-display); font-size: clamp(36px,5vw,48px); font-weight: 700; color: var(--gold); opacity: 0.3; line-height: 1; margin-bottom: 0.25rem; }
@@ -710,7 +718,7 @@ section#insegnamenti, section#seminario, section#faq {
 .book-content-card { cursor: pointer; }
 .book-content-summary { list-style: none; display: flex; flex-direction: column; align-items: center; }
 .book-content-summary::-webkit-details-marker { display: none; }
-.book-content-summary::after { content: 'Approfondisci ▾'; font-family: var(--font-sans); font-size: 12px; font-weight: 500; color: var(--gold-light); margin-top: 0.75rem; padding: 4px 14px; border-radius: 999px; border: 0.5px solid var(--border); background: var(--surface); transition: background 0.25s, border-color 0.25s; letter-spacing: 0.04em; }
+.book-content-summary::after { content: 'Approfondisci ▾'; font-family: var(--font-sans); font-size: 12px; font-weight: 500; color: var(--gold-light); margin-top: 0.75rem; padding: 4px 14px; border-radius: var(--radius-pill); border: 0.5px solid var(--border); background: var(--surface); transition: background 0.25s, border-color 0.25s; letter-spacing: 0.04em; }
 .book-content-card:hover .book-content-summary::after { background: var(--surface-hover); border-color: var(--border-hover); }
 .book-content-card[open] .book-content-summary::after { content: 'Mostra meno ▴'; background: var(--surface-hover); border-color: var(--border-hover); }
 .book-content-detail { text-align: left; margin-top: 1rem; padding-top: 1rem; border-top: 0.5px solid rgba(201,151,58,0.15); }
@@ -742,7 +750,7 @@ section#insegnamenti, section#seminario, section#faq {
 .conductor-photo-wrap { position: sticky; top: 6rem; }
 .conductor-photo-lg {
   width: 200px; height: 200px;
-  border-radius: 16px; object-fit: cover;
+  border-radius: var(--radius-lg); object-fit: cover;
   border: 1px solid var(--border-hover);
   box-shadow: 0 4px 24px rgba(0,0,0,0.3);
 }
@@ -766,7 +774,7 @@ section#insegnamenti, section#seminario, section#faq {
   display: inline-flex; align-items: center; gap: 0.4rem;
   font-family: var(--font-sans); font-size: 13px; font-weight: 500;
   color: var(--gold-light); cursor: pointer; list-style: none;
-  padding: 5px 14px; border-radius: 999px;
+  padding: 5px 14px; border-radius: var(--radius-sm);
   border: 0.5px solid var(--border);
   background: var(--surface);
   transition: background var(--t-base), border-color var(--t-base), color var(--t-fast);
@@ -782,20 +790,20 @@ section#insegnamenti, section#seminario, section#faq {
 }
 .conductor-tags .bio-tag {
   font-size: 11px; font-weight: 500;
-  padding: 4px 12px; border-radius: 999px;
+  padding: 4px 12px; border-radius: var(--radius-pill);
   letter-spacing: 0.04em; white-space: nowrap;
 }
 .shared-story {
   position: relative;
   background: rgba(255,255,255,0.018);
   border: 0.5px solid var(--border);
-  border-radius: 14px;
+  border-radius: var(--radius-lg);
   padding: 2rem;
   margin-top: 0.5rem; margin-bottom: 2rem;
 }
 .shared-story::before {
   content: ''; position: absolute;
-  inset: 6px; border-radius: 9px;
+  inset: 6px; border-radius: var(--radius-lg-inner);
   border: 0.5px solid rgba(201,151,58,0.12);
   pointer-events: none;
 }
@@ -807,7 +815,7 @@ section#insegnamenti, section#seminario, section#faq {
   padding: 1.5rem;
   background: rgba(255,255,255,0.018);
   border: 0.5px solid var(--border);
-  border-radius: 14px;
+  border-radius: var(--radius-lg);
 }
 .collab-photo {
   width: 80px; height: 80px;
@@ -834,7 +842,7 @@ section#insegnamenti, section#seminario, section#faq {
   text-align: center; margin: 2.5rem auto 2rem; max-width: 520px;
 }
 .collab-group-photo img {
-  width: 100%; height: auto; border-radius: 16px;
+  width: 100%; height: auto; border-radius: var(--radius-lg);
   border: 1px solid var(--border-hover);
   box-shadow: 0 4px 24px rgba(0,0,0,0.3);
 }
@@ -852,7 +860,7 @@ section#insegnamenti, section#seminario, section#faq {
   position: relative;
   background: rgba(255,255,255,0.018);
   border: 0.5px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   padding: 1.1rem 1.4rem;
   display: flex; align-items: center; gap: 1.1rem; flex-wrap: wrap;
   transition: background var(--t-base), border-color var(--t-base);
@@ -868,7 +876,7 @@ section#insegnamenti, section#seminario, section#faq {
 .event-sub { font-family: var(--font-display); font-size: 16px; font-weight: 500; font-style: italic; color: var(--text); line-height: 1.4; margin-bottom: 2px; }
 
 /* BADGE */
-.badge { font-size: 11px; font-weight: 500; padding: 3px 11px; border-radius: 999px; letter-spacing: 0.05em; white-space: nowrap; align-self: center; flex-shrink: 0; }
+.badge { font-size: 11px; font-weight: 500; padding: 3px 11px; border-radius: var(--radius-pill); letter-spacing: 0.05em; white-space: nowrap; align-self: center; flex-shrink: 0; }
 .badge-gold { background: rgba(201,151,58,0.12); color: var(--gold-light); border: 0.5px solid rgba(201,151,58,0.3); }
 .badge-purple { background: rgba(123,94,167,0.15); color: #b49fe0; border: 0.5px solid rgba(123,94,167,0.3); }
 .badge-green { background: rgba(40,160,80,0.12); color: #7de0a0; border: 0.5px solid rgba(40,160,80,0.3); }
@@ -903,7 +911,7 @@ section#insegnamenti, section#seminario, section#faq {
 /* pill "Dettagli" visibile sulle lezioni con contenuto */
 .detail-pill {
   font-size: 11px; font-weight: 500;
-  padding: 3px 10px; border-radius: 999px;
+  padding: 3px 10px; border-radius: var(--radius-pill);
   background: rgba(201,151,58,0.1);
   color: var(--gold-light);
   border: 0.5px solid rgba(201,151,58,0.3);
@@ -930,7 +938,7 @@ section#insegnamenti, section#seminario, section#faq {
   background: rgba(255,255,255,0.03);
   border: 0.5px solid var(--border);
   border-top: none;
-  border-radius: 0 0 14px 14px;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
   padding: 1.25rem 1.5rem 1.5rem;
   margin-top: -4px;
 }
@@ -966,7 +974,7 @@ section#insegnamenti, section#seminario, section#faq {
 .anno-tab {
   font-family: var(--font-sans);
   font-size: 13px; font-weight: 500;
-  padding: 6px 16px; border-radius: 999px;
+  padding: 6px 16px; border-radius: var(--radius-sm);
   border: 0.5px solid var(--border);
   background: var(--surface);
   color: var(--text-muted);
@@ -986,7 +994,7 @@ section#insegnamenti, section#seminario, section#faq {
   position: relative;
   background: rgba(255,255,255,0.018);
   border: 0.5px solid var(--border);
-  border-radius: 14px;
+  border-radius: var(--radius-lg);
   padding: 3rem 2.5rem;
   text-align: center;
   min-height: 220px;
@@ -994,7 +1002,7 @@ section#insegnamenti, section#seminario, section#faq {
   overflow: hidden;
 }
 .quote-oracle::before {
-  content: ''; position: absolute; inset: 8px; border-radius: 9px;
+  content: ''; position: absolute; inset: 8px; border-radius: var(--radius-lg-inner);
   border: 0.5px solid rgba(201,151,58,0.14); pointer-events: none;
 }
 .quote-oracle > * { position: relative; z-index: 1; }
@@ -1013,14 +1021,14 @@ section#insegnamenti, section#seminario, section#faq {
 .quote-oracle.fading .quote-oracle-author { opacity: 0; transform: translateY(8px); }
 .quote-oracle-btn {
   display: inline-flex; align-items: center; gap: 0.5rem;
-  margin-top: 2rem; padding: 8px 22px; border-radius: 999px;
+  margin-top: 2rem; padding: 8px 22px; border-radius: var(--radius-sm);
   border: 0.5px solid var(--border); background: var(--surface);
   color: var(--gold-light); font-family: var(--font-display);
   font-size: 15px; font-weight: 500; cursor: pointer;
   transition: background 0.25s, border-color 0.25s, transform 0.2s;
   letter-spacing: 0.02em;
 }
-.quote-oracle-btn:hover { background: var(--surface-hover); border-color: var(--border-hover); transform: translateY(-1px); }
+.quote-oracle-btn:hover { background: var(--surface-hover); border-color: var(--border-hover); }
 .quote-oracle-btn:active { transform: translateY(0); }
 .quote-oracle-btn svg { width: 16px; height: 16px; transition: transform 0.4s ease; }
 .quote-oracle-btn:hover svg { transform: rotate(180deg); }
@@ -1035,38 +1043,38 @@ section#insegnamenti, section#seminario, section#faq {
 .contact-info h3 { font-family: var(--font-display); font-size: 24px; font-weight: 500; margin-bottom: 0.5rem; color: var(--text); letter-spacing: 0.01em; }
 .contact-info p { font-size: 16px; color: var(--text-muted); line-height: 1.72; margin-bottom: 1.5rem; letter-spacing: 0; }
 .contact-detail { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 15px; color: var(--text-muted); margin-bottom: 0.75rem; }
-.contact-detail-icon { width: 32px; height: 32px; border-radius: 8px; background: rgba(201,151,58,0.08); border: 0.5px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+.contact-detail-icon { width: 32px; height: 32px; border-radius: var(--radius-md); background: rgba(201,151,58,0.08); border: 0.5px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
 .contact-detail strong { display: block; font-size: 11px; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1px; }
 .contact-detail span { color: var(--text); font-size: 15px; }
 .contact-form {
   position: relative;
   background: rgba(255,255,255,0.018);
   border: 0.5px solid var(--border);
-  border-radius: 14px;
+  border-radius: var(--radius-lg);
   padding: 1.85rem;
   display: flex; flex-direction: column; gap: 1rem;
   box-shadow: 0 1px 2px rgba(0,0,0,0.25);
 }
 .contact-form::before {
   content: ''; position: absolute;
-  inset: 6px; border-radius: 9px;
+  inset: 6px; border-radius: var(--radius-lg-inner);
   border: 0.5px solid rgba(201,151,58,0.12);
   pointer-events: none;
 }
 .contact-form > * { position: relative; z-index: 1; }
 .field label { display: block; font-size: 11px; font-weight: 500; color: var(--text-muted); margin-bottom: 5px; letter-spacing: 0.12em; text-transform: uppercase; }
-.field input, .field textarea { width: 100%; font-family: var(--font-sans); font-size: 16px; padding: 10px 14px; background: rgba(255,255,255,0.03); border: 0.5px solid var(--border); border-radius: 10px; color: var(--text); outline: none; transition: border-color 0.2s; font-feature-settings: "kern" 1, "liga" 1; }
+.field input, .field textarea { width: 100%; font-family: var(--font-sans); font-size: 16px; padding: 10px 14px; background: rgba(255,255,255,0.03); border: 0.5px solid var(--border); border-radius: var(--radius-md); color: var(--text); outline: none; transition: border-color 0.2s; font-feature-settings: "kern" 1, "liga" 1; }
 .field input:focus, .field textarea:focus { border-color: var(--gold); }
 .field input::placeholder, .field textarea::placeholder { color: var(--text-muted); }
 .field textarea { resize: none; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
-.submit-btn { padding: 0.8rem; background: var(--gold); border: none; border-radius: 6px; color: var(--bg); font-family: var(--font-display); font-size: 16px; font-weight: 600; letter-spacing: 0.04em; cursor: pointer; transition: background 0.2s; }
+.submit-btn { padding: 0.8rem; background: var(--gold); border: none; border-radius: var(--radius-sm); color: var(--bg); font-family: var(--font-display); font-size: 16px; font-weight: 600; letter-spacing: 0.04em; cursor: pointer; transition: background 0.2s; }
 .submit-btn:hover { background: var(--gold-light); }
 .submit-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
 /* Video facade — lazy inline YouTube player with CSS custom thumbnail */
-.video-facade { position: relative; width: 100%; aspect-ratio: 16/9; border-radius: 16px; overflow: hidden; border: 0.5px solid var(--border); cursor: pointer; background: #0f0b1e; isolation: isolate; }
+.video-facade { position: relative; width: 100%; aspect-ratio: 16/9; border-radius: var(--radius-lg); overflow: hidden; border: 0.5px solid var(--border); cursor: pointer; background: #0f0b1e; isolation: isolate; }
 .video-facade-bg { position: absolute; inset: 0; background:
   linear-gradient(to bottom, rgba(10,8,20,0.32) 0%, rgba(10,8,20,0.16) 45%, rgba(10,8,20,0.74) 100%),
   url('images/video-cammino.webp') center / cover no-repeat; z-index: 1; }
@@ -1074,17 +1082,14 @@ section#insegnamenti, section#seminario, section#faq {
 .video-facade-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.25); transition: background var(--t-base); z-index: 3; }
 .video-facade:hover .video-facade-overlay,
 .video-facade:focus-visible .video-facade-overlay { background: rgba(0,0,0,0.1); }
-.video-facade-play { position: absolute; top: 42%; left: 50%; transform: translate(-50%,-50%); width: 72px; height: 72px; background: rgba(201,151,58,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: transform 0.2s, background 0.2s; z-index: 4; box-shadow: 0 4px 24px rgba(201,151,58,0.3); }
-.video-facade-play::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 240px; height: 240px; background: radial-gradient(circle, rgba(201,151,58,0.35) 0%, rgba(201,151,58,0.15) 30%, transparent 65%); border-radius: 50%; z-index: -1; pointer-events: none; transition: opacity 0.3s; }
+.video-facade-play { position: absolute; top: 42%; left: 50%; transform: translate(-50%,-50%); width: 72px; height: 72px; background: rgba(201,151,58,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.2s; z-index: 4; box-shadow: 0 4px 24px rgba(201,151,58,0.3); }
 .video-facade:hover .video-facade-play,
-.video-facade:focus-visible .video-facade-play { transform: translate(-50%,-50%) scale(1.08); background: rgba(201,151,58,1); }
-.video-facade:hover .video-facade-play::before,
-.video-facade:focus-visible .video-facade-play::before { opacity: 1.3; }
+.video-facade:focus-visible .video-facade-play { background: rgba(201,151,58,1); }
 .video-facade-triangle { width: 0; height: 0; border-top: 14px solid transparent; border-bottom: 14px solid transparent; border-left: 22px solid #1a1000; margin-left: 3px; }
 .video-facade-content { position: absolute; bottom: 1.25rem; left: 1.25rem; right: 1.25rem; text-align: center; z-index: 4; pointer-events: none; }
 .video-facade-title { font-family: var(--font-display); font-size: clamp(18px, 2.5vw, 24px); font-weight: 500; color: var(--gold-light); margin-bottom: 0.15rem; letter-spacing: 0.03em; }
 .video-facade-sub { font-family: var(--font-display); font-size: clamp(14px, 1.8vw, 17px); font-style: italic; color: rgba(255,255,255,0.7); }
-.video-facade-duration { position: absolute; top: 1rem; right: 1rem; background: rgba(0,0,0,0.6); color: rgba(255,255,255,0.85); font-size: 11px; padding: 3px 8px; border-radius: 4px; font-family: var(--font-sans); letter-spacing: 0.05em; z-index: 4; }
+.video-facade-duration { position: absolute; top: 1rem; right: 1rem; background: rgba(0,0,0,0.6); color: rgba(255,255,255,0.85); font-size: 11px; padding: 3px 8px; border-radius: var(--radius-xs); font-family: var(--font-sans); letter-spacing: 0.05em; z-index: 4; }
 .video-facade iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; z-index: 10; }
 .video-facade:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 
@@ -1106,7 +1111,7 @@ section#insegnamenti, section#seminario, section#faq {
 .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
 
 /* Form feedback states */
-.form-feedback { display: none; padding: 1rem 1.25rem; border-radius: 10px; font-size: 15px; line-height: 1.5; margin-top: 0.5rem; }
+.form-feedback { display: none; padding: 1rem 1.25rem; border-radius: var(--radius-md); font-size: 15px; line-height: 1.5; margin-top: 0.5rem; }
 .form-feedback.visible { display: block; animation: feedbackFadeIn 0.3s ease; }
 .form-feedback.success { background: rgba(40,160,80,0.1); border: 0.5px solid rgba(40,160,80,0.3); color: #7de0a0; }
 .form-feedback.error { background: rgba(224,125,125,0.08); border: 0.5px solid rgba(224,125,125,0.3); color: #e8a0a0; }
@@ -1130,7 +1135,7 @@ section#insegnamenti, section#seminario, section#faq {
 
 
 /* SKIP TO CONTENT */
-.skip-link { position: absolute; top: -100%; left: 1rem; background: var(--gold); color: #1a1000; padding: 0.5rem 1rem; border-radius: 0 0 8px 8px; font-size: 15px; font-weight: 500; z-index: 200; text-decoration: none; }
+.skip-link { position: absolute; top: -100%; left: 1rem; background: var(--gold); color: #1a1000; padding: 0.5rem 1rem; border-radius: 0 0 var(--radius-md) var(--radius-md); font-size: 15px; font-weight: 500; z-index: 200; text-decoration: none; }
 .skip-link:focus { top: 0; }
 
 /* FOCUS RING — targeted to interactive elements only */
@@ -1141,7 +1146,7 @@ button:focus-visible,
 summary:focus-visible {
   outline: 2px solid var(--gold);
   outline-offset: 3px;
-  border-radius: 4px;
+  border-radius: var(--radius-xs);
   transition: outline-offset 0.15s ease, outline-color 0.15s ease;
 }
 /* Form fields: use border color change instead of outline (more elegant) */
@@ -1158,7 +1163,7 @@ select:focus-visible {
 }
 
 /* HAMBURGER MENU */
-.nav-toggle { display: none; background: none; border: 0.5px solid var(--border); border-radius: 8px; padding: 6px 10px; cursor: pointer; color: var(--gold-light); font-size: 20px; line-height: 1; }
+.nav-toggle { display: none; background: none; border: 0.5px solid var(--border); border-radius: var(--radius-md); padding: 6px 10px; cursor: pointer; color: var(--gold-light); font-size: 20px; line-height: 1; }
 @media (max-width: 768px) {
   .nav-toggle { display: block; }
   .nav-links { display: none; width: 100%; flex-direction: column; gap: 0.5rem; padding-top: 0.75rem; border-top: 0.5px solid var(--border); }
@@ -1169,7 +1174,7 @@ select:focus-visible {
 /* (carousel counter removed — oracle uses .quote-oracle-counter) */
 
 /* UTILITY CLASSES (extracted from inline styles) */
-.evento-card { background:var(--surface); border:0.5px solid var(--border); border-radius:12px; padding:0.9rem 1.25rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
+.evento-card { background:var(--surface); border:0.5px solid var(--border); border-radius: var(--radius-lg); padding:0.9rem 1.25rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
 .evento-data { text-align:center; min-width:38px; }
 .evento-giorno { font-family:var(--font-display); font-size:22px; font-weight:500; color:var(--gold-light); line-height:1; font-variant-numeric: lining-nums tabular-nums; font-feature-settings: "kern" 1, "lnum" 1, "tnum" 1; }
 .evento-mese { font-size: 11px; text-transform:uppercase; letter-spacing:0.12em; color:var(--text-muted); }
@@ -1215,9 +1220,9 @@ select:focus-visible {
 /* Esperienziali banner */
 .esp-video-block { margin-bottom: 1.5rem; text-align: center; }
 .esp-video-intro { font-family: var(--font-display); font-size: 18px; color: var(--text); margin-bottom: 1rem; }
-.video-responsive { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 560px; margin: 0 auto; border-radius: 12px; }
-.video-responsive iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 12px; }
-.esp-banner { background:rgba(201,151,58,0.07); border:0.5px solid rgba(201,151,58,0.35); border-radius:14px; padding:1.1rem 1.4rem; display:flex; gap:0.75rem; align-items:flex-start; margin-top:10px; }
+.video-responsive { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 560px; margin: 0 auto; border-radius: var(--radius-lg); }
+.video-responsive iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: var(--radius-lg); }
+.esp-banner { background:rgba(201,151,58,0.07); border:0.5px solid rgba(201,151,58,0.35); border-radius: var(--radius-lg); padding:1.1rem 1.4rem; display:flex; gap:0.75rem; align-items:flex-start; margin-top:10px; }
 .esp-banner-title { font-size: 16px; font-weight:500; color:var(--gold-light); margin-bottom:0.3rem; }
 .anno-tab-esp { border-color:rgba(201,151,58,0.5); color:var(--gold-light); }
 .percorso-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.75rem 0 2.5rem; }
@@ -1289,9 +1294,9 @@ select:focus-visible {
 .gioco-card{text-decoration:none;color:inherit;display:flex;align-items:center;gap:14px;padding:18px 20px;position:relative}
 .gioco-card-lg{text-decoration:none;color:inherit;display:flex;align-items:center;gap:14px;padding:20px 22px;position:relative}
 /* Sigillo conquistato sulla card del gioco */
-.card-sigillo{position:absolute;top:8px;right:10px;font-size:14px;color:var(--gold-light);text-shadow:0 0 10px rgba(232,201,122,0.5);pointer-events:none}
+.card-sigillo{position:absolute;top:8px;right:10px;font-size:14px;color:var(--gold-light);pointer-events:none}
 .gioco-icon{width:28px;height:28px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(72%) sepia(50%) saturate(500%) hue-rotate(5deg)}
-.gioco-emblema{width:48px;height:48px;flex-shrink:0;border-radius:8px;border:0.5px solid var(--border);object-fit:cover;display:block}
+.gioco-emblema{width:48px;height:48px;flex-shrink:0;border-radius: var(--radius-md);border:0.5px solid var(--border);object-fit:cover;display:block}
 .gioco-emblema-lg{width:56px;height:56px}
 .gioco-icon-lg{width:36px;height:36px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(72%) sepia(50%) saturate(500%) hue-rotate(5deg)}
 .gioco-title{color:var(--gold-light);font-size:1.05rem}
@@ -1300,7 +1305,7 @@ select:focus-visible {
 .gioco-sub-lg{color:var(--text-muted);font-size:.87rem;line-height:1.45}
 
 /* BIO TAGS */
-.bio-tag { font-size: 11px; padding:3px 10px; border-radius:999px; letter-spacing:0.03em; white-space:nowrap; }
+.bio-tag { font-size: 11px; padding:3px 10px; border-radius: var(--radius-pill); letter-spacing:0.03em; white-space:nowrap; }
 .tag-ermetica { background:rgba(201,151,58,0.12); color:var(--gold-light); border:0.5px solid rgba(201,151,58,0.3); }
 /* Forza un a-capo: i badge dorati occupano l'intera larghezza disponibile del loro "slot" */
 .tag-olistica { background:rgba(123,94,167,0.12); color:#b49fe0; border:0.5px solid rgba(123,94,167,0.25); }
@@ -1335,7 +1340,6 @@ select:focus-visible {
     scroll-behavior: auto !important;
   }
   .sr { transition: none; opacity: 1; transform: none; }
-  .sr-stagger > * { transition: none; opacity: 1; transform: none; }
 }
 
 /* ENHANCED FOOTER */
@@ -1344,7 +1348,7 @@ select:focus-visible {
   position: relative;
   padding: 2.5rem 2rem;
   border: 0.5px solid rgba(201,151,58,0.2);
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
 }
 .footer-inner::before {
   content: ''; position: absolute;
@@ -1370,7 +1374,7 @@ select:focus-visible {
   background: rgba(13, 11, 26, 0.97);
   backdrop-filter: blur(16px);
   border: 0.5px solid var(--border-hover);
-  border-radius: 14px;
+  border-radius: var(--radius-lg);
   padding: 1.25rem 1.4rem;
   box-shadow: 0 12px 40px rgba(0,0,0,0.45), 0 0 0 1px rgba(201,151,58,0.08);
   font-family: var(--font-sans);
@@ -1378,7 +1382,7 @@ select:focus-visible {
 }
 .cookie-banner::before {
   content: ''; position: absolute;
-  inset: 6px; border-radius: 9px;
+  inset: 6px; border-radius: var(--radius-lg-inner);
   border: 0.5px solid rgba(201,151,58,0.12);
   pointer-events: none;
 }
@@ -1401,7 +1405,7 @@ select:focus-visible {
 .cookie-btn {
   flex: 1; min-width: 110px;
   padding: 0.7rem 1.25rem;
-  border-radius: 999px;
+  border-radius: var(--radius-sm);
   font-family: var(--font-sans); font-size: 13px; font-weight: 500;
   letter-spacing: 0.08em; text-transform: uppercase;
   cursor: pointer; transition: opacity 0.2s, transform 0.2s, background 0.2s, border-color 0.2s;
@@ -1453,7 +1457,7 @@ select:focus-visible {
   transition:transform 0.2s, box-shadow 0.2s;
   text-decoration:none;
 }
-.wa-sticky:hover { transform:scale(1.08); box-shadow:0 6px 24px rgba(37,211,102,0.45); }
+.wa-sticky:hover { box-shadow:0 6px 24px rgba(37,211,102,0.45); }
 .wa-sticky svg { width:26px; height:26px; fill:#fff; }
 @media (min-width:769px) { .wa-sticky { display:none; } }
 
@@ -1474,14 +1478,14 @@ select:focus-visible {
 }
 .share-site-btn svg { width:22px; height:22px; fill:currentColor; }
 @media (hover: hover) {
-  .share-site-btn:hover { transform:scale(1.08); background:var(--surface-hover); border-color:var(--gold-light); }
+  .share-site-btn:hover { background:var(--surface-hover); border-color:var(--gold-light); }
 }
 .share-site-btn:active { transform:scale(0.92); transition:transform 0.1s; }
 .share-site-btn .share-toast {
   position:absolute; bottom:calc(100% + 8px); right:0;
   background:var(--gold); color:var(--bg);
   font-family:var(--font-body); font-size:13px; font-weight:600;
-  padding:6px 12px; border-radius:8px; white-space:nowrap;
+  padding:6px 12px; border-radius: var(--radius-md); white-space:nowrap;
   opacity:0; transform:translateY(4px); pointer-events:none;
   transition:opacity 0.3s, transform 0.3s;
 }
@@ -1510,7 +1514,7 @@ select:focus-visible {
 .back-to-top.visible { opacity:1; pointer-events:auto; }
 /* Hover effects only on devices with real hover capability (desktop with mouse) */
 @media (hover: hover) {
-  .back-to-top:hover { background:var(--surface-hover); border-color:var(--gold-light); transform:translateY(-2px); }
+  .back-to-top:hover { background:var(--surface-hover); border-color:var(--gold-light); }
 }
 /* Tactile feedback on click/tap */
 .back-to-top:active { transform:scale(0.92); transition:transform 0.1s; }
@@ -1524,18 +1528,6 @@ select:focus-visible {
 /* SCROLL REVEAL */
 .sr { opacity:0; transform:translateY(24px); transition:opacity 0.7s ease, transform 0.7s ease; }
 .sr.visible { opacity:1; transform:translateY(0); }
-
-/* SCROLL REVEAL STAGGER — figli di un contenitore appaiono in sequenza */
-.sr-stagger > * { opacity:0; transform:translateY(16px); transition:opacity 0.5s ease, transform 0.5s ease; }
-.sr-stagger.visible > * { opacity:1; transform:translateY(0); }
-.sr-stagger.visible > *:nth-child(1) { transition-delay:0ms; }
-.sr-stagger.visible > *:nth-child(2) { transition-delay:80ms; }
-.sr-stagger.visible > *:nth-child(3) { transition-delay:160ms; }
-.sr-stagger.visible > *:nth-child(4) { transition-delay:240ms; }
-.sr-stagger.visible > *:nth-child(5) { transition-delay:320ms; }
-.sr-stagger.visible > *:nth-child(6) { transition-delay:400ms; }
-.sr-stagger.visible > *:nth-child(7) { transition-delay:480ms; }
-.sr-stagger.visible > *:nth-child(8) { transition-delay:560ms; }
 
 /* FOOTER — epigrafe finale */
 footer {
@@ -1782,7 +1774,7 @@ section#ispirazioni > * { position: relative; z-index: 1; }
   z-index: 3;
   background: var(--bg, #0a0806);
   padding: 2px 6px;
-  border-radius: 4px;
+  border-radius: var(--radius-xs);
 }
 
 /* La vline separatrice interna non serve più, la timeline fa il suo lavoro */
@@ -1966,34 +1958,31 @@ html::before {
 .seminar-announce a.seminar-announce-link{color:var(--gold-light);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(201,151,58,0.5);}
 .seminar-announce a.seminar-announce-link:hover{color:var(--gold);}
 .seminar-announce strong{color:var(--gold-light);font-weight:600;}
-.seminar-announce-close{position:absolute;right:0.9rem;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--text-muted);font-size:20px;line-height:1;cursor:pointer;padding:0.2rem 0.4rem;border-radius:6px;}
+.seminar-announce-close{position:absolute;right:0.9rem;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--text-muted);font-size:20px;line-height:1;cursor:pointer;padding:0.2rem 0.4rem;border-radius: var(--radius-sm);}
 .seminar-announce-close:hover{color:var(--gold-light);background:rgba(201,151,58,0.1);}
 [data-theme="light"] .seminar-announce{background:linear-gradient(135deg,rgba(129,96,24,0.12),rgba(129,96,24,0.05));border-bottom-color:rgba(129,96,24,0.35);}
 
 /* ===== COUNTDOWN EVENTI ===== */
 .seminar-countdown{display:inline-flex;align-items:center;gap:0.5rem;margin-bottom:1rem;flex-wrap:wrap}
-.countdown-number{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:58px;padding:7px 11px;background:rgba(201,151,58,0.08);border:0.5px solid rgba(201,151,58,0.35);border-radius:10px}
+.countdown-number{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:58px;padding:7px 11px;background:rgba(201,151,58,0.08);border:0.5px solid rgba(201,151,58,0.35);border-radius: var(--radius-md)}
 .countdown-value{font-family:var(--font-display);font-size:32px;font-weight:600;color:var(--gold-light);line-height:1.1;font-variant-numeric:tabular-nums}
 .countdown-label{font-family:var(--font-sans);font-size:10px;font-weight:500;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;opacity:0.8}
 .countdown-sep{font-family:var(--font-display);font-size:20px;color:var(--gold);opacity:0.4;margin:0 2px}
-.countdown-tag{display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-sans);font-size:12px;font-weight:500;color:var(--gold-light);letter-spacing:0.06em;margin-left:0.75rem;padding:4px 12px;border-radius:999px;background:rgba(201,151,58,0.1);border:0.5px solid rgba(201,151,58,0.25)}
-.countdown-tag .pulse-dot{width:6px;height:6px;border-radius:50%;background:#7de0a0;animation:cd-pulse 2s ease-in-out infinite}
-@keyframes cd-pulse{0%,100%{box-shadow:0 0 0 0 rgba(125,224,160,0.4)}50%{box-shadow:0 0 0 4px rgba(125,224,160,0.1)}}
+.countdown-tag{display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-sans);font-size:12px;font-weight:500;color:var(--gold-light);letter-spacing:0.06em;margin-left:0.75rem;padding:4px 12px;border-radius: var(--radius-pill);background:rgba(201,151,58,0.1);border:0.5px solid rgba(201,151,58,0.25)}
 .countdown-urgent .countdown-number{background:rgba(220,80,60,0.08);border-color:rgba(220,80,60,0.4)}
 .countdown-urgent .countdown-value{color:#f0a090}
 .countdown-urgent .countdown-label{color:#e07060}
 .countdown-urgent .countdown-tag{background:rgba(220,80,60,0.1);border-color:rgba(220,80,60,0.3);color:#f0a090}
-.countdown-urgent .pulse-dot{background:#f07060}
 .countdown-past .countdown-tag{background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.08);color:var(--text-muted)}
 @media(max-width:480px){.countdown-number{min-width:44px;padding:5px 8px}.countdown-value{font-size:22px}.countdown-tag{margin-left:0;margin-top:0.5rem}}
 [data-theme="light"] .countdown-number{background:rgba(201,151,58,0.06)}
 [data-theme="light"] .countdown-urgent .countdown-number{background:rgba(220,80,60,0.06)}
 
 /* ===== SEZIONE SEMINARIO ===== */
-.seminar-section{background:rgba(201,151,58,0.04);border:0.5px solid rgba(201,151,58,0.3);border-radius:16px;padding:2rem;margin:0 auto;max-width:760px;display:flex;flex-direction:column;align-items:center;gap:1.8rem;}
+.seminar-section{background:rgba(201,151,58,0.04);border:0.5px solid rgba(201,151,58,0.3);border-radius: var(--radius-lg);padding:2rem;margin:0 auto;max-width:760px;display:flex;flex-direction:column;align-items:center;gap:1.8rem;}
 @media(max-width:768px){.seminar-section{gap:1.5rem;padding:1.4rem;}}
 .seminar-flyer{width:100%;display:flex;justify-content:center;}
-.seminar-flyer img{width:100%;max-width:400px;height:auto;border-radius:8px;border:1px solid var(--border-hover);padding:10px;background:var(--surface);box-shadow:var(--card-shadow);display:block;}
+.seminar-flyer img{width:100%;max-width:400px;height:auto;border-radius: var(--radius-md);border:1px solid var(--border-hover);padding:10px;background:var(--surface);box-shadow:var(--card-shadow);display:block;}
 .seminar-content{width:100%;}
 .seminar-content h3{font-family:var(--font-display);color:var(--gold-light);font-size:24px;margin-bottom:0.3rem;line-height:1.25;}
 .seminar-content .seminar-sub{font-style:italic;color:var(--text-muted);font-size:15px;margin-bottom:1.1rem;}
@@ -2003,12 +1992,12 @@ html::before {
 .seminar-details{border-top:0.5px solid rgba(201,151,58,0.25);padding-top:1.1rem;font-size:14.5px;line-height:1.7;}
 .seminar-details .seminar-detail-row{display:flex;gap:0.5rem;margin-bottom:0.35rem;justify-content:center;text-align:center;}
 .seminar-details .seminar-detail-icon{flex-shrink:0;}
-.seminar-prices{margin:0.9rem 0 0;padding:0.8rem 1rem;background:rgba(201,151,58,0.06);border-radius:10px;font-size:14px;}
+.seminar-prices{margin:0.9rem 0 0;padding:0.8rem 1rem;background:rgba(201,151,58,0.06);border-radius: var(--radius-md);font-size:14px;}
 .seminar-prices .price-line{margin-bottom:0.3rem;}
 .seminar-prices .price-line:last-child{margin-bottom:0;}
 .seminar-cta{display:inline-block;margin-top:1.2rem;}
 .seminar-content .seminar-cta-wrap{text-align:center;}
-.seminar-badge{display:inline-block;background:rgba(201,151,58,0.15);border:0.5px solid rgba(201,151,58,0.4);color:var(--gold-light);font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;padding:0.3rem 0.7rem;border-radius:999px;margin-bottom:0.7rem;}
+.seminar-badge{display:inline-block;background:rgba(201,151,58,0.15);border:0.5px solid rgba(201,151,58,0.4);color:var(--gold-light);font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;padding:0.3rem 0.7rem;border-radius: var(--radius-pill);margin-bottom:0.7rem;}
 [data-theme="light"] .seminar-badge{background:rgba(129,96,24,0.12);border-color:rgba(129,96,24,0.35);color:#816018;}
 
 
@@ -2016,6 +2005,6 @@ html::before {
 .lightbox-counter{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);color:#fff;font-size:13px;letter-spacing:0.08em;opacity:0.85;}
 
 /* Pulsante Portale Allievi */
-.btn-portale{display:inline-flex;align-items:center;gap:.45rem;padding:6px 15px;border-radius:999px;background:rgba(201,151,58,.1);border:0.5px solid rgba(201,151,58,.45);color:var(--gold);font-size:13px;font-weight:600;letter-spacing:.04em;text-decoration:none;white-space:nowrap;transition:all .25s ease}
+.btn-portale{display:inline-flex;align-items:center;gap:.45rem;padding:6px 15px;border-radius: var(--radius-sm);background:rgba(201,151,58,.1);border:0.5px solid rgba(201,151,58,.45);color:var(--gold);font-size:13px;font-weight:600;letter-spacing:.04em;text-decoration:none;white-space:nowrap;transition:all .25s ease}
 .btn-portale:hover{background:var(--gold);color:#1a1000}
 .btn-portale img{width:15px;height:15px;display:block}
