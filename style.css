@@ -1082,12 +1082,9 @@ section#insegnamenti, section#seminario, section#faq {
 .video-facade-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.25); transition: background var(--t-base); z-index: 3; }
 .video-facade:hover .video-facade-overlay,
 .video-facade:focus-visible .video-facade-overlay { background: rgba(0,0,0,0.1); }
-.video-facade-play { position: absolute; top: 42%; left: 50%; transform: translate(-50%,-50%); width: 72px; height: 72px; background: rgba(201,151,58,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: transform 0.2s, background 0.2s; z-index: 4; box-shadow: 0 4px 24px rgba(201,151,58,0.3); }
-.video-facade-play::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 240px; height: 240px; background: radial-gradient(circle, rgba(201,151,58,0.35) 0%, rgba(201,151,58,0.15) 30%, transparent 65%); border-radius: 50%; z-index: -1; pointer-events: none; transition: opacity 0.3s; }
+.video-facade-play { position: absolute; top: 42%; left: 50%; transform: translate(-50%,-50%); width: 72px; height: 72px; background: rgba(201,151,58,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.2s; z-index: 4; box-shadow: 0 4px 24px rgba(201,151,58,0.3); }
 .video-facade:hover .video-facade-play,
-.video-facade:focus-visible .video-facade-play { transform: translate(-50%,-50%) scale(1.08); background: rgba(201,151,58,1); }
-.video-facade:hover .video-facade-play::before,
-.video-facade:focus-visible .video-facade-play::before { opacity: 1.3; }
+.video-facade:focus-visible .video-facade-play { background: rgba(201,151,58,1); }
 .video-facade-triangle { width: 0; height: 0; border-top: 14px solid transparent; border-bottom: 14px solid transparent; border-left: 22px solid #1a1000; margin-left: 3px; }
 .video-facade-content { position: absolute; bottom: 1.25rem; left: 1.25rem; right: 1.25rem; text-align: center; z-index: 4; pointer-events: none; }
 .video-facade-title { font-family: var(--font-display); font-size: clamp(18px, 2.5vw, 24px); font-weight: 500; color: var(--gold-light); margin-bottom: 0.15rem; letter-spacing: 0.03em; }
@@ -1297,7 +1294,7 @@ select:focus-visible {
 .gioco-card{text-decoration:none;color:inherit;display:flex;align-items:center;gap:14px;padding:18px 20px;position:relative}
 .gioco-card-lg{text-decoration:none;color:inherit;display:flex;align-items:center;gap:14px;padding:20px 22px;position:relative}
 /* Sigillo conquistato sulla card del gioco */
-.card-sigillo{position:absolute;top:8px;right:10px;font-size:14px;color:var(--gold-light);text-shadow:0 0 10px rgba(232,201,122,0.5);pointer-events:none}
+.card-sigillo{position:absolute;top:8px;right:10px;font-size:14px;color:var(--gold-light);pointer-events:none}
 .gioco-icon{width:28px;height:28px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(72%) sepia(50%) saturate(500%) hue-rotate(5deg)}
 .gioco-emblema{width:48px;height:48px;flex-shrink:0;border-radius: var(--radius-md);border:0.5px solid var(--border);object-fit:cover;display:block}
 .gioco-emblema-lg{width:56px;height:56px}
@@ -1972,13 +1969,10 @@ html::before {
 .countdown-label{font-family:var(--font-sans);font-size:10px;font-weight:500;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;opacity:0.8}
 .countdown-sep{font-family:var(--font-display);font-size:20px;color:var(--gold);opacity:0.4;margin:0 2px}
 .countdown-tag{display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-sans);font-size:12px;font-weight:500;color:var(--gold-light);letter-spacing:0.06em;margin-left:0.75rem;padding:4px 12px;border-radius: var(--radius-pill);background:rgba(201,151,58,0.1);border:0.5px solid rgba(201,151,58,0.25)}
-.countdown-tag .pulse-dot{width:6px;height:6px;border-radius:50%;background:#7de0a0;animation:cd-pulse 2s ease-in-out infinite}
-@keyframes cd-pulse{0%,100%{box-shadow:0 0 0 0 rgba(125,224,160,0.4)}50%{box-shadow:0 0 0 4px rgba(125,224,160,0.1)}}
 .countdown-urgent .countdown-number{background:rgba(220,80,60,0.08);border-color:rgba(220,80,60,0.4)}
 .countdown-urgent .countdown-value{color:#f0a090}
 .countdown-urgent .countdown-label{color:#e07060}
 .countdown-urgent .countdown-tag{background:rgba(220,80,60,0.1);border-color:rgba(220,80,60,0.3);color:#f0a090}
-.countdown-urgent .pulse-dot{background:#f07060}
 .countdown-past .countdown-tag{background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.08);color:var(--text-muted)}
 @media(max-width:480px){.countdown-number{min-width:44px;padding:5px 8px}.countdown-value{font-size:22px}.countdown-tag{margin-left:0;margin-top:0.5rem}}
 [data-theme="light"] .countdown-number{background:rgba(201,151,58,0.06)}
