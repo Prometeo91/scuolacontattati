@@ -856,6 +856,15 @@ section#insegnamenti, section#seminario, section#faq {
 
 /* CALENDARIO — event-row stile pergamena (più snella) */
 .calendar-list { display: flex; flex-direction: column; gap: 14px; position: relative; padding-left: 3.5rem; }
+
+/* Riga di stato sugli anni le cui lezioni si sono svolte tutte. La scrive
+   app.js dalle date di lezioni.js; sta nel pannello e non sul tab, perché
+   la tab bar a 390px va già a capo su tre righe. */
+.anno-stato {
+  font-size: 13px; color: var(--text-muted);
+  letter-spacing: 0.02em; margin-bottom: 1rem;
+  padding-bottom: 0.8rem; border-bottom: 0.5px solid var(--border);
+}
 .event-row {
   position: relative;
   background: rgba(255,255,255,0.018);
@@ -1833,6 +1842,21 @@ section#ispirazioni > * { position: relative; z-index: 1; }
 }
 .calendar-list .event-row:hover::after {
   transform: scaleX(1);
+}
+
+/* I tre pulsanti fissi formano una colonna a destra larga 52px che parte da
+   x 318 su uno schermo da 390px. La freccia di espansione della riga lezione
+   cadeva dentro quella colonna (misurata a 325-335), quindi chi mirava alla
+   freccia apriva WhatsApp. La pill «Temi ▾» invece era già libera (248-307).
+   Rientrare la sola freccia costava il 18% della larghezza del titolo, che a
+   135px era già stretta. Mandando i comandi a capo il titolo passa invece a
+   239px e a destra non resta nessun bersaglio: la freccia, che ripeteva la
+   pill, si può togliere. Il resto della riga resta cliccabile come prima. */
+@media (max-width: 768px) {
+  .calendar-list .expand-arrow { display: none; }
+  .calendar-list .event-row { flex-wrap: wrap; }
+  .calendar-list .event-info { flex: 1 1 100%; min-width: 0; }
+  .calendar-list .event-row > .detail-pill { margin: 0.6rem auto 0 0; }
 }
 
 /* Mobile: timeline più stretta */

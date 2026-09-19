@@ -15,6 +15,8 @@ var SC_T = SC_EN ? {
   apriMenu:'Open menu', chiudiMenu:'Close menu',
   mesi:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
   mesiL:['January','February','March','April','May','June','July','August','September','October','November','December'],
+  giorniL:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
+  annoConcluso:'Year completed', lezioniSvolte:'lessons were held from', aData:'to',
   videoTitle:'Introductory video of the Scuola ContattaTi',
   inCorso:'&#9679; In progress', conclusa:'Completed', iscriviti:'Enrol',
   inCorsoOra:' — In progress now', prossima:' ✶ Next',
@@ -40,6 +42,8 @@ var SC_T = SC_EN ? {
   apriMenu:'Apri menu', chiudiMenu:'Chiudi menu',
   mesi:['Gen','Feb','Mar','Apr','Mag','Giu','Lug','Ago','Set','Ott','Nov','Dic'],
   mesiL:['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'],
+  giorniL:['Domenica','Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato'],
+  annoConcluso:'Anno concluso', lezioniSvolte:'le lezioni si sono svolte da', aData:'a',
   videoTitle:'Video di presentazione della Scuola ContattaTi',
   inCorso:'&#9679; In corso', conclusa:'Conclusa', iscriviti:'Iscriviti',
   inCorsoOra:' — In corso ora', prossima:' ✶ Prossima',
@@ -160,25 +164,6 @@ document.addEventListener('DOMContentLoaded', function() {
       if(kept.length===0){sc.parentNode.removeChild(sc);}
       else{sc.textContent=JSON.stringify(kept,null,2);}
     });
-  })();
-
-  /* RIPRESA — quanto manca alla prossima lezione.
-     Legge data-date (AAAA-MM-GG) dall'elemento #ripresa-count e scrive
-     "Tra N giorni" / "Domani" / "È oggi". Il banner che lo contiene ha il
-     proprio data-expires, quindi qui non serve gestire il caso passato. */
-  (function(){
-    var el=document.getElementById('ripresa-count');
-    if(!el)return;
-    var target=el.getAttribute('data-date');
-    if(!target)return;
-    var end=new Date(target+'T00:00:00');
-    if(isNaN(end))return;
-    var oggi=new Date();oggi.setHours(0,0,0,0);
-    var giorni=Math.round((end-oggi)/86400000);
-    if(giorni<0)return;
-    if(giorni===0){el.innerHTML=SC_EN?'<strong>Today</strong>':'<strong>È oggi</strong>';}
-    else if(giorni===1){el.innerHTML=SC_EN?'<strong>Tomorrow</strong>':'<strong>È domani</strong>';}
-    else{el.innerHTML=SC_EN?'In <strong>'+giorni+' days</strong>':'Tra <strong>'+giorni+' giorni</strong>';}
   })();
 
   /* THEME TOGGLE */
@@ -376,6 +361,78 @@ document.addEventListener('DOMContentLoaded', function() {
   renderAnno(L6,'calendar-list-anno6',SC_T.anno+' 6');
   renderAnno(L7,'calendar-list-anno7',SC_T.anno+' 7');
   renderEsp(LESP,'calendar-list-esp');
+
+  /* PROSSIMA LEZIONE — calcolata da lezioni.js, non scritta a mano nel markup.
+     Fa tre cose: riempie il banner #ripresa, apre il tab dell'anno che contiene
+     la prossima lezione (invece di Anno 1 fisso) e mette una riga di stato in
+     cima agli anni le cui lezioni si sono svolte tutte. Le lezioni senza data
+     (programma in definizione) sono ignorate: non si inventa niente. */
+  (function(){
+    var anni=[L1,L2,L3,L4,L5,L6,L7];
+    var pross=null, statoAnno=[];
+
+    anni.forEach(function(lista,i){
+      var conData=lista.filter(function(l){return l.day&&l.month&&l.year;});
+      var tutteP=conData.length>0&&conData.every(function(l){return stato(l.day,l.month,l.year)==='passata';});
+      statoAnno[i]={conclusa:tutteP, prima:conData[0], ultima:conData[conData.length-1]};
+      conData.forEach(function(l){
+        if(stato(l.day,l.month,l.year)==='passata')return;
+        var d=new Date(l.year,l.month-1,l.day,9,0);
+        if(!pross||d<pross.d)pross={d:d,l:l,anno:i+1};
+      });
+    });
+
+    var box=document.getElementById('ripresa');
+    if(box&&pross){
+      var t=document.getElementById('ripresa-title');
+      var s=document.getElementById('ripresa-sub');
+      var c=document.getElementById('ripresa-count');
+      var gg=SC_T.giorniL[pross.d.getDay()];
+      var mese=SC_T.mesiL[pross.l.month-1];
+      if(t)t.textContent=gg+' '+pross.l.day+' '+(SC_EN?mese:mese.toLowerCase());
+      if(s)s.textContent=(SC_EN?'Year '+pross.anno:pross.anno+'° Anno')+(pross.l.titolo?' · '+pross.l.titolo:'');
+      if(c){
+        var oggi=new Date();oggi.setHours(0,0,0,0);
+        var mez=new Date(pross.d);mez.setHours(0,0,0,0);
+        var n=Math.round((mez-oggi)/86400000);
+        if(n<=0)c.innerHTML=SC_EN?'<strong>Today</strong>':'<strong>È oggi</strong>';
+        else if(n===1)c.innerHTML=SC_EN?'<strong>Tomorrow</strong>':'<strong>È domani</strong>';
+        else c.innerHTML=SC_EN?'In <strong>'+n+' days</strong>':'Tra <strong>'+n+' giorni</strong>';
+      }
+      box.hidden=false;
+    }
+
+    /* Tab di default sull'anno in corso. Non si riusa activate() del markup
+       perché quella chiama focus(), che al caricamento porterebbe la pagina
+       a saltare sul calendario. */
+    if(pross&&pross.anno!==1){
+      var tab=document.getElementById('tab-anno-'+pross.anno);
+      if(tab){
+        document.querySelectorAll('.anno-tab').forEach(function(x){
+          x.classList.remove('active');x.setAttribute('aria-selected','false');x.setAttribute('tabindex','-1');
+        });
+        tab.classList.add('active');tab.setAttribute('aria-selected','true');tab.setAttribute('tabindex','0');
+        document.querySelectorAll('.anno-panel').forEach(function(p){p.style.display='none';});
+        var pan=document.getElementById('panel-anno-'+pross.anno);
+        if(pan)pan.style.display='block';
+      }
+    }
+
+    /* Riga di stato sugli anni conclusi, dentro il pannello e non sul tab:
+       la tab bar a 390px va già a capo su tre righe. */
+    statoAnno.forEach(function(st,i){
+      if(!st.conclusa||!st.prima||!st.ultima)return;
+      var lista=document.getElementById(i===0?'calendar-list':'calendar-list-anno'+(i+1));
+      if(!lista||lista.previousElementSibling&&lista.previousElementSibling.classList.contains('anno-stato'))return;
+      var p=document.createElement('p');
+      p.className='anno-stato';
+      var mese=function(m){var x=SC_T.mesiL[m-1];return SC_EN?x:x.toLowerCase();};
+      p.textContent=SC_T.annoConcluso+' — '+SC_T.lezioniSvolte+' '+
+        mese(st.prima.month)+' '+st.prima.year+' '+SC_T.aData+' '+
+        mese(st.ultima.month)+' '+st.ultima.year;
+      lista.parentNode.insertBefore(p,lista);
+    });
+  })();
 
   /* BANNER "PORTE APERTE" rimosso: il messaggio del contributo è stato elevato in un elemento .contributo visibile in cima alla sezione (una sola fonte, niente duplicazioni). */
 

@@ -333,7 +333,7 @@
     </script>
 
  <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) — self-hosted, zero dipendenze esterne -->
-  <link rel="stylesheet" href="style.css?v=20260910d"/>
+  <link rel="stylesheet" href="style.css?v=20260919a"/>
   <noscript><style>.sr{opacity:1!important;transform:none!important}</style></noscript>
 
   <style>
@@ -946,14 +946,14 @@
   <h2 class="section-title">Il calendario delle lezioni</h2>
   <p class="section-sub">Sette anni di approfondimento progressivo, strutturati in cicli annuali. Ogni lezione si costruisce sulla precedente, e quello che si studia va messo alla prova nella vita di tutti i giorni.</p>
 
-  <!-- RIPRESA — prossima lezione. data-expires = ultimo giorno di visibilità:
-       il banner sparisce da solo il giorno dopo. Per la prossima ripartenza
-       aggiornare data-expires, data-date e i testi. -->
-  <div class="ripresa sr" data-expires="2026-09-13">
-    <p class="ripresa-eyebrow">Si riparte</p>
-    <p class="ripresa-title">Domenica 13 settembre</p>
-    <p class="ripresa-sub">2° Anno · Il Tao: la scelta tra il Bene ed il Male ed il Libero Arbitrio</p>
-    <p class="ripresa-count" id="ripresa-count" data-date="2026-09-13"></p>
+  <!-- PROSSIMA LEZIONE — data, anno e titolo li scrive app.js leggendo lezioni.js.
+       Niente date a mano e niente data-expires: quando una lezione passa, il
+       banner mostra da solo la successiva. Resta nascosto se non ce ne sono più. -->
+  <div class="ripresa sr" id="ripresa" hidden>
+    <p class="ripresa-eyebrow">Prossima lezione</p>
+    <p class="ripresa-title" id="ripresa-title"></p>
+    <p class="ripresa-sub" id="ripresa-sub"></p>
+    <p class="ripresa-count" id="ripresa-count"></p>
     <p class="ripresa-note">Ore 9:00–13:30 · MeetingRoom, Via Argiro 135 (3° piano), Bari<br/>Portate con voi una penna e il vostro «Quaderno Conosci Te Stesso»</p>
   </div>
 
@@ -1746,7 +1746,7 @@
 })();
 </script>
 <script src="data/eventi.js?v=20260908a" defer></script>
-<script src="app.js?v=20260905c" defer></script>
+<script src="app.js?v=20260919a" defer></script>
 <script>
 /* SIGILLI GIOCHI — mostra ✦ sulle card dei giochi completati */
 (function(){

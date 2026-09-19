@@ -335,7 +335,7 @@
     </script>
 
  <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) — self-hosted, zero dipendenze esterne -->
-  <link rel="stylesheet" href="../style.css?v=20260910d"/>
+  <link rel="stylesheet" href="../style.css?v=20260919a"/>
   <noscript><style>.sr{opacity:1!important;transform:none!important}</style></noscript>
 
   <style>
@@ -948,14 +948,14 @@
   <h2 class="section-title">Lesson calendar</h2>
   <p class="section-sub">Seven years of progressive deepening, structured in annual cycles. Each lesson builds on the previous one, and what you study is then tested in everyday life.</p>
 
-  <!-- RIPRESA — prossima lezione. data-expires = ultimo giorno di visibilità:
-       il banner sparisce da solo il giorno dopo. Per la prossima ripartenza
-       aggiornare data-expires, data-date e i testi. -->
-  <div class="ripresa sr" data-expires="2026-09-13">
-    <p class="ripresa-eyebrow">We begin again</p>
-    <p class="ripresa-title">Sunday 13 September</p>
-    <p class="ripresa-sub">Year 2 · The Tao: the choice between Good and Evil and Free Will</p>
-    <p class="ripresa-count" id="ripresa-count" data-date="2026-09-13"></p>
+  <!-- PROSSIMA LEZIONE — data, anno e titolo li scrive app.js leggendo lezioni.js.
+       Niente date a mano e niente data-expires: quando una lezione passa, il
+       banner mostra da solo la successiva. Resta nascosto se non ce ne sono più. -->
+  <div class="ripresa sr" id="ripresa" hidden>
+    <p class="ripresa-eyebrow">Next lesson</p>
+    <p class="ripresa-title" id="ripresa-title"></p>
+    <p class="ripresa-sub" id="ripresa-sub"></p>
+    <p class="ripresa-count" id="ripresa-count"></p>
     <p class="ripresa-note">9:00–13:30 · MeetingRoom, Via Argiro 135 (3rd floor), Bari<br/>Bring a pen and your “Know Thyself Notebook”</p>
   </div>
   <!-- CONTRIBUTO — messaggio elevato dal banner Porte Aperte, reso visibile una volta sola -->
@@ -1747,7 +1747,7 @@
 })();
 </script>
 <script src="../data/eventi.js?v=20260908a" defer></script>
-<script src="../app.js?v=20260905c" defer></script>
+<script src="../app.js?v=20260919a" defer></script>
 <script>
 /* GAME SEALS — show ✦ on completed game cards */
 (function(){
