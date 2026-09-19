@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function stato(d,m,y){var n=new Date(),s=new Date(y,m-1,d,9,0),e=new Date(y,m-1,d,13,30);if(n>=s&&n<=e)return 'in-corso';if(n>e)return 'passata';return 'futura';}
   function toggle(row,panel){var o=panel.classList.contains('open');document.querySelectorAll('.lesson-panel.open').forEach(function(p){p.classList.remove('open');var r=p.closest('.lesson-wrap').querySelector('.event-row');r.classList.remove('open');r.setAttribute('aria-expanded','false');});if(!o){panel.classList.add('open');row.classList.add('open');row.setAttribute('aria-expanded','true');}}
   function temiHTML(t){return '<ul class="lesson-topics">'+t.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>';}
-  function panelHTML(l){return '<div class="lesson-panel"><div class="lesson-panel-inner"><p class="lesson-panel-title">'+l.titolo+(l.sottotitolo?'<br><span style="font-size:15px;font-weight:500;color:var(--gold-light);font-style:normal;">'+l.sottotitolo+'</span>':'')+'</p>'+(l.desc?'<p class="body-text-sm mb-1" style="border-left:2px solid var(--gold);padding-left:0.75rem;">'+l.desc+'</p>':'')+temiHTML(l.temi)+(l.citazione?'<div class="lesson-quote">'+l.citazione+'<cite>&mdash; '+l.autore+'</cite></div>':'')+'</div></div>';}
+  function panelHTML(l){return '<div class="lesson-panel"><div class="lesson-panel-inner"><p class="lesson-panel-title">'+l.titolo+(l.sottotitolo?'<br><span style="font-size:15px;font-weight:500;color:var(--gold-light);font-style:normal;">'+l.sottotitolo+'</span>':'')+'</p>'+(l.desc?'<p class="body-text-sm mb-1 lesson-desc">'+l.desc+'</p>':'')+temiHTML(l.temi)+(l.citazione?'<div class="lesson-quote">'+l.citazione+'<cite>&mdash; '+l.autore+'</cite></div>':'')+'</div></div>';}
 
   /* PRESENTAZIONI & EVENTI — render da data/eventi.js (file unico IT+EN) */
   var presList=document.getElementById('presList');
@@ -437,6 +437,20 @@ document.addEventListener('DOMContentLoaded', function() {
   /* BANNER "PORTE APERTE" rimosso: il messaggio del contributo è stato elevato in un elemento .contributo visibile in cima alla sezione (una sola fonte, niente duplicazioni). */
 
   /* TAB ANNI — gestito inline in index.html (click + navigazione da tastiera WAI-ARIA) */
+
+  /* ALTEZZA DELLA NAV -> --nav-h, usata da scroll-padding-top.
+     La nav va a capo a larghezze intermedie (68px a 1440, 167px a 1100),
+     quindi un valore fisso lasciava l'occhiello della sezione sotto la barra. */
+  (function(){
+    var nav=document.querySelector('nav');
+    if(!nav)return;
+    function misura(){
+      document.documentElement.style.setProperty('--nav-h', Math.round(nav.getBoundingClientRect().height)+'px');
+    }
+    misura();
+    if(window.ResizeObserver) new ResizeObserver(misura).observe(nav);
+    else window.addEventListener('resize', misura);
+  })();
 
   /* CLOSE MOBILE MENU ON LINK CLICK */
   document.querySelectorAll('.nav-links a').forEach(function(link){
