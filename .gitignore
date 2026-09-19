@@ -3,3 +3,6 @@ node_modules/
 # impeccable: impostazioni locali e binari per piattaforma
 .claude/settings.local.json
 .claude/skills/impeccable/scripts/bin/
+
+# script temporanei di ispezione (Playwright, audit) creati durante le sessioni
+.*-tmp.js
