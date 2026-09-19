@@ -15,6 +15,9 @@ var SC_T = SC_EN ? {
   apriMenu:'Open menu', chiudiMenu:'Close menu',
   mesi:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
   mesiL:['January','February','March','April','May','June','July','August','September','October','November','December'],
+  giorniL:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
+  annoConcluso:'Year completed', lezioniSvolte:'lessons were held from', aData:'to',
+  dateInDefinizione:'Dates not yet set — the titles are confirmed, the dates are published as soon as they are.',
   videoTitle:'Introductory video of the Scuola ContattaTi',
   inCorso:'&#9679; In progress', conclusa:'Completed', iscriviti:'Enrol',
   inCorsoOra:' — In progress now', prossima:' ✶ Next',
@@ -40,6 +43,9 @@ var SC_T = SC_EN ? {
   apriMenu:'Apri menu', chiudiMenu:'Chiudi menu',
   mesi:['Gen','Feb','Mar','Apr','Mag','Giu','Lug','Ago','Set','Ott','Nov','Dic'],
   mesiL:['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'],
+  giorniL:['Domenica','Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato'],
+  annoConcluso:'Anno concluso', lezioniSvolte:'le lezioni si sono svolte da', aData:'a',
+  dateInDefinizione:'Date non ancora fissate — i titoli sono confermati, le date vengono pubblicate appena lo sono.',
   videoTitle:'Video di presentazione della Scuola ContattaTi',
   inCorso:'&#9679; In corso', conclusa:'Conclusa', iscriviti:'Iscriviti',
   inCorsoOra:' — In corso ora', prossima:' ✶ Prossima',
@@ -162,25 +168,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   })();
 
-  /* RIPRESA — quanto manca alla prossima lezione.
-     Legge data-date (AAAA-MM-GG) dall'elemento #ripresa-count e scrive
-     "Tra N giorni" / "Domani" / "È oggi". Il banner che lo contiene ha il
-     proprio data-expires, quindi qui non serve gestire il caso passato. */
-  (function(){
-    var el=document.getElementById('ripresa-count');
-    if(!el)return;
-    var target=el.getAttribute('data-date');
-    if(!target)return;
-    var end=new Date(target+'T00:00:00');
-    if(isNaN(end))return;
-    var oggi=new Date();oggi.setHours(0,0,0,0);
-    var giorni=Math.round((end-oggi)/86400000);
-    if(giorni<0)return;
-    if(giorni===0){el.innerHTML=SC_EN?'<strong>Today</strong>':'<strong>È oggi</strong>';}
-    else if(giorni===1){el.innerHTML=SC_EN?'<strong>Tomorrow</strong>':'<strong>È domani</strong>';}
-    else{el.innerHTML=SC_EN?'In <strong>'+giorni+' days</strong>':'Tra <strong>'+giorni+' giorni</strong>';}
-  })();
-
   /* THEME TOGGLE */
   var themeBtn=document.getElementById('themeToggle');
   if(themeBtn){
@@ -230,7 +217,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function stato(d,m,y){var n=new Date(),s=new Date(y,m-1,d,9,0),e=new Date(y,m-1,d,13,30);if(n>=s&&n<=e)return 'in-corso';if(n>e)return 'passata';return 'futura';}
   function toggle(row,panel){var o=panel.classList.contains('open');document.querySelectorAll('.lesson-panel.open').forEach(function(p){p.classList.remove('open');var r=p.closest('.lesson-wrap').querySelector('.event-row');r.classList.remove('open');r.setAttribute('aria-expanded','false');});if(!o){panel.classList.add('open');row.classList.add('open');row.setAttribute('aria-expanded','true');}}
   function temiHTML(t){return '<ul class="lesson-topics">'+t.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>';}
-  function panelHTML(l){return '<div class="lesson-panel"><div class="lesson-panel-inner"><p class="lesson-panel-title">'+l.titolo+(l.sottotitolo?'<br><span style="font-size:15px;font-weight:500;color:var(--gold-light);font-style:normal;">'+l.sottotitolo+'</span>':'')+'</p>'+(l.desc?'<p class="body-text-sm mb-1" style="border-left:2px solid var(--gold);padding-left:0.75rem;">'+l.desc+'</p>':'')+temiHTML(l.temi)+(l.citazione?'<div class="lesson-quote">'+l.citazione+'<cite>&mdash; '+l.autore+'</cite></div>':'')+'</div></div>';}
+  function panelHTML(l){return '<div class="lesson-panel"><div class="lesson-panel-inner"><p class="lesson-panel-title">'+l.titolo+(l.sottotitolo?'<br><span style="font-size:15px;font-weight:500;color:var(--gold-light);font-style:normal;">'+l.sottotitolo+'</span>':'')+'</p>'+(l.desc?'<p class="body-text-sm mb-1 lesson-desc">'+l.desc+'</p>':'')+temiHTML(l.temi)+(l.citazione?'<div class="lesson-quote">'+l.citazione+'<cite>&mdash; '+l.autore+'</cite></div>':'')+'</div></div>';}
 
   /* PRESENTAZIONI & EVENTI — render da data/eventi.js (file unico IT+EN) */
   var presList=document.getElementById('presList');
@@ -377,9 +364,109 @@ document.addEventListener('DOMContentLoaded', function() {
   renderAnno(L7,'calendar-list-anno7',SC_T.anno+' 7');
   renderEsp(LESP,'calendar-list-esp');
 
+  /* PROSSIMA LEZIONE — calcolata da lezioni.js, non scritta a mano nel markup.
+     Fa tre cose: riempie il banner #ripresa, apre il tab dell'anno che contiene
+     la prossima lezione (invece di Anno 1 fisso) e mette una riga di stato in
+     cima agli anni le cui lezioni si sono svolte tutte. Le lezioni senza data
+     (programma in definizione) sono ignorate: non si inventa niente. */
+  (function(){
+    var anni=[L1,L2,L3,L4,L5,L6,L7];
+    var pross=null, statoAnno=[];
+
+    anni.forEach(function(lista,i){
+      var conData=lista.filter(function(l){return l.day&&l.month&&l.year;});
+      var tutteP=conData.length>0&&conData.every(function(l){return stato(l.day,l.month,l.year)==='passata';});
+      statoAnno[i]={conclusa:tutteP, senzaDate:conData.length===0&&lista.length>0, prima:conData[0], ultima:conData[conData.length-1]};
+      conData.forEach(function(l){
+        if(stato(l.day,l.month,l.year)==='passata')return;
+        var d=new Date(l.year,l.month-1,l.day,9,0);
+        if(!pross||d<pross.d)pross={d:d,l:l,anno:i+1};
+      });
+    });
+
+    var box=document.getElementById('ripresa');
+    if(box&&pross){
+      var t=document.getElementById('ripresa-title');
+      var s=document.getElementById('ripresa-sub');
+      var c=document.getElementById('ripresa-count');
+      var gg=SC_T.giorniL[pross.d.getDay()];
+      var mese=SC_T.mesiL[pross.l.month-1];
+      if(t)t.textContent=gg+' '+pross.l.day+' '+(SC_EN?mese:mese.toLowerCase());
+      if(s)s.textContent=(SC_EN?'Year '+pross.anno:pross.anno+'° Anno')+(pross.l.titolo?' · '+pross.l.titolo:'');
+      if(c){
+        var oggi=new Date();oggi.setHours(0,0,0,0);
+        var mez=new Date(pross.d);mez.setHours(0,0,0,0);
+        var n=Math.round((mez-oggi)/86400000);
+        if(n<=0)c.innerHTML=SC_EN?'<strong>Today</strong>':'<strong>È oggi</strong>';
+        else if(n===1)c.innerHTML=SC_EN?'<strong>Tomorrow</strong>':'<strong>È domani</strong>';
+        else c.innerHTML=SC_EN?'In <strong>'+n+' days</strong>':'Tra <strong>'+n+' giorni</strong>';
+      }
+      box.hidden=false;
+    }
+
+    /* Tab di default sull'anno in corso. Non si riusa activate() del markup
+       perché quella chiama focus(), che al caricamento porterebbe la pagina
+       a saltare sul calendario. */
+    if(pross&&pross.anno!==1){
+      var tab=document.getElementById('tab-anno-'+pross.anno);
+      if(tab){
+        document.querySelectorAll('.anno-tab').forEach(function(x){
+          x.classList.remove('active');x.setAttribute('aria-selected','false');x.setAttribute('tabindex','-1');
+        });
+        tab.classList.add('active');tab.setAttribute('aria-selected','true');tab.setAttribute('tabindex','0');
+        document.querySelectorAll('.anno-panel').forEach(function(p){p.style.display='none';});
+        var pan=document.getElementById('panel-anno-'+pross.anno);
+        if(pan)pan.style.display='block';
+      }
+    }
+
+    /* Riga di stato sugli anni conclusi, dentro il pannello e non sul tab:
+       la tab bar a 390px va già a capo su tre righe. */
+    statoAnno.forEach(function(st,i){
+      var testo=null;
+      if(st.conclusa&&st.prima&&st.ultima){
+        var mese=function(m){var x=SC_T.mesiL[m-1];return SC_EN?x:x.toLowerCase();};
+        testo=SC_T.annoConcluso+' — '+SC_T.lezioniSvolte+' '+
+          mese(st.prima.month)+' '+st.prima.year+' '+SC_T.aData+' '+
+          mese(st.ultima.month)+' '+st.ultima.year;
+      } else if(st.senzaDate){
+        /* Anni con i titoli ma nessuna data: e' lo stato reale dei dati,
+           non una lacuna da riempire inventando. */
+        testo=SC_T.dateInDefinizione;
+      }
+      if(!testo)return;
+      var lista=document.getElementById(i===0?'calendar-list':'calendar-list-anno'+(i+1));
+      if(!lista||lista.previousElementSibling&&lista.previousElementSibling.classList.contains('anno-stato'))return;
+      var p=document.createElement('p');
+      p.className='anno-stato';
+      p.textContent=testo;
+      lista.parentNode.insertBefore(p,lista);
+    });
+  })();
+
   /* BANNER "PORTE APERTE" rimosso: il messaggio del contributo è stato elevato in un elemento .contributo visibile in cima alla sezione (una sola fonte, niente duplicazioni). */
 
   /* TAB ANNI — gestito inline in index.html (click + navigazione da tastiera WAI-ARIA) */
+
+  /* ALTEZZA DELLA NAV -> --nav-h, usata da scroll-padding-top.
+     La nav va a capo a larghezze intermedie (68px a 1440, 167px a 1100),
+     quindi un valore fisso lasciava l'occhiello della sezione sotto la barra. */
+  (function(){
+    var nav=document.querySelector('nav');
+    if(!nav)return;
+    var links=document.querySelector('.nav-links');
+    function misura(){
+      /* A menu mobile aperto la nav è alta 625px: misurarla in quello stato
+         portava scroll-padding-top a 638px su una viewport di 844, e ogni
+         voce del menu atterrava mezzo schermo sopra la sua sezione. */
+      if(links&&links.classList.contains('open'))return;
+      document.documentElement.style.setProperty('--nav-h', Math.round(nav.getBoundingClientRect().height)+'px');
+    }
+    window.SC_misuraNav=misura;
+    misura();
+    if(window.ResizeObserver) new ResizeObserver(misura).observe(nav);
+    else window.addEventListener('resize', misura);
+  })();
 
   /* CLOSE MOBILE MENU ON LINK CLICK */
   document.querySelectorAll('.nav-links a').forEach(function(link){
@@ -391,6 +478,9 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.setAttribute('aria-expanded','false');
         btn.innerHTML='☰';
         btn.setAttribute('aria-label',SC_T.apriMenu);
+        /* Rimisura subito: il salto all'ancora parte in questo stesso tick e
+           non può aspettare il ResizeObserver. */
+        if(window.SC_misuraNav)window.SC_misuraNav();
       }
     });
   });
@@ -667,10 +757,15 @@ document.addEventListener('DOMContentLoaded', function() {
     var id = a.getAttribute('href').slice(1);
     if (id) linkById[id] = a;
   });
+  /* Si osservano TUTTE le sezioni, non solo quelle che hanno una voce di
+     menu: Galleria e Ispirazioni non ce l'hanno, e osservando solo le altre
+     restava acceso l'ultimo link mentre si era dentro di loro. setActive
+     spegne sempre tutto e riaccende solo se una voce esiste davvero. */
   var watched = [];
+  document.querySelectorAll('section[id]').forEach(function(el){ watched.push(el); });
   Object.keys(linkById).forEach(function(id){
     var el = document.getElementById(id);
-    if (el) watched.push(el);
+    if (el && watched.indexOf(el) === -1) watched.push(el);
   });
   if (!watched.length) return;
 

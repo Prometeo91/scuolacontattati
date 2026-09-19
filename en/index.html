@@ -335,7 +335,7 @@
     </script>
 
  <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) — self-hosted, zero dipendenze esterne -->
-  <link rel="stylesheet" href="../style.css?v=20260910d"/>
+  <link rel="stylesheet" href="../style.css?v=20260919a"/>
   <noscript><style>.sr{opacity:1!important;transform:none!important}</style></noscript>
 
   <style>
@@ -386,11 +386,9 @@
 
   /* Chiavi - approfondisci */
   .chiave-details{margin-top:0.75rem}
-  .chiave-more{font-family:var(--font-sans);font-size:13px;font-weight:500;color:var(--gold-light);cursor:pointer;list-style:none;opacity:0.85;transition:opacity .2s,color .2s;display:inline-flex;align-items:center;gap:0.35rem;letter-spacing:0.02em}
-  .chiave-more:hover{opacity:1}
+  .chiave-more{font-family:var(--font-sans);font-size:13px;font-weight:500;color:var(--gold-light);cursor:pointer;list-style:none;transition:color .2s;display:inline-flex;align-items:center;gap:0.35rem;letter-spacing:0.02em}
   .chiave-more::-webkit-details-marker{display:none}
   .chiave-more::after{content:'▾';font-size:12px;transition:transform .3s ease}
-  .chiave-details[open] .chiave-more{opacity:1}
   .chiave-details[open] .chiave-more::after{transform:rotate(180deg)}
   .chiave-more .chiave-more-close{display:none}
   .chiave-details[open] .chiave-more .chiave-more-open{display:none}
@@ -414,11 +412,10 @@
 
   /* Read-more — continuazione di prosa nascosta (riusa il linguaggio di .chiave-more, senza restyling dei paragrafi) */
   .read-more{margin-top:1.25rem}
-  .read-more>summary{font-family:var(--font-sans);font-size:13px;font-weight:500;color:var(--gold-light);cursor:pointer;list-style:none;opacity:0.85;transition:opacity .2s,color .2s;display:inline-flex;align-items:center;gap:0.4rem;user-select:none}
-  .read-more>summary:hover{opacity:1}
+  .read-more>summary{font-family:var(--font-sans);font-size:13px;font-weight:500;color:var(--gold-light);cursor:pointer;list-style:none;transition:color .2s;display:inline-flex;align-items:center;gap:0.4rem;user-select:none}
   .read-more>summary::-webkit-details-marker{display:none}
   .read-more>summary::after{content:'▾';font-size:12px;transition:transform .3s ease}
-  .read-more[open]>summary{opacity:1;margin-bottom:0.5rem}
+  .read-more[open]>summary{margin-bottom:0.5rem}
   .read-more[open]>summary::after{transform:rotate(180deg)}
   .read-more .read-more-less{display:none}
   .read-more[open] .read-more-more{display:none}
@@ -432,7 +429,7 @@
   .contributo-item{flex:1;min-width:200px}
   .contributo-amount{font-family:var(--font-display);font-size:26px;font-weight:500;color:var(--gold-light);line-height:1.15}
   .contributo-unit{font-size:17px;color:var(--text-muted);font-weight:400}
-  .contributo-was{font-size:15px;color:var(--text-muted);text-decoration:line-through;opacity:0.55;margin-left:0.3rem;font-family:var(--font-sans)}
+  .contributo-was{font-size:15px;color:var(--text-muted);text-decoration:line-through;opacity:0.85;margin-left:0.3rem;font-family:var(--font-sans)}
   .contributo-note{font-size:14px;color:var(--text-muted);margin-top:0.45rem;line-height:1.55}
   .contributo-divider{width:0.5px;background:var(--border);align-self:stretch}
   .contributo-trust{font-size:13px;color:var(--text-muted);letter-spacing:0.03em;margin-top:1.25rem;padding-top:1.1rem;border-top:0.5px solid var(--border);text-align:center}
@@ -451,7 +448,7 @@
   /* Language switcher pill */
   .lang-pill{display:inline-flex;align-items:center;gap:0;border:0.5px solid var(--border);border-radius: var(--radius-pill);padding:2px;margin-right:0.25rem;font-family:var(--font-sans);font-size:12px;font-weight:600;letter-spacing:0.06em}
   .lang-pill a{display:inline-block;padding:4px 10px;border-radius: var(--radius-pill);text-decoration:none;transition:color .2s,background .2s;line-height:1}
-  .lang-pill a.lang-active{background:var(--gold);color:#1a1000}
+  .lang-pill a.lang-active{background:var(--gold);color:var(--on-gold)}
   .lang-pill a:not(.lang-active){color:var(--text-muted)}
   .lang-pill a:not(.active):hover{color:var(--gold-light)}
   .lang-pill .lang-dot{color:var(--border);font-size:8px;padding:0 1px;user-select:none}
@@ -469,13 +466,14 @@
   <div class="nav-links">
     <a href="#chi-siamo">About us</a>
     <a href="#insegnamenti">Teachings</a>
-    <a href="#conduttori">The guides</a>
-    <a href="#calendario">The path</a>
-    <a href="#libro">The book</a>
+    <a href="#conduttori">Guides</a>
+    <a href="#calendario">Calendar</a>
+    <a href="#libro">Book</a>
+    <a href="#faq">FAQ</a>
     <a href="#contatti">Contact</a>
     <a href="#giochi">Games</a>
     <a href="https://portale.scuolacontattati.com" target="_blank" rel="noopener" class="btn-portale"><img src="../images/icon-accesso.svg" alt="" width="15" height="15"> Student Portal</a>
-    <span class="lang-pill"><a href="../index.html" onclick="localStorage.setItem('sc-lang','it');var s=document.querySelector('.nav-links a[aria-current]');if(s)this.href='../index.html'+s.getAttribute('href');return true;">IT</a><span class="lang-dot">·</span><a href="#" class="lang-active">EN</a></span>
+    <span class="lang-pill"><a href="../index.html" onclick="localStorage.setItem('sc-lang','it');var s=document.querySelector('.nav-links a[aria-current]');if(s)this.href='../index.html'+s.getAttribute('href');return true;">IT</a><span class="lang-dot" aria-hidden="true">·</span><a href="#" class="lang-active">EN</a></span>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme" title="Change theme"><span class="theme-toggle-icon"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="10" cy="10" r="3.5"/><line x1="10" y1="2.5" x2="10" y2="4.5"/><line x1="10" y1="15.5" x2="10" y2="17.5"/><line x1="2.5" y1="10" x2="4.5" y2="10"/><line x1="15.5" y1="10" x2="17.5" y2="10"/><line x1="4.7" y1="4.7" x2="6.1" y2="6.1"/><line x1="13.9" y1="13.9" x2="15.3" y2="15.3"/><line x1="4.7" y1="15.3" x2="6.1" y2="13.9"/><line x1="13.9" y1="6.1" x2="15.3" y2="4.7"/></svg></span><span class="lbl"> Light theme</span></button>
   </div>
 </nav>
@@ -948,14 +946,14 @@
   <h2 class="section-title">Lesson calendar</h2>
   <p class="section-sub">Seven years of progressive deepening, structured in annual cycles. Each lesson builds on the previous one, and what you study is then tested in everyday life.</p>
 
-  <!-- RIPRESA — prossima lezione. data-expires = ultimo giorno di visibilità:
-       il banner sparisce da solo il giorno dopo. Per la prossima ripartenza
-       aggiornare data-expires, data-date e i testi. -->
-  <div class="ripresa sr" data-expires="2026-09-13">
-    <p class="ripresa-eyebrow">We begin again</p>
-    <p class="ripresa-title">Sunday 13 September</p>
-    <p class="ripresa-sub">Year 2 · The Tao: the choice between Good and Evil and Free Will</p>
-    <p class="ripresa-count" id="ripresa-count" data-date="2026-09-13"></p>
+  <!-- PROSSIMA LEZIONE — data, anno e titolo li scrive app.js leggendo lezioni.js.
+       Niente date a mano e niente data-expires: quando una lezione passa, il
+       banner mostra da solo la successiva. Resta nascosto se non ce ne sono più. -->
+  <div class="ripresa sr" id="ripresa" hidden>
+    <p class="ripresa-eyebrow">Next lesson</p>
+    <p class="ripresa-title" id="ripresa-title"></p>
+    <p class="ripresa-sub" id="ripresa-sub"></p>
+    <p class="ripresa-count" id="ripresa-count"></p>
     <p class="ripresa-note">9:00–13:30 · MeetingRoom, Via Argiro 135 (3rd floor), Bari<br/>Bring a pen and your “Know Thyself Notebook”</p>
   </div>
   <!-- CONTRIBUTO — messaggio elevato dal banner Porte Aperte, reso visibile una volta sola -->
@@ -1597,7 +1595,7 @@
       <a href="#insegnamenti">Teachings</a>
       <a href="#conduttori">The guides</a>
       <a href="#calendario">The path</a>
-      <a href="#libro">The book</a>
+      <a href="#libro">Book</a>
       <a href="#galleria">Gallery</a>
       <a href="#giochi">Games</a>
       <a href="#faq">FAQ</a>
@@ -1747,7 +1745,7 @@
 })();
 </script>
 <script src="../data/eventi.js?v=20260908a" defer></script>
-<script src="../app.js?v=20260905c" defer></script>
+<script src="../app.js?v=20260919a" defer></script>
 <script>
 /* GAME SEALS — show ✦ on completed game cards */
 (function(){

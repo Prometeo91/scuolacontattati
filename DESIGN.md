@@ -13,6 +13,9 @@ colors:
   border: "rgba(201,151,58,0.18)"
   border-hover: "rgba(201,151,58,0.4)"
   band: "rgba(201,151,58,0.035)"
+  on-gold: "#1a1000"
+  tag-olistica: "#b49fe0"
+  tag-coaching: "#7de0a0"
 typography:
   display:
     fontFamily: "'EB Garamond', 'EBGaramond-fallback', Georgia, serif"
@@ -144,6 +147,32 @@ non grigi freddi.
 - **Fascia** (`rgba(201,151,58,0.035)`, `--band`): velatura a piena larghezza
   che scandisce il ritmo verticale.
 
+### Le due eccezioni all'oro
+
+Due tinte vivono fuori dalla famiglia oro, e sono le uniche ammesse. Servono
+a distinguere categorie sui tag di competenza dei conduttori, dove l'oro non
+può portare la distinzione perché è già il colore di tutto il resto.
+
+- **Viola** (`--tag-olistica`: `#b49fe0` scuro, `#4a3a66` chiaro): formazione
+  olistica e counseling. È anche il colore di `.badge-purple`.
+- **Verde** (`--tag-coaching`: `#7de0a0` scuro, `#1f6b3a` chiaro): coaching e
+  PNL. È anche il colore di `.badge-green`.
+
+I valori del tema chiaro sono scuriti apposta: le versioni del tema scuro su
+fondo pergamena scendevano a 1.28:1 e 1.78:1.
+
+Il verde di WhatsApp (`#25d366`) sul pulsante sticky non rientra qui: è un
+colore di marca di terze parti, non una scelta di palette.
+
+### Testo sopra un fondo oro
+
+`--on-gold` (`#1a1000` scuro, `#f8f2e6` chiaro) è il colore del testo e dei
+glifi quando il fondo è oro pieno: skip-link, `.btn-portale:hover`, la pill
+della lingua attiva, il triangolo del play. **La coppia si inverte rispetto a
+tutte le altre**, perché nel tema chiaro l'oro è scuro. Attenzione alla
+specificità quando si usa dentro la nav: `.nav-links a:hover` è più specifico
+di una regola di componente e vince sul colore senza vincere sul fondo.
+
 ### Named Rules
 
 **La regola della coppia.** Ogni colore esiste in due varianti, scura e
@@ -151,8 +180,9 @@ chiara, entrambe definite come variabile CSS. Un colore scritto a mano dentro
 una regola è un bug: al cambio tema resta indietro.
 
 **La regola dell'oro unico.** L'oro è l'unica famiglia d'accento. Un secondo
-colore va introdotto solo se porta un'informazione che l'oro non può portare
-(il viola dei badge di categoria è l'unica eccezione in essere).
+colore va introdotto solo se porta un'informazione che l'oro non può portare.
+Le eccezioni in essere sono due, il viola e il verde dei tag di competenza,
+descritte sopra: non se ne aggiungono altre senza deciderlo qui prima.
 
 **Niente bianco puro.** `#ffffff` non è un fondo ammesso nel tema chiaro.
 
