@@ -404,18 +404,6 @@ document.addEventListener('DOMContentLoaded', function() {
       box.hidden=false;
     }
 
-    /* Stessa informazione in cima alla pagina: #calendario sta a 18.266px su
-       telefono, e chi già frequenta apre il sito per sapere solo questo. */
-    var hp=document.getElementById('heroProssima');
-    if(hp&&pross){
-      var g=SC_T.giorniL[pross.d.getDay()];
-      var m=SC_T.mesiL[pross.l.month-1];
-      hp.innerHTML='<span class="hero-prossima-label">'+(SC_EN?'Next lesson':'Prossima lezione')+'</span>'+
-        '<span class="hero-prossima-data">'+g+' '+pross.l.day+' '+(SC_EN?m:m.toLowerCase())+
-        ' · '+(SC_EN?'9:00–13:30':'ore 9:00–13:30')+'</span>';
-      hp.hidden=false;
-    }
-
     /* Tab di default sull'anno in corso. Non si riusa activate() del markup
        perché quella chiama focus(), che al caricamento porterebbe la pagina
        a saltare sul calendario. */

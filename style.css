@@ -494,12 +494,6 @@ body::before {
 @media (max-width: 640px) {
   .hero-emblem { width: 150px; height: 150px; }
   .hero::before { width: 380px; height: 380px; }
-  /* Su telefono l'hero era più alto della viewport e la riga della prossima
-     lezione finiva sotto la piega, a 860px: proprio quello che doveva
-     evitare. Meno respiro in alto la riporta dentro il primo schermo, fuori
-     dalla colonna dei pulsanti fissi. */
-  .hero { padding-top: 3rem; }
-  .hero::before { top: 2rem; }
 }
 .hero h1 { font-family: var(--font-display); font-size: clamp(34px, 6.4vw, 54px); font-weight: 500; color: var(--text); letter-spacing: 0.02em; line-height: 1.1; margin-bottom: 1.5rem; position: relative; z-index: 2; }
 .hero h1 span { color: var(--gold-light); font-weight: 500; }
@@ -508,32 +502,6 @@ body::before {
 .hero-motto-sub::after { content: '✶'; display: block; color: var(--gold); font-size: 12px; margin-top: 1.5rem; opacity: 0.7; letter-spacing: 0; }
 .hero-slogan { font-family: var(--font-display); font-size: clamp(16px, 2.2vw, 20px); color: var(--text); max-width: 520px; line-height: 1.7; margin-bottom: 2.5rem; position: relative; z-index: 2; opacity: 0.85; letter-spacing: 0.01em; }
 .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; position: relative; z-index: 2; }
-
-/* Prossima lezione, in cima. Volutamente non è un terzo pulsante: le due CTA
-   restano le sole azioni, questa è informazione che porta al calendario. */
-.hero-prossima {
-  display: inline-flex; flex-direction: column; align-items: center; gap: 0.3rem;
-  margin-top: 1.75rem; position: relative; z-index: 2;
-  text-decoration: none;
-}
-.hero-prossima-label {
-  font-family: var(--font-sans); font-size: 11px; font-weight: 500;
-  letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold);
-}
-.hero-prossima-data {
-  font-family: var(--font-display); font-size: 17px;
-  color: var(--text); letter-spacing: 0.01em;
-  border-bottom: 1px solid transparent;
-  transition: border-color var(--t-fast), color var(--t-fast);
-}
-@media (hover: hover) {
-  .hero-prossima:hover .hero-prossima-data { color: var(--gold-light); border-bottom-color: var(--border-hover); }
-}
-/* DOPO la regola base, non prima: a 17px la riga arriva a x 322 e tocca la
-   colonna dei pulsanti fissi, che parte da 318. A 15px sta dentro. */
-@media (max-width: 640px) {
-  .hero-prossima-data { font-size: 15px; }
-}
 .btn-primary { display: inline-block; padding: 0.8rem 2rem; background: var(--gold); border: none; border-radius: var(--radius-sm); color: var(--bg); font-family: var(--font-display); font-size: 16px; font-weight: 600; text-decoration: none; letter-spacing: 0.04em; transition: background 0.2s; cursor: pointer; }
 .btn-primary:hover { background: var(--gold-light); }
 .btn-ghost { display: inline-block; padding: 0.8rem 2rem; background: transparent; border: 1px solid var(--border-hover); border-radius: var(--radius-sm); color: var(--gold-light); font-family: var(--font-display); font-size: 16px; font-weight: 500; text-decoration: none; letter-spacing: 0.04em; transition: background 0.2s, border-color 0.2s; cursor: pointer; }
