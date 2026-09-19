@@ -1210,11 +1210,19 @@ summary:focus-visible {
   transition: outline-offset 0.15s ease, outline-color 0.15s ease;
 }
 /* Form fields: use border color change instead of outline (more elegant) */
-input:focus-visible,
+input:not([type="checkbox"]):not([type="radio"]):focus-visible,
 textarea:focus-visible,
 select:focus-visible {
   outline: none;
   border-color: var(--gold);
+}
+/* Una checkbox nativa non ha un bordo su cui ripiegare: senza questa riga
+   il consenso privacy, che e' obbligatorio per inviare, restava l'unico
+   elemento interattivo della pagina senza indicatore da tastiera. */
+input[type="checkbox"]:focus-visible,
+input[type="radio"]:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
 }
 /* Buttons that are already gold — brighten outline for contrast */
 .video-facade-play:focus-visible,
@@ -2085,4 +2093,7 @@ html::before {
 /* Pulsante Portale Allievi */
 .btn-portale{display:inline-flex;align-items:center;gap:.45rem;padding:6px 15px;border-radius: var(--radius-sm);background:rgba(201,151,58,.1);border:0.5px solid rgba(201,151,58,.45);color:var(--gold);font-size:13px;font-weight:600;letter-spacing:.04em;text-decoration:none;white-space:nowrap;transition:all .25s ease}
 .btn-portale:hover{background:var(--gold);color:var(--on-gold)}
+/* .nav-links a:hover ha specificita' (0,2,1) e vinceva sul colore lasciando
+   oro chiaro su oro pieno, 1.47:1. Questa sale a (0,3,1) e riporta --on-gold. */
+.nav-links a.btn-portale:hover{color:var(--on-gold)}
 .btn-portale img{width:15px;height:15px;display:block}

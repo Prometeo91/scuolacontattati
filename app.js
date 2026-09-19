@@ -444,9 +444,15 @@ document.addEventListener('DOMContentLoaded', function() {
   (function(){
     var nav=document.querySelector('nav');
     if(!nav)return;
+    var links=document.querySelector('.nav-links');
     function misura(){
+      /* A menu mobile aperto la nav è alta 625px: misurarla in quello stato
+         portava scroll-padding-top a 638px su una viewport di 844, e ogni
+         voce del menu atterrava mezzo schermo sopra la sua sezione. */
+      if(links&&links.classList.contains('open'))return;
       document.documentElement.style.setProperty('--nav-h', Math.round(nav.getBoundingClientRect().height)+'px');
     }
+    window.SC_misuraNav=misura;
     misura();
     if(window.ResizeObserver) new ResizeObserver(misura).observe(nav);
     else window.addEventListener('resize', misura);
@@ -462,6 +468,9 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.setAttribute('aria-expanded','false');
         btn.innerHTML='☰';
         btn.setAttribute('aria-label',SC_T.apriMenu);
+        /* Rimisura subito: il salto all'ancora parte in questo stesso tick e
+           non può aspettare il ResizeObserver. */
+        if(window.SC_misuraNav)window.SC_misuraNav();
       }
     });
   });
