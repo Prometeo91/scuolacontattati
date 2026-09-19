@@ -102,6 +102,14 @@
   --text-muted: #c4b8d0;
   --text-reading: #dcd5e6;  /* lettura lunga: un soffio sotto --text per non abbagliare */
   --band: rgba(201,151,58,0.035);  /* fascia di ritmo a piena larghezza */
+  /* Misura di lettura. In ch perche' segue la dimensione del testo, ma lo zero
+     di Inter e' largo 10,7px mentre il glifo medio dell'italiano corrente e'
+     7,8: 1ch vale circa 1,37 caratteri reali. Questo valore e' tarato sui
+     caratteri, non sui ch. */
+  --measure: 49ch;
+  /* Larghezza della colonna di contenuto. La fascia a piena larghezza la
+     ricrea sui figli diretti, e il testo deve allinearsi al suo bordo. */
+  --col: 900px;
   --card-shadow: 0 1px 2px rgba(0,0,0,0.25);
   --bg: #0d0b1a;
   --surface: rgba(255,255,255,0.04);
@@ -558,7 +566,7 @@ section#insegnamenti, section#seminario, section#faq {
 /* Capolettera — drop cap editoriale (rimosso: non funziona bene su fondo scuro) */
 
 .section-title { font-family: var(--font-display); font-size: clamp(28px,5vw,42px); font-weight: 500; color: var(--text); margin-bottom: 0.75rem; line-height: 1.15; letter-spacing: 0; }
-.section-sub { font-size: 17px; color: var(--text-reading); max-width: 58ch; line-height: 1.75; margin-bottom: 2.5rem; letter-spacing: 0; }
+.section-sub { font-size: 17px; color: var(--text-reading); max-width: var(--measure); line-height: 1.75; margin-bottom: 2.5rem; letter-spacing: 0; }
 
 /* GLASS CARD — stile "pergamena": doppio filetto interno + angoli ornamentali */
 .glass-card {
@@ -1251,7 +1259,7 @@ input[type="radio"]:focus-visible {
 .evento-dettaglio { font-size: 13px; color:var(--text-muted); }
 
 /* Body text reusable */
-.body-text { font-size: 17px; color:var(--text-reading); line-height:1.8; max-width: 58ch; }
+.body-text { font-size: 17px; color:var(--text-reading); line-height:1.8; max-width: var(--measure); }
 .body-text + .body-text, .body-text.mt-125 { margin-top: 1.5rem; }
 .body-text-sm { font-size: 16px; color:var(--text-reading); line-height:1.75; }
 .body-text-xs { font-size: 13px; color:var(--text-muted); }
@@ -1346,7 +1354,9 @@ input[type="radio"]:focus-visible {
 /* Remaining utilities */
 .flex-1 { flex:1; }
 .icon-lg { font-size:20px; flex-shrink:0; }
-.narrow-text { max-width:680px; margin:0 auto; }
+/* .narrow-text centra il paragrafo; la larghezza resta quella di lettura,
+   altrimenti a 680px la riga arriva a 88 caratteri. */
+.narrow-text { max-width: var(--measure); margin:0 auto; }
 .anno-tabs-wrap { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:1.25rem; }
 .serif-footer-motto { margin-top:0.3rem; }
 .serif-footer-quote { margin-top:0.75rem; font-style:italic; }
@@ -1388,7 +1398,14 @@ input[type="radio"]:focus-visible {
     url('images/hero-cielo.webp') center / cover no-repeat;
   pointer-events:none; z-index:0;
 }
-.section-band > * { position:relative; z-index:1; max-width:900px; margin-left:auto; margin-right:auto; }
+.section-band > * { position:relative; z-index:1; max-width:var(--col); margin-left:auto; margin-right:auto; }
+/* I 900px sopra sono la larghezza del contenitore della fascia e, colpendo i
+   figli diretti, cancellavano la misura di lettura: le due .section-sub di
+   #ispirazioni arrivavano a 119 caratteri. I margini automatici della fascia
+   centrano poi ogni figlio, e col testo stretto spingevano il sottotitolo
+   185px a destra del suo titolo: qui si riallinea a sinistra. */
+.section-band > .section-sub,
+.section-band > .body-text { max-width: var(--measure); margin-left: max(0px, (100% - var(--col)) / 2); margin-right: auto; }
 
 /* ANIMATED BACKGROUND — rimossa per coerenza visiva */
 /* bg-drift animation rimossa per coerenza visiva */
