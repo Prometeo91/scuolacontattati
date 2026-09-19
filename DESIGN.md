@@ -243,17 +243,18 @@ a un pixel o mezzo pixel da un gradino con dieci o venti usi (27, 25, 21, 19,
 
 ### Misura di lettura
 
-`--measure: 49ch` su `.section-sub`, `.body-text` e `.narrow-text`.
+`--measure: var(--col)`: **il testo riempie la colonna**, non si stringe.
 
-Il valore è tarato sui **caratteri, non sui ch**: `1ch` è la larghezza dello
-zero, che in Inter vale 10,7px, mentre il glifo medio dell'italiano corrente
-è 7,8. Un `ch` vale quindi circa 1,37 caratteri reali, e 49ch danno 64-69
-caratteri per riga. Non fidarsi del numero davanti a `ch`: misurarlo.
+È una scelta presa contro la regola tipografica corrente, che vorrebbe 65-75
+caratteri per riga. Su questa pagina una misura più stretta lascia la metà
+destra vuota e il testo appoggiato a sinistra, e non è l'effetto voluto: la
+colonna a 900px è già la misura del sito. È stato provato a 49ch e scartato.
 
-La fascia a piena larghezza (`.section-band`) ricrea la colonna da `--col`
-sui figli diretti, e questo cancellava la misura: i testi dentro la fascia
-hanno una regola propria che la ripristina e li riallinea al bordo della
-colonna.
+Se un giorno si volesse stringere, si cambia solo `--measure`. Ma attenzione
+al numero: `1ch` è la larghezza dello **zero**, che in Inter vale 10,7px,
+mentre il glifo medio dell'italiano corrente è 7,8. Un `ch` vale circa 1,37
+caratteri reali, quindi `58ch` non fa 58 caratteri ma 79. Misurare i
+caratteri sul testo renderizzato, non fidarsi dell'unità.
 
 ### Font features
 

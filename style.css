@@ -102,11 +102,12 @@
   --text-muted: #c4b8d0;
   --text-reading: #dcd5e6;  /* lettura lunga: un soffio sotto --text per non abbagliare */
   --band: rgba(201,151,58,0.035);  /* fascia di ritmo a piena larghezza */
-  /* Misura di lettura. In ch perche' segue la dimensione del testo, ma lo zero
-     di Inter e' largo 10,7px mentre il glifo medio dell'italiano corrente e'
-     7,8: 1ch vale circa 1,37 caratteri reali. Questo valore e' tarato sui
-     caratteri, non sui ch. */
-  --measure: 49ch;
+  /* Misura di lettura: il testo riempie la colonna. Un limite piu' stretto
+     starebbe meglio nei manuali di tipografia (65-75 caratteri per riga) ma
+     lascia la meta' destra vuota, e su questo sito non piace: la colonna a
+     900px e' gia' la misura scelta. Se un giorno si volesse stringere, si
+     cambia solo qui — ma 1ch vale 1,37 caratteri reali, non uno. */
+  --measure: var(--col);
   /* Larghezza della colonna di contenuto. La fascia a piena larghezza la
      ricrea sui figli diretti, e il testo deve allinearsi al suo bordo. */
   --col: 900px;
@@ -1354,9 +1355,7 @@ input[type="radio"]:focus-visible {
 /* Remaining utilities */
 .flex-1 { flex:1; }
 .icon-lg { font-size:20px; flex-shrink:0; }
-/* .narrow-text centra il paragrafo; la larghezza resta quella di lettura,
-   altrimenti a 680px la riga arriva a 88 caratteri. */
-.narrow-text { max-width: var(--measure); margin:0 auto; }
+.narrow-text { max-width:680px; margin:0 auto; }
 .anno-tabs-wrap { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:1.25rem; }
 .serif-footer-motto { margin-top:0.3rem; }
 .serif-footer-quote { margin-top:0.75rem; font-style:italic; }
@@ -1399,13 +1398,6 @@ input[type="radio"]:focus-visible {
   pointer-events:none; z-index:0;
 }
 .section-band > * { position:relative; z-index:1; max-width:var(--col); margin-left:auto; margin-right:auto; }
-/* I 900px sopra sono la larghezza del contenitore della fascia e, colpendo i
-   figli diretti, cancellavano la misura di lettura: le due .section-sub di
-   #ispirazioni arrivavano a 119 caratteri. I margini automatici della fascia
-   centrano poi ogni figlio, e col testo stretto spingevano il sottotitolo
-   185px a destra del suo titolo: qui si riallinea a sinistra. */
-.section-band > .section-sub,
-.section-band > .body-text { max-width: var(--measure); margin-left: max(0px, (100% - var(--col)) / 2); margin-right: auto; }
 
 /* ANIMATED BACKGROUND — rimossa per coerenza visiva */
 /* bg-drift animation rimossa per coerenza visiva */
