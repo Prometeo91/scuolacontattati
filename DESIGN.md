@@ -211,6 +211,50 @@ sottoinsieme, e hanno un fallback con metriche corrette (`size-adjust`,
 - **Label** (Inter 500, 11px, ls 0.22em, uppercase): `.section-eyebrow` e
   `.badge`.
 
+### La scala in pixel
+
+I cinque ruoli sopra sono i gradini principali, ma il foglio ne usa altri per
+i componenti. Questi sono **tutti** i valori ammessi, con quanti usi ha
+ciascuno: un valore fuori da questo elenco è quasi sempre una svista.
+
+| px | usi | dove |
+|---|---|---|
+| 32 | 4 | numero del giorno, countdown, controlli del lightbox |
+| 28 | 2 | glifi dei pilastri e dell'oracolo |
+| 26 | 4 | titoli Garamond intermedi: carrozza, contributo, banner lezione, definizioni |
+| 24 | 4 | titoli di pilastro, intestazioni contatti, logo del footer |
+| 22 | 6 | citazioni di sezione, giorno degli eventi, titoli delle card galleria |
+| 20 | 12 | ruolo **Title**: logo, titoli di card, nomi dei conduttori |
+| 17 | 12 | sottotitoli di sezione, testo corrente lungo, domande FAQ |
+| 16 | 24 | ruolo **Body**, pulsanti |
+| 15 | 20 | voci di menu, testi secondari |
+| 14 | 12 | didascalie |
+| 13 | 23 | etichette di interfaccia, summary |
+| 12 | 22 | citazioni firmate, note |
+| 11 | 17 | ruolo **Label**: occhielli, badge |
+| 10 | 4 | badge minuti |
+
+Fuori dalla scala restano **8, 6 e 5px**, che non sono testo ma ornamenti:
+il separatore fra le lingue, il filetto del footer, il glifo dell'epigrafe.
+
+La scala è stata consolidata da 28 valori distinti a 17: dieci erano orfani
+a un pixel o mezzo pixel da un gradino con dieci o venti usi (27, 25, 21, 19,
+18, 15.5, 14.5, 13.5, 12.5, 11.5), cioè accidenti, non scelte.
+
+### Misura di lettura
+
+`--measure: 49ch` su `.section-sub`, `.body-text` e `.narrow-text`.
+
+Il valore è tarato sui **caratteri, non sui ch**: `1ch` è la larghezza dello
+zero, che in Inter vale 10,7px, mentre il glifo medio dell'italiano corrente
+è 7,8. Un `ch` vale quindi circa 1,37 caratteri reali, e 49ch danno 64-69
+caratteri per riga. Non fidarsi del numero davanti a `ch`: misurarlo.
+
+La fascia a piena larghezza (`.section-band`) ricrea la colonna da `--col`
+sui figli diretti, e questo cancellava la misura: i testi dentro la fascia
+hanno una regola propria che la ripristina e li riallinea al bordo della
+colonna.
+
 ### Font features
 
 I testi display usano cifre oldstyle e legature discrezionali
