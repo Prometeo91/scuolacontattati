@@ -87,8 +87,10 @@ va scritto due volte.
   JSON-LD nell'`<head>` va tenuto allineato a quanto mostrato in pagina.
 - Quindici giochi didattici in Phaser 3, uno per cartella, con engine e stili
   condivisi in `giochi/`.
-- Anno 1 (2025/26) ha avuto 6 lezioni invece di 7. È corretto così nei dati,
-  non è un errore da sanare.
+- **Il numero di lezioni per anno rispecchia quello che la Scuola sa, non lo
+  schema teorico.** Anno 1 (2025/26) ne ha avute 6 invece di 7; Anno 3 ne ha
+  ancora 6 perché quel ciclo non è ancora cominciato con 7. Nessuno dei due è
+  un errore da sanare, e nessuna revisione deve «allinearli» allo schema.
 
 ## Brand Commitments
 
