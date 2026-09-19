@@ -27,7 +27,7 @@ fonts/              EB Garamond + Inter (self-hosted)
 images/             Foto, locandine, icone, gallery
 giochi/             Engine e asset condivisi dei giochi didattici
 <nome-gioco>/       15 cartelle di giochi (index.html + data.js + i18n.js ciascuna)
-deisgn.md           Design system: palette, tipografia, componenti, regole
+DESIGN.md           Design system: token, palette, tipografia, componenti, regole
 sitemap.xml, robots.txt, 404.html, sw.js, site.webmanifest
 ```
 
@@ -46,7 +46,7 @@ I contenuti reali delle lezioni sono in `lezioni.js` (array `L1`…`L7`): è la 
 
 ## Design system
 
-Documentato in `deisgn.md`. In sintesi:
+Documentato in `DESIGN.md`, nel formato DESIGN.md con frontmatter di token. In sintesi:
 
 - **Tema scuro "Officina"** (default): fondo `#0d0b1a`, oro `#e8c97a`/`#c9973a`
 - **Tema chiaro "Pergamena"**: fondo avorio `#f5f0e8`, oro scuro per contrasto AA

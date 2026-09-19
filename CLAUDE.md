@@ -24,7 +24,7 @@ Sito della **Scuola ContattaTi** (Scuola di Consapevolezza ed Alchimia, Bari), g
 | `app.js` | Tema chiaro/scuro, countdown eventi, scroll-reveal, lightbox, service worker |
 | `lezioni.js` | **Fonte di verità** dei contenuti delle lezioni: array `L1`…`L7` (un array per anno di corso, con titoli, temi, date, citazioni). Consultarlo prima di scrivere qualsiasi testo sul percorso di studi |
 | `data/eventi.js`, `data/citazioni.js` | Dati eventi e citazioni |
-| `deisgn.md` | Design system (nota: il nome file ha il typo, lasciarlo così) |
+| `DESIGN.md` | Design system: frontmatter YAML di token estratti dal CSS + otto sezioni canoniche. Sostituisce il vecchio `deisgn.md`, che era rimasto indietro rispetto a `style.css` |
 
 ## Seminari in evidenza (pattern ricorrente, oggi non attivo)
 
@@ -45,7 +45,7 @@ Resta in repo `images/seminario-luglio-2026.webp`, non più referenziata da ness
 
 ## Design system (regole rigide)
 
-- Tema scuro "Officina" (default): fondo `#0d0b1a`, oro `#e8c97a`/`#c9973a`. Tema chiaro "Pergamena": fondo `#f5f0e8`. Dettagli completi in `deisgn.md`.
+- Tema scuro "Officina" (default): fondo `#0d0b1a`, oro `#e8c97a`/`#c9973a`. Tema chiaro "Pergamena": fondo `#f5f0e8`. Dettagli completi in `DESIGN.md`.
 - **Mai hardcodare un colore**: ogni colore è una coppia di variabili CSS (scuro+chiaro).
 - Tipografia: EB Garamond (display, weight 500–600) + Inter (testo). Mai altre famiglie.
 - Componenti card: pattern `.glass-card` con doppio bordo (pseudo-elemento `::before` con `inset`).
@@ -61,7 +61,7 @@ L'equivalente visivo dei tell di scrittura: elementi che gli LLM aggiungono per 
 - **Numeri monospace 01 · 02 · 03** a scandire una sequenza di passi.
 - **Gradienti accesi** su testo o pulsanti, e glow diffusi.
 
-Attenzione a non confonderli con scelte già stabilite del sito: il piccolo testo sopra i titoli (`.section-eyebrow`) somiglia a un tic ma è parte del design system, e va lasciato. Il criterio è la coerenza con `deisgn.md`, non l'elenco in sé.
+Attenzione a non confonderli con scelte già stabilite del sito: il piccolo testo sopra i titoli (`.section-eyebrow`) somiglia a un tic ma è parte del design system, e va lasciato. Il criterio è la coerenza con `DESIGN.md`, non l'elenco in sé.
 
 ### Prima di modificare una regola CSS
 
