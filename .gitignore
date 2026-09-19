@@ -5,4 +5,7 @@ node_modules/
 .claude/skills/impeccable/scripts/bin/
 
 # script temporanei di ispezione (Playwright, audit) creati durante le sessioni
-.*-tmp.js
+.*-tmp*.js
+
+# stato transitorio del live server di impeccable
+.impeccable/live/
