@@ -216,8 +216,12 @@ document.addEventListener('DOMContentLoaded', function() {
   var mesiL=SC_T.mesiL;
   function stato(d,m,y){var n=new Date(),s=new Date(y,m-1,d,9,0),e=new Date(y,m-1,d,13,30);if(n>=s&&n<=e)return 'in-corso';if(n>e)return 'passata';return 'futura';}
   function toggle(row,panel){var o=panel.classList.contains('open');document.querySelectorAll('.lesson-panel.open').forEach(function(p){p.classList.remove('open');var r=p.closest('.lesson-wrap').querySelector('.event-row');r.classList.remove('open');r.setAttribute('aria-expanded','false');});if(!o){panel.classList.add('open');row.classList.add('open');row.setAttribute('aria-expanded','true');}}
+  /* Vista localizzata di una lezione: sulla pagina inglese usa il campo .en
+     aggiunto in fondo a lezioni.js, altrimenti i campi italiani. Se una
+     traduzione manca si ricade sull'italiano invece di mostrare un buco. */
+  function loc(l){ return (SC_EN && l.en) ? l.en : l; }
   function temiHTML(t){return '<ul class="lesson-topics">'+t.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>';}
-  function panelHTML(l){return '<div class="lesson-panel"><div class="lesson-panel-inner"><p class="lesson-panel-title">'+l.titolo+(l.sottotitolo?'<br><span style="font-size:15px;font-weight:500;color:var(--gold-light);font-style:normal;">'+l.sottotitolo+'</span>':'')+'</p>'+(l.desc?'<p class="body-text-sm mb-1 lesson-desc">'+l.desc+'</p>':'')+temiHTML(l.temi)+(l.citazione?'<div class="lesson-quote">'+l.citazione+'<cite>&mdash; '+l.autore+'</cite></div>':'')+'</div></div>';}
+  function panelHTML(l){var c=loc(l);return '<div class="lesson-panel"><div class="lesson-panel-inner"><p class="lesson-panel-title">'+c.titolo+(c.sottotitolo?'<br><span style="font-size:15px;font-weight:500;color:var(--gold-light);font-style:normal;">'+c.sottotitolo+'</span>':'')+'</p>'+(c.desc?'<p class="body-text-sm mb-1 lesson-desc">'+c.desc+'</p>':'')+temiHTML(c.temi)+(c.citazione?'<div class="lesson-quote">'+c.citazione+'<cite>&mdash; '+c.autore+'</cite></div>':'')+'</div></div>';}
 
   /* PRESENTAZIONI & EVENTI — render da data/eventi.js (file unico IT+EN) */
   var presList=document.getElementById('presList');
@@ -305,7 +309,7 @@ document.addEventListener('DOMContentLoaded', function() {
       else{bc='badge badge-purple';bt=mesiL[l.month-1]+' '+l.year;}
       var sfx=st==='in-corso'?SC_T.inCorsoOra:isPr?SC_T.prossima:'';
       var w=document.createElement('div');w.className='lesson-wrap';
-      w.innerHTML='<div class="event-row has-detail" role="button" tabindex="0" aria-expanded="false"><div class="event-date"><p class="event-day ev-num">'+toRoman(l.num)+'</p><p class="event-month">'+SC_T.anno+' 1</p></div><div class="event-vline"></div><div class="event-info"><p class="event-title">'+SC_T.lezione+' '+toRoman(l.num)+sfx+'</p><p class="event-sub">'+l.titolo+'</p><p style="font-size:13px;color:var(--text-muted);margin-top:2px;">'+l.day+' '+mesiL[l.month-1]+' '+l.year+'</p></div><span class="'+bc+'">'+bt+'</span><span class="detail-pill">'+SC_T.temi+' ▾</span><span class="expand-arrow">▼</span></div>'+panelHTML(l);
+      w.innerHTML='<div class="event-row has-detail" role="button" tabindex="0" aria-expanded="false"><div class="event-date"><p class="event-day ev-num">'+toRoman(l.num)+'</p><p class="event-month">'+SC_T.anno+' 1</p></div><div class="event-vline"></div><div class="event-info"><p class="event-title">'+SC_T.lezione+' '+toRoman(l.num)+sfx+'</p><p class="event-sub">'+loc(l).titolo+'</p><p style="font-size:13px;color:var(--text-muted);margin-top:2px;">'+l.day+' '+mesiL[l.month-1]+' '+l.year+'</p></div><span class="'+bc+'">'+bt+'</span><span class="detail-pill">'+SC_T.temi+' ▾</span><span class="expand-arrow">▼</span></div>'+panelHTML(l);
       list1.appendChild(w);
       var row=w.querySelector('.event-row'),panel=w.querySelector('.lesson-panel');
       row.addEventListener('click',function(){toggle(row,panel);});
@@ -336,7 +340,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       var badgeHTML=hasDate?'<span class="'+bc+'">'+bt+'</span>':'';
       var sfx=st==='in-corso'?SC_T.inCorsoOra:isPr?SC_T.prossima:'';
-      w.innerHTML='<div class="event-row has-detail" role="button" tabindex="0" aria-expanded="false"><div class="event-date"><p class="event-day ev-num">'+toRoman(l.num)+'</p><p class="event-month">'+label+'</p></div><div class="event-vline"></div><div class="event-info"><p class="event-title">'+SC_T.lezione+' '+toRoman(l.num)+sfx+'</p><p class="event-sub">'+l.titolo+'</p>'+(hasDate?'<p style="font-size:13px;color:var(--text-muted);margin-top:2px;">'+l.day+' '+mesiL[l.month-1]+' '+l.year+'</p>':'')+'</div>'+badgeHTML+'<span class="detail-pill">'+SC_T.temi+' ▾</span><span class="expand-arrow">▼</span></div>'+panelHTML(l);
+      w.innerHTML='<div class="event-row has-detail" role="button" tabindex="0" aria-expanded="false"><div class="event-date"><p class="event-day ev-num">'+toRoman(l.num)+'</p><p class="event-month">'+label+'</p></div><div class="event-vline"></div><div class="event-info"><p class="event-title">'+SC_T.lezione+' '+toRoman(l.num)+sfx+'</p><p class="event-sub">'+loc(l).titolo+'</p>'+(hasDate?'<p style="font-size:13px;color:var(--text-muted);margin-top:2px;">'+l.day+' '+mesiL[l.month-1]+' '+l.year+'</p>':'')+'</div>'+badgeHTML+'<span class="detail-pill">'+SC_T.temi+' ▾</span><span class="expand-arrow">▼</span></div>'+panelHTML(l);
       el.appendChild(w);
       var row=w.querySelector('.event-row'),panel=w.querySelector('.lesson-panel');
       row.addEventListener('click',function(){toggle(row,panel);});
@@ -348,7 +352,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var el=document.getElementById(listId);if(!el)return;
     lista.forEach(function(l){
       var w=document.createElement('div');w.className='lesson-wrap';
-      w.innerHTML='<div class="event-row event-row-esp has-detail" role="button" tabindex="0" aria-expanded="false"><div class="event-date event-date-esp"><p class="ev-num-esp">✦</p></div><div class="event-vline event-vline-esp"></div><div class="event-info"><p class="event-sub">'+l.titolo+'</p></div><span class="detail-pill detail-pill-esp">'+SC_T.temi+' ▾</span><span class="expand-arrow">▼</span></div>'+panelHTML(l);
+      w.innerHTML='<div class="event-row event-row-esp has-detail" role="button" tabindex="0" aria-expanded="false"><div class="event-date event-date-esp"><p class="ev-num-esp">✦</p></div><div class="event-vline event-vline-esp"></div><div class="event-info"><p class="event-sub">'+loc(l).titolo+'</p></div><span class="detail-pill detail-pill-esp">'+SC_T.temi+' ▾</span><span class="expand-arrow">▼</span></div>'+panelHTML(l);
       el.appendChild(w);
       var row=w.querySelector('.event-row'),panel=w.querySelector('.lesson-panel');
       row.addEventListener('click',function(){toggle(row,panel);});
@@ -392,7 +396,8 @@ document.addEventListener('DOMContentLoaded', function() {
       var gg=SC_T.giorniL[pross.d.getDay()];
       var mese=SC_T.mesiL[pross.l.month-1];
       if(t)t.textContent=gg+' '+pross.l.day+' '+(SC_EN?mese:mese.toLowerCase());
-      if(s)s.textContent=(SC_EN?'Year '+pross.anno:pross.anno+'° Anno')+(pross.l.titolo?' · '+pross.l.titolo:'');
+      var tl=loc(pross.l);
+      if(s)s.textContent=(SC_EN?'Year '+pross.anno:pross.anno+'° Anno')+(tl.titolo?' · '+tl.titolo:'');
       if(c){
         var oggi=new Date();oggi.setHours(0,0,0,0);
         var mez=new Date(pross.d);mez.setHours(0,0,0,0);

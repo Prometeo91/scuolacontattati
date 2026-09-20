@@ -22,7 +22,7 @@ Sito della **Scuola ContattaTi** (Scuola di Consapevolezza ed Alchimia, Bari), g
 | `en/index.html` | Versione inglese speculare |
 | `style.css` | Tutti gli stili, design system a variabili CSS |
 | `app.js` | Tema chiaro/scuro, countdown eventi, scroll-reveal, lightbox, service worker |
-| `lezioni.js` | **Fonte di verità** dei contenuti delle lezioni: array `L1`…`L7` (un array per anno di corso, con titoli, temi, date, citazioni). Consultarlo prima di scrivere qualsiasi testo sul percorso di studi |
+| `lezioni.js` | **Fonte di verità** dei contenuti delle lezioni: array `L1`…`L7` (un array per anno di corso, con titoli, temi, date, citazioni). Consultarlo prima di scrivere qualsiasi testo sul percorso di studi. **In fondo al file c'è `L_EN` con le traduzioni inglesi**, innestate come campo `.en` su ogni lezione: chi aggiunge o modifica una lezione italiana deve aggiornare anche la voce corrispondente lì, altrimenti la pagina inglese mostra l'italiano. È nello stesso file apposta, perché un secondo file resterebbe indietro in silenzio |
 | `data/eventi.js`, `data/citazioni.js` | Dati eventi e citazioni |
 | `DESIGN.md` | Design system: frontmatter YAML di token estratti dal CSS + otto sezioni canoniche. Sostituisce il vecchio `deisgn.md`, che era rimasto indietro rispetto a `style.css` |
 
