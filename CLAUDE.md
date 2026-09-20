@@ -22,7 +22,7 @@ Sito della **Scuola ContattaTi** (Scuola di Consapevolezza ed Alchimia, Bari), g
 | `en/index.html` | Versione inglese speculare |
 | `style.css` | Tutti gli stili, design system a variabili CSS |
 | `app.js` | Tema chiaro/scuro, countdown eventi, scroll-reveal, lightbox, service worker |
-| `lezioni.js` | **Fonte di verità** dei contenuti delle lezioni: array `L1`…`L7` (un array per anno di corso, con titoli, temi, date, citazioni). Consultarlo prima di scrivere qualsiasi testo sul percorso di studi |
+| `lezioni.js` | **Fonte di verità** dei contenuti delle lezioni: array `L1`…`L7` (un array per anno di corso, con titoli, temi, date, citazioni). Consultarlo prima di scrivere qualsiasi testo sul percorso di studi. **In fondo al file c'è `L_EN` con le traduzioni inglesi**, innestate come campo `.en` su ogni lezione: chi aggiunge o modifica una lezione italiana deve aggiornare anche la voce corrispondente lì, altrimenti la pagina inglese mostra l'italiano. È nello stesso file apposta, perché un secondo file resterebbe indietro in silenzio |
 | `data/eventi.js`, `data/citazioni.js` | Dati eventi e citazioni |
 | `DESIGN.md` | Design system: frontmatter YAML di token estratti dal CSS + otto sezioni canoniche. Sostituisce il vecchio `deisgn.md`, che era rimasto indietro rispetto a `style.css` |
 
@@ -32,12 +32,12 @@ Quando c'è un seminario da promuovere si ricrea una sezione `#seminario` in ent
 
 Oggi **non esistono**: sezione e landing sono state rimosse col commit `2722cf3`, passato il seminario del 26 luglio 2026. Il meccanismo però è ancora in `app.js`: i blocchi `.seminar-section` con `data-expires` vengono nascosti a scadenza e, quando sono scaduti tutti, spariscono anche la sezione `#seminario` e la sua voce di menu. Il codice è protetto da `if(sem)`, quindi in assenza della sezione non fa nulla. Per il prossimo seminario basta ricreare il markup.
 
-Resta in repo `images/seminario-luglio-2026.webp`, non più referenziata da nessun file.
-
 ## Fatti di dominio (verificati con Fabio)
 
 - Percorso **settennale**: ciclo base 3 anni con **7 lezioni l'anno** (dal 2026/27; il 1° anno 2025/26 ne ha avute 6, ed è corretto così nei dati), ciclo avanzato 4 anni con 3 lezioni l'anno.
 - **Il numero di lezioni per anno in `lezioni.js` non va «corretto» a tavolino.** Oggi `L1` ne ha 6, `L2` 7, `L3` 6, e gli anni avanzati 3: `L3` ne ha ancora 6 perché quel ciclo non è ancora cominciato con 7. Il dato rispecchia quello che la Scuola sa, non lo schema teorico. Ogni passata di revisione lo segnala come incoerenza: non lo è.
+- **Il primo anno non riparte a breve**: la prossima coorte di 1° anno è attesa fra un paio d'anni, forse tre, e la data non si sa. Il sito **non deve dirlo**: la riga «Anno concluso» sul tab dell'Anno 1 basta così com'è. Ogni revisione segnala che manca la risposta alla domanda «quando ricomincia»: è una scelta, non una lacuna.
+- **Un anno del calendario è linkabile**: `scuolacontattati.com/#anno-3` (e `#anno-esp` per gli esperienziali) apre quel tab e scrolla al calendario; il click su un tab riscrive l'hash con `replaceState`. Senza hash valido si apre l'anno della prossima lezione, come prima.
 - Una lezione di cui si conosce solo la data si inserisce in `lezioni.js` con i soli campi `num`/`day`/`month`/`year`: il calendario ha già lo stato "programma in definizione" (riga attenuata, nessun pannello espandibile). Non inventare titoli o temi.
 - Conduttori: Anna Carla Digregorio e Nicolaos Anifantis. Anna Carla comunica novità via WhatsApp che spesso vanno riportate sul sito.
 - Libro: *Ricchezza, Abbondanza e Mission* (Gagliano Edizioni).
@@ -50,6 +50,7 @@ Resta in repo `images/seminario-luglio-2026.webp`, non più referenziata da ness
 - **Mai hardcodare un colore**: ogni colore è una coppia di variabili CSS (scuro+chiaro).
 - Tipografia: EB Garamond (display, weight 500–600) + Inter (testo). Mai altre famiglie.
 - Componenti card: pattern `.glass-card` con doppio bordo (pseudo-elemento `::before` con `inset`).
+- **Comandi isolati alti almeno 44px** e **navigazione a hamburger sotto i 1024px**: le due regole si reggono a vicenda (il menu desktop ci sta su una riga solo da 1444px, e da 1024 a 1199 la barra è a due righe per scelta). Dettagli e le tre eccezioni al 44px in `DESIGN.md`. Chi aggiunge una voce di menu deve rimisurare: a 1024px il margine è una trentina di pixel.
 - Animazioni d'ingresso: classe `.sr` (scroll-reveal via IntersectionObserver).
 - Niente effetti "da videogioco" sul sito istituzionale: l'atmosfera la fanno palette, tipografia, spaziature.
 

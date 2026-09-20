@@ -61,3 +61,272 @@ var L7=[
   {num:3,titolo:'Shin \u2014 La Tripla Fiamma che Traccia il Destino: Il Risveglio della Kundalini e l\u2019Attivazione del Terzo Occhio',sottotitolo:'Magia Ermetica Operativa per la Trasformazione del Futuro \u2014 3\u00aa Lezione, 7\u00b0 Anno',temi:['Creativit\u00e0 come Atto Divino','Shin la Triplice Fiamma e il Codice \u03c0','L\u2019Impulso Creativo, il Desiderio e l\u2019Energia Sessuale','Eros, Centro Sessuale e Magnetismo Bianco','Il Risveglio della Kundalini','Le Energie della Fonte: Fohat, Prana, Kundalini','L\u2019Antahkarana: il Filo della Coscienza','DNA e la Parola Latente','I 12 Strati del DNA','L\u2019Ankh \u2625: la Chiave della Vita','Luz: il Seme Immortale','Legge di Sincronicit\u00e0 e Legge di Unit\u00e0','La Fortuna e il Sincronismo Divino','Teurgia Bianca','La Protezione delle Entit\u00e0 di Luce','Decreti, Mantra e Icaro','Le 22 Lettere Ebraiche e la Ghematria','I Talismani','Focus: la Bacchetta Magica del Mago','Il Proposito: la Chiamata','Il S\u00e9 Futuro','La Struttura 64 e 72','64 Chiavi Genetiche','I 72 Nomi di Dio','Attivazione del Terzo Occhio','Gli Specchi Ermetici Bianchi e Neri'],citazione:'\u201cColui che conosce il fuoco che \u00e8 dentro di lui ascender\u00e0 al fuoco eterno e vivr\u00e0 eternamente in esso. Fuoco, il fuoco interiore, \u00e8 il pi\u00f9 potente di tutte le forze, da esso derivano tutte le cose e penetra tutte le cose della Terra.\u201d',autore:'Thot l\u2019Atlantideo \u2014 Tavola III, La Chiave della Saggezza'}
 ];
 
+/* ═══════════════════════════════════════════════════
+   TRADUZIONI INGLESI DELLE LEZIONI
+   Stanno in fondo a questo file e non in un file a parte: Anna Carla manda
+   gli aggiornamenti in italiano e chi li riporta deve vedere subito che
+   esiste anche una versione inglese da aggiornare. Un secondo file
+   resterebbe indietro in silenzio, come e' gia' successo col design system.
+   Il ciclo in coda le innesta come campo .en su ogni lezione, quindi i dati
+   italiani sopra non vengono toccati: se una traduzione manca, la pagina
+   inglese mostra l'italiano invece di rompersi.
+   Le citazioni di autori antichi usano la versione inglese consolidata dove
+   esiste (Ermete, Vangelo di Tommaso, Seneca, Rumi, Buddha); quelle degli
+   autori moderni sono tradotte dall'italiano.
+   ═══════════════════════════════════════════════════ */
+var L_EN = {
+L1: [
+ {titolo:'Are we truly free?',
+  sottotitolo:'Sleep and Awakening in the School of Consciousness and Alchemy',
+  desc:'Gurdjieff describes the human being as a <strong>carriage without a master</strong>: the physical body is the carriage, dragged along without control; the emotions are the horses, impulsive and without direction; the mind is the coachman, often distracted; consciousness is the passenger, asleep, who ought to be giving directions. Without awareness we live in a state of <strong>sleep</strong>: we act mechanically, we react to stimuli by reflex, we identify with masks and roles and lose touch with our authentic essence. As in the <strong>Labyrinth of Knossos</strong>, self-knowledge is the thread of Ariadne that lets us escape our psychological imprisonment. Only the awakening of consciousness can make us free.',
+  temi:['The way of Know Thyself — Γνῶθι Σεαυτόν','The prison of the Ego','The School of Awakening: values and aims','Opus Alchemicum — Work on Oneself','Horizontal and Vertical Evolution','The Law of Mechanicalness','A-B-C Influences','Gurdjieff’s Carriage and the House without a master','The Biological Machine','The Quintessence and the Philosopher’s Stone','The Law of Multiplicity, or Fragmentation of the I','The Process of Solve et Coagula','The Falling Asleep of Consciousness','Evolutionary Arcana VII-XI','Rules of Practice for Work on Oneself','The 3 Poisons and the 3 Remedies'],
+  citazione:'"There are minds that question, that long for the truth of the heart. If a man reasons and thinks soundly, he must inevitably return to himself."',
+  autore:'Georges Ivanovitch Gurdjieff'},
+
+ {titolo:'The Power of Here and Now: freeing yourself from the past, living the present',
+  sottotitolo:'The 96 Universal Laws — Lesson 2, Year 1',
+  desc:'Who is really in charge of our life? Beneath the surface several layers of the <strong>I</strong> coexist, from outward conditioning to the most authentic core of the Soul, and recognising them is the first step towards choosing instead of reacting. Nietzsche’s <strong>three metamorphoses</strong> offer an archetypal map of this inner transformation: from the weight of duty to rebellion, to pure creation. The alchemical path turns all of this into a practical <strong>Opus</strong> leading to the Philosopher’s Stone: the incarnation of the divine in everyday life, rather than an intellectual conquest.',
+  temi:['Hic et Nunc — Kairos and Kronos','The Law of Liberation','Mindfulness and Sati — Attention','Anicca, Dukkha and Anatta','The patterns of the Ego','The Drama and the Power of Here and Now','Pain, Suffering and Self-pity','The Threefold Division of the I','The 3 Metamorphoses, the Overman: Camel-Lion-Child','Philosophical Salt and the Sun — Gold','Higher Centres and Lower Centres','The Alchemical Fire: Focus','The Initiatory Trials','The Law of Acceleration','The Law of Reparation and the Permanent Centre of Gravity','Evolutionary Arcana XII-XIII'],
+  citazione:'"Nothing is more dangerous and deadly for the soul than to be endlessly occupied with oneself and one’s own condition, one’s dissatisfaction and solitary weakness."',
+  autore:'Hermann Hesse'},
+
+ {titolo:'Beyond Tangible Reality: the Harmony and Perfection of Life. How do we change a reality we do not like?',
+  sottotitolo:'The 96 Universal Laws — Lesson 3, Year 1',
+  desc:'<strong>Mental Pendulums</strong> jam when we drift away from our inner truth: we stay imprisoned within subliminal beliefs, invisible and polarising, like magnets that stop the pendulum returning to the centre. The behaviour that follows says nothing about us, only about the position we occupy in relation to the pendulum. Only by moving towards the centre does the being reveal itself as a living, authentic presence. The other central theme is the <strong>Lie</strong> as a betrayal of one’s own identity: every lie creates distance not only from others but from one’s own heart, the place of unity where truth and communion are felt.',
+  temi:['The Pythagorean Tetractys','The Law of the One','The Law of the Two','The Law of Rhythm','The Law of the Pendulum','Saṅkhāra and Conditioning Mental Formations','The Idea of Self and Mental Pendulums','The Law of Balance','The Law of Action and Reaction','The Law of the Three','The Law of the Boomerang','The Law of Return to the One','The Law of the Cycle','The Circle of Life: the Ouroboros','The Fall from Eden','The Law of Infinite Possibilities: Pi — π — and the Trinity','The Law of Reciprocity: the Golden and Silver Rules','Falsehood and Truth','The Dopamine Reward Cycle','The Mind and the Spiritual Ego','Evolutionary Tarot XIV and XV'],
+  citazione:'"Man is the maddest species: he worships an invisible God and destroys a visible Nature."',
+  autore:'Hubert Reeves'},
+
+ {titolo:'"The Inner Science of Creation" — Take your life into your own hands',
+  sottotitolo:'The 96 Universal Laws — Lesson 4, Year 1',
+  desc:'The <strong>Law of Cause and Effect</strong> reveals that nothing is accidental: the cosmos is a hidden order where every small change of course produces enormous differences in destiny. The <strong>Law of the Mirror</strong> shows that on this earth we do not receive by merit but by resonance: what we repress returns to be seen through others, inviting us to look inward rather than outward. <strong>Emotional Alchemy</strong> teaches that unprocessed emotions become poisons that intoxicate body, mind and relationships. Only by passing through feeling with presence can raw energy be transformed into creative force, and life taken into one’s own hands.',
+  temi:['Practice of Work on Oneself','The Law of Cause and Effect','Responsibility and Guilt: Stoicism','The Law of Attraction and Resonance','The Law of the Mirror','The Law of Precedence','Emotional Alchemy','Emotions — Feelings and Emotional Intelligence','The Law of Intentional Creation','The Law of Expectation and Doubt','The Creative Process and the Constant of Creation','The Maharishi Effect','The 2 Biological Response Systems: Cannabinoid and Opioid','The Pineal Gland: DMT, Anandamide, Pinealin and Gamma Waves','Evolutionary Arcana The Tower and The Star'],
+  citazione:'"Everything you are looking for is already within you. You are already what you are seeking. Do not look outside: what is outside is only a reflection."',
+  autore:'Osho'},
+
+ {titolo:'How to overcome blocks and reach your goals in life',
+  sottotitolo:'The 96 Universal Laws — Lesson 5, Year 1',
+  desc:'Why does every project sooner or later jam? The <strong>Law of Seven (of the Octave)</strong> explains that along the road to a goal there are unavoidable points of stagnation: the first is inward, when the initial energy runs out and doubts surface; the second is outward, when we are almost at the finish and resistance intensifies. <strong>Self-sabotage</strong> and <strong>victimhood</strong> are the natural deviations that switch on when we are not present to ourselves: by placing responsibility outside, we give up the power to act on our own life. Recognising these mechanisms is already the beginning of their dissolution.',
+  temi:['The Divine Seed and the Imago Dei: the Mystical Law','The Law of Karma and Dharma','The Noble Eightfold Path','Karmic Tendency, Karmic Loops and Counter-tendency','Karmic Debt and Credit','Positive and Negative Karma','The Law of Here and Now','The Law of Change','Esho Funi: the Principle of Non-Duality','The Laws of Responsibility and Acceptance','The Law of Seven, or of the Octave','Goals to Reach, Additional Shocks and the Final Challenge','Anticipatory Anxiety, Performance Anxiety and Hypersalience','Self-sabotage and Victimhood','Empty Doubt and Germinative Doubt','Spiritual Deviance and Synchronicities','The Law of Abundance','The Law of Non-attachment','The Law of Service','The Law of Impermanence'],
+  citazione:'"There is no favourable wind for the sailor who does not know where he is going."',
+  autore:'Seneca'},
+
+ {titolo:'How to turn negative emotions into fuel for your own evolution',
+  sottotitolo:'Alchemy: Transmuting Lead into Gold — Lesson 6, Year 1',
+  desc:'<strong>Emotions</strong> (from the Latin <em>e/ex-movēre</em>) are reactive impulses that rise from the depths and move us outwards. <strong>Feelings</strong> (from the Latin <em>sentire</em>) are inner perceptions, more stable and deeper: true Feeling. Learning to tell them apart is essential if we are not to be at the mercy of automatic reactions. The alchemical path passes through three great phases, <strong>Nigredo</strong>, <strong>Albedo</strong> and <strong>Rubedo</strong>: dissolution, purification and rebirth. The alchemist’s first instrument is the <strong>Alchemical Fire</strong>, born of the friction between inner discomfort and conscious observation: it is the fire that kindles transformation.',
+  temi:['Spiral Study and the Initiatory School','The Illusion of the Senses — Mundus Sensibilis','Extracerebral Consciousness — Mundus Imaginabilis','Observer and Witness — Parsifal','Identification and Self-Remembering','Definition and Characterisation','The 4 Minds','Negative Emotions — Riding the Tiger: Self-Mastery','Negative Imagination','Creative Imagination','The Law of Transmutation','The 3 Phases of Lower Alchemy: Nigredo, Albedo, Rubedo','Cauda Pavonis, Citrinitas, Iosis','Rebirth: the Phoenix','The Chrism','Amor Fati','Evolutionary Arcana: The Moon, The Sun, Judgement, The World','Sal-Nitre, Mercurius-Loquens and Sulphur-Ignis'],
+  citazione:'"Life begins where fear ends."',
+  autore:'Osho'}
+],
+L2: [
+ {titolo:'The Tao: the choice between Good and Evil, and Free Will',
+  sottotitolo:'The Universal Laws — Lesson 1, Year 2',
+  temi:['The Law of Polarity','Yin and Yang: the Tao and the teaching of Good and Evil','Goodness and Respectability','The Middle Way','The Law of Becoming, or Change','Karma, Destiny and Free Will','The Law of Free Will','The Sacred Triangles','The Law of the Ladder','Transurfing','The Crossroads and Discernment','The Law of the 8, or of Choice'],
+  citazione:'"All dualities must be abandoned. Duality as such must be abandoned, because you exist beyond duality."',
+  autore:'Osho'},
+
+ {titolo:'The Enneagram, the Sacred Geometry of the Soul and the Path of Personality',
+  sottotitolo:'The Universal Laws — Lesson 2, Year 2',
+  temi:['Identification with the Personality','Falling asleep and the Fall from Eden','Character as Destiny in the Circle of Samsara','The Law of the 9: the Enneagram as a Path of Deep Knowledge','The Sacred Geometry of the Soul: the Law of Unity, of 3 and of 7','Enneagram: Karma and Dharma','The Journey along the Way of Virtue and the Return Home','Personality and Character','Dominant Passions and Fixations','Instinctual Subtypes and Wings','The Law of the Salmon, or of Counter-tendency','Choices vs Decisions','The Law of Work on Oneself'],
+  citazione:'"Destiny and character are two names for the same concept."',
+  autore:'Hermann Hesse'},
+
+ {titolo:'Seek and you shall find… The Enneagram as a way back to yourself',
+  sottotitolo:'The 96 Universal Laws — Lesson 3, Year 2',
+  temi:['The Veil of Maya','Isis and Osiris','The 4 Steps of Initiatory Transmutation','The Inner Child','Divine Fire and Promethean Fire','Enneatype 9-8-1, the Gut Centre','Truth and Charisma','Numerological Archetype Warrior/Rebel (1)','Numerological Archetype Sovereign/Tyrant (8)','Numerological Archetype Liberator/Fallen Angel (9)','The 9 Faces of God'],
+  citazione:'"Let him who seeks not cease seeking until he finds; and when he finds he will be troubled, and when he is troubled he will marvel."',
+  autore:'Gospel of Thomas'},
+
+ {titolo:'Self-Remembering through the Enneagram',
+  sottotitolo:'The 96 Universal Laws — Lesson 4, Year 2',
+  temi:['The Law of Compensation','Self-Remembering and Buddhahood','The Mystical Law','The Law of Mystery','Judgement and Discernment','Non-Judgement','Enneatypes of the Emotional Centre (2-3-4)','Numerological Archetype 2 Child/Orphan','Numerological Archetype 3 Jester/Stranger','Numerological Archetype 4 Builder/Prisoner'],
+  citazione:'"Keep the Truth locked in your Heart, and let it speak through your Works. Science shall be your strength; Faith your sword."',
+  autore:'Hermes Trismegistus'},
+
+ {titolo:'Change — Overcoming resistance through the Enneagram',
+  sottotitolo:'The 96 Universal Laws — Lesson 5, Year 2',
+  temi:['Penelope’s Web','Self-sabotage and Procrastination','Change and Resistance','Pandora’s Jar and the Law of the Vessel','Enneatypes of the Mental Centre (5-6-7)','Numerological Archetype the Creator/the Wanderer (5)','Numerological Archetype the Guardian Angel/the Martyr (6)','Numerological Archetype the Sovereign/the Solitary (7)','The Conversion of Neurosis','The Holy Ideas','Id, Ego and Super-Ego','The Enneatypes and their Relationship with Others'],
+  citazione:'"Whoever looks at himself risks meeting himself. The mirror does not flatter; it shows the face we never show the world."',
+  autore:'Carl Gustav Jung'},
+
+ {titolo:'The Law of Love — Self-esteem, Self-love and Mission',
+  sottotitolo:'The 96 Universal Laws — Lesson 6, Year 2',
+  temi:['The 9 Enneatypes in Love','Self-love: Self-esteem and Acceptance','The 3 Types of Change','Identity: Values and Mission','Vision and Vocation','The Inner Guide','The Pyramid of Logical Levels and of Needs','Plato’s Myth of the Cave','The 3 Forms of Love: Eros, Agape, Philia','Choices of the Head, the Gut and the Heart','Pineal Gland, Eye of Horus and Eye of Ra','The Law of Love and the Opening of the Heart','The 4 Planes of Reality','The Force of Gravity','Krishna’s Maya: the Matrix and Holographic Reality'],
+  citazione:'"An act of love is to welcome within ourselves our most wounded and fragile part."',
+  autore:'Carl Gustav Jung'}
+],
+L4: [
+ {titolo:'The Ancient Wisdom and the Way that leads to manifesting Divinity',
+  sottotitolo:'School of Consciousness and Alchemy — Lesson 1, Year 4',
+  desc:'Evolution is not an abstract idea: it is the concrete unfolding of divine life within us. The <strong>monad</strong>, a spark from the supreme triangle, passes through four kingdoms (mineral, vegetable, animal, human) to bring into manifestation what lies latent in it as in a seed. Human beings are the only ones able to do this consciously. The <strong>law of creation</strong> is God becoming flesh; the <strong>law of evolution</strong> is flesh becoming God. Through the <strong>seven bodies</strong> (physical, etheric, astral, mental, causal, buddhic, atmic) the soul evolves: first by mastering the biological machine, then by activating the powers of the soul. Thoughts cultivated with intensity become inner forces in the next life; karmic tendencies repeat themselves unchanged; unsatisfied desires return as compulsions, while those satisfied and painful turn over into shadow.',
+  temi:['The Lord’s Prayer','The Way that leads to manifesting Divinity','The Ancient Wisdom and the Creation of Man','The Law of Creation','The Law of Evolution — The Path of the Right Hand','The Law of Analogy','Spirit-Matter, Atoms and Elementals','The Sevenfold Human Nature: the Higher Triad and the Lower Quaternary','The 7 Planes: Physical, Etheric, Astral, Mental, Causal, Buddhic, Atmic','Body, Soul and Spirit','Lilith, Samael, Gamaliel — The Path of the Left Hand','The Metamorphosis of Thoughts between one life and the next','Karmic tendencies and counter-tendencies','Karmic shadows and inverted desires','Suffering and Sacrifice','Sophia and the 5 points of the Ancient Wisdom','The Law of Attraction as a law of the astral body','Emotional impulse vs Instinct'],
+  citazione:'"One must seek not to be without sin, but to be a God. He who acts according to the theoretical virtues is a God. But he who acts according to the paradigmatic virtues is the Father of the Gods."',
+  autore:'Plotinus'},
+
+ {titolo:'Life after Death, the Afterlife and Reincarnation',
+  sottotitolo:'The Universal Laws — Lesson 2, Year 4',
+  desc:'What happens to our seven bodies after death? The <strong>mnemonic tableau</strong> shows us the whole life just ended as a karmic mirror, without emotional involvement. The soul then passes through the seven planes of <strong>Kamaloka</strong>, the place of desire: from the hells to the purgatories and on to the earthly paradises, purifying every attachment. At last it enters <strong>Devachan</strong>, the celestial realm, where it meets only the souls it has loved and gathers the fruits of all the good it accomplished in life. Every quality is amplified and turned into a faculty for the life to come. The lesson closes with the moment of <strong>clear vision</strong>: the soul is shown the broad lines of its next incarnation.',
+  temi:['Biocentrism','Life after Death and the Afterlife','The Law of Merit','The Law of Correspondence','The 3 Gunas: Tamasic, Rajasic, Sattvic','Kamaloka and Purification: the 7 planes','The Law of the Echo and of Reverberation','The Law of Retribution by analogy and by contrast','Devachan with form and without form: the 7 Heavens','The Transformation of Ability into Faculty','The Law of Sympathy, or of Affinity','The Soul Family','The 4 types of Attachment and karmic destiny','The Evolution of the 4 Kingdoms','Personality and Individualisation','The Law of Measure','The General Law of Reincarnation','The Mnemonic Seal of Previous Lives','The 49 days of the Bardo and Pentecost','Astral larvae and ghosts','The Law of Natural Recycling'],
+  citazione:'"No mortal man can become immortal merely by dying; he must have earned eternal life during his earthly existence. There is in man something incorruptible and eternal, and something corruptible and temporal."',
+  autore:'Paracelsus'},
+
+ {titolo:'The Shaping of Destiny, Karma and the Ascent of Man',
+  sottotitolo:'Universal Laws — Lesson 3, Year 4',
+  desc:'The <strong>monad</strong>, a divine spark, descends through the mineral, vegetable, animal and human kingdoms, bringing a new quality to each: form, growth, movement, self-awareness. Only in the human being does the <strong>sutratma</strong> form, the thread of memory that, life after life, brings to manifestation a soul project that is unique and unrepeatable. <strong>Karma</strong> is not a punishment but a law of ripening: karma of character, of bond, reflected karma, karma of saturation, each with its own way of dissolving. At the centre of it all: the three poisons of existence (ignorance, aversion, attachment), the three dojos of transformation (family, couple, work) and Saint Germain’s <strong>Violet Flame</strong> as an alchemical instrument of purification. The lesson closes with a cosmic vision: from the enlightenment of one person to the formation of a star, and on to the supernova as the last sacrifice of the solar logos.',
+  temi:['The Monad and the 4 Kingdoms','The Sutratma: the monadic thread of memory','The age of the Soul: young, mature, ancient','Karma and the shaping of destiny','Karma of character, of bond, reflected, of saturation','The 3 poisons: ignorance, aversion, attachment','The 4 Lipika: the Lords of Karma','DNA as a karmic book','Ripe karma and karma in formation','The debt of gratitude','The 3 dojos of transformation: family, couple, work','The Law of Connection','The Law of Sacrifice and Sacrum Facere','The Law of the Common Trogo-Auto-Egocratic-Cosmic Process','Saint Germain’s Violet Flame: Solve et Coagula','The I AM and Christ consciousness','The Formation and Evolution of a Cosmos','The 7 Root Races: from the Polarian to the Paradisiacal','Luciferic and Ahrimanic Spirits','The Asura and the Antichrist','The Way of the Arrow and the Way of the Serpent','The Law of Focusing','The Akashic Law','The Halls of Amenti'],
+  citazione:'"In sacrifice the ego kneels and the soul rises. What at first appears as suffering is transformed into a noble act of offering for a higher good."',
+  autore:'Corrado Debiasi'}
+],
+L3: [
+ {titolo:'The Tree of Life and the Ascent back to Eden',
+  sottotitolo:'The Universal Laws — Lesson 1, Year 3',
+  temi:['The Fall and the Ascent back to Eden','Adam Kadmon','The Tree of Life and the Immortal Fruits','The Law of Magic','The Law of Unlatching, or Activation','The Law of the 10','The Principle of the Tithe and the Law of Communicating Vessels','The Akashic Records','Emanation and Conversion of Light','The Sephirotic and Qliphotic Tree','The Meaning of the Sephiroth','The Law of Potential Difference','Binary and Quantum Code: Free Will'],
+  citazione:'"The Tree of Life sinks its roots in your own heart."',
+  autore:'Jalal ad-Din Rumi'},
+
+ {titolo:'Creation through Sacred Geometry',
+  sottotitolo:'The Universal Laws — Lesson 2, Year 3',
+  temi:['The importance of Right Thinking','From the Seed to the Tree of Life','The Flower of Life — The Fruit of Life — Metatron’s Cube','The Merkaba and Wormholes','The Vesica Piscis and the Sacred Feminine','Daily Bread: Ask and it shall be given you','The 3 Pillars and the 3 Triads','The 22 Arcane Paths','The Law of the 13, or of Self-Remembering','The Memory of Water','The Golden Spiral and Phidias’ Constant Φ (PHI)','Christ, or Crystal, Consciousness','Personal Power and the Growth of the Level of Consciousness','The 10 Dimensions','Natural Law and the Law of the Higher, or Eternal, Will','Temperance and Work on Oneself'],
+  citazione:'"If we could see the miracle of a single flower, our whole life would change."',
+  autore:'Buddha'},
+
+ {titolo:'The Magician, Magic and the Words of Power',
+  sottotitolo:'The Universal Laws — Lesson 3, Year 3',
+  temi:['The 3 States of Water and the Tree of Life','The Creative Word: Cymatics, Sound becoming Form','Om-Aum, the Sound of Creation','Adam and the Power of Naming Things','Form and Function','The Tower of Babel and the Lost Word','The Word of Power, or Magic Word, and the Power of Words','Sign Words -Rhombus- and Single Words -Triangle-','Esotericism and Exotericism: the Religious, the Mystic, the Magician','Natural Magic and Hermetic Magic','The Law of Compensation','The Law of Magical Exchange, Sacrifices and the Magi','The Law of Focus, the Magic Wand','Egregores, or Thought-Forms','Subpersonalities','The Law of Connection','Inner Attitude — the State of Mind','The Observer Effect','Thought and the Magical Gaze'],
+  citazione:'"Are there only facts? I would say: no, facts is precisely what there is not, only interpretations."',
+  autore:'Friedrich Nietzsche'},
+
+ {titolo:'Reaching Da’at, the Hidden Sephira: unifying Knowledge and the Divine Power concealed in DNA',
+  sottotitolo:'The Laws of the Universe — Lesson 4, Year 3',
+  temi:['Ho’oponopono and Hermetic Magic','The Family Theatre','The Solar Way of Consciousness, or Way of the Heart','Rising through Tiphareth-Geburah-Chesed','The importance of Right Communication','The Law of the 6, or Law of the Reunion of Opposites, or of Choice','The Law of Liberation','The Star of David — the Seal of Solomon','The Hexagon and the Law of Efficiency','The Law of Determination','The Courage and Strength of the Lion','Service and Agni Yoga','Da’at, the Hidden Sephira — Akasha','The Abyss and the Sibyl’s Cave','Silence','The Quantum Vacuum and Zero-Point Energy','The Miracle','The Law of Reversal — The Law of the Gift','The Divine Logos concealed in DNA-GNA'],
+  citazione:'"The two most important days in your life are the day you are born and the day you find out why."',
+  autore:'Mark Twain'},
+
+ {titolo:'Shamballa, the Kingdom of Light: the 7 Rays and the 7 Initiations for the return to the Father’s House',
+  sottotitolo:'The Universal Laws — Lesson 5, Year 3',
+  temi:['How to Return to the One','The 7 Rays','The 3 Veils that Lead to Truth','The Initiatory Way','The 7 Initiations','The Ascended Masters and Shamballa','The Law of Necessity','The Law of Free Will','The Law of Divine Providence','Pythagoras’ Theorem','The Law of Forgiveness','The 7 Petitions of the Lord’s Prayer — 7 Deadly Sins — 7 Gifts of the Holy Spirit','Magic: the Path of the Right Hand and of the Left Hand','The Initiatory Life of Jesus and His Mission: the Christ'],
+  citazione:'"You are not separate from the whole. You are one with the sun, the earth, the air. You do not have a life. You are life."',
+  autore:'Eckhart Tolle'},
+
+ {titolo:'Compassion — Transcending Duality, beyond the Dream of Consciousness',
+  sottotitolo:'The Universal Laws — Lesson 6, Year 3',
+  temi:['The Importance of the Flesh, Malkuth','Discernment','The Law of Personal Power','The Way of the Arrow and the Way of the Serpent','The Probationary Path and the Path Proper','Anxiety-Anguish and Right Detachment in Zen','The Law of Focus','The Cosmic Egg and the Rebis','The Dream of Consciousness and the Matrix','I Am the Supreme: Being in Congruence with the Higher Nature','Self-Remembering and the Silent Witness','The I Am and Saint Germain’s Violet Flame','True Freedom','Transcending the Duality of the Pendulum','Compassion, Loving Kindness and Gratitude','Taoist and Gospel Paradoxes, the Way of Wisdom'],
+  citazione:'"Whoever perceives at once his own shadow and his own light sees himself from two sides and so reaches the centre."',
+  autore:'C.G. Jung'}
+],
+
+L5: [
+ {titolo:'From Alchemy to Magic',
+  sottotitolo:'The Universal Laws — Lesson 1, Year 5',
+  temi:['Jacob’s Ladder: the Spiritual Hierarchy and Gurdjieff’s 7 States of Consciousness','White Magicians, Black Magicians and Aspiring Magicians','Hermetic Magic','The Shadows','The Art of Attention','The Will','Hermetic Philosophy','Hermes Trismegistus: Thoth the Atlantean','How to reach the Wisdom of the Emerald Tablets','The Hermetic Triad','Fractality'],
+  citazione:'"Within thee, O man, I have placed my Knowledge. Within thee I have placed my Light. Hear me now and receive my Wisdom, which I have brought from the planes of Space that are Above and Beyond."',
+  autore:'Emerald Tablet VIII — Hermes Trismegistus'},
+
+ {titolo:'The 7 Great Hermetic Principles',
+  sottotitolo:'The Universal Laws — Lesson 2, Year 5',
+  temi:['The 7 Hermetic Principles — The Kybalion','The Law of Mentalism','The Law of Correspondence','The Law of Vibration','The Law of Rhythm','The Law of Neutralisation','The Law of Gender','The Law of Causality','The Law of Compensation, or of the Price','The Law of Use','The Law of Assumption, or Responsibility','Mental Transmutation','The Law of the Divine Paradox','The Law of the All','The All and the Spirit','Mental Gender: the Sacred and Desecrated Feminine and Masculine','Room 101: the Daring to Face One’s Own Demons','How the Mind Works in Magic','Mental Suggestion'],
+  citazione:'"When the ears of the pupil are ready to hear, then cometh the lips to fill them with wisdom. The lips of Wisdom are closed, except to the ears of Understanding."',
+  autore:'The Kybalion — Hermetic Teachings'},
+
+ {titolo:'Hermetic Magic through the 5 Elements',
+  sottotitolo:'The Universal Laws — Lesson 3, Year 5',
+  temi:['The Magic of the Pure Heart: Tiphareth, Chokmah','Prayer and Faith','Beliefs and Mental Representations','How Limiting Beliefs are Born','How to Transmute the Convictions and Beliefs that Block our Potential','Autosuggestion: the Subconscious — Here and Now','Logos-Word-Speech-Information: DNA','The 13 Wishes of Alā’ ad-Dīn','The 15 Elements in Hermetic Magic','The Law of the Life Cycle','Lapis Philosophorum — the Philosopher’s Stone','From Believing to Perceiving','The Law of the Name'],
+  citazione:'"Unless you make yourself equal to God, you cannot understand God. Grow to a greatness beyond all measure, make yourself Eternity: then you will understand God."',
+  autore:'Hermes Trismegistus, Corpus Hermeticum'}
+],
+
+L6: [
+ {titolo:'The Emerald Tablets and the Astral Wounds',
+  sottotitolo:'The Laws of the Universe — Lesson 1, Year 6',
+  temi:['A Classification of Magic','The Law of Similarity and the Law of Contact','The Making of the Philosopher’s Stone','Perceptual Filters: the 7 Principles','The Astral Wounds','First Proposition of the Emerald Tablets','The 3 Substances: Mercury, Sulphur, Salt','Second Proposition of the Emerald Tablets','Chaos','Astral Wounds and Spiritual Talents','The Alchemy of the Astral Wounds','Wounds as Transforming Agents','The Positive Way and the Negative Way','Deterministic Chaos','Emotion as a Teacher of Life','Third Proposition of the Emerald Tablets','The Ray of Creation and the Table of Hydrogens','Our Nature of Light'],
+  citazione:'"To know the divine Essence is the spiritual destination of our Soul, which was sent to earth by the Creator of the universe."',
+  autore:'Pythagoras'},
+
+ {titolo:'The Formation of the Astral Wounds and the Process of Incarnation',
+  sottotitolo:'The Universal Laws — Lesson 2, Year 6',
+  temi:['Movement and Avoidance','The 4 Intrinsic Forces','The Plasmas — OB and OR','Fourth Proposition — Emerald Tablets','The Telesma — OD','Memory, Information and Impregnation','The Process and Tunnel of Incarnation','The Birth of the Astral Wound','The Zodiac and the 12 Constellations','The 6 Axes and the 3 Crosses','The Encounter with the Celestial Bodies: the Genesis of the Wound','Fifth Proposition — Emerald Tablets','The Water of the Hermetists','The Law of Measure','Masks and Wounds'],
+  citazione:'"Of all creation, man is the only twofold being: mortal in his body, immortal in his Essence."',
+  autore:'Hermes Trismegistus'},
+
+ {titolo:'The 7 Keys of Inner Realisation: Archetypal Magic',
+  sottotitolo:'From the Astral Wounds to the Spiritual Talents — Lesson 3, Year 6',
+  temi:['Sixth Proposition of the Emerald Tablets','Pentacle-Adam Kadmon-Glory','The Pain Body','Facts vs Experiences','Seventh Proposition of the Emerald Tablets','The Planets as Concentric Nuclei of the I','Eighth Proposition of the Emerald Tablets','The 7 Astral Wounds and the 7 Masks','Healing the Wounds with Awareness','The 7 Spiritual Talents','The 7 Keys of Inner Realisation','The Tetrapolar Magnet, the Astral Matrix and the Aura','The Astrological Archetypes','Ninth Proposition of the Emerald Tablets','Sutratma — Antahkarana — Creative Activity','Tenth Proposition of the Emerald Tablets'],
+  citazione:'"Knowledge is Magic and is the only Law. Fear not the power within thee, for it follows the LAW, as do the stars in the sky. Follow and learn my Magic. Know that all Force is thine if thou wilt it."',
+  autore:'Thoth the Atlantean'}
+],
+
+L7: [
+ {titolo:'The Veil of Mem: Shamanic Initiation into the Mystery of the Past',
+  sottotitolo:'Operative Hermetic Magic for the Transmutation of the Past — Lesson 1, Year 7',
+  temi:['Introduction to Operative Hermetic Magic','The Unified Field of Consciousness','Hermetic Magic and Shamanism: a Path of Transformation','Shamanism: Techniques and Practices','Tonal and Nagual: the Three Worlds of the Nagual','The Shamanic Drum: Resonance with the Earth and the Altered State, or Shamanic Trance','Kronos, Kairos and Aion, the Time of God','Multidimensionality: Time as a Spiral and the I as a Fractal','Energy Portals: the Hebrew Letters','Rewriting the Energetic Past: Healing through Memory','The Shamanic Journey: Crossing the Veil of Time'],
+  citazione:'"Know the world in yourself. Never look for yourself in the world, for this would be to project your illusion."',
+  autore:'Ancient Egyptian Proverb'},
+
+ {titolo:'The Breath of Aleph: Shamanic Initiation into the Mystery of the Living Present',
+  sottotitolo:'Operative Hermetic Magic for the Transformation of the Present — Lesson 2, Year 7',
+  temi:['The Shamanic Journey to Recover Soul Fragments','Aleph — the Portal of the Present','Information and the Holographic Principle','Multiverse and Multidimensionality','The Medicine Wheel and the Medicine People','Alpha a — the Fine-Structure Constant and the Law of Manifestation','Crisis as a Portal','The Guardians of the Threshold: Archons, Inner Demons and Related Elements','Transforming the Inner Demons: Feeding, Naming, Reintegrating','Assuming the Archetype and Creating the Golem','The Law of Authentic Intention: Ichinen Sanzen','The Law of Coherence','Cognitive Codices and Unconscious Codices','Working with Symbols','Archetypes of the Organs and Energetic Healing'],
+  citazione:'"What we have concealed in one place, we have revealed in another, that it may be understood by your wisdom."',
+  autore:'Heinrich Cornelius Agrippa von Nettesheim'},
+
+ {titolo:'Shin — The Triple Flame that Traces Destiny: the Awakening of Kundalini and the Activation of the Third Eye',
+  sottotitolo:'Operative Hermetic Magic for the Transformation of the Future — Lesson 3, Year 7',
+  temi:['Creativity as a Divine Act','Shin, the Triple Flame, and the π Code','The Creative Impulse, Desire and Sexual Energy','Eros, the Sexual Centre and White Magnetism','The Awakening of Kundalini','The Energies of the Source: Fohat, Prana, Kundalini','The Antahkarana: the Thread of Consciousness','DNA and the Latent Word','The 12 Layers of DNA','The Ankh ☥: the Key of Life','Luz: the Immortal Seed','The Law of Synchronicity and the Law of Unity','Fortune and Divine Synchronism','White Theurgy','The Protection of the Beings of Light','Decrees, Mantras and Icaros','The 22 Hebrew Letters and Gematria','Talismans','Focus: the Magician’s Wand','Purpose: the Calling','The Future Self','The Structure of 64 and 72','The 64 Gene Keys','The 72 Names of God','Activation of the Third Eye','The White and Black Hermetic Mirrors'],
+  citazione:'"He who knows the fire that is within himself shall ascend unto the eternal fire and dwell in it eternally. Fire, the inner fire, is the mightiest of all forces, for all things come from it and it penetrates all things of Earth."',
+  autore:'Thoth the Atlantean — Tablet III, The Key of Wisdom'}
+],
+
+LESP: [
+ {titolo:'Experiential seminar — The Essene Mirrors & the Enneagram',
+  sottotitolo:'Masseria Chinunno, Foresta Mercadante',
+  temi:['Seeing yourself through the 7 Essene Mirrors','Finding yourself again through the Geometry of the Soul','The Essene Mirrors and the Enneagram','Day 29: theory and practice seminar','Day 30: group practice and exercises in nature','In collaboration with Eleonora Digregorio'],
+  citazione:'"Every man’s life is a road towards himself."',
+  autore:'Hermann Hesse'},
+
+ {titolo:'Residential retreat — Kindle your Alchemical Fire',
+  sottotitolo:'Intensive residential',
+  temi:['A shared experience for stepping out of your comfort zone','Bringing Presence into the HERE-and-NOW of everyday life','Training in PRESENCE and SELF-MASTERY','Shared experiences in nature','Living together: staying in constant OBSERVATION of your own mechanisms','In collaboration with Eleonora Digregorio and Paolo Michele Colella'],
+  citazione:'"True self-discovery begins where your comfort zone ends."',
+  autore:'Adam Braun'},
+
+ {titolo:'The Magic of the 4 Elements and the Quintessence',
+  sottotitolo:'Experiential seminar in nature for Aspiring Magicians',
+  temi:['The 4 Elements: Fire-Air-Water-Earth','Love and Strife','Every Element carries a Message','The 4 Elements, one by one','Virtue Regained','What happens when an Element is missing?','Nature Spirits and their Magic: Salamanders, Sylphs, Undines and Gnomes','Magical Aspects','Handling the Magic of the 4 Elements in daily life, and the Perfect Magic Potion'],
+  citazione:'"The harmony between a person’s inner rhythms and the outer rhythms of nature is the foundation of one’s sense of identification with the cosmos."',
+  autore:'Alexander Lowen'},
+
+ {titolo:'Wealth, Abundance and Mission — The Keys of Inner Realisation',
+  sottotitolo:'Masseria Chinunno, Foresta Mercadante',
+  temi:['Abundance and Mission: why and how are they connected?','Which Laws govern them?','The archetypal symbols: Uranus, Neptune, Pluto'],
+  citazione:'"Abundance is not something you acquire. It is something you tune in to."',
+  autore:'Wayne Dyer'},
+
+ {titolo:'The Tao in the Alchemy of the Couple',
+  sottotitolo:'Seminar in nature — experiential course, theory and practice',
+  temi:['The couple as an alchemical instrument for reaching the Tao of the Sacred Meeting of Opposites','The divine meeting of Masculine and Feminine within and without','How to sublimate your relationship, or welcome your Soul Mate','Sessions of Meditation, Biodanza, Tantra Yoga and Indian Sacred Music'],
+  citazione:'"Lovers are mirrors to each other. Love makes you aware of your original face."',
+  autore:'Osho'},
+
+ {titolo:'The Archetypal Journey of the Soul through the 22 Evolutionary Arcana',
+  sottotitolo:'Seminar, theory and practice',
+  temi:['Work on oneself through the Major Arcana, across the 22 fields of experience','The steps our Soul takes in every life'],
+  citazione:'"Know what is before your face, and what is hidden from you will be revealed to you."',
+  autore:'Jesus of Nazareth'},
+
+ {titolo:'The 7 Chakras — Loving Yourself',
+  sottotitolo:'Masseria Chinunno, Cassano (BA)',
+  temi:['The 7 Chakras','The Wounds and Emotions of the Chakras','Healing the 7 Chakras','Activating the 7 Portals','The Rights of the Chakras','Activating the Universal Laws by rebalancing the 7 Chakras','Learning to love yourself','Relationships and the 7 Chakras','Activating our Magnetism','Exercises and Meditations in Nature'],
+  citazione:'"No outward grace is complete unless it is interpenetrated and quickened by inner beauty."',
+  autore:'Victor Hugo'}
+]
+};
+
+/* Innesto: ogni traduzione diventa il campo .en della lezione corrispondente,
+   per posizione nell'array. I dati italiani sopra non vengono toccati, e una
+   lezione senza traduzione mostra l'italiano invece di rompere la pagina. */
+(function(){
+  var mappa = {L1:L1, L2:L2, L3:L3, L4:L4, L5:L5, L6:L6, L7:L7, LESP:LESP};
+  Object.keys(L_EN).forEach(function(k){
+    if(!mappa[k]) return;
+    L_EN[k].forEach(function(t,i){ if(mappa[k][i]) mappa[k][i].en = t; });
+  });
+})();

@@ -75,7 +75,8 @@ va scritto due volte.
   contenuti va applicata a entrambi.
 - `lezioni.js` è la fonte di verità dei contenuti delle lezioni (array
   `L1`…`L7`, un array per anno). Nessun testo sul percorso di studi va
-  scritto senza averlo consultato.
+  scritto senza averlo consultato. Le traduzioni inglesi stanno in `L_EN`
+  nello stesso file e vanno aggiornate insieme all'italiano.
 - Una lezione di cui si conosce solo la data si inserisce con i soli campi
   `num`/`day`/`month`/`year`: il calendario ha già lo stato «programma in
   definizione». Titoli e temi non si inventano.
