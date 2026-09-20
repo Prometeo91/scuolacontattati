@@ -335,7 +335,7 @@
     </script>
 
  <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) — self-hosted, zero dipendenze esterne -->
-  <link rel="stylesheet" href="../style.css?v=20260920a"/>
+  <link rel="stylesheet" href="../style.css?v=20260920b"/>
   <noscript><style>.sr{opacity:1!important;transform:none!important}</style></noscript>
 
 </head>
@@ -390,7 +390,7 @@
     </blockquote>
 
     <details class="read-more">
-      <summary><span class="read-more-more">Continue reading</span><span class="read-more-less">Show less</span></summary>
+      <summary><span class="read-more-more">Read more</span><span class="read-more-less">Show less</span></summary>
 
       <blockquote class="section-blockquote">
         The path of Know thyself is a path of freedom. Spiritual alchemy teaches us to transmute each of our flaws into its opposite quality, lead into gold, transforming what is mechanical into what is conscious.
@@ -1051,7 +1051,7 @@
   <div class="glass-card">
     <p class="body-text-sm mb-1">According to the ancient Vedic texts, Wealth manifests in eight forms. True well-being arises from the harmony of all these dimensions. Today the scale of priorities is often inverted: we start from the bottom, from material subsistence, forgetting that the highest form of Wealth is inner spiritual knowledge.</p>
     <details class="read-more" style="margin-top:0.4rem;">
-      <summary><span class="read-more-more">See the 8 forms</span><span class="read-more-less">Show less</span></summary>
+      <summary><span class="read-more-more">Show the 8 forms</span><span class="read-more-less">Show less</span></summary>
       <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 4px 1.5rem; margin-top:0.5rem;">
       <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">1.</span> Inner spiritual knowledge</p>
       <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">2.</span> Service: offering oneself in a project of value</p>
@@ -1579,9 +1579,16 @@
     var p=document.getElementById('panel-anno-'+tab.dataset.anno);
     if(p)p.style.display='block';
   }
+  /* L'anno aperto finisce nell'URL, cosi' si puo' mandare a qualcuno il link
+     di un anno preciso. replaceState e non pushState: il tasto Indietro deve
+     riportare alla pagina da cui si arriva, non al tab precedente. */
+  function segnaURL(tab){
+    if(!window.history||!history.replaceState)return;
+    try{history.replaceState(null,'','#anno-'+tab.dataset.anno);}catch(e){}
+  }
   tabs.forEach(function(tab,i){
     if(tab.classList.contains('disabled'))return;
-    tab.addEventListener('click',function(){activate(tab);});
+    tab.addEventListener('click',function(){activate(tab);segnaURL(tab);});
     tab.addEventListener('keydown',function(e){
       var idx=Array.prototype.indexOf.call(tabs,tab);
       var next=-1;
@@ -1589,7 +1596,7 @@
       else if(e.key==='ArrowLeft'||e.key==='ArrowUp'){next=(idx-1+tabs.length)%tabs.length;}
       else if(e.key==='Home'){next=0;}
       else if(e.key==='End'){next=tabs.length-1;}
-      if(next>=0){e.preventDefault();activate(tabs[next]);}
+      if(next>=0){e.preventDefault();activate(tabs[next]);segnaURL(tabs[next]);}
     });
     /* Only the active tab is reachable via Tab key */
     if(!tab.classList.contains('active'))tab.setAttribute('tabindex','-1');
@@ -1630,7 +1637,7 @@
 })();
 </script>
 <script src="../data/eventi.js?v=20260908a" defer></script>
-<script src="../app.js?v=20260920a" defer></script>
+<script src="../app.js?v=20260920b" defer></script>
 <script>
 /* GAME SEALS — show ✦ on completed game cards */
 (function(){

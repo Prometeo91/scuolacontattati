@@ -32,9 +32,9 @@ var SC_T = SC_EN ? {
   formOkTitolo:'✓ Message sent',
   formOkTesto:'Thank you! We have received your message and will reply as soon as possible.',
   formErroreTitolo:'Sending error',
-  formErroreTesto:'Something went wrong. Please try writing to us directly via WhatsApp or email.',
+  formErroreTesto:'Something went wrong. You can write to us directly:',
   formConnTitolo:'Connection error',
-  formConnTesto:'Unable to send the message. Check your connection and try again, or write to us directly via WhatsApp.',
+  formConnTesto:'Unable to send the message. Check your connection and try again, or write to us directly:',
   mostraMeno:'Show fewer ▴', mostraTutte:'Show all photos ▾',
   mostraRiflessioni:'Show all reflections ▾', menoRiflessioni:'Show fewer ▴',
   foto:'Photo', fotoPrec:'Previous photo', fotoSucc:'Next photo', chiudi:'Close'
@@ -60,9 +60,9 @@ var SC_T = SC_EN ? {
   formOkTitolo:'✓ Messaggio inviato',
   formOkTesto:'Grazie! Abbiamo ricevuto il tuo messaggio e ti risponderemo il prima possibile.',
   formErroreTitolo:'Errore nell’invio',
-  formErroreTesto:'Qualcosa è andato storto. Prova a scriverci direttamente via WhatsApp o email.',
+  formErroreTesto:'Qualcosa è andato storto. Puoi scriverci direttamente:',
   formConnTitolo:'Errore di connessione',
-  formConnTesto:'Impossibile inviare il messaggio. Verifica la tua connessione e riprova, oppure scrivici direttamente via WhatsApp.',
+  formConnTesto:'Impossibile inviare il messaggio. Verifica la tua connessione e riprova, oppure scrivici direttamente:',
   mostraMeno:'Mostra meno ▴', mostraTutte:'Mostra tutte le foto ▾',
   mostraRiflessioni:'Mostra tutte le riflessioni ▾', menoRiflessioni:'Mostra meno ▴',
   foto:'Foto', fotoPrec:'Foto precedente', fotoSucc:'Foto successiva', chiudi:'Chiudi'
@@ -175,9 +175,11 @@ document.addEventListener('DOMContentLoaded', function() {
     function updThemeBtn(){
       var soleSvg='<svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="10" cy="10" r="3.5"/><line x1="10" y1="2.5" x2="10" y2="4.5"/><line x1="10" y1="15.5" x2="10" y2="17.5"/><line x1="2.5" y1="10" x2="4.5" y2="10"/><line x1="15.5" y1="10" x2="17.5" y2="10"/><line x1="4.7" y1="4.7" x2="6.1" y2="6.1"/><line x1="13.9" y1="13.9" x2="15.3" y2="15.3"/><line x1="4.7" y1="15.3" x2="6.1" y2="13.9"/><line x1="13.9" y1="6.1" x2="15.3" y2="4.7"/></svg>';
       var lunaSvg='<svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14.3 13.5A6.5 6.5 0 0 1 6.5 5.7 6.5 6.5 0 1 0 14.3 13.5z"/></svg>';
+      /* La .lbl va riscritta ogni volta: il CSS la nasconde dove la barra e'
+         stretta, e senza questo span il toggle restava con la scritta. */
       themeBtn.innerHTML=isDark
-        ?'<span class="theme-toggle-icon">'+soleSvg+'</span> '+SC_T.temaChiaro
-        :'<span class="theme-toggle-icon">'+lunaSvg+'</span> '+SC_T.temaScuro;
+        ?'<span class="theme-toggle-icon">'+soleSvg+'</span> <span class="lbl">'+SC_T.temaChiaro+'</span>'
+        :'<span class="theme-toggle-icon">'+lunaSvg+'</span> <span class="lbl">'+SC_T.temaScuro+'</span>';
     }
     updThemeBtn();
     themeBtn.addEventListener('click',function(){
@@ -409,19 +411,29 @@ document.addEventListener('DOMContentLoaded', function() {
       box.hidden=false;
     }
 
-    /* Tab di default sull'anno in corso. Non si riusa activate() del markup
-       perché quella chiama focus(), che al caricamento porterebbe la pagina
-       a saltare sul calendario. */
-    if(pross&&pross.anno!==1){
-      var tab=document.getElementById('tab-anno-'+pross.anno);
-      if(tab){
+    /* Quale anno si apre: quello scritto nell'URL (#anno-3, #anno-esp), che
+       rende linkabile un anno preciso, altrimenti quello della prossima
+       lezione. Non si riusa activate() del markup perché quella chiama
+       focus(), che al caricamento porterebbe la pagina a saltare sul
+       calendario. */
+    var daURL=(location.hash||'').match(/^#anno-(\d|esp)$/);
+    var annoSel=daURL?daURL[1]:(pross&&pross.anno!==1?String(pross.anno):null);
+    if(annoSel){
+      var tab=document.getElementById('tab-anno-'+annoSel);
+      if(tab&&!tab.classList.contains('disabled')){
         document.querySelectorAll('.anno-tab').forEach(function(x){
           x.classList.remove('active');x.setAttribute('aria-selected','false');x.setAttribute('tabindex','-1');
         });
         tab.classList.add('active');tab.setAttribute('aria-selected','true');tab.setAttribute('tabindex','0');
         document.querySelectorAll('.anno-panel').forEach(function(p){p.style.display='none';});
-        var pan=document.getElementById('panel-anno-'+pross.anno);
+        var pan=document.getElementById('panel-anno-'+annoSel);
         if(pan)pan.style.display='block';
+        /* #anno-3 non è l'id di nessun elemento: il browser non scrolla da
+           solo, e chi apre il link resterebbe in cima alla pagina. */
+        if(daURL) window.addEventListener('load',function(){
+          var cal=document.getElementById('calendario');
+          if(cal)cal.scrollIntoView();
+        });
       }
     }
 
@@ -550,9 +562,15 @@ document.addEventListener('DOMContentLoaded', function() {
     var cFb=document.getElementById('form-feedback');
     var cStart=Date.now(); /* anti-bot: track page load time */
 
-    function showFeedback(kind,title,body){
+    /* Se l'invio fallisce, WhatsApp e email vanno offerti come link veri:
+       scritti nel testo del messaggio, da telefono non si possono toccare. */
+    var cFallback='<span class="form-feedback-links">'
+      +'<a href="https://wa.me/393349991888" target="_blank" rel="noopener">WhatsApp 334 999 1888</a>'
+      +'<a href="mailto:'+em+'">'+em+'</a></span>';
+
+    function showFeedback(kind,title,body,azioni){
       cFb.className='form-feedback visible '+kind;
-      cFb.innerHTML='<strong>'+title+'</strong>'+body;
+      cFb.innerHTML='<strong>'+title+'</strong>'+body+(azioni||'');
       /* Scroll the feedback into view smoothly if off-screen */
       var r=cFb.getBoundingClientRect();
       if(r.top<0||r.bottom>window.innerHeight){
@@ -607,15 +625,15 @@ document.addEventListener('DOMContentLoaded', function() {
             var msg=(json&&json.errors&&json.errors.length)
               ? json.errors.map(function(e){return e.message;}).join(' ')
               : SC_T.formErroreTesto;
-            showFeedback('error',SC_T.formErroreTitolo,msg);
+            showFeedback('error',SC_T.formErroreTitolo,msg,cFallback);
           }).catch(function(){
-            showFeedback('error',SC_T.formErroreTitolo,SC_T.formErroreTesto);
+            showFeedback('error',SC_T.formErroreTitolo,SC_T.formErroreTesto,cFallback);
           });
         }
       }).catch(function(){
         cBtn.classList.remove('is-loading');
         cBtn.disabled=false;
-        showFeedback('error',SC_T.formConnTitolo,SC_T.formConnTesto);
+        showFeedback('error',SC_T.formConnTitolo,SC_T.formConnTesto,cFallback);
       });
     });
   }

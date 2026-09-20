@@ -16,6 +16,8 @@ colors:
   on-gold: "#1a1000"
   tag-olistica: "#b49fe0"
   tag-coaching: "#7de0a0"
+  ok-text: "#7de0a0"
+  ko-text: "#e8a0a0"
 typography:
   display:
     fontFamily: "'EB Garamond', 'EBGaramond-fallback', Georgia, serif"
@@ -292,10 +294,27 @@ Il ritmo verticale è dato dall'alternanza tra sezioni normali e sezioni con
 la velatura `--band` a piena larghezza, più il filetto epigrafico
 (`.epigraphic-rule`) che separa i blocchi con un glifo al centro.
 
-I breakpoint in uso sono **768px** (navigazione, griglie principali), **700px**
+I breakpoint in uso sono **1024px** (navigazione), **768px** e **700px**
 e **640px** (griglie a due colonne che collassano a una) e **480px** (card che
 passano da riga a colonna). Non c'è un sistema di griglia astratto: ogni
 sezione dichiara la propria `grid-template-columns` e il proprio collasso.
+
+### La barra di navigazione ha tre assetti
+
+Le undici voci del menu (otto sezioni, Portale Allievi, selettore di lingua,
+toggle del tema) misurano 1159px con la spaziatura piena: stanno accanto al
+logo su una riga sola **solo da 1444px in su**.
+
+- **≥ 1444px**: una riga, spaziatura `1.5rem`, toggle con la scritta.
+- **1024–1443px**: spaziatura `0.7rem`, voci a 14px, toggle alla sola icona.
+  Da 1200 in su ci stanno accanto al logo; sotto, la barra va a due righe —
+  logo sopra, menu sotto — che è un assetto ordinato e voluto.
+- **≤ 1023px**: hamburger. Sotto i 1024 le voci si spezzerebbero su due righe
+  anche strette, e la barra diventava tre tronconi disallineati.
+
+La soglia era a 768px e lasciava scoperta tutta la fascia dei portatili.
+Chi tocca il menu deve rimisurare: aggiungere una voce può far saltare la
+riga a 1024, dove il margine è di una trentina di pixel.
 
 Non esiste una scala di spaziature in variabili: i valori sono espressi in
 `rem` sul posto. È un debito noto, non una scelta.
@@ -364,6 +383,37 @@ al 15%, testo `#b49fe0`), che è l'unica presenza cromatica fuori dall'oro.
 
 Oro, sottolineatura solo in hover.
 
+### Aree di tocco
+
+**Ogni comando isolato è alto almeno 44px** — tab del calendario, `summary`
+di «Leggi tutto», pulsanti di galleria e oracolo, hamburger, logo, icone
+social, voci del menu del footer, bottoni del banner cookie, chiusura della
+lightbox. Dove l'altezza cresce si toglie la spaziatura che la circondava
+(la nav ha ridotto il padding verticale, il menu del footer ha azzerato il
+gap tra le righe), così la pagina non si allunga.
+
+Tre eccezioni, deliberate:
+
+- **I link dentro una frase** (email e telefono nel footer, «Leggi
+  l'informativa completa» nel banner cookie) restano alti quanto la riga:
+  allargarli spezzerebbe il testo. È l'eccezione prevista da WCAG 2.5.8.
+- **Le etichette corte del menu** (FAQ, Libro) sono larghe 31 e 39px. Un
+  `min-width` le centrerebbe in una scatola più larga del testo e romperebbe
+  la spaziatura regolare fra le voci.
+- **Il selettore di lingua** è 40×32 per metà: a 44 il tondo dorato dell'IT
+  attivo diventa un cerchio e non più una losanga.
+
+### Esito dell'invio del form
+
+`.form-feedback` ha una coppia di variabili per tema: `--ok-bg/--ok-border/
+--ok-text` e `--ko-bg/--ko-border/--ko-text`. I toni chiari del tema scuro
+(`#7de0a0`, `#e8a0a0`) sull'avorio stavano sotto 2:1; nel tema chiaro si
+invertono in `#14542c` e `#8f2020`, misurati a 7:1 e 6,9:1 sul tint.
+
+Quando l'invio fallisce, il messaggio offre WhatsApp e email come **link
+veri** (`.form-feedback-links`), non come numero scritto nel testo: da
+telefono un numero scritto non si tocca.
+
 ### Calendario
 
 Il giorno con evento si evidenzia in oro. Nessun colore semaforico
@@ -381,6 +431,21 @@ L'unica animazione d'ingresso è lo scroll-reveal: `.sr` parte da
 `opacity: 0` e `translateY(24px)`, `.sr.visible` la riporta a zero in `0.7s`.
 Si applica ai blocchi di sezione, non ai singoli elementi. Tutto rispetta
 `prefers-reduced-motion: reduce`.
+
+### Le etichette per aprire e chiudere
+
+Sono due famiglie, e non se ne aggiungono altre.
+
+| Cosa fa | Italiano | Inglese |
+|---|---|---|
+| Continua un testo (tutti i `<details>` di prosa) | Leggi tutto | Read more |
+| Allunga un elenco | Mostra tutte le foto / le riflessioni / le 8 forme | Show all photos / reflections / the 8 forms |
+| Chiude, in entrambi i casi | Mostra meno | Show less |
+
+Restava fuori «Leggi l'informativa» nel consenso privacy, che apre un testo
+legale a sé e si chiama col suo nome. Prima le diciture d'apertura erano
+sei: Approfondisci, Continua a leggere, Leggi tutto, Vedi le 8 forme, più
+le due della galleria.
 
 ## Do's and Don'ts
 
