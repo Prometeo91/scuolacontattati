@@ -32,8 +32,6 @@ Quando c'è un seminario da promuovere si ricrea una sezione `#seminario` in ent
 
 Oggi **non esistono**: sezione e landing sono state rimosse col commit `2722cf3`, passato il seminario del 26 luglio 2026. Il meccanismo però è ancora in `app.js`: i blocchi `.seminar-section` con `data-expires` vengono nascosti a scadenza e, quando sono scaduti tutti, spariscono anche la sezione `#seminario` e la sua voce di menu. Il codice è protetto da `if(sem)`, quindi in assenza della sezione non fa nulla. Per il prossimo seminario basta ricreare il markup.
 
-Resta in repo `images/seminario-luglio-2026.webp`, non più referenziata da nessun file.
-
 ## Fatti di dominio (verificati con Fabio)
 
 - Percorso **settennale**: ciclo base 3 anni con **7 lezioni l'anno** (dal 2026/27; il 1° anno 2025/26 ne ha avute 6, ed è corretto così nei dati), ciclo avanzato 4 anni con 3 lezioni l'anno.

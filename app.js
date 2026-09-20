@@ -560,7 +560,18 @@ document.addEventListener('DOMContentLoaded', function() {
   if(cForm){
     var cBtn=document.getElementById('contact-submit');
     var cFb=document.getElementById('form-feedback');
-    var cStart=Date.now(); /* anti-bot: track page load time */
+    /* Anti-bot: si misura dal primo tasto premuto nel modulo, non dal
+       caricamento della pagina. Contare dal caricamento respingeva chi
+       tornava sui contatti e riscriveva in fretta (dopo un invio riuscito il
+       contatore ripartiva da zero), mentre non fermava il bot che apre la
+       pagina, aspetta e poi spara. Fra il primo carattere e l'invio tre
+       secondi non li fa nessuno: i bot compilano e spediscono nello stesso
+       istante. Se non risulta nessuna digitazione non si respinge: potrebbe
+       essere un riempimento automatico del browser, e restano honeypot e
+       filtri di Formspree. */
+    var cTocco=0;
+    cForm.addEventListener('input',function(){ if(!cTocco) cTocco=Date.now(); },true);
+    cForm.addEventListener('change',function(){ if(!cTocco) cTocco=Date.now(); },true);
 
     /* Se l'invio fallisce, WhatsApp e email vanno offerti come link veri:
        scritti nel testo del messaggio, da telefono non si possono toccare. */
@@ -587,8 +598,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
 
-      /* Anti-bot: reject if form submitted in < 3 seconds (too fast for humans) */
-      if(Date.now()-cStart<3000){
+      if(cTocco&&Date.now()-cTocco<3000){
         showFeedback('error',SC_T.formAttendiTitolo,SC_T.formAttendiTesto);
         return;
       }
@@ -619,7 +629,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if(resp.ok){
           showFeedback('success',SC_T.formOkTitolo,SC_T.formOkTesto);
           cForm.reset();
-          cStart=Date.now(); /* reset timer in case of second submission */
+          cTocco=0; /* il secondo messaggio si cronometra da capo */
         } else {
           resp.json().then(function(json){
             var msg=(json&&json.errors&&json.errors.length)
