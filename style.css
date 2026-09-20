@@ -618,7 +618,7 @@ section#insegnamenti, section#seminario, section#faq {
 .percorso-card { display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.25rem 1.5rem; }
 .percorso-num { font-family: var(--font-display); font-size: clamp(2.2rem, 4.5vw, 3rem); font-weight: 700; color: var(--gold); opacity: 0.25; line-height: 1; flex-shrink: 0; width: 2.2rem; text-align: center; margin-top: -0.1rem; font-feature-settings: "kern" 1, "liga" 1, "onum" 1; }
 .percorso-content { flex: 1; position: relative; z-index: 1; }
-.percorso-title { font-family: var(--font-display); font-size: 20px; font-weight: 500; color: var(--text); margin-bottom: 0.35rem; letter-spacing: 0.01em; font-feature-settings: "kern" 1, "liga" 1, "dlig" 1; }
+.percorso-title { font-family: var(--font-display); font-size: 20px; font-weight: 500; margin-top: 0; color: var(--text); margin-bottom: 0.35rem; letter-spacing: 0.01em; font-feature-settings: "kern" 1, "liga" 1, "dlig" 1; }
 .percorso-desc { font-size: 14px; color: var(--text-muted); line-height: 1.55; }
 .percorso-badge { display: inline-block; font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); background: rgba(201,151,58,0.08); border: 0.5px solid rgba(201,151,58,0.2); border-radius: var(--radius-xs); padding: 0.15rem 0.5rem; margin-bottom: 0.5rem; }
 .ciclo-divider { display: flex; align-items: center; gap: 0.8rem; margin: 1.25rem 0 0.75rem; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
@@ -676,6 +676,20 @@ section#insegnamenti, section#seminario, section#faq {
 .chiave-side { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; flex-shrink: 0; }
 .chiave-side .chiave-num { font-size: 1.5rem; width: auto; margin-top: 0; }
 .chiave-emblem { width: 104px; height: 104px; display: block; border-radius: var(--radius-md); border: 0.5px solid var(--border); object-fit: cover; }
+
+/* Gli emblemi sono incisioni in oro su carta blu notte: nel tema chiaro
+   restano scuri, ed e' giusto cosi' — rifarli chiari costerebbe venti asset
+   nuovi e perderebbe il carattere inciso che e' l'identita' della Scuola.
+   Quello che serve e' che sembrino tavole montate e non rettangoli capitati:
+   sul fondo scuro della tavola il filetto bruno al 30% spariva, qui si
+   definisce e l'ombra li stacca dalla pergamena. */
+[data-theme="light"] .chiave-emblem,
+[data-theme="light"] .percorso-emblem,
+[data-theme="light"] .pillar-emblem,
+[data-theme="light"] .book-content-emblem {
+  border-color: rgba(120,90,30,0.55);
+  box-shadow: 0 1px 3px rgba(80,60,30,0.16), 0 4px 14px rgba(80,60,30,0.10);
+}
 .chiave-content { flex: 1; }
 .chiave-content .card-title { margin-bottom: 0.6rem; }
 @media (max-width: 480px) { .chiave-item { flex-direction: column; gap: 0.5rem; } .chiave-num { font-size: 2rem; width: auto; } .chiave-side { flex-direction: row; gap: 0.75rem; } .chiave-side .chiave-num { font-size: 1.4rem; } .chiave-emblem { width: 72px; height: 72px; } }
@@ -703,7 +717,7 @@ section#insegnamenti, section#seminario, section#faq {
 .pillar-card:hover { background: rgba(255,255,255,0.028); border-color: rgba(201,151,58,0.42); }
 .pillar-card:hover::before { border-color: rgba(201,151,58,0.35); }
 .pillar-card > * { position: relative; z-index: 1; }
-.pillar-title { font-family: var(--font-display); font-size: 24px; font-weight: 500; color: var(--gold-light); margin-bottom: 1.25rem; display: flex; flex-direction: column; align-items: flex-start; gap: 0.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(201, 151, 58, 0.15); letter-spacing: 0.01em; }
+.pillar-title { font-family: var(--font-display); font-size: 24px; font-weight: 500; margin-top: 0; color: var(--gold-light); margin-bottom: 1.25rem; display: flex; flex-direction: column; align-items: flex-start; gap: 0.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(201, 151, 58, 0.15); letter-spacing: 0.01em; }
 .pillar-title span[aria-hidden="true"] { font-size: 28px; opacity: 0.85; }
 /* Glifi disegnati come SVG inline (oro, monocromatici) — rendering identico su ogni dispositivo, niente lotteria font/emoji */
 .glyph-svg { width: 1em; height: 1em; vertical-align: -0.12em; display: inline-block; }
@@ -1371,8 +1385,11 @@ input[type="radio"]:focus-visible {
 .gioco-emblema{width:48px;height:48px;flex-shrink:0;border-radius: var(--radius-md);border:0.5px solid var(--border);object-fit:cover;display:block}
 .gioco-emblema-lg{width:56px;height:56px}
 .gioco-icon-lg{width:36px;height:36px;flex-shrink:0;filter:brightness(0) saturate(100%) invert(72%) sepia(50%) saturate(500%) hue-rotate(5deg)}
-.gioco-title{color:var(--gold-light);font-size:1.05rem}
-.gioco-title-lg{color:var(--gold-light);font-size:1.1rem}
+/* Sono <strong>, quindi senza queste due righe prendono Inter 700 dal
+   browser: DESIGN.md vuole Garamond per il ruolo Title e nessun peso oltre
+   il 600. Il tag resta <strong>, cambia solo come si vede. */
+.gioco-title{color:var(--gold-light);font-size:1.05rem;font-family:var(--font-display);font-weight:600}
+.gioco-title-lg{color:var(--gold-light);font-size:1.1rem;font-family:var(--font-display);font-weight:600}
 .gioco-sub{color:var(--text-muted);font-size:.85rem;line-height:1.45}
 .gioco-sub-lg{color:var(--text-muted);font-size:.87rem;line-height:1.45}
 

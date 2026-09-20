@@ -147,6 +147,19 @@ non grigi freddi.
 - **Fascia** (`rgba(201,151,58,0.035)`, `--band`): velatura a piena larghezza
   che scandisce il ritmo verticale.
 
+### Gli emblemi restano scuri anche in Pergamena
+
+Gli emblemi (`chiave-*`, `percorso-*`, `pilastro-*`, `libro-*`) sono incisioni
+in oro su carta blu notte, non ritagli su fondo trasparente. Nel tema chiaro
+restano quindi tavole scure sulla pergamena, ed **è una scelta**: rifarli in
+versione chiara vorrebbe dire venti asset nuovi da tenere coerenti fra loro,
+e perderebbe il carattere inciso che è l'identità della Scuola. Una tavola
+scura montata su carta chiara è un idioma da libro illustrato, non un errore.
+
+Perché si legga come montata e non come capitata lì, nel tema chiaro hanno
+una cornice più definita e un'ombra che le stacca dal fondo. Ogni revisione
+segnala questi emblemi come incoerenza del tema chiaro: non lo sono.
+
 ### Le due eccezioni all'oro
 
 Due tinte vivono fuori dalla famiglia oro, e sono le uniche ammesse. Servono

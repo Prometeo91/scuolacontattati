@@ -38,6 +38,7 @@ Resta in repo `images/seminario-luglio-2026.webp`, non più referenziata da ness
 
 - Percorso **settennale**: ciclo base 3 anni con **7 lezioni l'anno** (dal 2026/27; il 1° anno 2025/26 ne ha avute 6, ed è corretto così nei dati), ciclo avanzato 4 anni con 3 lezioni l'anno.
 - **Il numero di lezioni per anno in `lezioni.js` non va «corretto» a tavolino.** Oggi `L1` ne ha 6, `L2` 7, `L3` 6, e gli anni avanzati 3: `L3` ne ha ancora 6 perché quel ciclo non è ancora cominciato con 7. Il dato rispecchia quello che la Scuola sa, non lo schema teorico. Ogni passata di revisione lo segnala come incoerenza: non lo è.
+- **Il primo anno non riparte a breve**: la prossima coorte di 1° anno è attesa fra un paio d'anni, forse tre, e la data non si sa. Il sito **non deve dirlo**: la riga «Anno concluso» sul tab dell'Anno 1 basta così com'è. Ogni revisione segnala che manca la risposta alla domanda «quando ricomincia»: è una scelta, non una lacuna.
 - Una lezione di cui si conosce solo la data si inserisce in `lezioni.js` con i soli campi `num`/`day`/`month`/`year`: il calendario ha già lo stato "programma in definizione" (riga attenuata, nessun pannello espandibile). Non inventare titoli o temi.
 - Conduttori: Anna Carla Digregorio e Nicolaos Anifantis. Anna Carla comunica novità via WhatsApp che spesso vanno riportate sul sito.
 - Libro: *Ricchezza, Abbondanza e Mission* (Gagliano Edizioni).
