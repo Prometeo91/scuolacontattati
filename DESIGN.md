@@ -246,8 +246,8 @@ ciascuno: un valore fuori da questo elenco è quasi sempre una svista.
 | 14 | 12 | didascalie |
 | 13 | 23 | etichette di interfaccia, summary |
 | 12 | 22 | citazioni firmate, note |
-| 11 | 17 | ruolo **Label**: occhielli, badge |
-| 10 | 4 | badge minuti |
+| 11 | 19 | ruolo **Label**: occhielli, badge |
+| 10 | 2 | badge minuti |
 
 Fuori dalla scala restano **8, 6 e 5px**, che non sono testo ma ornamenti:
 il separatore fra le lingue, il filetto del footer, il glifo dell'epigrafe.
@@ -402,6 +402,15 @@ Tre eccezioni, deliberate:
   la spaziatura regolare fra le voci.
 - **Il selettore di lingua** è 40×32 per metà: a 44 il tondo dorato dell'IT
   attivo diventa un cerchio e non più una losanga.
+
+### Pulsanti fissi
+
+**Un solo pulsante fisso per larghezza.** Sul telefono (fino a 768px) c'è
+WhatsApp; dal tablet in su, dove WhatsApp è nascosto, c'è «torna su». Il
+Condividi sta nel footer, nella fila delle icone social. Erano tre in
+colonna sul bordo destro, alti 180px: a 375px coprivano lo slogan e i
+titoli, e ogni toppa locale spostava il problema più giù. Chi vuole
+aggiungere un pulsante fisso deve toglierne un altro.
 
 ### Esito dell'invio del form
 
