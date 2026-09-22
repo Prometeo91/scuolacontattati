@@ -194,6 +194,14 @@ di una regola di componente e vince sul colore senza vincere sul fondo.
 chiara, entrambe definite come variabile CSS. Un colore scritto a mano dentro
 una regola è un bug: al cambio tema resta indietro.
 
+**Le trasparenze dell'oro passano dai canali.** Una tinta o un bordo d'oro
+semitrasparente si scrive `rgba(var(--gold-rgb), 0.12)`, mai
+`rgba(201,151,58,0.12)`. `--gold-rgb` vale `201,151,58` nel tema scuro e
+`184,138,46` in Pergamena: un oro medio e non `--gold`, perché l'oro scuro a
+bassa opacità su pergamena diventa color fango. Lo stesso per
+`--gold-light-rgb`. Gli override `[data-theme="light"]` che usano toni scuri
+scritti a mano (`rgba(120,90,30,x)`) sono scelte puntuali e restano.
+
 **La regola dell'oro unico.** L'oro è l'unica famiglia d'accento. Un secondo
 colore va introdotto solo se porta un'informazione che l'oro non può portare.
 Le eccezioni in essere sono due, il viola e il verde dei tag di competenza,
