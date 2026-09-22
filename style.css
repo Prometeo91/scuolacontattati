@@ -1199,7 +1199,7 @@ section#insegnamenti, section#seminario, section#faq {
 .quote-oracle > * { position: relative; z-index: 1; }
 .quote-oracle-symbol { font-size: 28px; color: var(--gold); opacity: 0.4; margin-bottom: 1.25rem; }
 .quote-oracle-text {
-  font-family: var(--font-display); font-size: clamp(17px,3vw,23px);
+  font-family: var(--font-display); font-size: clamp(17px,3vw,22px);
   font-style: italic; font-weight: 400; color: var(--text);
   line-height: 1.75; max-width: 700px; margin: 0 auto 1.25rem;
   transition: opacity 0.4s ease, transform 0.4s ease;
@@ -1523,10 +1523,10 @@ input[type="radio"]:focus-visible {
 /* Sono <strong>, quindi senza queste due righe prendono Inter 700 dal
    browser: DESIGN.md vuole Garamond per il ruolo Title e nessun peso oltre
    il 600. Il tag resta <strong>, cambia solo come si vede. */
-.gioco-title{color:var(--gold-light);font-size:1.05rem;font-family:var(--font-display);font-weight:600}
-.gioco-title-lg{color:var(--gold-light);font-size:1.1rem;font-family:var(--font-display);font-weight:600}
-.gioco-sub{color:var(--text-muted);font-size:.85rem;line-height:1.45}
-.gioco-sub-lg{color:var(--text-muted);font-size:.87rem;line-height:1.45}
+.gioco-title{color:var(--gold-light);font-size:17px;font-family:var(--font-display);font-weight:600}
+.gioco-title-lg{color:var(--gold-light);font-size:17px;font-family:var(--font-display);font-weight:600}
+.gioco-sub{color:var(--text-muted);font-size:13px;line-height:1.45}
+.gioco-sub-lg{color:var(--text-muted);font-size:14px;line-height:1.45}
 
 /* BIO TAGS */
 .bio-tag { font-size: 11px; padding:3px 10px; border-radius: var(--radius-pill); letter-spacing:0.03em; white-space:nowrap; }
@@ -1714,7 +1714,7 @@ input[type="radio"]:focus-visible {
 .share-site-btn .share-toast {
   position:absolute; bottom:calc(100% + 8px); right:0;
   background:var(--gold); color:var(--on-gold);
-  font-family:var(--font-body); font-size:13px; font-weight:600;
+  font-family:var(--font-sans); font-size:13px; font-weight:600;
   padding:6px 12px; border-radius: var(--radius-md); white-space:nowrap;
   opacity:0; transform:translateY(4px); pointer-events:none;
   transition:opacity 0.3s, transform 0.3s;
@@ -1742,7 +1742,7 @@ input[type="radio"]:focus-visible {
 .footer-share .share-toast {
   position:absolute; bottom:calc(100% + 8px); left:50%;
   background:var(--gold); color:var(--on-gold);
-  font-family:var(--font-body); font-size:13px; font-weight:600;
+  font-family:var(--font-sans); font-size:13px; font-weight:600;
   padding:6px 12px; border-radius: var(--radius-md); white-space:nowrap;
   opacity:0; transform:translate(-50%, 4px); pointer-events:none;
   transition:opacity 0.3s, transform 0.3s;
