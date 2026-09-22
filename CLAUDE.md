@@ -44,6 +44,15 @@ Oggi **non esistono**: sezione e landing sono state rimosse col commit `2722cf3`
 - Eventi con `data-expires` nel markup e countdown gestiti da `app.js`; schema.org JSON-LD (`Event`) nell'`<head>` da tenere allineato ai dettagli mostrati in pagina (orari inclusi).
 - **Ogni modifica a `style.css`, `app.js`, `lezioni.js`, `data/citazioni.js` o `data/eventi.js` richiede il cache-bust**: aggiornare il `?v=` del link/script in `index.html` E `en/index.html`, la voce CORE in `sw.js` e incrementare la `VERSION` del service worker. Altrimenti i visitatori di ritorno vedono il file vecchio (stale-while-revalidate): nuovi elementi senza stile, nuovi pulsanti a cui il JS vecchio non risponde (è successo col pulsante Condividi: su desktop funzionava, sul telefono già in cache no), una lezione o un evento aggiunti che non compaiono fino alla seconda visita. Vale per qualunque file venga aggiunto a CORE in futuro.
 
+## Prestazioni (misurate, non da smontare per sbaglio)
+
+Su un telefono medio con 4G lenta la prima schermata è passata da 4,7s a 2,6s (LCP). Quattro meccanismi lo reggono:
+
+- **Immagini in due taglie.** `hero-cielo-800.webp` e `video-cammino-800.webp` sotto gli 800px (media query in `style.css`), `gioco-*-144.webp` per le icone della sezione giochi: le versioni grandi restano per desktop e per i giochi. Chi sostituisce un'immagine rigenera anche la variante.
+- **Preload del cielo dell'hero** nello script del tema in `<head>` (entrambi gli index): solo nel tema scuro, con la stessa soglia degli 800px.
+- **`content-visibility: auto`** sulle sezioni dopo `#chi-siamo`: il browser non le disegna finché non si avvicinano. Ha un rovescio: uno scroll animato verso un'ancora calcola la destinazione su altezze stimate. Per questo esiste la classe `.cv-off`, che disegna tutto: la mette lo script in `<head>` se si arriva con un `#hash`, e `app.js` al primo clic su un link interno. Chi aggiunge una sezione non deve fare nulla; chi aggiunge un altro modo di scrollare verso un'ancora (JS, `scrollIntoView` con `smooth`) deve mettere `cv-off` prima.
+- **Ogni immagine lazy ha `width`/`height`** (o un `aspect-ratio`). Una sola immagine senza dimensioni (era la Carrozza, e il riquadro del libro sul telefono) cresce mentre la pagina scorre verso un'ancora e fa atterrare il link centinaia di pixel prima.
+
 ## Design system (regole rigide)
 
 - Tema scuro "Officina" (default): fondo `#0d0b1a`, oro `#e8c97a`/`#c9973a`. Tema chiaro "Pergamena": fondo `#f5f0e8`. Dettagli completi in `DESIGN.md`.

@@ -541,6 +541,15 @@ body::before {
     linear-gradient(to bottom, rgba(13,11,26,0.78) 0%, rgba(13,11,26,0.88) 55%, var(--bg) 96%),
     url('images/hero-cielo.webp') center top / cover no-repeat;
 }
+/* Sul telefono la versione da 800px (24KB invece di 47KB): sotto il velo al
+   78-88% la differenza non si vede. Il preload in <head> usa la stessa soglia. */
+@media (max-width: 800px) {
+  .hero {
+    background:
+      linear-gradient(to bottom, rgba(13,11,26,0.78) 0%, rgba(13,11,26,0.88) 55%, var(--bg) 96%),
+      url('images/hero-cielo-800.webp') center top / cover no-repeat;
+  }
+}
 [data-theme="light"] .hero { background: none; }
 .hero-emblem { width: 200px; height: 200px; margin-bottom: 1.75rem; position: relative; z-index: 2; filter: drop-shadow(0 8px 32px rgba(var(--gold-rgb),0.25)); }
 .hero::before { content: ''; position: absolute; top: 5rem; left: 50%; transform: translateX(-50%); width: 520px; height: 520px; background: radial-gradient(circle, rgba(var(--gold-rgb),0.07) 0%, rgba(var(--gold-rgb),0.035) 25%, rgba(123, 94, 167, 0.025) 50%, transparent 70%); border-radius: 50%; z-index: 0; pointer-events: none; }
@@ -602,6 +611,16 @@ body::before {
 
 /* SECTIONS */
 section { padding: clamp(3rem, 7vw, 5rem) 2rem; max-width: 900px; margin: 0 auto; }
+/* Le sezioni dopo «Chi siamo» il browser non le calcola né le dipinge finché
+   non si avvicinano allo schermo: sul telefono il main thread resta bloccato
+   800ms invece di 1350ms al caricamento. «auto» nella misura fa ricordare al
+   browser l'altezza vera dopo la prima volta, così la barra di scorrimento
+   non salta. I link interni (#calendario, #anno-3) funzionano uguale. */
+main > section:not(#chi-siamo) { content-visibility: auto; contain-intrinsic-size: auto 1200px; }
+/* .cv-off: la aggiunge app.js al primo clic su un link interno, e lo script
+   del tema in <head> quando si arriva con un #ancora (vedi i commenti lì).
+   Lo stesso :not(#chi-siamo) serve per la specificità: senza, l'id vince. */
+html.cv-off main > section:not(#chi-siamo) { content-visibility: visible; }
 /* Fasce di ritmo — fondo alternato a piena larghezza (full-bleed via box-shadow+clip) */
 section#insegnamenti, section#seminario, section#faq {
   background: var(--band);
@@ -700,7 +719,7 @@ section#insegnamenti, section#seminario, section#faq {
 /* PERCORSO SETTENNALE */
 .percorso-grid { display: flex; flex-direction: column; gap: 12px; margin-top: 1rem; }
 .percorso-card { display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.25rem 1.5rem; }
-.percorso-num { font-family: var(--font-display); font-size: clamp(2.2rem, 4.5vw, 3rem); font-weight: 700; color: var(--gold); opacity: 0.25; line-height: 1; flex-shrink: 0; width: 2.2rem; text-align: center; margin-top: -0.1rem; font-feature-settings: "kern" 1, "liga" 1, "onum" 1; }
+.percorso-num { font-family: var(--font-display); font-size: clamp(2.2rem, 4.5vw, 3rem); font-weight: 600; color: var(--gold); opacity: 0.25; line-height: 1; flex-shrink: 0; width: 2.2rem; text-align: center; margin-top: -0.1rem; font-feature-settings: "kern" 1, "liga" 1, "onum" 1; }
 .percorso-content { flex: 1; position: relative; z-index: 1; }
 .percorso-title { font-family: var(--font-display); font-size: 20px; font-weight: 500; margin-top: 0; color: var(--text); margin-bottom: 0.35rem; letter-spacing: 0.01em; font-feature-settings: "kern" 1, "liga" 1, "dlig" 1; }
 .percorso-desc { font-size: 14px; color: var(--text-muted); line-height: 1.55; }
@@ -756,7 +775,7 @@ section#insegnamenti, section#seminario, section#faq {
 @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } }
 .chiavi-list { display: flex; flex-direction: column; gap: 14px; }
 .chiave-item { display: flex; align-items: flex-start; gap: 1.75rem; padding: 1.5rem 1.75rem; }
-.chiave-num { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 700; color: var(--gold); opacity: 0.25; line-height: 1; flex-shrink: 0; width: 2.5rem; text-align: center; margin-top: -0.15rem; }
+.chiave-num { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 600; color: var(--gold); opacity: 0.25; line-height: 1; flex-shrink: 0; width: 2.5rem; text-align: center; margin-top: -0.15rem; }
 .chiave-side { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; flex-shrink: 0; }
 .chiave-side .chiave-num { font-size: 1.5rem; width: auto; margin-top: 0; }
 .chiave-emblem { width: 104px; height: 104px; display: block; border-radius: var(--radius-md); border: 0.5px solid var(--border); object-fit: cover; }
@@ -817,7 +836,7 @@ section#insegnamenti, section#seminario, section#faq {
 }
 .book-cover-wrap { position: sticky; top: 6rem; perspective: 800px; }
 .book-cover-editorial {
-  width: 100%; height: auto; border-radius: var(--radius-xs);
+  width: 100%; height: auto; aspect-ratio: 280 / 416; border-radius: var(--radius-xs);
   box-shadow: 12px 12px 30px rgba(0,0,0,0.5), 4px 4px 10px rgba(0,0,0,0.3), inset -2px 0 4px rgba(255,255,255,0.05);
   transform: rotateY(-3deg);
   transition: transform 0.5s ease, box-shadow 0.5s ease;
@@ -852,7 +871,7 @@ section#insegnamenti, section#seminario, section#faq {
 .book-content-card::before { content: ''; position: absolute; inset: 6px; border-radius: var(--radius-lg-inner); border: 0.5px solid rgba(var(--gold-rgb),0.12); pointer-events: none; }
 .book-content-card:hover { background: rgba(255,255,255,0.032); border-color: rgba(var(--gold-rgb),0.42); }
 .book-content-card > * { position: relative; z-index: 1; }
-.book-content-num { font-family: var(--font-display); font-size: clamp(36px,5vw,48px); font-weight: 700; color: var(--gold); opacity: 0.3; line-height: 1; margin-bottom: 0.25rem; }
+.book-content-num { font-family: var(--font-display); font-size: clamp(36px,5vw,48px); font-weight: 600; color: var(--gold); opacity: 0.3; line-height: 1; margin-bottom: 0.25rem; }
 .book-content-label { font-family: var(--font-display); font-size: 17px; font-weight: 500; color: var(--gold-light); margin-bottom: 0.5rem; }
 .book-content-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
 /* Expandable book content cards */
@@ -866,7 +885,10 @@ section#insegnamenti, section#seminario, section#faq {
 .book-content-card[open] { grid-column: 1 / -1; }
 @media (max-width: 700px) {
   .book-editorial { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
-  .book-cover-wrap { position: static; max-width: 220px; margin: 0 auto; }
+  /* width:100% esplicito: senza, prima che la copertina arrivi il riquadro
+     era alto 26px, poi cresceva di 300 e spostava tutto quello che sta
+     sotto (i link a #faq e #contatti atterravano 300px prima). */
+  .book-cover-wrap { position: static; width: 100%; max-width: 220px; margin: 0 auto; }
   .book-cover-editorial { transform: none; }
   .book-cover-wrap::before { display: none; }
   .book-contents-grid { grid-template-columns: 1fr; }
@@ -1243,6 +1265,9 @@ section#insegnamenti, section#seminario, section#faq {
 .video-facade-bg { position: absolute; inset: 0; background:
   linear-gradient(to bottom, rgba(10,8,20,0.32) 0%, rgba(10,8,20,0.16) 45%, rgba(10,8,20,0.74) 100%),
   url('images/video-cammino.webp') center / cover no-repeat; z-index: 1; }
+@media (max-width: 800px) {
+  .video-facade-bg { background-image: linear-gradient(to bottom, rgba(10,8,20,0.32) 0%, rgba(10,8,20,0.16) 45%, rgba(10,8,20,0.74) 100%), url('images/video-cammino-800.webp'); }
+}
 .video-facade-symbol { position: absolute; top: 42%; left: 50%; transform: translate(-50%, -50%); font-family: var(--font-display); font-size: clamp(180px, 35vw, 320px); color: rgba(var(--gold-rgb),0.08); line-height: 1; z-index: 2; user-select: none; pointer-events: none; }
 .video-facade-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.25); transition: background var(--t-base); z-index: 3; }
 .video-facade:hover .video-facade-overlay,
@@ -1812,6 +1837,10 @@ footer a:hover { color: var(--gold-light); }
   font-feature-settings: "kern" 1, "liga" 1;
   letter-spacing: 0.02em;
 }
+/* Il greco non ha un file 700: le lettere usano quello da 500 e il browser
+   ispessisce. A 700 però lo spazio fra le due parole scaricava l'intero file
+   latino 700 (23KB) per un solo carattere; a 600 usa quello già caricato. */
+strong[lang="el"], [lang="el"] strong { font-weight: 600; }
 
 /* SECTION DECORATIONS */
 

@@ -555,6 +555,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  /* CONTENT-VISIBILITY — style.css salta il disegno delle sezioni lontane
+     finché non si avvicinano. Uno scroll animato verso un'ancora però calcola
+     la destinazione all'inizio: le sezioni attraversate si disegnano durante
+     la corsa, cambiano altezza e il bersaglio si sposta (il menu mandava
+     «FAQ» cinquemila pixel più in là). Al primo clic su un link interno si
+     disegna tutto, prima che lo scroll parta. */
+  var cvOff=function(){document.documentElement.classList.add('cv-off');};
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href*="#"]');
+    if(a&&a.hash&&a.pathname===location.pathname)cvOff();
+  },true);
+  window.addEventListener('hashchange',cvOff);
+
   /* SCROLL REVEAL — gestito inline in index.html (observer .sr + .sr-stagger)
      per garantire visibilità del contenuto anche se app.js non carica */
 

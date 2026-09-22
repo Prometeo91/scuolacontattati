@@ -53,11 +53,25 @@
   <!-- Anti-flash: applica il tema salvato prima del render -->
   <script>
     (function(){
-      try{var t=localStorage.getItem('sctheme')}catch(e){return}
+      var t=null;try{t=localStorage.getItem('sctheme')}catch(e){}
       if(t==='light'){
         document.documentElement.setAttribute('data-theme','light');
         var m=document.getElementById('metaThemeColor');
         if(m)m.content='#f5f0e8';
+      }
+      /* Chi arriva con un #ancora (es. /#calendario, /#anno-3) deve atterrare
+         nel punto giusto: le sezioni lontane si disegnano tutte da subito,
+         altrimenti la destinazione si calcola su altezze stimate. */
+      if(location.hash)document.documentElement.classList.add('cv-off');
+      /* Il cielo dell'hero è uno sfondo CSS: il browser lo scoprirebbe solo
+         dopo aver letto style.css. È l'elemento più grande della prima
+         schermata, quindi si chiede subito, e solo nel tema scuro. */
+      if(t!=='light'){
+        var sm=window.matchMedia('(max-width: 800px)').matches;
+        var pl=document.createElement('link');
+        pl.rel='preload';pl.as='image';pl.fetchPriority='high';
+        pl.href='images/hero-cielo'+(sm?'-800':'')+'.webp';
+        document.head.appendChild(pl);
       }
     })();
   </script>
@@ -333,7 +347,7 @@
     </script>
 
  <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) — self-hosted, zero dipendenze esterne -->
-  <link rel="stylesheet" href="style.css?v=20260922g"/>
+  <link rel="stylesheet" href="style.css?v=20260922k"/>
   <noscript><style>.sr{opacity:1!important;transform:none!important}</style></noscript>
 
 </head>
@@ -614,7 +628,7 @@
 
   <div class="glass-card carrozza-card sr">
     <div class="carrozza-img-wrap">
-      <img src="images/carrozza-gurdjieff.webp" alt="La metafora della Carrozza di Gurdjieff — illustrazione con carrozza, cavalli, cocchiere e passeggero" loading="lazy" decoding="async"/>
+      <img src="images/carrozza-gurdjieff.webp" width="900" height="678" alt="La metafora della Carrozza di Gurdjieff — illustrazione con carrozza, cavalli, cocchiere e passeggero" loading="lazy" decoding="async"/>
     </div>
     <div class="carrozza-content">
       <div class="carrozza-eyebrow">Dalla Quarta Via</div>
@@ -1392,43 +1406,43 @@
   <p class="section-sub" style="margin-bottom:1.5rem">Quiz, scenari e memoria · partite da 5 minuti · consigliamo di iniziare da <em>Il Risveglio</em></p>
   <div class="sr giochi-grid">
     <a class="glass-card gioco-card" href="il-risveglio/" onclick="try{localStorage.setItem('sc-lang','it')}catch(e){}">
-      <img src="images/gioco-risveglio.webp" class="gioco-emblema" alt="" width="400" height="400" loading="lazy" decoding="async">
+      <img src="images/gioco-risveglio-144.webp" class="gioco-emblema" alt="" width="144" height="144" loading="lazy" decoding="async">
       <span><strong class="gioco-title">Il Risveglio</strong><br><span class="gioco-sub">Sonno, presenza e ricordo di sé</span></span>
     </a>
     <a class="glass-card gioco-card" href="la-responsabilita/" onclick="try{localStorage.setItem('sc-lang','it')}catch(e){}">
-      <img src="images/gioco-responsabilita.webp" class="gioco-emblema" alt="" width="400" height="400" loading="lazy" decoding="async">
+      <img src="images/gioco-responsabilita-144.webp" class="gioco-emblema" alt="" width="144" height="144" loading="lazy" decoding="async">
       <span><strong class="gioco-title">La Responsabilità</strong><br><span class="gioco-sub">Mago o schiavo, dentro o fuori</span></span>
     </a>
     <a class="glass-card gioco-card" href="le-emozioni/" onclick="try{localStorage.setItem('sc-lang','it')}catch(e){}">
-      <img src="images/gioco-emozioni.webp" class="gioco-emblema" alt="" width="400" height="400" loading="lazy" decoding="async">
+      <img src="images/gioco-emozioni-144.webp" class="gioco-emblema" alt="" width="144" height="144" loading="lazy" decoding="async">
       <span><strong class="gioco-title">Le Emozioni</strong><br><span class="gioco-sub">Trasmutazione, non-giudizio e perdono</span></span>
     </a>
     <a class="glass-card gioco-card" href="il-corpo-e-lanima/" onclick="try{localStorage.setItem('sc-lang','it')}catch(e){}">
-      <img src="images/gioco-anima.webp" class="gioco-emblema" alt="" width="400" height="400" loading="lazy" decoding="async">
+      <img src="images/gioco-anima-144.webp" class="gioco-emblema" alt="" width="144" height="144" loading="lazy" decoding="async">
       <span><strong class="gioco-title">L'Anima e la Macchina</strong><br><span class="gioco-sub">Personalità, anima e immaginazione</span></span>
     </a>
     <a class="glass-card gioco-card" href="le-leggi-cosmiche/" onclick="try{localStorage.setItem('sc-lang','it')}catch(e){}">
-      <img src="images/gioco-leggi.webp" class="gioco-emblema" alt="" width="400" height="400" loading="lazy" decoding="async">
+      <img src="images/gioco-leggi-144.webp" class="gioco-emblema" alt="" width="144" height="144" loading="lazy" decoding="async">
       <span><strong class="gioco-title">Le Leggi Cosmiche</strong><br><span class="gioco-sub">Specchio, ottava, risonanza</span></span>
     </a>
     <a class="glass-card gioco-card" href="i-mondi-invisibili/" onclick="try{localStorage.setItem('sc-lang','it')}catch(e){}">
-      <img src="images/gioco-mondi.webp" class="gioco-emblema" alt="" width="400" height="400" loading="lazy" decoding="async">
+      <img src="images/gioco-mondi-144.webp" class="gioco-emblema" alt="" width="144" height="144" loading="lazy" decoding="async">
       <span><strong class="gioco-title">I Mondi Invisibili</strong><br><span class="gioco-sub">Corpi sottili, piani e abitanti dell'astrale</span></span>
     </a>
     <a class="glass-card gioco-card" href="il-guerriero/" onclick="try{localStorage.setItem('sc-lang','it')}catch(e){}">
-      <img src="images/gioco-guerriero.webp" class="gioco-emblema" alt="" width="400" height="400" loading="lazy" decoding="async">
+      <img src="images/gioco-guerriero-144.webp" class="gioco-emblema" alt="" width="144" height="144" loading="lazy" decoding="async">
       <span><strong class="gioco-title">Il Guerriero</strong><br><span class="gioco-sub">Combattimento, disciplina e presenza</span></span>
     </a>
     <a class="glass-card gioco-card" href="la-sacra-sessualita/" onclick="try{localStorage.setItem('sc-lang','it')}catch(e){}">
-      <img src="images/gioco-sessualita.webp" class="gioco-emblema" alt="" width="400" height="400" loading="lazy" decoding="async">
+      <img src="images/gioco-sessualita-144.webp" class="gioco-emblema" alt="" width="144" height="144" loading="lazy" decoding="async">
       <span><strong class="gioco-title">La Sacra Sessualità</strong><br><span class="gioco-sub">Coppia, sessualità sacra e il Cuore</span></span>
     </a>
     <a class="glass-card gioco-card" href="i-cinque-veicoli/" onclick="try{localStorage.setItem('sc-lang','it')}catch(e){}">
-      <img src="images/gioco-veicoli.webp" class="gioco-emblema" alt="" width="400" height="400" loading="lazy" decoding="async">
+      <img src="images/gioco-veicoli-144.webp" class="gioco-emblema" alt="" width="144" height="144" loading="lazy" decoding="async">
       <span><strong class="gioco-title">I Cinque Veicoli</strong><br><span class="gioco-sub">Aura, chakra e mondi sottili</span></span>
     </a>
     <a class="glass-card gioco-card" href="la-magia-bianca/" onclick="try{localStorage.setItem('sc-lang','it')}catch(e){}">
-      <img src="images/gioco-magia.webp" class="gioco-emblema" alt="" width="400" height="400" loading="lazy" decoding="async">
+      <img src="images/gioco-magia-144.webp" class="gioco-emblema" alt="" width="144" height="144" loading="lazy" decoding="async">
       <span><strong class="gioco-title">La Magia Bianca</strong><br><span class="gioco-sub">Le Quindici Regole e il discepolo</span></span>
     </a>
   </div>
@@ -1637,7 +1651,7 @@
 })();
 </script>
 <script src="data/eventi.js?v=20260908a" defer></script>
-<script src="app.js?v=20260922a" defer></script>
+<script src="app.js?v=20260922b" defer></script>
 <script>
 /* SIGILLI GIOCHI — mostra ✦ sulle card dei giochi completati */
 (function(){
