@@ -26,6 +26,10 @@ Sito della **Scuola ContattaTi** (Scuola di Consapevolezza ed Alchimia, Bari), g
 | `data/eventi.js`, `data/citazioni.js` | Dati eventi e citazioni |
 | `DESIGN.md` | Design system: frontmatter YAML di token estratti dal CSS + otto sezioni canoniche. Sostituisce il vecchio `deisgn.md`, che era rimasto indietro rispetto a `style.css` |
 
+## Controlli automatici
+
+`node scripts/controlla.js` (nessuna dipendenza) verifica gli errori che su questo progetto si ripetono: `?v=` coerenti fra i due index e `sw.js`, stessi id in italiano e inglese, ogni file citato esistente, ogni lezione con titolo tradotta in `L_EN`, JSON-LD valido, sitemap senza pagine inesistenti. Con `BASE=origin/main` segnala anche un file in CORE modificato senza aggiornare il `?v=`. **Lanciarlo prima di ogni push.** La GitHub Action `.github/workflows/controlli.yml` lo esegue comunque a ogni push e pull request.
+
 ## Seminari in evidenza (pattern ricorrente, oggi non attivo)
 
 Quando c'è un seminario da promuovere si ricrea una sezione `#seminario` in entrambi gli index, più due landing `seminario.html` e `en/seminario.html` con i meta Open Graph per la condivisione su WhatsApp/Facebook, che rimandano a `/#seminario`.

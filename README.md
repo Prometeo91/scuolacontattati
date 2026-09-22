@@ -73,4 +73,6 @@ Le modifiche vanno sviluppate su un branch di lavoro e portate su `main` per and
 
 Ogni modifica a `style.css`, `app.js`, `lezioni.js` o ai file in `data/` richiede di aggiornare il `?v=` nei due index e in `sw.js`, e la `VERSION` del service worker: altrimenti chi torna sul sito vede ancora il file vecchio. I dettagli sono in `CLAUDE.md`.
 
+Prima di un push: `node scripts/controlla.js` (con `BASE=origin/main` controlla anche il cache-bust). Gli stessi controlli girano su GitHub a ogni push.
+
 Il sito viene servito dal repository senza build, quindi un file tracciato può essere raggiungibile online: materiale di lavoro (foto, grafiche per i social, screenshot) va tenuto fuori, non in una sottocartella.

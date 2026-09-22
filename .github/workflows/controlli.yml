@@ -1,0 +1,31 @@
+# Lancia scripts/controlla.js a ogni push e pull request: cache-bust, id
+# uguali in italiano e inglese, file citati che esistono, traduzioni delle
+# lezioni, JSON-LD e sitemap. Se trova un errore la spunta diventa rossa e
+# il messaggio dice cosa correggere.
+name: Controlli
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  controlli:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # serve la cronologia per il confronto con la base
+
+      - name: Base del confronto
+        id: base
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "ref=origin/${{ github.base_ref }}" >> "$GITHUB_OUTPUT"
+          elif [ -n "${{ github.event.before }}" ] && ! echo "${{ github.event.before }}" | grep -q '^0*$'; then
+            echo "ref=${{ github.event.before }}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Controlli
+        env:
+          BASE: ${{ steps.base.outputs.ref }}
+        run: node scripts/controlla.js
