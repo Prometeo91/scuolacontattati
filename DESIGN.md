@@ -405,12 +405,11 @@ Tre eccezioni, deliberate:
 
 ### Pulsanti fissi
 
-**Un solo pulsante fisso per larghezza.** Sul telefono (fino a 768px) c'è
-WhatsApp; dal tablet in su, dove WhatsApp è nascosto, c'è «torna su». Il
-Condividi sta nel footer, nella fila delle icone social. Erano tre in
-colonna sul bordo destro, alti 180px: a 375px coprivano lo slogan e i
-titoli, e ogni toppa locale spostava il problema più giù. Chi vuole
-aggiungere un pulsante fisso deve toglierne un altro.
+Sul telefono (fino a 768px) ci sono WhatsApp e, sopra, Condividi. Dal
+tablet in su, dove WhatsApp è nascosto, Condividi e sopra «torna su».
+**«Torna su» sul telefono è nascosto**: con tre pulsanti in colonna, alti
+180px sul bordo destro, a 375px venivano coperti lo slogan e i titoli.
+Chi vuole aggiungere un pulsante fisso sul telefono deve toglierne un altro.
 
 ### Esito dell'invio del form
 
