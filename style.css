@@ -1573,9 +1573,9 @@ input[type="radio"]:focus-visible {
   .cookie-banner { animation: none; }
 }
 
-/* PULSANTI FISSI — sul telefono WhatsApp e sopra Condividi; dal tablet in
-   su Condividi e sopra «torna su». «Torna su» sul telefono è nascosto: la
-   colonna di tre pulsanti copriva lo slogan e i titoli a 375px. */
+/* PULSANTI FISSI — sul telefono, dal basso: WhatsApp, Condividi, «torna
+   su»; dal tablet in su WhatsApp è nascosto e restano gli altri due.
+   «Torna su» compare solo dopo uno schermo di scroll. */
 .wa-sticky {
   position:fixed;
   bottom:calc(1.25rem + env(safe-area-inset-bottom, 0px));
@@ -1654,7 +1654,7 @@ input[type="radio"]:focus-visible {
 }
 .footer-share .share-toast.show { opacity:1; transform:translate(-50%, 0); }
 
-/* BACK TO TOP — sopra Condividi, solo dal tablet in su */
+/* BACK TO TOP — sopra Condividi */
 .back-to-top {
   position:fixed;
   bottom:calc(1.25rem + 48px + 12px + env(safe-area-inset-bottom, 0px));
@@ -1676,7 +1676,12 @@ input[type="radio"]:focus-visible {
 }
 /* Tactile feedback on click/tap */
 .back-to-top:active { transform:scale(0.92); transition:transform 0.1s; }
-@media (max-width:768px) { .back-to-top { display:none; } }
+/* Sul telefono sale sopra WhatsApp (52px + 12px) e Condividi (48px + 12px) */
+@media (max-width:768px) {
+  .back-to-top {
+    bottom:calc(1.25rem + 52px + 12px + 48px + 12px + env(safe-area-inset-bottom, 0px));
+  }
+}
 
 /* SCROLL REVEAL */
 .sr { opacity:0; transform:translateY(24px); transition:opacity 0.7s ease, transform 0.7s ease; }

@@ -405,10 +405,10 @@ Tre eccezioni, deliberate:
 
 ### Pulsanti fissi
 
-Sul telefono (fino a 768px) ci sono WhatsApp e, sopra, Condividi. Dal
-tablet in su, dove WhatsApp è nascosto, Condividi e sopra «torna su».
-**«Torna su» sul telefono è nascosto**: con tre pulsanti in colonna, alti
-180px sul bordo destro, a 375px venivano coperti lo slogan e i titoli.
+Sul telefono (fino a 768px), dal basso: WhatsApp, Condividi e «torna su»,
+che compare solo dopo uno schermo di scroll. Dal tablet in su WhatsApp è
+nascosto e restano gli altri due. La colonna sul telefono è alta 180px e
+all'apertura copre il margine destro dello slogan: è una scelta di Fabio.
 Chi vuole aggiungere un pulsante fisso sul telefono deve toglierne un altro.
 Il Condividi c'è anche nel footer, come quarta icona della fila social: i
 due pulsanti hanno la classe `.js-share` e ognuno mostra il proprio toast.
