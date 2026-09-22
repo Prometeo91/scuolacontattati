@@ -413,6 +413,31 @@ Chi vuole aggiungere un pulsante fisso sul telefono deve toglierne un altro.
 Il Condividi c'è anche nel footer, come quarta icona della fila social: i
 due pulsanti hanno la classe `.js-share` e ognuno mostra il proprio toast.
 
+### Schermi bassi
+
+L'hero si adatta all'altezza, non solo alla larghezza. **I due pulsanti
+devono stare nella prima schermata** da 375×667 in su, in orizzontale sul
+telefono, a 1024×768 e 1280×800.
+
+- **Telefono in verticale fino a 740px d'altezza**: stessi elementi, logo a
+  116px e spazi più stretti.
+- **Telefono in orizzontale** (altezza fino a 500px): due colonne, logo a
+  sinistra e testi allineati a sinistra accanto. La barra perde 16px di
+  padding.
+- **Tablet in orizzontale e portatili bassi** (larghezza da 641px, altezza
+  501-860px): logo a 160px e spazi più stretti.
+
+A 320×568 i pulsanti restano sotto la piega: rimpicciolire ancora
+sacrificherebbe il logo.
+
+**Il menu a hamburger aperto è alto circa 670px** e la barra è fissa: se è
+più alto dello schermo scorre al suo interno, altrimenti su un 375×667 le
+ultime voci (Portale, lingua, tema) non si raggiungono.
+
+**Tacca dell'iPhone**: il viewport è `viewport-fit=cover`, quindi il `body`
+ha `padding-left/right: env(safe-area-inset-*)`. Chromium non simula la
+tacca: va verificato su un iPhone vero, girato in orizzontale.
+
 ### Esito dell'invio del form
 
 `.form-feedback` ha una coppia di variabili per tema: `--ok-bg/--ok-border/
