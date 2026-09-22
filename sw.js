@@ -12,11 +12,11 @@
    lezioni.js, data/*.js) va aggiornato qui e nei due index quando
    cambia, incrementando VERSION.
    ═══════════════════════════════════════════════════ */
-var VERSION = 'sc-cache-v45';
+var VERSION = 'sc-cache-v48';
 var CORE = [
   '/',
-  '/style.css?v=20260920b',
-  '/app.js?v=20260920c',
+  '/style.css?v=20260922c',
+  '/app.js?v=20260922a',
   '/lezioni.js?v=20260920a',
   '/data/citazioni.js?v=20260908a',
   '/data/eventi.js?v=20260908a',

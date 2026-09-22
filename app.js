@@ -524,31 +524,34 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  /* SHARE SITE BUTTON */
-  var shareBtn=document.getElementById('shareSiteBtn');
-  if(shareBtn){
+  /* CONDIVIDI — due pulsanti con la classe .js-share: quello fisso in basso
+     a destra (#shareSiteBtn) e quello nel footer. Ognuno ha il suo toast. */
+  var shareBtns=document.querySelectorAll('.js-share');
+  if(shareBtns.length){
     var canon=document.querySelector('link[rel="canonical"]');
     var siteURL=canon?canon.href:'https://scuolacontattati.com/';
-    var showToast=function(){
-      var toast=document.getElementById('shareToast');
-      if(toast){toast.classList.add('show');setTimeout(function(){toast.classList.remove('show');},2000);}
-    };
-    var copyLink=function(){
+    var copyLink=function(btn){
+      var showToast=function(){
+        var toast=btn.querySelector('.share-toast');
+        if(toast){toast.classList.add('show');setTimeout(function(){toast.classList.remove('show');},2000);}
+      };
       if(navigator.clipboard && navigator.clipboard.writeText){
         navigator.clipboard.writeText(siteURL).then(showToast).catch(function(){ window.prompt('Link',siteURL); });
       } else {
         window.prompt('Link',siteURL);
       }
     };
-    shareBtn.addEventListener('click',function(){
-      if(navigator.share){
-        /* Se la share sheet non si apre (errore diverso dall'annullamento dell'utente), copia il link */
-        navigator.share({title:'Scuola ContattaTi',url:siteURL}).catch(function(err){
-          if(!err || err.name!=='AbortError') copyLink();
-        });
-      } else {
-        copyLink();
-      }
+    Array.prototype.forEach.call(shareBtns,function(btn){
+      btn.addEventListener('click',function(){
+        if(navigator.share){
+          /* Se la share sheet non si apre (errore diverso dall'annullamento dell'utente), copia il link */
+          navigator.share({title:'Scuola ContattaTi',url:siteURL}).catch(function(err){
+            if(!err || err.name!=='AbortError') copyLink(btn);
+          });
+        } else {
+          copyLink(btn);
+        }
+      });
     });
   }
 
