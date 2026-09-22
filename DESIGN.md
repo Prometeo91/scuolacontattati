@@ -162,11 +162,12 @@ Perché si legga come montata e non come capitata lì, nel tema chiaro hanno
 una cornice più definita e un'ombra che le stacca dal fondo. Ogni revisione
 segnala questi emblemi come incoerenza del tema chiaro: non lo sono.
 
-### Le due eccezioni all'oro
+### Le eccezioni all'oro
 
-Due tinte vivono fuori dalla famiglia oro, e sono le uniche ammesse. Servono
-a distinguere categorie sui tag di competenza dei conduttori, dove l'oro non
-può portare la distinzione perché è già il colore di tutto il resto.
+Fuori dalla famiglia oro vivono poche tinte, e solo per distinguere
+categorie dove l'oro non può portare la distinzione perché è già il colore
+di tutto il resto: i tag di competenza dei conduttori e i tre archetipi
+planetari del libro.
 
 - **Viola** (`--tag-olistica`: `#b49fe0` scuro, `#4a3a66` chiaro): formazione
   olistica e counseling. È anche il colore di `.badge-purple`.
@@ -175,6 +176,21 @@ può portare la distinzione perché è già il colore di tutto il resto.
 
 I valori del tema chiaro sono scuriti apposta: le versioni del tema scuro su
 fondo pergamena scendevano a 1.28:1 e 1.78:1.
+
+**I tre archetipi planetari del libro** (sezione Libro, «3 Archetipi
+Planetari») hanno un colore ciascuno, per lo stesso motivo dei tag: sono tre
+categorie affiancate che l'oro da solo non distingue. Il colore sta sul
+simbolo (♅ ♆ ♇) e sulla citazione in fondo al pannello, e non esce da quel
+blocco.
+
+- **Urano** (`--arch-urano`): l'oro chiaro, `#e8c97a` / `#8a6a10`.
+- **Nettuno** (`--arch-nettuno`): il viola dei tag, `#b49fe0` / `#6b5a9e`.
+- **Plutone** (`--arch-plutone`): rosso, `#e07d7d` / `#a84040`. È l'unico
+  rosso della palette oltre agli errori del form (`--ko-*`), e ha un tono
+  diverso apposta: un rosso che significa «errore» non va usato come colore
+  di un archetipo, e viceversa.
+
+Contrasto misurato fra 5:1 e 11,7:1 in entrambi i temi.
 
 Il verde di WhatsApp (`#25d366`) sul pulsante sticky non rientra qui: è un
 colore di marca di terze parti, non una scelta di palette.
@@ -204,8 +220,9 @@ scritti a mano (`rgba(120,90,30,x)`) sono scelte puntuali e restano.
 
 **La regola dell'oro unico.** L'oro è l'unica famiglia d'accento. Un secondo
 colore va introdotto solo se porta un'informazione che l'oro non può portare.
-Le eccezioni in essere sono due, il viola e il verde dei tag di competenza,
-descritte sopra: non se ne aggiungono altre senza deciderlo qui prima.
+Le eccezioni in essere sono il viola e il verde dei tag di competenza e i
+tre colori degli archetipi planetari, descritti sopra: non se ne aggiungono
+altre senza deciderlo qui prima.
 
 **Niente bianco puro.** `#ffffff` non è un fondo ammesso nel tema chiaro.
 

@@ -131,6 +131,10 @@
      conduttori. Nel tema chiaro vanno scurite per superare AA sul tint. */
   --tag-olistica: #b49fe0;
   --tag-coaching: #7de0a0;
+  /* I tre archetipi planetari del libro (simbolo e citazione) */
+  --arch-urano: #e8c97a;
+  --arch-nettuno: #b49fe0;
+  --arch-plutone: #e07d7d;
   /* Esito dell'invio del form. Nel tema chiaro il rosa e il verde chiari del
      tema scuro finivano sotto 2:1 sull'avorio: qui la coppia si inverte. */
   --ok-bg: rgba(40,160,80,0.1);
@@ -191,6 +195,9 @@
   --on-gold: #f8f2e6;
   --tag-olistica: #4a3a66;
   --tag-coaching: #1f6b3a;
+  --arch-urano: #8a6a10;
+  --arch-nettuno: #6b5a9e;
+  --arch-plutone: #a84040;
   --ok-bg: rgba(30,120,60,0.09);
   --ok-border: rgba(30,120,60,0.35);
   --ok-text: #14542c;
@@ -367,9 +374,6 @@
   border: 0.5px solid rgba(80,60,30,0.2);
 }
 /* Citazioni planetarie: più leggibili su sfondo chiaro */
-[data-theme="light"] .em-urano { color: #8a6a10; }
-[data-theme="light"] .em-nettuno { color: #6b5a9e; }
-[data-theme="light"] .em-plutone { color: #a84040; }
 /* Detail pill: più visibile su chiaro */
 [data-theme="light"] .detail-pill {
   background: rgba(var(--gold-rgb),0.12);
@@ -1428,9 +1432,9 @@ input[type="radio"]:focus-visible {
 .archetype-symbol { font-size:20px; flex-shrink:0; padding-left:8px; }
 /* I glifi ♅ ♆ ♇ distinguono già i tre archetipi: la barretta colorata a
    sinistra aggiungeva solo tre colori fuori dalla coppia di variabili. */
-.em-urano { color:rgba(var(--gold-light-rgb),0.95); }
-.em-nettuno { color:rgba(180,159,224,0.95); }
-.em-plutone { color:rgba(224,125,125,0.95); }
+.em-urano, .archetype-symbol-urano { color: var(--arch-urano); }
+.em-nettuno, .archetype-symbol-nettuno { color: var(--arch-nettuno); }
+.em-plutone, .archetype-symbol-plutone { color: var(--arch-plutone); }
 
 /* Conduttori: bio card layout */
 .teacher-bio { font-size: 16px; color:var(--text-reading); line-height:1.8; margin-bottom:0.75rem; }
@@ -1673,7 +1677,7 @@ input[type="radio"]:focus-visible {
   right:calc(1.25rem + env(safe-area-inset-right, 0px));
   z-index:90;
   width:52px; height:52px; border-radius:50%;
-  background:#25d366; /* verde di marca WhatsApp: vedi DESIGN.md, «Le due eccezioni all'oro» */
+  background:#25d366; /* verde di marca WhatsApp: vedi DESIGN.md, «Le eccezioni all'oro» */
   border:none; cursor:pointer;
   display:flex; align-items:center; justify-content:center;
   box-shadow:0 4px 12px rgba(0,0,0,0.3);
