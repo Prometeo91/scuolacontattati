@@ -2204,9 +2204,12 @@ html::before {
     radial-gradient(ellipse at top, rgba(var(--gold-rgb),0.04) 0%, transparent 50%);
 }
 
-/* Tema chiaro: vignetta più tenue, niente bagliore d'oro (già pergamena) */
+/* Tema chiaro: vignetta più tenue, niente bagliore d'oro (già pergamena).
+   data-theme sta sull'elemento html: il selettore va scritto html[data-theme]
+   e non [data-theme] html, che non si applicherebbe mai. Fino a settembre 2026
+   era scritto così, e in Pergamena restava la vignetta nera al 35%. */
 [data-theme="light"] body::after { opacity: 0.025; mix-blend-mode: multiply; }
-[data-theme="light"] html::before {
+html[data-theme="light"]::before {
   background: radial-gradient(ellipse at center, transparent 0%, transparent 50%, rgba(120,90,30,0.15) 100%);
 }
 
