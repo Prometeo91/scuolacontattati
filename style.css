@@ -1711,15 +1711,18 @@ input[type="radio"]:focus-visible {
   .share-site-btn:hover { background:var(--surface-hover); border-color:var(--gold-light); }
 }
 .share-site-btn:active { transform:scale(0.92); transition:transform 0.1s; }
-.share-site-btn .share-toast {
-  position:absolute; bottom:calc(100% + 8px); right:0;
+/* «Link copiato!»: stesso toast per i due Condividi, cambia solo dove sta */
+.share-toast {
+  position:absolute; bottom:calc(100% + 8px);
   background:var(--gold); color:var(--on-gold);
   font-family:var(--font-sans); font-size:13px; font-weight:600;
   padding:6px 12px; border-radius: var(--radius-md); white-space:nowrap;
-  opacity:0; transform:translateY(4px); pointer-events:none;
+  opacity:0; pointer-events:none;
   transition:opacity 0.3s, transform 0.3s;
 }
-.share-site-btn .share-toast.show { opacity:1; transform:translateY(0); }
+.share-toast.show { opacity:1; }
+.share-site-btn .share-toast { right:0; transform:translateY(4px); }
+.share-site-btn .share-toast.show { transform:translateY(0); }
 @media (max-width:768px) {
   .share-site-btn {
     bottom:calc(1.25rem + 52px + 12px + env(safe-area-inset-bottom, 0px));
@@ -1739,15 +1742,8 @@ input[type="radio"]:focus-visible {
 .footer-share:hover { background:rgba(var(--gold-rgb),0.08); border-color:var(--gold); color:var(--gold-light); }
 .footer-share:active { transform:scale(0.92); transition:transform 0.1s; }
 .footer-share svg { width:20px; height:20px; fill:currentColor; }
-.footer-share .share-toast {
-  position:absolute; bottom:calc(100% + 8px); left:50%;
-  background:var(--gold); color:var(--on-gold);
-  font-family:var(--font-sans); font-size:13px; font-weight:600;
-  padding:6px 12px; border-radius: var(--radius-md); white-space:nowrap;
-  opacity:0; transform:translate(-50%, 4px); pointer-events:none;
-  transition:opacity 0.3s, transform 0.3s;
-}
-.footer-share .share-toast.show { opacity:1; transform:translate(-50%, 0); }
+.footer-share .share-toast { left:50%; transform:translate(-50%, 4px); }
+.footer-share .share-toast.show { transform:translate(-50%, 0); }
 
 /* BACK TO TOP — sopra Condividi */
 .back-to-top {
