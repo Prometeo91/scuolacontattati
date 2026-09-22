@@ -11,29 +11,33 @@ Sito statico single-page in HTML/CSS/JS vanilla, senza build step. Due lingue:
 - **Italiano** — `index.html` (pagina principale)
 - **Inglese** — `en/index.html`
 
-Il sito presenta la Scuola, il percorso settennale di studi, i conduttori, gli eventi (seminari e residenziali), il libro *Ricchezza, Abbondanza e Mission*, una galleria, le FAQ e i contatti.
+Il sito presenta la Scuola, il percorso settennale di studi con il calendario delle lezioni, i conduttori, il libro *Ricchezza, Abbondanza e Mission*, una galleria, le FAQ e i contatti.
 
 ## Struttura del repository
 
 ```
 index.html          Pagina principale (it) — tutte le sezioni del sito
-en/                 Versione inglese (index, privacy, seminario)
+en/                 Versione inglese (index, privacy)
 style.css           Tutti gli stili — design system a variabili CSS
 app.js              Interazioni: tema, countdown, scroll-reveal, lightbox, ecc.
 lezioni.js          Dati delle lezioni per anno di corso (L1…L7)
 data/               citazioni.js, eventi.js
-seminario.html      Landing page con meta OG per condivisione social del seminario
+privacy.html        Informativa privacy (it; l'inglese è in en/)
 fonts/              EB Garamond + Inter (self-hosted)
 images/             Foto, locandine, icone, gallery
 giochi/             Engine e asset condivisi dei giochi didattici
 <nome-gioco>/       15 cartelle di giochi (index.html + data.js + i18n.js ciascuna)
 DESIGN.md           Design system: token, palette, tipografia, componenti, regole
+PRODUCT.md          Pubblico, scopo e vincoli del sito
+CLAUDE.md           Istruzioni e fatti verificati per le sessioni di Claude
 sitemap.xml, robots.txt, 404.html, sw.js, site.webmanifest
 ```
 
 ### Sezioni della pagina principale
 
-`#chi-siamo` · `#insegnamenti` (con il percorso anno per anno) · `#conduttori` · `#galleria` · `#calendario` · `#seminario` (eventi) · `#libro` · `#faq` · `#contatti` · `#ispirazioni` · `#giochi`
+`#chi-siamo` · `#insegnamenti` (con il percorso anno per anno) · `#conduttori` · `#galleria` · `#calendario` · `#libro` · `#faq` · `#contatti` · `#ispirazioni` · `#giochi`
+
+Quando c'è un seminario da promuovere si aggiunge una sezione `#seminario` con le sue landing `seminario.html` e `en/seminario.html`; passato il seminario si tolgono. Il procedimento è descritto in `CLAUDE.md`.
 
 ## Il percorso di studi
 
@@ -55,7 +59,7 @@ Documentato in `DESIGN.md`, nel formato DESIGN.md con frontmatter di token. In s
 
 ## Giochi didattici
 
-Quindici mini-giochi collegati agli insegnamenti (Phaser 3 + engine condivisi in `giochi/`). Ogni gioco vive in una propria cartella con `index.html`, `data.js` e `i18n.js`.
+Quindici mini-giochi collegati agli insegnamenti, in JavaScript senza librerie, con motore e stili condivisi in `giochi/`. Ogni gioco vive in una propria cartella con `index.html`, `data.js` e `i18n.js`.
 
 ## Sviluppo
 
@@ -66,3 +70,7 @@ npx serve .
 ```
 
 Le modifiche vanno sviluppate su un branch di lavoro e portate su `main` per andare in produzione. Ogni modifica ai contenuti va applicata **sia** a `index.html` **sia** a `en/index.html`.
+
+Ogni modifica a `style.css`, `app.js`, `lezioni.js` o ai file in `data/` richiede di aggiornare il `?v=` nei due index e in `sw.js`, e la `VERSION` del service worker: altrimenti chi torna sul sito vede ancora il file vecchio. I dettagli sono in `CLAUDE.md`.
+
+Il sito viene servito dal repository senza build, quindi un file tracciato può essere raggiungibile online: materiale di lavoro (foto, grafiche per i social, screenshot) va tenuto fuori, non in una sottocartella.

@@ -9,3 +9,10 @@ node_modules/
 
 # stato transitorio del live server di impeccable
 .impeccable/live/
+
+# Materiale di lavoro che non fa parte del sito: se si tiene in locale nella
+# cartella del progetto non deve finire nel repository, da cui il sito viene
+# servito. Erano entrate per sbaglio con la PR #41 (320 MB, 1.276 file).
+/Ninja Adventure - Asset Pack/
+/materiale-facebook/
+/screenshot/

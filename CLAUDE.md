@@ -118,9 +118,13 @@ await page.evaluate(() => { const e=document.getElementById('id'), r=e.getBoundi
 
 Fabio spesso chiede un **mockup/screenshot prima di implementare**: preparare una preview, mostrarla, aspettare l'ok ("procedi").
 
+## Cosa non va nel repository
+
+Il sito viene servito dal repository senza build: un file tracciato può essere raggiungibile online a chi ne conosce l'indirizzo. Materiale di lavoro (foto scaricate, grafiche per i social, screenshot, asset pack) va tenuto fuori. È già successo: con la PR #41 erano entrate tre cartelle così (320 MB, 1.276 file, fra cui foto personali prese da Facebook), rimosse a settembre 2026 e ora in `.gitignore`. Restano nella cronologia git, che per questo pesa circa 335 MB; ridurla richiederebbe di riscrivere la storia di `main`, e va deciso con Fabio.
+
 ## Giochi didattici
 
-15 giochi (Phaser 3), ognuno in una cartella propria (`il-risveglio/`, `apprendista-del-mago/`, …) con `index.html` + `data.js` + `i18n.js`; engine e stili condivisi in `giochi/`. Raramente oggetto di modifiche: toccare solo se richiesto.
+15 giochi in JavaScript senza librerie (niente Phaser, anche se una versione precedente di questo file lo diceva), ognuno in una cartella propria (`il-risveglio/`, `apprendista-del-mago/`, …) con `index.html` + `data.js` + `i18n.js`; engine e stili condivisi in `giochi/`. Raramente oggetto di modifiche: toccare solo se richiesto.
 
 ## Stile di scrittura (vale per la copy del sito e per le risposte in chat)
 
