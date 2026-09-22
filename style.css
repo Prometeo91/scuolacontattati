@@ -285,10 +285,12 @@
   backdrop-filter: none;
   border: none;
 }
-[data-theme="light"] .footer-social a {
+[data-theme="light"] .footer-social a,
+[data-theme="light"] .footer-share {
   color: var(--gold); border-color: rgba(120,90,30,0.4); background: transparent;
 }
-[data-theme="light"] .footer-social a:hover {
+[data-theme="light"] .footer-social a:hover,
+[data-theme="light"] .footer-share:hover {
   color: var(--gold-deep); border-color: var(--gold); background: rgba(184,138,46,0.12);
 }
 [data-theme="light"] .footer-seal {
@@ -308,6 +310,10 @@
 }
 [data-theme="light"] footer [id="email-footer"] a:hover {
   color: var(--gold) !important;
+}
+/* il toast sta su fondo oro pieno: la regola sugli span del footer qui sopra lo renderebbe illeggibile */
+[data-theme="light"] footer .share-toast {
+  color: var(--on-gold) !important;
 }
 [data-theme="light"] .share-site-btn {
   background: var(--bg-1) !important;
@@ -1624,6 +1630,29 @@ input[type="radio"]:focus-visible {
     bottom:calc(1.25rem + 52px + 12px + env(safe-area-inset-bottom, 0px));
   }
 }
+
+/* CONDIVIDI NEL FOOTER — stessa forma delle icone social accanto */
+.footer-share {
+  position:relative;
+  display:flex; align-items:center; justify-content:center;
+  width:44px; height:44px; padding:0; border-radius:50%;
+  background:transparent; border:0.5px solid rgba(201,151,58,0.3);
+  color:var(--gold); cursor:pointer;
+  transition:all 0.2s;
+  -webkit-tap-highlight-color:transparent;
+}
+.footer-share:hover { background:rgba(201,151,58,0.08); border-color:var(--gold); color:var(--gold-light); }
+.footer-share:active { transform:scale(0.92); transition:transform 0.1s; }
+.footer-share svg { width:20px; height:20px; fill:currentColor; }
+.footer-share .share-toast {
+  position:absolute; bottom:calc(100% + 8px); left:50%;
+  background:var(--gold); color:var(--on-gold);
+  font-family:var(--font-body); font-size:13px; font-weight:600;
+  padding:6px 12px; border-radius: var(--radius-md); white-space:nowrap;
+  opacity:0; transform:translate(-50%, 4px); pointer-events:none;
+  transition:opacity 0.3s, transform 0.3s;
+}
+.footer-share .share-toast.show { opacity:1; transform:translate(-50%, 0); }
 
 /* BACK TO TOP — sopra Condividi, solo dal tablet in su */
 .back-to-top {
