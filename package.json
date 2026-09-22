@@ -1,6 +1,5 @@
 {
-  "dependencies": {
-    "phaser": "^3.90.0",
-    "playwright": "^1.61.1"
-  }
+  "name": "scuolacontattati",
+  "private": true,
+  "description": "Sito statico senza build step. Per le verifiche visive: npm install --no-save playwright-core (vedi CLAUDE.md)."
 }

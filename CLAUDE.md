@@ -26,6 +26,10 @@ Sito della **Scuola ContattaTi** (Scuola di Consapevolezza ed Alchimia, Bari), g
 | `data/eventi.js`, `data/citazioni.js` | Dati eventi e citazioni |
 | `DESIGN.md` | Design system: frontmatter YAML di token estratti dal CSS + otto sezioni canoniche. Sostituisce il vecchio `deisgn.md`, che era rimasto indietro rispetto a `style.css` |
 
+## Controlli automatici
+
+`node scripts/controlla.js` (nessuna dipendenza) verifica gli errori che su questo progetto si ripetono: `?v=` coerenti fra i due index e `sw.js`, stessi id in italiano e inglese, ogni file citato esistente, ogni lezione con titolo tradotta in `L_EN`, JSON-LD valido, sitemap senza pagine inesistenti. Con `BASE=origin/main` segnala anche un file in CORE modificato senza aggiornare il `?v=`. **Lanciarlo prima di ogni push.** La GitHub Action `.github/workflows/controlli.yml` lo esegue comunque a ogni push e pull request.
+
 ## Seminari in evidenza (pattern ricorrente, oggi non attivo)
 
 Quando c'è un seminario da promuovere si ricrea una sezione `#seminario` in entrambi gli index, più due landing `seminario.html` e `en/seminario.html` con i meta Open Graph per la condivisione su WhatsApp/Facebook, che rimandano a `/#seminario`.
@@ -78,10 +82,11 @@ Attenzione a non confonderli con scelte già stabilite del sito: il piccolo test
 
 È l'errore che si ripete più spesso su questo progetto: si cambia la regola base e restano indietro quelle che la sovrascrivono. Sono già successi due casi — una regola orfana settanta righe più in basso, e due override `[data-theme="light"]` che continuavano a dipingere una scatola appena rimossa.
 
-1. **Cercare chi la sovrascrive**, prima di toccarla: `grep -n 'nome-classe' style.css` sull'intero file, non solo intorno alla regola. In `style.css` ci sono **84 selettori `[data-theme="light"]` sparsi dalla riga 168 alla 2274**: circa tre quarti stanno nel blocco iniziale (righe 168-391), il resto è disseminato ovunque. Non basta guardare in un punto solo.
+1. **Cercare chi la sovrascrive**, prima di toccarla: `grep -n 'nome-classe' style.css` sull'intero file, non solo intorno alla regola. In `style.css` ci sono **77 selettori `[data-theme="light"]` sparsi dalla riga 168 alla 2263**: circa tre quarti stanno nel blocco iniziale (righe 168-375), il resto è disseminato ovunque. Non basta guardare in un punto solo.
 2. **Se la regola aveva un `[data-theme="light"]` a supporto di ciò che si sta rimuovendo, quell'override va rimosso insieme.** Un `background` o un `border` di tema chiaro sopravvissuto ridipinge quello che si è appena tolto, e senza il padding che lo reggeva il risultato è peggiore di prima.
 3. **Verificare ogni componente toccato in entrambi i temi.** Controllarne uno solo non basta: due componenti con lo stesso trattamento possono divergere, perché uno ha override di tema e l'altro no. Il tema chiaro si attiva con `document.documentElement.setAttribute('data-theme','light')`, non con `colorScheme` di Playwright.
-4. **Le regole rimaste senza usi vanno cancellate**, non lasciate lì: `grep -rl 'selettore' --include='*.html' --include='*.css' --include='*.js' .` per confermare che non serva più a nessuno, giochi compresi.
+4. **`[data-theme="light"]` va scritto sull'elemento giusto.** `data-theme` sta su `html`: per colpire `html` stesso o i suoi pseudo-elementi il selettore è `html[data-theme="light"]::before`, non `[data-theme="light"] html::before`, che non si applica mai. Era successo alla vignetta del tema chiaro, rimasta nera per mesi.
+5. **Le regole rimaste senza usi vanno cancellate**, non lasciate lì: `grep -rl 'selettore' --include='*.html' --include='*.css' --include='*.js' .` per confermare che non serva più a nessuno, giochi compresi.
 
 ## Screenshot / verifica visiva
 
@@ -118,9 +123,13 @@ await page.evaluate(() => { const e=document.getElementById('id'), r=e.getBoundi
 
 Fabio spesso chiede un **mockup/screenshot prima di implementare**: preparare una preview, mostrarla, aspettare l'ok ("procedi").
 
+## Cosa non va nel repository
+
+Il sito viene servito dal repository senza build: un file tracciato può essere raggiungibile online a chi ne conosce l'indirizzo. Materiale di lavoro (foto scaricate, grafiche per i social, screenshot, asset pack) va tenuto fuori. È già successo: con la PR #41 erano entrate tre cartelle così (320 MB, 1.276 file, fra cui foto personali prese da Facebook), rimosse a settembre 2026 e ora in `.gitignore`. Restano nella cronologia git, che per questo pesa circa 335 MB; ridurla richiederebbe di riscrivere la storia di `main`, e va deciso con Fabio.
+
 ## Giochi didattici
 
-15 giochi (Phaser 3), ognuno in una cartella propria (`il-risveglio/`, `apprendista-del-mago/`, …) con `index.html` + `data.js` + `i18n.js`; engine e stili condivisi in `giochi/`. Raramente oggetto di modifiche: toccare solo se richiesto.
+15 giochi in JavaScript senza librerie (niente Phaser, anche se una versione precedente di questo file lo diceva), ognuno in una cartella propria (`il-risveglio/`, `apprendista-del-mago/`, …) con `index.html` + `data.js` + `i18n.js`; engine e stili condivisi in `giochi/`. Raramente oggetto di modifiche: toccare solo se richiesto.
 
 ## Stile di scrittura (vale per la copy del sito e per le risposte in chat)
 
