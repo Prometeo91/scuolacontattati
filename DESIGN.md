@@ -269,8 +269,8 @@ ciascuno: un valore fuori da questo elenco è quasi sempre una svista.
 | 16 | 24 | ruolo **Body**, pulsanti |
 | 15 | 20 | voci di menu, testi secondari |
 | 14 | 12 | didascalie |
-| 13 | 23 | etichette di interfaccia, summary |
-| 12 | 22 | citazioni firmate, note |
+| 13 | 24 | etichette di interfaccia, summary, ruolo dei collaboratori |
+| 12 | 21 | citazioni firmate, note |
 | 11 | 19 | ruolo **Label**: occhielli, badge |
 | 10 | 2 | badge minuti |
 
