@@ -1326,6 +1326,10 @@ section#insegnamenti, section#seminario, section#faq {
 .skip-link { position: absolute; top: -100%; left: 1rem; background: var(--gold); color: var(--on-gold); display: inline-flex; align-items: center; min-height: 44px; padding: 0.5rem 1rem; border-radius: 0 0 var(--radius-md) var(--radius-md); font-size: 15px; font-weight: 500; z-index: 200; text-decoration: none; }
 .skip-link:focus { top: 0; }
 
+/* I pulsanti non ereditano il font per default: senza questa riga l'hamburger,
+   i comandi della galleria ingrandita e i Condividi usavano Arial. */
+button { font-family: inherit; }
+
 /* FOCUS RING — targeted to interactive elements only */
 a:focus-visible,
 button:focus-visible,
@@ -2376,6 +2380,9 @@ html[data-theme="light"]::before {
   .contributo-note{font-size:14px;color:var(--text-muted);margin-top:0.45rem;line-height:1.55}
   .contributo-divider{width:0.5px;background:var(--border);align-self:stretch}
   .contributo-trust{font-size:13px;color:var(--text-muted);letter-spacing:0.03em;margin-top:1.25rem;padding-top:1.1rem;border-top:0.5px solid var(--border);text-align:center}
+
+/* Riga in fondo al calendario che rimanda alle FAQ per le domande pratiche */
+.calendario-faq { text-align: center; margin-top: 2.5rem; font-size: 15px; color: var(--text-muted); }
   @media(max-width:560px){.contributo{padding:1.5rem 1.3rem}.contributo-row{gap:1.25rem}.contributo-divider{display:none}}
 
   /* Ripresa — banner della prossima lezione, sparisce da solo via data-expires */
