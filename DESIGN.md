@@ -531,9 +531,9 @@ le due della galleria.
 
 ### Prima di modificare una regola CSS
 
-`style.css` contiene **77 regole `[data-theme="light"]`** sparse dalla riga 124
-alla 1972. Circa due terzi stanno nel blocco iniziale, il resto è disseminato.
-Prima di cambiare una regola base, cercare chi la sovrascrive su tutto il file.
+Gli override `[data-theme="light"]` sono sparsi in tutto `style.css`: prima di
+cambiare una regola base, cercare chi la sovrascrive su tutto il file (la
+procedura completa è in `CLAUDE.md`).
 Se si rimuove qualcosa che aveva un override di tema chiaro a supporto, va
 rimosso anche quello. Verificare sempre in entrambi i temi.
 

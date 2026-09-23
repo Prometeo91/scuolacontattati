@@ -18,13 +18,13 @@ Sito della **Scuola ContattaTi** (Scuola di Consapevolezza ed Alchimia, Bari), g
 
 | File | Ruolo |
 |---|---|
-| `index.html` | Tutto il sito it (~1750 righe): sezioni `#chi-siamo`, `#insegnamenti`, `#conduttori`, `#galleria`, `#calendario`, `#libro`, `#faq`, `#contatti`, `#ispirazioni`, `#giochi` |
+| `index.html` | Tutto il sito it: sezioni `#chi-siamo`, `#insegnamenti`, `#conduttori`, `#galleria`, `#calendario`, `#libro`, `#faq`, `#contatti`, `#ispirazioni`, `#giochi` |
 | `en/index.html` | Versione inglese speculare |
 | `style.css` | Tutti gli stili, design system a variabili CSS |
 | `app.js` | Tema chiaro/scuro, countdown eventi, scroll-reveal, lightbox, service worker |
 | `lezioni.js` | **Fonte di verità** dei contenuti delle lezioni: array `L1`…`L7` (un array per anno di corso, con titoli, temi, date, citazioni). Consultarlo prima di scrivere qualsiasi testo sul percorso di studi. **In fondo al file c'è `L_EN` con le traduzioni inglesi**, innestate come campo `.en` su ogni lezione: chi aggiunge o modifica una lezione italiana deve aggiornare anche la voce corrispondente lì, altrimenti la pagina inglese mostra l'italiano. È nello stesso file apposta, perché un secondo file resterebbe indietro in silenzio |
 | `data/eventi.js`, `data/citazioni.js` | Dati eventi e citazioni |
-| `DESIGN.md` | Design system: frontmatter YAML di token estratti dal CSS + otto sezioni canoniche. Sostituisce il vecchio `deisgn.md`, che era rimasto indietro rispetto a `style.css` |
+| `DESIGN.md` | Design system: frontmatter YAML di token estratti dal CSS + otto sezioni canoniche |
 
 ## Controlli automatici
 
@@ -41,7 +41,7 @@ Oggi **non esistono**: sezione e landing sono state rimosse col commit `2722cf3`
 - Percorso **settennale**: ciclo base 3 anni con **7 lezioni l'anno** (dal 2026/27; il 1° anno 2025/26 ne ha avute 6, ed è corretto così nei dati), ciclo avanzato 4 anni con 3 lezioni l'anno.
 - **Il numero di lezioni per anno in `lezioni.js` non va «corretto» a tavolino.** Oggi `L1` ne ha 6, `L2` 7, `L3` 6, e gli anni avanzati 3: `L3` ne ha ancora 6 perché quel ciclo non è ancora cominciato con 7. Il dato rispecchia quello che la Scuola sa, non lo schema teorico. Ogni passata di revisione lo segnala come incoerenza: non lo è.
 - **Il primo anno non riparte a breve**: la prossima coorte di 1° anno è attesa fra un paio d'anni, forse tre, e la data non si sa. Il sito **non deve dirlo**: la riga «Anno concluso» sul tab dell'Anno 1 basta così com'è. Ogni revisione segnala che manca la risposta alla domanda «quando ricomincia»: è una scelta, non una lacuna.
-- **Un anno del calendario è linkabile**: `scuolacontattati.com/#anno-3` (e `#anno-esp` per gli esperienziali) apre quel tab e scrolla al calendario; il click su un tab riscrive l'hash con `replaceState`. Senza hash valido si apre l'anno della prossima lezione, come prima.
+- **Un anno del calendario è linkabile**: `scuolacontattati.com/#anno-3` (e `#anno-esp` per gli esperienziali) apre quel tab e scrolla al calendario; il click su un tab riscrive l'hash con `replaceState`. Senza hash valido si apre l'anno della prossima lezione.
 - Una lezione di cui si conosce solo la data si inserisce in `lezioni.js` con i soli campi `num`/`day`/`month`/`year`: il calendario ha già lo stato "programma in definizione" (riga attenuata, nessun pannello espandibile). Non inventare titoli o temi.
 - Conduttori: Anna Carla Digregorio e Nicolaos Anifantis. Anna Carla comunica novità via WhatsApp che spesso vanno riportate sul sito.
 - Libro: *Ricchezza, Abbondanza e Mission* (Gagliano Edizioni).
@@ -55,7 +55,7 @@ Su un telefono medio con 4G lenta la prima schermata è passata da 4,7s a 2,6s (
 - **Immagini in due taglie.** `hero-cielo-800.webp` e `video-cammino-800.webp` sotto gli 800px (media query in `style.css`), `gioco-*-144.webp` per le icone della sezione giochi: le versioni grandi restano per desktop e per i giochi. Chi sostituisce un'immagine rigenera anche la variante.
 - **Preload del cielo dell'hero** nello script del tema in `<head>` (entrambi gli index): solo nel tema scuro, con la stessa soglia degli 800px.
 - **`content-visibility: auto`** sulle sezioni dopo `#chi-siamo`: il browser non le disegna finché non si avvicinano. Ha un rovescio: uno scroll animato verso un'ancora calcola la destinazione su altezze stimate. Per questo esiste la classe `.cv-off`, che disegna tutto: la mette lo script in `<head>` se si arriva con un `#hash`, e `app.js` al primo clic su un link interno. Chi aggiunge una sezione non deve fare nulla; chi aggiunge un altro modo di scrollare verso un'ancora (JS, `scrollIntoView` con `smooth`) deve mettere `cv-off` prima.
-- **Ogni immagine lazy ha `width`/`height`** (o un `aspect-ratio`). Una sola immagine senza dimensioni (era la Carrozza, e il riquadro del libro sul telefono) cresce mentre la pagina scorre verso un'ancora e fa atterrare il link centinaia di pixel prima.
+- **Ogni immagine lazy ha `width`/`height`** (o un `aspect-ratio`). Una sola immagine senza dimensioni cresce mentre la pagina scorre verso un'ancora e fa atterrare il link centinaia di pixel prima.
 
 ## Design system (regole rigide)
 
@@ -82,10 +82,10 @@ Attenzione a non confonderli con scelte già stabilite del sito: il piccolo test
 
 È l'errore che si ripete più spesso su questo progetto: si cambia la regola base e restano indietro quelle che la sovrascrivono. Sono già successi due casi — una regola orfana settanta righe più in basso, e due override `[data-theme="light"]` che continuavano a dipingere una scatola appena rimossa.
 
-1. **Cercare chi la sovrascrive**, prima di toccarla: `grep -n 'nome-classe' style.css` sull'intero file, non solo intorno alla regola. In `style.css` ci sono **77 selettori `[data-theme="light"]` sparsi dalla riga 168 alla 2263**: circa tre quarti stanno nel blocco iniziale (righe 168-375), il resto è disseminato ovunque. Non basta guardare in un punto solo.
+1. **Cercare chi la sovrascrive**, prima di toccarla: `grep -n 'nome-classe' style.css` sull'intero file, non solo intorno alla regola. In `style.css` i selettori `[data-theme="light"]` sono una settantina: circa tre quarti stanno nel blocco subito dopo le variabili, il resto è disseminato in tutto il file. Non basta guardare in un punto solo.
 2. **Se la regola aveva un `[data-theme="light"]` a supporto di ciò che si sta rimuovendo, quell'override va rimosso insieme.** Un `background` o un `border` di tema chiaro sopravvissuto ridipinge quello che si è appena tolto, e senza il padding che lo reggeva il risultato è peggiore di prima.
 3. **Verificare ogni componente toccato in entrambi i temi.** Controllarne uno solo non basta: due componenti con lo stesso trattamento possono divergere, perché uno ha override di tema e l'altro no. Il tema chiaro si attiva con `document.documentElement.setAttribute('data-theme','light')`, non con `colorScheme` di Playwright.
-4. **`[data-theme="light"]` va scritto sull'elemento giusto.** `data-theme` sta su `html`: per colpire `html` stesso o i suoi pseudo-elementi il selettore è `html[data-theme="light"]::before`, non `[data-theme="light"] html::before`, che non si applica mai. Era successo alla vignetta del tema chiaro, rimasta nera per mesi.
+4. **`[data-theme="light"]` va scritto sull'elemento giusto.** `data-theme` sta su `html`: per colpire `html` stesso o i suoi pseudo-elementi il selettore è `html[data-theme="light"]::before`, non `[data-theme="light"] html::before`, che non si applica mai.
 5. **Le regole rimaste senza usi vanno cancellate**, non lasciate lì: `grep -rl 'selettore' --include='*.html' --include='*.css' --include='*.js' .` per confermare che non serva più a nessuno, giochi compresi.
 
 ## Screenshot / verifica visiva
@@ -125,17 +125,15 @@ Fabio spesso chiede un **mockup/screenshot prima di implementare**: preparare un
 
 ## Cosa non va nel repository
 
-Il sito viene servito dal repository senza build: un file tracciato può essere raggiungibile online a chi ne conosce l'indirizzo. Materiale di lavoro (foto scaricate, grafiche per i social, screenshot, asset pack) va tenuto fuori. È già successo: con la PR #41 erano entrate tre cartelle così (320 MB, 1.276 file, fra cui foto personali prese da Facebook), rimosse a settembre 2026 e ora in `.gitignore`. Restano nella cronologia git, che per questo pesa circa 335 MB; ridurla richiederebbe di riscrivere la storia di `main`, e va deciso con Fabio.
+Il sito viene servito dal repository senza build: un file tracciato può essere raggiungibile online a chi ne conosce l'indirizzo. Materiale di lavoro (foto scaricate, grafiche per i social, screenshot, asset pack) va tenuto fuori; le cartelle di questo tipo già note sono in `.gitignore`. La cronologia git ne contiene ancora una copia e pesa circa 335 MB: ridurla richiede di riscrivere la storia di `main`, e va deciso con Fabio.
 
 ## Giochi didattici
 
-15 giochi in JavaScript senza librerie (niente Phaser, anche se una versione precedente di questo file lo diceva), ognuno in una cartella propria (`il-risveglio/`, `apprendista-del-mago/`, …) con `index.html` + `data.js` + `i18n.js`; engine e stili condivisi in `giochi/`. Raramente oggetto di modifiche: toccare solo se richiesto.
+15 giochi in JavaScript senza librerie esterne (niente Phaser), ognuno in una cartella propria (`il-risveglio/`, `apprendista-del-mago/`, …) con `index.html` + `data.js` + `i18n.js`; engine e stili condivisi in `giochi/`. Raramente oggetto di modifiche: toccare solo se richiesto.
 
 ## Stile di scrittura (vale per la copy del sito e per le risposte in chat)
 
 **Niente prosa manierata.** La prosa manierata sostituisce l'affermazione diretta con metafora e ornamento. Al posto di «un parametro che conviene variare» il manierato scrive «una manopola da girare»; al posto di «questo punto conta ancora» scrive «questo punto si guadagna il posto». Sono frasi che esistono per mettere in mostra chi scrive, non per trasmettere l'idea, e il lettore se ne accorge. È per questo che la prosa manierata irrita: costringe il lettore a lavorare di più perché chi scrive possa esibirsi. Ed è anche imprecisa, perché la metafora si porta dietro connotazioni che chi scrive non ha scelto e non controlla. Il rimedio è dire quello che si intende dire: **quando esiste l'espressione letterale, usare quella.**
-
-Versione breve, se serve ricordarsela in fretta: *rimuovere ogni prosa manierata.*
 
 In più, tell stilistici già trovati e ripuliti su questo sito (non reintrodurli):
 
