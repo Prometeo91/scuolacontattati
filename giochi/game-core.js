@@ -37,13 +37,21 @@ window.GameCore=function(I){
   function updateThemeBtn(){const btn=document.getElementById("themeToggle");if(!btn)return;const light=isLight();btn.querySelector(".ico").innerHTML=light?_lunaSvg:_soleSvg;const lbl=light?t("themeDark"):t("themeLight");btn.querySelector(".lbl").textContent=lbl;btn.setAttribute("aria-label",lbl);}
   function toggleTheme(){const meta=document.getElementById("metaThemeColor");if(isLight()){document.documentElement.removeAttribute("data-theme");lsSet(LS_THEME,"dark");if(meta)meta.content="#0d0b1a";}else{document.documentElement.setAttribute("data-theme","light");lsSet(LS_THEME,"light");if(meta)meta.content="#f5f0e8";}updateThemeBtn();}
 
+  /* ── Rimandi al sito, nella lingua scelta ── */
+  function siteHref(hash){return(getLang()==="en"?"../en/index.html":"../index.html")+hash;}
+  /* riga in fondo alle schermate finali: chi arriva da un link condiviso trova la Scuola */
+  function schoolNote(){
+    const en=getLang()==="en";
+    return frag(`<p class="school-note">${en?"These themes are studied on the path of the Scuola ContattaTi, in Bari.":"Questi temi si studiano nel percorso della Scuola ContattaTi, a Bari."}<br><a href="${siteHref("#insegnamenti")}">${en?"Discover the School's path":"Scopri il percorso della Scuola"}</a></p>`);
+  }
+
   /* ── Lingua + intestazione pagina ── */
   function updateChrome(){
     const lang=getLang();
     document.querySelectorAll(".lang-pill button").forEach(b=>b.classList.toggle("active",b.dataset.lang===lang));
     document.getElementById("brandSchool").textContent=L(I.STR.school);
-    const gl=document.getElementById("gamesLink");if(gl)gl.textContent=lang==="en"?"Games":"Giochi";
-    const bl=document.getElementById("brandLink");if(bl)bl.setAttribute("title",L(I.STR.backToSite));
+    const gl=document.getElementById("gamesLink");if(gl){gl.textContent=lang==="en"?"Games":"Giochi";gl.href=siteHref("#giochi");}
+    const bl=document.getElementById("brandLink");if(bl){bl.setAttribute("title",L(I.STR.backToSite));bl.href=siteHref("");}
     updateThemeBtn();document.title=L(I.STR.gameTitle)+" · "+L(I.STR.school);
   }
   function setLang(lang){
@@ -52,7 +60,7 @@ window.GameCore=function(I){
   }
 
   const core={
-    getLang,t,L,frag,esc,nl2br,mount,
+    getLang,t,L,frag,esc,nl2br,mount,siteHref,schoolNote,
     onLangChange:null,
     init(firstRender){
       function boot(){

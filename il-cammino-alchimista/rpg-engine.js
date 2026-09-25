@@ -356,9 +356,10 @@ function renderProfile(){
   const again=frag(`<button class="btn btn-primary">${esc(t("playAgain"))}</button>`);
   again.addEventListener("click",()=>{if(confirm(t("restartConfirm"))){S=freshState();save();renderTitle();}});
   const menu=frag(`<button class="btn btn-ghost">${esc(t("backToMenu"))}</button>`);
-  menu.addEventListener("click",()=>{window.location.href="../index.html#giochi";});
+  menu.addEventListener("click",()=>{window.location.href=C.siteHref("#giochi");});
   acts.appendChild(again);acts.appendChild(menu);
   n.appendChild(acts);
+  n.appendChild(C.schoolNote());
   mount(n);
 }
 

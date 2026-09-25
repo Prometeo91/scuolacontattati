@@ -241,7 +241,7 @@
     if(res.missed&&res.missed.length){ const rev=frag(`<button class="btn btn-primary">${esc(tx("reviewErrors"))} (${res.missed.length})</button>`); rev.addEventListener("click",()=>startReview(res.missed,res.mode)); actions.appendChild(rev); }
     const again=frag(`<button class="btn ${res.missed&&res.missed.length?"btn-ghost":"btn-primary"}">${esc(t("playAgain"))}</button>`); again.addEventListener("click",()=>startMode(res.mode));
     const menu=frag(`<button class="btn btn-ghost">${esc(t("backToMenu"))}</button>`); menu.addEventListener("click",renderHome);
-    actions.appendChild(again); actions.appendChild(menu); node.appendChild(actions); mount(node);
+    actions.appendChild(again); actions.appendChild(menu); node.appendChild(actions); node.appendChild(C.schoolNote()); mount(node);
   }
 
   /* ============ MEMORY ============ */
