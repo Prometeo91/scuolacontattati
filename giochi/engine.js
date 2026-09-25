@@ -19,6 +19,7 @@
     sigilloEarned: { it: "Sigillo conquistato!", en: "Seal earned!" },
     sigilloEarnedSub: { it: "Hai superato ogni prova di questo gioco.", en: "You have passed every trial of this game." },
     sigilloHave: { it: "✦ Sigillo conquistato", en: "✦ Seal earned" },
+    keysHint: { it: "Da tastiera: A, B, C… oppure 1, 2, 3… per rispondere, Invio per proseguire", en: "Keyboard: A, B, C… or 1, 2, 3… to answer, Enter to continue" },
     sigilloHint: { it: "Supera ogni prova con almeno il 70% di risposte esatte per conquistare il Sigillo", en: "Pass every trial with at least 70% correct answers to earn the Seal" }
   };
   function tx(key) { const e = I.STR[key]; if (e) return L(e); const x = EXTRA[key]; return x ? (x[getLang()] || x.it) : key; }
@@ -170,6 +171,7 @@
     card.appendChild(optsWrap);
     card.appendChild(frag(`<div class="feedback"><div class="feedback-verdict"></div><div class="feedback-note"></div></div>`));
     card.appendChild(frag(`<div class="round-foot"></div>`));
+    card.appendChild(frag(`<p class="keys-hint">${esc(tx("keysHint"))}</p>`));
     node.appendChild(card); mount(node);
     if(R.answered) restoreAnswered(card,optsWrap,it);
   }
@@ -196,6 +198,21 @@
   }
 
   function restoreAnswered(card,optsWrap,it){ optsWrap.querySelectorAll(".option").forEach((b,k)=>{ b.disabled=true; if(it.options[k].correct) b.classList.add("correct"); else b.classList.add("dim"); }); showFeedback(card,R.pipStates[R.idx]==="ok",it); }
+  /* Tastiera: A–Z o 1–9 scelgono la risposta, Invio passa alla domanda
+     successiva. Dopo una risposta da tastiera il fuoco va su «Avanti». */
+  document.addEventListener("keydown",e=>{
+    if(currentScreen!==renderRound||!R||e.ctrlKey||e.metaKey||e.altKey||e.repeat) return;
+    const opts=document.querySelectorAll("#app .option");
+    if(!R.answered){
+      const k=e.key.toLowerCase();
+      const i=/^[1-9]$/.test(k)?+k-1:/^[a-z]$/.test(k)?k.charCodeAt(0)-97:-1;
+      if(i<0||i>=opts.length) return;
+      e.preventDefault(); opts[i].click();
+      const next=document.querySelector("#app .round-foot .btn"); if(next) next.focus();
+    } else if(e.key==="Enter"&&!(e.target.closest&&e.target.closest("button,a"))){
+      e.preventDefault(); nextQuestion();
+    }
+  });
   function nextQuestion(){ if(R.idx>=R.items.length-1){ finishRound(); return; } R.idx++; R.answered=false; renderRound(); }
 
   /* Accuratezza migliore per prova + controllo Sigillo */
