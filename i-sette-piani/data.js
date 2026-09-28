@@ -70,8 +70,8 @@ window.DUNGEON_DATA = {
       text:{it:"Una figura translucida si materializza. Non ha volto proprio — prende il volto di chiunque ti abbia mai prosciugato energia. Ex, colleghi tossici, familiari manipolatori.\n\n«Dammi la tua energia. Me la devi.»",
             en:"A translucent figure materialises. It has no face of its own — it takes the face of everyone who ever drained your energy. Exes, toxic colleagues, manipulative relatives.\n\n'Give me your energy. You owe me.'"},
       choices:[
-        {text:{it:"«Non devo niente a nessuno. La mia energia è mia.» Tagli il cordone.",en:"'I owe nothing to anyone. My energy is mine.' You cut the cord."},luce:1,type:"conscious",
-         result:{it:"Il vampiro si dissolve urlando. I cordoni eterici si spezzano. Senti un'ondata di energia tornare nel tuo campo.",en:"The vampire dissolves, screaming. The etheric cords snap. You feel a wave of energy return to your field."}},
+        {text:{it:"Resti presente al senso di colpa che il vampiro risveglia, e lo guardi senza cedere.",en:"You stay present to the guilt the vampire awakens, and look at it without yielding."},luce:1,type:"conscious",
+         result:{it:"Osservato alla luce della presenza, il vampiro si dissolve: si nutriva della tua colpa. Senti un'ondata di energia tornare nel tuo campo.",en:"Observed in the light of presence, the vampire dissolves: it was feeding on your guilt. You feel a wave of energy return to your field."}},
         {text:{it:"Ti senti in colpa. Gli dai un po' di energia.",en:"You feel guilty. You give it some energy."},luce:-2,type:"mechanical",
          result:{it:"La colpa è il cibo preferito del vampiro eterico. Ogni volta che cedi, il cordone si rafforza.",en:"Guilt is the etheric vampire's favourite food. Every time you yield, the cord strengthens."}}
       ]}
@@ -80,23 +80,23 @@ window.DUNGEON_DATA = {
   { key:"astrale", color:"#7c3a6a", glyph:"✦",
     title:{it:"Piano Astrale",en:"Astral Plane"},
     subtitle:{it:"Il mondo delle emozioni",en:"The world of emotions"},
-    intro:{it:"Colori ovunque — più vividi di qualsiasi cosa tu abbia mai visto. Ogni tua emozione è visibile: la rabbia è rossa, la paura grigia, l'amore dorato. Qui non puoi mentire — l'aura mostra tutto.",en:"Colours everywhere — more vivid than anything you've ever seen. Every emotion of yours is visible: anger is red, fear grey, love golden. Here you cannot lie — the aura shows everything."},
+    intro:{it:"Colori ovunque — più vividi di qualsiasi cosa tu abbia mai visto. Ogni tua emozione è visibile: la collera è un lampo rosso scuro su fondo nero, la paura grigio livido, l'amore rosa. Qui non puoi mentire — l'aura mostra tutto.",en:"Colours everywhere — more vivid than anything you've ever seen. Every emotion of yours is visible: anger is a flash of dark red on a black ground, fear livid grey, love pink. Here you cannot lie — the aura shows everything."},
     rooms:[
-      {text:{it:"Una tempesta di colori ti investe: rosso rabbia, verde gelosia, arancione desiderio. Sono le tue emozioni non elaborate — cristallizzate in forme viventi che ti circondano come animali affamati.\n\nOgnuna vuole la tua attenzione. Ognuna dice: «Sono io la più importante.»",
-             en:"A storm of colours hits you: red anger, green jealousy, orange desire. They are your unprocessed emotions — crystallised into living forms circling you like hungry animals.\n\nEach one wants your attention. Each says: 'I am the most important.'"},
+      {text:{it:"Una tempesta di colori ti investe: rosso cupo di sensualità, bruno-verdastro di gelosia, arancio d'orgoglio. Sono le tue emozioni non elaborate — cristallizzate in forme viventi che ti circondano come animali affamati.\n\nOgnuna vuole la tua attenzione. Ognuna dice: «Sono io la più importante.»",
+             en:"A storm of colours hits you: the dark red of sensuality, the greenish-brown of jealousy, the orange of pride. They are your unprocessed emotions — crystallised into living forms circling you like hungry animals.\n\nEach one wants your attention. Each says: 'I am the most important.'"},
        choices:[
          {text:{it:"Le osservi tutte senza nutrirne nessuna. Rimani al centro, immobile.",en:"You observe them all without feeding any. You remain at the centre, still."},luce:1,type:"conscious",
           result:{it:"Le forme-pensiero si nutrono di identificazione. Quando le osservi senza reagire, si indeboliscono e si dissolvono una dopo l'altra.",en:"Thought-forms feed on identification. When you observe without reacting, they weaken and dissolve one after another."}},
          {text:{it:"Cerchi di combatterle — di scacciarle con la volontà.",en:"You try to fight them — to chase them away with willpower."},luce:-1,type:"mechanical",
-          result:{it:"Combattere un'emozione la rafforza. «Ciò a cui resisti, persiste.» Le forme diventano più grandi e aggressive.",en:"Fighting an emotion strengthens it. 'What you resist, persists.' The forms grow larger and more aggressive."}}
+          result:{it:"Combattere un'emozione la rafforza. Le forme diventano più grandi e aggressive.",en:"Fighting an emotion strengthens it. The forms grow larger and more aggressive."}}
        ]},
       {text:{it:"Un paesaggio meraviglioso appare: un giardino paradisiaco, musica celestiale, esseri di luce che ti sorridono. Tutto è perfetto. Troppo perfetto.\n\nUna parte di te sa che è un'illusione del piano astrale — ma è così bello.",
              en:"A wonderful landscape appears: a paradisiacal garden, celestial music, beings of light smiling at you. Everything is perfect. Too perfect.\n\nA part of you knows it's an illusion of the astral plane — but it's so beautiful."},
        choices:[
-         {text:{it:"«È bello, ma non è reale. Proseguo.»",en:"'It's beautiful, but it's not real. I continue.'"},luce:1,type:"conscious",
+         {text:{it:"«È bello, ma è una forma creata dal desiderio. Proseguo.»",en:"'It's beautiful, but it's a form created by desire. I continue.'"},luce:1,type:"conscious",
           result:{it:"Le illusioni piacevoli sono più pericolose di quelle terrificanti — perché non vuoi lasciarle. Ma l'attaccamento al paradiso è pur sempre attaccamento.",en:"Pleasant illusions are more dangerous than terrifying ones — because you don't want to leave them. But attachment to paradise is still attachment."}},
          {text:{it:"Resti. È il paradiso — perché mai dovresti andartene?",en:"You stay. It's paradise — why would you ever leave?"},luce:-1,type:"mechanical",
-          result:{it:"Il paradiso astrale è la trappola dorata. Molte anime restano qui per eoni, intrappolate nel piacere, senza mai salire ai piani superiori.",en:"The astral paradise is the golden trap. Many souls remain here for aeons, trapped in pleasure, never rising to the higher planes."}}
+          result:{it:"Il paradiso astrale è la trappola dorata. Molte anime restano qui per anni, intrappolate nel piacere, senza salire ai piani superiori.",en:"The astral paradise is the golden trap. Many souls remain here for years, trapped in pleasure, without rising to the higher planes."}}
        ]}
     ],
     guardian:{
@@ -148,7 +148,7 @@ window.DUNGEON_DATA = {
   { key:"causale", color:"#5a5aaa", glyph:"△",
     title:{it:"Piano Causale",en:"Causal Plane"},
     subtitle:{it:"Il corpo dell'anima",en:"The soul's body"},
-    intro:{it:"Per la prima volta, senti l'Anima. Non come concetto — come presenza reale. È il corpo causale: il veicolo che sopravvive a tutte le morti, che porta con sé l'essenza di ogni vita.",en:"For the first time, you feel the Soul. Not as a concept — as a real presence. It is the causal body: the vehicle that survives all deaths, carrying the essence of every life."},
+    intro:{it:"Per la prima volta senti l'Anima come una presenza reale. È il corpo causale, il corpo dell'anima: si costruisce con il Lavoro, e solo ciò che hai costruito qui sopravvive alla morte.",en:"For the first time you feel the Soul as a real presence. It is the causal body, the soul's body: it is built through the Work, and only what you have built here survives death."},
     rooms:[
       {text:{it:"Visioni di vite passate ti attraversano come un fiume. Non sono ricordi — sono lezioni. Ogni vita aveva un tema: amore non dato, coraggio mancato, verità non detta.\n\nUna voce dice: «Questa vita — quella che stai vivendo ora — qual è il suo tema?»",
              en:"Visions of past lives flow through you like a river. They are not memories — they are lessons. Each life had a theme: love not given, courage not shown, truth not spoken.\n\nA voice says: 'This life — the one you're living now — what is its theme?'"},
@@ -169,12 +169,12 @@ window.DUNGEON_DATA = {
     ],
     guardian:{
       name:{it:"Il Guardiano del Silenzio",en:"The Guardian of Silence"},
-      text:{it:"Nessuna forma. Nessun suono. Solo un vuoto immenso e una domanda che senti nelle ossa:\n\n«Sei disposto a smettere di pensare?»\n\nNon per un momento — per sempre. Lasciar andare la mente come strumento primario. Fidarti di qualcosa di più profondo.",
-            en:"No form. No sound. Just an immense void and a question you feel in your bones:\n\n'Are you willing to stop thinking?'\n\nNot for a moment — forever. To let go of the mind as the primary instrument. To trust something deeper."},
+      text:{it:"Nessuna forma. Nessun suono. Solo un vuoto immenso e una domanda che senti nelle ossa:\n\n«Sei disposto a smettere di credere di essere i tuoi pensieri?»\n\nIl pensiero continuerà a scorrere. Ti viene chiesto di lasciar andare la mente come strumento primario e di fidarti di qualcosa di più profondo.",
+            en:"No form. No sound. Just an immense void and a question you feel in your bones:\n\n'Are you willing to stop believing you are your thoughts?'\n\nThought will keep flowing. You are asked to let go of the mind as the primary instrument and to trust something deeper."},
       choices:[
-        {text:{it:"Lasci andare. Il pensiero si ferma. Il silenzio parla.",en:"You let go. Thought stops. Silence speaks."},luce:2,type:"conscious",
-         result:{it:"Nel silenzio oltre il pensiero abita la vera intelligenza — quella dell'Anima. Non ha bisogno di parole per conoscere.",en:"In the silence beyond thought dwells true intelligence — that of the Soul. It needs no words to know."}},
-        {text:{it:"«Non posso smettere di pensare. Chi sarei senza i miei pensieri?»",en:"'I can't stop thinking. Who would I be without my thoughts?'"},luce:-1,type:"mechanical",
+        {text:{it:"Lasci che il pensiero continui e smetti di identificarti con esso. Il silenzio è in chi osserva.",en:"You let thought continue and stop identifying with it. The silence is in the one who observes."},luce:2,type:"conscious",
+         result:{it:"Osservando la mente che lavora ti sei disidentificato da essa. In quel silenzio si fa sentire l'intelligenza dell'Anima, che non ha bisogno di parole per conoscere.",en:"By observing the mind at work you have disidentified from it. In that silence the Soul's intelligence makes itself felt, and it needs no words to know."}},
+        {text:{it:"«Io sono i miei pensieri. Chi sarei senza di loro?»",en:"'I am my thoughts. Who would I be without them?'"},luce:-1,type:"mechanical",
          result:{it:"La paura di perdere la mente è la mente che protegge se stessa. Ma tu non sei i tuoi pensieri — sei chi li osserva.",en:"The fear of losing the mind is the mind protecting itself. But you are not your thoughts — you are the one who observes them."}}
       ]}
   },
@@ -215,8 +215,8 @@ window.DUNGEON_DATA = {
   /* ═══ PIANO 7: ATMICO ═══ */
   { key:"atmico", color:"#c9973a", glyph:"☉",
     title:{it:"Piano Atmico",en:"Atmic Plane"},
-    subtitle:{it:"La volontà divina",en:"Divine will"},
-    intro:{it:"Sei arrivato. Il piano della pura Volontà divina. Qui non c'è più separazione, non c'è più ricerca. C'è solo Essere.",en:"You've arrived. The plane of pure divine Will. Here there is no more separation, no more seeking. There is only Being."},
+    subtitle:{it:"Il fisico superiore",en:"The higher physical"},
+    intro:{it:"Sei arrivato al piano atmico, il fisico superiore. Qui il corpo fisico, trasmutato, sale di livello e diventa corpo atmico: è l'operazione detta risurrezione nella carne. Oltre restano solo i due piani divini, dove l'individuo si scioglie nel Tutto.",en:"You have reached the atmic plane, the higher physical. Here the physical body, transmuted, rises a level and becomes the atmic body: this is the operation called resurrection in the flesh. Beyond it lie only the two divine planes, where the individual dissolves into the Whole."},
     rooms:[
       {text:{it:"Una luce dorata che non ha sorgente riempie tutto. Non c'è spazio, non c'è tempo. Solo una presenza infinita che è, contemporaneamente, te e tutto ciò che esiste.\n\nCapisci, in un lampo: non sei mai stato separato. La separazione era il sogno. Il risveglio è ricordare.",
              en:"A golden light with no source fills everything. There is no space, no time. Only an infinite presence that is, simultaneously, you and everything that exists.\n\nYou understand, in a flash: you were never separate. Separation was the dream. Awakening is remembering."},

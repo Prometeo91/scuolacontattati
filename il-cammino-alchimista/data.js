@@ -29,7 +29,7 @@ window.RPG_DATA = {
          effects:{},type:"neutral",
          result:{it:"Hai evitato la scena, ma l'emozione negativa è solo stata repressa — non trasmutata. Tornerà.",en:"You avoided the scene, but the negative emotion was only suppressed — not transmuted. It will return."}}
       ],
-      teaching:{it:"«La differenza tra un uomo meccanico e uno cosciente è che il primo reagisce, il secondo agisce.»",en:"'The difference between a mechanical man and a conscious one is that the first reacts, the second acts.'"}
+      teaching:{it:"«L'autentica Astinenza è un'astinenza dal parlare meccanico, quindi, prima di tutto dalla LAMENTELA e dai GIUDIZI, che sono sempre solo re-azioni all'ambiente esterno.»",en:"'True Abstinence is abstinence from mechanical speech, and so first of all from COMPLAINT and JUDGMENT, which are always mere re-actions to the outer environment.'"}
     },
     { key:"specchio", stat:"nongiudizio",
       text:{it:"Un amico fa esattamente ciò che hai sempre criticato negli altri: parla alle spalle di qualcuno. Senti disgusto.",
@@ -45,7 +45,7 @@ window.RPG_DATA = {
          effects:{},type:"neutral",
          result:{it:"Hai evitato lo scontro, ma anche l'opportunità di vedere te stesso. Lo specchio si ripresenterà.",en:"You avoided the clash, but also the chance to see yourself. The mirror will return."}}
       ],
-      teaching:{it:"«Tutto ciò che ci irrita negli altri può portarci a comprendere noi stessi.»",en:"'Everything that irritates us in others can lead us to understand ourselves.'"}
+      teaching:{it:"«Ogniqualvolta noi crediamo di vedere qualcosa di sbagliato all'esterno, stiamo osservando una caratteristica che in realtà si trova dentro di noi.»",en:"'Whenever we believe we see something wrong outside, we are observing a trait that is in reality within us.'"}
     },
     { key:"coda", stat:"volonta",
       text:{it:"Sei in fila da venti minuti. Qualcuno ti passa davanti con noncuranza. Tutti fanno finta di niente.",
@@ -61,7 +61,7 @@ window.RPG_DATA = {
          effects:{presenza:-1},type:"neutral",
          result:{it:"Il silenzio esteriore nascondeva una tempesta interiore. L'emozione negativa ti ha consumato energia senza che te ne accorgessi.",en:"The outward silence hid an inner storm. The negative emotion consumed your energy without you noticing."}}
       ],
-      teaching:{it:"«Le emozioni negative sono il nutrimento della macchina biologica. Ogni volta che ti identifichi con esse, le alimenti.»",en:"'Negative emotions are the food of the biological machine. Every time you identify with them, you feed them.'"}
+      teaching:{it:"«Emozioni negative e lamentele con il tempo si solidificano, si cristallizzano dentro di te grazie alla ripetizione […]. Lamentandoti, nutri ogni giorno questi vampiri.»",en:"'Negative emotions and complaints solidify over time, they crystallise inside you through repetition […]. By complaining, you feed these vampires every day.'"}
     },
     { key:"offesa", stat:"compassione",
       text:{it:"A cena, qualcuno fa una battuta crudele sulle tue convinzioni più profonde. Il tavolo ride.",
@@ -70,14 +70,14 @@ window.RPG_DATA = {
         {text:{it:"Rispondi con una battuta ancora più tagliente. Ti vendichi.",en:"You fire back with an even sharper remark. You get your revenge."},
          effects:{compassione:-1,nongiudizio:-1},type:"mechanical",
          result:{it:"Occhio per occhio. La macchina ha difeso la sua immagine. Ma chi ha vinto, davvero?",en:"An eye for an eye. The machine defended its image. But who really won?"}},
-        {text:{it:"Senti la puntura. Poi vedi: la loro derisione nasce dalla paura di ciò che non comprendono.",en:"You feel the sting. Then you see: their mockery comes from fear of what they don't understand."},
+        {text:{it:"Senti la puntura. Ti chiedi quale parte di te si è sentita colpita.",en:"You feel the sting. You ask yourself which part of you felt hit."},
          effects:{compassione:2},type:"conscious",
-         result:{it:"La compassione non è debolezza — è la capacità di vedere oltre la maschera dell'altro.",en:"Compassion is not weakness — it's the ability to see beyond another's mask."}},
+         result:{it:"Hai guardato la tua ferita invece di cercare un colpevole. Chi ha riso ti ha mostrato una parte di te che ora puoi osservare.",en:"You looked at your wound instead of looking for a culprit. Those who laughed showed you a part of yourself that you can now observe."}},
         {text:{it:"Lasci il tavolo in silenzio dignitoso, ma porti la ferita per giorni.",en:"You leave the table in dignified silence, but carry the wound for days."},
          effects:{compassione:1,presenza:-1},type:"neutral",
-         result:{it:"La dignità esteriore era reale, ma il dolore trattenuto si è cristallizzato dentro. Ciò che non viene trasformato viene trasferito.",en:"The outward dignity was real, but the retained pain crystallised inside. What is not transformed is transferred."}}
+         result:{it:"La dignità esteriore era reale, ma il dolore trattenuto si è cristallizzato dentro di te. Finché non lo osservi, continuerà a lavorare.",en:"The outward dignity was real, but the retained pain crystallised inside you. Until you observe it, it will keep working."}}
       ],
-      teaching:{it:"«Non è ciò che ti accade che conta, ma come reagisci a ciò che ti accade.»",en:"'It's not what happens to you that matters, but how you react to what happens to you.'"}
+      teaching:{it:"«Non c'è niente e nessuno da perdonare all'esterno di te. Devi amare e perdonare ciò che stai provando dentro di te in questo momento.»",en:"'There is nothing and no one to forgive outside you. You must love and forgive what you are feeling inside you right now.'"}
     },
     { key:"sonno", stat:"presenza",
       text:{it:"Sono le 2 di notte. Stai scorrendo il telefono da tre ore senza rendertene conto. Una voce dentro di te dice: «Fermati.»",
@@ -93,7 +93,7 @@ window.RPG_DATA = {
          effects:{volonta:-1},type:"neutral",
          result:{it:"«Domani» è la parola preferita di chi dorme. Il Lavoro esiste solo adesso.",en:"'Tomorrow' is the favourite word of those who sleep. The Work exists only now."}}
       ],
-      teaching:{it:"«L'uomo comune trascorre l'intera esistenza in uno stato che è analogo al sonno.»",en:"'The ordinary man spends his entire existence in a state that is analogous to sleep.'"}
+      teaching:{it:"«L'essere umano viene forzatamente tenuto in uno stato di SONNO affinché non si avveda mai di vivere dentro un penitenziario cosmico.»",en:"'The human being is forcibly kept in a state of SLEEP so that he never realises he lives inside a cosmic penitentiary.'"}
     }],
     boss:{
       name:{it:"Il Guardiano della Soglia",en:"The Guardian of the Threshold"},
@@ -139,12 +139,12 @@ window.RPG_DATA = {
          result:{it:"La sofferenza cercava compagnia. La macchina ha reagito con il suo programma più antico: colpo per colpo.",en:"Suffering sought company. The machine reacted with its oldest programme: blow for blow."}},
         {text:{it:"Respiri nel dolore. Non lo proietti indietro. Ti chiedi: «Cosa in me ha attratto questa lezione?»",en:"You breathe into the pain. You don't project it back. You ask: 'What in me attracted this lesson?'"},
          effects:{compassione:2,nongiudizio:1},type:"conscious",
-         result:{it:"Il dolore accettato coscientemente diventa trasformazione. Non hai perdonato — hai compreso.",en:"Pain accepted consciously becomes transformation. You didn't forgive — you understood."}},
+         result:{it:"Il dolore accettato coscientemente diventa trasformazione. Hai perdonato ciò che provavi dentro di te: il tradimento che hai visto fuori era una parte di te.",en:"Pain accepted consciously becomes transformation. You forgave what you felt inside you: the betrayal you saw outside was a part of you."}},
         {text:{it:"Analizzi la situazione intellettualmente, disconnettendoti dall'emozione.",en:"You analyse the situation intellectually, disconnecting from the emotion."},
          effects:{nongiudizio:1,presenza:-1},type:"neutral",
          result:{it:"L'intelletto ha creato una distanza, ma non una trasformazione. L'emozione è stata congelata, non sciolta.",en:"The intellect created distance, but not transformation. The emotion was frozen, not dissolved."}}
       ],
-      teaching:{it:"«Il dolore che non trasformi, lo trasmetti.»",en:"'The pain you do not transform, you transmit.'"}
+      teaching:{it:"«Ama e perdona la tua sofferenza, il tuo dolore, la tua ferita sanguinante.»",en:"'Love and forgive your suffering, your pain, your bleeding wound.'"}
     },
     { key:"morale", stat:"nongiudizio",
       text:{it:"Scopri che un amico ha evaso le tasse. Si giustifica: «Lo fanno tutti.»",
@@ -160,7 +160,7 @@ window.RPG_DATA = {
          effects:{},type:"neutral",
          result:{it:"Giustificare l'altro per evitare il conflitto è un'altra forma di sonno. Non hai né giudicato né compreso.",en:"Justifying the other to avoid conflict is another form of sleep. You neither judged nor understood."}}
       ],
-      teaching:{it:"«Il positivo crea il negativo. Nella dualità non c'è via d'uscita.»",en:"'The positive creates the negative. In duality there is no way out.'"}
+      teaching:{it:"«Finché si resta nella personalità, il positivo crea il negativo e non c'è via d'uscita.»",en:"'As long as we remain in the personality, the positive creates the negative and there is no way out.'"}
     },
     { key:"diagnosi", stat:"volonta",
       text:{it:"Il medico ti comunica una diagnosi preoccupante. L'incertezza ti inonda.",
@@ -176,7 +176,7 @@ window.RPG_DATA = {
          effects:{presenza:-1},type:"neutral",
          result:{it:"La negazione è il sonnifero più efficace. Ciò che non guardi in faccia ti governa dall'ombra.",en:"Denial is the most effective sleeping pill. What you don't face governs you from the shadows."}}
       ],
-      teaching:{it:"«La malattia è un maestro severo: arriva quando l'anima non viene più ascoltata.»",en:"'Illness is a severe teacher: it arrives when the soul is no longer heard.'"}
+      teaching:{it:"«In corrispondenza di una malattia dobbiamo chiederci: “Dov'è che non ho amato? In che modo non sto amando la vita?”»",en:"'When an illness appears we must ask ourselves: \"Where have I not loved? In what way am I not loving life?\"'"}
     },
     { key:"sogno", stat:"presenza",
       text:{it:"In un sogno, improvvisamente ti rendi conto: «Sto sognando!» Il paesaggio diventa vivido, reale.",
@@ -185,14 +185,14 @@ window.RPG_DATA = {
         {text:{it:"L'eccitazione ti sveglia. Il momento è perso.",en:"The excitement wakes you up. The moment is lost."},
          effects:{},type:"neutral",
          result:{it:"L'identificazione con l'emozione — anche quella positiva — distrugge la lucidità. Il piano astrale richiede calma.",en:"Identification with emotion — even positive — destroys lucidity. The astral plane requires calm."}},
-        {text:{it:"Mantieni una calma consapevolezza. Esplori il paesaggio astrale coscientemente.",en:"You maintain calm awareness. You explore the astral landscape consciously."},
+        {text:{it:"Mantieni una calma consapevolezza. Resti presente a te stesso, senza inseguire le immagini.",en:"You maintain calm awareness. You stay present to yourself, without chasing the images."},
          effects:{presenza:2,volonta:1},type:"conscious",
-         result:{it:"La lucidità nei sogni rivela quella che avrai da disincarnato. Hai iniziato a costruire il ponte tra i mondi.",en:"Lucidity in dreams reveals what you'll have once disincarnate. You've begun building the bridge between worlds."}},
+         result:{it:"La lucidità nei sogni indica quella che avrai da disincarnato. Sei rimasto presente anche qui.",en:"Lucidity in dreams indicates what you'll have once disincarnate. You stayed present even here."}},
         {text:{it:"La paura ti afferra. Ti forzi a svegliarti.",en:"Fear grips you. You force yourself awake."},
          effects:{presenza:-1},type:"mechanical",
          result:{it:"La paura dell'ignoto ti ha riportato nella prigione del noto. Il corpo astrale si è richiuso.",en:"Fear of the unknown brought you back to the prison of the known. The astral body closed again."}}
       ],
-      teaching:{it:"«La lucidità dei sogni rivela quella che avremo da disincarnati.»",en:"'The lucidity of dreams reveals what we'll have once disincarnate.'"}
+      teaching:{it:"«Quando l'uomo sogna si trova nel suo corpo astrale, proprio come lo sarà dopo la morte, quindi è sufficiente che osservi quanto è lucida la sua coscienza durante i sogni per ricavare con buona approssimazione quanto sarà lucido dopo la morte.»",en:"'When man dreams he is in his astral body, just as he will be after death, so it is enough for him to observe how lucid his consciousness is during dreams to work out, to a good approximation, how lucid he will be after death.'"}
     },
     { key:"crisi", stat:"volonta",
       text:{it:"Tutto crolla contemporaneamente: problemi di lavoro, relazione in crisi, difficoltà economiche. Sembra che l'universo ti sia contro.",
@@ -208,7 +208,7 @@ window.RPG_DATA = {
          effects:{volonta:1},type:"neutral",
          result:{it:"Un passo nella direzione giusta, ma la personalità si aggrappa ancora al ruolo di vittima.",en:"A step in the right direction, but the personality still clings to the victim role."}}
       ],
-      teaching:{it:"«Tutto ciò che ti accade lo hai generato tu. Quando lo capirai davvero, sarai libero.»",en:"'Everything that happens to you, you have generated. When you truly understand this, you'll be free.'"}
+      teaching:{it:"«Quando REALIZZI che tutto quanto ti accade è stato da te inconsciamente desiderato e voluto per moltissimo tempo, allora automaticamente ti identifichi con l'Uno.»",en:"'When you REALISE that everything that happens to you has been unconsciously desired and willed by you for a very long time, then you automatically identify with the One.'"}
     }],
     boss:{
       name:{it:"Il Doppio Oscuro",en:"The Dark Double"},
@@ -252,14 +252,14 @@ window.RPG_DATA = {
         {text:{it:"Lo abbandoni. Qualcos'altro ti ispirerà.",en:"You abandon it. Something else will inspire you."},
          effects:{volonta:-1},type:"mechanical",
          result:{it:"La Legge dell'Ottava prevede questo calo. Ogni progetto incontra un punto dove l'energia si esaurisce — chi non lo sa, abbandona sempre.",en:"The Law of the Octave foresees this drop. Every project meets a point where energy runs out — those who don't know this always give up."}},
-        {text:{it:"Applichi «lo shock»: infondi energia nuova nel punto critico, trovi un significato più profondo.",en:"You apply 'the shock': you infuse new energy at the critical point, find a deeper meaning."},
+        {text:{it:"Applichi lo «shock addizionale»: infondi energia nuova nel punto critico, trovi un significato più profondo.",en:"You apply the 'additional shock': you infuse new energy at the critical point, find a deeper meaning."},
          effects:{volonta:2,presenza:1},type:"conscious",
-         result:{it:"Lo shock cosciente all'intervallo giusto è ciò che distingue il creatore dal sognatore. Hai superato il punto di morte dell'ottava.",en:"The conscious shock at the right interval is what distinguishes the creator from the dreamer. You passed the octave's death point."}},
+         result:{it:"Lo shock addizionale all'intervallo giusto è ciò che distingue il creatore dal sognatore. Hai superato il punto di morte dell'ottava.",en:"The additional shock at the right interval is what distinguishes the creator from the dreamer. You passed the octave's death point."}},
         {text:{it:"Ti forzi a continuare meccanicamente, per senso del dovere.",en:"You force yourself to continue mechanically, out of duty."},
          effects:{volonta:1,presenza:-1},type:"neutral",
          result:{it:"La disciplina senza consapevolezza è lavoro meccanico. Meglio di abbandonare, ma non è ancora il Lavoro.",en:"Discipline without awareness is mechanical work. Better than giving up, but it's not yet the Work."}}
       ],
-      teaching:{it:"«Ogni processo nell'universo inizia con forza e poi degenera, a meno che non venga applicato uno 'shock' cosciente.»",en:"'Every process in the universe begins with force and then degenerates, unless a conscious 'shock' is applied.'"}
+      teaching:{it:"«Se vogliamo proseguire nel nostro progetto dobbiamo provocare il cosiddetto “shock addizionale”, cioè qualcosa che porti nuova energia e permetta di passare dal MI al FA o dal SI al DO.»",en:"'If we want to carry on with our project we must provoke the so-called \"additional shock\", that is, something that brings new energy and allows us to pass from MI to FA or from SI to DO.'"}
     },
     { key:"potere", stat:"compassione",
       text:{it:"Hai guadagnato una posizione di influenza. Le persone ti ascoltano, seguono i tuoi consigli. Potresti plasmare le loro visioni.",
@@ -275,7 +275,7 @@ window.RPG_DATA = {
          effects:{volonta:-1},type:"neutral",
          result:{it:"Rifiutare il potere per paura non è umiltà — è un'altra forma di fuga. Il guerriero accetta la responsabilità.",en:"Refusing power out of fear is not humility — it's another form of escape. The warrior accepts responsibility."}}
       ],
-      teaching:{it:"«Il potere senza amore è la via del mago nero. L'amore senza potere è impotenza. Serve entrambi.»",en:"'Power without love is the black magus's way. Love without power is impotence. Both are needed.'"}
+      teaching:{it:"«Se si arresta quando l'Opera non è ancora compiuta, imboccare il Sentiero della Mano Sinistra diventa inevitabile, perché prima o poi comincerà a usare i suoi poteri per scopi personali.»",en:"'If he stops when the Work is not yet complete, taking the Left-Hand Path becomes inevitable, because sooner or later he will begin to use his powers for personal ends.'"}
     },
     { key:"energia", stat:"presenza",
       text:{it:"Un'attrazione potente ti invade. Ogni cellula del corpo desidera una sola cosa. L'energia è travolgente.",
@@ -291,7 +291,7 @@ window.RPG_DATA = {
          effects:{presenza:-1},type:"neutral",
          result:{it:"Reprimere non è trasmutare. Ciò che reprimi si accumula nell'ombra e riemerge con violenza doppia.",en:"Suppressing is not transmuting. What you repress accumulates in the shadow and resurfaces with double violence."}}
       ],
-      teaching:{it:"«L'energia sessuale è il piombo dell'alchimista: non va né sprecata né repressa, ma trasmutata in oro.»",en:"'Sexual energy is the alchemist's lead: it should be neither wasted nor repressed, but transmuted into gold.'"}
+      teaching:{it:"«L'energia sessuale accettata e ben utilizzata è un veicolo per la liberazione, che consente di giungere direttamente a Dio senza più bisogno di una casta sacerdotale a fare da intermediaria.»",en:"'Sexual energy, accepted and well used, is a vehicle for liberation, which allows one to reach God directly with no further need for a priestly caste to act as intermediary.'"}
     },
     { key:"orgoglio", stat:"nongiudizio",
       text:{it:"Dopo mesi di pratica interiore, ti senti «al di sopra» delle persone comuni. Vedi il loro sonno chiaramente. Li compatisci.",
@@ -307,7 +307,7 @@ window.RPG_DATA = {
          effects:{volonta:-1,presenza:-1},type:"neutral",
          result:{it:"Il dubbio è l'arma preferita della personalità: prima gonfia l'ego, poi lo sgonfia. In entrambi i casi, vinci solo restando presente.",en:"Doubt is the personality's favourite weapon: first it inflates the ego, then deflates it. In both cases, you only win by staying present."}}
       ],
-      teaching:{it:"«Non esiste un 'io' che si risveglia. C'è solo il risveglio.»",en:"'There is no 'I' that awakens. There is only awakening.'"}
+      teaching:{it:"«Per fare sì che l'Io scompaia è sufficiente dedicarsi alla sua ricerca: se lo cerchiamo seriamente attraverso l'introspezione... scopriamo che non esiste e non è mai esistito.»",en:"'To make the I disappear it is enough to devote ourselves to searching for it: if we seek it seriously through introspection... we discover that it does not exist and never has.'"}
     },
     { key:"sacrificio", stat:"compassione",
       text:{it:"Puoi accettare un'opportunità prestigiosa o aiutare una persona in reale difficoltà. Non puoi fare entrambe le cose.",
@@ -321,9 +321,9 @@ window.RPG_DATA = {
          result:{it:"Il servizio disinteressato è l'atto più alchemico. Chi dà senza calcolo riceve ciò che non poteva immaginare.",en:"Selfless service is the most alchemical act. Those who give without calculation receive what they couldn't imagine."}},
         {text:{it:"Aiuti, ma con risentimento segreto.",en:"You help, but with secret resentment."},
          effects:{compassione:1,presenza:-1},type:"neutral",
-         result:{it:"L'azione giusta con l'emozione sbagliata non è ancora servizio — è sacrificio, e il sacrificio crea debito.",en:"The right action with the wrong emotion is not yet service — it's sacrifice, and sacrifice creates debt."}}
+         result:{it:"L'azione è giusta, ma il risentimento dice che speravi in un tornaconto. Questo è servilismo.",en:"The action is right, but the resentment says you were hoping for something in return. This is servility."}}
       ],
-      teaching:{it:"«Il vero servizio non chiede nulla in cambio. Non è sacrificio — è gioia.»",en:"'True service asks nothing in return. It's not sacrifice — it's joy.'"}
+      teaching:{it:"«Servilismo: si serve l'altro perché si spera in un tornaconto, materiale o affettivo che sia.»",en:"'Servility: one serves the other because one hopes for something in return, whether material or emotional.'"}
     }],
     boss:{
       name:{it:"La Dissoluzione dell'Io",en:"The Dissolution of the I"},
