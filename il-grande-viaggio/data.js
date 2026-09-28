@@ -66,10 +66,10 @@ window.DUNGEON_DATA = {
     ],
     guardian:{
       name:{it:"L'Elementale del Desiderio",en:"The Desire-Elemental"},
-      text:{it:"Prende forma davanti a te, fatto della tua stessa materia astrale: un volto che è il tuo, deformato da ogni brama coltivata in vita.\n\n«Io sono la tua fame. Mi hai costruito tu, giorno per giorno. Ora nutrimi — o dissolviti con me.»",
-            en:"It takes shape before you, made of your own astral matter: a face that is yours, distorted by every craving cultivated in life.\n\n'I am your hunger. You built me, day by day. Now feed me — or dissolve with me.'"},
+      text:{it:"Prende forma davanti a te, fatto della tua stessa materia astrale: un volto che è il tuo, deformato da ogni brama coltivata in vita.\n\n«Io sono la tua fame. Mi hai costruito tu, giorno per giorno. Ora nutrimi, o dissolviti con me.»",
+            en:"It takes shape before you, made of your own astral matter: a face that is yours, distorted by every craving cultivated in life.\n\n'I am your hunger. You built me, day by day. Now feed me, or dissolve with me.'"},
       choices:[
-        {text:{it:"«Tu non sei me. Sei materia che io ho animato — e che ora lascio riposare.»",en:"'You are not me. You are matter that I animated — and that I now lay to rest.'"},luce:1,type:"conscious",
+        {text:{it:"«Sei materia che io ho animato, e che ora lascio riposare.»",en:"'You are matter that I animated, and that I now lay to rest.'"},luce:1,type:"conscious",
          result:{it:"L'elementale perde la presa: dove i desideri sono stati sottomessi, non c'è lotta.",en:"The elemental loses its grip: where desires have been subdued, there is no struggle."}},
         {text:{it:"Gli cedi il comando: conosce questo mondo meglio di te.",en:"You yield command to it: it knows this world better than you."},luce:-2,type:"mechanical",
          result:{it:"L'elementale ti trascina nei sottopiani più densi, dove i desideri urlano più forte. Ti libererai, ma a caro prezzo.",en:"The elemental drags you to the densest sub-planes, where desires scream loudest. You will free yourself, but at a high price."}}
@@ -100,10 +100,10 @@ window.DUNGEON_DATA = {
     ],
     guardian:{
       name:{it:"Il Lutto dei Vivi",en:"The Grief of the Living"},
-      text:{it:"Le lacrime di chi ti piange salgono fino a te come catene luminose. Ogni singhiozzo ti strattona verso il basso. Il loro dolore è sincero, e ti chiede di restare.\n\n«Non andare. Non ancora. Non così.»",
-            en:"The tears of those who mourn you rise to you like luminous chains. Every sob tugs you downward. Their grief is sincere, and it asks you to stay.\n\n'Don't go. Not yet. Not like this.'"},
+      text:{it:"Le lacrime di chi ti piange salgono fino a te come catene luminose. Ogni singhiozzo ti strattona verso il basso. Il loro dolore è sincero, e ti chiede di restare.\n\n«Non andare. Non ancora.»",
+            en:"The tears of those who mourn you rise to you like luminous chains. Every sob tugs you downward. Their grief is sincere, and it asks you to stay.\n\n'Don't go. Not yet.'"},
       choices:[
-        {text:{it:"«Vi amo — e proprio per questo proseguo. Ci ritroveremo più in alto.»",en:"'I love you — and that is exactly why I go on. We shall meet again higher up.'"},luce:1,type:"conscious",
+        {text:{it:"«Vi amo, e proprio per questo proseguo. Ci ritroveremo più in alto.»",en:"'I love you, and that is exactly why I go on. We shall meet again higher up.'"},luce:1,type:"conscious",
          result:{it:"Le catene si trasformano in fili d'oro che benedicono la salita. Il distacco compiuto nell'amore non è perdita.",en:"The chains turn into golden threads blessing the ascent. A parting accomplished in love is not loss."}},
         {text:{it:"Resti aggrappato al loro dolore: ti fa sentire ancora vivo.",en:"You cling to their grief: it makes you feel alive."},luce:-2,type:"mechanical",
          result:{it:"Il lutto trattenuto turba i morti e i vivi insieme. Resti sospeso, né di qua né di là, finché le lacrime si esauriscono.",en:"Grief held onto disturbs the dead and the living alike. You hang suspended, neither here nor there, until the tears run dry."}}
@@ -168,10 +168,10 @@ window.DUNGEON_DATA = {
     ],
     guardian:{
       name:{it:"La Beatitudine Senza Fine",en:"The Endless Bliss"},
-      text:{it:"Il mondo celeste stesso ti parla, con la voce più dolce che esista:\n\n«Perché andartene? Qui non c'è dolore, non c'è perdita, non c'è fatica. Potresti restare per ere intere.»",
-            en:"The heaven world itself speaks to you, in the sweetest voice there is:\n\n'Why leave? Here there is no pain, no loss, no toil. You could stay for whole ages.'"},
+      text:{it:"Il mondo celeste stesso ti parla, con la voce più dolce che esista:\n\n«Perché andartene? Qui non c'è dolore né fatica. Potresti restare per ere intere.»",
+            en:"The heaven world itself speaks to you, in the sweetest voice there is:\n\n'Why leave? Here there is no pain and no toil. You could stay for whole ages.'"},
       choices:[
-        {text:{it:"«La beatitudine non è la meta: è il riposo fra due giornate di lavoro. L'evoluzione continua.»",en:"'Bliss is not the goal: it is the rest between two days of work. Evolution continues.'"},luce:1,type:"conscious",
+        {text:{it:"«La beatitudine è il riposo fra due giornate di lavoro. L'evoluzione continua.»",en:"'Bliss is the rest between two days of work. Evolution continues.'"},luce:1,type:"conscious",
          result:{it:"Il cielo non ti trattiene: ti ha solo restituito le forze. Chi comprende il Devachan non lo scambia per la fine del cammino.",en:"Heaven does not hold you: it only gave you back your strength. One who understands Devachan does not mistake it for the journey's end."}},
         {text:{it:"Resti. Per sempre, se possibile.",en:"You stay. Forever, if possible."},luce:-2,type:"mechanical",
          result:{it:"Nessuno resta per sempre: quando l'esperienza è assimilata, il cielo stesso si dissolve. Hai solo ritardato l'alba.",en:"No one stays forever: when experience is assimilated, heaven itself dissolves. You have only delayed the dawn."}}

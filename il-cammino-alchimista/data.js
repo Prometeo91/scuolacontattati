@@ -100,8 +100,8 @@ window.RPG_DATA = {
       intro:{it:"Una figura d'ombra appare. Indossa il tuo volto, ma mostra tutto ciò che nascondi. Sussurra: «Io sono ciò che non vuoi vedere.»",
              en:"A figure of shadow appears. It wears your face, but shows everything you hide. It whispers: 'I am what you don't want to see.'"},
       phases:[
-        {text:{it:"Il Guardiano ti mostra ogni tua reazione automatica, ogni bugia detta a te stesso, ogni momento vissuto nel sonno. «Sei solo una macchina», dice. «Ogni emozione, ogni pensiero — tutto automatico.»",
-               en:"The Guardian shows you every automatic reaction, every lie you told yourself, every moment lived in sleep. 'You are just a machine,' it says. 'Every emotion, every thought — all automatic.'"},
+        {text:{it:"Il Guardiano ti mostra ogni tua reazione automatica, ogni bugia detta a te stesso, ogni momento vissuto nel sonno. «Sei solo una macchina», dice. «Ogni emozione e ogni pensiero sono automatici.»",
+               en:"The Guardian shows you every automatic reaction, every lie you told yourself, every moment lived in sleep. 'You are just a machine,' it says. 'Every emotion and every thought is automatic.'"},
          choices:[
            {text:{it:"«Mostrami tutto. Voglio vedere.»",en:"'Show me everything. I want to see.'"},effects:{presenza:2,volonta:1},type:"conscious",
             result:{it:"Il coraggio di guardare è il primo passo. Il Guardiano annuisce.",en:"The courage to look is the first step. The Guardian nods."}},
@@ -116,8 +116,8 @@ window.RPG_DATA = {
            {text:{it:"«Quello non sono più io! Sono cambiato!»",en:"'That's not me anymore! I've changed!'"},effects:{nongiudizio:-1},type:"mechanical",
             result:{it:"Negare il passato è la forma più sottile di sonno. Chi dice «sono cambiato» spesso dorme ancora.",en:"Denying the past is the subtlest form of sleep. Those who say 'I've changed' are often still asleep."}}
          ]},
-        {text:{it:"«Per attraversare questa soglia devi morire», dice il Guardiano. «Non il tuo corpo — l'illusione di chi credi di essere. Sei disposto?»",
-               en:"'To cross this threshold you must die,' says the Guardian. 'Not your body — the illusion of who you think you are. Are you willing?'"},
+        {text:{it:"«Per attraversare questa soglia devi morire», dice il Guardiano. «Morire all'illusione di chi credi di essere. Sei disposto?»",
+               en:"'To cross this threshold you must die,' says the Guardian. 'Die to the illusion of who you think you are. Are you willing?'"},
          choices:[
            {text:{it:"«Sono disposto a morire per rinascere.»",en:"'I am willing to die to be reborn.'"},effects:{volonta:2,compassione:1},type:"conscious",
             result:{it:"La prima morte è la più difficile: la morte della personalità fittizia. Oltre c'è la libertà.",en:"The first death is the hardest: the death of the fictitious personality. Beyond it lies freedom."}},

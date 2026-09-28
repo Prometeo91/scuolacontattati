@@ -67,7 +67,7 @@ window.DUNGEON_DATA = {
       text:{it:"Una figura luminosa ti mostra il bilancio del tuo servizio: persone aiutate, opere compiute, gratitudine raccolta.\n\n«Guarda quanto hai fatto. Sei più avanti degli altri. Il tuo servizio ti rende speciale.»",
             en:"A luminous figure shows you the ledger of your service: people helped, works accomplished, gratitude gathered.\n\n'Look how much you have done. You are ahead of the others. Your service makes you special.'"},
       choices:[
-        {text:{it:"«Sono un avamposto della coscienza del Maestro: il servizio passa attraverso di me, non da me.»",en:"'I am an outpost of the Master's consciousness: service passes through me, not from me.'"},luce:1,type:"conscious",
+        {text:{it:"«Sono un avamposto della coscienza del Maestro: il servizio passa attraverso di me.»",en:"'I am an outpost of the Master's consciousness: service passes through me.'"},luce:1,type:"conscious",
          result:{it:"Il discepolo è un centro di forza entro un centro di forza più vasto, responsabile della direzione dell'energia che per suo tramite può riversarsi in canali utili al gruppo.",en:"The disciple is a centre of force within a vaster centre of force, responsible for the direction of the energy that can pour through him into channels of benefit to the group."}},
         {text:{it:"Accetti il riconoscimento: in fondo, te lo sei guadagnato.",en:"You accept the credit: after all, you earned it."},luce:-2,type:"mechanical",
          result:{it:"Il servizio che incorona il servitore è il travestimento più elegante della personalità. La porta dell'iniziazione resta chiusa.",en:"Service that crowns the servant is the personality's most elegant disguise. The door of initiation stays shut."}}
@@ -101,7 +101,7 @@ window.DUNGEON_DATA = {
       text:{it:"La vita istintiva del tuo corpo si erge davanti a te, antica di milioni di anni.\n\n«Io ti ho tenuto in vita da sempre. Le mie voglie sono i miei salari. Negarmeli è negare la vita stessa.»",
             en:"The instinctive life of your body rises before you, millions of years old.\n\n'I have kept you alive since always. My cravings are my wages. To deny them is to deny life itself.'"},
       choices:[
-        {text:{it:"«Ti onoro come servitore, non come padrone. I tuoi salari sono salute e misura — non eccesso.»",en:"'I honour you as servant, not as master. Your wages are health and measure — not excess.'"},luce:1,type:"conscious",
+        {text:{it:"«Ti onoro come servitore. I tuoi salari sono la salute e la misura.»",en:"'I honour you as a servant. Your wages are health and measure.'"},luce:1,type:"conscious",
          result:{it:"Il centro del cuore si vivifica. La Nascita è avvenuta: il Cristo bambino è nato nel cuore.",en:"The heart centre is vivified. The Birth has occurred: the Christ-child is born in the heart."}},
         {text:{it:"Tratti il corpo da nemico: digiuni punitivi, rigori estremi.",en:"You treat the body as an enemy: punitive fasts, extreme rigours."},luce:-2,type:"mechanical",
          result:{it:"L'ascetismo violento è ancora l'elementale al comando, solo rovesciato. Il dominio vero è quieto.",en:"Violent asceticism is still the elemental in command, only inverted. True mastery is quiet."}}
@@ -132,8 +132,8 @@ window.DUNGEON_DATA = {
     ],
     guardian:{
       name:{it:"L'Elementale Astrale",en:"The Astral Elemental"},
-      text:{it:"Le acque del piano astrale si sollevano in un'unica figura ondeggiante, fatta di tutte le tue paure e brame.\n\n«Senza di me la tua vita sarà piatta, grigia, senza passione. Io SONO la tua vitalità.»",
-            en:"The waters of the astral plane rise into a single swaying figure, made of all your fears and cravings.\n\n'Without me your life will be flat, grey, passionless. I AM your vitality.'"},
+      text:{it:"Le acque del piano astrale si sollevano in un'unica figura ondeggiante, fatta di tutte le tue paure e brame.\n\n«Senza di me la tua vita sarà piatta e senza passione. Io SONO la tua vitalità.»",
+            en:"The waters of the astral plane rise into a single swaying figure, made of all your fears and cravings.\n\n'Without me your life will be flat and passionless. I AM your vitality.'"},
       choices:[
         {text:{it:"«Confondi l'agitazione con la vita. L'amore quieto è più vivo di ogni tempesta.»",en:"'You mistake agitation for life. Quiet love is more alive than any storm.'"},luce:1,type:"conscious",
          result:{it:"Le acque si calmano in uno specchio limpido. Il centro della gola si vivifica: ora puoi servire con la parola.",en:"The waters settle into a limpid mirror. The throat centre is vivified: now you can serve through the word."}},
@@ -166,10 +166,10 @@ window.DUNGEON_DATA = {
     ],
     guardian:{
       name:{it:"L'Orgoglio Intellettuale",en:"Intellectual Pride"},
-      text:{it:"Un essere di pensiero puro, splendido e gelido, ti sbarra la strada con un sorriso.\n\n«Hai capito tutto. Hai letto, meditato, compreso. Che altro può darti un'iniziazione, se non ciò che già sai?»",
-            en:"A being of pure thought, splendid and icy, bars your way with a smile.\n\n'You have understood everything. You have read, meditated, comprehended. What can an initiation give you that you do not already know?'"},
+      text:{it:"Un essere di pensiero puro, splendido e gelido, ti sbarra la strada con un sorriso.\n\n«Hai capito tutto. Hai letto e meditato. Che altro può darti un'iniziazione, se non ciò che già sai?»",
+            en:"A being of pure thought, splendid and icy, bars your way with a smile.\n\n'You have understood everything. You have read and meditated. What can an initiation give you that you do not already know?'"},
       choices:[
-        {text:{it:"«Conoscere non è essere. Mi inchino a ciò che la mente non può contenere.»",en:"'Knowing is not being. I bow to what the mind cannot contain.'"},luce:1,type:"conscious",
+        {text:{it:"«Mi inchino a ciò che la mente non può contenere.»",en:"'I bow to what the mind cannot contain.'"},luce:1,type:"conscious",
          result:{it:"L'essere gelido si scioglie in luce. La mente, deposta la corona, diventa ciò che doveva essere: un servitore perfetto.",en:"The icy being melts into light. The mind, its crown laid down, becomes what it was meant to be: a perfect servant."}},
         {text:{it:"Rispondi con la più brillante delle tue argomentazioni.",en:"You answer with the most brilliant of your arguments."},luce:-2,type:"mechanical",
          result:{it:"Hai vinto il dibattito e perso il passaggio. L'orgoglio intellettuale va deposto: le parole non bastano.",en:"You won the debate and lost the passage. Intellectual pride must be laid down: words are not enough."}}
