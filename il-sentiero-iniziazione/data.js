@@ -69,7 +69,7 @@ window.DUNGEON_DATA = {
             en:"A luminous figure shows you the ledger of your service: people helped, works accomplished, gratitude gathered.\n\n'Look how much you have done. You are ahead of the others. Your service makes you special.'"},
       choices:[
         {text:{it:"«Sono un avamposto della coscienza del Maestro: il servizio passa attraverso di me, non da me.»",en:"'I am an outpost of the Master's consciousness: service passes through me, not from me.'"},luce:1,type:"conscious",
-         result:{it:"Il discepolo è un centro di forza entro un centro di forza più vasto, responsabile solo della direzione dell'energia.",en:"The disciple is a centre of force within a vaster centre of force, responsible only for the direction of the energy."}},
+         result:{it:"Il discepolo è un centro di forza entro un centro di forza più vasto, responsabile della direzione dell'energia che per suo tramite può riversarsi in canali utili al gruppo.",en:"The disciple is a centre of force within a vaster centre of force, responsible for the direction of the energy that can pour through him into channels of benefit to the group."}},
         {text:{it:"Accetti il riconoscimento: in fondo, te lo sei guadagnato.",en:"You accept the credit: after all, you earned it."},luce:-2,type:"mechanical",
          result:{it:"Il servizio che incorona il servitore è il travestimento più elegante della personalità. La porta dell'iniziazione resta chiusa.",en:"Service that crowns the servant is the personality's most elegant disguise. The door of initiation stays shut."}}
       ]}
@@ -103,7 +103,7 @@ window.DUNGEON_DATA = {
             en:"The instinctive life of your body rises before you, millions of years old.\n\n'I have kept you alive since always. My cravings are my wages. To deny them is to deny life itself.'"},
       choices:[
         {text:{it:"«Ti onoro come servitore, non come padrone. I tuoi salari sono salute e misura — non eccesso.»",en:"'I honour you as servant, not as master. Your wages are health and measure — not excess.'"},luce:1,type:"conscious",
-         result:{it:"Il centro del cuore si vivifica. La Nascita è avvenuta: il Cristo bambino è nato nella caverna del cuore.",en:"The heart centre is vivified. The Birth has occurred: the Christ-child is born in the cave of the heart."}},
+         result:{it:"Il centro del cuore si vivifica. La Nascita è avvenuta: il Cristo bambino è nato nel cuore.",en:"The heart centre is vivified. The Birth has occurred: the Christ-child is born in the heart."}},
         {text:{it:"Tratti il corpo da nemico: digiuni punitivi, rigori estremi.",en:"You treat the body as an enemy: punitive fasts, extreme rigours."},luce:-2,type:"mechanical",
          result:{it:"Mortificare non è dominare: l'ascetismo violento è ancora l'elementale al comando — ribaltato. Il dominio è quieto, non crudele.",en:"Mortifying is not mastering: violent asceticism is still the elemental in command — inverted. Mastery is quiet, not cruel."}}
       ]}
@@ -127,7 +127,7 @@ window.DUNGEON_DATA = {
        choices:[
          {text:{it:"Difendi il tuo desiderio: ci hai investito troppo per lasciarlo.",en:"You defend your desire: you have invested too much to let it go."},luce:-1,type:"mechanical",
           result:{it:"L'investimento non rende vero ciò che è caro. Il desiderio difeso a oltranza diventa il muro fra te e l'Ego.",en:"Investment does not make the cherished true. Desire defended at all costs becomes the wall between you and the Ego."}},
-         {text:{it:"Lo deponi: 'la morte del desiderio è stata la meta dello sforzo'.",en:"You lay it down: 'the death of desire has been the goal of endeavour.'"},luce:1,type:"conscious",
+         {text:{it:"Lo deponi: «il sacrificio e la morte del desiderio sono stati la meta dello sforzo compiuto».",en:"You lay it down: 'the sacrifice and death of desire have been the goal of the effort made.'"},luce:1,type:"conscious",
           result:{it:"Il desiderio è dominato dall'Ego: ora l'iniziato tende soltanto al bene del Tutto, in accordo con la volontà dell'Ego e del Maestro.",en:"Desire is mastered by the Ego: now the initiate aims only at the good of the Whole, in line with the will of Ego and Master."}}
        ]}
     ],
@@ -146,7 +146,7 @@ window.DUNGEON_DATA = {
   { key:"trasfigurazione", color:"#7a5ab0", glyph:"✧",
     title:{it:"La Terza Iniziazione — la Trasfigurazione",en:"The Third Initiation — the Transfiguration"},
     subtitle:{it:"Il dominio della mente",en:"Control of the mind"},
-    intro:{it:"La personalità intera, dominata e integrata, viene trasfigurata dalla luce dell'Ego. Ora la prova è la più sottile: la mente stessa — l'ultimo e il più raffinato dei veicoli — deve cedere il comando.",en:"The whole personality, mastered and integrated, is transfigured by the light of the Ego. Now the test is the subtlest: the mind itself — the last and most refined of the vehicles — must yield command."},
+    intro:{it:"Alla terza iniziazione l'intera personalità è inondata dalla luce che fluisce dall'alto. La prova ora riguarda la mente stessa: per giungervi il punto di vista personale deve scomparire di fronte alla necessità del tutto, e la mente concreta deve passare sotto il completo dominio dell'Ego.",en:"At the third initiation the whole personality is flooded with the light that streams from above. The test now concerns the mind itself: to reach it the personal point of view must disappear before the need of the whole, and the concrete mind must come under the complete control of the Ego."},
     rooms:[
       {text:{it:"La tua mente, ormai potente, costruisce sistemi perfetti: spiegazioni complete di te, del mondo, del cammino. Sono belli, coerenti — e cominciano a sostituire l'esperienza diretta.",
              en:"Your mind, now powerful, builds perfect systems: complete explanations of yourself, the world, the path. They are beautiful, coherent — and they begin to replace direct experience."},
@@ -156,11 +156,11 @@ window.DUNGEON_DATA = {
          {text:{it:"Usi il sistema come strumento, e lo deponi quando l'esperienza parla.",en:"You use the system as a tool, and lay it down when experience speaks."},luce:1,type:"conscious",
           result:{it:"La mente dominata è un proiettore della luce dell'anima, non uno schermo che la sostituisce.",en:"The mastered mind is a projector of the soul's light, not a screen that replaces it."}}
        ]},
-      {text:{it:"La luce dell'Ego comincia a investire la personalità. Per un istante vedi te stesso dall'alto: i tre corpi allineati, docili, trasparenti.\n\nE arriva un pensiero: «Guarda cosa sono diventato».",
-             en:"The Ego's light begins to flood the personality. For an instant you see yourself from above: the three bodies aligned, docile, transparent.\n\nAnd a thought arrives: 'Look what I have become.'"},
+      {text:{it:"La luce che fluisce dall'alto comincia a inondare la personalità. Per un istante vedi te stesso dall'alto: i tre corpi allineati, docili, trasparenti.\n\nE arriva un pensiero: «Guarda cosa sono diventato».",
+             en:"The light that streams from above begins to flood the personality. For an instant you see yourself from above: the three bodies aligned, docile, transparent.\n\nAnd a thought arrives: 'Look what I have become.'"},
        choices:[
          {text:{it:"Ti compiaci: il riconoscimento è meritato.",en:"You bask in it: the recognition is deserved."},luce:-1,type:"mechanical",
-          result:{it:"L'ultimo rifugio della personalità è l'orgoglio spirituale. Si traveste da gratitudine, ma dice sempre 'io'.",en:"The personality's last refuge is spiritual pride. It disguises itself as gratitude, but it always says 'I'."}},
+          result:{it:"Il compiacimento riporta al centro la personalità. Il punto di vista personale, che doveva scomparire di fronte alla necessità del tutto, è di nuovo al comando.",en:"Self-satisfaction puts the personality back at the centre. The personal point of view, which was to disappear before the need of the whole, is in command again."}},
          {text:{it:"Lasci che la luce attraversi anche quel pensiero, fino a dissolverlo.",en:"You let the light pass through that thought too, until it dissolves."},luce:1,type:"conscious",
           result:{it:"La Trasfigurazione: non c'è più nessuno da incoronare. La personalità è diventata vetro per la luce.",en:"The Transfiguration: there is no one left to crown. The personality has become glass for the light."}}
        ]}
@@ -187,25 +187,25 @@ window.DUNGEON_DATA = {
        choices:[
          {text:{it:"Offri tutto, ma trattieni una sola cosa: la certezza di essere nel giusto.",en:"You offer everything, but keep one thing: the certainty of being right."},luce:-1,type:"mechanical",
           result:{it:"La rinuncia che trattiene qualcosa non è rinuncia: è un contratto. Sul braccio verticale della Croce si sale a mani vuote.",en:"Renunciation that keeps something back is not renunciation: it is a contract. One climbs the Cross's vertical arm with empty hands."}},
-         {text:{it:"Apri anche l'ultima mano: «considero tutto perduto, pur di conquistare la meta».",en:"You open the last hand too: 'counting all things lost, so I may win the goal.'"},luce:1,type:"conscious",
-          result:{it:"«Solo mani vuote, segnate dai chiodi, assicurano la continuità della catena» — una tesa a Chi sta sopra, l'altra all'uomo che segue.",en:"'Only hands that are empty, marked by the nails, ensure the continuity of the chain' — one stretched to Him above, the other to the man who follows."}}
+         {text:{it:"Apri anche l'ultima mano: pur di conquistare la meta, consideri tutto perduto.",en:"You open the last hand too: to win the goal, you count all things lost."},luce:1,type:"conscious",
+          result:{it:"«Si tende una mano a Colui che sta sopra e l'altra all'uomo che segue. […] Solo mani vuote, segnate dai chiodi, assicurano la continuità della catena.»",en:"'One stretches a hand to Him who is above and the other to the man who follows. […] Only empty hands, marked by the nails, ensure the continuity of the chain.'"}}
        ]},
       {text:{it:"L'abisso. Nessun ponte visibile. Dietro di te, tutto ciò che hai lasciato; davanti, il buio della 'notte tempestosa' di cui parla il Catechismo.",
              en:"The abyss. No visible bridge. Behind you, all you have left; ahead, the dark of the 'stormy night' the Catechism speaks of."},
        choices:[
          {text:{it:"Aspetti che appaia un ponte, una garanzia, un segno.",en:"You wait for a bridge, a guarantee, a sign to appear."},luce:-1,type:"mechanical",
-          result:{it:"Il ponte sull'abisso non preesiste: «si costruisce con atti amorevoli compiuti nella sofferenza della vita».",en:"The bridge over the abyss does not pre-exist: 'it is built with loving deeds done in the pain of living.'"}},
+          result:{it:"Nessun ponte è già pronto: «si costruisce un ponte sull'abisso con atti amorevoli compiuti nella sofferenza della vita».",en:"No bridge stands ready: 'one builds a bridge over the abyss with loving deeds done in the suffering of life.'"}},
          {text:{it:"Avanzi: ogni atto d'amore compiuto è una pietra del ponte già posata.",en:"You step forward: every act of love accomplished is a stone of the bridge already laid."},luce:1,type:"conscious",
-          result:{it:"«Si passa fra le lacrime, le nubi e le nebbie; si sale da soli.» Ma il ponte regge: era costruito da tutta la tua vita.",en:"'One passes amid tears, clouds and mists; one climbs alone.' But the bridge holds: your whole life had been building it."}}
+          result:{it:"«Si passa fra le lacrime, le nubi e le nebbie; si soffre e si muore. […] si sale da soli.» Ma il ponte regge: era costruito da tutta la tua vita.",en:"'One passes amid tears, clouds and mists; one suffers and dies. […] one climbs alone.' But the bridge holds: your whole life had been building it."}}
        ]}
     ],
     guardian:{
-      name:{it:"L'Hierofante",en:"The Hierophant"},
-      text:{it:"Oltre l'abisso, una Presenza ti attende con la Verga dell'Iniziazione. La domanda dell'antico catechismo risuona:\n\n«Quale parte hai tu in questo piano, o Pellegrino sul Sentiero? Come ti presenterai dinanzi al tuo Signore?»",
-            en:"Beyond the abyss, a Presence awaits you with the Rod of Initiation. The question of the ancient catechism resounds:\n\n'What part do you play in this plan, O Pilgrim on the Path? How will you stand before your Lord?'"},
+      name:{it:"Lo Ierofante",en:"The Hierophant"},
+      text:{it:"Oltre l'abisso, una Presenza ti attende con la Verga dell'Iniziazione. La domanda dell'antico catechismo risuona:\n\n«Quale parte hai tu in questo piano, Oh Pellegrino sul Sentiero? Come entrerai nella Pace? Come ti presenterai dinanzi al tuo Signore?»",
+            en:"Beyond the abyss, a Presence awaits you with the Rod of Initiation. The question of the ancient catechism resounds:\n\n'What part do you have in this plan, O Pilgrim on the Path? How will you enter into Peace? How will you stand before your Lord?'"},
       choices:[
-        {text:{it:"«Guardo in alto, aiuto in basso; lavoro, servo, raccolgo, prego. Sono la Croce, sono la Via.»",en:"'I look above, I help below; I work, I serve, I gather, I pray. I am the Cross, I am the Way.'"},luce:1,type:"conscious",
-         result:{it:"La Verga tocca il tuo capo. «Nella tensione del dolore perdo me stesso, trovo Me stesso — ed entro nella pace.» I sette Sentieri si aprono.",en:"The Rod touches your head. 'In the strain of pain I lose myself, I find Myself — and enter into peace.' The seven Paths open."}},
+        {text:{it:"«Guardo in alto, aiuto in basso; non sogno né riposo; lavoro, servo, raccolgo, prego; sono la Croce, sono la Via.»",en:"'I look above, I help below; I dream not, nor do I rest; I work, I serve, I gather, I pray; I am the Cross, I am the Way.'"},luce:1,type:"conscious",
+         result:{it:"La Verga tocca il tuo capo: «nella tensione del dolore perdo me stesso, trovo Me stesso ed entro nella pace». I sette Sentieri si aprono.",en:"The Rod touches your head: 'in the strain of pain I lose myself, I find Myself and enter into peace.' The seven Paths open."}},
         {text:{it:"«Ho fatto del mio meglio. Chiedo la ricompensa promessa.»",en:"'I did my best. I ask for the promised reward.'"},luce:-2,type:"mechanical",
          result:{it:"«Uccido il desiderio e mi sforzo, dimenticando ogni ricompensa.» Chi chiede il premio non ha ancora compiuto la Rinuncia.",en:"'I kill desire and I strive, forgetting all reward.' One who asks for the prize has not yet accomplished the Renunciation."}}
       ]}
