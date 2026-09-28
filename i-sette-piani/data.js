@@ -1,228 +1,236 @@
-/* I SETTE PIANI — data.js (spiritual dungeon-crawler) */
+/* I SETTE PIANI — data.js (spiritual dungeon-crawler)
+   Sequenza dei piani secondo Salvatore Brizzi, «I mondi spirituali»:
+   1 Fisico ed Eterico, 2 Astrale, 3 Mentale e Causale, 4 Buddhico,
+   5 Atmico, 6 Anupadaka, 7 Adi. La luce massima la calcola il motore. */
 (function(){
 "use strict";
 window.DUNGEON_DATA = {
   id: "dng",
-  maxLuce: 14,
   startLuce: 7,
   planes: [
-  /* ═══ PIANO 1: FISICO ═══ */
+  /* ═══ PIANO 1: FISICO ED ETERICO ═══ */
   { key:"fisico", color:"#8a7a5a", glyph:"⬡",
     title:{it:"Piano Fisico",en:"Physical Plane"},
-    subtitle:{it:"La materia densa",en:"Dense matter"},
-    intro:{it:"Sei nel piano più denso dell'esistenza. Tutto è peso, forma, solidità. Il tuo corpo è una macchina biologica — ma chi la guida?",en:"You are in the densest plane of existence. Everything is weight, form, solidity. Your body is a biological machine — but who drives it?"},
+    subtitle:{it:"Il corpo denso e il doppio eterico",en:"The dense body and the etheric double"},
+    intro:{it:"Sei nel piano più denso, l'unico visibile agli occhi dell'uomo ordinario. I suoi tre sottopiani più bassi sono il solido, il liquido e il gassoso. I quattro più alti formano l'eterico, detto doppio eterico perché è una copia perfetta del corpo fisico.",en:"You are in the densest plane, the only one visible to the eyes of ordinary man. Its three lowest subplanes are solid, liquid and gaseous. The four highest form the etheric, called the etheric double because it is a perfect copy of the physical body."},
     rooms:[
       {text:{it:"Una stanza buia. Senti il tuo cuore battere, il respiro, il sangue nelle orecchie. Non vedi nulla. Solo il corpo esiste qui.\n\nUna voce dice: «Chi sei senza i tuoi cinque sensi?»",
              en:"A dark room. You feel your heartbeat, your breath, the blood in your ears. You see nothing. Only the body exists here.\n\nA voice says: 'Who are you without your five senses?'"},
        choices:[
          {text:{it:"«Sono il corpo. Senza i sensi non esisto.»",en:"'I am the body. Without senses I don't exist.'"},luce:-1,type:"mechanical",
-          result:{it:"Il corpo è un veicolo, non il guidatore. Identificarsi con esso è la prima prigione.",en:"The body is a vehicle, not the driver. Identifying with it is the first prison."}},
+          result:{it:"Sentirsi il proprio corpo di carne è la prima prigione. I sensi, poi, colgono solo una stretta finestra di frequenze: tutto il resto dell'universo resta fuori.",en:"Feeling that you are your body of flesh is the first prison. And the senses catch only a narrow window of frequencies: the rest of the universe stays outside."}},
          {text:{it:"«I sensi sono strumenti. Io sono chi li usa.»",en:"'The senses are instruments. I am the one who uses them.'"},luce:1,type:"conscious",
-          result:{it:"Esatto. Il corpo fisico è il tempio — ma tu non sei il tempio. Sei chi lo abita.",en:"Exactly. The physical body is the temple — but you are not the temple. You are the one who inhabits it."}},
+          result:{it:"Esatto. Il corpo è un veicolo che ti avvolge e ti serve per muoverti nel mondo materiale. Tu sei chi lo abita.",en:"Exactly. The body is a vehicle that envelops you and lets you move through the material world. You are the one who inhabits it."}},
          {text:{it:"Resti in silenzio. Ascolti.",en:"You stay silent. You listen."},luce:0,type:"neutral",
-          result:{it:"Il silenzio è un buon inizio. Ma la domanda resta — e chiederà risposta.",en:"Silence is a good start. But the question remains — and will demand an answer."}}
+          result:{it:"Il silenzio è un buon inizio. La domanda però resta aperta.",en:"Silence is a good start. The question, though, remains open."}}
        ]},
-      {text:{it:"Una porta si apre su un corridoio di specchi. Ogni specchio mostra una versione diversa di te: da bambino, da vecchio, malato, sano, ricco, povero.\n\nQuale sei davvero?",
-             en:"A door opens onto a corridor of mirrors. Each mirror shows a different version of you: as a child, old, sick, healthy, rich, poor.\n\nWhich one are you really?"},
+      {text:{it:"Vedi il tuo corpo dall'esterno. È avvolto da una griglia di linee luminose, come una guaina. In alcuni punti brilla; in altri è grigia, e avvicinando le mani senti zone più fredde.\n\nI punti grigi corrispondono alle parti del corpo dove senti dolore da anni.",
+             en:"You see your body from the outside. It is wrapped in a grid of luminous lines, like a sheath. In some places it shines; in others it is grey, and bringing your hands close you feel colder areas.\n\nThe grey spots correspond to the body parts where you've felt pain for years."},
        choices:[
-         {text:{it:"«Sono tutti loro. E nessuno di loro.»",en:"'I am all of them. And none of them.'"},luce:1,type:"conscious",
-          result:{it:"Le forme cambiano. Ciò che osserva le forme non cambia mai. Hai colto la prima chiave.",en:"Forms change. What observes the forms never changes. You've grasped the first key."}},
-         {text:{it:"Ti fermi davanti allo specchio che ti piace di più.",en:"You stop in front of the mirror you like best."},luce:-1,type:"mechanical",
-          result:{it:"L'attaccamento all'immagine preferita è la trappola del piano fisico. L'ego sceglie sempre ciò che lo lusinga.",en:"Attachment to the preferred image is the physical plane's trap. The ego always chooses what flatters it."}}
-       ]}
-    ],
-    guardian:{
-      name:{it:"Il Guardiano della Soglia Terrestre",en:"The Guardian of the Earthly Threshold"},
-      text:{it:"Un gigante di pietra blocca la scala che sale. I suoi occhi sono vuoti.\n\n«Nessuno sale se porta il peso del corpo con sé. Cosa sei disposto a lasciare?»",
-            en:"A stone giant blocks the stairway up. Its eyes are empty.\n\n'No one ascends who carries the body's weight. What are you willing to leave behind?'"},
-      choices:[
-        {text:{it:"«Lascio l'identificazione con il corpo. Porto solo la consapevolezza.»",en:"'I leave identification with the body. I carry only awareness.'"},luce:1,type:"conscious",
-         result:{it:"Il gigante si sgretola. La scala si apre. Sei più leggero di prima.",en:"The giant crumbles. The stairway opens. You are lighter than before."}},
-        {text:{it:"«Non lascio niente. Il corpo è tutto ciò che ho.»",en:"'I leave nothing. The body is all I have.'"},luce:-2,type:"mechanical",
-         result:{it:"Il gigante ti respinge. Perdi energia. Ma la scala, alla fine, si apre lo stesso — il cammino prosegue, più difficile.",en:"The giant pushes you back. You lose energy. But the stairway opens anyway — the path continues, harder."}}
-      ]}
-  },
-  /* ═══ PIANO 2: ETERICO ═══ */
-  { key:"eterico", color:"#6a9a7a", glyph:"◎",
-    title:{it:"Piano Eterico",en:"Etheric Plane"},
-    subtitle:{it:"L'energia vitale",en:"Vital energy"},
-    intro:{it:"L'aria vibra. Senti correnti di energia fluire attraverso il corpo come fiumi invisibili. Questo è il doppio eterico — il campo di forza che anima la materia.",en:"The air vibrates. You feel currents of energy flowing through the body like invisible rivers. This is the etheric double — the force field that animates matter."},
-    rooms:[
-      {text:{it:"Vedi il tuo corpo dall'esterno. È circondato da un alone luminoso che pulsa ritmicamente. In alcuni punti è brillante; in altri, scuro e stagnante.\n\nI punti scuri corrispondono alle parti del corpo dove senti dolore da anni.",
-             en:"You see your body from the outside. It's surrounded by a luminous halo pulsing rhythmically. In some places it's brilliant; in others, dark and stagnant.\n\nThe dark spots correspond to the body parts where you've felt pain for years."},
-       choices:[
-         {text:{it:"Dirigi l'attenzione verso i punti oscuri. Respiri luce in essi.",en:"You direct attention to the dark spots. You breathe light into them."},luce:1,type:"conscious",
-          result:{it:"L'attenzione cosciente è la medicina del corpo eterico. Dove porti la consapevolezza, l'energia ricomincia a fluire.",en:"Conscious attention is the etheric body's medicine. Where you bring awareness, energy flows again."}},
-         {text:{it:"Ignori i punti scuri. Ti concentri sulla luce.",en:"You ignore the dark spots. You focus on the light."},luce:-1,type:"mechanical",
-          result:{it:"Ignorare la malattia non la guarisce. Il corpo eterico riflette ogni blocco emotivo non risolto.",en:"Ignoring illness doesn't heal it. The etheric body reflects every unresolved emotional block."}}
-       ]},
-      {text:{it:"Un vortice di energia ti attira verso il basso. È piacevole — caldo, avvolgente, come addormentarsi in un letto morbido. Una voce sussurra: «Resta qui. Non hai bisogno di salire.»",
-             en:"A vortex of energy pulls you downward. It's pleasant — warm, enveloping, like falling asleep in a soft bed. A voice whispers: 'Stay here. You don't need to go higher.'"},
-       choices:[
-         {text:{it:"Resisti. Riconosci la seduzione dell'inerzia.",en:"You resist. You recognise the seduction of inertia."},luce:1,type:"conscious",
-          result:{it:"L'inerzia è la forza più potente del piano eterico. Chi cede resta intrappolato nel comfort — sveglio abbastanza da sentire, addormentato abbastanza da non agire.",en:"Inertia is the etheric plane's most powerful force. Those who yield remain trapped in comfort — awake enough to feel, asleep enough not to act."}},
-         {text:{it:"Ti abbandoni al calore. «Solo un momento...»",en:"You surrender to the warmth. 'Just a moment...'"},luce:-1,type:"mechanical",
-          result:{it:"Il «solo un momento» diventa un'eternità. L'inerzia ti ha quasi intrappolato — ti risvegli di scatto, ma hai perso energia.",en:"'Just a moment' becomes an eternity. Inertia almost trapped you — you jolt awake, but you've lost energy."}}
+         {text:{it:"Porti l'attenzione sui punti grigi e mandi amore a quelle parti del corpo.",en:"You bring your attention to the grey spots and send love to those parts of the body."},luce:1,type:"conscious",
+          result:{it:"I punti grigi sono blocchi che impediscono al prana di fluire liberamente. Li hai guardati invece di rifiutarli, e la griglia ricomincia a illuminarsi.",en:"The grey spots are blocks that keep prana from flowing freely. You looked at them instead of rejecting them, and the grid begins to light up again."}},
+         {text:{it:"Ignori i punti grigi. Ti concentri sulla luce.",en:"You ignore the grey spots. You focus on the light."},luce:-1,type:"mechanical",
+          result:{it:"I blocchi restano dove sono, e il prana continua a non passare. Distogliere lo sguardo non li scioglie.",en:"The blocks stay where they are, and prana still cannot pass. Looking away does not dissolve them."}}
        ]}
     ],
     guardian:{
       name:{it:"Il Vampiro Eterico",en:"The Etheric Vampire"},
-      text:{it:"Una figura translucida si materializza. Non ha volto proprio — prende il volto di chiunque ti abbia mai prosciugato energia. Ex, colleghi tossici, familiari manipolatori.\n\n«Dammi la tua energia. Me la devi.»",
-            en:"A translucent figure materialises. It has no face of its own — it takes the face of everyone who ever drained your energy. Exes, toxic colleagues, manipulative relatives.\n\n'Give me your energy. You owe me.'"},
+      text:{it:"Una figura translucida si materializza. Non ha un volto proprio: prende il volto di chiunque ti abbia mai prosciugato energia. Ex, colleghi tossici, familiari manipolatori.\n\n«Dammi la tua energia. Me la devi.»",
+            en:"A translucent figure materialises. It has no face of its own: it takes the face of everyone who ever drained your energy. Exes, toxic colleagues, manipulative relatives.\n\n'Give me your energy. You owe me.'"},
       choices:[
-        {text:{it:"«Non devo niente a nessuno. La mia energia è mia.» Tagli il cordone.",en:"'I owe nothing to anyone. My energy is mine.' You cut the cord."},luce:1,type:"conscious",
-         result:{it:"Il vampiro si dissolve urlando. I cordoni eterici si spezzano. Senti un'ondata di energia tornare nel tuo campo.",en:"The vampire dissolves, screaming. The etheric cords snap. You feel a wave of energy return to your field."}},
+        {text:{it:"Resti presente al senso di colpa che il vampiro risveglia, e lo guardi senza cedere.",en:"You stay present to the guilt the vampire awakens, and look at it without yielding."},luce:2,type:"conscious",
+         result:{it:"Osservato alla luce della presenza, il vampiro si dissolve: si nutriva della tua colpa. Senti un'ondata di energia tornare nel tuo campo.",en:"Observed in the light of presence, the vampire dissolves: it was feeding on your guilt. You feel a wave of energy return to your field."}},
         {text:{it:"Ti senti in colpa. Gli dai un po' di energia.",en:"You feel guilty. You give it some energy."},luce:-2,type:"mechanical",
-         result:{it:"La colpa è il cibo preferito del vampiro eterico. Ogni volta che cedi, il cordone si rafforza.",en:"Guilt is the etheric vampire's favourite food. Every time you yield, the cord strengthens."}}
+         result:{it:"Un vampiro entra solo se lo inviti, e la colpa è il tuo invito. Ogni volta che cedi, torna più forte.",en:"A vampire enters only if you invite it, and guilt is your invitation. Every time you yield, it comes back stronger."}}
       ]}
   },
-  /* ═══ PIANO 3: ASTRALE ═══ */
+  /* ═══ PIANO 2: ASTRALE ═══ */
   { key:"astrale", color:"#7c3a6a", glyph:"✦",
     title:{it:"Piano Astrale",en:"Astral Plane"},
-    subtitle:{it:"Il mondo delle emozioni",en:"The world of emotions"},
-    intro:{it:"Colori ovunque — più vividi di qualsiasi cosa tu abbia mai visto. Ogni tua emozione è visibile: la rabbia è rossa, la paura grigia, l'amore dorato. Qui non puoi mentire — l'aura mostra tutto.",en:"Colours everywhere — more vivid than anything you've ever seen. Every emotion of yours is visible: anger is red, fear grey, love golden. Here you cannot lie — the aura shows everything."},
+    subtitle:{it:"Il piano emotivo",en:"The emotional plane"},
+    intro:{it:"È il piano più vicino al fisico: fra le due materie c'è la stessa differenza che fra il ghiaccio e il vapore. La luce è diffusa e non viene da nessuna direzione. Ogni tua emozione ha un colore nell'aura: la collera è un lampo rosso scuro su fondo nero, la paura grigio livido, l'amore rosa.",en:"It is the plane closest to the physical: between the two kinds of matter there is the same difference as between ice and steam. The light is diffuse and comes from no direction. Each of your emotions has a colour in the aura: anger is a flash of dark red on a black ground, fear livid grey, love pink."},
     rooms:[
-      {text:{it:"Una tempesta di colori ti investe: rosso rabbia, verde gelosia, arancione desiderio. Sono le tue emozioni non elaborate — cristallizzate in forme viventi che ti circondano come animali affamati.\n\nOgnuna vuole la tua attenzione. Ognuna dice: «Sono io la più importante.»",
-             en:"A storm of colours hits you: red anger, green jealousy, orange desire. They are your unprocessed emotions — crystallised into living forms circling you like hungry animals.\n\nEach one wants your attention. Each says: 'I am the most important.'"},
+      {text:{it:"Una tempesta di colori ti investe: rosso cupo di sensualità, bruno-verdastro di gelosia, arancio d'orgoglio. Sono le tue emozioni, diventate forme viventi che ti girano intorno come animali affamati.\n\nOgnuna vuole la tua attenzione. Ognuna dice: «Sono io la più importante.»",
+             en:"A storm of colours hits you: the dark red of sensuality, the greenish-brown of jealousy, the orange of pride. They are your emotions, turned into living forms circling you like hungry animals.\n\nEach one wants your attention. Each says: 'I am the most important.'"},
        choices:[
          {text:{it:"Le osservi tutte senza nutrirne nessuna. Rimani al centro, immobile.",en:"You observe them all without feeding any. You remain at the centre, still."},luce:1,type:"conscious",
-          result:{it:"Le forme-pensiero si nutrono di identificazione. Quando le osservi senza reagire, si indeboliscono e si dissolvono una dopo l'altra.",en:"Thought-forms feed on identification. When you observe without reacting, they weaken and dissolve one after another."}},
-         {text:{it:"Cerchi di combatterle — di scacciarle con la volontà.",en:"You try to fight them — to chase them away with willpower."},luce:-1,type:"mechanical",
-          result:{it:"Combattere un'emozione la rafforza. «Ciò a cui resisti, persiste.» Le forme diventano più grandi e aggressive.",en:"Fighting an emotion strengthens it. 'What you resist, persists.' The forms grow larger and more aggressive."}}
+          result:{it:"Contrastare le emozioni è una partita persa in partenza. Osservandole crei in te un punto che non si muove con loro, e le forme si indeboliscono una dopo l'altra.",en:"Opposing emotions is a game lost from the start. By observing them you create in yourself a point that does not move with them, and the forms weaken one after another."}},
+         {text:{it:"Cerchi di combatterle, di scacciarle con la volontà.",en:"You try to fight them, to chase them away with willpower."},luce:-1,type:"mechanical",
+          result:{it:"Più resisti, più ti colpiscono. Le forme diventano più grandi e aggressive.",en:"The more you resist, the harder they hit you. The forms grow larger and more aggressive."}}
        ]},
-      {text:{it:"Un paesaggio meraviglioso appare: un giardino paradisiaco, musica celestiale, esseri di luce che ti sorridono. Tutto è perfetto. Troppo perfetto.\n\nUna parte di te sa che è un'illusione del piano astrale — ma è così bello.",
-             en:"A wonderful landscape appears: a paradisiacal garden, celestial music, beings of light smiling at you. Everything is perfect. Too perfect.\n\nA part of you knows it's an illusion of the astral plane — but it's so beautiful."},
+      {text:{it:"Appare un paesaggio meraviglioso: un giardino paradisiaco, musica celestiale, esseri di luce che ti sorridono. Tutto è perfetto. Troppo perfetto.\n\nUna parte di te sa che è una creazione del piano astrale. Ma è così bello.",
+             en:"A wonderful landscape appears: a paradisiacal garden, celestial music, beings of light smiling at you. Everything is perfect. Too perfect.\n\nA part of you knows it is a creation of the astral plane. But it's so beautiful."},
        choices:[
-         {text:{it:"«È bello, ma non è reale. Proseguo.»",en:"'It's beautiful, but it's not real. I continue.'"},luce:1,type:"conscious",
-          result:{it:"Le illusioni piacevoli sono più pericolose di quelle terrificanti — perché non vuoi lasciarle. Ma l'attaccamento al paradiso è pur sempre attaccamento.",en:"Pleasant illusions are more dangerous than terrifying ones — because you don't want to leave them. But attachment to paradise is still attachment."}},
-         {text:{it:"Resti. È il paradiso — perché mai dovresti andartene?",en:"You stay. It's paradise — why would you ever leave?"},luce:-1,type:"mechanical",
-          result:{it:"Il paradiso astrale è la trappola dorata. Molte anime restano qui per eoni, intrappolate nel piacere, senza mai salire ai piani superiori.",en:"The astral paradise is the golden trap. Many souls remain here for aeons, trapped in pleasure, never rising to the higher planes."}}
+         {text:{it:"«È bello, ma è una forma creata dal desiderio. Proseguo.»",en:"'It's beautiful, but it's a form created by desire. I continue.'"},luce:1,type:"conscious",
+          result:{it:"Questo piano è detto il reame dell'illusione perché i suoi abitanti cambiano forma e creano mondi fantastici in cui confondono il visitatore. Hai visto il giardino per quello che è.",en:"This plane is called the realm of illusion because its inhabitants change form and create fantastic worlds in which they confuse the visitor. You saw the garden for what it is."}},
+         {text:{it:"Resti. È il paradiso: perché mai dovresti andartene?",en:"You stay. It's paradise: why would you ever leave?"},luce:-1,type:"mechanical",
+          result:{it:"Scenari come questo ammaliano il viaggiatore neofita, che rischia di perdersi e di aggiungere le proprie fantasie a quelle già presenti. C'è chi resta per anni su questi livelli prima di salire.",en:"Scenes like this enchant the novice traveller, who risks getting lost and adding his own fantasies to those already there. Some stay on these levels for years before rising."}}
        ]}
     ],
     guardian:{
       name:{it:"Il Demone dello Specchio",en:"The Mirror Demon"},
-      text:{it:"Un demone appare — ma ha il tuo volto. Mostra ogni emozione che hai represso, ogni desiderio che hai negato, ogni paura che hai nascosto.\n\n«Mi riconosci? Sono tutto ciò che non vuoi essere.»",
-            en:"A demon appears — but it has your face. It shows every emotion you've suppressed, every desire you've denied, every fear you've hidden.\n\n'Do you recognise me? I am everything you don't want to be.'"},
+      text:{it:"Appare un demone con il tuo volto. Mostra ogni emozione che hai represso, ogni desiderio che hai negato, ogni paura che hai nascosto.\n\n«Mi riconosci? Sono tutto ciò che non vuoi essere.»",
+            en:"A demon appears with your face. It shows every emotion you've suppressed, every desire you've denied, every fear you've hidden.\n\n'Do you recognise me? I am everything you don't want to be.'"},
       choices:[
         {text:{it:"«Ti riconosco. Sei la mia ombra. Ti accetto.»",en:"'I recognise you. You are my shadow. I accept you.'"},luce:2,type:"conscious",
-         result:{it:"Il demone cambia forma — diventa luce. L'ombra accettata si integra. Sei più intero di prima.",en:"The demon changes form — it becomes light. The accepted shadow integrates. You are more whole than before."}},
+         result:{it:"Il demone cambia forma e diventa luce. Accettata e amata, la parte che rifiutavi si integra in te. Sei più intero di prima.",en:"The demon changes form and becomes light. Accepted and loved, the part you rejected integrates into you. You are more whole than before."}},
         {text:{it:"«Tu non esisti! Vattene!»",en:"'You don't exist! Go away!'"},luce:-2,type:"mechanical",
          result:{it:"Negare l'ombra la rafforza. Il demone ride: «Più mi neghi, più io cresco.» Passi, ma ferito.",en:"Denying the shadow strengthens it. The demon laughs: 'The more you deny me, the more I grow.' You pass, but wounded."}}
       ]}
   },
-  /* ═══ PIANO 4: MENTALE INFERIORE ═══ */
-  { key:"mentale_inf", color:"#3a6a9a", glyph:"◈",
-    title:{it:"Piano Mentale Inferiore",en:"Lower Mental Plane"},
-    subtitle:{it:"Il pensiero concreto",en:"Concrete thought"},
-    intro:{it:"Forme geometriche perfette fluttuano ovunque — sono pensieri cristallizzati. Ogni convinzione è un edificio, ogni pregiudizio un muro. Il mondo mentale inferiore è costruito dalle tue certezze.",en:"Perfect geometric forms float everywhere — they are crystallised thoughts. Every conviction is a building, every prejudice a wall. The lower mental world is built from your certainties."},
+  /* ═══ PIANO 3: MENTALE E CAUSALE ═══ */
+  { key:"mentale", color:"#3a6a9a", glyph:"◈",
+    title:{it:"Piano Mentale",en:"Mental Plane"},
+    subtitle:{it:"Il pensiero concreto e il pensiero astratto",en:"Concrete thought and abstract thought"},
+    intro:{it:"I quattro sottopiani più bassi sono il mentale inferiore, la mente razionale, sede del pensiero concreto. I tre più alti sono il causale, la mente astratta. Il corpo causale è il corpo dell'anima: si costruisce con il Lavoro, e solo ciò che hai costruito qui sopravvive alla morte.",en:"The four lowest subplanes are the lower mental, the rational mind, seat of concrete thought. The three highest are the causal, the abstract mind. The causal body is the soul's body: it is built through the Work, and only what you have built here survives death."},
     rooms:[
-      {text:{it:"Sei circondato da muri altissimi fatti di parole: «ho ragione», «è sempre così», «non cambierò mai», «il mondo è fatto così». Ogni muro è una convinzione limitante che hai costruito negli anni.\n\nDietro i muri, intravedi una luce immensa.",
-             en:"You are surrounded by towering walls made of words: 'I'm right', 'it's always like this', 'I'll never change', 'that's how the world is'. Each wall is a limiting belief you've built over the years.\n\nBehind the walls, you glimpse an immense light."},
+      {text:{it:"Un'onda di astio attraversa la stanza. Non ha un oggetto: è solo una vibrazione. Un istante dopo ti ritrovi furioso con qualcuno a cui non pensavi da mesi.",
+             en:"A wave of spite crosses the room. It has no object: it is only a vibration. A moment later you find yourself furious with someone you hadn't thought of in months."},
        choices:[
-         {text:{it:"Tocchi un muro e dici: «Questa non è verità. È solo un pensiero.» Il muro si dissolve.",en:"You touch a wall and say: 'This is not truth. It is only a thought.' The wall dissolves."},luce:1,type:"conscious",
-          result:{it:"I pensieri non sono fatti. Le convinzioni sono prigioni volontarie. Dissolverne uno apre lo spazio per la verità.",en:"Thoughts are not facts. Convictions are voluntary prisons. Dissolving one opens space for truth."}},
-         {text:{it:"Cerchi un'uscita tra i muri, senza toccarli. «Qualcuno deve averle messe qui.»",en:"You look for a way out between the walls, without touching them. 'Someone must have put them here.'"},luce:-1,type:"mechanical",
-          result:{it:"Nessuno ha costruito i tuoi muri tranne te. Cercare un colpevole esterno è la strategia preferita della mente inferiore.",en:"No one built your walls but you. Looking for an external culprit is the lower mind's favourite strategy."}}
+         {text:{it:"«Questo pensiero non è mio.» Riconosci l'onda e la lasci passare.",en:"'This thought is not mine.' You recognise the wave and let it pass."},luce:1,type:"conscious",
+          result:{it:"Quasi tutto ciò che ti attraversa viene dalla mente collettiva. L'hai riconosciuto, e l'onda è passata senza trascinarti.",en:"Almost everything that passes through you comes from the collective mind. You recognised it, and the wave passed without dragging you along."}},
+         {text:{it:"Segui la rabbia: quella persona se lo merita.",en:"You follow the anger: that person deserves it."},luce:-1,type:"mechanical",
+          result:{it:"L'onda ha trovato in te una parte che vibrava all'unisono e l'ha portata in superficie. Hai scambiato per tuo un pensiero di passaggio.",en:"The wave found a part of you vibrating in unison and brought it to the surface. You took a passing thought for your own."}}
        ]},
-      {text:{it:"Un libro infinito appare davanti a te. Contiene tutte le risposte a tutte le domande. Ma una clausola è scritta sulla copertina: «Chi legge tutte le risposte non avrà più domande. E chi non ha domande non cerca più.»",
-             en:"An infinite book appears before you. It contains all answers to all questions. But a clause is written on the cover: 'Whoever reads all the answers will have no more questions. And whoever has no questions seeks no more.'"},
+      {text:{it:"Due figure appaiono: la Personalità e l'Anima. La Personalità è rumorosa, colorata, insistente. L'Anima è silenziosa, luminosa, paziente.\n\nLa Personalità dice: «Senza di me non sopravvivi.»\nL'Anima non dice nulla. Aspetta.",
+             en:"Two figures appear: the Personality and the Soul. The Personality is noisy, colourful, insistent. The Soul is silent, luminous, patient.\n\nThe Personality says: 'Without me you won't survive.'\nThe Soul says nothing. It waits."},
        choices:[
-         {text:{it:"Chiudi il libro. «Le risposte senza esperienza sono vuote.»",en:"You close the book. 'Answers without experience are empty.'"},luce:1,type:"conscious",
-          result:{it:"La conoscenza intellettuale è la mappa, non il territorio. Hai scelto di camminare anziché leggere del cammino.",en:"Intellectual knowledge is the map, not the territory. You chose to walk rather than read about the walk."}},
-         {text:{it:"Leggi avidamente. Vuoi sapere tutto.",en:"You read avidly. You want to know everything."},luce:-1,type:"mechanical",
-          result:{it:"Il sapere senza pratica è il cibo dell'ego intellettuale. Più sai, più credi di non aver bisogno di trasformarti.",en:"Knowledge without practice is the intellectual ego's food. The more you know, the more you believe you don't need to transform."}}
-       ]}
-    ],
-    guardian:{
-      name:{it:"L'Architetto delle Certezze",en:"The Architect of Certainties"},
-      text:{it:"Un essere fatto di equazioni e logica perfetta ti blocca.\n\n«Prova che esisti. Prova che la coscienza è reale. Senza prove, non passi.»\n\nÈ il guardiano della mente razionale: vuole che tutto sia dimostrabile.",
-            en:"A being made of equations and perfect logic blocks you.\n\n'Prove you exist. Prove consciousness is real. Without proof, you don't pass.'\n\nIt is the guardian of the rational mind: it wants everything to be provable."},
-      choices:[
-        {text:{it:"«La coscienza non si prova — si vive. Io sono la prova.»",en:"'Consciousness cannot be proved — it is lived. I am the proof.'"},luce:1,type:"conscious",
-         result:{it:"L'Architetto si dissolve. La razionalità è uno strumento prezioso, ma pretendere di dimostrare tutto è la sua prigione.",en:"The Architect dissolves. Rationality is a precious tool, but demanding to prove everything is its prison."}},
-        {text:{it:"Cerchi di costruire un argomento logico perfetto.",en:"You try to build a perfect logical argument."},luce:-1,type:"mechanical",
-         result:{it:"Non puoi dimostrare la coscienza con la mente — come l'occhio non può vedere se stesso. L'Architetto ride della tua logica.",en:"You cannot prove consciousness with the mind — just as the eye cannot see itself. The Architect laughs at your logic."}}
-      ]}
-  },
-  /* ═══ PIANO 5: MENTALE SUPERIORE (CAUSALE) ═══ */
-  { key:"causale", color:"#5a5aaa", glyph:"△",
-    title:{it:"Piano Causale",en:"Causal Plane"},
-    subtitle:{it:"Il corpo dell'anima",en:"The soul's body"},
-    intro:{it:"Per la prima volta, senti l'Anima. Non come concetto — come presenza reale. È il corpo causale: il veicolo che sopravvive a tutte le morti, che porta con sé l'essenza di ogni vita.",en:"For the first time, you feel the Soul. Not as a concept — as a real presence. It is the causal body: the vehicle that survives all deaths, carrying the essence of every life."},
-    rooms:[
-      {text:{it:"Visioni di vite passate ti attraversano come un fiume. Non sono ricordi — sono lezioni. Ogni vita aveva un tema: amore non dato, coraggio mancato, verità non detta.\n\nUna voce dice: «Questa vita — quella che stai vivendo ora — qual è il suo tema?»",
-             en:"Visions of past lives flow through you like a river. They are not memories — they are lessons. Each life had a theme: love not given, courage not shown, truth not spoken.\n\nA voice says: 'This life — the one you're living now — what is its theme?'"},
-       choices:[
-         {text:{it:"Ascolti nel silenzio. La risposta emerge da sola, chiara come un cristallo.",en:"You listen in silence. The answer emerges on its own, clear as crystal."},luce:1,type:"conscious",
-          result:{it:"L'anima conosce il tema della tua vita. Non servono parole — serve ascolto. In quel silenzio, capisci perché sei qui.",en:"The soul knows the theme of your life. No words are needed — only listening. In that silence, you understand why you're here."}},
-         {text:{it:"Analizzi intellettualmente ogni vita cercando il pattern.",en:"You intellectually analyse each life looking for the pattern."},luce:0,type:"neutral",
-          result:{it:"L'intelletto può mappare, ma non sentire. Il tema della vita si rivela al Cuore, non alla mente.",en:"The intellect can map, but not feel. The theme of life reveals itself to the Heart, not the mind."}}
-       ]},
-      {text:{it:"Due figure appaiono: la Personalità e l'Anima. La Personalità è rumorosa, colorata, insistente. L'Anima è silenziosa, luminosa, paziente.\n\nLa Personalità dice: «Senza di me non puoi vivere nel mondo.»\nL'Anima dice: «Senza di me non puoi vivere.»",
-             en:"Two figures appear: the Personality and the Soul. The Personality is noisy, colourful, insistent. The Soul is silent, luminous, patient.\n\nThe Personality says: 'Without me you can't live in the world.'\nThe Soul says: 'Without me you cannot live.'"},
-       choices:[
-         {text:{it:"«L'Anima guida, la Personalità serve. Non il contrario.»",en:"'The Soul leads, the Personality serves. Not the other way around.'"},luce:2,type:"conscious",
-          result:{it:"L'allineamento è completo. La Personalità non è un nemico — è uno strumento. Ma deve essere al servizio dell'Anima, non il contrario.",en:"The alignment is complete. The Personality is not an enemy — it's an instrument. But it must serve the Soul, not the other way around."}},
+         {text:{it:"Sposti il centro della tua consapevolezza nell'Anima. La Personalità resta, al suo servizio.",en:"You move the centre of your awareness into the Soul. The Personality stays, in its service."},luce:1,type:"conscious",
+          result:{it:"La personalità è una macchina perfetta per sopravvivere; l'anima vive. Spostare il centro della consapevolezza dall'una all'altra è il passaggio che il Lavoro chiede.",en:"The personality is a perfect machine for survival; the soul lives. Moving the centre of awareness from one to the other is the step the Work asks for."}},
          {text:{it:"«Servono entrambe in egual misura.»",en:"'Both are needed in equal measure.'"},luce:0,type:"neutral",
-          result:{it:"L'equilibrio sembra saggio, ma è un compromesso. L'Anima e la Personalità non sono alla pari: una è eterna, l'altra è temporanea.",en:"Balance seems wise, but it's a compromise. The Soul and the Personality are not equals: one is eternal, the other temporary."}}
+          result:{it:"Sembra una risposta saggia, e lascia il centro della consapevolezza dov'era. Le due figure restano a guardarti.",en:"It sounds like a wise answer, and it leaves the centre of awareness where it was. The two figures keep watching you."}},
+         {text:{it:"Dai ragione alla Personalità: prima di tutto bisogna sopravvivere.",en:"You side with the Personality: first of all, one must survive."},luce:-1,type:"mechanical",
+          result:{it:"È la voce della macchina biologica, costruita su aggressività e paura. Finché comanda lei, la voce dell'Anima non si sente.",en:"It is the voice of the biological machine, built on aggression and fear. As long as it rules, the Soul's voice cannot be heard."}}
        ]}
     ],
     guardian:{
       name:{it:"Il Guardiano del Silenzio",en:"The Guardian of Silence"},
-      text:{it:"Nessuna forma. Nessun suono. Solo un vuoto immenso e una domanda che senti nelle ossa:\n\n«Sei disposto a smettere di pensare?»\n\nNon per un momento — per sempre. Lasciar andare la mente come strumento primario. Fidarti di qualcosa di più profondo.",
-            en:"No form. No sound. Just an immense void and a question you feel in your bones:\n\n'Are you willing to stop thinking?'\n\nNot for a moment — forever. To let go of the mind as the primary instrument. To trust something deeper."},
+      text:{it:"Nessuna forma. Nessun suono. Solo un vuoto immenso e una domanda che senti nelle ossa:\n\n«Sei disposto a smettere di credere di essere i tuoi pensieri?»\n\nIl pensiero continuerà a scorrere. Ti viene chiesto di lasciar andare la mente come strumento primario e di fidarti di qualcosa di più profondo.",
+            en:"No form. No sound. Just an immense void and a question you feel in your bones:\n\n'Are you willing to stop believing you are your thoughts?'\n\nThought will keep flowing. You are asked to let go of the mind as the primary instrument and to trust something deeper."},
       choices:[
-        {text:{it:"Lasci andare. Il pensiero si ferma. Il silenzio parla.",en:"You let go. Thought stops. Silence speaks."},luce:2,type:"conscious",
-         result:{it:"Nel silenzio oltre il pensiero abita la vera intelligenza — quella dell'Anima. Non ha bisogno di parole per conoscere.",en:"In the silence beyond thought dwells true intelligence — that of the Soul. It needs no words to know."}},
-        {text:{it:"«Non posso smettere di pensare. Chi sarei senza i miei pensieri?»",en:"'I can't stop thinking. Who would I be without my thoughts?'"},luce:-1,type:"mechanical",
-         result:{it:"La paura di perdere la mente è la mente che protegge se stessa. Ma tu non sei i tuoi pensieri — sei chi li osserva.",en:"The fear of losing the mind is the mind protecting itself. But you are not your thoughts — you are the one who observes them."}}
+        {text:{it:"Lasci che il pensiero continui e smetti di identificarti con esso. Il silenzio è in chi osserva.",en:"You let thought continue and stop identifying with it. The silence is in the one who observes."},luce:2,type:"conscious",
+         result:{it:"Osservando la mente che lavora ti sei disidentificato da essa. In quel silenzio si fa sentire l'intelligenza dell'Anima, che non ha bisogno di parole per conoscere.",en:"By observing the mind at work you have disidentified from it. In that silence the Soul's intelligence makes itself felt, and it needs no words to know."}},
+        {text:{it:"«Io sono i miei pensieri. Chi sarei senza di loro?»",en:"'I am my thoughts. Who would I be without them?'"},luce:-2,type:"mechanical",
+         result:{it:"La paura di perdere la mente è la mente che protegge se stessa. La mente non si ferma a comando: si può però osservarla con costanza, finché ci si disidentifica da essa.",en:"The fear of losing the mind is the mind protecting itself. The mind does not stop on command: you can, however, observe it steadily until you disidentify from it."}}
       ]}
   },
-  /* ═══ PIANO 6: BUDDHICO ═══ */
+  /* ═══ PIANO 4: BUDDHICO ═══ */
   { key:"buddhico", color:"#7a5ab0", glyph:"◇",
     title:{it:"Piano Buddhico",en:"Buddhic Plane"},
-    subtitle:{it:"L'intuizione e l'unità",en:"Intuition and unity"},
-    intro:{it:"Qui la separazione scompare. Non c'è più «io» e «tu» — solo Uno che si sperimenta come molti. L'intuizione non è un pensiero: è un sapere diretto, senza mediazione della mente.",en:"Here separation disappears. There is no more 'I' and 'you' — only One experiencing itself as many. Intuition is not a thought: it is direct knowing, without the mind's mediation."},
+    subtitle:{it:"L'emotivo superiore",en:"The higher emotional"},
+    intro:{it:"Sei entrato nei piani dello spirito. Quando il corpo emotivo viene trasmutato sale di livello e diventa corpo buddhico. Qui l'intuizione nasce dal Cuore, l'«intelletto d'Amore», e la visione del Cuore porta dove gli opposti coincidono.",en:"You have entered the planes of the spirit. When the emotional body is transmuted it rises a level and becomes the buddhic body. Here intuition arises from the Heart, the 'intellect of Love', and the Heart's vision leads to where opposites coincide."},
     rooms:[
-      {text:{it:"Vedi tutte le persone della tua vita — amici, nemici, amori, estranei — e per la prima volta capisci: sono tutti te. Ogni incontro era uno specchio. Ogni conflitto, un dialogo interiore.\n\nIl «nemico» ti ha insegnato tanto quanto l'«amico».",
-             en:"You see all the people in your life — friends, enemies, lovers, strangers — and for the first time you understand: they are all you. Every encounter was a mirror. Every conflict, an inner dialogue.\n\nThe 'enemy' taught you as much as the 'friend.'"},
+      {text:{it:"Un flusso di conoscenza diretta ti attraversa. Vedi connessioni tra eventi che credevi separati. La mente tace, e la risposta arriva prima della domanda.",
+             en:"A flow of direct knowing passes through you. You see connections between events you thought were separate. The mind is silent, and the answer arrives before the question."},
        choices:[
-         {text:{it:"Senti gratitudine per tutti — inclusi quelli che ti hanno ferito.",en:"You feel gratitude for everyone — including those who hurt you."},luce:2,type:"conscious",
-          result:{it:"La gratitudine per il «nemico» è il segno che hai trasceso la dualità. Sul piano buddhico, il positivo e il negativo sono uno.",en:"Gratitude for the 'enemy' is the sign you've transcended duality. On the buddhic plane, positive and negative are one."}},
-         {text:{it:"Capisci il concetto, ma non riesci a perdonare tutti.",en:"You understand the concept, but can't forgive everyone."},luce:0,type:"neutral",
-          result:{it:"La comprensione intellettuale è un inizio. Ma il piano buddhico richiede il Cuore, non la mente. Il perdono verrà.",en:"Intellectual understanding is a beginning. But the buddhic plane requires the Heart, not the mind. Forgiveness will come."}}
+         {text:{it:"Lasci che la mente si faccia da parte e accogli ciò che arriva.",en:"You let the mind step aside and welcome what arrives."},luce:1,type:"conscious",
+          result:{it:"La Verità sorge quando la mente, con la sua voglia di penetrare razionalmente la materia, si mette da parte. Quello che ora sai lo puoi vivere, ma a parole non lo potresti spiegare.",en:"Truth rises when the mind, with its urge to penetrate matter rationally, steps aside. What you now know you can live, but you could not explain it in words."}},
+         {text:{it:"Cerchi di memorizzare e spiegarti razionalmente ciò che senti.",en:"You try to memorise what you feel and explain it to yourself rationally."},luce:-1,type:"mechanical",
+          result:{it:"Il desiderio di dare una risposta intellettuale ti porta fuori strada. Il flusso si interrompe e la mente riprende a parlare.",en:"The desire to give an intellectual answer leads you astray. The flow breaks off and the mind starts talking again."}}
        ]},
-      {text:{it:"Un flusso di conoscenza diretta ti attraversa. Sai cose che non hai mai studiato. Vedi connessioni invisibili tra eventi apparentemente separati. La mente tace — e al suo posto, qualcosa di più vasto pensa attraverso di te.",
-             en:"A flow of direct knowing passes through you. You know things you've never studied. You see invisible connections between seemingly separate events. The mind is silent — and in its place, something vaster thinks through you."},
+      {text:{it:"Incontri una donna che piange una perdita. Senti il suo dolore come se fosse tuo.",
+             en:"You meet a woman weeping over a loss. You feel her pain as if it were yours."},
        choices:[
-         {text:{it:"Ti arrendi al flusso. Lasci che l'intuizione guidi.",en:"You surrender to the flow. You let intuition guide."},luce:1,type:"conscious",
-          result:{it:"L'intuizione buddhica è la voce dell'Anima che parla senza parole. Fidarsi di essa è l'atto di fede più grande.",en:"Buddhic intuition is the Soul's voice speaking without words. Trusting it is the greatest act of faith."}},
-         {text:{it:"Cerchi di memorizzare e razionalizzare ciò che senti.",en:"You try to memorise and rationalise what you feel."},luce:-1,type:"mechanical",
-          result:{it:"La mente razionale non può contenere l'intuizione — è come versare l'oceano in un bicchiere. Ciò che cerchi di afferrare, sfugge.",en:"The rational mind cannot contain intuition — it's like pouring the ocean into a glass. What you try to grasp, escapes."}}
+         {text:{it:"Le resti accanto, e vedi un'anima che sta imparando attraverso la sofferenza.",en:"You stay beside her, and see a soul learning through suffering."},luce:1,type:"conscious",
+          result:{it:"È la compassione: provare gioia nel vedere un'anima che impara attraverso la sofferenza. È un'emozione superiore.",en:"This is compassion: feeling joy at seeing a soul learning through suffering. It is a higher emotion."}},
+         {text:{it:"«Poverina. Che sfortuna.»",en:"'Poor thing. What bad luck.'"},luce:-1,type:"mechanical",
+          result:{it:"È la pietà: considerare l'altro un povero sfortunato. Fra le emozioni è la forma inferiore della compassione.",en:"This is pity: seeing the other as a poor unfortunate. Among the emotions it is the lower form of compassion."}}
        ]}
     ],
     guardian:{
-      name:{it:"Il Velo dell'Illusione",en:"The Veil of Illusion"},
-      text:{it:"Non è una creatura — è un velo sottilissimo tra te e la Verità ultima. Attraverso il velo, intravedi una luce così intensa che fa paura.\n\nUna voce sussurra: «Attraversare il velo significa non poter mai più tornare a ciò che eri. Sei pronto?»",
-            en:"It's not a creature — it's the thinnest veil between you and ultimate Truth. Through the veil, you glimpse a light so intense it frightens.\n\nA voice whispers: 'To cross the veil means never being able to return to what you were. Are you ready?'"},
+      name:{it:"Il Volto del Nemico",en:"The Face of the Enemy"},
+      text:{it:"Davanti alla soglia c'è la persona che ti ha fatto più male. Non ti attacca e non si scusa. Aspetta.\n\nPer salire devi decidere cosa fare di quel torto.",
+            en:"Before the threshold stands the person who hurt you most. It does not attack you and does not apologise. It waits.\n\nTo rise, you must decide what to do with that wrong."},
       choices:[
-        {text:{it:"Attraversi il velo. Non c'è nulla da perdere — solo illusioni.",en:"You cross the veil. There is nothing to lose — only illusions."},luce:2,type:"conscious",
-         result:{it:"Il velo si dissolve come nebbia al sole. Oltre, c'è solo luce. E in quella luce, riconosci te stesso.",en:"The veil dissolves like mist in sunlight. Beyond, there is only light. And in that light, you recognise yourself."}},
-        {text:{it:"Esiti. «E se dall'altra parte non c'è nulla?»",en:"You hesitate. 'What if there's nothing on the other side?'"},luce:-1,type:"mechanical",
-         result:{it:"La paura del vuoto è l'ultimo trucco dell'ego. Ma anche nell'esitazione, la luce filtra. Passi, tremando.",en:"Fear of the void is the ego's last trick. But even in hesitation, the light filters through. You pass, trembling."}}
+        {text:{it:"Capisci che nessuno può fare del male alla tua anima. Lo perdoni, e lo ringrazi per ciò che ti ha mostrato di te.",en:"You understand that no one can harm your soul. You forgive them, and thank them for what they showed you about yourself."},luce:2,type:"conscious",
+         result:{it:"Ogni nemico lo abbiamo richiamato noi, perché ci mostri un aspetto della nostra personalità che non ci piace. Perdonare è la consapevolezza totale che nessuno può fare del male alla nostra anima. La figura si scioglie e la soglia si apre.",en:"We summon every enemy ourselves, so that it shows us an aspect of our personality we dislike. Forgiving is the total awareness that no one can harm our soul. The figure dissolves and the threshold opens."}},
+        {text:{it:"«Mi hai offeso, hai sbagliato, ma ci metto una pietra sopra.»",en:"'You offended me, you were wrong, but I'll put a stone over it.'"},luce:0,type:"neutral",
+         result:{it:"È il perdono all'ottava bassa: il torto resta un torto, e lo hai solo coperto. Non hai ancora compreso che l'offesa in realtà non c'è mai stata.",en:"This is forgiveness at the low octave: the wrong remains a wrong, and you have only covered it. You have not yet understood that the offence never really existed."}},
+        {text:{it:"Non lo perdoni. Te lo porti dietro.",en:"You don't forgive. You carry it with you."},luce:-2,type:"mechanical",
+         result:{it:"Quando non perdoni ci rimetti tu: il risentimento agisce come un acido sui tuoi corpi sottili. Passi, ma più pesante.",en:"When you don't forgive, you are the one who pays: resentment acts like an acid on your subtle bodies. You pass, but heavier."}}
       ]}
   },
-  /* ═══ PIANO 7: ATMICO ═══ */
+  /* ═══ PIANO 5: ATMICO ═══ */
   { key:"atmico", color:"#c9973a", glyph:"☉",
     title:{it:"Piano Atmico",en:"Atmic Plane"},
-    subtitle:{it:"La volontà divina",en:"Divine will"},
-    intro:{it:"Sei arrivato. Il piano della pura Volontà divina. Qui non c'è più separazione, non c'è più ricerca. C'è solo Essere.",en:"You've arrived. The plane of pure divine Will. Here there is no more separation, no more seeking. There is only Being."},
+    subtitle:{it:"Il fisico superiore",en:"The higher physical"},
+    intro:{it:"Sei arrivato al piano atmico, il fisico superiore. Qui il corpo fisico, trasmutato, sale di livello e diventa corpo atmico: è l'operazione detta risurrezione nella carne, grazie alla quale lo stesso corpo fisico diventa immortale.",en:"You have reached the atmic plane, the higher physical. Here the physical body, transmuted, rises a level and becomes the atmic body: this is the operation called resurrection in the flesh, through which the physical body itself becomes immortal."},
     rooms:[
-      {text:{it:"Una luce dorata che non ha sorgente riempie tutto. Non c'è spazio, non c'è tempo. Solo una presenza infinita che è, contemporaneamente, te e tutto ciò che esiste.\n\nCapisci, in un lampo: non sei mai stato separato. La separazione era il sogno. Il risveglio è ricordare.",
-             en:"A golden light with no source fills everything. There is no space, no time. Only an infinite presence that is, simultaneously, you and everything that exists.\n\nYou understand, in a flash: you were never separate. Separation was the dream. Awakening is remembering."},
+      {text:{it:"Una figura ti offre un dono: sopravvivere alla morte nel corpo astrale e nel corpo mentale, viaggiare nei piani sottili, vedere ciò che gli altri non vedono.\n\n«Hai già fatto abbastanza. Prendi questo e fermati qui.»",
+             en:"A figure offers you a gift: surviving death in the astral and mental bodies, travelling through the subtle planes, seeing what others do not see.\n\n'You've done enough already. Take this and stop here.'"},
        choices:[
-         {text:{it:"Ti dissolvi nella luce. Non c'è più «io» — solo Uno.",en:"You dissolve into the light. There is no more 'I' — only One."},luce:2,type:"conscious",
-          result:{it:"La goccia torna all'oceano. Ma non scompare — scopre di essere sempre stata l'oceano che sognava di essere una goccia.",en:"The drop returns to the ocean. But it doesn't disappear — it discovers it was always the ocean dreaming of being a drop."}}
+         {text:{it:"Rifiuti il dono e prosegui l'Opera.",en:"You refuse the gift and continue the Work."},luce:1,type:"conscious",
+          result:{it:"Anche i corpi astrale e mentale prima o poi si disgregano: la loro è una sopravvivenza, un effetto collaterale del Lavoro. Il suo fine è l'identità con l'anima, e poi l'identità divina.",en:"The astral and mental bodies too break up sooner or later: theirs is survival, a side effect of the Work. Its aim is identity with the soul, and then divine identity."}},
+         {text:{it:"Accetti. Sopravvivere alla morte è ciò che cercavi.",en:"You accept. Surviving death is what you were looking for."},luce:-1,type:"mechanical",
+          result:{it:"Lavorare per la sopravvivenza astrale o per i viaggi in astrale è un comportamento infantile, da Bassa Magia. Il dono ti lascia dov'eri.",en:"Working for astral survival or astral travel is childish behaviour, the stuff of Low Magic. The gift leaves you where you were."}}
+       ]},
+      {text:{it:"Un Fuoco scende dall'alto e cerca un varco per entrare nella carne. Per accoglierlo devi essere una coppa vuota: nessun desiderio personale, né materiale né spirituale.",
+             en:"A Fire descends from above, looking for an opening into the flesh. To receive it you must be an empty cup: no personal desire, neither material nor spiritual."},
+       choices:[
+         {text:{it:"«Non sia fatta la mia, ma la Tua volontà.»",en:"'Not my will, but Yours be done.'"},luce:1,type:"conscious",
+          result:{it:"Il segreto per far discendere il Fuoco è porsi completamente al suo servizio. Il Fuoco scende e invade il corpo di carne per operare l'ultima trasmutazione.",en:"The secret for making the Fire descend is to place yourself completely at its service. The Fire descends and pervades the body of flesh to perform the last transmutation."}},
+         {text:{it:"Chiedi al Fuoco dei poteri. Ormai te li sei guadagnati.",en:"You ask the Fire for powers. By now you've earned them."},luce:-1,type:"mechanical",
+          result:{it:"Anche un desiderio spirituale è un desiderio personale. Il varco si chiude e il Fuoco resta sopra di te.",en:"A spiritual desire is still a personal desire. The opening closes and the Fire stays above you."}}
+       ]}
+    ],
+    guardian:{
+      name:{it:"Il Corpo di Pietra",en:"The Body of Stone"},
+      text:{it:"Un gigante di pietra blocca la scala. Ha i tuoi lineamenti: è il tuo corpo, come lo hai sempre conosciuto.\n\n«Mi hai usato come veicolo e sei salito senza di me. Adesso cosa vuoi fare di me?»",
+            en:"A stone giant blocks the stairway. It has your features: it is your body, as you have always known it.\n\n'You used me as a vehicle and climbed without me. What do you want to do with me now?'"},
+      choices:[
+        {text:{it:"«Torno a te. L'Opera si conclude nel corpo.»",en:"'I come back to you. The Work is completed in the body.'"},luce:2,type:"conscious",
+         result:{it:"Il vero potere abita nel Corpo, e al Corpo si deve tornare per concludere l'Opera. La pietra si incendia: atomo dopo atomo la sua materia viene sostituita da materia di Fuoco, e il corpo, che nel suo stato consueto era morto, torna vivo.",en:"True power dwells in the Body, and one must return to the Body to complete the Work. The stone catches fire: atom by atom its matter is replaced by matter of Fire, and the body, which in its usual state was dead, comes alive."}},
+        {text:{it:"«Resta qui. Sono spirito, la carne non mi riguarda più.»",en:"'Stay here. I am spirit, the flesh no longer concerns me.'"},luce:-2,type:"mechanical",
+         result:{it:"Chi si ferma al Cielo lascia l'Opera a metà: il suo fine è unire spirito e materia. Il gigante resta pietra. La scala si apre lo stesso, ma sali senza il Fuoco.",en:"Whoever stops at Heaven leaves the Work half done: its aim is to unite spirit and matter. The giant stays stone. The stairway opens anyway, but you climb without the Fire."}}
+      ]}
+  },
+  /* ═══ PIANO 6: ANUPADAKA ═══ */
+  { key:"anupadaka", color:"#d8b45a", glyph:"◉",
+    title:{it:"Piano Anupadaka",en:"Anupadaka Plane"},
+    subtitle:{it:"La Monade",en:"The Monad"},
+    intro:{it:"È il primo dei due piani divini, a cui l'essere umano giunge solo al termine dell'Opera. Qui l'individuo comincia a sciogliersi nel Tutto.",en:"It is the first of the two divine planes, which a human being reaches only at the end of the Work. Here the individual begins to dissolve into the Whole."},
+    rooms:[
+      {text:{it:"Vedi il ciclo intero. Un frammento dell'Uno, la Monade, si stacca e scende nella materia fino a diventare un io separato. Nell'Uno la coscienza era fusa con il Tutto, ma non lo sapeva, come nel sonno profondo.",
+             en:"You see the whole cycle. A fragment of the One, the Monad, breaks away and descends into matter until it becomes a separate self. In the One, consciousness was merged with the Whole, but did not know it, as in deep sleep."},
+       choices:[
+         {text:{it:"Capisci che la separazione è servita a diventare coscienti.",en:"You understand that the separation served to become conscious."},luce:1,type:"conscious",
+          result:{it:"Per creare consapevolezza serve una separazione fra chi osserva e ciò che è osservato. La coscienza torna all'Unità con una consapevolezza più alta di quella di partenza, grazie al passaggio nella materia.",en:"To create awareness there must be a separation between observer and observed. Consciousness returns to Unity with a higher awareness than it started with, thanks to its passage through matter."}},
+         {text:{it:"«Tutta quella strada per tornare al punto di partenza?»",en:"'All that way to get back to the starting point?'"},luce:-1,type:"mechanical",
+          result:{it:"Al punto di partenza la coscienza non sapeva di esserci. Il viaggio ti sembra inutile perché guardi solo la meta.",en:"At the starting point consciousness did not know it existed. The journey seems useless to you because you look only at the goal."}}
+       ]},
+      {text:{it:"Guardi in basso e ritrovi il tram, la cucina, l'ufficio. Questi mondi non erano lontani: compenetravano ogni giorno il piano fisico in cui vivevi.",
+             en:"You look down and find the tram, the kitchen, the office again. These worlds were never far away: every day they interpenetrated the physical plane you lived in."},
+       choices:[
+         {text:{it:"Riconosci che erano presenti anche lì, a una frequenza più alta.",en:"You recognise that they were present there too, at a higher frequency."},luce:1,type:"conscious",
+          result:{it:"I mondi spirituali compenetrano interamente il piano fisico. Restano invisibili perché la loro materia vibra a una frequenza più elevata, e si percepiscono solo portando lì il proprio stato di coscienza.",en:"The spiritual worlds wholly interpenetrate the physical plane. They stay invisible because their matter vibrates at a higher frequency, and they are perceived only by bringing one's state of consciousness there."}},
+         {text:{it:"Distogli lo sguardo. Il mondo di sotto non ti riguarda più.",en:"You look away. The world below no longer concerns you."},luce:-1,type:"mechanical",
+          result:{it:"I mondi spirituali non sono separati dalla realtà quotidiana. Voltarle le spalle adesso vuol dire tornare a vederli separati.",en:"The spiritual worlds are not separate from daily reality. Turning your back on it now means seeing them as separate again."}}
+       ]}
+    ],
+    guardian:{
+      name:{it:"Il Sé Illuminato",en:"The Illumined Self"},
+      text:{it:"Ti viene incontro una figura radiosa: sei tu, come sei diventato dopo tutto il Lavoro. Prova amore, beatitudine, unione con ogni cosa.\n\n«Guarda dove siamo arrivati. Restiamo così.»",
+            en:"A radiant figure comes towards you: it is you, as you have become after all the Work. It feels love, bliss, union with all things.\n\n'Look how far we've come. Let's stay like this.'"},
+      choices:[
+        {text:{it:"Lasci andare anche lui. Oltre questa soglia non resta nessuno che viva l'unione.",en:"You let it go too. Beyond this threshold no one remains to live the union."},luce:2,type:"conscious",
+         result:{it:"Il Sé, per quanto illuminato, è ancora un individuo. I piani divini implicano la completa identificazione con il Tutto e la scomparsa dell'individuo in quanto singolo essere. La figura si scioglie senza resistenza.",en:"The Self, however illumined, is still an individual. The divine planes imply complete identification with the Whole and the disappearance of the individual as a separate being. The figure dissolves without resistance."}},
+        {text:{it:"Resti con lui. Hai lavorato tanto per arrivare fin qui.",en:"You stay with it. You worked so hard to get here."},luce:-2,type:"mechanical",
+         result:{it:"Qui si arresta il sentiero della maggior parte dei ricercatori. L'unione è ancora vissuta da qualcuno che occupa un punto nello spazio e nel tempo.",en:"This is where the path of most seekers stops. The union is still lived by someone who occupies a point in space and time."}}
+      ]}
+  },
+  /* ═══ PIANO 7: ADI ═══ */
+  { key:"adi", color:"#e8c97a", glyph:"✺",
+    title:{it:"Piano Adi",en:"Adi Plane"},
+    subtitle:{it:"Il Logos",en:"The Logos"},
+    intro:{it:"Il piano più elevato, quello divino, detto del Logos, cioè Dio. Qui non c'è più un viaggiatore che sale.",en:"The highest plane, the divine one, called the plane of the Logos, that is, God. Here there is no longer a traveller who climbs."},
+    rooms:[
+      {text:{it:"Non c'è spazio, non c'è tempo. C'è una presenza che è, insieme, te e tutto ciò che esiste.\n\nNon sei mai uscito dall'Uno. La separazione era illusoria.",
+             en:"There is no space, no time. There is a presence that is, at once, you and everything that exists.\n\nYou never left the One. The separation was illusory."},
+       choices:[
+         {text:{it:"Ti sciogli nel Tutto restando sveglio.",en:"You dissolve into the Whole while staying awake."},luce:1,type:"conscious",
+          result:{it:"La goccia diventa l'oceano, e questa volta ne è cosciente. Resta da dire soltanto: «Io sono ciò che sono.»",en:"The drop becomes the ocean, and this time it is aware of it. All that remains to say is: 'I am that I am.'"}},
+         {text:{it:"Ti lasci andare come in un sonno profondo, senza più accorgerti di nulla.",en:"You let go as into deep sleep, no longer noticing anything."},luce:-1,type:"mechanical",
+          result:{it:"È la via antica dell'annullamento: la goccia si annulla nell'oceano. È entrare nel Nulla, uno stato simile al sonno profondo da cui tutto è iniziato.",en:"It is the ancient way of annihilation: the drop is annulled in the ocean. It means entering the Nothing, a state like the deep sleep from which everything began."}}
        ]}
     ],
     guardian:null

@@ -19,6 +19,7 @@
     sigilloEarned: { it: "Sigillo conquistato!", en: "Seal earned!" },
     sigilloEarnedSub: { it: "Hai superato ogni prova di questo gioco.", en: "You have passed every trial of this game." },
     sigilloHave: { it: "✦ Sigillo conquistato", en: "✦ Seal earned" },
+    keysHint: { it: "Da tastiera: A, B, C… oppure 1, 2, 3… per rispondere, Invio per proseguire", en: "Keyboard: A, B, C… or 1, 2, 3… to answer, Enter to continue" },
     sigilloHint: { it: "Supera ogni prova con almeno il 70% di risposte esatte per conquistare il Sigillo", en: "Pass every trial with at least 70% correct answers to earn the Seal" }
   };
   function tx(key) { const e = I.STR[key]; if (e) return L(e); const x = EXTRA[key]; return x ? (x[getLang()] || x.it) : key; }
@@ -96,10 +97,28 @@
   }
 
   /* ============ BUILD ITEMS ============ */
+  /* Rotazione: sceglie n voci della modalità preferendo quelle non uscite
+     nelle partite precedenti; quando le nuove finiscono, il giro riparte. */
+  function pickRotating(modeKey, n) {
+    const md = D.modeDefs[modeKey];
+    if (n >= md.items.length) return shuffle(md.items);
+    const pool = loadJ(LS_POOL); let used = Array.isArray(pool[modeKey]) ? pool[modeKey] : [];
+    const idxs = md.items.map((_, i) => i);
+    const fresh = idxs.filter(i => used.indexOf(i) < 0);
+    let chosen;
+    if (fresh.length >= n) { chosen = shuffle(fresh).slice(0, n); }
+    else {
+      chosen = shuffle(fresh.concat(shuffle(idxs.filter(i => fresh.indexOf(i) < 0)).slice(0, n - fresh.length)));
+      used = [];
+    }
+    used = used.concat(chosen); pool[modeKey] = used; saveJ(LS_POOL, pool);
+    return chosen.map(ci => md.items[ci]);
+  }
+
   function buildItems(modeKey) {
     const md = D.modeDefs[modeKey];
     if (md.type === "classify" || md.type === "scenario") {
-      const items = shuffle(md.items);
+      const items = pickRotating(modeKey, md.count || md.items.length);
       return items.map(p => {
         const isSit = md.type === "scenario";
         return {
@@ -115,19 +134,7 @@
       });
     }
     if (md.type === "quiz") {
-      const n = md.count || 10;
-      /* Rotazione intelligente: preferisci domande mai viste in partite precedenti */
-      const pool = loadJ(LS_POOL); let used = Array.isArray(pool[modeKey]) ? pool[modeKey] : [];
-      const idxs = md.items.map((_, i) => i);
-      const fresh = idxs.filter(i => used.indexOf(i) < 0);
-      let chosen;
-      if (fresh.length >= n) { chosen = shuffle(fresh).slice(0, n); }
-      else {
-        chosen = shuffle(fresh.concat(shuffle(idxs.filter(i => fresh.indexOf(i) < 0)).slice(0, n - fresh.length)));
-        used = [];
-      }
-      used = used.concat(chosen); pool[modeKey] = used; saveJ(LS_POOL, pool);
-      return chosen.map(ci => md.items[ci]).map(q => ({
+      return pickRotating(modeKey, md.count || 10).map(q => ({
         kind: modeKey, media: ()=>null, prompt: ()=>L(q.q),
         options: shuffle(q.options.it.map((_,k)=>({ it:q.options.it[k], en:q.options.en[k], correct:k===q.correct }))),
         recap: { it: q.note.it, en: q.note.en }
@@ -170,6 +177,7 @@
     card.appendChild(optsWrap);
     card.appendChild(frag(`<div class="feedback"><div class="feedback-verdict"></div><div class="feedback-note"></div></div>`));
     card.appendChild(frag(`<div class="round-foot"></div>`));
+    card.appendChild(frag(`<p class="keys-hint">${esc(tx("keysHint"))}</p>`));
     node.appendChild(card); mount(node);
     if(R.answered) restoreAnswered(card,optsWrap,it);
   }
@@ -196,6 +204,21 @@
   }
 
   function restoreAnswered(card,optsWrap,it){ optsWrap.querySelectorAll(".option").forEach((b,k)=>{ b.disabled=true; if(it.options[k].correct) b.classList.add("correct"); else b.classList.add("dim"); }); showFeedback(card,R.pipStates[R.idx]==="ok",it); }
+  /* Tastiera: A–Z o 1–9 scelgono la risposta, Invio passa alla domanda
+     successiva. Dopo una risposta da tastiera il fuoco va su «Avanti». */
+  document.addEventListener("keydown",e=>{
+    if(currentScreen!==renderRound||!R||e.ctrlKey||e.metaKey||e.altKey||e.repeat) return;
+    const opts=document.querySelectorAll("#app .option");
+    if(!R.answered){
+      const k=e.key.toLowerCase();
+      const i=/^[1-9]$/.test(k)?+k-1:/^[a-z]$/.test(k)?k.charCodeAt(0)-97:-1;
+      if(i<0||i>=opts.length) return;
+      e.preventDefault(); opts[i].click();
+      const next=document.querySelector("#app .round-foot .btn"); if(next) next.focus();
+    } else if(e.key==="Enter"&&!(e.target.closest&&e.target.closest("button,a"))){
+      e.preventDefault(); nextQuestion();
+    }
+  });
   function nextQuestion(){ if(R.idx>=R.items.length-1){ finishRound(); return; } R.idx++; R.answered=false; renderRound(); }
 
   /* Accuratezza migliore per prova + controllo Sigillo */
@@ -248,16 +271,16 @@
   let M=null, memMode=null;
   function startMemory(mode) {
     memMode=mode; const md=D.modeDefs[mode];
-    let cards=[]; md.items.forEach((p,i)=>{ cards.push({pid:i,label:p.a}); cards.push({pid:i,label:p.b}); });
+    const pairs=pickRotating(mode, md.count || 6);
+    let cards=[]; pairs.forEach((p,i)=>{ cards.push({pid:i,label:p.a}); cards.push({pid:i,label:p.b}); });
     cards=shuffle(cards).map((c,idx)=>({...c,id:idx,flipped:false,matched:false}));
-    M={cards,flipped:[],moves:0,matchedCount:0,lock:false}; renderMemory();
+    M={cards,total:pairs.length,flipped:[],moves:0,matchedCount:0,lock:false}; renderMemory();
   }
 
   function renderMemory() {
     currentScreen=renderMemory; if(!M){renderHome();return;}
-    const md=D.modeDefs[memMode];
     const node=frag(`<div class="round"></div>`); node.appendChild(backButton());
-    node.appendChild(frag(`<div class="round-head"><div class="round-title">${esc(L(I.STR["mode_"+memMode+"_t"]))}</div><div class="round-stats memory-stats"><span class="stat-chip">${esc(t("pairs"))} <b>${M.matchedCount}/${md.items.length}</b></span><span class="stat-chip">${esc(t("moves"))} <b>${M.moves}</b></span></div></div>`));
+    node.appendChild(frag(`<div class="round-head"><div class="round-title">${esc(L(I.STR["mode_"+memMode+"_t"]))}</div><div class="round-stats memory-stats"><span class="stat-chip">${esc(t("pairs"))} <b>${M.matchedCount}/${M.total}</b></span><span class="stat-chip">${esc(t("moves"))} <b>${M.moves}</b></span></div></div>`));
     node.appendChild(frag(`<div class="q-context" style="margin-bottom:.4rem">${esc(t("memoryPrompt"))}</div>`));
     const grid=frag(`<div class="memory-grid"></div>`);
     M.cards.forEach(c=>{ const cls="mcard"+(c.flipped?" flipped":"")+(c.matched?" matched":""); const labelText=L(c.label).replace(/\n/g,'<br>'); const b=frag(`<button class="${cls}" data-id="${c.id}" ${c.matched?"disabled":""}><span class="mcard-inner"><span class="mcard-face mcard-back">✶</span><span class="mcard-face mcard-front">${labelText}</span></span></button>`); b.addEventListener("click",()=>flipCard(c.id)); grid.appendChild(b); });
@@ -268,16 +291,16 @@
     if(M.lock) return; const c=M.cards.find(x=>x.id===id); if(!c||c.flipped||c.matched) return;
     c.flipped=true; M.flipped.push(c); renderMemory();
     if(M.flipped.length===2){ M.moves++; M.lock=true; const[a,b]=M.flipped;
-      if(a.pid===b.pid){ setTimeout(()=>{ a.matched=b.matched=true; M.matchedCount++; M.flipped=[]; M.lock=false; if(M.matchedCount===D.modeDefs[memMode].items.length) finishMemory(); else renderMemory(); },460); }
+      if(a.pid===b.pid){ setTimeout(()=>{ a.matched=b.matched=true; M.matchedCount++; M.flipped=[]; M.lock=false; if(M.matchedCount===M.total) finishMemory(); else renderMemory(); },460); }
       else { setTimeout(()=>{ a.flipped=b.flipped=false; M.flipped=[]; M.lock=false; renderMemory(); },900); }
     }
   }
 
   function finishMemory() {
-    const md=D.modeDefs[memMode]; const best=loadJ(LS_BEST),seen=loadJ(LS_SEEN); seen[memMode]=true; saveJ(LS_SEEN,seen);
+    const best=loadJ(LS_BEST),seen=loadJ(LS_SEEN); seen[memMode]=true; saveJ(LS_SEEN,seen);
     let isRecord=false; if(best[memMode]==null||M.moves<best[memMode]){best[memMode]=M.moves;isRecord=true;saveJ(LS_BEST,best);}
     const newSeal = updateAccAndSeal(memMode, 1);
-    renderResult({mode:memMode,moves:M.moves,correct:md.items.length,total:md.items.length,isRecord,missed:[],newSeal});
+    renderResult({mode:memMode,moves:M.moves,correct:M.total,total:M.total,isRecord,missed:[],newSeal});
   }
 
   /* ============ CHROME — condiviso in game-core.js ============ */
