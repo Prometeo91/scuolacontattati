@@ -3,20 +3,19 @@
 "use strict";
 window.DUNGEON_DATA = {
   id: "sentiero",
-  maxLuce: 14,
   startLuce: 7,
   planes: [
   /* ═══ TAPPA 1: IL SENTIERO DELLA PROVA ═══ */
   { key:"prova", color:"#8a7a5a", glyph:"◌",
     title:{it:"Il Sentiero della Prova",en:"The Path of Probation"},
     subtitle:{it:"La formazione del carattere",en:"Character building"},
-    intro:{it:"Ti sei schierato dal lato delle forze evolutive. Qui non ci sono cerimonie né maestri visibili: c'è solo il lavoro quotidiano su te stesso. 'Prendersi in mano': coltivare le qualità che mancano, dominare la personalità.",en:"You have ranged yourself on the side of the forces of evolution. Here there are no ceremonies, no visible teachers: only the daily work upon yourself. 'Taking yourself in hand': cultivating the missing qualities, mastering the personality."},
+    intro:{it:"Ti sei schierato dal lato delle forze evolutive. Qui c'è solo il lavoro quotidiano su te stesso, senza cerimonie né maestri visibili. 'Prendersi in mano': coltivare le qualità che mancano, dominare la personalità.",en:"You have ranged yourself on the side of the forces of evolution. Here there is only the daily work upon yourself, with no ceremonies and no visible teachers. 'Taking yourself in hand': cultivating the missing qualities, mastering the personality."},
     rooms:[
       {text:{it:"Scopri in te una mancanza precisa: una qualità che non hai mai sviluppato, perché era scomodo farlo. Ora la vedi chiaramente, come un vuoto nel tuo carattere.",
              en:"You discover in yourself a precise lack: a quality you never developed, because it was uncomfortable to do so. Now you see it clearly, like a gap in your character."},
        choices:[
          {text:{it:"La compensi con le qualità che già possiedi: perché faticare?",en:"You compensate with the qualities you already have: why toil?"},luce:-1,type:"mechanical",
-          result:{it:"Il corpo causale si costruisce colmando ogni lacuna, non aggirandola. Ciò che eviti oggi ti aspetterà domani.",en:"The causal body is built by filling every gap, not by skirting it. What you avoid today will await you tomorrow."}},
+          result:{it:"Il corpo causale si costruisce colmando ogni lacuna. Ciò che eviti oggi ti aspetterà domani.",en:"The causal body is built by filling every gap. What you avoid today will await you tomorrow."}},
          {text:{it:"Cominci a coltivarla deliberatamente, giorno dopo giorno.",en:"You begin to cultivate it deliberately, day after day."},luce:1,type:"conscious",
           result:{it:"È il lavoro del Sentiero della Prova: costruire il carattere come un ricettacolo idoneo al principio cristico.",en:"This is the work of the Probationary Path: building character as a fit receptacle for the Christ principle."}}
        ]},
@@ -24,9 +23,9 @@ window.DUNGEON_DATA = {
              en:"No one notices your efforts. No master appears, no sign arrives. Only silent work, while around you others live as they always have.\n\nA doubt creeps in: what if all this is useless?"},
        choices:[
          {text:{it:"Cerchi conferme: pratiche vistose, gruppi, attestati spirituali.",en:"You seek confirmation: showy practices, groups, spiritual credentials."},luce:-1,type:"mechanical",
-          result:{it:"Il periodo della gestazione è nascosto per natura. Il Cristo bambino si forma nel cuore, non sul palcoscenico.",en:"The gestation period is hidden by nature. The Christ-child forms in the heart, not on a stage."}},
+          result:{it:"Il periodo della gestazione è nascosto per natura. Il Cristo bambino si forma in silenzio, nel cuore.",en:"The gestation period is hidden by nature. The Christ-child forms in silence, in the heart."}},
          {text:{it:"Continui in silenzio: il seme non ha bisogno di spettatori per germogliare.",en:"You continue in silence: the seed needs no spectators to sprout."},luce:1,type:"conscious",
-          result:{it:"Il Sentiero della Prova corrisponde all'ultimo periodo della gestazione. Ciò che si forma in te non si vede — ancora.",en:"The Probationary Path corresponds to the last period of gestation. What forms in you cannot be seen — yet."}}
+          result:{it:"Il Sentiero della Prova corrisponde all'ultimo periodo della gestazione. Ciò che si forma in te ancora non si vede.",en:"The Probationary Path corresponds to the last period of gestation. What forms in you cannot be seen yet."}}
        ]}
     ],
     guardian:{
@@ -35,22 +34,22 @@ window.DUNGEON_DATA = {
             en:"Your lifelong habits take shape before you: a comfortable, likeable, recognisable you.\n\n'Why change us? We are what you are. Everyone knows you this way. Without us, who would you be?'"},
       choices:[
         {text:{it:"«Siete una forma che ho costruito. Posso costruirne una più vera.»",en:"'You are a form I built. I can build a truer one.'"},luce:1,type:"conscious",
-         result:{it:"Retto vivere, retto pensare, retta condotta: il carattere è una forma — e ora dev'essere vivificata e abitata dall'interno.",en:"Right living, right thinking, right conduct: character is a form — and now it must be vivified and indwelt."}},
+         result:{it:"Retto vivere, retto pensare, retta condotta: il carattere è una forma, che ora dev'essere vivificata e abitata dall'interno.",en:"Right living, right thinking, right conduct: character is a form, which now must be vivified and indwelt."}},
         {text:{it:"«Hai ragione. Sono fatto così.»",en:"'You are right. This is just how I am.'"},luce:-2,type:"mechanical",
-         result:{it:"'Sono fatto così' è la frase con cui la personalità chiude la porta del Sentiero. Ma la porta non sparisce: aspetta.",en:"'This is just how I am' is the phrase with which the personality shuts the door of the Path. But the door does not vanish: it waits."}}
+         result:{it:"'Sono fatto così' è la frase con cui la personalità chiude la porta del Sentiero. Ma la porta resta lì ad aspettare.",en:"'This is just how I am' is the phrase with which the personality shuts the door of the Path. But the door stays there, waiting."}}
       ]}
   },
   /* ═══ TAPPA 2: IL DISCEPOLATO ═══ */
   { key:"discepolato", color:"#6a9a7a", glyph:"◍",
     title:{it:"Il Discepolato",en:"Discipleship"},
     subtitle:{it:"Dal personale all'impersonale",en:"From the personal to the impersonal"},
-    intro:{it:"Ti sei consacrato a servire l'umanità e a cooperare con il Piano. Il centro della tua attività deve ora spostarsi: da te stesso — perno attorno a cui tutto ruotava — al centro del gruppo.",en:"You have pledged yourself to serve humanity and co-operate with the Plan. The centre of your activity must now shift: from yourself — the pivot around which all revolved — to the centre of the group."},
+    intro:{it:"Ti sei consacrato a servire l'umanità e a cooperare con il Piano. Il centro della tua attività deve ora spostarsi: da te stesso, il perno attorno a cui tutto ruotava, al centro del gruppo.",en:"You have pledged yourself to serve humanity and co-operate with the Plan. The centre of your activity must now shift: from yourself, the pivot around which all revolved, to the centre of the group."},
     rooms:[
-      {text:{it:"Nel lavoro di gruppo arriva un successo: il progetto a cui hai dato più di tutti viene lodato — ma il merito viene attribuito a un altro.",
-             en:"In the group work a success comes: the project you gave most to is praised — but the credit goes to another."},
+      {text:{it:"Nel lavoro di gruppo arriva un successo: il progetto a cui hai dato più di tutti viene lodato, ma il merito va a un altro.",
+             en:"In the group work a success comes: the project you gave most to is praised, but the credit goes to another."},
        choices:[
          {text:{it:"Rivendichi il tuo contributo: la giustizia prima di tutto.",en:"You claim your contribution: justice first of all."},luce:-1,type:"mechanical",
-          result:{it:"Il discepolo realizza la relativa insignificanza di ogni unità — e anche la sua importanza. Il merito personale è ancora il perno antico.",en:"The disciple realises the relative insignificance of each unit — and also its importance. Personal credit is still the old pivot."}},
+          result:{it:"Il discepolo realizza la relativa insignificanza di ogni unità, e insieme la sua importanza. Il merito personale è ancora il perno antico.",en:"The disciple realises the relative insignificance of each unit, and at the same time its importance. Personal credit is still the old pivot."}},
          {text:{it:"Lasci correre: ciò che conta è che il lavoro sia compiuto.",en:"You let it pass: what matters is that the work is done."},luce:1,type:"conscious",
           result:{it:"Trasferire la coscienza dal personale all'impersonale: questo è il discepolato. Il gruppo ha ricevuto; questo basta.",en:"Shifting consciousness from the personal to the impersonal: this is discipleship. The group received; that is enough."}}
        ]},
@@ -58,9 +57,9 @@ window.DUNGEON_DATA = {
              en:"Your loved ones rebel against your growing impersonality: 'You've changed. You're no longer one of us.' They want you joined to them in desires and interests, as before."},
        choices:[
          {text:{it:"Torni come prima: l'amore vale più del cammino.",en:"You go back to how you were: love is worth more than the path."},luce:-1,type:"mechanical",
-          result:{it:"La vera unità può essere conosciuta soltanto in quella essenziale dell'anima. Recitare la vecchia parte non è amore: è paura.",en:"True unity can be known only in the essential unity of the soul. Playing the old part is not love: it is fear."}},
-         {text:{it:"Resti te stesso e li ami dal piano della vita, non da quello delle forme.",en:"You remain yourself and love them from the side of life, not of forms."},luce:1,type:"conscious",
-          result:{it:"La scoperta di ciò che è la forma reca sofferenza al discepolo — ma col tempo la via conduce alla perfetta unione.",en:"Discovering what form is brings the disciple suffering — but in time the way leads to perfect union."}}
+          result:{it:"La vera unità può essere conosciuta soltanto in quella essenziale dell'anima. Chi recita la vecchia parte lo fa per paura.",en:"True unity can be known only in the essential unity of the soul. Whoever plays the old part does so out of fear."}},
+         {text:{it:"Resti te stesso e li ami dal piano della vita.",en:"You remain yourself and love them from the side of life."},luce:1,type:"conscious",
+          result:{it:"La scoperta di ciò che è la forma reca sofferenza al discepolo, ma col tempo la via conduce alla perfetta unione.",en:"Discovering what form is brings the disciple suffering, but in time the way leads to perfect union."}}
        ]}
     ],
     guardian:{
@@ -80,21 +79,21 @@ window.DUNGEON_DATA = {
     subtitle:{it:"Il dominio del corpo fisico",en:"Control of the physical body"},
     intro:{it:"Prima iniziazione significa semplicemente 'inizio': la nascita del Cristo nel cuore. Ma per varcarla, l'Ego deve avere acquistato un notevole dominio sul corpo fisico. L'elementale fisico non deve più ricevere risposta alle proprie richieste.",en:"First initiation simply means 'beginning': the birth of the Christ in the heart. But to pass it, the Ego must have gained marked control of the physical body. The physical elemental must no longer receive answer to its demands."},
     rooms:[
-      {text:{it:"Il corpo reclama i suoi appetiti di sempre: cibo oltre la fame, stordimento oltre la sete, piacere oltre il bisogno. Oggi reclama più forte del solito — proprio perché hai iniziato a dirgli di no.",
-             en:"The body claims its usual appetites: food beyond hunger, numbing beyond thirst, pleasure beyond need. Today it claims louder than usual — precisely because you have begun to say no."},
+      {text:{it:"Il corpo reclama i suoi appetiti di sempre: cibo oltre la fame, stordimento oltre la sete, piacere oltre il bisogno. Oggi reclama più forte del solito, proprio perché hai iniziato a dirgli di no.",
+             en:"The body claims its usual appetites: food beyond hunger, numbing beyond thirst, pleasure beyond need. Today it claims louder than usual, precisely because you have begun to say no."},
        choices:[
          {text:{it:"Cedi 'solo per oggi': domani ricomincerai.",en:"You give in 'just for today': tomorrow you will start again."},luce:-1,type:"mechanical",
           result:{it:"Ghiottoneria, alcolismo e dissolutezza non devono avere alcun potere: il dominio dev'essere completo, ogni allettamento scomparso.",en:"Gluttony, drink and licentiousness must have no power: control must be complete, every allurement gone."}},
          {text:{it:"Osservi il reclamo senza obbedirgli, finché tace da solo.",en:"You watch the claim without obeying it, until it falls silent by itself."},luce:1,type:"conscious",
           result:{it:"L'elementale fisico non riceve più risposta: l'obbedienza della carne diventa quasi automatica.",en:"The physical elemental no longer receives an answer: the obedience of the flesh becomes almost automatic."}}
        ]},
-      {text:{it:"Hai commesso un errore — pubblico, visibile. Gli altri lo hanno notato. Puoi minimizzare, giustificarti, oppure…",
-             en:"You have made a mistake — public, visible. Others noticed. You can minimise, justify yourself, or…"},
+      {text:{it:"Hai commesso un errore in pubblico, e gli altri lo hanno notato. Puoi minimizzare, giustificarti, oppure…",
+             en:"You have made a mistake in public, and others noticed. You can minimise, justify yourself, or…"},
        choices:[
          {text:{it:"Minimizzi: un iniziato non può permettersi di apparire fallibile.",en:"You minimise: an initiate cannot afford to look fallible."},luce:-1,type:"mechanical",
           result:{it:"La nota fondamentale dell'iniziato è la rettitudine: riconoscere i propri errori con sincerità e apertamente.",en:"The keynote of the initiate is rectitude: acknowledging one's errors sincerely and openly."}},
          {text:{it:"Lo riconosci apertamente e ripari, senza drammi.",en:"You acknowledge it openly and make amends, without drama."},luce:1,type:"conscious",
-          result:{it:"Gli iniziati possono cadere e cadono — ma riconoscono l'errore e si sforzano palesemente di conformarsi al livello più alto.",en:"Initiates can and do fall — but they acknowledge the error and openly strive to conform to the highest standard."}}
+          result:{it:"Gli iniziati possono cadere e cadono, ma riconoscono l'errore e si sforzano palesemente di conformarsi al livello più alto.",en:"Initiates can and do fall, but they acknowledge the error and openly strive to conform to the highest standard."}}
        ]}
     ],
     guardian:{
@@ -105,25 +104,25 @@ window.DUNGEON_DATA = {
         {text:{it:"«Ti onoro come servitore, non come padrone. I tuoi salari sono salute e misura — non eccesso.»",en:"'I honour you as servant, not as master. Your wages are health and measure — not excess.'"},luce:1,type:"conscious",
          result:{it:"Il centro del cuore si vivifica. La Nascita è avvenuta: il Cristo bambino è nato nel cuore.",en:"The heart centre is vivified. The Birth has occurred: the Christ-child is born in the heart."}},
         {text:{it:"Tratti il corpo da nemico: digiuni punitivi, rigori estremi.",en:"You treat the body as an enemy: punitive fasts, extreme rigours."},luce:-2,type:"mechanical",
-         result:{it:"Mortificare non è dominare: l'ascetismo violento è ancora l'elementale al comando — ribaltato. Il dominio è quieto, non crudele.",en:"Mortifying is not mastering: violent asceticism is still the elemental in command — inverted. Mastery is quiet, not cruel."}}
+         result:{it:"L'ascetismo violento è ancora l'elementale al comando, solo rovesciato. Il dominio vero è quieto.",en:"Violent asceticism is still the elemental in command, only inverted. True mastery is quiet."}}
       ]}
   },
   /* ═══ TAPPA 4: LA SECONDA INIZIAZIONE ═══ */
   { key:"battesimo", color:"#3a6a9a", glyph:"≈",
     title:{it:"La Seconda Iniziazione — il Battesimo",en:"The Second Initiation — the Baptism"},
     subtitle:{it:"Il dominio del corpo astrale",en:"Control of the astral body"},
-    intro:{it:"La crisi del dominio sul corpo astrale: il sacrificio e la morte del desiderio. Fra la Nascita e il Battesimo possono trascorrere molte vite — è il passo più lungo. Il corpo delle emozioni deve diventare puro e limpido.",en:"The crisis of control of the astral body: the sacrifice and death of desire. Between the Birth and the Baptism many lives may pass — it is the longest step. The body of the emotions must become pure and limpid."},
+    intro:{it:"La crisi del dominio sul corpo astrale: il sacrificio e la morte del desiderio. Fra la Nascita e il Battesimo possono trascorrere molte vite: è il passo più lungo. Il corpo delle emozioni deve diventare puro e limpido.",en:"The crisis of control of the astral body: the sacrifice and death of desire. Between the Birth and the Baptism many lives may pass: it is the longest step. The body of the emotions must become pure and limpid."},
     rooms:[
       {text:{it:"Un'ondata emotiva ti travolge: qualcuno ha ferito ciò che ami. La collera sale, giustificata, sacrosanta. Tutto in te chiede di restituire il colpo.",
              en:"An emotional wave overwhelms you: someone has hurt what you love. Anger rises, justified, sacrosanct. Everything in you demands to strike back."},
        choices:[
          {text:{it:"Colpisci: c'è una collera giusta, e questa lo è.",en:"You strike: there is such a thing as righteous anger, and this is it."},luce:-1,type:"mechanical",
           result:{it:"L'onda ti ha usato come strumento. Il corpo astrale agitato non distingue la giustizia dalla vendetta.",en:"The wave used you as its instrument. The agitated astral body cannot tell justice from revenge."}},
-         {text:{it:"Lasci passare l'onda attraverso di te senza esserne mosso — poi agisci, se serve.",en:"You let the wave pass through you unmoved — then act, if needed."},luce:1,type:"conscious",
+         {text:{it:"Lasci passare l'onda attraverso di te senza esserne mosso; poi agisci, se serve.",en:"You let the wave pass through you unmoved; then act, if needed."},luce:1,type:"conscious",
           result:{it:"Il corpo emotivo puro e limpido riflette senza distorcere: l'azione che nasce dalla calma colpisce più giusto di quella nata dall'ira.",en:"The pure, limpid emotional body reflects without distorting: action born of calm strikes truer than action born of anger."}}
        ]},
-      {text:{it:"Scopri che il tuo desiderio più caro — quello che ha orientato anni della tua vita — non è ciò che l'anima chiede. Sono due strade diverse.",
-             en:"You discover that your dearest desire — the one that steered years of your life — is not what the soul asks. They are two different roads."},
+      {text:{it:"Scopri che il tuo desiderio più caro, quello che ha orientato anni della tua vita, e ciò che l'anima chiede sono due strade diverse.",
+             en:"You discover that your dearest desire, the one that steered years of your life, and what the soul asks are two different roads."},
        choices:[
          {text:{it:"Difendi il tuo desiderio: ci hai investito troppo per lasciarlo.",en:"You defend your desire: you have invested too much to let it go."},luce:-1,type:"mechanical",
           result:{it:"L'investimento non rende vero ciò che è caro. Il desiderio difeso a oltranza diventa il muro fra te e l'Ego.",en:"Investment does not make the cherished true. Desire defended at all costs becomes the wall between you and the Ego."}},
@@ -148,16 +147,16 @@ window.DUNGEON_DATA = {
     subtitle:{it:"Il dominio della mente",en:"Control of the mind"},
     intro:{it:"Alla terza iniziazione l'intera personalità è inondata dalla luce che fluisce dall'alto. La prova ora riguarda la mente stessa: per giungervi il punto di vista personale deve scomparire di fronte alla necessità del tutto, e la mente concreta deve passare sotto il completo dominio dell'Ego.",en:"At the third initiation the whole personality is flooded with the light that streams from above. The test now concerns the mind itself: to reach it the personal point of view must disappear before the need of the whole, and the concrete mind must come under the complete control of the Ego."},
     rooms:[
-      {text:{it:"La tua mente, ormai potente, costruisce sistemi perfetti: spiegazioni complete di te, del mondo, del cammino. Sono belli, coerenti — e cominciano a sostituire l'esperienza diretta.",
-             en:"Your mind, now powerful, builds perfect systems: complete explanations of yourself, the world, the path. They are beautiful, coherent — and they begin to replace direct experience."},
+      {text:{it:"La tua mente, ormai potente, costruisce sistemi perfetti: spiegazioni complete di te, del mondo, del cammino. Sono belli e coerenti, e cominciano a sostituire l'esperienza diretta.",
+             en:"Your mind, now powerful, builds perfect systems: complete explanations of yourself, the world, the path. They are beautiful and coherent, and they begin to replace direct experience."},
        choices:[
          {text:{it:"Perfezioni ancora il sistema: la comprensione completa è quasi raggiunta.",en:"You refine the system further: complete understanding is almost reached."},luce:-1,type:"mechanical",
-          result:{it:"La mente è il fattore creativo per eccellenza — e per questo la sua prigione è la più elegante. La mappa non è il territorio.",en:"The mind is the creative factor par excellence — and for this reason its prison is the most elegant. The map is not the territory."}},
+          result:{it:"La mente è il fattore creativo per eccellenza, e per questo costruisce la prigione più elegante. La mappa non è il territorio.",en:"The mind is the creative factor par excellence, and for this reason it builds the most elegant prison. The map is not the territory."}},
          {text:{it:"Usi il sistema come strumento, e lo deponi quando l'esperienza parla.",en:"You use the system as a tool, and lay it down when experience speaks."},luce:1,type:"conscious",
-          result:{it:"La mente dominata è un proiettore della luce dell'anima, non uno schermo che la sostituisce.",en:"The mastered mind is a projector of the soul's light, not a screen that replaces it."}}
+          result:{it:"La mente dominata proietta la luce dell'anima senza prenderne il posto.",en:"The mastered mind projects the soul's light without taking its place."}}
        ]},
-      {text:{it:"La luce che fluisce dall'alto comincia a inondare la personalità. Per un istante vedi te stesso dall'alto: i tre corpi allineati, docili, trasparenti.\n\nE arriva un pensiero: «Guarda cosa sono diventato».",
-             en:"The light that streams from above begins to flood the personality. For an instant you see yourself from above: the three bodies aligned, docile, transparent.\n\nAnd a thought arrives: 'Look what I have become.'"},
+      {text:{it:"La luce che fluisce dall'alto comincia a inondare la personalità. Per un istante vedi te stesso dall'alto: i tre corpi allineati e trasparenti.\n\nE arriva un pensiero: «Guarda cosa sono diventato».",
+             en:"The light that streams from above begins to flood the personality. For an instant you see yourself from above: the three bodies aligned and transparent.\n\nAnd a thought arrives: 'Look what I have become.'"},
        choices:[
          {text:{it:"Ti compiaci: il riconoscimento è meritato.",en:"You bask in it: the recognition is deserved."},luce:-1,type:"mechanical",
           result:{it:"Il compiacimento riporta al centro la personalità. Il punto di vista personale, che doveva scomparire di fronte alla necessità del tutto, è di nuovo al comando.",en:"Self-satisfaction puts the personality back at the centre. The personal point of view, which was to disappear before the need of the whole, is in command again."}},
@@ -173,20 +172,20 @@ window.DUNGEON_DATA = {
         {text:{it:"«Conoscere non è essere. Mi inchino a ciò che la mente non può contenere.»",en:"'Knowing is not being. I bow to what the mind cannot contain.'"},luce:1,type:"conscious",
          result:{it:"L'essere gelido si scioglie in luce. La mente, deposta la corona, diventa ciò che doveva essere: un servitore perfetto.",en:"The icy being melts into light. The mind, its crown laid down, becomes what it was meant to be: a perfect servant."}},
         {text:{it:"Rispondi con la più brillante delle tue argomentazioni.",en:"You answer with the most brilliant of your arguments."},luce:-2,type:"mechanical",
-         result:{it:"Hai vinto il dibattito e perso il passaggio. L'orgoglio intellettuale non si sconfigge a parole: si depone.",en:"You won the debate and lost the passage. Intellectual pride is not defeated with words: it is laid down."}}
+         result:{it:"Hai vinto il dibattito e perso il passaggio. L'orgoglio intellettuale va deposto: le parole non bastano.",en:"You won the debate and lost the passage. Intellectual pride must be laid down: words are not enough."}}
       ]}
   },
   /* ═══ TAPPA 6: LA RINUNCIA E LA RIVELAZIONE ═══ */
   { key:"rinuncia", color:"#c9973a", glyph:"✦",
     title:{it:"La Rinuncia e la Rivelazione",en:"The Renunciation and the Revelation"},
     subtitle:{it:"La quarta e la quinta iniziazione",en:"The fourth and fifth initiations"},
-    intro:{it:"La Crocifissione: tutto ciò che è più caro al cuore dev'essere sacrificato, volontariamente. Si giunge alla Porta 'con i piedi lavati nel sangue del cuore'. Oltre — la Rivelazione, e i sette Sentieri.",en:"The Crucifixion: all that is dearest to the heart must be sacrificed, willingly. One reaches the Gate 'with feet washed in the blood of the heart'. Beyond — the Revelation, and the seven Paths."},
+    intro:{it:"La Crocifissione: tutto ciò che è più caro al cuore dev'essere sacrificato, volontariamente. Si giunge alla Porta 'con i piedi lavati nel sangue del cuore'. Oltre la Porta, la Rivelazione e i sette Sentieri.",en:"The Crucifixion: all that is dearest to the heart must be sacrificed, willingly. One reaches the Gate 'with feet washed in the blood of the heart'. Beyond the Gate, the Revelation and the seven Paths."},
     rooms:[
-      {text:{it:"Ti viene chiesto l'ultimo sacrificio: non i vizi — quelli sono già caduti — ma le cose buone. Il frutto del tuo lavoro, la tua reputazione, perfino la consolazione del cammino stesso.",
-             en:"The last sacrifice is asked of you: not the vices — those have already fallen — but the good things. The fruit of your work, your reputation, even the consolation of the path itself."},
+      {text:{it:"Ti viene chiesto l'ultimo sacrificio. I vizi sono già caduti: ora tocca alle cose buone. Il frutto del tuo lavoro, la tua reputazione, perfino la consolazione del cammino stesso.",
+             en:"The last sacrifice is asked of you. The vices have already fallen: now it is the turn of the good things. The fruit of your work, your reputation, even the consolation of the path itself."},
        choices:[
          {text:{it:"Offri tutto, ma trattieni una sola cosa: la certezza di essere nel giusto.",en:"You offer everything, but keep one thing: the certainty of being right."},luce:-1,type:"mechanical",
-          result:{it:"La rinuncia che trattiene qualcosa non è rinuncia: è un contratto. Sul braccio verticale della Croce si sale a mani vuote.",en:"Renunciation that keeps something back is not renunciation: it is a contract. One climbs the Cross's vertical arm with empty hands."}},
+          result:{it:"La rinuncia che trattiene qualcosa diventa un contratto. Sul braccio verticale della Croce si sale a mani vuote.",en:"Renunciation that keeps something back becomes a contract. One climbs the Cross's vertical arm with empty hands."}},
          {text:{it:"Apri anche l'ultima mano: pur di conquistare la meta, consideri tutto perduto.",en:"You open the last hand too: to win the goal, you count all things lost."},luce:1,type:"conscious",
           result:{it:"«Si tende una mano a Colui che sta sopra e l'altra all'uomo che segue. […] Solo mani vuote, segnate dai chiodi, assicurano la continuità della catena.»",en:"'One stretches a hand to Him who is above and the other to the man who follows. […] Only empty hands, marked by the nails, ensure the continuity of the chain.'"}}
        ]},

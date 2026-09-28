@@ -3,7 +3,6 @@
 "use strict";
 window.DUNGEON_DATA = {
   id: "viaggio",
-  maxLuce: 14,
   startLuce: 7,
   planes: [
   /* ═══ TAPPA 1: LA SOGLIA ═══ */
@@ -12,15 +11,15 @@ window.DUNGEON_DATA = {
     subtitle:{it:"La morte fisica",en:"Physical death"},
     intro:{it:"Il respiro si fa lento. Il doppio eterico si ritira dal corpo denso, unito ad esso da un filo lucente che all'istante della morte si romperà. Davanti ai tuoi occhi interiori comincia a scorrere, quadro dopo quadro, l'intera vita appena conclusa.",en:"The breath slows. The etheric double withdraws from the dense body, joined to it by a shining thread that will break at the instant of death. Before your inner eyes the whole life just ended begins to flow, picture after picture."},
     rooms:[
-      {text:{it:"La visione panoramica ti mostra ogni evento della vita: non come lo ricordavi, ma come fu davvero. Vedi le conseguenze di ogni tua azione, le cause dietro ogni incontro.\n\nUn'immagine dolorosa appare: il momento di cui ti sei sempre vergognato.",
-             en:"The panoramic vision shows you every event of your life: not as you remembered it, but as it truly was. You see the consequences of every action, the causes behind every encounter.\n\nA painful image appears: the moment you were always ashamed of."},
+      {text:{it:"La visione panoramica ti mostra ogni evento della vita così come fu davvero, anche dove lo ricordavi diverso. Vedi le conseguenze di ogni tua azione, le cause dietro ogni incontro.\n\nUn'immagine dolorosa appare: il momento di cui ti sei sempre vergognato.",
+             en:"The panoramic vision shows you every event of your life as it truly was, even where you remembered it differently. You see the consequences of every action, the causes behind every encounter.\n\nA painful image appears: the moment you were always ashamed of."},
        choices:[
          {text:{it:"Distogli lo sguardo. Non vuoi rivederlo.",en:"You look away. You don't want to see it again."},luce:-1,type:"mechanical",
           result:{it:"La visione panoramica è il dono della morte: ciò che non viene guardato ora, dovrà essere rivissuto altrove.",en:"The panoramic vision is death's gift: what is not looked at now will have to be relived elsewhere."}},
          {text:{it:"Osservi con calma, da testimone, finché l'immagine si completa.",en:"You watch calmly, as a witness, until the image completes itself."},luce:1,type:"conscious",
           result:{it:"In pochi secondi l'Ego rivive l'intera esistenza e ne coglie la tendenza che predomina: è quel pensiero a decidere dove passerai la vita astrale.",en:"In a few seconds the Ego relives the whole existence and grasps its predominant tendency: that thought decides where you will spend your astral life."}},
          {text:{it:"Cerchi di trattenere solo i momenti felici.",en:"You try to hold on only to the happy moments."},luce:0,type:"neutral",
-          result:{it:"La visione non si lascia scegliere: è un bilancio, non un album. Scorre intera, o non scorre.",en:"The vision cannot be curated: it is a reckoning, not an album. It flows whole, or not at all."}}
+          result:{it:"La visione non si lascia scegliere: è un bilancio, e scorre intera.",en:"The vision cannot be curated: it is a reckoning, and it flows whole."}}
        ]},
       {text:{it:"Vedi il tuo corpo disteso sotto di te. Intorno, le persone care. Il filo che ti legava a lui si è rotto, ma sei ancora avvolto nella materia eterica e fluttui sopra quella forma familiare.\n\nQualcosa in te vuole rientrare, riprendere tutto com'era.",
              en:"You see your body lying beneath you. Around it, your loved ones. The thread that bound you to it has broken, but you are still wrapped in etheric matter, floating above that familiar form.\n\nSomething in you wants to re-enter, to take everything back as it was."},
@@ -28,7 +27,7 @@ window.DUNGEON_DATA = {
          {text:{it:"Resti sopra il corpo. Non sei pronto.",en:"You stay above the body. You are not ready."},luce:-1,type:"mechanical",
           result:{it:"Trattenersi presso il corpo prolunga solo il distacco: alcuni si liberano dall'involucro eterico in pochi istanti, altri vi riposano per ore o per giorni.",en:"Lingering by the body only prolongs the parting: some free themselves from the etheric envelope in a few moments, others rest in it for hours or days."}},
          {text:{it:"Saluti la forma che ti ha servito, e lasci andare anche l'involucro eterico.",en:"You salute the form that served you, and let the etheric envelope go as well."},luce:1,type:"conscious",
-          result:{it:"Il corpo era il tempio, non l'abitante. Il distacco sereno è il primo passo del viaggio.",en:"The body was the temple, not the dweller. Serene parting is the journey's first step."}}
+          result:{it:"Il corpo era il tempio, e tu l'abitante: lasciarlo con serenità è il primo passo del viaggio.",en:"The body was the temple, and you the dweller: leaving it serenely is the journey's first step."}}
        ]}
     ],
     guardian:{
@@ -39,14 +38,14 @@ window.DUNGEON_DATA = {
         {text:{it:"«Sei solo un involucro consumato. Ti restituisco alla terra, con gratitudine.»",en:"'You are only a worn-out shell. I return you to the earth, with gratitude.'"},luce:1,type:"conscious",
          result:{it:"La nebbia si dirada e si disgrega. Chi non si lascia trattenere dallo spettro eterico entra libero nel mondo astrale.",en:"The mist thins and disintegrates. One who is not held by the etheric wraith enters the astral world free."}},
         {text:{it:"Resti avvolto nella nebbia. Almeno è familiare.",en:"You stay wrapped in the mist. At least it is familiar."},luce:-2,type:"mechanical",
-         result:{it:"Vaghi a lungo, semi-cosciente, tra i luoghi della vita passata. Alla fine la nebbia si dissolve da sola — ma hai perso tempo e luce.",en:"You wander long, half-conscious, among the places of your past life. In the end the mist dissolves by itself — but you have lost time and light."}}
+         result:{it:"Vaghi a lungo, semi-cosciente, tra i luoghi della vita passata. Alla fine la nebbia si dissolve da sola, ma hai perso tempo e luce.",en:"You wander long, half-conscious, among the places of your past life. In the end the mist dissolves by itself, but you have lost time and light."}}
       ]}
   },
   /* ═══ TAPPA 2: L'ELEMENTALE DEL DESIDERIO ═══ */
   { key:"elementale", color:"#7c3a2a", glyph:"◈",
     title:{it:"L'Elementale del Desiderio",en:"The Desire-Elemental"},
     subtitle:{it:"L'ingresso nel kàmaloka",en:"Entering kamaloka"},
-    intro:{it:"Entri nel mondo astrale. Ma qualcosa si muove dentro il tuo stesso corpo astrale: l'elementale del desiderio — la vita istintiva che per anni hai nutrito con ogni passione — ora vuole prendere il comando del viaggio.",en:"You enter the astral world. But something stirs within your own astral body: the desire-elemental — the instinctive life you fed for years with every passion — now wants to take command of the journey."},
+    intro:{it:"Entri nel mondo astrale. Ma qualcosa si muove dentro il tuo stesso corpo astrale: l'elementale del desiderio, la vita istintiva che per anni hai nutrito con ogni passione, ora vuole prendere il comando del viaggio.",en:"You enter the astral world. But something stirs within your own astral body: the desire-elemental, the instinctive life you fed for years with every passion, now wants to take command of the journey."},
     rooms:[
       {text:{it:"Senti la materia del tuo corpo astrale riorganizzarsi: l'elementale la sta disponendo in gusci concentrici, con la materia più densa all'esterno, come una corazza.\n\nÈ la sua strategia per durare più a lungo.",
              en:"You feel the matter of your astral body rearranging: the elemental is laying it out in concentric shells, densest matter outside, like armour.\n\nIt is its strategy to last longer."},
@@ -94,15 +93,15 @@ window.DUNGEON_DATA = {
              en:"A current seizes you: someone on earth is calling you. A séance. You feel the medium's pull like a hand dragging you downward, towards the things you left behind."},
        choices:[
          {text:{it:"Rispondi al richiamo e ridiscendi a parlare con i vivi.",en:"You answer the call and descend again to speak with the living."},luce:-1,type:"mechanical",
-          result:{it:"Ogni ritorno ravviva i desideri terrestri e prolunga il soggiorno astrale. Ciò che ti trattiene in basso, ti trattiene e basta.",en:"Every return revives earthly desires and prolongs the astral stay. What holds you below simply holds you."}},
+          result:{it:"Ogni ritorno ravviva i desideri terrestri e prolunga il soggiorno astrale.",en:"Every return revives earthly desires and prolongs the astral stay."}},
          {text:{it:"Mandi un pensiero di pace a chi ti chiama, e prosegui la salita.",en:"You send a thought of peace to those calling you, and continue the ascent."},luce:1,type:"conscious",
-          result:{it:"L'amore vero non trattiene: accompagna. Il pensiero di pace giunge a destinazione più integro di qualunque messaggio.",en:"True love does not hold back: it accompanies. The thought of peace arrives more whole than any message."}}
+          result:{it:"L'amore vero accompagna chi parte. Il pensiero di pace giunge a destinazione più integro di qualunque messaggio.",en:"True love accompanies the one who leaves. The thought of peace arrives more whole than any message."}}
        ]}
     ],
     guardian:{
       name:{it:"Il Lutto dei Vivi",en:"The Grief of the Living"},
-      text:{it:"Le lacrime di chi ti piange salgono fino a te come catene luminose. Ogni singhiozzo ti strattona verso il basso. Il loro dolore è sincero — e ti chiede di restare.\n\n«Non andare. Non ancora. Non così.»",
-            en:"The tears of those who mourn you rise to you like luminous chains. Every sob tugs you downward. Their grief is sincere — and it asks you to stay.\n\n'Don't go. Not yet. Not like this.'"},
+      text:{it:"Le lacrime di chi ti piange salgono fino a te come catene luminose. Ogni singhiozzo ti strattona verso il basso. Il loro dolore è sincero, e ti chiede di restare.\n\n«Non andare. Non ancora. Non così.»",
+            en:"The tears of those who mourn you rise to you like luminous chains. Every sob tugs you downward. Their grief is sincere, and it asks you to stay.\n\n'Don't go. Not yet. Not like this.'"},
       choices:[
         {text:{it:"«Vi amo — e proprio per questo proseguo. Ci ritroveremo più in alto.»",en:"'I love you — and that is exactly why I go on. We shall meet again higher up.'"},luce:1,type:"conscious",
          result:{it:"Le catene si trasformano in fili d'oro che benedicono la salita. Il distacco compiuto nell'amore non è perdita.",en:"The chains turn into golden threads blessing the ascent. A parting accomplished in love is not loss."}},
@@ -114,7 +113,7 @@ window.DUNGEON_DATA = {
   { key:"seconda", color:"#3a5a7c", glyph:"◇",
     title:{it:"La Seconda Morte",en:"The Second Death"},
     subtitle:{it:"L'abbandono del corpo astrale",en:"Leaving the astral body"},
-    intro:{it:"Il corpo astrale, purificato e logorato, si disgrega. Il tessuto di vita dorato si ritira e avvolge l'atomo astrale permanente. Davanti a te si apre il velo verso il mondo celeste — ma c'è un'ultima soglia.",en:"The astral body, purified and worn, disintegrates. The golden life-web withdraws and wraps the permanent astral atom. Before you the veil to the heaven world opens — but there is one last threshold."},
+    intro:{it:"Il corpo astrale, purificato e logorato, si disgrega. Il tessuto di vita dorato si ritira e avvolge l'atomo astrale permanente. Davanti a te si apre il velo verso il mondo celeste, ma c'è un'ultima soglia.",en:"The astral body, purified and worn, disintegrates. The golden life-web withdraws and wraps the permanent astral atom. Before you the veil to the heaven world opens, but there is one last threshold."},
     rooms:[
       {text:{it:"Ciò che stai per lasciare potrebbe diventare quella che si chiama un'ombra: un cadavere astrale che conserva la tua apparenza, la tua memoria e le tue piccole idiosincrasie, e che nelle sedute spiritiche può essere scambiato per te.",
              en:"What you are about to leave could become what is called a 'shade': an astral corpse keeping your appearance, your memory and your small idiosyncrasies, which at séances can be mistaken for you."},
@@ -138,20 +137,20 @@ window.DUNGEON_DATA = {
       text:{it:"Una figura di luce ferma e impersonale si erge sulla soglia del mondo celeste.\n\n«Qui entra solo ciò che è stato purificato. Mostrami che cosa hai raccolto dalla vita e dal kàmaloka.»",
             en:"A figure of still, impersonal light stands at the threshold of the heaven world.\n\n'Only what has been purified enters here. Show me what you have gathered from life and from kamaloka.'"},
       choices:[
-        {text:{it:"Apri le mani: amori, aspirazioni, esperienze — l'essenza pura, senza le scorie.",en:"You open your hands: loves, aspirations, experiences — the pure essence, without the dross."},luce:1,type:"conscious",
+        {text:{it:"Apri le mani: amori, aspirazioni, esperienze, l'essenza pura senza le scorie.",en:"You open your hands: loves, aspirations, experiences, the pure essence without the dross."},luce:1,type:"conscious",
          result:{it:"Il Guardiano si fa da parte. La mente ha assimilato ciò che le passioni avevano di puro: questo è il lasciapassare.",en:"The Guardian steps aside. The mind has assimilated what was pure in the passions: this is the pass."}},
         {text:{it:"Esiti: senza le tue passioni, non sai più chi sei.",en:"You hesitate: without your passions, you no longer know who you are."},luce:-2,type:"mechanical",
-         result:{it:"L'esitazione ti trattiene sulla soglia. Passerai comunque — quando smetterai di confondere ciò che provi con ciò che sei.",en:"Hesitation holds you at the threshold. You will pass anyway — once you stop confusing what you feel with what you are."}}
+         result:{it:"L'esitazione ti trattiene sulla soglia. Passerai comunque, quando smetterai di confondere ciò che provi con ciò che sei.",en:"Hesitation holds you at the threshold. You will pass anyway, once you stop confusing what you feel with what you are."}}
       ]}
   },
   /* ═══ TAPPA 5: IL DEVACHAN ═══ */
   { key:"devachan", color:"#3a7c9a", glyph:"☉",
     title:{it:"Il Devachan",en:"Devachan"},
     subtitle:{it:"Il mondo celeste",en:"The heaven world"},
-    intro:{it:"Sei nel 'soggiorno degli dei'. Qui ogni amore, speranza e aspirazione della vita terrestre fiorisce senza ostacoli e viene trasformata in facoltà. È il giorno che segue la notte della vita — il tempo dell'assimilazione.",en:"You are in the 'abode of the gods'. Here every love, hope and aspiration of earthly life blossoms unhindered and is transformed into faculty. It is the day that follows life's night — the time of assimilation."},
+    intro:{it:"Sei nel 'soggiorno degli dei'. Qui ogni amore, speranza e aspirazione della vita terrestre fiorisce senza ostacoli e viene trasformata in facoltà. È il giorno che segue la notte della vita: il tempo dell'assimilazione.",en:"You are in the 'abode of the gods'. Here every love, hope and aspiration of earthly life blossoms unhindered and is transformed into faculty. It is the day that follows life's night: the time of assimilation."},
     rooms:[
-      {text:{it:"I tuoi cari sono qui con te — vividi, sorridenti, presenti. Poi comprendi: sono le immagini che TU dai loro, animate dal vero legame che vi unisce attraverso i piani.",
-             en:"Your loved ones are here with you — vivid, smiling, present. Then you understand: they are the images YOU give them, animated by the true bond uniting you across the planes."},
+      {text:{it:"I tuoi cari sono qui con te, vividi e sorridenti. Poi comprendi: sono le immagini che TU dai loro, animate dal vero legame che vi unisce attraverso i piani.",
+             en:"Your loved ones are here with you, vivid and smiling. Then you understand: they are the images YOU give them, animated by the true bond uniting you across the planes."},
        choices:[
          {text:{it:"Pretendi che siano 'reali' come sulla terra, o il paradiso è una beffa.",en:"You demand they be 'real' as on earth, or heaven is a mockery."},luce:-1,type:"mechanical",
           result:{it:"Anche sulla terra amavi un'immagine che ti facevi dell'altro. Qui almeno l'immagine è animata dall'anima stessa che ami.",en:"On earth too you loved an image you made of the other. Here at least the image is animated by the very soul you love."}},
@@ -182,23 +181,23 @@ window.DUNGEON_DATA = {
   { key:"ritorno", color:"#7a5ab0", glyph:"✦",
     title:{it:"La Visione e il Ritorno",en:"The Vision and the Return"},
     subtitle:{it:"Trishna e la rinascita",en:"Trishna and rebirth"},
-    intro:{it:"Per un istante, sul piano causale, sei l'Ego: vedi la vita appena conclusa come un tutto, e quella che verrà con la lezione che dovrai impararvi. Poi Trishna — la sete di esistenza — comincia a chiamarti di nuovo verso il basso.",en:"For an instant, on the causal plane, you are the Ego: you see the life just ended as a whole, and the one to come with the lesson you will have to learn in it. Then Trishna — the thirst for existence — begins to call you downward again."},
+    intro:{it:"Per un istante, sul piano causale, sei l'Ego: vedi la vita appena conclusa come un tutto, e quella che verrà con la lezione che dovrai impararvi. Poi Trishna, la sete di esistenza, comincia a chiamarti di nuovo verso il basso.",en:"For an instant, on the causal plane, you are the Ego: you see the life just ended as a whole, and the one to come with the lesson you will have to learn in it. Then Trishna, the thirst for existence, begins to call you downward again."},
     rooms:[
       {text:{it:"Dalla visione dell'Ego, la prossima vita si profila: vedi i suoi possibili contorni, le sue prove, i suoi incontri.\n\nCosa chiedi alla nuova giornata terrestre?",
              en:"From the Ego's vision, the next life takes shape: you see its possible outlines, its trials, its encounters.\n\nWhat do you ask of the new earthly day?"},
        choices:[
          {text:{it:"Comodità, salute, fortuna: una vita senza spine.",en:"Comfort, health, fortune: a life without thorns."},luce:-1,type:"mechanical",
           result:{it:"Una vita comoda non si ottiene chiedendola: la legge del karma decide quale occasione l'ego ha meritato, e può essere una condizione meno buona di quella sperata.",en:"A comfortable life is not had by asking for it: the law of karma decides what opportunity the ego has earned, and it may be a poorer condition than the one hoped for."}},
-         {text:{it:"Le esperienze che ancora mancano alla tua crescita — qualunque forma abbiano.",en:"The experiences still missing from your growth — whatever form they take."},luce:1,type:"conscious",
+         {text:{it:"Le esperienze che ancora mancano alla tua crescita, qualunque forma abbiano.",en:"The experiences still missing from your growth, whatever form they take."},luce:1,type:"conscious",
           result:{it:"L'ego comune non si sceglie il corpo: la legge dell'evoluzione lo fa nascere dove può sviluppare le qualità di cui ha bisogno. Chi è più avanti rimette tutto nelle mani della legge eterna.",en:"The ordinary ego does not choose its body: the law of evolution has it born where it can develop the qualities it needs. One who is further on leaves everything in the hands of the eternal law."}}
        ]},
-      {text:{it:"Gli atomi permanenti si risvegliano. Le vibrazioni di tutto ciò che sei stato — incluse le tendenze più difficili — cominciano a costruire i nuovi corpi.",
-             en:"The permanent atoms awaken. The vibrations of all you have been — including the most difficult tendencies — begin to build the new bodies."},
+      {text:{it:"Gli atomi permanenti si risvegliano. Le vibrazioni di tutto ciò che sei stato, comprese le tendenze più difficili, cominciano a costruire i nuovi corpi.",
+             en:"The permanent atoms awaken. The vibrations of all you have been, including the most difficult tendencies, begin to build the new bodies."},
        choices:[
          {text:{it:"Vorresti cancellare le tendenze scomode dal seme.",en:"You wish you could erase the awkward tendencies from the seed."},luce:-1,type:"mechanical",
           result:{it:"Nulla si cancella: si trasforma. La tendenza negata tornerà come destino; quella accolta, come strumento.",en:"Nothing is erased: it is transformed. The denied tendency returns as fate; the welcomed one, as instrument."}},
          {text:{it:"Accogli l'intero seme: anche le ombre sono materiale di lavoro.",en:"You welcome the whole seed: even the shadows are working material."},luce:1,type:"conscious",
-          result:{it:"Gli atomi permanenti non giudicano: conservano. Chi accoglie il proprio seme intero nasce già riconciliato.",en:"The permanent atoms do not judge: they preserve. One who welcomes his whole seed is born already reconciled."}}
+          result:{it:"Gli atomi permanenti conservano tutto, senza giudicare. Chi accoglie il proprio seme intero nasce già riconciliato.",en:"The permanent atoms preserve everything, without judging. One who welcomes his whole seed is born already reconciled."}}
        ]}
     ],
     guardian:{
@@ -209,7 +208,7 @@ window.DUNGEON_DATA = {
         {text:{it:"«Il frutto delle esperienze: le capacità. La memoria resta nell'ego, e nulla è perduto.»",en:"'The fruit of experiences: capacities. Memory remains in the ego, and nothing is lost.'"},luce:1,type:"conscious",
          result:{it:"Il Custode sorride sotto il velo. La coscienza che ha attraversato la morte da sveglia porta il suo filo d'oro nella nuova vita.",en:"The Keeper smiles beneath the veil. The consciousness that crossed death awake carries its golden thread into the new life."}},
         {text:{it:"Ti disperi: senza ricordi, tutto questo sarà stato inutile.",en:"You despair: without memories, all this will have been useless."},luce:-2,type:"mechanical",
-         result:{it:"Il fiore non ricorda il seme, eppure ne è la prova vivente. Berrai comunque — ma la disperazione lascia un'ombra sul primo respiro.",en:"The flower does not remember the seed, yet it is its living proof. You will drink anyway — but despair leaves a shadow on the first breath."}}
+         result:{it:"Ciò che hai imparato passa nelle capacità, anche senza ricordi. Berrai comunque, ma la disperazione lascia un'ombra sul primo respiro.",en:"What you have learned passes into capacities, even without memories. You will drink anyway, but despair leaves a shadow on the first breath."}}
       ]}
   }
   ]

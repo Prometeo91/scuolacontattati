@@ -27,7 +27,7 @@ window.RPG_DATA = {
          result:{it:"Hai creato uno spazio tra lo stimolo e la risposta. In quello spazio vive la libertà.",en:"You created a space between stimulus and response. In that space lives freedom."}},
         {text:{it:"Sorridi e annuisci, ma dentro di te pianifichi la tua rivincita.",en:"You smile and nod, but inside you're planning your revenge."},
          effects:{},type:"neutral",
-         result:{it:"Hai evitato la scena, ma l'emozione negativa è solo stata repressa — non trasmutata. Tornerà.",en:"You avoided the scene, but the negative emotion was only suppressed — not transmuted. It will return."}}
+         result:{it:"Hai evitato la scena, ma l'emozione negativa è stata repressa senza essere trasmutata. Tornerà.",en:"You avoided the scene, but the negative emotion was suppressed without being transmuted. It will return."}}
       ],
       teaching:{it:"«L'autentica Astinenza è un'astinenza dal parlare meccanico, quindi, prima di tutto dalla LAMENTELA e dai GIUDIZI, che sono sempre solo re-azioni all'ambiente esterno.»",en:"'True Abstinence is abstinence from mechanical speech, and so first of all from COMPLAINT and JUDGMENT, which are always mere re-actions to the outer environment.'"}
     },
@@ -53,7 +53,7 @@ window.RPG_DATA = {
       choices:[
         {text:{it:"Lo affronti in modo aggressivo. Deve capire che non si fa.",en:"You confront them aggressively. They need to learn."},
          effects:{volonta:-1,compassione:-1},type:"mechanical",
-         result:{it:"La rabbia ha preso il controllo. Non eri tu a parlare — era la macchina biologica, programmata per difendere il territorio.",en:"Anger took control. It wasn't you speaking — it was the biological machine, programmed to defend its territory."}},
+         result:{it:"La rabbia ha preso il controllo. A parlare era la macchina biologica, programmata per difendere il territorio.",en:"Anger took control. The one speaking was the biological machine, programmed to defend its territory."}},
         {text:{it:"Noti la rabbia meccanica. Usi il momento per praticare il ricordo di sé.",en:"You notice the mechanical anger. You use the moment to practise self-remembering."},
          effects:{volonta:2},type:"conscious",
          result:{it:"Ogni irritazione è un'occasione per svegliarsi. Hai trasformato il piombo della reazione in oro di consapevolezza.",en:"Every irritation is an opportunity to awaken. You transmuted the lead of reaction into gold of awareness."}},
@@ -86,9 +86,9 @@ window.RPG_DATA = {
         {text:{it:"«Ancora cinque minuti.» Continui a scorrere.",en:"'Five more minutes.' You keep scrolling."},
          effects:{volonta:-1,presenza:-1},type:"mechanical",
          result:{it:"I cinque minuti diventano un'altra ora. La macchina ha vinto. Il sonno della coscienza è il suo stato naturale.",en:"Five minutes becomes another hour. The machine won. The sleep of consciousness is its natural state."}},
-        {text:{it:"Noti l'automatismo. Posi il telefono. Senti il disagio di stare con te stesso — e rimani.",en:"You notice the automatism. You put the phone down. You feel the discomfort of being with yourself — and you stay."},
+        {text:{it:"Noti l'automatismo. Posi il telefono. Senti il disagio di stare con te stesso, e rimani.",en:"You notice the automatism. You put the phone down. You feel the discomfort of being with yourself, and you stay."},
          effects:{presenza:2,volonta:1},type:"conscious",
-         result:{it:"Quello spazio vuoto che hai creato — il disagio di non fare nulla — è il terreno dove nasce la coscienza.",en:"That empty space you created — the discomfort of doing nothing — is the ground where consciousness is born."}},
+         result:{it:"Il disagio di non fare nulla, lo spazio vuoto che hai creato, è il terreno dove nasce la coscienza.",en:"The discomfort of doing nothing, the empty space you created, is the ground where consciousness is born."}},
         {text:{it:"Ti senti in colpa ma continui, promettendoti che «da domani cambio».",en:"You feel guilty but keep going, promising yourself 'I'll change from tomorrow.'"},
          effects:{volonta:-1},type:"neutral",
          result:{it:"«Domani» è la parola preferita di chi dorme. Il Lavoro esiste solo adesso.",en:"'Tomorrow' is the favourite word of those who sleep. The Work exists only now."}}
@@ -122,7 +122,7 @@ window.RPG_DATA = {
            {text:{it:"«Sono disposto a morire per rinascere.»",en:"'I am willing to die to be reborn.'"},effects:{volonta:2,compassione:1},type:"conscious",
             result:{it:"La prima morte è la più difficile: la morte della personalità fittizia. Oltre c'è la libertà.",en:"The first death is the hardest: the death of the fictitious personality. Beyond it lies freedom."}},
            {text:{it:"«Non sono pronto. Non ancora.»",en:"'I'm not ready. Not yet.'"},effects:{volonta:-1},type:"mechanical",
-            result:{it:"«Non ancora» è la risposta della paura. Ma il Guardiano è paziente — aspetterà.",en:"'Not yet' is fear's answer. But the Guardian is patient — it will wait."}}
+            result:{it:"«Non ancora» è la risposta della paura. Ma il Guardiano è paziente: aspetterà.",en:"'Not yet' is fear's answer. But the Guardian is patient: it will wait."}}
          ]}
       ]
     }
@@ -142,7 +142,7 @@ window.RPG_DATA = {
          result:{it:"Il dolore accettato coscientemente diventa trasformazione. Hai perdonato ciò che provavi dentro di te: il tradimento che hai visto fuori era una parte di te.",en:"Pain accepted consciously becomes transformation. You forgave what you felt inside you: the betrayal you saw outside was a part of you."}},
         {text:{it:"Analizzi la situazione intellettualmente, disconnettendoti dall'emozione.",en:"You analyse the situation intellectually, disconnecting from the emotion."},
          effects:{nongiudizio:1,presenza:-1},type:"neutral",
-         result:{it:"L'intelletto ha creato una distanza, ma non una trasformazione. L'emozione è stata congelata, non sciolta.",en:"The intellect created distance, but not transformation. The emotion was frozen, not dissolved."}}
+         result:{it:"L'intelletto ha creato una distanza senza trasformare nulla: l'emozione è rimasta congelata.",en:"The intellect created distance without transforming anything: the emotion stayed frozen."}}
       ],
       teaching:{it:"«Ama e perdona la tua sofferenza, il tuo dolore, la tua ferita sanguinante.»",en:"'Love and forgive your suffering, your pain, your bleeding wound.'"}
     },
@@ -168,7 +168,7 @@ window.RPG_DATA = {
       choices:[
         {text:{it:"Panico. «Perché proprio a me?» Precipiti nella disperazione.",en:"Panic. 'Why me?' You spiral into despair."},
          effects:{volonta:-1,presenza:-1},type:"mechanical",
-         result:{it:"La domanda «perché a me?» presuppone che la vita sia ingiusta. Ma la vita non è giusta né ingiusta — è uno specchio.",en:"The question 'why me?' presupposes life is unfair. But life is neither fair nor unfair — it's a mirror."}},
+         result:{it:"La domanda «perché a me?» presuppone che la vita sia ingiusta. Ma la vita non è giusta né ingiusta: è uno specchio.",en:"The question 'why me?' presupposes life is unfair. But life is neither fair nor unfair: it's a mirror."}},
         {text:{it:"La paura arriva. La lasci attraversarti. Rimani presente. «Anche questo è un insegnamento.»",en:"Fear arrives. You let it pass through. You remain present. 'This too is a teaching.'"},
          effects:{volonta:2,presenza:2},type:"conscious",
          result:{it:"Nella malattia si nasconde un messaggio dell'anima. Rimanere presenti nella paura è il più grande atto di volontà.",en:"In illness hides a message from the soul. Remaining present in fear is the greatest act of will."}},
@@ -184,7 +184,7 @@ window.RPG_DATA = {
       choices:[
         {text:{it:"L'eccitazione ti sveglia. Il momento è perso.",en:"The excitement wakes you up. The moment is lost."},
          effects:{},type:"neutral",
-         result:{it:"L'identificazione con l'emozione — anche quella positiva — distrugge la lucidità. Il piano astrale richiede calma.",en:"Identification with emotion — even positive — destroys lucidity. The astral plane requires calm."}},
+         result:{it:"L'identificazione con l'emozione, anche quella positiva, distrugge la lucidità. Il piano astrale richiede calma.",en:"Identification with emotion, even a positive one, destroys lucidity. The astral plane requires calm."}},
         {text:{it:"Mantieni una calma consapevolezza. Resti presente a te stesso, senza inseguire le immagini.",en:"You maintain calm awareness. You stay present to yourself, without chasing the images."},
          effects:{presenza:2,volonta:1},type:"conscious",
          result:{it:"La lucidità nei sogni indica quella che avrai da disincarnato. Sei rimasto presente anche qui.",en:"Lucidity in dreams indicates what you'll have once disincarnate. You stayed present even here."}},
@@ -203,7 +203,7 @@ window.RPG_DATA = {
          result:{it:"La vittima è il ruolo preferito dalla personalità. Finché incolpi l'esterno, sei in catene.",en:"The victim is the personality's favourite role. As long as you blame the outside, you are in chains."}},
         {text:{it:"«Ho creato tutto questo. Cosa mi sto rifiutando di vedere?»",en:"'I have created all of this. What am I refusing to see?'"},
          effects:{volonta:2,nongiudizio:1},type:"conscious",
-         result:{it:"Assumersi la responsabilità totale è l'atto più rivoluzionario. Non sei una vittima — sei un creatore inconsapevole.",en:"Taking total responsibility is the most revolutionary act. You're not a victim — you're an unconscious creator."}},
+         result:{it:"Assumersi la responsabilità totale è l'atto più rivoluzionario: scopri di essere un creatore, finora inconsapevole.",en:"Taking total responsibility is the most revolutionary act: you discover you are a creator, unconscious until now."}},
         {text:{it:"Riconosci qualche responsabilità, ma continui a sentirti vittima.",en:"You acknowledge some responsibility, but still feel like a victim."},
          effects:{volonta:1},type:"neutral",
          result:{it:"Un passo nella direzione giusta, ma la personalità si aggrappa ancora al ruolo di vittima.",en:"A step in the right direction, but the personality still clings to the victim role."}}
@@ -212,8 +212,8 @@ window.RPG_DATA = {
     }],
     boss:{
       name:{it:"Il Doppio Oscuro",en:"The Dark Double"},
-      intro:{it:"La tua ombra appare davanti a te — identica a te, ma invertita. Mostra ogni desiderio negato, ogni emozione soppressa, ogni verità rifiutata.",
-             en:"Your shadow appears before you — identical to you, but reversed. It shows every denied desire, every suppressed emotion, every refused truth."},
+      intro:{it:"La tua ombra appare davanti a te, identica a te ma invertita. Mostra ogni desiderio negato e ogni verità rifiutata.",
+             en:"Your shadow appears before you, identical to you but reversed. It shows every denied desire and every refused truth."},
       phases:[
         {text:{it:"Il Doppio ti mostra ciò che hai represso: invidia, gelosia, rabbia, desiderio di dominio. «Tutto questo sei tu», dice con la tua voce. «Mi riconosci?»",
                en:"The Double shows you what you've repressed: envy, jealousy, rage, desire for dominion. 'All of this is you,' it says in your voice. 'Do you recognise me?'"},
@@ -235,7 +235,7 @@ window.RPG_DATA = {
                en:"The Double begins to dissolve. As it fades, it weeps. It's the part of you that suffered in silence your whole life. Do you feel compassion for your own shadow?"},
          choices:[
            {text:{it:"«Amo anche questa parte di me.»",en:"'I love even this part of myself.'"},effects:{compassione:2,nongiudizio:2},type:"conscious",
-            result:{it:"L'amore incondizionato verso sé stessi — inclusa l'ombra — è il fondamento dell'Opera alchemica.",en:"Unconditional love towards oneself — including the shadow — is the foundation of the alchemical Work."}},
+            result:{it:"L'amore incondizionato verso sé stessi, ombra compresa, è il fondamento dell'Opera alchemica.",en:"Unconditional love towards oneself, shadow included, is the foundation of the alchemical Work."}},
            {text:{it:"«Finalmente se n'è andato.» Tiri un sospiro di sollievo.",en:"'Finally it's gone.' You sigh with relief."},effects:{},type:"neutral",
             result:{it:"Il sollievo è comprensibile, ma l'ombra non dissoluta tornerà. Ciò che non integri ti possiede.",en:"The relief is understandable, but the undissolved shadow will return. What you don't integrate possesses you."}}
          ]}
@@ -251,7 +251,7 @@ window.RPG_DATA = {
       choices:[
         {text:{it:"Lo abbandoni. Qualcos'altro ti ispirerà.",en:"You abandon it. Something else will inspire you."},
          effects:{volonta:-1},type:"mechanical",
-         result:{it:"La Legge dell'Ottava prevede questo calo. Ogni progetto incontra un punto dove l'energia si esaurisce — chi non lo sa, abbandona sempre.",en:"The Law of the Octave foresees this drop. Every project meets a point where energy runs out — those who don't know this always give up."}},
+         result:{it:"La Legge dell'Ottava prevede questo calo. Ogni progetto incontra un punto dove l'energia si esaurisce: chi non lo sa, abbandona sempre.",en:"The Law of the Octave foresees this drop. Every project meets a point where energy runs out: those who don't know this always give up."}},
         {text:{it:"Applichi lo «shock addizionale»: infondi energia nuova nel punto critico, trovi un significato più profondo.",en:"You apply the 'additional shock': you infuse new energy at the critical point, find a deeper meaning."},
          effects:{volonta:2,presenza:1},type:"conscious",
          result:{it:"Lo shock addizionale all'intervallo giusto è ciò che distingue il creatore dal sognatore. Hai superato il punto di morte dell'ottava.",en:"The additional shock at the right interval is what distinguishes the creator from the dreamer. You passed the octave's death point."}},
@@ -267,13 +267,13 @@ window.RPG_DATA = {
       choices:[
         {text:{it:"Usi la posizione a tuo vantaggio. «Me lo sono guadagnato.»",en:"You use the position for personal advantage. 'I've earned this.'"},
          effects:{compassione:-2,nongiudizio:-1},type:"mechanical",
-         result:{it:"Il potere usato per l'ego è il cammino della mano sinistra. Non importa quanta conoscenza hai — senza Cuore, sei al servizio delle tenebre.",en:"Power used for ego is the left-hand path. It doesn't matter how much knowledge you have — without Heart, you serve the darkness."}},
-        {text:{it:"Metti il potere al servizio del risveglio altrui, non del tuo ego.",en:"You put power in service of others' awakening, not your ego."},
+         result:{it:"Il potere usato per l'ego è il cammino della mano sinistra. Non importa quanta conoscenza hai: senza Cuore, sei al servizio delle tenebre.",en:"Power used for ego is the left-hand path. It doesn't matter how much knowledge you have: without Heart, you serve the darkness."}},
+        {text:{it:"Metti il potere al servizio del risveglio altrui.",en:"You put power in service of others' awakening."},
          effects:{compassione:2,nongiudizio:2},type:"conscious",
-         result:{it:"Il vero maestro è colui che usa il proprio potere per rendere gli altri più liberi, non più dipendenti.",en:"The true master is one who uses their power to make others freer, not more dependent."}},
+         result:{it:"Il vero maestro è colui che usa il proprio potere per rendere gli altri più liberi e meno dipendenti.",en:"The true master is one who uses their power to make others freer and less dependent."}},
         {text:{it:"Rifiuti ogni responsabilità. «Non voglio avere potere su nessuno.»",en:"You refuse all responsibility. 'I don't want power over anyone.'"},
          effects:{volonta:-1},type:"neutral",
-         result:{it:"Rifiutare il potere per paura non è umiltà — è un'altra forma di fuga. Il guerriero accetta la responsabilità.",en:"Refusing power out of fear is not humility — it's another form of escape. The warrior accepts responsibility."}}
+         result:{it:"Rifiutare il potere per paura è un'altra forma di fuga, anche se somiglia all'umiltà. Il guerriero accetta la responsabilità.",en:"Refusing power out of fear is another form of escape, even if it looks like humility. The warrior accepts responsibility."}}
       ],
       teaching:{it:"«Se si arresta quando l'Opera non è ancora compiuta, imboccare il Sentiero della Mano Sinistra diventa inevitabile, perché prima o poi comincerà a usare i suoi poteri per scopi personali.»",en:"'If he stops when the Work is not yet complete, taking the Left-Hand Path becomes inevitable, because sooner or later he will begin to use his powers for personal ends.'"}
     },
@@ -327,11 +327,11 @@ window.RPG_DATA = {
     }],
     boss:{
       name:{it:"La Dissoluzione dell'Io",en:"The Dissolution of the I"},
-      intro:{it:"Sei giunto alla prova finale. Non c'è nemico da affrontare — c'è solo te stesso, e la domanda ultima: sei disposto a lasciar andare tutto ciò che credi di essere?",
-             en:"You've reached the final trial. There is no enemy to face — there is only yourself, and the ultimate question: are you willing to let go of everything you believe yourself to be?"},
+      intro:{it:"Sei giunto alla prova finale. Non c'è nemico da affrontare: ci sei solo tu, e la domanda ultima: sei disposto a lasciar andare tutto ciò che credi di essere?",
+             en:"You've reached the final trial. There is no enemy to face: there is only you, and the ultimate question: are you willing to let go of everything you believe yourself to be?"},
       phases:[
-        {text:{it:"Tutto ciò che hai costruito — la tua identità spirituale, il tuo progresso, il tuo «livello» — comincia a dissolversi come sabbia tra le dita. Senti il panico. Il vuoto ti chiama.",
-               en:"Everything you've built — your spiritual identity, your progress, your 'level' — begins dissolving like sand through your fingers. You feel panic. The void calls."},
+        {text:{it:"Tutto ciò che hai costruito comincia a dissolversi come sabbia tra le dita: la tua identità spirituale, il tuo progresso, il tuo «livello». Senti il panico. Il vuoto ti chiama.",
+               en:"Everything you've built begins dissolving like sand through your fingers: your spiritual identity, your progress, your 'level'. You feel panic. The void calls."},
          choices:[
            {text:{it:"«Non sono mai stato queste cose. Lascio andare.»",en:"'I was never these things. I let go.'"},effects:{presenza:2,volonta:2},type:"conscious",
             result:{it:"Lasciar andare l'identità è la morte dell'ego. Oltre, c'è ciò che non muore mai.",en:"Letting go of identity is the ego's death. Beyond it lies what never dies."}},
@@ -342,17 +342,17 @@ window.RPG_DATA = {
                en:"The void. No identity, no story. Just infinite darkness. A voice asks: 'Who are you?'"},
          choices:[
            {text:{it:"Silenzio. Rimani nella pura consapevolezza senza definire nulla.",en:"Silence. You remain in pure awareness without defining anything."},effects:{nongiudizio:2,presenza:2},type:"conscious",
-            result:{it:"Nel silenzio oltre il pensiero abita ciò che sei veramente. Non un nome, non una storia — pura coscienza.",en:"In the silence beyond thought dwells what you truly are. Not a name, not a story — pure consciousness."}},
+            result:{it:"Nel silenzio oltre il pensiero abita ciò che sei veramente: pura coscienza, senza nome né storia.",en:"In the silence beyond thought dwells what you truly are: pure consciousness, with no name and no story."}},
            {text:{it:"«Io sono un cercatore spirituale, io sono...»",en:"'I am a spiritual seeker, I am...'"},effects:{nongiudizio:-1},type:"mechanical",
-            result:{it:"Definirsi è limitarsi. L'«io sono» seguito da qualsiasi cosa è ancora una gabbia — dorata, ma gabbia.",en:"To define oneself is to limit oneself. 'I am' followed by anything is still a cage — golden, but a cage."}}
+            result:{it:"Definirsi è limitarsi. L'«io sono» seguito da qualsiasi cosa è ancora una gabbia, per quanto dorata.",en:"To define oneself is to limit oneself. 'I am' followed by anything is still a cage, however golden."}}
          ]},
-        {text:{it:"Una luce appare. Non è fuori di te — SEI tu. Per la prima volta senti che non c'è mai stata separazione. Solo la scelta finale rimane.",
-               en:"A light appears. It's not outside you — it IS you. For the first time you feel there was never any separation. Only the final choice remains."},
+        {text:{it:"Una luce appare, e quella luce SEI tu. Per la prima volta senti che non c'è mai stata separazione. Solo la scelta finale rimane.",
+               en:"A light appears, and that light IS you. For the first time you feel there was never any separation. Only the final choice remains."},
          choices:[
            {text:{it:"«Non c'è mai stata separazione. Io e la Luce siamo Uno.»",en:"'There was never any separation. I and the Light are One.'"},effects:{compassione:3,presenza:3},type:"conscious",
-            result:{it:"La Rubedo è compiuta. Il piombo è diventato oro. Non sei cambiato — hai ricordato chi sei da sempre.",en:"The Rubedo is accomplished. Lead has become gold. You haven't changed — you remembered who you've always been."}},
-           {text:{it:"«Ho paura di perdere me stesso.»",en:"'I'm afraid of losing myself.'"},effects:{},type:"mechanical",
-            result:{it:"La paura di perdere il sé è l'ultima illusione. Non puoi perdere ciò che sei — solo ciò che credi di essere.",en:"The fear of losing the self is the last illusion. You can't lose what you are — only what you believe yourself to be."}}
+            result:{it:"La Rubedo è compiuta. Il piombo è diventato oro. Hai ricordato chi sei da sempre.",en:"The Rubedo is accomplished. Lead has become gold. You remembered who you've always been."}},
+           {text:{it:"«Ho paura di perdere me stesso.»",en:"'I'm afraid of losing myself.'"},effects:{presenza:-1,compassione:-1},type:"mechanical",
+            result:{it:"La paura di perdere il sé è l'ultima illusione. Puoi perdere solo ciò che credi di essere.",en:"The fear of losing the self is the last illusion. You can only lose what you believe yourself to be."}}
          ]}
       ]
     }
