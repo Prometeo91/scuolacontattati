@@ -90,16 +90,19 @@
       --font-serif: 'EB Garamond', Georgia, serif;
       --font-sans: 'Inter', system-ui, sans-serif;
       --font-display: 'EB Garamond', Georgia, serif;
+      --on-gold: #1a1000;
     }
     [data-theme="light"] {
-      --gold: #9a7420;
-      --gold-light: #7a5a14;
-      --text: #1a1520;
-      --text-muted: #4a4055;
+      /* stessi valori del tema chiaro di style.css */
+      --gold: #816018;
+      --gold-light: #7d5b1c;
+      --text: #2a1f08;
+      --text-muted: #5a4a3a;
       --bg: #f5f0e8;
       --surface: rgba(0,0,0,0.03);
-      --border: rgba(120,90,30,0.18);
-      --border-hover: rgba(120,90,30,0.35);
+      --border: rgba(120,90,30,0.30);
+      --border-hover: rgba(120,90,30,0.55);
+      --on-gold: #f8f2e6;
     }
 
     html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
@@ -145,6 +148,16 @@
       letter-spacing: 0.04em; transition: color 0.2s;
     }
     .nav-back:hover { color: var(--gold-light); }
+    .nav-logo, .nav-back { display: inline-flex; align-items: center; gap: 0.35em; min-height: 44px; }
+    /* sotto i 600px la barra non ci sta su una riga: il logo porta già alla
+       home, quindi si nasconde il link di ritorno e la scritta del tema */
+    @media (max-width: 600px) {
+      nav.topnav { padding: 0.5rem 1rem; }
+      .nav-right { gap: 0.5rem; }
+      .nav-back, .theme-toggle .lbl { display: none; }
+      .theme-toggle { padding: 5px 10px; }
+      .nav-logo { font-size: 18px; }
+    }
     .nav-right { display: flex; align-items: center; gap: 1rem; }
     .theme-toggle {
       background: none; border: 0.5px solid var(--border);
@@ -155,7 +168,7 @@
       letter-spacing: 0.04em;
       transition: border-color 0.2s, color 0.2s, background 0.2s;
       display: flex; align-items: center; justify-content: center; gap: 5px;
-      white-space: nowrap;
+      white-space: nowrap; min-width: 44px; min-height: 44px;
     }
     .theme-toggle:hover { border-color: var(--border-hover); color: var(--gold); background: var(--surface); }
     .theme-toggle-icon { font-size: 16px; line-height: 1; }
@@ -332,15 +345,15 @@
     .manage-cookies-btn {
       display: inline-block; margin-top: 0.5rem;
       padding: 0.7rem 1.5rem;
-      background: linear-gradient(135deg, var(--gold) 0%, #a8782a 100%);
+      background: var(--gold);
       border: none; border-radius: 999px;
-      color: #1a1000; font-family: var(--font-sans);
+      color: var(--on-gold); font-family: var(--font-sans);
       font-size: 13px; font-weight: 500;
       letter-spacing: 0.08em; text-transform: uppercase;
       cursor: pointer; text-decoration: none;
       transition: opacity 0.2s, transform 0.2s;
     }
-    .manage-cookies-btn:hover { opacity: 0.88; transform: translateY(-1px); color: #1a1000; }
+    .manage-cookies-btn:hover { opacity: 0.88; transform: translateY(-1px); color: var(--on-gold); }
 
     /* FOOTER */
     footer {
@@ -364,7 +377,7 @@
     /* SKIP LINK */
     .skip-link {
       position: absolute; top: -100%; left: 1rem;
-      background: var(--gold); color: #1a1000;
+      background: var(--gold); color: var(--on-gold);
       padding: 0.5rem 1rem; border-radius: 0 0 8px 8px;
       font-size: 14px; font-weight: 500; z-index: 200;
       text-decoration: none;
@@ -379,8 +392,8 @@
 
   /* Language switcher pill */
   .lang-pill{display:inline-flex;align-items:center;gap:0;border:0.5px solid var(--border);border-radius:999px;padding:2px;margin-right:0.25rem;font-family:var(--font-sans);font-size:12px;font-weight:600;letter-spacing:0.06em}
-  .lang-pill a{display:inline-block;padding:4px 10px;border-radius:999px;text-decoration:none;transition:color .2s,background .2s;line-height:1}
-  .lang-pill a.lang-active{background:var(--gold);color:#1a1000}
+  .lang-pill a{display:inline-flex;align-items:center;justify-content:center;min-width:40px;min-height:32px;padding:4px 10px;border-radius:999px;text-decoration:none;transition:color .2s,background .2s;line-height:1}
+  .lang-pill a.lang-active{background:var(--gold);color:var(--on-gold)}
   .lang-pill a:not(.lang-active){color:var(--text-muted)}
   .lang-pill a:not(.active):hover{color:var(--gold-light)}
   .lang-pill .lang-dot{color:var(--border);font-size:8px;padding:0 1px;user-select:none}
@@ -395,7 +408,7 @@
   <div class="nav-right">
     <a class="nav-back" href="index.html">← Back to home</a>
     <span class="lang-pill"><a href="../privacy.html" onclick="localStorage.setItem('sc-lang','it')">IT</a><span class="lang-dot">·</span><a href="#" class="lang-active">EN</a></span>
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme" title="Toggle theme"><span class="theme-toggle-icon">☀</span> Light theme</button>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme" title="Toggle theme"><span class="theme-toggle-icon" aria-hidden="true">☀</span><span class="lbl"> Light theme</span></button>
   </div>
 </nav>
 
@@ -589,8 +602,8 @@
     var isDark=document.documentElement.getAttribute('data-theme')!=='light';
     function upd(){
       btn.innerHTML=isDark
-        ?'<span class="theme-toggle-icon">\u2600</span> Light theme'
-        :'<span class="theme-toggle-icon">\u263D</span> Dark theme';
+        ?'<span class="theme-toggle-icon" aria-hidden="true">\u2600</span><span class="lbl"> Light theme</span>'
+        :'<span class="theme-toggle-icon" aria-hidden="true">\u263D</span><span class="lbl"> Dark theme</span>';
     }
     upd();
     btn.addEventListener('click',function(){
