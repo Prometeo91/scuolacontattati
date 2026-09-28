@@ -185,7 +185,6 @@
     { a: { it: "Fare sesso\nper procreare", en: "Sex for\nprocreation" }, b: { it: "Far incarnare\nanime elevate", en: "Letting elevated\nsouls incarnate" } },
     { a: { it: "Il pos-sesso", en: "Pos-session" }, b: { it: "Magia rossa:\nlegatura d'amore", en: "Red magic:\nlove binding" } },
     { a: { it: "La vera libertà\nsessuale", en: "True sexual\nfreedom" }, b: { it: "Libertà dal giudizio\ne dalla prestazione", en: "Freedom from judgment\nand performance" } },
-    { a: { it: "La messa\nautentica", en: "The authentic\nmass" }, b: { it: "Trasmissione\neucaristica", en: "Eucharistic\ntransmission" } },
     { a: { it: "Sacer-dote", en: "Sacer-dos\n(priest)" }, b: { it: "Dispensare\nil sacro", en: "Dispensing\nthe sacred" } },
     { a: { it: "Magnetismo\nlunare", en: "Lunar\nmagnetism" }, b: { it: "Viene dalla\npersonalità", en: "Comes from the\npersonality" } },
     { a: { it: "Magnetismo\nsolare", en: "Solar\nmagnetism" }, b: { it: "Viene\ndall'anima", en: "Comes from\nthe soul" } }
