@@ -15,6 +15,10 @@ const D=window.DUNGEON_DATA, I=window.DNG_I18N;
 const C=window.GameCore(I);
 const t=C.t,L=C.L,frag=C.frag,esc=C.esc,nl2br=C.nl2br,mount=C.mount;
 const LS_KEY="sc-"+D.id+"-state", LS_SIG="sc-"+D.id+"-sigillo";
+/* La luce massima è quella di chi fa sempre la scelta migliore: si
+   calcola dai dati, così il finale «perfetto» richiede davvero ogni
+   scelta cosciente e resta giusto se si aggiungono stanze. */
+const MAX_LUCE=D.startLuce+D.planes.reduce((tot,p)=>tot+(p.rooms||[]).concat(p.guardian?[p.guardian]:[]).reduce((a,r)=>a+Math.max(0,...r.choices.map(c=>c.luce||0)),0),0);
 
 /* State */
 function freshState(){return{plane:0,room:0,inGuardian:false,luce:D.startLuce,answered:false,chosenIdx:-1,ended:false,endingKey:""};}
@@ -24,13 +28,13 @@ function load(){try{const s=JSON.parse(localStorage.getItem(LS_KEY));if(s&&typeo
 
 /* Luce bar */
 function luceBar(){
-  const pct=Math.round(Math.max(0,S.luce)/D.maxLuce*100);
+  const pct=Math.round(Math.max(0,S.luce)/MAX_LUCE*100);
   return frag(`<div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem">
     <span style="font-size:13px;color:var(--gold);letter-spacing:0.06em;font-variant-caps:all-small-caps;min-width:40px">${esc(t("luce"))}</span>
     <div style="flex:1;height:8px;border-radius:4px;background:var(--surface);border:0.5px solid var(--border);overflow:hidden">
       <div class="luce-fill" style="height:100%;border-radius:4px;background:linear-gradient(90deg,#c9973a,#e8c97a);transition:width 0.6s ease;width:${pct}%"></div>
     </div>
-    <span style="font-size:14px;color:var(--gold-light);font-weight:600;min-width:30px;text-align:right;font-variant-numeric:tabular-nums">${Math.max(0,S.luce)}/${D.maxLuce}</span>
+    <span style="font-size:14px;color:var(--gold-light);font-weight:600;min-width:30px;text-align:right;font-variant-numeric:tabular-nums">${Math.max(0,S.luce)}/${MAX_LUCE}</span>
   </div>`);
 }
 
@@ -167,7 +171,7 @@ function renderRoom(){
 
 function handleRoomChoice(idx,rm,card,choicesW,wrap,p){
   const ch=rm.choices[idx];
-  S.luce=Math.min(D.maxLuce,Math.max(0,S.luce+(ch.luce||0)));
+  S.luce=Math.max(0,S.luce+(ch.luce||0));
   S.answered=true;S.chosenIdx=idx;save();
   choicesW.querySelectorAll(".rpg-choice").forEach((b,i)=>{
     b.disabled=true;
@@ -184,7 +188,7 @@ function handleRoomChoice(idx,rm,card,choicesW,wrap,p){
   fb.classList.add("show");
   // Update luce bar
   const luceEl=wrap.querySelector(".luce-fill");
-  if(luceEl)luceEl.style.width=Math.round(Math.max(0,S.luce)/D.maxLuce*100)+"%";
+  if(luceEl)luceEl.style.width=Math.round(Math.max(0,S.luce)/MAX_LUCE*100)+"%";
   // Check game over
   if(S.luce<=0){
     S.ended=true;S.endingKey="gameOver";save();
@@ -228,7 +232,7 @@ function renderGuardian(){
 
 function handleGuardianChoice(idx,g,card,choicesW,wrap,p){
   const ch=g.choices[idx];
-  S.luce=Math.min(D.maxLuce,Math.max(0,S.luce+(ch.luce||0)));
+  S.luce=Math.max(0,S.luce+(ch.luce||0));
   S.answered=true;S.chosenIdx=idx;save();
   choicesW.querySelectorAll(".rpg-choice").forEach((b,i)=>{
     b.disabled=true;
@@ -244,7 +248,7 @@ function handleGuardianChoice(idx,g,card,choicesW,wrap,p){
   }
   fb.classList.add("show");
   const luceEl=wrap.querySelector(".luce-fill");
-  if(luceEl)luceEl.style.width=Math.round(Math.max(0,S.luce)/D.maxLuce*100)+"%";
+  if(luceEl)luceEl.style.width=Math.round(Math.max(0,S.luce)/MAX_LUCE*100)+"%";
   if(S.luce<=0){
     S.ended=true;S.endingKey="gameOver";save();
     const foot=card.querySelector(".rpg-foot");foot.innerHTML="";
@@ -264,7 +268,7 @@ function handleGuardianChoice(idx,g,card,choicesW,wrap,p){
 function renderEnding(){
   S.ended=true;save();
   const isGameOver=S.luce<=0;
-  const endKey=isGameOver?"gameOver":S.luce>=D.maxLuce?"perfetto":S.luce>=10?"alto":S.luce>=6?"medio":"basso";
+  const endKey=isGameOver?"gameOver":S.luce>=MAX_LUCE?"perfetto":S.luce>=MAX_LUCE*0.7?"alto":S.luce>=MAX_LUCE*0.4?"medio":"basso";
   const glyphs={gameOver:"☾",basso:"△",medio:"◇",alto:"☉",perfetto:"✦"};
   const n=frag('<div class="rpg-profile"></div>');
   n.appendChild(frag(`<div class="rpg-profile-seal" style="${isGameOver?'border-color:var(--text-muted);color:var(--text-muted)':''}">${glyphs[endKey]||"?"}</div>`));
@@ -274,7 +278,7 @@ function renderEnding(){
   } else {
     try{localStorage.setItem(LS_SIG,String(Date.now()));}catch(e){}
     n.appendChild(frag(`<h2>${esc(t("victory"))}</h2>`));
-    n.appendChild(frag(`<div class="rpg-profile-level">${esc(t("luce"))}: ${S.luce}/${D.maxLuce} — ${esc(t("plane"))} ${Math.min(S.plane+1,D.planes.length)}/${D.planes.length}</div>`));
+    n.appendChild(frag(`<div class="rpg-profile-level">${esc(t("luce"))}: ${S.luce}/${MAX_LUCE} — ${esc(t("plane"))} ${Math.min(S.plane+1,D.planes.length)}/${D.planes.length}</div>`));
     n.appendChild(frag(`<div class="rpg-profile-archetype">${esc(t("end_"+endKey))}</div>`));
     n.appendChild(frag(`<div class="rpg-profile-desc" style="white-space:pre-line">${esc(t("end_"+endKey+"_d"))}</div>`));
   }
