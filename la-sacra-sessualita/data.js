@@ -28,7 +28,19 @@
     { item: { it: "Imparare il sesso dai video pornografici come unico riferimento", en: "Learning about sex from pornographic videos as the only reference" }, belongs: 0,
       note: { it: "«In quei video il sesso è ancora più degradato rispetto alla realtà [...]. Tutto viene percepito nell'ottica della “prestazione”, come in un qualunque sport.»", en: "'In those videos sex is even more degraded than in reality [...]. Everything is perceived in terms of 'performance', as in any sport.'" } },
     { item: { it: "Lacrimare mentre si fa l'amore: qualcosa che ancora mancava ad Atlantide", en: "Weeping while making love: something that was still missing in Atlantis" }, belongs: 1,
-      note: { it: "«Possiamo tornare a pensare e praticare il sesso in un altro modo, molto più elevato, con il Cuore aperto e la capacità di vedere la Bellezza ovunque, lacrimando mentre facciamo l'amore, qualcosa che ancora mancava ai tempi di Atlantide.»", en: "'We can go back to thinking of and practising sex in another, much higher way, with an open Heart and the ability to see Beauty everywhere, weeping as we make love, something that was still missing in the days of Atlantis.'" } }
+      note: { it: "«Possiamo tornare a pensare e praticare il sesso in un altro modo, molto più elevato, con il Cuore aperto e la capacità di vedere la Bellezza ovunque, lacrimando mentre facciamo l'amore, qualcosa che ancora mancava ai tempi di Atlantide.»", en: "'We can go back to thinking of and practising sex in another, much higher way, with an open Heart and the ability to see Beauty everywhere, weeping as we make love, something that was still missing in the days of Atlantis.'" } },
+    { item: { it: "Unirsi solo per uno scopo che precede l'atto e ne è la causa", en: "Uniting only for a purpose that precedes the act and is its cause" }, belongs: 1,
+      note: { it: "«L'atto sessuale aveva sempre uno scopo che lo precedeva e ne era la causa, altrimenti non ci si univa.»", en: "'The sexual act always had a purpose that preceded it and was its cause; otherwise people did not unite.'" } },
+    { item: { it: "Tenere il partner sotto controllo per dimostrargli che ci si tiene a lui", en: "Keeping the partner under control to show how much one cares" }, belongs: 0,
+      note: { it: "«“Ti sto possedendo perché ti amo”, è esattamente il contrario dell'amore; invece viene confuso per l'amore.»", en: "''I am possessing you because I love you' is exactly the opposite of love; yet it is mistaken for love.'" } },
+    { item: { it: "Essere fedeli per un riconoscimento fra anime, senza viverlo come un obbligo morale", en: "Being faithful out of a recognition between souls, without living it as a moral obligation" }, belongs: 1,
+      note: { it: "È l'appartenenza: la fedeltà non è vissuta come una costrizione morale, ma come «la naturale conseguenza d'un riconoscimento animico».", en: "This is belonging: faithfulness is not lived as a moral constraint, but as 'the natural consequence of a recognition between souls'." } },
+    { item: { it: "Cercare l'illuminazione con esercizi energetici forzati, pur di non perdonare un parente", en: "Seeking enlightenment through forced energy exercises, rather than forgiving a relative" }, belongs: 0,
+      note: { it: "Spera di farlo a casa sua, nella sua cameretta, «senza dover amare i propri nemici, che si trovano nel mondo reale».", en: "He hopes to do it at home, in his little room, 'without having to love his enemies, who are in the real world'." } },
+    { item: { it: "Continuare ad amare e conservare nel Cuore anche chi ci ha detto di no", en: "Continuing to love, and keeping in one's Heart, even someone who said no to us" }, belongs: 1,
+      note: { it: "«Imparare ad amare e conservare nel vostro Cuore anche chi vi dice di no.»", en: "'Learning to love, and to keep in your Heart, even those who say no to you.'" } },
+    { item: { it: "Mostrare il partner agli amici come un bel manichino da sfoggiare", en: "Showing the partner off to friends like a fine mannequin" }, belongs: 0,
+      note: { it: "«Chiediti se l'altro lo consideri davvero più importante di te.»", en: "'Ask yourself whether you really consider the other more important than yourself.'" } }
   ];
 
   /* ---------- II. LE TRE FASI DELLA COPPIA (scenari — 3 opzioni) ---------- */
@@ -69,7 +81,31 @@
     { sit: { it: "Due partner vivono insieme da anni, fanno l'amore regolarmente, ma restano distanti nel profondo.",
         en: "Two partners live together for years, make love regularly, but remain distant deep down." },
       correct: 1,
-      note: { it: "Seconda strategia di evitamento: «Si stipula un tacito accordo nel quale si decide di non conoscersi mai al cento per cento.»", en: "Second avoidance strategy: 'A tacit agreement is reached to never fully know each other.'" } }
+      note: { it: "Seconda strategia di evitamento: «Si stipula un tacito accordo nel quale si decide di non conoscersi mai al cento per cento.»", en: "Second avoidance strategy: 'A tacit agreement is reached to never fully know each other.'" } },
+    { sit: { it: "Nei primi mesi lei ha da lui un'attenzione costante e si sente al centro del suo mondo.",
+        en: "In the first months she gets his constant attention and feels at the centre of his world." },
+      correct: 0,
+      note: { it: "Prima fase — Euforia: «Se nella prima fase, quella euforica, avevamo la sua costante attenzione, nella seconda questa verrà a mancare.»", en: "First phase — Euphoria: 'If in the first, euphoric phase we had his constant attention, in the second it will be lacking.'" } },
+    { sit: { it: "Col passare del tempo quell'attenzione costante viene a mancare e lei se ne sente privata.",
+        en: "As time goes by that constant attention fades and she feels deprived of it." },
+      correct: 1,
+      note: { it: "Seconda fase — Crisi: dell'attenzione avuta nella fase euforica, «nella seconda questa verrà a mancare».", en: "Second phase — Crisis: of the attention received in the euphoric phase, 'in the second it will be lacking'." } },
+    { sit: { it: "Lei sente la mancanza di attenzione, ma resta e la guarda in faccia invece di fuggire.",
+        en: "She feels the lack of attention, but stays and faces it instead of running away." },
+      correct: 2,
+      note: { it: "Terza fase: «Nella terza fase dovremo quindi fare i conti con questa mancanza, resistendo alla tentazione di fuggire.»", en: "Third phase: 'In the third phase we will therefore have to come to terms with this lack, resisting the temptation to flee.'" } },
+    { sit: { it: "Una coppia salta quasi del tutto l'entusiasmo iniziale: le difficoltà compaiono fin dall'inizio.",
+        en: "A couple almost skips the initial enthusiasm: difficulties appear right from the start." },
+      correct: 1,
+      note: { it: "Alcune coppie passano direttamente alla seconda fase: i partner «hanno ereditato delle difficoltà dalle incarnazioni precedenti, a causa del karma sessuale accumulato».", en: "Some couples go straight to the second phase: the partners 'have inherited difficulties from previous incarnations, because of accumulated sexual karma'." } },
+    { sit: { it: "Lui ammette che il suo bisogno di dimostrarsi all'altezza nasce da qualcosa che deve ancora provare a suo padre.",
+        en: "He admits that his need to prove himself comes from something he still has to prove to his father." },
+      correct: 2,
+      note: { it: "Terza fase: riconoscere la paura dietro la maschera è «l'inizio di una trasformazione che porterà al vero amore».", en: "Third phase: recognising the fear behind the mask is 'the beginning of a transformation that will lead to true love'." } },
+    { sit: { it: "Lei scopre che la sua chiusura verso di lui nasce dalla paura di arrendersi e perdere il controllo.",
+        en: "She discovers that her closing off towards him comes from the fear of surrendering and losing control." },
+      correct: 2,
+      note: { it: "Terza fase: riconoscere «la paura di essere invasa, perdendo il controllo del territorio» è l'inizio della trasformazione.", en: "Third phase: recognising 'the fear of being invaded, losing control of the territory' is the beginning of transformation." } }
   ];
 
   /* ---------- III. QUIZ DELLA SACRA SESSUALITÀ ---------- */
@@ -103,7 +139,43 @@
       note: { it: "«Non è mai possibile mettere il carro davanti ai buoi.» Chi lavora su di sé con «la Presenza nel qui-e-ora, il non-giudizio, la capacità di amare i propri nemici» giunge naturalmente a indirizzare l'energia verso l'alto.", en: "'You can never put the cart before the horse.' Whoever works on himself with 'Presence in the here-and-now, non-judgment, the ability to love one's enemies' naturally comes to direct the energy upward." } },
     { q: { it: "Secondo il «karma sessuale», le difficoltà sessuali di oggi nascono da…", en: "According to 'sexual karma', today's sexual difficulties arise from…" },
       options: { it: ["L'abuso dell'energia sessuale per fini personali in vite passate", "Il caso", "Una punizione divina", "Una scarsa energia sessuale"], en: ["The abuse of sexual energy for personal ends in past lives", "Chance", "A divine punishment", "Weak sexual energy"] }, correct: 0,
-      note: { it: "«Non si hanno problemi sessuali “a caso”.» E non è una punizione: «ti viene data ancora una volta la possibilità di lavorare sulla tua sessualità».", en: "'One does not have sexual problems by chance.' Nor is it a punishment: 'you are given once again the chance to work on your sexuality'." } }
+      note: { it: "«Non si hanno problemi sessuali “a caso”.» E non è una punizione: «ti viene data ancora una volta la possibilità di lavorare sulla tua sessualità».", en: "'One does not have sexual problems by chance.' Nor is it a punishment: 'you are given once again the chance to work on your sexuality'." } },
+    { q: { it: "Che cosa è «sacro», secondo Brizzi?", en: "What is 'sacred', according to Brizzi?" },
+      options: { it: ["Tutto ciò che permette una crescita interiore e avvicina all'Uno", "Ciò che una religione dichiara tale", "Ciò che è molto antico", "Ciò che è proibito"], en: ["Everything that allows inner growth and brings one closer to the One", "Whatever a religion declares to be so", "Whatever is very old", "Whatever is forbidden"] }, correct: 0,
+      note: { it: "«Sto parlando di sacro, non di religioso, e sono due cose diverse.» Erano sacri il mangiare, l'abitare, il respirare.", en: "'I am speaking of the sacred, not the religious, and they are two different things.' Eating, dwelling and breathing were sacred." } },
+    { q: { it: "Che cosa intende il libro per «società tradizionale»?", en: "What does the book mean by a 'traditional society'?" },
+      options: { it: ["Una comunità in cui ogni ambito della vita sociale ha come scopo l'evoluzione interiore", "Una società contadina", "Una società che rifiuta la tecnologia", "Una società governata dai sacerdoti"], en: ["A community in which every area of social life aims at inner evolution", "A farming society", "A society that rejects technology", "A society ruled by priests"] }, correct: 0,
+      note: { it: "Economia, politica, scienza, arte ed educazione avevano tutte lo scopo di mantenere vivo il rapporto fra l'uomo e Dio.", en: "Economy, politics, science, art and education all aimed at keeping alive the relationship between man and God." } },
+    { q: { it: "Il karma, secondo il libro, è…", en: "Karma, according to the book, is…" },
+      options: { it: ["Cause che producono effetti, senza punizione né moralità", "Una punizione per le azioni sbagliate", "Un giudizio morale di Dio", "Il destino già scritto"], en: ["Causes producing effects, with no punishment and no morality", "A punishment for wrong actions", "God's moral judgment", "A fate already written"] }, correct: 0,
+      note: { it: "«Se mi butto dal balcone mi spiaccico al suolo. È una legge karmica. Questo non significa che Dio mi ha punito perché ho fatto qualcosa di sbagliato.»", en: "'If I throw myself off the balcony I hit the ground. It is a karmic law. This does not mean that God has punished me because I did something wrong.'" } },
+    { q: { it: "Perché cerchiamo di possedere qualcuno?", en: "Why do we try to possess someone?" },
+      options: { it: ["Perché ci sentiamo separati da lui", "Perché lo amiamo più degli altri", "Per proteggerlo", "Per istinto di sopravvivenza"], en: ["Because we feel separate from them", "Because we love them more than others", "To protect them", "Out of survival instinct"] }, correct: 0,
+      note: { it: "«Tutte le volte che cerchiamo di possedere qualcuno o qualcosa è solo perché ci sentiamo separati da esso.» E ancora: «Se ti possiedo, a ben guardare, è perché non ti amo.»", en: "'Whenever we try to possess someone or something it is only because we feel separate from it.' And again: 'If I possess you, on closer inspection, it is because I do not love you.'" } },
+    { q: { it: "Qual è l'ottava alta del possesso?", en: "What is the higher octave of possession?" },
+      options: { it: ["L'appartenenza, che nasce dal Cuore", "La gelosia", "Il matrimonio", "L'indifferenza"], en: ["Belonging, which arises from the Heart", "Jealousy", "Marriage", "Indifference"] }, correct: 0,
+      note: { it: "«Nel possesso è sempre implicata l'energia sessuale. [...] Nell'appartenenza invece è implicata l'energia del Cuore.»", en: "'Possession always involves sexual energy. [...] Belonging instead involves the energy of the Heart.'" } },
+    { q: { it: "Su Atlantide il senso del possesso…", en: "In Atlantis the sense of possession…" },
+      options: { it: ["Era radicato e serviva a entrare meglio nella materia", "Era del tutto sconosciuto", "Era punito dalla legge", "Era riservato ai re"], en: ["Was deep-rooted and served to enter matter more fully", "Was completely unknown", "Was punished by law", "Was reserved for kings"] }, correct: 0,
+      note: { it: "Oggi è il contrario: «Il possesso è esattamente il contrario dell'evoluzione spirituale, in questo periodo storico.»", en: "Today it is the opposite: 'Possession is exactly the opposite of spiritual evolution, in this historical period.'" } },
+    { q: { it: "Se nella coppia uno dei due manifesta una difficoltà, la responsabilità è…", en: "If one partner in a couple shows a difficulty, the responsibility is…" },
+      options: { it: ["Sempre al 50%: il lavoro interiore si fa insieme", "Tutta di chi ha la difficoltà", "Del medico che deve curarla", "Di nessuno"], en: ["Always 50%: inner work is done together", "Entirely that of the one with the difficulty", "The doctor's, who must treat it", "Nobody's"] }, correct: 0,
+      note: { it: "«Sei tu che l'hai incontrato, sei tu che lo stai richiamando, sei tu che hai bisogno di questa esperienza.»", en: "'You are the one who met him, you are the one calling him, you are the one who needs this experience.'" } },
+    { q: { it: "Secondo la Legge dello Specchio, il giudizio che leggo negli occhi dell'altro…", en: "According to the Law of the Mirror, the judgment I read in the other's eyes…" },
+      options: { it: ["Lo sento solo nella misura in cui io stesso mi giudico", "È sempre reale", "Dipende da quanto l'altro mi conosce", "Si supera cambiando partner"], en: ["I feel it only insofar as I judge myself", "Is always real", "Depends on how well the other knows me", "Is overcome by changing partner"] }, correct: 0,
+      note: { it: "«Il giudizio che avverto non è oggettivo, non esiste fuori di me, perché è letteralmente creato da me, dal mio modo di vedere la vita.»", en: "'The judgment I sense is not objective, it does not exist outside me, because it is literally created by me, by my way of seeing life.'" } },
+    { q: { it: "Qual è la chiave per uscire dal giudizio?", en: "What is the key to getting out of judgment?" },
+      options: { it: ["La Presenza nel qui-e-ora, applicata a lungo", "Imporsi da domani di non giudicare nessuno", "Evitare le persone che giudicano", "Leggere testi sacri"], en: ["Presence in the here-and-now, applied over time", "Resolving from tomorrow to judge nobody", "Avoiding people who judge", "Reading sacred texts"] }, correct: 0,
+      note: { it: "«Giudichiamo noi stessi, quindi giudichiamo gli altri e di conseguenza ci sentiamo giudicati dagli altri. Sono le tre facce d'una stessa medaglia.»", en: "'We judge ourselves, so we judge others and consequently we feel judged by others. They are three faces of the same coin.'" } },
+    { q: { it: "La «restaurazione dei Misteri» non sarà un ritorno al passato perché…", en: "The 'restoration of the Mysteries' will not be a return to the past because…" },
+      options: { it: ["L'evoluzione è ciclica ma sale a spirale", "Il passato non è mai esistito", "Mancano i testi antichi", "Le leggi lo vietano"], en: ["Evolution is cyclical but rises in a spiral", "The past never existed", "The ancient texts are missing", "The law forbids it"] }, correct: 0,
+      note: { it: "«Non torneremo a ciò che è stato nel passato, in quanto niente torna come prima, ma vivremo una nuova sacralità, più elevata rispetto a quella che abbiamo perduto.»", en: "'We will not return to what was in the past, since nothing returns as before, but we will live a new sacredness, higher than the one we have lost.'" } },
+    { q: { it: "Nella restaurazione dei Misteri, il mistero più grande sarà la Pietra Filosofale, cioè…", en: "In the restoration of the Mysteries, the greatest mystery will be the Philosophers' Stone, that is…" },
+      options: { it: ["La capacità di cogliere una commovente Bellezza nel mondo", "Una tecnica energetica segreta", "La trasformazione dei metalli", "Un testo antico ritrovato"], en: ["The ability to perceive a moving Beauty in the world", "A secret energy technique", "The transformation of metals", "A rediscovered ancient text"] }, correct: 0,
+      note: { it: "È «una diretta conseguenza dell'apertura del Cuore».", en: "It is 'a direct consequence of the opening of the Heart'." } },
+    { q: { it: "Come si impara a vivere con il Cuore aperto, secondo l'ultimo capitolo?", en: "How does one learn to live with an open Heart, according to the last chapter?" },
+      options: { it: ["Stando accanto a qualcuno il cui Cuore è già aperto", "Leggendo molti libri", "Con un seminario di un fine settimana", "Da soli, senza nessuno"], en: ["By staying close to someone whose Heart is already open", "By reading many books", "Through a weekend seminar", "Alone, with nobody"] }, correct: 0,
+      note: { it: "È la trasmissione fra maestro e allievo: una vibrazione cardiaca «non può essere imparata autonomamente, perché non si tratta d'una nozione intellettuale».", en: "It is the transmission between master and pupil: a vibration of the heart 'cannot be learned on one's own, because it is not an intellectual notion'." } }
   ];
 
   /* ---------- IV. MEMORIA: SACRO ↔ DEGENERAZIONE ---------- */
@@ -113,7 +185,10 @@
     { a: { it: "Fare sesso\nper procreare", en: "Sex for\nprocreation" }, b: { it: "Far incarnare\nanime elevate", en: "Letting elevated\nsouls incarnate" } },
     { a: { it: "Il pos-sesso", en: "Pos-session" }, b: { it: "Magia rossa:\nlegatura d'amore", en: "Red magic:\nlove binding" } },
     { a: { it: "La vera libertà\nsessuale", en: "True sexual\nfreedom" }, b: { it: "Libertà dal giudizio\ne dalla prestazione", en: "Freedom from judgment\nand performance" } },
-    { a: { it: "La messa\nautentica", en: "The authentic\nmass" }, b: { it: "Trasmissione\neucaristica", en: "Eucharistic\ntransmission" } }
+    { a: { it: "La messa\nautentica", en: "The authentic\nmass" }, b: { it: "Trasmissione\neucaristica", en: "Eucharistic\ntransmission" } },
+    { a: { it: "Sacer-dote", en: "Sacer-dos\n(priest)" }, b: { it: "Dispensare\nil sacro", en: "Dispensing\nthe sacred" } },
+    { a: { it: "Magnetismo\nlunare", en: "Lunar\nmagnetism" }, b: { it: "Viene dalla\npersonalità", en: "Comes from the\npersonality" } },
+    { a: { it: "Magnetismo\nsolare", en: "Solar\nmagnetism" }, b: { it: "Viene\ndall'anima", en: "Comes from\nthe soul" } }
   ];
 
   const RINGS = [
@@ -128,8 +203,8 @@
   modes: ["sacro","fasi","quiz","memoria"],
   rings: RINGS,
   modeDefs: {
-    sacro: { type:"classify", roman:"I", glyph:"☉", optionKeys:[0,1], items: SACRO },
-    fasi: { type:"scenario", roman:"II", glyph:"◐", optionKeys:[0,1,2], items: FASI },
+    sacro: { type:"classify", roman:"I", glyph:"☉", optionKeys:[0,1], count:10, items: SACRO },
+    fasi: { type:"scenario", roman:"II", glyph:"◐", optionKeys:[0,1,2], count:10, items: FASI },
     quiz: { type:"quiz", roman:"III", glyph:"✦", count:10, items: QUIZ },
     memoria: { type:"memory", roman:"IV", glyph:"✶", items: MEMORY }
   }
