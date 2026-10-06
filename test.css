@@ -355,3 +355,13 @@ a:focus-visible, button:focus-visible {
 .test-key p, .test-key li { font-size: 15px; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 .code-group { display: inline-block; white-space: nowrap; margin: 0 0.35em; }
+.test-consult {
+  margin-top: 2rem; padding: 1.25rem 1.5rem; border-radius: 14px;
+  border: 0.5px solid var(--border-hover);
+}
+.test-consult h3 { margin-top: 0; }
+.test-consult p { margin-bottom: 0.75rem; }
+.test-consult-flag { color: var(--text); font-weight: 500; }
+a.btn-test { text-decoration: none; }
+a.btn-test:hover { color: var(--on-gold); }
+a.btn-test-ghost:hover { color: var(--gold-light); }

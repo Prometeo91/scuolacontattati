@@ -94,6 +94,17 @@
     h += '</tbody></table>';
     document.getElementById('resDetail').innerHTML = h;
 
+    /* invito alla consulenza: segnala gli Elementi mancanti (<18) o in
+       eccesso (≥27, squilibrio compreso) e precompila il messaggio WhatsApp */
+    var off = els.filter(function (k) { return s[k] < 18 || s[k] >= 27; })
+                 .map(function (k) { return N[k] + ' ' + elementStatus(s[k]); });
+    var flag = document.getElementById('consultFlag');
+    flag.hidden = !off.length;
+    if (off.length) flag.textContent = fmt(T.consult_flag, { list: off.join(', ') });
+    var msg = encodeURIComponent(fmt(T.wa_msg, { code: codeText }));
+    document.getElementById('waAC').href = 'https://wa.me/393929116441?text=' + msg;
+    document.getElementById('waNic').href = 'https://wa.me/393349991888?text=' + msg;
+
     result.hidden = false;
     result.scrollIntoView({ behavior: 'smooth', block: 'start' });
     result.focus({ preventScroll: true });
