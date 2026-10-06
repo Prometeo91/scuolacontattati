@@ -1,23 +1,23 @@
-/* Test iniziatico dei Quattro Elementi — test.html e en/test.html.
+/* Test iniziatico dei Quattro Elementi — test/quattro-elementi/ e en/test/quattro-elementi/.
    La base (colori, barra, testo, piè di pagina) è la stessa della pagina
    privacy, già allineata ai token di style.css: chi cambia un colore lì
    lo cambia anche qui. */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 @font-face { font-family:'EB Garamond'; font-weight:400; font-style:normal; font-display:swap;
-  src: url('fonts/eb-garamond-latin-400-normal.woff2') format('woff2'); }
+  src: url('../fonts/eb-garamond-latin-400-normal.woff2') format('woff2'); }
 @font-face { font-family:'EB Garamond'; font-weight:500; font-style:normal; font-display:swap;
-  src: url('fonts/eb-garamond-latin-500-normal.woff2') format('woff2'); }
+  src: url('../fonts/eb-garamond-latin-500-normal.woff2') format('woff2'); }
 @font-face { font-family:'EB Garamond'; font-weight:600; font-style:normal; font-display:swap;
-  src: url('fonts/eb-garamond-latin-600-normal.woff2') format('woff2'); }
+  src: url('../fonts/eb-garamond-latin-600-normal.woff2') format('woff2'); }
 @font-face { font-family:'EB Garamond'; font-weight:400; font-style:italic; font-display:swap;
-  src: url('fonts/eb-garamond-latin-400-italic.woff2') format('woff2'); }
+  src: url('../fonts/eb-garamond-latin-400-italic.woff2') format('woff2'); }
 @font-face { font-family:'Inter'; font-weight:400; font-style:normal; font-display:swap;
-  src: url('fonts/inter-latin-400-normal.woff2') format('woff2'); }
+  src: url('../fonts/inter-latin-400-normal.woff2') format('woff2'); }
 @font-face { font-family:'Inter'; font-weight:500; font-style:normal; font-display:swap;
-  src: url('fonts/inter-latin-500-normal.woff2') format('woff2'); }
+  src: url('../fonts/inter-latin-500-normal.woff2') format('woff2'); }
 @font-face { font-family:'Inter'; font-weight:600; font-style:normal; font-display:swap;
-  src: url('fonts/inter-latin-600-normal.woff2') format('woff2'); }
+  src: url('../fonts/inter-latin-600-normal.woff2') format('woff2'); }
 
 :root {
   --gold: #c9973a;

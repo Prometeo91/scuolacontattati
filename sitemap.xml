@@ -37,17 +37,17 @@
   </url>
 
   <url>
-    <loc>https://scuolacontattati.com/test.html</loc>
-    <xhtml:link rel="alternate" hreflang="it" href="https://scuolacontattati.com/test.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://scuolacontattati.com/en/test.html"/>
+    <loc>https://scuolacontattati.com/test/quattro-elementi/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scuolacontattati.com/test/quattro-elementi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scuolacontattati.com/en/test/quattro-elementi/"/>
     <lastmod>2026-10-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://scuolacontattati.com/en/test.html</loc>
-    <xhtml:link rel="alternate" hreflang="it" href="https://scuolacontattati.com/test.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://scuolacontattati.com/en/test.html"/>
+    <loc>https://scuolacontattati.com/en/test/quattro-elementi/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scuolacontattati.com/test/quattro-elementi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scuolacontattati.com/en/test/quattro-elementi/"/>
     <lastmod>2026-10-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>

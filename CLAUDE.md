@@ -25,6 +25,7 @@ Sito della **Scuola ContattaTi** (Scuola di Consapevolezza ed Alchimia, Bari), g
 | `lezioni.js` | **Fonte di verità** dei contenuti delle lezioni: array `L1`…`L7` (un array per anno di corso, con titoli, temi, date, citazioni). Consultarlo prima di scrivere qualsiasi testo sul percorso di studi. **In fondo al file c'è `L_EN` con le traduzioni inglesi**, innestate come campo `.en` su ogni lezione: chi aggiunge o modifica una lezione italiana deve aggiornare anche la voce corrispondente lì, altrimenti la pagina inglese mostra l'italiano. È nello stesso file apposta, perché un secondo file resterebbe indietro in silenzio |
 | `data/eventi.js`, `data/citazioni.js` | Dati eventi e citazioni |
 | `DESIGN.md` | Design system: frontmatter YAML di token estratti dal CSS + otto sezioni canoniche |
+| `test/` | Test interattivi per gli studenti, una cartella per test (`test/quattro-elementi/`, versione inglese in `en/test/quattro-elementi/`). Stili e calcolo comuni in `test/test.css` e `test/test.js`; domande e testi dei risultati nell'HTML di ogni pagina. Link da mandare agli studenti: `scuolacontattati.com/test/<nome>/`. Il testo dei test è dei conduttori: non correggerlo. Prossimi previsti: Enneagramma, sette raggi e sette ferite, archetipi divini; con il secondo test il calcolo va reso generico |
 
 ## Controlli automatici
 

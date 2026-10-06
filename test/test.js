@@ -1,4 +1,4 @@
-/* Test iniziatico dei Quattro Elementi — test.html e en/test.html.
+/* Test iniziatico dei Quattro Elementi — test/quattro-elementi/ e en/test/quattro-elementi/.
    Le domande stanno nell'HTML (una <fieldset class="q"> per domanda, con
    data-key = gruppo e data-max = scala); i testi dei risultati nel JSON
    #testTxt della pagina, uno per lingua. Qui solo calcolo e interfaccia.

@@ -102,6 +102,11 @@ const pagineDaControllare = [
   ...fs.readdirSync(ROOT, { withFileTypes: true })
     .filter(d => d.isDirectory() && esiste(path.join(d.name, 'index.html')) && d.name !== 'en' && !d.name.startsWith('.') && d.name !== 'node_modules')
     .map(d => d.name + '/index.html'),
+  // test interattivi: una cartella per test, in italiano e in inglese
+  ...['test', 'en/test'].filter(esiste).flatMap(dir =>
+    fs.readdirSync(path.join(ROOT, dir), { withFileTypes: true })
+      .filter(d => d.isDirectory() && esiste(path.join(dir, d.name, 'index.html')))
+      .map(d => dir + '/' + d.name + '/index.html')),
 ].filter(esiste);
 
 function riferimentiLocali(file) {
@@ -125,7 +130,7 @@ for (const f of pagineDaControllare) {
     if (!esiste(bersaglio)) errore('file', `${f} cita ${r}, che non esiste`);
   }
 }
-for (const css of ['style.css', 'giochi/styles.css', 'giochi/fonts.css'].filter(esiste)) {
+for (const css of ['style.css', 'giochi/styles.css', 'giochi/fonts.css', 'test/test.css'].filter(esiste)) {
   const dir = path.posix.dirname(css);
   for (const m of leggi(css).matchAll(/url\(\s*['"]?([^'")]+)['"]?\s*\)/g)) {
     const u = m[1];
