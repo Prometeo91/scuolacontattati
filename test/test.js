@@ -4,8 +4,11 @@
    #testTxt della pagina, uno per lingua. Qui solo calcolo e interfaccia.
 
    Soglie (dal testo del test):
-   - Elementi F/A/Ac/T, 7 domande da 1 a 5: <18 mancante, ≥18 presente,
-     ≥24 dominante, ≥27 in eccesso, ≥30 in squilibrio.
+   - Qualità degli Elementi F/A/Ac/T (sezioni 1–4), 7 domande da 1 a 5:
+     <18 mancante (squilibrio in difetto), ≥18 presente, ≥24 dominante.
+     Sono tutte qualità positive, quindi da sole non possono dire «eccesso».
+   - Eccesso degli Elementi eF/eA/eAc/eT (sezione 5), 7 domande da 1 a 5:
+     ≥27 in eccesso, ≥30 in squilibrio.
    - Triarticolazione, 3 domande da 1 a 10 per centro: conta il centro più
      basso; ≥20 matura, ≥24 integrata, ≥27 Io operativo, ≥30 Io magico.
    - Attenzione e Volontà, 7 domande da 1 a 5: ≥24, ≥27, ≥30. */
@@ -13,7 +16,9 @@
   'use strict';
   var T = JSON.parse(document.getElementById('testTxt').textContent);
   var Lb = T.labels;
-  var LS = 'sc-test-elementi';
+  /* -2: con la sezione sugli eccessi le domande sono state rinumerate,
+     quindi le risposte salvate con la versione precedente non valgono più */
+  var LS = 'sc-test-elementi-2';
   var form = document.getElementById('testForm');
   var qs = [].slice.call(form.querySelectorAll('.q'));
   var progress = document.getElementById('testProgress');
@@ -53,12 +58,15 @@
     steps.forEach(function (th, i) { if (v >= th) out = labels[i]; });
     return out;
   }
-  function elementStatus(v) {
-    if (v >= 30) return Lb.el.squilibrio;
-    if (v >= 27) return Lb.el.eccesso;
+  function qualityStatus(v) {
     if (v >= 24) return Lb.el.dominante;
     if (v >= 18) return Lb.el.presente;
     return Lb.el.mancante;
+  }
+  function excessStatus(v) {
+    if (v >= 30) return Lb.el.squilibrio;
+    if (v >= 27) return Lb.el.eccesso;
+    return '';
   }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function row(name, val, max, label) {
@@ -71,21 +79,38 @@
     var triMin = Math.min(s.P, s.S, s.V);
     /* tre gruppi, come nell'esempio del test: elementi, centri, attenzione e volontà;
        nel riquadro ogni gruppo va a capo intero, la copia resta su una riga */
-    var groups = ['F ' + s.F + ' – A ' + s.A + ' – Ac ' + s.Ac + ' – T ' + s.T,
+    /* per ogni Elemento: qualità / eccesso */
+    var groups = [els.map(function (k) { return k + ' ' + s[k] + '/' + s['e' + k]; }).join(' – '),
                   'P ' + s.P + ' – S ' + s.S + ' – V ' + s.V,
                   'A ' + s.ATT + ' · W ' + s.VOL];
     codeText = groups.join(' · ');
-    document.getElementById('codeBox').innerHTML = groups.map(function (g) { return '<span class="code-group">' + esc(g) + '</span>'; }).join(' ');
+    /* nel riquadro ogni gruppo va a capo, e dentro un gruppo si va a capo
+       solo fra una voce e l'altra (mai fra lettera e numero) */
+    document.getElementById('codeBox').innerHTML = groups.map(function (g) {
+      return '<span class="code-group">' + g.split(' – ').map(function (x) { return '<span class="code-item">' + esc(x) + '</span>'; }).join(' – ') + '</span>';
+    }).join(' ');
 
     var top = Math.max.apply(null, els.map(function (k) { return s[k]; }));
     var dom = els.filter(function (k) { return s[k] >= 24 && s[k] === top; }).map(function (k) { return N[k]; });
     var mis = els.filter(function (k) { return s[k] < 18; }).map(function (k) { return N[k]; });
+    var exc = els.filter(function (k) { return s['e' + k] >= 27; });
 
     var h = '<table class="result-table"><caption class="sr-only">' + esc(Lb.elements) + '</caption><tbody>';
-    els.forEach(function (k) { h += row(N[k], s[k], 35, elementStatus(s[k])); });
+    els.forEach(function (k) {
+      h += '<tr><th scope="row">' + esc(N[k]) + '</th>' +
+        '<td class="num">' + esc(Lb.quality) + ' ' + s[k] + ' / 35<br>' + esc(Lb.excess) + ' ' + s['e' + k] + ' / 35</td>' +
+        '<td>' + esc(qualityStatus(s[k])) + '<br>' + esc(excessStatus(s['e' + k]) || Lb.el.nessuno) + '</td></tr>';
+    });
     h += '</tbody></table>';
     h += '<p><strong>' + esc(Lb.dominant) + ':</strong> ' + esc(dom.length ? dom.join(', ') : Lb.noneDominant) + '<br>' +
-         '<strong>' + esc(Lb.missingEl) + ':</strong> ' + esc(mis.length ? mis.join(', ') : Lb.noneMissing) + '</p>';
+         '<strong>' + esc(Lb.missingEl) + ':</strong> ' + esc(mis.length ? mis.join(', ') : Lb.noneMissing) + '<br>' +
+         '<strong>' + esc(Lb.excessEl) + ':</strong> ' + esc(exc.length ? exc.map(function (k) { return N[k]; }).join(', ') : Lb.noneExcess) + '</p>';
+    /* per ogni Elemento in eccesso, la descrizione della Scuola */
+    exc.forEach(function (k) {
+      var d = T.excess_desc[k];
+      h += '<div class="excess-desc"><h3>' + esc(N[k]) + ' — ' + esc(excessStatus(s['e' + k])) + '</h3><p>' + esc(d[0]) + '</p><ul>' +
+        d[1].map(function (b) { return '<li><strong>' + esc(b[0]) + ':</strong> ' + esc(b[1]) + '</li>'; }).join('') + '</ul></div>';
+    });
     h += '<table class="result-table"><tbody>';
     ['P', 'S', 'V'].forEach(function (k) { h += row(N[k], s[k], 30, ''); });
     h += row(Lb.centers, triMin, 30, level(triMin, [20, 24, 27, 30], Lb.tri));
@@ -94,10 +119,13 @@
     h += '</tbody></table>';
     document.getElementById('resDetail').innerHTML = h;
 
-    /* invito alla consulenza: segnala gli Elementi mancanti (<18) o in
-       eccesso (≥27, squilibrio compreso) e precompila il messaggio WhatsApp */
-    var off = els.filter(function (k) { return s[k] < 18 || s[k] >= 27; })
-                 .map(function (k) { return N[k] + ' ' + elementStatus(s[k]); });
+    /* invito alla consulenza: segnala gli Elementi mancanti (qualità <18) o
+       in eccesso (eccesso ≥27, squilibrio compreso) e precompila il messaggio WhatsApp */
+    var off = [];
+    els.forEach(function (k) {
+      if (s[k] < 18) off.push(N[k] + ' ' + Lb.el.mancante);
+      if (s['e' + k] >= 27) off.push(N[k] + ' ' + excessStatus(s['e' + k]));
+    });
     var flag = document.getElementById('consultFlag');
     flag.hidden = !off.length;
     if (off.length) flag.textContent = fmt(T.consult_flag, { list: off.join(', ') });
