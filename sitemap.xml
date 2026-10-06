@@ -36,6 +36,23 @@
     <priority>0.2</priority>
   </url>
 
+  <url>
+    <loc>https://scuolacontattati.com/test.html</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scuolacontattati.com/test.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scuolacontattati.com/en/test.html"/>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/en/test.html</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scuolacontattati.com/test.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scuolacontattati.com/en/test.html"/>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
   <!-- Giochi iniziatici — pagine bilingui (lingua via preferenza utente) -->
   <url>
     <loc>https://scuolacontattati.com/il-risveglio/</loc>
