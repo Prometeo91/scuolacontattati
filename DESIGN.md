@@ -326,14 +326,15 @@ sezione dichiara la propria `grid-template-columns` e il proprio collasso.
 
 ### La barra di navigazione ha tre assetti
 
-Le undici voci del menu (otto sezioni, Portale Allievi, selettore di lingua,
-toggle del tema) misurano 1159px con la spaziatura piena: stanno accanto al
-logo su una riga sola **solo da 1444px in su**.
+Le dodici voci del menu (otto sezioni, Test, Portale Allievi, selettore di
+lingua, toggle del tema) stanno accanto al logo su una riga sola con la
+spaziatura piena **solo da 1492px in su**. Le soglie sono misurate
+sull'italiano, che ha le voci più lunghe.
 
-- **≥ 1444px**: una riga, spaziatura `1.5rem`, toggle con la scritta.
-- **1024–1443px**: spaziatura `0.7rem`, voci a 14px, toggle alla sola icona.
-  Da 1200 in su ci stanno accanto al logo; sotto, la barra va a due righe —
-  logo sopra, menu sotto — che è un assetto ordinato e voluto.
+- **≥ 1492px**: una riga, spaziatura `1.5rem`, toggle con la scritta.
+- **1024–1491px**: spaziatura `0.7rem`, voci a 14px, toggle alla sola icona.
+  Da 1210 in su ci stanno accanto al logo; sotto, la barra va a due righe,
+  logo sopra e menu sotto, che è un assetto ordinato e voluto.
 - **≤ 1023px**: hamburger. Sotto i 1024 le voci si spezzerebbero su due righe
   anche strette, e la barra diventava tre tronconi disallineati.
 

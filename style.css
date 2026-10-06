@@ -464,13 +464,14 @@ nav {
 .nav-links a.active { color: var(--gold-light); }
 .nav-links a.active::after { width: 100%; left: 0; }
 
-/* Le undici voci stanno accanto al logo su una riga sola solo da 1444px in su.
+/* Le dodici voci stanno accanto al logo su una riga sola solo da 1492px in su
+   (misurato sull'italiano, che ha le voci più lunghe).
    Sotto, fino alla soglia dell'hamburger, si stringono: spaziatura ridotta e
-   toggle alla sola icona (title e aria-label dicono cosa fa). Da 1024 a 1199
+   toggle alla sola icona (title e aria-label dicono cosa fa). Da 1024 a 1209
    la barra diventa due righe, logo sopra e menu sotto, che e' un assetto
    ordinato; sotto i 1024 si passa all'hamburger. Nel menu verticale la
    scritta del toggle ci sta e resta. */
-@media (min-width: 1024px) and (max-width: 1443px) {
+@media (min-width: 1024px) and (max-width: 1491px) {
   .nav-links { gap: 0.7rem; }
   .nav-links a { font-size: 14px; }
   .nav-links .theme-toggle { margin-left: 0.4rem; }
