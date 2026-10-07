@@ -372,3 +372,4 @@ a.btn-test-ghost:hover { color: var(--gold-light); }
 }
 .excess-desc h3 { margin-top: 0; }
 .excess-desc li { font-size: 15px; }
+.code-copy { justify-content: center; margin: -0.5rem 0 1.75rem; }

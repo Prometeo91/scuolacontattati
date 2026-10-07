@@ -153,7 +153,15 @@
 
   document.getElementById('copyBtn').addEventListener('click', function () {
     var b = this, done = function () { var o = b.textContent; b.textContent = T.copied; setTimeout(function () { b.textContent = o; }, 1800); };
-    if (navigator.clipboard) navigator.clipboard.writeText(codeText).then(done, function () {});
+    /* riserva per i browser interni (WhatsApp, Instagram) dove clipboard non c'è o fallisce */
+    var fallback = function () {
+      var ta = document.createElement('textarea'); ta.value = codeText; ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select();
+      try { if (document.execCommand('copy')) done(); } catch (e) {}
+      document.body.removeChild(ta);
+    };
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(codeText).then(done, fallback);
+    else fallback();
   });
   document.getElementById('redoBtn').addEventListener('click', function () {
     if (!confirm(T.redo_confirm)) return;
