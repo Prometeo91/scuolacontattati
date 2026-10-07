@@ -365,3 +365,4 @@ a:focus-visible, button:focus-visible {
 a.btn-test { text-decoration: none; }
 a.btn-test:hover { color: var(--on-gold); }
 a.btn-test-ghost:hover { color: var(--gold-light); }
+.code-copy { justify-content: center; margin: -0.5rem 0 1.75rem; }
