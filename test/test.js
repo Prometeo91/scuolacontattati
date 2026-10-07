@@ -8,7 +8,10 @@
      <18 mancante (squilibrio in difetto), ≥18 presente, ≥24 dominante.
      Sono tutte qualità positive, quindi da sole non possono dire «eccesso».
    - Eccesso degli Elementi eF/eA/eAc/eT (sezione 5), 7 domande da 1 a 5:
-     ≥27 in eccesso, ≥30 in squilibrio.
+     ≥18 tendenza, ≥24 in eccesso, ≥30 in squilibrio. Soglie più basse
+     delle qualità: sono tratti negativi, anche un punteggio medio conta.
+   - Stato di ogni Elemento: i due punteggi letti insieme, l'eccesso per
+     primo (le qualità alte non lo compensano). Vedi elementState().
    - Triarticolazione, 3 domande da 1 a 10 per centro: conta il centro più
      basso; ≥20 matura, ≥24 integrata, ≥27 Io operativo, ≥30 Io magico.
    - Attenzione e Volontà, 7 domande da 1 a 5: ≥24, ≥27, ≥30. */
@@ -65,9 +68,19 @@
   }
   function excessStatus(v) {
     if (v >= 30) return Lb.el.squilibrio;
-    if (v >= 27) return Lb.el.eccesso;
+    if (v >= 24) return Lb.el.eccesso;
+    if (v >= 18) return Lb.el.tendenza;
     return '';
   }
+  /* q = qualità (sezioni 1–4), e = eccesso (sezione 5) */
+  function elementState(q, e) {
+    if (e >= 30) return Lb.stato.squilibrio;
+    if (e >= 24) return q < 18 ? Lb.stato.ombra : Lb.stato.eccesso;
+    if (q < 18) return Lb.stato.difetto;
+    if (e >= 18) return Lb.stato.osserva;
+    return Lb.stato.equilibrio;
+  }
+  function unbalanced(q, e) { return q < 18 || e >= 24; }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function row(name, val, max, label) {
     return '<tr><th scope="row">' + esc(name) + '</th><td class="num">' + val + ' / ' + max + '</td><td>' + esc(label) + '</td></tr>';
@@ -93,13 +106,15 @@
     var top = Math.max.apply(null, els.map(function (k) { return s[k]; }));
     var dom = els.filter(function (k) { return s[k] >= 24 && s[k] === top; }).map(function (k) { return N[k]; });
     var mis = els.filter(function (k) { return s[k] < 18; }).map(function (k) { return N[k]; });
-    var exc = els.filter(function (k) { return s['e' + k] >= 27; });
+    var exc = els.filter(function (k) { return s['e' + k] >= 24; });
 
     var h = '<table class="result-table"><caption class="sr-only">' + esc(Lb.elements) + '</caption><tbody>';
     els.forEach(function (k) {
       h += '<tr><th scope="row">' + esc(N[k]) + '</th>' +
         '<td class="num">' + esc(Lb.quality) + ' ' + s[k] + ' / 35<br>' + esc(Lb.excess) + ' ' + s['e' + k] + ' / 35</td>' +
-        '<td>' + esc(qualityStatus(s[k])) + '<br>' + esc(excessStatus(s['e' + k]) || Lb.el.nessuno) + '</td></tr>';
+        '<td>' + esc(qualityStatus(s[k])) + '<br>' + esc(excessStatus(s['e' + k]) || Lb.el.nessuno) + '</td></tr>' +
+        '<tr class="state-row' + (unbalanced(s[k], s['e' + k]) ? ' off' : '') + '"><td colspan="3"><strong>' + esc(Lb.statoLabel) + ':</strong> ' +
+        esc(elementState(s[k], s['e' + k])) + '</td></tr>';
     });
     h += '</tbody></table>';
     h += '<p><strong>' + esc(Lb.dominant) + ':</strong> ' + esc(dom.length ? dom.join(', ') : Lb.noneDominant) + '<br>' +
@@ -120,12 +135,9 @@
     document.getElementById('resDetail').innerHTML = h;
 
     /* invito alla consulenza: segnala gli Elementi mancanti (qualità <18) o
-       in eccesso (eccesso ≥27, squilibrio compreso) e precompila il messaggio WhatsApp */
-    var off = [];
-    els.forEach(function (k) {
-      if (s[k] < 18) off.push(N[k] + ' ' + Lb.el.mancante);
-      if (s['e' + k] >= 27) off.push(N[k] + ' ' + excessStatus(s['e' + k]));
-    });
+       in eccesso (eccesso ≥24, squilibrio compreso) e precompila il messaggio WhatsApp */
+    var off = els.filter(function (k) { return unbalanced(s[k], s['e' + k]); })
+                 .map(function (k) { return N[k] + ' ' + elementState(s[k], s['e' + k]); });
     var flag = document.getElementById('consultFlag');
     flag.hidden = !off.length;
     if (off.length) flag.textContent = fmt(T.consult_flag, { list: off.join(', ') });
