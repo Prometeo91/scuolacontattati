@@ -354,7 +354,8 @@ a:focus-visible, button:focus-visible {
 }
 .test-key p, .test-key li { font-size: 15px; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
-.code-group { display: inline-block; white-space: nowrap; margin: 0 0.35em; }
+.code-group { display: inline-block; margin: 0 0.35em; }
+.code-item { white-space: nowrap; }
 .test-consult {
   margin-top: 2rem; padding: 1.25rem 1.5rem; border-radius: 14px;
   border: 0.5px solid var(--border-hover);
@@ -365,4 +366,13 @@ a:focus-visible, button:focus-visible {
 a.btn-test { text-decoration: none; }
 a.btn-test:hover { color: var(--on-gold); }
 a.btn-test-ghost:hover { color: var(--gold-light); }
+.excess-desc {
+  margin: 1rem 0 1.5rem; padding: 1rem 1.25rem; border-radius: 12px;
+  border: 0.5px solid var(--border);
+}
+.excess-desc h3 { margin-top: 0; }
+.excess-desc li { font-size: 15px; }
 .code-copy { justify-content: center; margin: -0.5rem 0 1.75rem; }
+.result-table tr.state-row td { padding-top: 0; color: var(--text); }
+.result-table tr:has(+ .state-row) th, .result-table tr:has(+ .state-row) td { border-bottom: none; }
+.result-table tr.state-row.off td { color: var(--gold-light); }
