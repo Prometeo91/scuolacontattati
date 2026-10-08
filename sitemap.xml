@@ -40,7 +40,7 @@
     <loc>https://scuolacontattati.com/test/quattro-elementi/</loc>
     <xhtml:link rel="alternate" hreflang="it" href="https://scuolacontattati.com/test/quattro-elementi/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://scuolacontattati.com/en/test/quattro-elementi/"/>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -49,6 +49,22 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://scuolacontattati.com/test/quattro-elementi/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://scuolacontattati.com/en/test/quattro-elementi/"/>
     <lastmod>2026-10-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/test/temperamento/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scuolacontattati.com/test/temperamento/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scuolacontattati.com/en/test/temperamento/"/>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/en/test/temperamento/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scuolacontattati.com/test/temperamento/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scuolacontattati.com/en/test/temperamento/"/>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>

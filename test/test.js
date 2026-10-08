@@ -161,14 +161,15 @@
       var profile = function (k) {
         var p = PR.p[k];
         return '<p class="temp-profile-sub">' + esc(p.sub) + '</p><p>' + esc(p.body) + '</p>' +
-          '<div class="temp-work"><h4>' + esc(PR.work) + '</h4><p>' + esc(p.work) + '</p></div>';
+          '<div class="temp-work"><p class="temp-work-label">' + esc(PR.work) + '</p><p>' + esc(p.work) + '</p></div>';
       };
       var tops = order.filter(function (k) { return s[k] === top; });
-      h += '<section class="temp-profiles"><h3>' + esc(PR.profiles_title) + '</h3>';
-      tops.forEach(function (k) { h += '<article class="temp-profile"><h4 class="temp-profile-title">' + esc(PR.p[k].title) + '</h4>' + profile(k) + '</article>'; });
+      h += '<section class="temp-profiles"><h3>' + esc(PR.intro_title) + '</h3><p>' + esc(PR.intro) + '</p>';
+      h += '<h4 class="temp-group">' + esc(PR.profiles_title) + '</h4>';
+      tops.forEach(function (k) { h += '<article class="temp-profile"><h5 class="temp-profile-title">' + esc(PR.p[k].title) + '</h5>' + profile(k) + '</article>'; });
       var rest = order.filter(function (k) { return s[k] !== top; });
       if (rest.length) {
-        h += '<h3>' + esc(PR.others_title) + '</h3>';
+        h += '<h4 class="temp-group">' + esc(PR.others_title) + '</h4>';
         rest.forEach(function (k) {
           h += '<details class="temp-profile temp-more"><summary>' + esc(PR.p[k].title) + ' <span class="temp-more-pct">' + P[k] + '%</span></summary>' + profile(k) + '</details>';
         });
@@ -258,47 +259,6 @@
 
   var panels = [].slice.call(document.querySelectorAll('.test-panel'));
   panels.forEach(setupTest);
-
-  /* Schede: #temperamento nell'indirizzo apre quella scheda; il clic su una
-     scheda riscrive l'indirizzo, così il link si può mandare agli studenti */
-  var tabs = [].slice.call(document.querySelectorAll('.test-tabs [role="tab"]'));
-  function openTab(id, focus) {
-    var found = panels.some(function (p) { return p.id === id; });
-    if (!found) id = panels[0].id;
-    panels.forEach(function (p) { p.hidden = p.id !== id; });
-    tabs.forEach(function (t) {
-      var on = t.getAttribute('aria-controls') === id;
-      t.setAttribute('aria-selected', on ? 'true' : 'false');
-      t.tabIndex = on ? 0 : -1;
-      if (on && focus) t.focus();
-    });
-    return id;
-  }
-  if (tabs.length) {
-    openTab(location.hash.slice(1));
-    tabs.forEach(function (t, i) {
-      t.addEventListener('click', function () {
-        var id = openTab(t.getAttribute('aria-controls'));
-        history.replaceState(null, '', '#' + id);
-      });
-      t.addEventListener('keydown', function (ev) {
-        var d = ev.key === 'ArrowRight' ? 1 : ev.key === 'ArrowLeft' ? -1 : 0;
-        if (!d) return;
-        ev.preventDefault();
-        var n = tabs[(i + d + tabs.length) % tabs.length];
-        history.replaceState(null, '', '#' + openTab(n.getAttribute('aria-controls'), true));
-      });
-    });
-    document.querySelectorAll('[data-tab-link]').forEach(function (a) {
-      a.addEventListener('click', function (ev) {
-        ev.preventDefault();
-        var id = openTab(a.getAttribute('data-tab-link'));
-        history.replaceState(null, '', '#' + id);
-        document.querySelector('.test-tabs').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    });
-    window.addEventListener('hashchange', function () { openTab(location.hash.slice(1)); });
-  }
 
   /* Tema chiaro/scuro: stessa chiave (sctheme) e stessa logica del sito */
   var btn = document.getElementById('themeToggle');
