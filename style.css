@@ -442,7 +442,7 @@ nav {
   padding: 0.75rem 2.5rem; flex-wrap: wrap; gap: 0.75rem;
 }
 .nav-logo { font-family: var(--font-display); font-size: 20px; font-weight: 600; color: var(--gold-light); letter-spacing: 0.04em; text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; }
-.nav-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.nav-links { display: flex; gap: 1.45rem; flex-wrap: wrap; }
 .nav-links a {
   font-size: 15px; color: var(--text-muted); text-decoration: none;
   letter-spacing: 0.04em;
@@ -472,7 +472,7 @@ nav {
    ordinato; sotto i 1024 si passa all'hamburger. Nel menu verticale la
    scritta del toggle ci sta e resta. */
 @media (min-width: 1024px) and (max-width: 1491px) {
-  .nav-links { gap: 0.7rem; }
+  .nav-links { gap: 0.65rem; }
   .nav-links a { font-size: 14px; }
   .nav-links .theme-toggle { margin-left: 0.4rem; }
   .theme-toggle .lbl { display: none; }
@@ -1372,7 +1372,7 @@ input[type="radio"]:focus-visible {
    righe anche strette, e la barra diventa tre tronconi disallineati. */
 @media (max-width: 1023px) {
   .nav-toggle { display: flex; }
-  .nav-links { display: none; width: 100%; flex-direction: column; gap: 0.5rem; padding-top: 0.75rem; border-top: 0.5px solid var(--border); }
+  .nav-links { display: none; width: 100%; flex-direction: column; flex-wrap: nowrap; gap: 0.5rem; padding-top: 0.75rem; border-top: 0.5px solid var(--border); }
   .nav-links.open { display: flex; }
   .nav-links a { padding: 0.8rem 0; font-size: 16px; }
   /* Aperto, il menu è alto circa 670px: la barra resta ferma in cima, quindi
@@ -2404,3 +2404,46 @@ html[data-theme="light"]::before {
   .lang-pill a:not(.active):hover{color:var(--gold-light)}
   .lang-pill .lang-dot{color:var(--border);font-size:8px;padding:0 1px;user-select:none}
   
+
+/* Voce «Test» con tendina: un link per test. <details> si apre e si chiude
+   anche senza JS; app.js la chiude al clic fuori e con Esc. Nel menu a
+   hamburger la tendina diventa una sottolista che si apre sul posto. */
+.nav-drop { position: relative; }
+.nav-drop summary {
+  list-style: none; cursor: pointer;
+  font-size: 15px; color: var(--text-muted); letter-spacing: 0.04em;
+  display: flex; align-items: center; gap: 0.27em; padding-bottom: 2px;
+  transition: color var(--t-fast);
+}
+.nav-drop summary::-webkit-details-marker { display: none; }
+.nav-drop summary::after {
+  content: ''; width: 5px; height: 5px; margin-top: -3px;
+  border: solid currentColor; border-width: 0 1px 1px 0;
+  transform: rotate(45deg); transition: transform var(--t-fast);
+}
+.nav-drop[open] summary::after { transform: rotate(-135deg); margin-top: 3px; }
+.nav-drop summary:hover, .nav-drop[open] summary { color: var(--gold-light); }
+.nav-drop-menu {
+  position: absolute; top: calc(100% + 0.9rem); left: 50%; transform: translateX(-50%);
+  min-width: 13rem; padding: 0.4rem; z-index: 101;
+  background: var(--bg); border: 0.5px solid var(--border-hover); border-radius: var(--radius-md);
+  box-shadow: var(--card-shadow);
+  display: flex; flex-direction: column;
+}
+.nav-links .nav-drop-menu a {
+  display: flex; align-items: center; min-height: 44px; padding: 0 0.9rem;
+  border-radius: var(--radius-sm); white-space: nowrap; font-size: 15px;
+}
+.nav-links .nav-drop-menu a::after { display: none; }
+.nav-links .nav-drop-menu a:hover { background: var(--surface-hover); }
+@media (min-width: 1024px) and (max-width: 1491px) {
+  .nav-drop summary { font-size: 14px; }
+}
+@media (max-width: 1023px) {
+  .nav-drop summary { padding: 0.8rem 0; font-size: 16px; }
+  .nav-drop-menu {
+    position: static; transform: none; min-width: 0; padding: 0 0 0.25rem 1rem;
+    background: none; border: none; box-shadow: none;
+  }
+  .nav-links .nav-drop-menu a { padding: 0; font-size: 16px; }
+}
