@@ -154,6 +154,26 @@
       });
       h += '</tbody></table>';
       h += '<p class="test-scale-note">' + esc(Lb.total) + ': ' + tot + '</p>';
+
+      /* profili: per intero il predominante (o i predominanti a pari punteggio),
+         gli altri chiusi, nell'ordine della gerarchia */
+      var PR = T.profiles;
+      var profile = function (k) {
+        var p = PR.p[k];
+        return '<p class="temp-profile-sub">' + esc(p.sub) + '</p><p>' + esc(p.body) + '</p>' +
+          '<div class="temp-work"><h4>' + esc(PR.work) + '</h4><p>' + esc(p.work) + '</p></div>';
+      };
+      var tops = order.filter(function (k) { return s[k] === top; });
+      h += '<section class="temp-profiles"><h3>' + esc(PR.profiles_title) + '</h3>';
+      tops.forEach(function (k) { h += '<article class="temp-profile"><h4 class="temp-profile-title">' + esc(PR.p[k].title) + '</h4>' + profile(k) + '</article>'; });
+      var rest = order.filter(function (k) { return s[k] !== top; });
+      if (rest.length) {
+        h += '<h3>' + esc(PR.others_title) + '</h3>';
+        rest.forEach(function (k) {
+          h += '<details class="temp-profile temp-more"><summary>' + esc(PR.p[k].title) + ' <span class="temp-more-pct">' + P[k] + '%</span></summary>' + profile(k) + '</details>';
+        });
+      }
+      h += '</section>';
       return { groups: groups, box: box, code: code, html: h };
     }
   };
