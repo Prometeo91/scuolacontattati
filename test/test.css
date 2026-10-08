@@ -376,3 +376,26 @@ a.btn-test-ghost:hover { color: var(--gold-light); }
 .result-table tr.state-row td { padding-top: 0; color: var(--text); }
 .result-table tr:has(+ .state-row) th, .result-table tr:has(+ .state-row) td { border-bottom: none; }
 .result-table tr.state-row.off td { color: var(--gold-light); }
+
+/* Due test nella stessa pagina: schede */
+.test-tabs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: -1rem 0 2.5rem; }
+.test-tabs button {
+  min-height: 44px; padding: 0.55rem 1.3rem; border-radius: 999px; cursor: pointer;
+  background: none; border: 0.5px solid var(--border-hover); color: var(--gold-light);
+  font-family: var(--font-sans); font-size: 14px; font-weight: 500; letter-spacing: 0.04em;
+}
+.test-tabs button:hover { border-color: var(--gold); }
+.test-tabs button[aria-selected="true"] { background: var(--gold); border-color: var(--gold); color: var(--on-gold); }
+.test-tabs button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.test-panel[hidden] { display: none; }
+/* chi arriva con #temperamento atterra con le schede in vista: al margine si somma lo scroll-padding di html */
+main .test-panel { scroll-margin-top: 5.5rem; }
+h2.panel-title { font-size: clamp(26px, 4vw, 32px); color: var(--text); font-weight: 500; margin-top: 0; margin-bottom: 0.5rem; }
+
+/* Profilo temperamentale */
+.temp-el { display: block; font-size: 13px; color: var(--text-muted); font-weight: 400; }
+.result-table td.temp-bar-cell { width: 34%; vertical-align: middle; }
+.code-line { display: block; }
+.temp-bar-track { display: block; height: 8px; border-radius: 999px; background: var(--border); overflow: hidden; }
+.temp-bar { display: block; height: 100%; border-radius: 999px; background: var(--gold); }
+.temp-predominant { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--gold-light); margin: 0.25rem 0 1rem; }
