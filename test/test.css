@@ -377,21 +377,6 @@ a.btn-test-ghost:hover { color: var(--gold-light); }
 .result-table tr:has(+ .state-row) th, .result-table tr:has(+ .state-row) td { border-bottom: none; }
 .result-table tr.state-row.off td { color: var(--gold-light); }
 
-/* Due test nella stessa pagina: schede */
-.test-tabs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: -1rem 0 2.5rem; }
-.test-tabs button {
-  min-height: 44px; padding: 0.55rem 1.3rem; border-radius: 999px; cursor: pointer;
-  background: none; border: 0.5px solid var(--border-hover); color: var(--gold-light);
-  font-family: var(--font-sans); font-size: 14px; font-weight: 500; letter-spacing: 0.04em;
-}
-.test-tabs button:hover { border-color: var(--gold); }
-.test-tabs button[aria-selected="true"] { background: var(--gold); border-color: var(--gold); color: var(--on-gold); }
-.test-tabs button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
-.test-panel[hidden] { display: none; }
-/* chi arriva con #temperamento atterra con le schede in vista: al margine si somma lo scroll-padding di html */
-main .test-panel { scroll-margin-top: 5.5rem; }
-h2.panel-title { font-size: clamp(26px, 4vw, 32px); color: var(--text); font-weight: 500; margin-top: 0; margin-bottom: 0.5rem; }
-
 /* Profilo temperamentale */
 .temp-el { display: block; font-size: 13px; color: var(--text-muted); font-weight: 400; }
 .result-table td.temp-bar-cell { width: 34%; vertical-align: middle; }
@@ -399,3 +384,26 @@ h2.panel-title { font-size: clamp(26px, 4vw, 32px); color: var(--text); font-wei
 .temp-bar-track { display: block; height: 8px; border-radius: 999px; background: var(--border); overflow: hidden; }
 .temp-bar { display: block; height: 100%; border-radius: 999px; background: var(--gold); }
 .temp-predominant { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--gold-light); margin: 0.25rem 0 1rem; }
+.temp-profiles { margin-top: 2.5rem; }
+.temp-profiles > h3 { font-size: 24px; line-height: 1.3; color: var(--gold-light); margin-bottom: 0.5rem; }
+h4.temp-group { margin: 1.75rem 0 0.25rem; font-family: var(--font-display); font-size: 19px; font-weight: 600; color: var(--text); }
+.temp-profile { margin: 0.75rem 0 1.5rem; padding: 1.1rem 1.25rem; border-radius: 12px; border: 0.5px solid var(--border); }
+.temp-profile p { font-size: 16px; }
+.temp-profile p:last-child { margin-bottom: 0; }
+h5.temp-profile-title { margin: 0 0 0.25rem; font-family: var(--font-display); font-size: 21px; font-weight: 600; color: var(--gold-light); }
+.temp-profile-sub { font-family: var(--font-display); font-style: italic; color: var(--gold-light); margin-bottom: 0.75rem; }
+.temp-work { margin-top: 1rem; padding: 0.9rem 1rem; border-radius: 10px; background: var(--surface); }
+.temp-work .temp-work-label { margin: 0 0 0.35rem; font-family: var(--font-sans); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); }
+.temp-more { padding: 0; }
+.temp-more summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 44px;
+  padding: 0.7rem 1.25rem; cursor: pointer; list-style: none;
+  font-family: var(--font-display); font-size: 19px; font-weight: 600; color: var(--gold-light);
+}
+.temp-more summary::-webkit-details-marker { display: none; }
+.temp-more summary::after { content: '+'; font-family: var(--font-sans); font-weight: 400; color: var(--gold); }
+.temp-more[open] summary::after { content: '−'; }
+.temp-more summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 12px; }
+.temp-more-pct { margin-left: auto; font-family: var(--font-sans); font-size: 14px; font-weight: 500; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.temp-more > :not(summary) { margin-left: 1.25rem; margin-right: 1.25rem; }
+.temp-more[open] { padding-bottom: 1.1rem; }
