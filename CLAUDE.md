@@ -64,7 +64,7 @@ Su un telefono medio con 4G lenta la prima schermata è passata da 4,7s a 2,6s (
 - **Mai hardcodare un colore**: ogni colore è una coppia di variabili CSS (scuro+chiaro).
 - Tipografia: EB Garamond (display, weight 500–600) + Inter (testo). Mai altre famiglie.
 - Componenti card: pattern `.glass-card` con doppio bordo (pseudo-elemento `::before` con `inset`).
-- **Comandi isolati alti almeno 44px** e **navigazione a hamburger sotto i 1024px**: le due regole si reggono a vicenda (il menu desktop ci sta su una riga con la spaziatura piena solo da 1492px, e da 1024 a 1209 la barra è a due righe per scelta). Dettagli e le tre eccezioni al 44px in `DESIGN.md`. Chi aggiunge una voce di menu deve rimisurare: a 1024px il margine è una trentina di pixel.
+- **Comandi isolati alti almeno 44px** e **navigazione a hamburger sotto i 1024px**: le due regole si reggono a vicenda (il menu desktop ci sta su una riga con la spaziatura piena solo da 1492px, e da 1024 a 1209 la barra è a due righe per scelta). Dettagli e le tre eccezioni al 44px in `DESIGN.md`. Chi aggiunge una voce di menu deve rimisurare: a 1024px il margine è di 4px. La voce «Test» è una tendina (`<details class="nav-drop">`, un link per test): la sua freccina è stata compensata stringendo la spaziatura fra le voci a 1.45rem e 0.65rem, al decimo di pixel, perché le soglie restassero 1210 e 1492.
 - Animazioni d'ingresso: classe `.sr` (scroll-reveal via IntersectionObserver).
 - Niente effetti "da videogioco" sul sito istituzionale: l'atmosfera la fanno palette, tipografia, spaziature.
 

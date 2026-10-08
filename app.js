@@ -485,6 +485,14 @@ document.addEventListener('DOMContentLoaded', function() {
     else window.addEventListener('resize', misura);
   })();
 
+  /* TENDINA «TEST» NEL MENU: si chiude al clic fuori e con Esc */
+  document.querySelectorAll('.nav-drop').forEach(function(dd){
+    document.addEventListener('click',function(e){ if(dd.open&&!dd.contains(e.target))dd.open=false; });
+    dd.addEventListener('keydown',function(e){
+      if(e.key==='Escape'&&dd.open){ dd.open=false; dd.querySelector('summary').focus(); }
+    });
+  });
+
   /* CLOSE MOBILE MENU ON LINK CLICK */
   document.querySelectorAll('.nav-links a').forEach(function(link){
     link.addEventListener('click',function(){
