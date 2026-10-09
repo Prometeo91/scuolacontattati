@@ -347,7 +347,7 @@
     </script>
 
  <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) — self-hosted, zero dipendenze esterne -->
-  <link rel="stylesheet" href="style.css?v=20261008a"/>
+  <link rel="stylesheet" href="style.css?v=20261009a"/>
   <noscript><style>.sr{opacity:1!important;transform:none!important}</style></noscript>
 
 </head>
@@ -1663,7 +1663,9 @@
     seen.push(idx);
     show(idx);
   }
-  btn.addEventListener('click',next);
+  /* la freccia gira di mezzo giro a ogni nuova citazione, quando arriva davvero */
+  var ico=btn.querySelector('svg'),giri=0;
+  btn.addEventListener('click',function(){next();if(ico){giri++;ico.style.transform='rotate('+giri*180+'deg)';}});
   next();
 })();
 </script>
