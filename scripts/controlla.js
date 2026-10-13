@@ -102,6 +102,10 @@ const pagineDaControllare = [
   ...fs.readdirSync(ROOT, { withFileTypes: true })
     .filter(d => d.isDirectory() && esiste(path.join(d.name, 'index.html')) && d.name !== 'en' && !d.name.startsWith('.') && d.name !== 'node_modules')
     .map(d => d.name + '/index.html'),
+  // pagine proprie in inglese (en/libro/, en/giochi/…)
+  ...fs.readdirSync(path.join(ROOT, 'en'), { withFileTypes: true })
+    .filter(d => d.isDirectory() && d.name !== 'test' && esiste(path.join('en', d.name, 'index.html')))
+    .map(d => 'en/' + d.name + '/index.html'),
   // test interattivi: una cartella per test, in italiano e in inglese
   ...['test', 'en/test'].filter(esiste).flatMap(dir =>
     fs.readdirSync(path.join(ROOT, dir), { withFileTypes: true })
@@ -173,6 +177,28 @@ for (const f of PAGINE) {
 for (const m of leggi('sitemap.xml').matchAll(/<loc>https:\/\/scuolacontattati\.com\/([^<]*)<\/loc>/g)) {
   const f = m[1] === '' || m[1].endsWith('/') ? m[1] + 'index.html' : m[1];
   if (!esiste(f)) errore('sitemap', `sitemap.xml elenca /${m[1]}, che non esiste`);
+}
+
+/* ── 8. Le pagine proprie hanno lo stesso menu e gli stessi ?v= della home ──
+   Libro, Ispirazioni e Giochi copiano barra e footer della home: una voce di
+   menu aggiunta solo in index.html, o un ?v= aggiornato solo lì, le lascerebbe
+   indietro in silenzio. */
+const SOTTOPAGINE = ['libro', 'ispirazioni', 'giochi'];
+const vociMenu = f => [...(leggi(f).match(/<div class="nav-links">([\s\S]*?)<span class="lang-pill">/) || ['', ''])[1]
+  .matchAll(/<(?:a|summary)\b[^>]*>([^<]+)/g)].map(m => m[1].trim()).filter(Boolean).join(' · ');
+for (const [home, pre] of [['index.html', ''], ['en/index.html', 'en/']]) {
+  const menuHome = vociMenu(home);
+  const vHome = versioniInPagina(home);
+  for (const slug of SOTTOPAGINE) {
+    const f = pre + slug + '/index.html';
+    if (!esiste(f)) { errore('pagine', `${f} non esiste ma la home ci rimanda`); continue; }
+    const m = vociMenu(f);
+    if (m !== menuHome) errore('pagine', `${f}: il menu non coincide con ${home}\n    home:   ${menuHome}\n    pagina: ${m}`);
+    const vPag = versioniInPagina(f);
+    for (const file of ['style.css', 'app.js']) {
+      if (vPag[file] && vHome[file] && vPag[file] !== vHome[file]) errore('pagine', `${f} carica ${file}?v=${vPag[file]}, la home ?v=${vHome[file]}`);
+    }
+  }
 }
 
 /* ── Esito ─────────────────────────────────────────────────────────────── */
