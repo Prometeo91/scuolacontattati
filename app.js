@@ -26,6 +26,8 @@ var SC_T = SC_EN ? {
   di:'of',
   tuttiEventi:'Show all events ▾', ingressoLibero:'Free entry',
   formAttendiTitolo:'Please wait',
+  formCampiTitolo:'Check the highlighted fields', formCampiTesto:'The message has not been sent yet.',
+  erroreObbligatorio:'Required field', erroreEmail:'Enter a valid email address, like name@example.com', errorePrivacy:'To send the message, accept the privacy notice.',
   formAttendiTesto:'Please wait a few seconds and try again.',
   formInviatoTitolo:'Message sent',
   formInviatoTesto:'Thank you, we will reply soon.',
@@ -54,6 +56,8 @@ var SC_T = SC_EN ? {
   di:'di',
   tuttiEventi:'Mostra tutti gli eventi ▾', ingressoLibero:'Ingresso libero',
   formAttendiTitolo:'Attendi un momento',
+  formCampiTitolo:'Controlla i campi evidenziati', formCampiTesto:'Il messaggio non è ancora partito.',
+  erroreObbligatorio:'Campo obbligatorio', erroreEmail:'Inserisci un indirizzo email valido, come nome@esempio.it', errorePrivacy:'Per inviare il messaggio accetta l’informativa.',
   formAttendiTesto:'Attendi qualche secondo e riprova.',
   formInviatoTitolo:'Messaggio inviato',
   formInviatoTesto:'Grazie, ti risponderemo presto.',
@@ -668,12 +672,47 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
 
+    /* Errori dei campi scritti dal sito, sotto il campo, nella lingua della
+       pagina: i fumetti del browser (novalidate li spegne) arrivavano nella
+       lingua del browser, sparivano al primo tocco e lo screen reader non li
+       associava al campo. aria-invalid e aria-describedby fanno quel lavoro. */
+    var campi=[].slice.call(cForm.querySelectorAll('input[required],textarea[required]'));
+    function msgErrore(el){
+      if(el.type==='checkbox')return SC_T.errorePrivacy;
+      if(el.validity.valueMissing)return SC_T.erroreObbligatorio;
+      if(el.validity.typeMismatch||el.validity.patternMismatch)return SC_T.erroreEmail;
+      return el.validationMessage;
+    }
+    function segnaCampo(el){
+      var box=el.closest('.field')||el.closest('.privacy-consent');
+      if(!box)return;
+      var err=box.querySelector('.field-error');
+      if(el.validity.valid){
+        if(err)err.remove();
+        el.removeAttribute('aria-invalid'); el.removeAttribute('aria-describedby');
+        return;
+      }
+      if(!err){ err=document.createElement('p'); err.className='field-error'; err.id='err-'+el.id; box.appendChild(err); }
+      err.textContent=msgErrore(el);
+      el.setAttribute('aria-invalid','true'); el.setAttribute('aria-describedby',err.id);
+    }
+    function pulisciErrori(){
+      campi.forEach(function(el){ el.removeAttribute('aria-invalid'); el.removeAttribute('aria-describedby'); });
+      cForm.querySelectorAll('.field-error').forEach(function(e){ e.remove(); });
+    }
+    /* l'errore sparisce appena il campo torna valido, senza aspettare l'invio */
+    campi.forEach(function(el){
+      ['input','change'].forEach(function(t){ el.addEventListener(t,function(){ if(el.hasAttribute('aria-invalid'))segnaCampo(el); }); });
+    });
+
     cForm.addEventListener('submit',function(ev){
       ev.preventDefault();
 
-      /* Client-side validation — browser's built-in checkValidity() */
       if(!cForm.checkValidity()){
-        cForm.reportValidity();
+        campi.forEach(segnaCampo);
+        showFeedback('error',SC_T.formCampiTitolo,SC_T.formCampiTesto);
+        var primo=campi.filter(function(e){return !e.validity.valid;})[0];
+        if(primo){ primo.focus({preventScroll:true}); primo.scrollIntoView({behavior:'smooth',block:'center'}); }
         return;
       }
 
@@ -707,7 +746,7 @@ document.addEventListener('DOMContentLoaded', function() {
         cBtn.disabled=false;
         if(resp.ok){
           showFeedback('success',SC_T.formOkTitolo,SC_T.formOkTesto);
-          cForm.reset();
+          cForm.reset(); pulisciErrori();
           cTocco=0; /* il secondo messaggio si cronometra da capo */
         } else {
           resp.json().then(function(json){

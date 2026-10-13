@@ -1279,6 +1279,11 @@ section#insegnamenti, section#seminario, section#faq {
 .field label { display: block; font-size: 11px; font-weight: 500; color: var(--text-muted); margin-bottom: 5px; letter-spacing: 0.12em; text-transform: uppercase; }
 .field input, .field textarea { width: 100%; min-height: 44px; font-family: var(--font-sans); font-size: 16px; padding: 10px 14px; background: rgba(255,255,255,0.03); border: 0.5px solid var(--border); border-radius: var(--radius-md); color: var(--text); outline: none; transition: border-color var(--t-base); font-feature-settings: "kern" 1, "liga" 1; }
 .field input:focus, .field textarea:focus { border-color: var(--gold); }
+/* stato d'errore: riga sotto il campo (app.js), bordo e contorno coi colori --ko-* */
+.field-error { font-size: 13px; color: var(--ko-text); margin-top: 0.4rem; line-height: 1.4; }
+.field input[aria-invalid="true"], .field textarea[aria-invalid="true"] { border-color: var(--ko-text); }
+.privacy-consent input[aria-invalid="true"] { outline: 2px solid var(--ko-text); outline-offset: 2px; }
+.privacy-consent .field-error { flex-basis: 100%; margin-top: 0; }
 .field input::placeholder, .field textarea::placeholder { color: var(--text-muted); }
 .field textarea { resize: none; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -1311,7 +1316,7 @@ section#insegnamenti, section#seminario, section#faq {
 .video-facade:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 
 /* Privacy consent */
-.privacy-consent { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+.privacy-consent { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 0.6rem; font-size: 13px; color: var(--text-muted); line-height: 1.5; }
 .privacy-consent input[type="checkbox"] { flex-shrink: 0; margin-top: 3px; width: 16px; height: 16px; accent-color: var(--gold); cursor: pointer; }
 .privacy-consent label { font-size: 13px; color: var(--text-muted); line-height: 1.5; letter-spacing: normal; text-transform: none; margin: 0; cursor: pointer; font-weight: 400; }
 .privacy-consent details { margin-top: 0.3rem; }
