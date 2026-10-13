@@ -331,8 +331,8 @@ lingua, toggle del tema) stanno accanto al logo su una riga sola con la
 spaziatura piena **solo da 1492px in su**. Le soglie sono misurate
 sull'italiano, che ha le voci più lunghe.
 
-- **≥ 1492px**: una riga, spaziatura `1.5rem`, toggle con la scritta.
-- **1024–1491px**: spaziatura `0.7rem`, voci a 14px, toggle alla sola icona.
+- **≥ 1492px**: una riga, spaziatura `1.45rem`, toggle con la scritta.
+- **1024–1491px**: spaziatura `0.65rem`, voci a 14px, toggle alla sola icona.
   Da 1210 in su ci stanno accanto al logo; sotto, la barra va a due righe,
   logo sopra e menu sotto, che è un assetto ordinato e voluto.
 - **≤ 1023px**: hamburger. Sotto i 1024 le voci si spezzerebbero su due righe
@@ -340,7 +340,11 @@ sull'italiano, che ha le voci più lunghe.
 
 La soglia era a 768px e lasciava scoperta tutta la fascia dei portatili.
 Chi tocca il menu deve rimisurare: aggiungere una voce può far saltare la
-riga a 1024, dove il margine è di una trentina di pixel.
+riga a 1024, dove il margine è di 4px. La voce «Test» è una tendina
+(`<details class="nav-drop">`); la sua freccina è stata compensata
+stringendo le spaziature sopra (da 1.5 e 0.7rem), perché le soglie
+restassero 1210 e 1492. Su desktop il testo delle voci è centrato nella
+riga da 44px e la sottolineatura gli sta attaccata.
 
 Non esiste una scala di spaziature in variabili: i valori sono espressi in
 `rem` sul posto. È un debito noto, non una scelta.
@@ -446,12 +450,18 @@ devono stare nella prima schermata** da 375×667 in su, in orizzontale sul
 telefono, a 1024×768 e 1280×800.
 
 - **Telefono in verticale fino a 740px d'altezza**: stessi elementi, logo a
-  116px e spazi più stretti.
+  100px, spazi più stretti, la stellina sotto il motto sparisce.
 - **Telefono in orizzontale** (altezza fino a 500px): due colonne, logo a
   sinistra e testi allineati a sinistra accanto. La barra perde 16px di
   padding.
 - **Tablet in orizzontale e portatili bassi** (larghezza da 641px, altezza
-  501-860px): logo a 160px e spazi più stretti.
+  501-860px): logo a 140px e spazi più stretti.
+
+Sotto il motto c'è la frase principale (`.hero-lead`, «Tornare padroni della
+propria vita.», Garamond 24-32px), il secondo elemento per evidenza dopo il
+nome. Su telefono i due pulsanti vanno uno sotto l'altro, della stessa
+larghezza. Ogni modifica alla hero va rimisurata a 375×667, 390×844 e
+1024×768.
 
 A 320×568 i pulsanti restano sotto la piega: rimpicciolire ancora
 sacrificherebbe il logo.
@@ -480,22 +490,55 @@ telefono un numero scritto non si tocca.
 Il giorno con evento si evidenzia in oro. Nessun colore semaforico
 (verde/rosso/giallo) per gli stati.
 
+Ogni riga di lezione porta la classe del suo stato (`futura`, `passata`,
+`in-corso`), assegnata da `app.js`:
+- **passata**: riga attenuata, gemma spenta e badge «Svolta» («Held»), l'unico
+  badge di stato visibile nel calendario;
+- **in-corso**: gemma piena, più grande, con l'anello netto e ferma;
+- **tbd** (si sa solo la data, o nemmeno quella): testi in `--text-muted`.
+  Si attenua col colore e non con l'opacità, che portava il titolo oro a
+  3,65:1.
+
+Il banner «Prossima lezione» mostra la lezione più vicina e, sotto, una riga
+per ogni altro anno in corso con il link alla sua scheda: quando due anni
+procedono insieme, ognuno trova la propria data. La scheda Esperienziali a
+riposo è uguale alle altre.
+
 ### Motion
 
-Tre timing in variabili, che sono la voce cinetica del sito:
+I timing stanno in variabili, che sono la voce cinetica del sito:
 
-- `--t-fast: 0.18s ease` — colore, opacità
-- `--t-base: 0.25s ease` — fondo, bordo, transform, box-shadow
-- `--t-slow: 0.4s ease` — max-height, accordion
+- `--t-fast: 0.18s ease`: colore
+- `--t-base: 0.25s ease`: fondo, bordo, ombra, opacità al passaggio del mouse
+- `--t-move: 0.2s var(--ease-out)`: frecce, spostamenti, comparse
+- `--t-press: 0.16s var(--ease-out)`: risposta alla pressione (`scale(0.97)`
+  sui pulsanti, `0.96` su quelli fissi)
+- `--ease-out: cubic-bezier(0.23, 1, 0.32, 1)`: la curva d'uscita per ciò che
+  entra o risponde a un gesto; le curve predefinite del CSS partono troppo
+  piano
 
-L'unica animazione d'ingresso è lo scroll-reveal: `.sr` parte da
-`opacity: 0` e `translateY(24px)`, `.sr.visible` la riporta a zero in `0.7s`.
-Si applica ai blocchi di sezione, non ai singoli elementi. Tutto rispetta
-`prefers-reduced-motion: reduce`.
+Le durate non si scrivono a mano: si usa una di queste variabili.
+
+L'animazione d'ingresso è lo scroll-reveal: `.sr` parte da `opacity: 0` e
+`translateY(12px)` e arriva a zero in 500ms con `--ease-out`. Si applica ai
+blocchi di sezione, non ai singoli elementi. Tendina «Test», lightbox e
+risposte delle FAQ entrano in 180-200ms con `@starting-style`.
+
+L'unico movimento continuo è lo sfondo del tema scuro (`sfondo-respira`, 35
+secondi, quasi impercettibile): è voluto.
+
+Con `prefers-reduced-motion: reduce` spariscono spostamenti, ingrandimenti e
+animazioni; restano le dissolvenze di colore e opacità, che aiutano a capire
+un cambio di stato.
+
+I controlli nativi (caselle, campi) seguono il tema del sito e non quello del
+sistema: `color-scheme: dark` sulla radice, `light` sul tema chiaro.
 
 ### Le etichette per aprire e chiudere
 
-Sono due famiglie, e non se ne aggiungono altre.
+Sono due famiglie, e non se ne aggiungono altre. Il testo sta nell'HTML,
+mai nel `content` del CSS, che è lo stesso per le due lingue (le card del
+libro lo leggono da `data-more` e `data-less`).
 
 | Cosa fa | Italiano | Inglese |
 |---|---|---|

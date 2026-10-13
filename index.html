@@ -83,7 +83,7 @@
         if(p.indexOf('/en/')< 0){
           var enPath=p.replace(/\/?(index\.html)?$/,'/en/index.html').replace(/\/privacy\.html$/,'/en/privacy.html');
           if(enPath===p) enPath='/en/index.html';
-          window.location.replace(enPath);
+          window.location.replace(enPath+window.location.hash);
         }
       }
     })();
@@ -347,7 +347,7 @@
     </script>
 
  <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) — self-hosted, zero dipendenze esterne -->
-  <link rel="stylesheet" href="style.css?v=20261009b"/>
+  <link rel="stylesheet" href="style.css?v=20261013a"/>
   <noscript><style>.sr{opacity:1!important;transform:none!important}</style></noscript>
 
 </head>
@@ -688,7 +688,7 @@
   </div>
 
   <div class="mt-125 text-center">
-    <div class="section-eyebrow center" style="margin-bottom:0.6rem;"><span>Complementari, non alternativi</span></div>
+    <div class="section-eyebrow center" style="margin-bottom:0.6rem;"><span>Due percorsi che si completano</span></div>
     <p class="body-text narrow-text">Nella Scuola lavori insieme agli altri: studi le Leggi, ti alleni con gli esercizi, e il gruppo fa da specchio. Nel Percorso Individuale lavori su un nodo specifico, tuo, con l'ascolto mirato di un conduttore. Chi frequenta la Scuola e incontra un blocco profondo può scioglierlo nel percorso individuale; chi inizia dall'individuale spesso sente il bisogno di una cornice più ampia. Per questo funzionano bene insieme.</p>
   </div>
 
@@ -969,7 +969,7 @@
       <h3 class="book-title-editorial">Ricchezza, Abbondanza e Mission</h3>
       <p class="book-subtitle-editorial">Le chiavi della realizzazione interiore</p>
       <p class="book-authors-editorial">Anna Carla Digregorio & Nicolaos Anifantis</p>
-      <p class="book-desc-editorial">Le Leggi universali della prosperità e dell'evoluzione spirituale diventano strumenti concreti per dissolvere blocchi e sciogliere schemi limitanti. Le chiavi archetipiche e le antiche saggezze guidano a riconoscere l'Abbondanza come uno stato naturale da abitare, non un premio da conquistare.</p>
+      <p class="book-desc-editorial">Le Leggi universali della prosperità e dell'evoluzione spirituale diventano strumenti concreti per dissolvere blocchi e sciogliere schemi limitanti. Le chiavi archetipiche e le antiche saggezze guidano a riconoscere l'Abbondanza come uno stato naturale in cui vivere.</p>
       <blockquote class="book-quote-editorial">
         Mira all'Abbondanza interiore, e la Ricchezza nella materia sarà una conseguenza. La Realizzazione non è una meta, ma uno stato dell'Essere.
         <cite>Anna Carla Digregorio & Nicolaos Anifantis</cite>
@@ -987,7 +987,7 @@
   </div>
   <div class="book-contents-grid sr">
     <details class="book-content-card">
-      <summary class="book-content-summary">
+      <summary class="book-content-summary" data-more="Leggi tutto" data-less="Mostra meno">
         <div class="book-content-emblem" aria-hidden="true"><img src="images/libro-nodo.webp" alt="" width="860" height="860" loading="lazy" decoding="async" style="object-position:50% 55%"/></div>
         <div class="book-content-label">22 Autosabotaggi</div>
         <p class="book-content-desc">I meccanismi inconsci che inceppano la Realizzazione. Riconoscerli è il primo atto alchemico.</p>
@@ -998,7 +998,7 @@
       </div>
     </details>
     <details class="book-content-card">
-      <summary class="book-content-summary">
+      <summary class="book-content-summary" data-more="Leggi tutto" data-less="Mostra meno">
         <div class="book-content-emblem" aria-hidden="true"><img src="images/libro-armillare.webp" alt="" width="860" height="860" loading="lazy" decoding="async" style="object-position:50% 42%"/></div>
         <div class="book-content-label">6 Leggi Universali</div>
         <p class="book-content-desc">Le forze che sostengono l'Abbondanza: frequenze da incarnare nella propria vita.</p>
@@ -1009,7 +1009,7 @@
       </div>
     </details>
     <details class="book-content-card">
-      <summary class="book-content-summary">
+      <summary class="book-content-summary" data-more="Leggi tutto" data-less="Mostra meno">
         <div class="book-content-emblem" aria-hidden="true"><img src="images/libro-pianeti.webp" alt="" width="860" height="860" loading="lazy" decoding="async" style="object-position:50% 50%"/></div>
         <div class="book-content-label">3 Archetipi Planetari</div>
         <p class="book-content-desc">Urano, Nettuno e Plutone come mappe simboliche per navigare le prove quotidiane.</p>
@@ -1081,13 +1081,13 @@
     <details class="read-more" style="margin-top:0.4rem;">
       <summary><span class="read-more-more">Mostra le 8 forme</span><span class="read-more-less">Mostra meno</span></summary>
       <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 4px 1.5rem; margin-top:0.5rem;">
-      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">1.</span> Conoscenza spirituale interiore</p>
-      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">2.</span> Servizio: offrire sé stessi in un progetto di valore</p>
-      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">3.</span> Fede e coraggio</p>
-      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">4.</span> Fiducia in sé stessi</p>
-      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">5.</span> Virtù invisibili: qualità che generano rispetto e onore</p>
-      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">6.</span> Relazioni sane</p>
-      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">7.</span> Salute e benessere fisico e mentale</p>
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(var(--gold-rgb),0.1);"><span class="text-gold">1.</span> Conoscenza spirituale interiore</p>
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(var(--gold-rgb),0.1);"><span class="text-gold">2.</span> Servizio: offrire sé stessi in un progetto di valore</p>
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(var(--gold-rgb),0.1);"><span class="text-gold">3.</span> Fede e coraggio</p>
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(var(--gold-rgb),0.1);"><span class="text-gold">4.</span> Fiducia in sé stessi</p>
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(var(--gold-rgb),0.1);"><span class="text-gold">5.</span> Virtù invisibili: qualità che generano rispetto e onore</p>
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(var(--gold-rgb),0.1);"><span class="text-gold">6.</span> Relazioni sane</p>
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(var(--gold-rgb),0.1);"><span class="text-gold">7.</span> Salute e benessere fisico e mentale</p>
       <p class="body-text-sm" style="padding:0.35rem 0;"><span class="text-gold">8.</span> Sussistenza e economia solida</p>
       </div>
     </details>
@@ -1463,7 +1463,7 @@
   </div>
 
   <!-- ── Avventure ── -->
-  <div style="display:flex;justify-content:center;padding:1.5rem 0"><div style="width:60px;height:0.5px;background:linear-gradient(90deg,transparent,rgba(201,151,58,0.5),transparent)"></div></div>
+  <div style="display:flex;justify-content:center;padding:1.5rem 0"><div style="width:60px;height:0.5px;background:linear-gradient(90deg,transparent,rgba(var(--gold-rgb),0.5),transparent)"></div></div>
   <div class="section-eyebrow"><span>Avventure</span></div>
   <h3 class="section-title" style="font-size:clamp(22px,4vw,32px)">Il cammino interiore</h3>
   <p class="section-sub" style="margin-bottom:1.5rem">Storie interattive con salvataggio · partite da 10–20 minuti</p>
@@ -1527,7 +1527,7 @@
 
     <hr class="footer-divider"/>
     <p><a href="tel:+393349991888" aria-label="Chiama Nicolaos al 334 999 1888">334 999 1888</a> &nbsp;·&nbsp; <span id="email-footer"></span></p>
-    <p class="serif-footer serif-footer-quote">"Non si tratta di diventare qualcuno. Si tratta di ricordare chi si è già."</p>
+    <p class="serif-footer serif-footer-quote">"Il lavoro su di sé è ricordare chi si è già."</p>
     <p class="footer-copyright">© 2026 Scuola ContattaTi · Anna Carla Digregorio & Nicolaos Anifantis</p>
   </div>
 </footer>
@@ -1671,7 +1671,7 @@
 })();
 </script>
 <script src="data/eventi.js?v=20260908a" defer></script>
-<script src="app.js?v=20261008a" defer></script>
+<script src="app.js?v=20261013a" defer></script>
 <script>
 /* SIGILLI GIOCHI — mostra ✦ sulle card dei giochi completati */
 (function(){

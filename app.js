@@ -19,7 +19,7 @@ var SC_T = SC_EN ? {
   annoConcluso:'Year completed', lezioniSvolte:'lessons were held from', aData:'to',
   dateInDefinizione:'Dates not yet set — the titles are confirmed, the dates are published as soon as they are.',
   videoTitle:'Introductory video of the Scuola ContattaTi',
-  inCorso:'&#9679; In progress', conclusa:'Completed', iscriviti:'Enrol',
+  inCorso:'&#9679; In progress', conclusa:'Completed', svolta:'Held', iscriviti:'Enrol',
   inCorsoOra:' — In progress now', prossima:' ✶ Next',
   anno:'Year', lezione:'Lesson', temi:'Topics',
   inArrivo:'Coming soon', locandinaInArrivo:'Details coming soon',
@@ -47,7 +47,7 @@ var SC_T = SC_EN ? {
   annoConcluso:'Anno concluso', lezioniSvolte:'le lezioni si sono svolte da', aData:'a',
   dateInDefinizione:'Date non ancora fissate — i titoli sono confermati, le date vengono pubblicate appena lo sono.',
   videoTitle:'Video di presentazione della Scuola ContattaTi',
-  inCorso:'&#9679; In corso', conclusa:'Conclusa', iscriviti:'Iscriviti',
+  inCorso:'&#9679; In corso', conclusa:'Conclusa', svolta:'Svolta', iscriviti:'Iscriviti',
   inCorsoOra:' — In corso ora', prossima:' ✶ Prossima',
   anno:'Anno', lezione:'Lezione', temi:'Temi',
   inArrivo:'In arrivo', locandinaInArrivo:'Locandina in arrivo',
@@ -306,12 +306,12 @@ document.addEventListener('DOMContentLoaded', function() {
       if(st==='futura')prossimaTrovata=true;
       var bc,bt;
       if(st==='in-corso'){bc='badge badge-green';bt=SC_T.inCorso;}
-      else if(st==='passata'){bc='badge badge-muted';bt=SC_T.conclusa;}
+      else if(st==='passata'){bc='badge badge-muted';bt=SC_T.svolta;}
       else if(isPr){bc='badge badge-gold';bt=SC_T.iscriviti;}
       else{bc='badge badge-purple';bt=mesiL[l.month-1]+' '+l.year;}
       var sfx=st==='in-corso'?SC_T.inCorsoOra:isPr?SC_T.prossima:'';
       var w=document.createElement('div');w.className='lesson-wrap';
-      w.innerHTML='<div class="event-row has-detail" role="button" tabindex="0" aria-expanded="false"><div class="event-date"><p class="event-day ev-num">'+toRoman(l.num)+'</p><p class="event-month">'+SC_T.anno+' 1</p></div><div class="event-vline"></div><div class="event-info"><p class="event-title">'+SC_T.lezione+' '+toRoman(l.num)+sfx+'</p><p class="event-sub">'+loc(l).titolo+'</p><p style="font-size:13px;color:var(--text-muted);margin-top:2px;">'+l.day+' '+mesiL[l.month-1]+' '+l.year+'</p></div><span class="'+bc+'">'+bt+'</span><span class="detail-pill">'+SC_T.temi+' ▾</span><span class="expand-arrow">▼</span></div>'+panelHTML(l);
+      w.innerHTML='<div class="event-row has-detail '+st+'" role="button" tabindex="0" aria-expanded="false"><div class="event-date"><p class="event-day ev-num">'+toRoman(l.num)+'</p><p class="event-month">'+SC_T.anno+' 1</p></div><div class="event-vline"></div><div class="event-info"><p class="event-title">'+SC_T.lezione+' '+toRoman(l.num)+sfx+'</p><p class="event-sub">'+loc(l).titolo+'</p><p style="font-size:13px;color:var(--text-muted);margin-top:2px;">'+l.day+' '+mesiL[l.month-1]+' '+l.year+'</p></div><span class="'+bc+'">'+bt+'</span><span class="detail-pill">'+SC_T.temi+' ▾</span><span class="expand-arrow">▼</span></div>'+panelHTML(l);
       list1.appendChild(w);
       var row=w.querySelector('.event-row'),panel=w.querySelector('.lesson-panel');
       row.addEventListener('click',function(){toggle(row,panel);});
@@ -330,19 +330,19 @@ document.addEventListener('DOMContentLoaded', function() {
       if(st==='futura')prossimaTrovata=true;
       var bc,bt;
       if(st==='in-corso'){bc='badge badge-green';bt=SC_T.inCorso;}
-      else if(st==='passata'){bc='badge badge-muted';bt=SC_T.conclusa;}
+      else if(st==='passata'){bc='badge badge-muted';bt=SC_T.svolta;}
       else if(isPr){bc='badge badge-gold';bt=SC_T.iscriviti;}
       else if(st==='futura'){bc='badge badge-purple';bt=mesiL[l.month-1]+' '+l.year;}
       else{bc='';bt='';}
       if(!l.titolo){
         var dataBadge=hasDate?'<span class="'+bc+'">'+bt+'</span>':'<span class="badge badge-muted">'+SC_T.inArrivo+'</span>';
-        w.innerHTML='<div class="event-row" style="opacity:0.65;"><div class="event-date"><p class="event-day ev-num">'+toRoman(l.num)+'</p><p class="event-month">'+label+'</p></div><div class="event-vline"></div><div class="event-info"><p class="event-title">'+SC_T.lezione+' '+toRoman(l.num)+'</p>'+(hasDate?'<p class="event-sub">'+l.day+' '+mesiL[l.month-1]+' '+l.year+'</p>':'<p class="event-sub">'+SC_T.locandinaInArrivo+'</p>')+'</div>'+dataBadge+'</div>';
+        w.innerHTML='<div class="event-row tbd'+(st?' '+st:'')+'"><div class="event-date"><p class="event-day ev-num">'+toRoman(l.num)+'</p><p class="event-month">'+label+'</p></div><div class="event-vline"></div><div class="event-info"><p class="event-title">'+SC_T.lezione+' '+toRoman(l.num)+'</p>'+(hasDate?'<p class="event-sub">'+l.day+' '+mesiL[l.month-1]+' '+l.year+'</p>':'<p class="event-sub">'+SC_T.locandinaInArrivo+'</p>')+'</div>'+dataBadge+'</div>';
         el.appendChild(w);
         return;
       }
       var badgeHTML=hasDate?'<span class="'+bc+'">'+bt+'</span>':'';
       var sfx=st==='in-corso'?SC_T.inCorsoOra:isPr?SC_T.prossima:'';
-      w.innerHTML='<div class="event-row has-detail" role="button" tabindex="0" aria-expanded="false"><div class="event-date"><p class="event-day ev-num">'+toRoman(l.num)+'</p><p class="event-month">'+label+'</p></div><div class="event-vline"></div><div class="event-info"><p class="event-title">'+SC_T.lezione+' '+toRoman(l.num)+sfx+'</p><p class="event-sub">'+loc(l).titolo+'</p>'+(hasDate?'<p style="font-size:13px;color:var(--text-muted);margin-top:2px;">'+l.day+' '+mesiL[l.month-1]+' '+l.year+'</p>':'')+'</div>'+badgeHTML+'<span class="detail-pill">'+SC_T.temi+' ▾</span><span class="expand-arrow">▼</span></div>'+panelHTML(l);
+      w.innerHTML='<div class="event-row has-detail'+(st?' '+st:'')+'" role="button" tabindex="0" aria-expanded="false"><div class="event-date"><p class="event-day ev-num">'+toRoman(l.num)+'</p><p class="event-month">'+label+'</p></div><div class="event-vline"></div><div class="event-info"><p class="event-title">'+SC_T.lezione+' '+toRoman(l.num)+sfx+'</p><p class="event-sub">'+loc(l).titolo+'</p>'+(hasDate?'<p style="font-size:13px;color:var(--text-muted);margin-top:2px;">'+l.day+' '+mesiL[l.month-1]+' '+l.year+'</p>':'')+'</div>'+badgeHTML+'<span class="detail-pill">'+SC_T.temi+' ▾</span><span class="expand-arrow">▼</span></div>'+panelHTML(l);
       el.appendChild(w);
       var row=w.querySelector('.event-row'),panel=w.querySelector('.lesson-panel');
       row.addEventListener('click',function(){toggle(row,panel);});
@@ -377,17 +377,19 @@ document.addEventListener('DOMContentLoaded', function() {
      (programma in definizione) sono ignorate: non si inventa niente. */
   (function(){
     var anni=[L1,L2,L3,L4,L5,L6,L7];
-    var pross=null, statoAnno=[];
+    var pross=null, statoAnno=[], prossPerAnno=[];
 
     anni.forEach(function(lista,i){
       var conData=lista.filter(function(l){return l.day&&l.month&&l.year;});
       var tutteP=conData.length>0&&conData.every(function(l){return stato(l.day,l.month,l.year)==='passata';});
       statoAnno[i]={conclusa:tutteP, senzaDate:conData.length===0&&lista.length>0, prima:conData[0], ultima:conData[conData.length-1]};
+      var propria=null;
       conData.forEach(function(l){
         if(stato(l.day,l.month,l.year)==='passata')return;
         var d=new Date(l.year,l.month-1,l.day,9,0);
-        if(!pross||d<pross.d)pross={d:d,l:l,anno:i+1};
+        if(!propria||d<propria.d)propria={d:d,l:l,anno:i+1};
       });
+      if(propria){ prossPerAnno.push(propria); if(!pross||propria.d<pross.d)pross=propria; }
     });
 
     var box=document.getElementById('ripresa');
@@ -408,6 +410,28 @@ document.addEventListener('DOMContentLoaded', function() {
         else if(n===1)c.innerHTML=SC_EN?'<strong>Tomorrow</strong>':'<strong>È domani</strong>';
         else c.innerHTML=SC_EN?'In <strong>'+n+' days</strong>':'Tra <strong>'+n+' giorni</strong>';
       }
+      /* Più anni in corso insieme (oggi il 2° e il 5°): il banner dava solo la
+         lezione più vicina, e chi frequenta l'altro anno leggeva una data non sua.
+         Una riga per ciascun altro anno, col link alla sua scheda. */
+      prossPerAnno.filter(function(x){return x!==pross;}).sort(function(a,b){return a.d-b.d;}).forEach(function(x){
+        var m=SC_T.mesiL[x.l.month-1];
+        var p=document.createElement('p'); p.className='ripresa-altri';
+        p.appendChild(document.createTextNode((SC_EN?'Year '+x.anno:x.anno+'° Anno')+': '));
+        var a=document.createElement('a'); a.href='#anno-'+x.anno;
+        var g=SC_T.giorniL[x.d.getDay()];
+        a.textContent=(SC_EN?g:g.toLowerCase())+' '+x.l.day+' '+(SC_EN?m:m.toLowerCase())+(x.l.year!==pross.l.year?' '+x.l.year:'');
+        a.addEventListener('click',function(e){
+          var tab=document.getElementById('tab-anno-'+x.anno);
+          if(!tab)return;
+          e.preventDefault(); tab.click();
+          /* scroll animato: prima si disegnano tutte le sezioni (vedi .cv-off) */
+          document.documentElement.classList.add('cv-off');
+          tab.parentNode.scrollIntoView({behavior:'smooth',block:'start'});
+        });
+        p.appendChild(a);
+        var note=box.querySelector('.ripresa-note');
+        box.insertBefore(p,note);
+      });
       box.hidden=false;
     }
 

@@ -87,6 +87,7 @@
 }
 
 :root {
+  color-scheme: dark;
   /* Scala dei raggi: xs marcature e badge quadrati, sm pulsanti e controlli,
      md campi ed emblemi, lg card e riquadri media, pill solo per i tag di stato.
      lg-inner = lg meno l'inset 6px del doppio bordo delle card. */
@@ -171,6 +172,7 @@
 
 /* ── TEMA CHIARO — v2 (pergamena + gerarchia oro restituita) ── */
 [data-theme="light"] {
+  color-scheme: light;
   /* Sfondo pergamena */
   --bg-1: #f8f2e6;
   --bg-2: #ede4d0;
@@ -908,9 +910,9 @@ section#insegnamenti, section#seminario, section#faq {
 .book-content-card { cursor: pointer; }
 .book-content-summary { list-style: none; display: flex; flex-direction: column; align-items: center; }
 .book-content-summary::-webkit-details-marker { display: none; }
-.book-content-summary::after { content: 'Approfondisci ▾'; font-family: var(--font-sans); font-size: 12px; font-weight: 500; color: var(--gold-light); margin-top: 0.75rem; padding: 4px 14px; border-radius: var(--radius-pill); border: 0.5px solid var(--border); background: var(--surface); transition: background var(--t-base), border-color var(--t-base); letter-spacing: 0.04em; }
+.book-content-summary::after { content: attr(data-more) ' ▾'; font-family: var(--font-sans); font-size: 12px; font-weight: 500; color: var(--gold-light); margin-top: 0.75rem; padding: 4px 14px; border-radius: var(--radius-pill); border: 0.5px solid var(--border); background: var(--surface); transition: background var(--t-base), border-color var(--t-base); letter-spacing: 0.04em; }
 .book-content-card:hover .book-content-summary::after { background: var(--surface-hover); border-color: var(--border-hover); }
-.book-content-card[open] .book-content-summary::after { content: 'Mostra meno ▴'; background: var(--surface-hover); border-color: var(--border-hover); }
+.book-content-card[open] .book-content-summary::after { content: attr(data-less) ' ▴'; background: var(--surface-hover); border-color: var(--border-hover); }
 .book-content-detail { text-align: left; margin-top: 1rem; padding-top: 1rem; border-top: 0.5px solid rgba(var(--gold-rgb),0.15); }
 .book-content-card[open] { grid-column: 1 / -1; }
 @media (max-width: 700px) {
@@ -945,7 +947,7 @@ section#insegnamenti, section#seminario, section#faq {
   width: 200px; height: 200px;
   border-radius: var(--radius-lg); object-fit: cover;
   border: 1px solid var(--border-hover);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+  box-shadow: var(--card-shadow);
 }
 .conductor-name {
   font-family: var(--font-display);
@@ -1031,7 +1033,6 @@ section#insegnamenti, section#seminario, section#faq {
   .conductor-tags { justify-content: center; }
   .collab-card { flex-direction: column; text-align: center; }
 }
-[data-theme="light"] .conductor-photo-lg { box-shadow: 0 4px 20px rgba(80,60,30,0.12); }
 [data-theme="light"] .shared-story { background: rgba(255,253,247,0.92); box-shadow: 0 2px 14px rgba(80,60,30,0.07); }
 [data-theme="light"] .collab-card { background: rgba(255,253,247,0.92); box-shadow: 0 2px 14px rgba(80,60,30,0.07); }
 .collab-group-photo {
@@ -1040,13 +1041,12 @@ section#insegnamenti, section#seminario, section#faq {
 .collab-group-photo img {
   width: 100%; height: auto; border-radius: var(--radius-lg);
   border: 1px solid var(--border-hover);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+  box-shadow: var(--card-shadow);
 }
 .collab-group-photo figcaption {
   margin-top: 0.8rem; font-size: 12px; color: var(--text-muted);
   letter-spacing: 0.06em; font-family: var(--font-sans);
 }
-[data-theme="light"] .collab-group-photo img { box-shadow: 0 4px 20px rgba(80,60,30,0.12); }
 .teacher-name { font-family: var(--font-display); font-size: 20px; font-weight: 500; color: var(--text); margin-bottom: 0.3rem; letter-spacing: 0.01em; }
 /* Minuscolo: è una descrizione da leggere («Collaboratrice · lezioni e
    seminari esperienziali»), non una firma. In maiuscolo spaziato andava su
@@ -1481,7 +1481,6 @@ input[type="radio"]:focus-visible {
 .video-responsive iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: var(--radius-lg); }
 .esp-banner { background:rgba(var(--gold-rgb),0.07); border:0.5px solid rgba(var(--gold-rgb),0.35); border-radius: var(--radius-lg); padding:1.1rem 1.4rem; display:flex; gap:0.75rem; align-items:flex-start; margin-top:10px; }
 .esp-banner-title { font-size: 16px; font-weight:500; color:var(--gold-light); margin-bottom:0.3rem; }
-.anno-tab-esp { border-color:rgba(var(--gold-rgb),0.5); color:var(--gold-light); }
 
 /* Presentazioni list */
 .pres-list { display:flex; flex-direction:column; gap:8px; }
@@ -1578,10 +1577,10 @@ input[type="radio"]:focus-visible {
   background:
     linear-gradient(180deg, rgba(var(--gold-rgb),0.03) 0%, rgba(var(--gold-rgb),0.06) 50%, rgba(var(--gold-rgb),0.03) 100%),
     linear-gradient(180deg, rgba(13,11,26,0.90) 0%, rgba(13,11,26,0.95) 50%, rgba(13,11,26,0.90) 100%),
-    url('images/hero-cielo.webp') center / cover no-repeat;
+    url('images/hero-cielo-800.webp') center / cover no-repeat;
   pointer-events:none; z-index:0;
 }
-.section-band > * { position:relative; z-index:1; max-width:var(--col); margin-left:auto; margin-right:auto; }
+.section-band > * { position:relative; z-index:1; max-width:calc(var(--col) - 4rem); margin-left:auto; margin-right:auto; }
 
 /* ANIMATED BACKGROUND — rimossa per coerenza visiva */
 /* bg-drift animation rimossa per coerenza visiva */
@@ -1592,7 +1591,9 @@ input[type="radio"]:focus-visible {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    /* restano le dissolvenze di colore e opacità, che aiutano a capire un
+       cambio di stato; spariscono spostamenti e ingrandimenti */
+    transition-property: opacity, color, background-color, border-color, outline-color !important;
     scroll-behavior: auto !important;
   }
 }
@@ -2064,10 +2065,17 @@ section#ispirazioni > * { position: relative; z-index: 1; }
   display: none;
 }
 
-/* Rimuovi tutti i badge di stato nell'anno 1 (prossima/in corso/passata) */
+/* Nel calendario dei badge di stato resta solo «Svolta» sulle lezioni
+   passate: la prossima la dice già il banner, e date e mesi stanno nella riga. */
 .calendar-list .badge {
   display: none;
 }
+.calendar-list .event-row.passata .badge-muted { display: inline-block; }
+/* Lezioni di cui si sa solo la data, o nemmeno quella: attenuate col colore,
+   non con l'opacità, che portava il titolo oro sotto il contrasto minimo. */
+.calendar-list .event-row.tbd .event-title,
+.calendar-list .event-row.tbd .event-day { color: var(--text-muted); }
+.calendar-list .event-row.tbd .event-sub { color: var(--text-muted); font-weight: 400; }
 
 /* Event-row riposizionato: relative, padding sinistro normale */
 .calendar-list .event-row {
@@ -2429,6 +2437,9 @@ html[data-theme="light"]::before {
   .ripresa-sub{font-family:var(--font-display);font-size:17px;color:var(--text-reading);margin-top:0.4rem;line-height:1.4}
   .ripresa-count{font-family:var(--font-sans);font-size:14px;letter-spacing:0.05em;color:var(--text-muted);margin-top:0.85rem}
   .ripresa-count strong{color:var(--gold-light);font-weight:600}
+  .ripresa-altri{font-size:14px;color:var(--text-muted);margin-top:0.6rem;line-height:1.4}
+  .ripresa-altri a{display:inline-flex;align-items:center;min-height:44px;color:var(--gold-light);text-decoration:underline;text-decoration-color:var(--border-hover);text-underline-offset:3px}
+  .ripresa-altri a:hover{text-decoration-color:var(--gold-light)}
   .ripresa-note{font-size:13px;color:var(--text-muted);margin-top:1rem;padding-top:0.9rem;border-top:0.5px solid var(--border);line-height:1.65}
   @media(max-width:560px){.ripresa{padding:1.3rem 1.1rem}.ripresa-title{font-size:22px}.ripresa-sub{font-size:15px}}
 
@@ -2437,7 +2448,7 @@ html[data-theme="light"]::before {
   .lang-pill a{display:inline-flex;align-items:center;justify-content:center;min-width:40px;min-height:32px;padding:4px 10px;border-radius: var(--radius-pill);text-decoration:none;transition:color var(--t-fast), background var(--t-base);line-height:1}
   .lang-pill a.lang-active{background:var(--gold);color:var(--on-gold)}
   .lang-pill a:not(.lang-active){color:var(--text-muted)}
-  .lang-pill a:not(.active):hover{color:var(--gold-light)}
+  .lang-pill a:not(.lang-active):hover{color:var(--gold-light)}
   .lang-pill .lang-dot{color:var(--border);font-size:8px;padding:0 1px;user-select:none}
   
 
