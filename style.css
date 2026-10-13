@@ -1024,6 +1024,7 @@ section#insegnamenti, section#seminario, section#faq {
   .conductor-story.reverse .conductor-text { order: unset; }
   .conductor-photo-wrap { position: static; display: flex; justify-content: center; }
   .conductor-photo-lg { width: 160px; height: 160px; }
+  .conductor-bio { text-align: left; }   /* sei righe centrate si leggono male */
   .conductor-tags { justify-content: center; }
   .collab-card { flex-direction: column; text-align: center; }
 }

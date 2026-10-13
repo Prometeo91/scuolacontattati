@@ -26,7 +26,7 @@ var SC_T = SC_EN ? {
   di:'of',
   tuttiEventi:'Show all events ▾', ingressoLibero:'Free entry',
   formAttendiTitolo:'Please wait',
-  formAttendiTesto:'The form was submitted too quickly. Please try again in a few seconds.',
+  formAttendiTesto:'Please wait a few seconds and try again.',
   formInviatoTitolo:'Message sent',
   formInviatoTesto:'Thank you, we will reply soon.',
   formOkTitolo:'✓ Message sent',
@@ -54,7 +54,7 @@ var SC_T = SC_EN ? {
   di:'di',
   tuttiEventi:'Mostra tutti gli eventi ▾', ingressoLibero:'Ingresso libero',
   formAttendiTitolo:'Attendi un momento',
-  formAttendiTesto:'Il modulo è stato inviato troppo velocemente. Riprova tra qualche secondo.',
+  formAttendiTesto:'Attendi qualche secondo e riprova.',
   formInviatoTitolo:'Messaggio inviato',
   formInviatoTesto:'Grazie, ti risponderemo presto.',
   formOkTitolo:'✓ Messaggio inviato',
@@ -233,7 +233,8 @@ document.addEventListener('DOMContentLoaded', function() {
      traduzione manca si ricade sull'italiano invece di mostrare un buco. */
   function loc(l){ return (SC_EN && l.en) ? l.en : l; }
   function temiHTML(t){return '<ul class="lesson-topics">'+t.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>';}
-  function panelHTML(l){var c=loc(l);return '<div class="lesson-panel"><div class="lesson-panel-inner"><p class="lesson-panel-title">'+c.titolo+(c.sottotitolo?'<br><span style="font-size:15px;font-weight:500;color:var(--gold-light);font-style:normal;">'+c.sottotitolo+'</span>':'')+'</p>'+(c.desc?'<p class="body-text-sm mb-1 lesson-desc">'+c.desc+'</p>':'')+temiHTML(c.temi)+(c.citazione?'<div class="lesson-quote">'+c.citazione+'<cite>&mdash; '+c.autore+'</cite></div>':'')+'</div></div>';}
+  /* il titolo della lezione sta già nella riga sopra: nel pannello resta il sottotitolo */
+  function panelHTML(l){var c=loc(l);return '<div class="lesson-panel"><div class="lesson-panel-inner">'+(c.sottotitolo?'<p class="lesson-panel-title">'+c.sottotitolo+'</p>':'')+(c.desc?'<p class="body-text-sm mb-1 lesson-desc">'+c.desc+'</p>':'')+temiHTML(c.temi)+(c.citazione?'<div class="lesson-quote">'+c.citazione+'<cite>&mdash; '+c.autore+'</cite></div>':'')+'</div></div>';}
 
   /* INCONTRI ED EVENTI in #galleria — render da data/eventi.js (file unico
      IT+EN). Aperti e in vista: conoscere la Scuola prima di iscriversi è parte
