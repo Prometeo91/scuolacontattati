@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var txt=SC_EN?ev.en:ev.it;
       var card=document.createElement('div');
       card.className='evento-card'+(i>=VISIBILI?' pres-hidden':'');
-      card.innerHTML='<div class="evento-data"><p class="evento-giorno">'+ev.day+'</p><p class="evento-mese">'+mesi[ev.month-1]+' '+ev.year+'</p></div><div class="evento-vline"></div><div class="flex-1"><p class="evento-titolo">'+txt.titolo+'</p><p class="evento-dettaglio">'+txt.dettaglio+'</p></div>'+(ev.libero?'<span class="badge badge-gold">'+SC_T.ingressoLibero+'</span>':'');
+      card.innerHTML='<div class="evento-data"><p class="evento-giorno">'+ev.day+'</p><p class="evento-mese">'+mesi[ev.month-1]+' '+ev.year+'</p></div><div class="evento-vline"></div><div class="flex-1"><p class="evento-titolo">'+txt.titolo+'</p><p class="evento-dettaglio">'+txt.dettaglio+'</p>'+(ev.libero?'<p class="evento-badge"><span class="badge badge-gold">'+SC_T.ingressoLibero+'</span></p>':'')+'</div>';
       presList.appendChild(card);
     });
     var presTog=document.getElementById('presToggle');
@@ -538,27 +538,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
-
-  /* PULSANTI FISSI SUL TELEFONO: escono mentre si scorre verso il basso e
-     tornano appena si risale (vedi style.css). In cima e in fondo alla pagina
-     restano sempre. Soglia di 6px per non reagire ai tremolii del dito. */
-  (function(){
-    var mq=window.matchMedia('(max-width:768px)'), doc=document.documentElement;
-    var lastY=window.scrollY, ticking=false;
-    function aggiorna(){
-      ticking=false;
-      var y=window.scrollY, d=y-lastY;
-      var inCima=y<window.innerHeight*0.6;
-      var inFondo=window.innerHeight+y>=doc.scrollHeight-80;
-      if(!mq.matches||inCima||inFondo) doc.classList.remove('fab-via');
-      else if(d>6) doc.classList.add('fab-via');
-      else if(d<-6) doc.classList.remove('fab-via');
-      if(Math.abs(d)>6) lastY=y;
-    }
-    window.addEventListener('scroll',function(){
-      if(!ticking){ ticking=true; requestAnimationFrame(aggiorna); }
-    },{passive:true});
-  })();
 
   /* BACK TO TOP */
   var btt=document.getElementById('backToTop');
