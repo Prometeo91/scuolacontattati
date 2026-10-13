@@ -242,14 +242,23 @@
         missing[0].querySelector('input').focus({ preventScroll: true });
         return;
       }
+      mostraRisultato(true);
+    });
+
+    function mostraRisultato(vaiAlRisultato) {
       var r = scorer(sums(), T, ui);
       codeText = r.code;
       ui.role('code').innerHTML = (r.box || codeHtml(r.groups)) + (r.legend ? '<p class="code-legend">' + esc(r.legend) + '</p>' : '');
       ui.role('detail').innerHTML = r.html;
       result.hidden = false;
-      result.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      result.focus({ preventScroll: true });
-    });
+      if (vaiAlRisultato) {
+        result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        result.focus({ preventScroll: true });
+      }
+    }
+    /* chi torna con tutte le risposte salvate ritrova il risultato, senza
+       dover premere di nuovo il pulsante */
+    if (qs.length && answered().length === qs.length) mostraRisultato(false);
 
     ui.role('copy').addEventListener('click', function () {
       var b = this, done = function () { var o = b.textContent; b.textContent = T.copied; setTimeout(function () { b.textContent = o; }, 1800); };

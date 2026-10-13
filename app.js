@@ -282,7 +282,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!videoId) return;
     var iframe = document.createElement('iframe');
     iframe.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0&modestbranding=1';
-    iframe.title = SC_T.videoTitle;
+    iframe.title = facade.getAttribute('data-video-title') || SC_T.videoTitle;
     iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
     iframe.setAttribute('allowfullscreen', '');
     facade.innerHTML = '';

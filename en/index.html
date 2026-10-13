@@ -371,7 +371,7 @@
     </script>
 
  <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) — self-hosted, zero dipendenze esterne -->
-  <link rel="stylesheet" href="../style.css?v=20261013n"/>
+  <link rel="stylesheet" href="../style.css?v=20261013o"/>
   <noscript><style>.sr{opacity:1!important;transform:none!important}</style></noscript>
 
 </head>
@@ -944,8 +944,12 @@
   <div class="anno-panel" id="panel-anno-esp" role="tabpanel" aria-labelledby="tab-anno-esp" style="display:none;">
     <div class="esp-video-block">
       <p class="esp-video-intro">Discover what a School residential is like</p>
-      <div class="video-responsive">
-        <iframe src="https://www.youtube-nocookie.com/embed/W8A2Ux5TyrE" title="Residential presentation — Scuola ContattaTi" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      <!-- stessa facciata del video dell'hero: poster locale, YouTube si carica solo al clic -->
+      <div class="video-facade video-facade-esp" data-video-id="W8A2Ux5TyrE" data-video-title="Residential presentation — Scuola ContattaTi" role="button" tabindex="0" aria-label="Play the residential presentation video">
+        <div class="video-facade-bg" aria-hidden="true"></div>
+        <div class="video-facade-overlay" aria-hidden="true"></div>
+        <div class="video-facade-play" aria-hidden="true"><div class="video-facade-triangle"></div></div>
+        <div class="video-facade-content"><p class="video-facade-title">The experiential residential</p><p class="video-facade-sub">watch the presentation</p></div>
       </div>
     </div>
     <div class="calendar-list" id="calendar-list-esp"></div>
@@ -1367,7 +1371,7 @@
 })();
 </script>
 <script src="../data/eventi.js?v=20261013f" defer></script>
-<script src="../app.js?v=20261013m" defer></script>
+<script src="../app.js?v=20261013n" defer></script>
 <script>
 /* GAME SEALS — show ✦ on completed game cards */
 (function(){
