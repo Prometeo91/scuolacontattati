@@ -118,7 +118,10 @@
       ui.role('wa-ac').href = 'https://wa.me/393929116441?text=' + msg;
       ui.role('wa-nic').href = 'https://wa.me/393349991888?text=' + msg;
 
-      return { groups: groups, code: code, html: h };
+      /* legenda sotto il codice: le sigle con i nomi, nello stesso ordine */
+      var legend = els.map(function (k) { return k + ' ' + N[k]; }).join(' · ') + ' (' + Lb.quality + ' / ' + Lb.excess + ') · ' +
+                   'P ' + N.P + ' · S ' + N.S + ' · V ' + N.V + ' · A ' + N.ATT + ' · W ' + N.VOL;
+      return { groups: groups, code: code, html: h, legend: legend };
     },
 
     temperamento: function (s, T) {
@@ -186,11 +189,23 @@
     var ui = { role: function (r) { return panel.querySelector('[data-role="' + r + '"]'); } };
     var form = ui.role('form'), progress = ui.role('progress'), result = ui.role('result');
     var qs = [].slice.call(form.querySelectorAll('.q'));
+    /* «per niente vero / totalmente vero» sono aria-hidden sotto la scala:
+       lo screen reader li sente come nome del primo e dell'ultimo valore. */
+    qs.forEach(function (q) {
+      var ends = q.querySelectorAll('.scale-ends span'), r = q.querySelectorAll('input[type="radio"]');
+      if (ends.length === 2 && r.length) {
+        r[0].setAttribute('aria-label', r[0].value + ' \u2013 ' + ends[0].textContent);
+        r[r.length - 1].setAttribute('aria-label', r[r.length - 1].value + ' \u2013 ' + ends[1].textContent);
+      }
+    });
 
     function load() { try { return JSON.parse(localStorage.getItem(LS)) || {}; } catch (e) { return {}; } }
     function save(a) { try { localStorage.setItem(LS, JSON.stringify(a)); } catch (e) {} }
 
     var answers = load();
+    /* chi riprende un test non ha bisogno di rileggere le istruzioni */
+    var intro = panel.querySelector('details.test-intro');
+    if (intro && Object.keys(answers).length) intro.open = false;
     Object.keys(answers).forEach(function (name) {
       var el = form.querySelector('input[name="' + name + '"][value="' + answers[name] + '"]');
       if (el) el.checked = true;
@@ -229,7 +244,7 @@
       }
       var r = scorer(sums(), T, ui);
       codeText = r.code;
-      ui.role('code').innerHTML = r.box || codeHtml(r.groups);
+      ui.role('code').innerHTML = (r.box || codeHtml(r.groups)) + (r.legend ? '<p class="code-legend">' + esc(r.legend) + '</p>' : '');
       ui.role('detail').innerHTML = r.html;
       result.hidden = false;
       result.scrollIntoView({ behavior: 'smooth', block: 'start' });

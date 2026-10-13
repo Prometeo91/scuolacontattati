@@ -268,8 +268,19 @@ a:focus-visible, button:focus-visible {
   .lang-pill .lang-dot{color:var(--border);font-size:8px;padding:0 1px;user-select:none}
 
 /* ─── TEST ─── */
-.test-intro { margin-bottom: 2rem; }
+.test-intro { margin-bottom: 1rem; }
 .test-intro ul { margin-top: 0.25rem; }
+/* Le istruzioni si richiudono: chi riprende il test con risposte salvate le
+   trova chiuse (test.js) e arriva prima alla prima domanda. */
+.test-intro summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: 0.5rem; min-height: 44px; }
+.test-intro summary::-webkit-details-marker { display: none; }
+.test-intro summary h2 { margin: 0; }
+.test-intro summary::after { content: '\25BE'; color: var(--gold); font-size: 14px; }
+.test-intro[open] summary::after { content: '\25B4'; }
+.test-intro summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: 4px; }
+.test-intro > :not(summary) { margin-top: 0.5rem; }
+.test-intro + .test-scale-note { margin-bottom: 2rem; }
+.code-legend { font-family: var(--font-sans); font-size: 13px; line-height: 1.5; color: var(--text-muted); margin-top: 0.7rem; font-variant-numeric: normal; }
 .test-scale-note { font-size: 14px; color: var(--text-muted); }
 
 .test-section { margin-top: 3rem; }
