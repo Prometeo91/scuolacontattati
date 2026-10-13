@@ -5,11 +5,13 @@
    alla lista con entrambe le lingue (it + en).
    month: numero del mese (1-12) — la sigla viene
    generata automaticamente nella lingua giusta.
+   libero:true mostra «Ingresso libero»: solo se è
+   accertato, non si presume.
    ═══════════════════════════════════════════════════ */
 window.SC_EVENTI = [
-  {day:13, month:9, year:2026,
-   it:{titolo:'Festival Nuova Umanità — "Un viaggio nel Tao"', dettaglio:'Come ogni scelta modella la realtà: lo stesso tema della 1ª lezione del 2° anno, tenuta quella mattina · Parco Gargasole, Via Donato Gargasole 18, Bari · Ingresso libero'},
-   en:{titolo:'Festival Nuova Umanità — "A journey into the Tao"', dettaglio:'How every choice shapes reality: the same theme as the 1st lesson of Year 2, held that morning · Parco Gargasole, Via Donato Gargasole 18, Bari · Free entry'}},
+  {day:13, month:9, year:2026, libero:true,
+   it:{titolo:'Festival Nuova Umanità — "Un viaggio nel Tao"', dettaglio:'Come ogni scelta modella la realtà: lo stesso tema della 1ª lezione del 2° anno, tenuta quella mattina · Parco Gargasole, Via Donato Gargasole 18, Bari'},
+   en:{titolo:'Festival Nuova Umanità — "A journey into the Tao"', dettaglio:'How every choice shapes reality: the same theme as the 1st lesson of Year 2, held that morning · Parco Gargasole, Via Donato Gargasole 18, Bari'}},
   {day:26, month:7, year:2026,
    it:{titolo:'Seminario in natura — Ricchezza, Abbondanza e Mission', dettaglio:'Una giornata immersa nella natura dedicata alle Chiavi della Realizzazione Interiore · Masseria Chinunno, Bosco di Mercadante (BA)'},
    en:{titolo:'Nature seminar — Wealth, Abundance and Mission', dettaglio:'A day immersed in nature dedicated to the Keys to Inner Realisation · Masseria Chinunno, Bosco di Mercadante (BA)'}},
@@ -19,9 +21,9 @@ window.SC_EVENTI = [
   {day:13, month:11, year:2025,
    it:{titolo:'Evento letterario — IKOS Formazione', dettaglio:'Via Giovanni Amendola 162/1, Bari'},
    en:{titolo:'Literary event — IKOS Formazione', dettaglio:'Via Giovanni Amendola 162/1, Bari'}},
-  {day:10, month:10, year:2025,
-   it:{titolo:'Conferenza gratuita — Libreria Roma', dettaglio:'P.zza Aldo Moro 13, Bari'},
-   en:{titolo:'Free conference — Libreria Roma', dettaglio:'P.zza Aldo Moro 13, Bari'}},
+  {day:10, month:10, year:2025, libero:true,
+   it:{titolo:'Conferenza — Libreria Roma', dettaglio:'P.zza Aldo Moro 13, Bari'},
+   en:{titolo:'Conference — Libreria Roma', dettaglio:'P.zza Aldo Moro 13, Bari'}},
   {day:27, month:9, year:2025,
    it:{titolo:'Macrolibrarsi Fest — Presentazione libro', dettaglio:'Cesena · Fiera del libro consapevole'},
    en:{titolo:'Macrolibrarsi Fest — Book presentation', dettaglio:'Cesena · Conscious book fair'}},
