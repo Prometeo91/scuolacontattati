@@ -85,7 +85,7 @@
         var p=window.location.pathname;
         if(p.indexOf('/en/')>=0){
           var itPath=p.replace(/\/en\//,'/');
-          window.location.replace(itPath);
+          window.location.replace(itPath+window.location.hash);
         }
       }
     })();
@@ -349,7 +349,7 @@
     </script>
 
  <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) — self-hosted, zero dipendenze esterne -->
-  <link rel="stylesheet" href="../style.css?v=20261009b"/>
+  <link rel="stylesheet" href="../style.css?v=20261013a"/>
   <noscript><style>.sr{opacity:1!important;transform:none!important}</style></noscript>
 
 </head>
@@ -690,7 +690,7 @@
   </div>
 
   <div class="mt-125 text-center">
-    <div class="section-eyebrow center" style="margin-bottom:0.6rem;"><span>Complementary, not alternative</span></div>
+    <div class="section-eyebrow center" style="margin-bottom:0.6rem;"><span>Two paths that complete each other</span></div>
     <p class="body-text narrow-text">In the School you work together with others: you study the Laws, train with exercises, and the group acts as a mirror. In the Individual Path you work on a specific knot of your own, with the focused listening of a guide. Those attending the School who encounter a deep block can dissolve it in the individual path; those starting from the individual path often feel the need for a broader framework. That is why they work well together.</p>
   </div>
 
@@ -970,7 +970,7 @@
       <h3 class="book-title-editorial">Ricchezza, Abbondanza e Mission</h3>
       <p class="book-subtitle-editorial">The keys to inner realisation</p>
       <p class="book-authors-editorial">Anna Carla Digregorio & Nicolaos Anifantis</p>
-      <p class="book-desc-editorial">The universal Laws of prosperity and spiritual evolution become concrete tools to dissolve blocks and release limiting patterns. Archetypal keys and ancient wisdoms guide us to recognise Abundance as a natural state to inhabit, not a prize to conquer.</p>
+      <p class="book-desc-editorial">The universal Laws of prosperity and spiritual evolution become concrete tools to dissolve blocks and release limiting patterns. Archetypal keys and ancient wisdoms guide us to recognise Abundance as a natural state to live in.</p>
       <blockquote class="book-quote-editorial">
         Aim for inner Abundance, and Wealth in matter will follow. Realisation is not a destination, but a state of Being.
         <cite>Anna Carla Digregorio & Nicolaos Anifantis</cite>
@@ -988,7 +988,7 @@
   </div>
   <div class="book-contents-grid sr">
     <details class="book-content-card">
-      <summary class="book-content-summary">
+      <summary class="book-content-summary" data-more="Read more" data-less="Show less">
         <div class="book-content-emblem" aria-hidden="true"><img src="../images/libro-nodo.webp" alt="" width="860" height="860" loading="lazy" decoding="async" style="object-position:50% 55%"/></div>
         <div class="book-content-label">22 Self-sabotages</div>
         <p class="book-content-desc">The unconscious mechanisms that hinder Realisation. Recognising them is the first alchemical act.</p>
@@ -999,7 +999,7 @@
       </div>
     </details>
     <details class="book-content-card">
-      <summary class="book-content-summary">
+      <summary class="book-content-summary" data-more="Read more" data-less="Show less">
         <div class="book-content-emblem" aria-hidden="true"><img src="../images/libro-armillare.webp" alt="" width="860" height="860" loading="lazy" decoding="async" style="object-position:50% 42%"/></div>
         <div class="book-content-label">6 Universal Laws</div>
         <p class="book-content-desc">The forces that sustain Abundance: frequencies to embody in one's life.</p>
@@ -1010,7 +1010,7 @@
       </div>
     </details>
     <details class="book-content-card">
-      <summary class="book-content-summary">
+      <summary class="book-content-summary" data-more="Read more" data-less="Show less">
         <div class="book-content-emblem" aria-hidden="true"><img src="../images/libro-pianeti.webp" alt="" width="860" height="860" loading="lazy" decoding="async" style="object-position:50% 50%"/></div>
         <div class="book-content-label">3 Planetary Archetypes</div>
         <p class="book-content-desc">Uranus, Neptune and Pluto as symbolic maps to navigate daily trials.</p>
@@ -1082,13 +1082,13 @@
     <details class="read-more" style="margin-top:0.4rem;">
       <summary><span class="read-more-more">Show the 8 forms</span><span class="read-more-less">Show less</span></summary>
       <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 4px 1.5rem; margin-top:0.5rem;">
-      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">1.</span> Inner spiritual knowledge</p>
-      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">2.</span> Service: offering oneself in a project of value</p>
-      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">3.</span> Faith and courage</p>
-      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">4.</span> Self-confidence</p>
-      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">5.</span> Invisible virtues: qualities that generate respect and honour</p>
-      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">6.</span> Healthy relationships</p>
-      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(201,151,58,0.1);"><span class="text-gold">7.</span> Physical and mental health and well-being</p>
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(var(--gold-rgb),0.1);"><span class="text-gold">1.</span> Inner spiritual knowledge</p>
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(var(--gold-rgb),0.1);"><span class="text-gold">2.</span> Service: offering oneself in a project of value</p>
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(var(--gold-rgb),0.1);"><span class="text-gold">3.</span> Faith and courage</p>
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(var(--gold-rgb),0.1);"><span class="text-gold">4.</span> Self-confidence</p>
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(var(--gold-rgb),0.1);"><span class="text-gold">5.</span> Invisible virtues: qualities that generate respect and honour</p>
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(var(--gold-rgb),0.1);"><span class="text-gold">6.</span> Healthy relationships</p>
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(var(--gold-rgb),0.1);"><span class="text-gold">7.</span> Physical and mental health and well-being</p>
       <p class="body-text-sm" style="padding:0.35rem 0;"><span class="text-gold">8.</span> Subsistence and solid economy</p>
       </div>
     </details>
@@ -1464,7 +1464,7 @@
   </div>
 
   <!-- ── Adventures ── -->
-  <div style="display:flex;justify-content:center;padding:1.5rem 0"><div style="width:60px;height:0.5px;background:linear-gradient(90deg,transparent,rgba(201,151,58,0.5),transparent)"></div></div>
+  <div style="display:flex;justify-content:center;padding:1.5rem 0"><div style="width:60px;height:0.5px;background:linear-gradient(90deg,transparent,rgba(var(--gold-rgb),0.5),transparent)"></div></div>
   <div class="section-eyebrow"><span>Adventures</span></div>
   <h3 class="section-title" style="font-size:clamp(22px,4vw,32px)">The inner path</h3>
   <p class="section-sub" style="margin-bottom:1.5rem">Interactive stories with save · 10–20 minute sessions</p>
@@ -1528,7 +1528,7 @@
 
     <hr class="footer-divider"/>
     <p><a href="tel:+393349991888" aria-label="Call Nicolaos at 334 999 1888">334 999 1888</a> &nbsp;·&nbsp; <span id="email-footer"></span></p>
-    <p class="serif-footer serif-footer-quote">"It is not about becoming someone. It is about remembering who you already are."</p>
+    <p class="serif-footer serif-footer-quote">"Working on yourself means remembering who you already are."</p>
     <p class="footer-copyright">© 2026 Scuola ContattaTi · Anna Carla Digregorio & Nicolaos Anifantis</p>
   </div>
 </footer>
@@ -1672,7 +1672,7 @@
 })();
 </script>
 <script src="../data/eventi.js?v=20260908a" defer></script>
-<script src="../app.js?v=20261008a" defer></script>
+<script src="../app.js?v=20261013a" defer></script>
 <script>
 /* GAME SEALS — show ✦ on completed game cards */
 (function(){
