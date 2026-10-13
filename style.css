@@ -2455,7 +2455,8 @@ html[data-theme="light"]::before {
   .ripresa-altri a{display:inline-flex;align-items:center;min-height:44px;color:var(--gold-light);text-decoration:underline;text-decoration-color:var(--border-hover);text-underline-offset:3px}
   .ripresa-altri a:hover{text-decoration-color:var(--gold-light)}
   .ripresa-note{font-size:13px;color:var(--text-muted);margin-top:1rem;padding-top:0.9rem;border-top:0.5px solid var(--border);line-height:1.65}
-  @media(max-width:560px){.ripresa{padding:1.3rem 1.1rem}.ripresa-title{font-size:22px}.ripresa-sub{font-size:15px}}
+  /* sul telefono le righe lunghe restano a sinistra della colonna dei pulsanti fissi (l'indirizzo finiva sotto «torna su») */
+  @media(max-width:560px){.ripresa{padding:1.3rem 1.1rem}.ripresa-title{font-size:22px}.ripresa-sub{font-size:15px;padding-left:1.25rem;padding-right:1.25rem}.ripresa-note{padding-left:1.25rem;padding-right:1.25rem}}
 
   /* Language switcher pill */
   .lang-pill{display:inline-flex;align-items:center;gap:0;border:0.5px solid var(--border);border-radius: var(--radius-pill);padding:2px;margin-right:0.25rem;font-family:var(--font-sans);font-size:12px;font-weight:600;letter-spacing:0.06em}
