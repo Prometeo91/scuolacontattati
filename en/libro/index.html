@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <!-- Google Analytics (GA4) — caricato solo dopo consenso (GDPR / ePrivacy) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    // Consent Mode v2 — default: tutto negato finché l'utente non sceglie
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'functionality_storage': 'granted',
+      'security_storage': 'granted',
+      'wait_for_update': 500
+    });
+    (function(){
+      var c = null;
+      try{ c = localStorage.getItem('sc-cookie'); }catch(e){}
+      if(c === 'accept'){
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-2NTMVVV5GB';
+        document.head.appendChild(s);
+        gtag('config', 'G-2NTMVVV5GB', { 'anonymize_ip': true });
+      }
+    })();
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="author" content="Scuola ContattaTi"/>
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="google-site-verification" content="TZUtM4nDXrj2tNXWp7Hp1FRAtMOhQDTUHlKgJvn57mw"/>
+
+  <!-- Font preload (only above-the-fold critical weights) -->
+  <link rel="preload" href="../../fonts/eb-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../fonts/eb-garamond-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16.png"/>
+  <link rel="shortcut icon" href="../../favicon.ico"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png"/>
+  <link rel="manifest" href="../../site.webmanifest"/>
+  <meta name="theme-color" content="#0d0b1a" id="metaThemeColor"/>
+  <!-- Anti-flash: applica il tema salvato prima del render -->
+  <script>
+    (function(){
+      var t=null;try{t=localStorage.getItem('sctheme')}catch(e){}
+      if(t==='light'){
+        document.documentElement.setAttribute('data-theme','light');
+        var m=document.getElementById('metaThemeColor');
+        if(m)m.content='#f5f0e8';
+      }
+      /* Chi arriva con un #ancora (es. /#calendario, /#anno-3) deve atterrare
+         nel punto giusto: le sezioni lontane si disegnano tutte da subito,
+         altrimenti la destinazione si calcola su altezze stimate. */
+      if(location.hash)document.documentElement.classList.add('cv-off');
+    })();
+  </script>
+  <script>
+    (function(){
+      try{var l=localStorage.getItem('sc-lang')}catch(e){return}
+      if(l==='it') window.location.replace('/libro/'+window.location.hash);
+    })();
+  </script>
+  <meta name="color-scheme" content="dark light"/>
+  <link rel="canonical" href="https://scuolacontattati.com/en/libro/"/>
+  <link rel="alternate" hreflang="it" href="https://scuolacontattati.com/libro/"/>
+  <link rel="alternate" hreflang="en" href="https://scuolacontattati.com/en/libro/"/>
+  <link rel="alternate" hreflang="x-default" href="https://scuolacontattati.com/libro/"/>
+  <title>Wealth, Abundance and Mission · The book · Scuola ContattaTi</title>
+  <meta name="description" content="The book by Anna Carla Digregorio and Nicolaos Anifantis (Gagliano Edizioni): its contents, the keys and the eight forms of Wealth."/>
+  <meta property="og:title" content="Wealth, Abundance and Mission · The book · Scuola ContattaTi"/>
+  <meta property="og:description" content="The book by Anna Carla Digregorio and Nicolaos Anifantis (Gagliano Edizioni): its contents, the keys and the eight forms of Wealth."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="Scuola ContattaTi"/>
+  <meta property="og:url" content="https://scuolacontattati.com/en/libro/"/>
+  <meta property="og:locale" content="en_GB"/>
+  <meta property="og:image" content="https://scuolacontattati.com/og-image.jpg?v=2"/>
+  <meta property="og:image:width" content="1600"/>
+  <meta property="og:image:height" content="840"/>
+  <meta property="og:image:alt" content="School of Awareness and Alchemy · Guides: Anna Carla Digregorio &amp; Nicolaos Anifantis. Γνῶθι Σεαυτόν · Know Thyself."/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Wealth, Abundance and Mission · The book · Scuola ContattaTi"/>
+  <meta name="twitter:description" content="The book by Anna Carla Digregorio and Nicolaos Anifantis (Gagliano Edizioni): its contents, the keys and the eight forms of Wealth."/>
+  <meta name="twitter:image" content="https://scuolacontattati.com/og-image.jpg?v=2"/>
+
+ <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) — self-hosted, zero dipendenze esterne -->
+  <link rel="stylesheet" href="../../style.css?v=20261013e"/>
+  <noscript><style>.sr{opacity:1!important;transform:none!important}</style></noscript>
+
+</head>
+<body id="top">
+
+<!-- Scroll progress bar (sottile barra dorata in cima) -->
+<div class="scroll-progress" aria-hidden="true"></div>
+
+<a class="skip-link" href="#libro">Skip to content</a>
+<nav aria-label="Main menu">
+  <a class="nav-logo" href="#"><span aria-hidden="true">✶</span> Scuola ContattaTi</a>
+  <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+  <div class="nav-links">
+    <a href="../index.html#chi-siamo">About us</a>
+    <a href="../index.html#insegnamenti">Teachings</a>
+    <a href="../index.html#conduttori">Guides</a>
+    <a href="../index.html#calendario">Calendar</a>
+    <a href="../libro/" aria-current="page" class="active">Book</a>
+    <a href="../index.html#faq">FAQ</a>
+    <a href="../index.html#contatti">Contact</a>
+    <a href="../giochi/">Games</a>
+    <details class="nav-drop">
+      <summary>Test</summary>
+      <div class="nav-drop-menu">
+        <a href="../test/quattro-elementi/">Four Elements</a>
+        <a href="../test/temperamento/">Temperament</a>
+      </div>
+    </details>
+    <a href="https://portale.scuolacontattati.com" target="_blank" rel="noopener" class="btn-portale"><img src="../../images/icon-accesso.svg" alt="" width="15" height="15"> Student Portal</a>
+    <span class="lang-pill"><a href="../../libro/" onclick="try{localStorage.setItem('sc-lang','it')}catch(e){}">IT</a><span class="lang-dot" aria-hidden="true">·</span><a href="#" class="lang-active">EN</a></span>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme" title="Change theme"><span class="theme-toggle-icon"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="10" cy="10" r="3.5"/><line x1="10" y1="2.5" x2="10" y2="4.5"/><line x1="10" y1="15.5" x2="10" y2="17.5"/><line x1="2.5" y1="10" x2="4.5" y2="10"/><line x1="15.5" y1="10" x2="17.5" y2="10"/><line x1="4.7" y1="4.7" x2="6.1" y2="6.1"/><line x1="13.9" y1="13.9" x2="15.3" y2="15.3"/><line x1="4.7" y1="15.3" x2="6.1" y2="13.9"/><line x1="13.9" y1="6.1" x2="15.3" y2="4.7"/></svg></span><span class="lbl"> Light theme</span></button>
+  </div>
+</nav>
+
+<main>
+<section id="libro">
+  <div class="section-eyebrow"><span>The publication</span></div>
+  <h1 class="section-title">The Book</h1>
+  <p class="section-sub">Anna Carla Digregorio and Nicolaos Anifantis gather in these pages the heart of the School's teachings: a practical path to recognise and dissolve the inner blocks that separate us from our authentic Abundance.</p>
+
+  <!-- Layout editoriale -->
+  <div class="book-editorial sr">
+    <div class="book-cover-wrap">
+      <img src="../../images/libro-copertina-hq.jpg" height="416" alt="Copertina del libro Ricchezza, Abbondanza e Mission" class="book-cover-editorial" width="280" loading="lazy" decoding="async"/>
+    </div>
+    <div class="book-text-editorial">
+      <span class="book-publisher-tag">Gagliano Edizioni</span>
+      <h2 class="book-title-editorial">Ricchezza, Abbondanza e Mission</h2>
+      <p class="book-subtitle-editorial">The keys to inner realisation</p>
+      <p class="book-authors-editorial">Anna Carla Digregorio & Nicolaos Anifantis</p>
+      <p class="book-desc-editorial">The universal Laws of prosperity and spiritual evolution become concrete tools to dissolve blocks and release limiting patterns. Archetypal keys and ancient wisdoms guide us to recognise Abundance as a natural state to live in.</p>
+      <blockquote class="book-quote-editorial">
+        Aim for inner Abundance, and Wealth in matter will follow. Realisation is not a destination, but a state of Being.
+        <cite>Anna Carla Digregorio & Nicolaos Anifantis</cite>
+      </blockquote>
+      <div class="book-where-editorial">
+        <span class="book-where-pill">Libreria Roma — P.zza Aldo Moro 13, Bari</span>
+        <span class="book-where-pill">Available at all bookshops and online</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contenuti — 3 card riassuntive -->
+  <div class="section-eyebrow" style="margin-top:1rem; margin-bottom:1rem;">
+    <span>What you will find in the book</span>
+  </div>
+  <div class="book-contents-grid sr">
+    <details class="book-content-card">
+      <summary class="book-content-summary" data-more="Read more" data-less="Show less">
+        <div class="book-content-emblem" aria-hidden="true"><img src="../../images/libro-nodo.webp" alt="" width="860" height="860" loading="lazy" decoding="async" style="object-position:50% 55%"/></div>
+        <div class="book-content-label">22 Self-sabotages</div>
+        <p class="book-content-desc">The unconscious mechanisms that hinder Realisation. Recognising them is the first alchemical act.</p>
+      </summary>
+      <div class="book-content-detail">
+        <p class="body-text-sm">The unconscious mechanisms that hinder Realisation. Recognising them is the first alchemical act: every limitation, seen with awareness, becomes a tool of self-knowledge and a doorway to its opposite quality.</p>
+        <p class="body-text-sm mt-1" style="opacity:0.85;">Among these: fear of change, difficulty in receiving, guilt and shame, not recognising one's own value, limiting beliefs about money, lack of gratitude, confusion between commitment and effort, attachment to outcomes, impatience, and disconnection from the material plane.</p>
+      </div>
+    </details>
+    <details class="book-content-card">
+      <summary class="book-content-summary" data-more="Read more" data-less="Show less">
+        <div class="book-content-emblem" aria-hidden="true"><img src="../../images/libro-armillare.webp" alt="" width="860" height="860" loading="lazy" decoding="async" style="object-position:50% 42%"/></div>
+        <div class="book-content-label">6 Universal Laws</div>
+        <p class="book-content-desc">The forces that sustain Abundance: frequencies to embody in one's life.</p>
+      </summary>
+      <div class="book-content-detail">
+        <p class="body-text-sm">Authentic Wealth is welcomed more than it is conquered. The Six Laws that sustain Abundance are active forces to attune to: frequencies to embody in one's life.</p>
+        <p class="body-text-sm mt-1" style="opacity:0.85;">Law of Gestation, Law of Attraction, Law of Expectation, Law of Letting Go, Law of Abundance, Law of Personal Power.</p>
+      </div>
+    </details>
+    <details class="book-content-card">
+      <summary class="book-content-summary" data-more="Read more" data-less="Show less">
+        <div class="book-content-emblem" aria-hidden="true"><img src="../../images/libro-pianeti.webp" alt="" width="860" height="860" loading="lazy" decoding="async" style="object-position:50% 50%"/></div>
+        <div class="book-content-label">3 Planetary Archetypes</div>
+        <p class="book-content-desc">Uranus, Neptune and Pluto as symbolic maps to navigate daily trials.</p>
+      </summary>
+      <div class="book-content-detail">
+        <p class="body-text-sm mb-1">Uranus, Neptune and Pluto as symbolic maps to navigate daily trials and access the three dimensions of Being.</p>
+        <div class="archetype-row">
+          <div class="archetype-symbol archetype-symbol-urano" aria-hidden="true">♅</div>
+          <div>
+            <p class="serif-heading-sm">Uranus — Freedom and authenticity</p>
+            <p class="body-text-sm">Uranus asks us to free ourselves from what we are not, to become instruments of what we came to bring. Its trials are sudden changes, epiphanies that force us to abandon old beliefs.</p>
+            <details class="chiave-details"><summary class="chiave-more"><span class="chiave-more-open">Read more</span><span class="chiave-more-close">Show less</span></summary><div class="chiave-extra">
+              <p>Like a bolt of lightning that rips through the sky, it illuminates what was hidden in shadow and reveals a new path. Like a barren tree that suddenly comes back to life.</p>
+              <p><em class="em-urano">"The truth shall set you free."</em></p>
+            </div></details>
+          </div>
+        </div>
+        <div class="archetype-row">
+          <div class="archetype-symbol archetype-symbol-nettuno" aria-hidden="true">♆</div>
+          <div>
+            <p class="serif-heading-sm">Neptune — Spiritual connection</p>
+            <p class="body-text-sm">Neptune asks us to dissolve the selfish and separative ego to remember that all is One, that every being is part of a single great design. Its trials move on the boundary between spirituality and illusion, demanding discernment.</p>
+            <details class="chiave-details"><summary class="chiave-more"><span class="chiave-more-open">Read more</span><span class="chiave-more-close">Show less</span></summary><div class="chiave-extra">
+              <p>It is the infinite ocean that envelops everything. The mist that blurs boundaries. A river flowing toward the sea: gradually its waters merge with those of the ocean, losing their separative identity to become part of something greater.</p>
+              <p><em class="em-nettuno">"Seek first the kingdom of God and His righteousness, and all these things shall be added unto you."</em></p>
+            </div></details>
+          </div>
+        </div>
+        <div class="archetype-row">
+          <div class="archetype-symbol archetype-symbol-plutone" aria-hidden="true">♇</div>
+          <div>
+            <p class="serif-heading-sm">Pluto — Transformation and healing</p>
+            <p class="body-text-sm">Pluto asks us to face our own shadows and pass through the inner deaths necessary to bring out the hidden gold: it is the alchemist's journey. Its trials are deep crises, confrontation with the unconscious, breaking of habits and repeated patterns.</p>
+            <details class="chiave-details"><summary class="chiave-more"><span class="chiave-more-open">Read more</span><span class="chiave-more-close">Show less</span></summary><div class="chiave-extra">
+              <p>It is like the fire of a volcano, invisible to the eye but capable of transforming everything it touches. For years the lava flows in the depths of the earth, accumulating energy, until a sudden eruption brings it to light, destroying the old to create new fertile ground.</p>
+              <p><em class="em-plutone">"Whoever wishes to save their life will lose it, but whoever loses it for my sake will find it."</em></p>
+            </div></details>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- DEFINIZIONI: le tre parole — blocco editoriale, non a griglia -->
+  <div class="section-eyebrow" style="margin-top:2.5rem; margin-bottom:1.4rem;">
+    <span>Three words, three dimensions</span>
+  </div>
+  <dl class="defs-editorial">
+    <div class="def-row">
+      <dt>Wealth</dt>
+      <dd>What is already within us and manifests outwardly as a reflection in the physical plane. Our intrinsic value is reflected in the world through our actions and our way of being.</dd>
+    </div>
+    <div class="def-row">
+      <dt>Abundance</dt>
+      <dd>The potential of all we can receive and manifest. An inner feeling of fullness, a prosperous mindset, a disposition of the soul. It allows us to recognise the beauty and opportunities of life beyond what we possess.</dd>
+    </div>
+    <div class="def-row">
+      <dt>Mission</dt>
+      <dd>The lighthouse that illuminates our path. The unique contribution we can offer to the world, the deep purpose for which we are here. Following one's Mission means living in alignment with our most authentic essence.</dd>
+    </div>
+  </dl>
+
+  <!-- LE 8 FORME DI RICCHEZZA SECONDO I VEDA -->
+  <div class="section-eyebrow" style="margin-top:2rem; margin-bottom:1rem;">
+    <span>The 8 Forms of Wealth according to the Vedas</span>
+  </div>
+  <div class="glass-card">
+    <p class="body-text-sm mb-1">According to the ancient Vedic texts, Wealth manifests in eight forms. True well-being arises from the harmony of all these dimensions. Today the scale of priorities is often inverted: we start from the bottom, from material subsistence, forgetting that the highest form of Wealth is inner spiritual knowledge.</p>
+    <details class="read-more" style="margin-top:0.4rem;">
+      <summary><span class="read-more-more">Show the 8 forms</span><span class="read-more-less">Show less</span></summary>
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 4px 1.5rem; margin-top:0.5rem;">
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(var(--gold-rgb),0.1);"><span class="text-gold">1.</span> Inner spiritual knowledge</p>
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(var(--gold-rgb),0.1);"><span class="text-gold">2.</span> Service: offering oneself in a project of value</p>
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(var(--gold-rgb),0.1);"><span class="text-gold">3.</span> Faith and courage</p>
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(var(--gold-rgb),0.1);"><span class="text-gold">4.</span> Self-confidence</p>
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(var(--gold-rgb),0.1);"><span class="text-gold">5.</span> Invisible virtues: qualities that generate respect and honour</p>
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(var(--gold-rgb),0.1);"><span class="text-gold">6.</span> Healthy relationships</p>
+      <p class="body-text-sm" style="padding:0.35rem 0; border-bottom:0.5px solid rgba(var(--gold-rgb),0.1);"><span class="text-gold">7.</span> Physical and mental health and well-being</p>
+      <p class="body-text-sm" style="padding:0.35rem 0;"><span class="text-gold">8.</span> Subsistence and solid economy</p>
+      </div>
+    </details>
+  </div>
+
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-seal" aria-hidden="true">✶</div>
+    <p class="footer-logo">Scuola ContattaTi</p>
+    <p class="serif-footer serif-footer-motto"><span lang="el">Γνῶθι Σεαυτόν</span> · Know Thyself</p>
+
+    <div class="footer-rule" aria-hidden="true"><span>◆  ◆  ◆</span></div>
+
+    <nav class="footer-links" aria-label="Quick links">
+      <a href="../index.html#chi-siamo">About us</a>
+      <a href="../index.html#insegnamenti">Teachings</a>
+      <a href="../index.html#conduttori">The guides</a>
+      <a href="../index.html#calendario">The path</a>
+      <a href="../libro/">Book</a>
+      <a href="../index.html#galleria">Gallery</a>
+      <a href="../giochi/">Games</a>
+      <a href="../index.html#faq">FAQ</a>
+      <a href="../ispirazioni/">Inspirations</a>
+      <a href="../index.html#contatti">Contact</a>
+      <a href="../privacy.html">Privacy</a>
+      <a href="#" id="manageCookies">Manage cookies</a>
+    </nav>
+
+    <div class="footer-social">
+      <a href="https://www.facebook.com/nicolaosanifantis" target="_blank" rel="noopener" aria-label="Facebook"><svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.12 8.44 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99C18.34 21.12 22 16.99 22 12z"/></svg></a>
+      <a href="tel:+393349991888" aria-label="Phone"><svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/></svg></a>
+      <a href="https://wa.me/393349991888" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a10 10 0 00-8.6 14.9L2 22l5.2-1.4A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3A8 8 0 1112 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.1-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4-.1-.1-.5-1.3-.7-1.8-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.3c.1.2 1.6 2.4 3.8 3.4.5.2 1 .4 1.3.5.6.2 1.1.1 1.5.1.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1-.1-.1-.3-.2-.5-.3z"/></svg></a>
+      <button class="footer-share js-share" type="button" aria-label="Share this site"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg><span class="share-toast" role="status">Link copied!</span></button>
+    </div>
+
+    <hr class="footer-divider"/>
+    <p><a href="tel:+393349991888" aria-label="Call Nicolaos at 334 999 1888">334 999 1888</a> &nbsp;·&nbsp; <span id="email-footer"></span></p>
+    <p class="serif-footer serif-footer-quote">"Working on yourself means remembering who you already are."</p>
+    <p class="footer-copyright">© 2026 Scuola ContattaTi · Anna Carla Digregorio & Nicolaos Anifantis</p>
+  </div>
+</footer>
+<!-- Pulsanti fissi: WhatsApp, Condividi, torna su (un landmark, per i lettori di schermo) -->
+<aside aria-label="Shortcuts">
+<!-- WhatsApp sticky (mobile) -->
+<a class="wa-sticky" href="https://wa.me/393349991888" target="_blank" rel="noopener" aria-label="Message us on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.05 21.785h-.01a9.84 9.84 0 01-5.016-1.373l-.36-.214-3.73.978.996-3.635-.235-.374A9.86 9.86 0 012.166 12c0-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zm8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- Share site -->
+<button class="share-site-btn js-share" id="shareSiteBtn" type="button" aria-label="Share this site">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>
+  <span class="share-toast" id="shareToast">Link copied!</span>
+</button>
+
+<!-- Back to top -->
+<a class="back-to-top" href="#top" id="backToTop" aria-label="Back to top"><span aria-hidden="true">↑</span></a>
+</aside>
+
+<!-- Cookie banner GDPR / ePrivacy -->
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-desc" hidden>
+  <p id="cookie-title" class="cookie-banner-title">Privacy &amp; cookie</p>
+  <p id="cookie-desc">
+    This site uses <strong>Google Analytics</strong> to understand in anonymous and aggregated form how it is navigated.
+    No personal data is sold or shared for commercial purposes. You can accept or decline;
+    in both cases the site works normally. <a href="../privacy.html">Read the full privacy notice</a>.
+  </p>
+  <div class="cookie-actions">
+    <button type="button" id="cookieReject" class="cookie-btn cookie-btn-reject">Decline</button>
+    <button type="button" id="cookieAccept" class="cookie-btn cookie-btn-accept">Accept</button>
+  </div>
+</div>
+<script>
+/* SCROLL REVEAL (.sr) — inline for app.js independence */
+(function(){
+  var srEls=document.querySelectorAll('.sr');
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+    },{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+    srEls.forEach(function(el){obs.observe(el);});
+  } else {
+    srEls.forEach(function(el){el.classList.add('visible');});
+  }
+})();
+</script>
+<script>
+/* YEAR TABS — click + keyboard navigation (WAI-ARIA tablist) */
+(function(){
+  var tabs=document.querySelectorAll('.anno-tab');
+  if(!tabs.length)return;
+  function activate(tab){
+    tabs.forEach(function(t){t.classList.remove('active');t.setAttribute('aria-selected','false');t.setAttribute('tabindex','-1');});
+    tab.classList.add('active');
+    tab.setAttribute('aria-selected','true');
+    tab.setAttribute('tabindex','0');
+    tab.focus();
+    document.querySelectorAll('.anno-panel').forEach(function(p){p.style.display='none';});
+    var p=document.getElementById('panel-anno-'+tab.dataset.anno);
+    if(p)p.style.display='block';
+  }
+  /* L'anno aperto finisce nell'URL, cosi' si puo' mandare a qualcuno il link
+     di un anno preciso. replaceState e non pushState: il tasto Indietro deve
+     riportare alla pagina da cui si arriva, non al tab precedente. */
+  function segnaURL(tab){
+    if(!window.history||!history.replaceState)return;
+    try{history.replaceState(null,'','#anno-'+tab.dataset.anno);}catch(e){}
+  }
+  tabs.forEach(function(tab,i){
+    if(tab.classList.contains('disabled'))return;
+    tab.addEventListener('click',function(){activate(tab);segnaURL(tab);});
+    tab.addEventListener('keydown',function(e){
+      var idx=Array.prototype.indexOf.call(tabs,tab);
+      var next=-1;
+      if(e.key==='ArrowRight'||e.key==='ArrowDown'){next=(idx+1)%tabs.length;}
+      else if(e.key==='ArrowLeft'||e.key==='ArrowUp'){next=(idx-1+tabs.length)%tabs.length;}
+      else if(e.key==='Home'){next=0;}
+      else if(e.key==='End'){next=tabs.length-1;}
+      if(next>=0){e.preventDefault();activate(tabs[next]);segnaURL(tabs[next]);}
+    });
+    /* Only the active tab is reachable via Tab key */
+    if(!tab.classList.contains('active'))tab.setAttribute('tabindex','-1');
+  });
+})();
+</script>
+<script src="../../app.js?v=20261013e" defer></script>
+<script>
+/* GAME SEALS — show ✦ on completed game cards */
+(function(){
+  var SIG={'il-risveglio':'sc-risveglio-sigillo','la-responsabilita':'sc-resp-sigillo','le-emozioni':'sc-emoz-sigillo','il-corpo-e-lanima':'sc-corpo-sigillo','le-leggi-cosmiche':'sc-leggi-sigillo','i-mondi-invisibili':'sc-mondi-sigillo','il-guerriero':'sc-guerr-sigillo','la-sacra-sessualita':'sc-sess-sigillo','i-cinque-veicoli':'sc-veicoli-sigillo','la-magia-bianca':'sc-magia-sigillo','il-cammino-alchimista':'sc-rpg-sigillo','apprendista-del-mago':'sc-adv-sigillo','i-sette-piani':'sc-dng-sigillo','il-grande-viaggio':'sc-viaggio-sigillo','il-sentiero-iniziazione':'sc-sentiero-sigillo'};
+  document.querySelectorAll('a.gioco-card[href], a.gioco-card-lg[href]').forEach(function(a){
+    var f=a.getAttribute('href').replace(/^\.\.\//,'').replace(/\/(index\.html)?$/,'');
+    var k=SIG[f];
+    if(k){try{if(localStorage.getItem(k)){var s=document.createElement('span');s.className='card-sigillo';s.title='Seal earned';s.setAttribute('aria-label','Seal earned');s.textContent='✦';a.appendChild(s);}}catch(e){}}
+  });
+})();
+</script>
+</body>
+</html>

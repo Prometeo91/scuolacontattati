@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+
+  <!-- Google Analytics (GA4) — caricato solo dopo consenso (GDPR / ePrivacy) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    // Consent Mode v2 — default: tutto negato finché l'utente non sceglie
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'functionality_storage': 'granted',
+      'security_storage': 'granted',
+      'wait_for_update': 500
+    });
+    (function(){
+      var c = null;
+      try{ c = localStorage.getItem('sc-cookie'); }catch(e){}
+      if(c === 'accept'){
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-2NTMVVV5GB';
+        document.head.appendChild(s);
+        gtag('config', 'G-2NTMVVV5GB', { 'anonymize_ip': true });
+      }
+    })();
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="author" content="Scuola ContattaTi"/>
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="google-site-verification" content="TZUtM4nDXrj2tNXWp7Hp1FRAtMOhQDTUHlKgJvn57mw"/>
+
+  <!-- Font preload (only above-the-fold critical weights) -->
+  <link rel="preload" href="../fonts/eb-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/eb-garamond-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png"/>
+  <link rel="shortcut icon" href="../favicon.ico"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"/>
+  <link rel="manifest" href="../site.webmanifest"/>
+  <meta name="theme-color" content="#0d0b1a" id="metaThemeColor"/>
+  <!-- Anti-flash: applica il tema salvato prima del render -->
+  <script>
+    (function(){
+      var t=null;try{t=localStorage.getItem('sctheme')}catch(e){}
+      if(t==='light'){
+        document.documentElement.setAttribute('data-theme','light');
+        var m=document.getElementById('metaThemeColor');
+        if(m)m.content='#f5f0e8';
+      }
+      /* Chi arriva con un #ancora (es. /#calendario, /#anno-3) deve atterrare
+         nel punto giusto: le sezioni lontane si disegnano tutte da subito,
+         altrimenti la destinazione si calcola su altezze stimate. */
+      if(location.hash)document.documentElement.classList.add('cv-off');
+    })();
+  </script>
+  <script>
+    (function(){
+      try{var l=localStorage.getItem('sc-lang')}catch(e){return}
+      if(l==='en') window.location.replace('/en/giochi/'+window.location.hash);
+    })();
+  </script>
+  <meta name="color-scheme" content="dark light"/>
+  <link rel="canonical" href="https://scuolacontattati.com/giochi/"/>
+  <link rel="alternate" hreflang="it" href="https://scuolacontattati.com/giochi/"/>
+  <link rel="alternate" hreflang="en" href="https://scuolacontattati.com/en/giochi/"/>
+  <link rel="alternate" hreflang="x-default" href="https://scuolacontattati.com/giochi/"/>
+  <title>Imparare giocando · I giochi della Scuola ContattaTi</title>
+  <meta name="description" content="I giochi della Scuola ContattaTi: quiz, scenari e avventure interattive sui temi del percorso, da cinque minuti in su."/>
+  <meta property="og:title" content="Imparare giocando · I giochi della Scuola ContattaTi"/>
+  <meta property="og:description" content="I giochi della Scuola ContattaTi: quiz, scenari e avventure interattive sui temi del percorso, da cinque minuti in su."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="Scuola ContattaTi"/>
+  <meta property="og:url" content="https://scuolacontattati.com/giochi/"/>
+  <meta property="og:locale" content="it_IT"/>
+  <meta property="og:image" content="https://scuolacontattati.com/og-image.jpg?v=2"/>
+  <meta property="og:image:width" content="1600"/>
+  <meta property="og:image:height" content="840"/>
+  <meta property="og:image:alt" content="Scuola di Consapevolezza ed Alchimia · Conduttori: Anna Carla Digregorio &amp; Nicolaos Anifantis. Γνῶθι Σεαυτόν · Conosci Te Stesso."/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Imparare giocando · I giochi della Scuola ContattaTi"/>
+  <meta name="twitter:description" content="I giochi della Scuola ContattaTi: quiz, scenari e avventure interattive sui temi del percorso, da cinque minuti in su."/>
+  <meta name="twitter:image" content="https://scuolacontattati.com/og-image.jpg?v=2"/>
+
+ <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) — self-hosted, zero dipendenze esterne -->
+  <link rel="stylesheet" href="../style.css?v=20261013e"/>
+  <noscript><style>.sr{opacity:1!important;transform:none!important}</style></noscript>
+
+</head>
+<body id="top">
+
+<!-- Scroll progress bar (sottile barra dorata in cima) -->
+<div class="scroll-progress" aria-hidden="true"></div>
+
+<a class="skip-link" href="#giochi">Vai al contenuto</a>
+<nav aria-label="Menu principale">
+  <a class="nav-logo" href="#"><span aria-hidden="true">✶</span> Scuola ContattaTi</a>
+  <button class="nav-toggle" aria-label="Apri menu" aria-expanded="false">☰</button>
+  <div class="nav-links">
+    <a href="../index.html#chi-siamo">Chi siamo</a>
+    <a href="../index.html#insegnamenti">Insegnamenti</a>
+    <a href="../index.html#conduttori">Conduttori</a>
+    <a href="../index.html#calendario">Calendario</a>
+    <a href="../libro/">Libro</a>
+    <a href="../index.html#faq">FAQ</a>
+    <a href="../index.html#contatti">Contatti</a>
+    <a href="../giochi/" aria-current="page" class="active">Giochi</a>
+    <details class="nav-drop">
+      <summary>Test</summary>
+      <div class="nav-drop-menu">
+        <a href="../test/quattro-elementi/">Quattro Elementi</a>
+        <a href="../test/temperamento/">Temperamento</a>
+      </div>
+    </details>
+    <a href="https://portale.scuolacontattati.com" target="_blank" rel="noopener" class="btn-portale"><img src="../images/icon-accesso.svg" alt="" width="15" height="15"> Portale Allievi</a>
+    <span class="lang-pill"><a href="#" class="lang-active">IT</a><span class="lang-dot" aria-hidden="true">·</span><a href="../en/giochi/" onclick="try{localStorage.setItem('sc-lang','en')}catch(e){}">EN</a></span>
+    <button class="theme-toggle" id="themeToggle" aria-label="Cambia tema chiaro/scuro" title="Cambia tema"><span class="theme-toggle-icon"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="10" cy="10" r="3.5"/><line x1="10" y1="2.5" x2="10" y2="4.5"/><line x1="10" y1="15.5" x2="10" y2="17.5"/><line x1="2.5" y1="10" x2="4.5" y2="10"/><line x1="15.5" y1="10" x2="17.5" y2="10"/><line x1="4.7" y1="4.7" x2="6.1" y2="6.1"/><line x1="13.9" y1="13.9" x2="15.3" y2="15.3"/><line x1="4.7" y1="15.3" x2="6.1" y2="13.9"/><line x1="13.9" y1="6.1" x2="15.3" y2="4.7"/></svg></span><span class="lbl"> Tema chiaro</span></button>
+  </div>
+</nav>
+
+<main>
+<section id="giochi" style="padding-top:2rem !important">
+  <!-- ── Prove Iniziatiche ── -->
+  <div class="section-eyebrow"><span>Prove iniziatiche</span></div>
+  <h1 class="section-title">Imparare giocando</h1>
+  <p class="section-sub" style="margin-bottom:1.5rem">Quiz, scenari e memoria · partite da 5 minuti · consigliamo di iniziare da <em>Il Risveglio</em></p>
+  <div class="sr giochi-grid">
+    <a class="glass-card gioco-card" href="../il-risveglio/" onclick="try{localStorage.setItem('sc-lang','it')}catch(e){}">
+      <img src="../images/gioco-risveglio-144.webp" class="gioco-emblema" alt="" width="144" height="144" loading="lazy" decoding="async">
+      <span><strong class="gioco-title">Il Risveglio</strong><br><span class="gioco-sub">Sonno, presenza e ricordo di sé</span></span>
+    </a>
+    <a class="glass-card gioco-card" href="../la-responsabilita/" onclick="try{localStorage.setItem('sc-lang','it')}catch(e){}">
+      <img src="../images/gioco-responsabilita-144.webp" class="gioco-emblema" alt="" width="144" height="144" loading="lazy" decoding="async">
+      <span><strong class="gioco-title">La Responsabilità</strong><br><span class="gioco-sub">Mago o schiavo, dentro o fuori</span></span>
+    </a>
+    <a class="glass-card gioco-card" href="../le-emozioni/" onclick="try{localStorage.setItem('sc-lang','it')}catch(e){}">
+      <img src="../images/gioco-emozioni-144.webp" class="gioco-emblema" alt="" width="144" height="144" loading="lazy" decoding="async">
+      <span><strong class="gioco-title">Le Emozioni</strong><br><span class="gioco-sub">Trasmutazione, non-giudizio e perdono</span></span>
+    </a>
+    <a class="glass-card gioco-card" href="../il-corpo-e-lanima/" onclick="try{localStorage.setItem('sc-lang','it')}catch(e){}">
+      <img src="../images/gioco-anima-144.webp" class="gioco-emblema" alt="" width="144" height="144" loading="lazy" decoding="async">
+      <span><strong class="gioco-title">L'Anima e la Macchina</strong><br><span class="gioco-sub">Personalità, anima e immaginazione</span></span>
+    </a>
+    <a class="glass-card gioco-card" href="../le-leggi-cosmiche/" onclick="try{localStorage.setItem('sc-lang','it')}catch(e){}">
+      <img src="../images/gioco-leggi-144.webp" class="gioco-emblema" alt="" width="144" height="144" loading="lazy" decoding="async">
+      <span><strong class="gioco-title">Le Leggi Cosmiche</strong><br><span class="gioco-sub">Specchio, ottava, risonanza</span></span>
+    </a>
+    <a class="glass-card gioco-card" href="../i-mondi-invisibili/" onclick="try{localStorage.setItem('sc-lang','it')}catch(e){}">
+      <img src="../images/gioco-mondi-144.webp" class="gioco-emblema" alt="" width="144" height="144" loading="lazy" decoding="async">
+      <span><strong class="gioco-title">I Mondi Invisibili</strong><br><span class="gioco-sub">Corpi sottili, piani e abitanti dell'astrale</span></span>
+    </a>
+    <a class="glass-card gioco-card" href="../il-guerriero/" onclick="try{localStorage.setItem('sc-lang','it')}catch(e){}">
+      <img src="../images/gioco-guerriero-144.webp" class="gioco-emblema" alt="" width="144" height="144" loading="lazy" decoding="async">
+      <span><strong class="gioco-title">Il Guerriero</strong><br><span class="gioco-sub">Combattimento, disciplina e presenza</span></span>
+    </a>
+    <a class="glass-card gioco-card" href="../la-sacra-sessualita/" onclick="try{localStorage.setItem('sc-lang','it')}catch(e){}">
+      <img src="../images/gioco-sessualita-144.webp" class="gioco-emblema" alt="" width="144" height="144" loading="lazy" decoding="async">
+      <span><strong class="gioco-title">La Sacra Sessualità</strong><br><span class="gioco-sub">Coppia, sessualità sacra e il Cuore</span></span>
+    </a>
+    <a class="glass-card gioco-card" href="../i-cinque-veicoli/" onclick="try{localStorage.setItem('sc-lang','it')}catch(e){}">
+      <img src="../images/gioco-veicoli-144.webp" class="gioco-emblema" alt="" width="144" height="144" loading="lazy" decoding="async">
+      <span><strong class="gioco-title">I Cinque Veicoli</strong><br><span class="gioco-sub">Aura, chakra e mondi sottili</span></span>
+    </a>
+    <a class="glass-card gioco-card" href="../la-magia-bianca/" onclick="try{localStorage.setItem('sc-lang','it')}catch(e){}">
+      <img src="../images/gioco-magia-144.webp" class="gioco-emblema" alt="" width="144" height="144" loading="lazy" decoding="async">
+      <span><strong class="gioco-title">La Magia Bianca</strong><br><span class="gioco-sub">Le Quindici Regole e il discepolo</span></span>
+    </a>
+  </div>
+
+  <!-- ── Avventure ── -->
+  <div style="display:flex;justify-content:center;padding:1.5rem 0"><div style="width:60px;height:0.5px;background:linear-gradient(90deg,transparent,rgba(var(--gold-rgb),0.5),transparent)"></div></div>
+  <div class="section-eyebrow"><span>Avventure</span></div>
+  <h2 class="section-title" style="font-size:clamp(22px,4vw,32px)">Il cammino interiore</h2>
+  <p class="section-sub" style="margin-bottom:1.5rem">Storie interattive con salvataggio · partite da 10–20 minuti</p>
+  <div class="sr giochi-grid-lg">
+    <a class="glass-card gioco-card-lg" href="../il-cammino-alchimista/" onclick="try{localStorage.setItem('sc-lang','it')}catch(e){}">
+      <img src="../images/gioco-cammino.webp" class="gioco-emblema gioco-emblema-lg" alt="" width="400" height="400" loading="lazy" decoding="async">
+      <span><strong class="gioco-title-lg">Il Cammino dell'Alchimista</strong><br><span class="gioco-sub-lg">Viaggio interattivo in 3 atti · Nigredo, Albedo, Rubedo</span></span>
+    </a>
+    <a class="glass-card gioco-card-lg" href="../apprendista-del-mago/" onclick="try{localStorage.setItem('sc-lang','it')}catch(e){}">
+      <img src="../images/gioco-apprendista.webp" class="gioco-emblema gioco-emblema-lg" alt="" width="400" height="400" loading="lazy" decoding="async">
+      <span><strong class="gioco-title-lg">L'Apprendista del Mago</strong><br><span class="gioco-sub-lg">Storia a scelte · 7 capitoli · 6 finali</span></span>
+    </a>
+    <a class="glass-card gioco-card-lg" href="../i-sette-piani/" onclick="try{localStorage.setItem('sc-lang','it')}catch(e){}">
+      <img src="../images/gioco-sette-piani.webp" class="gioco-emblema gioco-emblema-lg" alt="" width="400" height="400" loading="lazy" decoding="async">
+      <span><strong class="gioco-title-lg">I Sette Piani</strong><br><span class="gioco-sub-lg">Esplorazione verticale · 7 piani · 6 guardiani</span></span>
+    </a>
+    <a class="glass-card gioco-card-lg" href="../il-grande-viaggio/" onclick="try{localStorage.setItem('sc-lang','it')}catch(e){}">
+      <img src="../images/gioco-viaggio.webp" class="gioco-emblema gioco-emblema-lg" alt="" width="400" height="400" loading="lazy" decoding="async">
+      <span><strong class="gioco-title-lg">Il Grande Viaggio</strong><br><span class="gioco-sub-lg">Il ciclo morte-rinascita · 6 tappe · 6 custodi</span></span>
+    </a>
+    <a class="glass-card gioco-card-lg" href="../il-sentiero-iniziazione/" onclick="try{localStorage.setItem('sc-lang','it')}catch(e){}">
+      <img src="../images/gioco-sentiero.webp" class="gioco-emblema gioco-emblema-lg" alt="" width="400" height="400" loading="lazy" decoding="async">
+      <span><strong class="gioco-title-lg">Il Sentiero dell'Iniziazione</strong><br><span class="gioco-sub-lg">La scala del Pellegrino · 6 gradini · 6 guardiani</span></span>
+    </a>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-seal" aria-hidden="true">✶</div>
+    <p class="footer-logo">Scuola ContattaTi</p>
+    <p class="serif-footer serif-footer-motto"><span lang="el">Γνῶθι Σεαυτόν</span> · Conosci Te Stesso</p>
+
+    <div class="footer-rule" aria-hidden="true"><span>◆  ◆  ◆</span></div>
+
+    <nav class="footer-links" aria-label="Link rapidi">
+      <a href="../index.html#chi-siamo">Chi siamo</a>
+      <a href="../index.html#insegnamenti">Insegnamenti</a>
+      <a href="../index.html#conduttori">I conduttori</a>
+      <a href="../index.html#calendario">Il percorso</a>
+      <a href="../libro/">Il libro</a>
+      <a href="../index.html#galleria">Galleria</a>
+      <a href="../giochi/">Giochi</a>
+      <a href="../index.html#faq">FAQ</a>
+      <a href="../ispirazioni/">Ispirazioni</a>
+      <a href="../index.html#contatti">Contatti</a>
+      <a href="../privacy.html">Privacy</a>
+      <a href="#" id="manageCookies">Gestisci cookie</a>
+    </nav>
+
+    <div class="footer-social">
+      <a href="https://www.facebook.com/nicolaosanifantis" target="_blank" rel="noopener" aria-label="Facebook"><svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.12 8.44 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99C18.34 21.12 22 16.99 22 12z"/></svg></a>
+      <a href="tel:+393349991888" aria-label="Telefono"><svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/></svg></a>
+      <a href="https://wa.me/393349991888" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a10 10 0 00-8.6 14.9L2 22l5.2-1.4A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3A8 8 0 1112 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.1-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4-.1-.1-.5-1.3-.7-1.8-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.3c.1.2 1.6 2.4 3.8 3.4.5.2 1 .4 1.3.5.6.2 1.1.1 1.5.1.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1-.1-.1-.3-.2-.5-.3z"/></svg></a>
+      <button class="footer-share js-share" type="button" aria-label="Condividi il sito"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg><span class="share-toast" role="status">Link copiato!</span></button>
+    </div>
+
+    <hr class="footer-divider"/>
+    <p><a href="tel:+393349991888" aria-label="Chiama Nicolaos al 334 999 1888">334 999 1888</a> &nbsp;·&nbsp; <span id="email-footer"></span></p>
+    <p class="serif-footer serif-footer-quote">"Il lavoro su di sé è ricordare chi si è già."</p>
+    <p class="footer-copyright">© 2026 Scuola ContattaTi · Anna Carla Digregorio & Nicolaos Anifantis</p>
+  </div>
+</footer>
+<!-- Pulsanti fissi: WhatsApp, Condividi, torna su (un landmark, per i lettori di schermo) -->
+<aside aria-label="Scorciatoie">
+<!-- WhatsApp sticky (mobile) -->
+<a class="wa-sticky" href="https://wa.me/393349991888" target="_blank" rel="noopener" aria-label="Scrivici su WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.05 21.785h-.01a9.84 9.84 0 01-5.016-1.373l-.36-.214-3.73.978.996-3.635-.235-.374A9.86 9.86 0 012.166 12c0-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zm8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- Condividi sito -->
+<button class="share-site-btn js-share" id="shareSiteBtn" type="button" aria-label="Condividi il sito">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>
+  <span class="share-toast" id="shareToast">Link copiato!</span>
+</button>
+
+<!-- Back to top -->
+<a class="back-to-top" href="#top" id="backToTop" aria-label="Torna in cima"><span aria-hidden="true">↑</span></a>
+</aside>
+
+<!-- Cookie banner GDPR / ePrivacy -->
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-desc" hidden>
+  <p id="cookie-title" class="cookie-banner-title">Privacy &amp; cookie</p>
+  <p id="cookie-desc">
+    Questo sito usa <strong>Google Analytics</strong> per capire in forma anonima e aggregata come viene navigato.
+    Nessun dato personale è venduto o condiviso a fini commerciali. Puoi accettare o rifiutare;
+    in entrambi i casi il sito funziona normalmente. <a href="../privacy.html">Leggi l'informativa completa</a>.
+  </p>
+  <div class="cookie-actions">
+    <button type="button" id="cookieReject" class="cookie-btn cookie-btn-reject">Rifiuta</button>
+    <button type="button" id="cookieAccept" class="cookie-btn cookie-btn-accept">Accetto</button>
+  </div>
+</div>
+<script>
+/* SCROLL REVEAL (.sr) — inline per autonomia da app.js */
+(function(){
+  var srEls=document.querySelectorAll('.sr');
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+    },{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+    srEls.forEach(function(el){obs.observe(el);});
+  } else {
+    srEls.forEach(function(el){el.classList.add('visible');});
+  }
+})();
+</script>
+<script src="../app.js?v=20261013e" defer></script>
+<script>
+/* SIGILLI GIOCHI — mostra ✦ sulle card dei giochi completati */
+(function(){
+  var SIG={'il-risveglio':'sc-risveglio-sigillo','la-responsabilita':'sc-resp-sigillo','le-emozioni':'sc-emoz-sigillo','il-corpo-e-lanima':'sc-corpo-sigillo','le-leggi-cosmiche':'sc-leggi-sigillo','i-mondi-invisibili':'sc-mondi-sigillo','il-guerriero':'sc-guerr-sigillo','la-sacra-sessualita':'sc-sess-sigillo','i-cinque-veicoli':'sc-veicoli-sigillo','la-magia-bianca':'sc-magia-sigillo','il-cammino-alchimista':'sc-rpg-sigillo','apprendista-del-mago':'sc-adv-sigillo','i-sette-piani':'sc-dng-sigillo','il-grande-viaggio':'sc-viaggio-sigillo','il-sentiero-iniziazione':'sc-sentiero-sigillo'};
+  document.querySelectorAll('a.gioco-card[href], a.gioco-card-lg[href]').forEach(function(a){
+    var f=a.getAttribute('href').replace(/^\.\.\//,'').replace(/\/(index\.html)?$/,'');
+    var k=SIG[f];
+    if(k){try{if(localStorage.getItem(k)){var s=document.createElement('span');s.className='card-sigillo';s.title='Sigillo conquistato';s.setAttribute('aria-label','Sigillo conquistato');s.textContent='✦';a.appendChild(s);}}catch(e){}}
+  });
+})();
+</script>
+</body>
+</html>

@@ -38,7 +38,8 @@ window.GameCore=function(I){
   function toggleTheme(){const meta=document.getElementById("metaThemeColor");if(isLight()){document.documentElement.removeAttribute("data-theme");lsSet(LS_THEME,"dark");if(meta)meta.content="#0d0b1a";}else{document.documentElement.setAttribute("data-theme","light");lsSet(LS_THEME,"light");if(meta)meta.content="#f5f0e8";}updateThemeBtn();}
 
   /* ── Rimandi al sito, nella lingua scelta ── */
-  function siteHref(hash){return(getLang()==="en"?"../en/index.html":"../index.html")+hash;}
+  /* «Giochi» porta alla pagina dei giochi, che ha sostituito la sezione della home */
+  function siteHref(hash){if(hash==="#giochi")return getLang()==="en"?"../en/giochi/":"../giochi/";return(getLang()==="en"?"../en/index.html":"../index.html")+hash;}
   /* riga in fondo alle schermate finali: chi arriva da un link condiviso trova la Scuola */
   function schoolNote(){
     const en=getLang()==="en";

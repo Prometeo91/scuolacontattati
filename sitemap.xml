@@ -69,6 +69,56 @@
     <priority>0.4</priority>
   </url>
 
+  <!-- Pagine proprie di Libro, Ispirazioni e Giochi -->
+  <url>
+    <loc>https://scuolacontattati.com/libro/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scuolacontattati.com/libro/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scuolacontattati.com/en/libro/"/>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/en/libro/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scuolacontattati.com/libro/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scuolacontattati.com/en/libro/"/>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/ispirazioni/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scuolacontattati.com/ispirazioni/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scuolacontattati.com/en/ispirazioni/"/>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/en/ispirazioni/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scuolacontattati.com/ispirazioni/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scuolacontattati.com/en/ispirazioni/"/>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/giochi/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scuolacontattati.com/giochi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scuolacontattati.com/en/giochi/"/>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/en/giochi/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scuolacontattati.com/giochi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scuolacontattati.com/en/giochi/"/>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
   <!-- Giochi iniziatici — pagine bilingui (lingua via preferenza utente) -->
   <url>
     <loc>https://scuolacontattati.com/il-risveglio/</loc>

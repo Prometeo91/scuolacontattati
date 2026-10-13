@@ -1474,6 +1474,8 @@ input[type="radio"]:focus-visible {
 
 /* Presentazioni list */
 .pres-list { display:flex; flex-direction:column; gap:8px; }
+/* Anteprima in home di Libro, Ispirazioni e Giochi: il resto sta nella pagina propria */
+.sezione-pagina { text-align:center; margin-top:2rem; }
 .pres-list .pres-hidden { display:none; }
 .pres-list.expanded .pres-hidden { display:flex; }
 .eventi-pubblici { margin-top:1.5rem; }

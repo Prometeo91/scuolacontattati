@@ -18,7 +18,8 @@ Sito della **Scuola ContattaTi** (Scuola di Consapevolezza ed Alchimia, Bari), g
 
 | File | Ruolo |
 |---|---|
-| `index.html` | Tutto il sito it: sezioni `#chi-siamo`, `#insegnamenti`, `#conduttori`, `#galleria`, `#calendario`, `#libro`, `#faq`, `#contatti`, `#ispirazioni`, `#giochi` |
+| `index.html` | La home it: sezioni `#chi-siamo`, `#insegnamenti`, `#conduttori`, `#galleria`, `#calendario`, `#libro`, `#faq`, `#contatti`, `#ispirazioni`, `#giochi`. Le ultime tre (`#libro`, `#ispirazioni`, `#giochi`) sono solo anteprime con un pulsante verso la pagina propria; tengono l'id perché i link già condivisi (`/#libro`) continuino a funzionare |
+| `libro/`, `ispirazioni/`, `giochi/index.html` | Pagine proprie (en in `en/libro/` ecc.) con il contenuto completo di Libro (contenuti, definizioni, 8 forme), Ispirazioni (oracolo e quaderno delle riflessioni) e Giochi (tutti e 15). Separate dalla home nell'ottobre 2026 per accorciarla (da 40 a 33 schermate su telefono). **Barra, footer, pulsanti fissi e banner dei cookie sono copie di quelli della home**: chi cambia il menu o il footer lo fa in otto file (due home e sei pagine), e chi aggiorna un `?v=` lo aggiorna anche lì. `controlla.js` segnala menu e versioni che non coincidono. Menu e footer della home portano già alle pagine (`libro/`, `giochi/`, `ispirazioni/`); anche il pulsante «Giochi» dentro ogni gioco porta a `giochi/` |
 | `en/index.html` | Versione inglese speculare |
 | `style.css` | Tutti gli stili, design system a variabili CSS |
 | `app.js` | Tema chiaro/scuro, countdown eventi, scroll-reveal, lightbox, service worker |
@@ -47,7 +48,7 @@ Oggi **non esistono**: sezione e landing sono state rimosse col commit `2722cf3`
 - Conduttori: Anna Carla Digregorio e Nicolaos Anifantis. Anna Carla comunica novità via WhatsApp che spesso vanno riportate sul sito.
 - Libro: *Ricchezza, Abbondanza e Mission* (Gagliano Edizioni).
 - Eventi con `data-expires` nel markup e countdown gestiti da `app.js`; schema.org JSON-LD (`Event`) nell'`<head>` da tenere allineato ai dettagli mostrati in pagina (orari inclusi).
-- **Ogni modifica a `style.css`, `app.js`, `lezioni.js`, `data/citazioni.js` o `data/eventi.js` richiede il cache-bust**: aggiornare il `?v=` del link/script in `index.html` E `en/index.html`, la voce CORE in `sw.js` e incrementare la `VERSION` del service worker. Altrimenti i visitatori di ritorno vedono il file vecchio (stale-while-revalidate): nuovi elementi senza stile, nuovi pulsanti a cui il JS vecchio non risponde (è successo col pulsante Condividi: su desktop funzionava, sul telefono già in cache no), una lezione o un evento aggiunti che non compaiono fino alla seconda visita. Vale per qualunque file venga aggiunto a CORE in futuro.
+- **Ogni modifica a `style.css`, `app.js`, `lezioni.js`, `data/citazioni.js` o `data/eventi.js` richiede il cache-bust**: aggiornare il `?v=` del link/script in `index.html` E `en/index.html` (e nelle sei pagine Libro/Ispirazioni/Giochi per `style.css`, `app.js` e `data/citazioni.js`), la voce CORE in `sw.js` e incrementare la `VERSION` del service worker. Altrimenti i visitatori di ritorno vedono il file vecchio (stale-while-revalidate): nuovi elementi senza stile, nuovi pulsanti a cui il JS vecchio non risponde (è successo col pulsante Condividi: su desktop funzionava, sul telefono già in cache no), una lezione o un evento aggiunti che non compaiono fino alla seconda visita. Vale per qualunque file venga aggiunto a CORE in futuro.
 
 ## Prestazioni (misurate, non da smontare per sbaglio)
 
@@ -130,7 +131,7 @@ Il sito viene servito dal repository senza build: un file tracciato può essere 
 
 ## Giochi didattici
 
-15 giochi in JavaScript senza librerie esterne (niente Phaser), ognuno in una cartella propria (`il-risveglio/`, `apprendista-del-mago/`, …) con `index.html` + `data.js` + `i18n.js`; engine e stili condivisi in `giochi/`. Raramente oggetto di modifiche: toccare solo se richiesto.
+15 giochi in JavaScript senza librerie esterne (niente Phaser), ognuno in una cartella propria (`il-risveglio/`, `apprendista-del-mago/`, …) con `index.html` + `data.js` + `i18n.js`; engine e stili condivisi in `giochi/`, che contiene anche la pagina con l'elenco dei giochi (`giochi/index.html`). Raramente oggetto di modifiche: toccare solo se richiesto.
 
 ## Stile di scrittura (vale per la copy del sito e per le risposte in chat)
 

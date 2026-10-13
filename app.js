@@ -353,128 +353,132 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  renderAnno(L2,'calendar-list-anno2',SC_T.anno+' 2');
-  renderAnno(L3,'calendar-list-anno3',SC_T.anno+' 3');
-  renderAnno(L4,'calendar-list-anno4',SC_T.anno+' 4');
-  renderAnno(L5,'calendar-list-anno5',SC_T.anno+' 5');
-  renderAnno(L6,'calendar-list-anno6',SC_T.anno+' 6');
-  renderAnno(L7,'calendar-list-anno7',SC_T.anno+' 7');
-  renderEsp(LESP,'calendar-list-esp');
+  /* Calendario e banner della prossima lezione: solo dove c'è lezioni.js
+     (la home). Le pagine Libro, Ispirazioni e Giochi non lo caricano. */
+  if(typeof L2!=='undefined'){
+    renderAnno(L2,'calendar-list-anno2',SC_T.anno+' 2');
+    renderAnno(L3,'calendar-list-anno3',SC_T.anno+' 3');
+    renderAnno(L4,'calendar-list-anno4',SC_T.anno+' 4');
+    renderAnno(L5,'calendar-list-anno5',SC_T.anno+' 5');
+    renderAnno(L6,'calendar-list-anno6',SC_T.anno+' 6');
+    renderAnno(L7,'calendar-list-anno7',SC_T.anno+' 7');
+    renderEsp(LESP,'calendar-list-esp');
 
-  /* PROSSIMA LEZIONE — calcolata da lezioni.js, non scritta a mano nel markup.
-     Fa tre cose: riempie il banner #ripresa, apre il tab dell'anno che contiene
-     la prossima lezione (invece di Anno 1 fisso) e mette una riga di stato in
-     cima agli anni le cui lezioni si sono svolte tutte. Le lezioni senza data
-     (programma in definizione) sono ignorate: non si inventa niente. */
-  (function(){
-    var anni=[L1,L2,L3,L4,L5,L6,L7];
-    var pross=null, statoAnno=[], prossPerAnno=[];
+    /* PROSSIMA LEZIONE — calcolata da lezioni.js, non scritta a mano nel markup.
+       Fa tre cose: riempie il banner #ripresa, apre il tab dell'anno che contiene
+       la prossima lezione (invece di Anno 1 fisso) e mette una riga di stato in
+       cima agli anni le cui lezioni si sono svolte tutte. Le lezioni senza data
+       (programma in definizione) sono ignorate: non si inventa niente. */
+    (function(){
+      var anni=[L1,L2,L3,L4,L5,L6,L7];
+      var pross=null, statoAnno=[], prossPerAnno=[];
 
-    anni.forEach(function(lista,i){
-      var conData=lista.filter(function(l){return l.day&&l.month&&l.year;});
-      var tutteP=conData.length>0&&conData.every(function(l){return stato(l.day,l.month,l.year)==='passata';});
-      statoAnno[i]={conclusa:tutteP, senzaDate:conData.length===0&&lista.length>0, prima:conData[0], ultima:conData[conData.length-1]};
-      var propria=null;
-      conData.forEach(function(l){
-        if(stato(l.day,l.month,l.year)==='passata')return;
-        var d=new Date(l.year,l.month-1,l.day,9,0);
-        if(!propria||d<propria.d)propria={d:d,l:l,anno:i+1};
+      anni.forEach(function(lista,i){
+        var conData=lista.filter(function(l){return l.day&&l.month&&l.year;});
+        var tutteP=conData.length>0&&conData.every(function(l){return stato(l.day,l.month,l.year)==='passata';});
+        statoAnno[i]={conclusa:tutteP, senzaDate:conData.length===0&&lista.length>0, prima:conData[0], ultima:conData[conData.length-1]};
+        var propria=null;
+        conData.forEach(function(l){
+          if(stato(l.day,l.month,l.year)==='passata')return;
+          var d=new Date(l.year,l.month-1,l.day,9,0);
+          if(!propria||d<propria.d)propria={d:d,l:l,anno:i+1};
+        });
+        if(propria){ prossPerAnno.push(propria); if(!pross||propria.d<pross.d)pross=propria; }
       });
-      if(propria){ prossPerAnno.push(propria); if(!pross||propria.d<pross.d)pross=propria; }
-    });
 
-    var box=document.getElementById('ripresa');
-    if(box&&pross){
-      var t=document.getElementById('ripresa-title');
-      var s=document.getElementById('ripresa-sub');
-      var c=document.getElementById('ripresa-count');
-      var gg=SC_T.giorniL[pross.d.getDay()];
-      var mese=SC_T.mesiL[pross.l.month-1];
-      if(t)t.textContent=gg+' '+pross.l.day+' '+(SC_EN?mese:mese.toLowerCase());
-      var tl=loc(pross.l);
-      if(s)s.textContent=(SC_EN?'Year '+pross.anno:pross.anno+'° Anno')+(tl.titolo?' · '+tl.titolo:'');
-      if(c){
-        var oggi=new Date();oggi.setHours(0,0,0,0);
-        var mez=new Date(pross.d);mez.setHours(0,0,0,0);
-        var n=Math.round((mez-oggi)/86400000);
-        if(n<=0)c.innerHTML=SC_EN?'<strong>Today</strong>':'<strong>È oggi</strong>';
-        else if(n===1)c.innerHTML=SC_EN?'<strong>Tomorrow</strong>':'<strong>È domani</strong>';
-        else c.innerHTML=SC_EN?'In <strong>'+n+' days</strong>':'Tra <strong>'+n+' giorni</strong>';
-      }
-      /* Più anni in corso insieme (oggi il 2° e il 5°): il banner dava solo la
-         lezione più vicina, e chi frequenta l'altro anno leggeva una data non sua.
-         Una riga per ciascun altro anno, col link alla sua scheda. */
-      prossPerAnno.filter(function(x){return x!==pross;}).sort(function(a,b){return a.d-b.d;}).forEach(function(x){
-        var m=SC_T.mesiL[x.l.month-1];
-        var p=document.createElement('p'); p.className='ripresa-altri';
-        p.appendChild(document.createTextNode((SC_EN?'Year '+x.anno:x.anno+'° Anno')+': '));
-        var a=document.createElement('a'); a.href='#anno-'+x.anno;
-        var g=SC_T.giorniL[x.d.getDay()];
-        a.textContent=(SC_EN?g:g.toLowerCase())+' '+x.l.day+' '+(SC_EN?m:m.toLowerCase())+(x.l.year!==pross.l.year?' '+x.l.year:'');
-        a.addEventListener('click',function(e){
-          var tab=document.getElementById('tab-anno-'+x.anno);
-          if(!tab)return;
-          e.preventDefault(); tab.click();
-          /* scroll animato: prima si disegnano tutte le sezioni (vedi .cv-off) */
-          document.documentElement.classList.add('cv-off');
-          tab.parentNode.scrollIntoView({behavior:'smooth',block:'start'});
+      var box=document.getElementById('ripresa');
+      if(box&&pross){
+        var t=document.getElementById('ripresa-title');
+        var s=document.getElementById('ripresa-sub');
+        var c=document.getElementById('ripresa-count');
+        var gg=SC_T.giorniL[pross.d.getDay()];
+        var mese=SC_T.mesiL[pross.l.month-1];
+        if(t)t.textContent=gg+' '+pross.l.day+' '+(SC_EN?mese:mese.toLowerCase());
+        var tl=loc(pross.l);
+        if(s)s.textContent=(SC_EN?'Year '+pross.anno:pross.anno+'° Anno')+(tl.titolo?' · '+tl.titolo:'');
+        if(c){
+          var oggi=new Date();oggi.setHours(0,0,0,0);
+          var mez=new Date(pross.d);mez.setHours(0,0,0,0);
+          var n=Math.round((mez-oggi)/86400000);
+          if(n<=0)c.innerHTML=SC_EN?'<strong>Today</strong>':'<strong>È oggi</strong>';
+          else if(n===1)c.innerHTML=SC_EN?'<strong>Tomorrow</strong>':'<strong>È domani</strong>';
+          else c.innerHTML=SC_EN?'In <strong>'+n+' days</strong>':'Tra <strong>'+n+' giorni</strong>';
+        }
+        /* Più anni in corso insieme (oggi il 2° e il 5°): il banner dava solo la
+           lezione più vicina, e chi frequenta l'altro anno leggeva una data non sua.
+           Una riga per ciascun altro anno, col link alla sua scheda. */
+        prossPerAnno.filter(function(x){return x!==pross;}).sort(function(a,b){return a.d-b.d;}).forEach(function(x){
+          var m=SC_T.mesiL[x.l.month-1];
+          var p=document.createElement('p'); p.className='ripresa-altri';
+          p.appendChild(document.createTextNode((SC_EN?'Year '+x.anno:x.anno+'° Anno')+': '));
+          var a=document.createElement('a'); a.href='#anno-'+x.anno;
+          var g=SC_T.giorniL[x.d.getDay()];
+          a.textContent=(SC_EN?g:g.toLowerCase())+' '+x.l.day+' '+(SC_EN?m:m.toLowerCase())+(x.l.year!==pross.l.year?' '+x.l.year:'');
+          a.addEventListener('click',function(e){
+            var tab=document.getElementById('tab-anno-'+x.anno);
+            if(!tab)return;
+            e.preventDefault(); tab.click();
+            /* scroll animato: prima si disegnano tutte le sezioni (vedi .cv-off) */
+            document.documentElement.classList.add('cv-off');
+            tab.parentNode.scrollIntoView({behavior:'smooth',block:'start'});
+          });
+          p.appendChild(a);
+          var note=box.querySelector('.ripresa-note');
+          box.insertBefore(p,note);
         });
-        p.appendChild(a);
-        var note=box.querySelector('.ripresa-note');
-        box.insertBefore(p,note);
+        box.hidden=false;
+      }
+
+      /* Quale anno si apre: quello scritto nell'URL (#anno-3, #anno-esp), che
+         rende linkabile un anno preciso, altrimenti quello della prossima
+         lezione. Non si riusa activate() del markup perché quella chiama
+         focus(), che al caricamento porterebbe la pagina a saltare sul
+         calendario. */
+      var daURL=(location.hash||'').match(/^#anno-(\d|esp)$/);
+      var annoSel=daURL?daURL[1]:(pross&&pross.anno!==1?String(pross.anno):null);
+      if(annoSel){
+        var tab=document.getElementById('tab-anno-'+annoSel);
+        if(tab&&!tab.classList.contains('disabled')){
+          document.querySelectorAll('.anno-tab').forEach(function(x){
+            x.classList.remove('active');x.setAttribute('aria-selected','false');x.setAttribute('tabindex','-1');
+          });
+          tab.classList.add('active');tab.setAttribute('aria-selected','true');tab.setAttribute('tabindex','0');
+          document.querySelectorAll('.anno-panel').forEach(function(p){p.style.display='none';});
+          var pan=document.getElementById('panel-anno-'+annoSel);
+          if(pan)pan.style.display='block';
+          /* #anno-3 non è l'id di nessun elemento: il browser non scrolla da
+             solo, e chi apre il link resterebbe in cima alla pagina. */
+          if(daURL) window.addEventListener('load',function(){
+            var cal=document.getElementById('calendario');
+            if(cal)cal.scrollIntoView();
+          });
+        }
+      }
+
+      /* Riga di stato sugli anni conclusi, dentro il pannello e non sul tab:
+         la tab bar a 390px va già a capo su tre righe. */
+      statoAnno.forEach(function(st,i){
+        var testo=null;
+        if(st.conclusa&&st.prima&&st.ultima){
+          var mese=function(m){var x=SC_T.mesiL[m-1];return SC_EN?x:x.toLowerCase();};
+          testo=SC_T.annoConcluso+' — '+SC_T.lezioniSvolte+' '+
+            mese(st.prima.month)+' '+st.prima.year+' '+SC_T.aData+' '+
+            mese(st.ultima.month)+' '+st.ultima.year;
+        } else if(st.senzaDate){
+          /* Anni con i titoli ma nessuna data: e' lo stato reale dei dati,
+             non una lacuna da riempire inventando. */
+          testo=SC_T.dateInDefinizione;
+        }
+        if(!testo)return;
+        var lista=document.getElementById(i===0?'calendar-list':'calendar-list-anno'+(i+1));
+        if(!lista||lista.previousElementSibling&&lista.previousElementSibling.classList.contains('anno-stato'))return;
+        var p=document.createElement('p');
+        p.className='anno-stato';
+        p.textContent=testo;
+        lista.parentNode.insertBefore(p,lista);
       });
-      box.hidden=false;
-    }
-
-    /* Quale anno si apre: quello scritto nell'URL (#anno-3, #anno-esp), che
-       rende linkabile un anno preciso, altrimenti quello della prossima
-       lezione. Non si riusa activate() del markup perché quella chiama
-       focus(), che al caricamento porterebbe la pagina a saltare sul
-       calendario. */
-    var daURL=(location.hash||'').match(/^#anno-(\d|esp)$/);
-    var annoSel=daURL?daURL[1]:(pross&&pross.anno!==1?String(pross.anno):null);
-    if(annoSel){
-      var tab=document.getElementById('tab-anno-'+annoSel);
-      if(tab&&!tab.classList.contains('disabled')){
-        document.querySelectorAll('.anno-tab').forEach(function(x){
-          x.classList.remove('active');x.setAttribute('aria-selected','false');x.setAttribute('tabindex','-1');
-        });
-        tab.classList.add('active');tab.setAttribute('aria-selected','true');tab.setAttribute('tabindex','0');
-        document.querySelectorAll('.anno-panel').forEach(function(p){p.style.display='none';});
-        var pan=document.getElementById('panel-anno-'+annoSel);
-        if(pan)pan.style.display='block';
-        /* #anno-3 non è l'id di nessun elemento: il browser non scrolla da
-           solo, e chi apre il link resterebbe in cima alla pagina. */
-        if(daURL) window.addEventListener('load',function(){
-          var cal=document.getElementById('calendario');
-          if(cal)cal.scrollIntoView();
-        });
-      }
-    }
-
-    /* Riga di stato sugli anni conclusi, dentro il pannello e non sul tab:
-       la tab bar a 390px va già a capo su tre righe. */
-    statoAnno.forEach(function(st,i){
-      var testo=null;
-      if(st.conclusa&&st.prima&&st.ultima){
-        var mese=function(m){var x=SC_T.mesiL[m-1];return SC_EN?x:x.toLowerCase();};
-        testo=SC_T.annoConcluso+' — '+SC_T.lezioniSvolte+' '+
-          mese(st.prima.month)+' '+st.prima.year+' '+SC_T.aData+' '+
-          mese(st.ultima.month)+' '+st.ultima.year;
-      } else if(st.senzaDate){
-        /* Anni con i titoli ma nessuna data: e' lo stato reale dei dati,
-           non una lacuna da riempire inventando. */
-        testo=SC_T.dateInDefinizione;
-      }
-      if(!testo)return;
-      var lista=document.getElementById(i===0?'calendar-list':'calendar-list-anno'+(i+1));
-      if(!lista||lista.previousElementSibling&&lista.previousElementSibling.classList.contains('anno-stato'))return;
-      var p=document.createElement('p');
-      p.className='anno-stato';
-      p.textContent=testo;
-      lista.parentNode.insertBefore(p,lista);
-    });
-  })();
+    })();
+  }
 
   /* BANNER "PORTE APERTE" rimosso: il messaggio del contributo è stato elevato in un elemento .contributo visibile in cima alla sezione (una sola fonte, niente duplicazioni). */
 
