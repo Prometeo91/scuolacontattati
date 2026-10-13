@@ -20,7 +20,7 @@ var SC_T = SC_EN ? {
   dateInDefinizione:'Dates not yet set — the titles are confirmed, the dates are published as soon as they are.',
   videoTitle:'Introductory video of the Scuola ContattaTi',
   inCorso:'&#9679; In progress', conclusa:'Completed', svolta:'Held', iscriviti:'Enrol',
-  inCorsoOra:' — In progress now', prossima:' ✶ Next',
+  inCorsoOra:' — In progress now', prossima:' ✶ Next', prossimaLezione:'Next lesson',
   anno:'Year', lezione:'Lesson', temi:'Topics',
   inArrivo:'Coming soon', locandinaInArrivo:'Details coming soon',
   di:'of',
@@ -48,7 +48,7 @@ var SC_T = SC_EN ? {
   dateInDefinizione:'Date non ancora fissate — i titoli sono confermati, le date vengono pubblicate appena lo sono.',
   videoTitle:'Video di presentazione della Scuola ContattaTi',
   inCorso:'&#9679; In corso', conclusa:'Conclusa', svolta:'Svolta', iscriviti:'Iscriviti',
-  inCorsoOra:' — In corso ora', prossima:' ✶ Prossima',
+  inCorsoOra:' — In corso ora', prossima:' ✶ Prossima', prossimaLezione:'Prossima lezione',
   anno:'Anno', lezione:'Lezione', temi:'Temi',
   inArrivo:'In arrivo', locandinaInArrivo:'Locandina in arrivo',
   di:'di',
@@ -437,6 +437,17 @@ document.addEventListener('DOMContentLoaded', function() {
           box.insertBefore(p,note);
         });
         box.hidden=false;
+      }
+
+      /* La stessa lezione in una riga sotto i pulsanti dell'hero: chi arriva
+         per sapere quando è la prossima lezione la trova nella prima
+         schermata, senza aprire il menu. */
+      var hp=document.getElementById('hero-prossima');
+      if(hp&&pross){
+        var hg=SC_T.giorniL[pross.d.getDay()], hm=SC_T.mesiL[pross.l.month-1];
+        var ha=document.createElement('a'); ha.href='#calendario';
+        ha.textContent=SC_T.prossimaLezione+' · '+(SC_EN?hg:hg.toLowerCase())+' '+pross.l.day+' '+(SC_EN?hm:hm.toLowerCase())+' · '+(SC_EN?'Year '+pross.anno:pross.anno+'° Anno')+'\u00a0→';
+        hp.appendChild(ha); hp.hidden=false;
       }
 
       /* Quale anno si apre: quello scritto nell'URL (#anno-3, #anno-esp), che

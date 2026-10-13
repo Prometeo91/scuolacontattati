@@ -369,7 +369,7 @@
     </script>
 
  <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) — self-hosted, zero dipendenze esterne -->
-  <link rel="stylesheet" href="style.css?v=20261013i"/>
+  <link rel="stylesheet" href="style.css?v=20261013j"/>
   <noscript><style>.sr{opacity:1!important;transform:none!important}</style></noscript>
 
 </head>
@@ -412,6 +412,9 @@
   <p class="hero-motto-sub">Conosci Te Stesso · Oracolo di Delfi</p>
   <p class="hero-lead">Tornare padroni della propria vita.</p>
   <p class="hero-slogan">Un laboratorio di risveglio attraverso gli Antichi Insegnamenti, l'Alchimia interiore e le 96 Leggi dell'Universo.</p>
+  <!-- riempita da app.js con la stessa lezione del banner #ripresa; resta nascosta se non ce n'è una.
+       Sta sopra i pulsanti perché sul telefono entri nella prima schermata. -->
+  <p class="hero-prossima" id="hero-prossima" hidden></p>
   <div class="hero-ctas">
     <a href="#calendario" class="btn-primary">Scopri il percorso</a>
     <a href="#contatti" class="btn-ghost">Contattaci</a>
@@ -1367,7 +1370,7 @@
 })();
 </script>
 <script src="data/eventi.js?v=20261013f" defer></script>
-<script src="app.js?v=20261013j" defer></script>
+<script src="app.js?v=20261013k" defer></script>
 <script>
 /* SIGILLI GIOCHI — mostra ✦ sulle card dei giochi completati */
 (function(){

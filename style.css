@@ -572,6 +572,9 @@ body::before {
 .hero-lead { font-family: var(--font-display); font-size: clamp(24px, 3.4vw, 32px); font-weight: 500; color: var(--text); line-height: 1.25; text-wrap: balance; letter-spacing: 0.01em; margin-bottom: 0.6rem; max-width: 560px; position: relative; z-index: 2; }
 .hero-slogan { font-family: var(--font-display); font-size: clamp(16px, 2.2vw, 20px); color: var(--text); max-width: 520px; line-height: 1.7; margin-bottom: 2.5rem; position: relative; z-index: 2; opacity: 0.85; letter-spacing: 0.01em; }
 .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; position: relative; z-index: 2; }
+.hero-prossima { margin: -0.75rem 0 0.85rem; font-family: var(--font-display); font-size: clamp(13px, 3.8vw, 17px); letter-spacing: 0.01em; position: relative; z-index: 2; }
+.hero-prossima a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 0.25rem; color: var(--gold-light); text-decoration: underline; text-decoration-color: rgba(var(--gold-light-rgb),0.45); text-underline-offset: 4px; transition: color var(--t-fast), text-decoration-color var(--t-fast); }
+.hero-prossima a:hover { color: var(--gold); text-decoration-color: var(--gold); }
 /* Sul telefono i due pulsanti vanno uno sotto l'altro: stessa larghezza,
    così conta solo la differenza di colore */
 @media (max-width: 640px) and (orientation: portrait) {
@@ -579,7 +582,7 @@ body::before {
   .hero-motto-sub { margin-bottom: 1.25rem; }
   .hero-motto-sub::after { margin-top: 0.9rem; }
   .hero-lead { margin-bottom: 0.4rem; }
-  .hero-slogan { margin-bottom: 1.75rem; }
+  .hero-slogan { margin-bottom: 1.25rem; }   /* la riga della prossima lezione sta qui sotto */
   .hero-ctas { flex-direction: column; align-items: center; gap: 0.75rem; }
   .hero-ctas a { width: min(100%, 260px); text-align: center; }
 }
@@ -594,7 +597,8 @@ body::before {
   /* la stellina sotto il motto cede il posto alla frase principale */
   .hero-motto-sub::after { display: none; }
   .hero-lead { margin-bottom: 0.4rem; }
-  .hero-slogan { line-height: 1.55; margin-bottom: 1.5rem; }
+  .hero-slogan { line-height: 1.55; margin-bottom: 1rem; }
+  .hero-prossima { margin-bottom: 0.6rem; }
 }
 /* Tablet in orizzontale e portatili bassi (1024×768, 1280×800, 1366×768):
    i pulsanti restavano fuori dalla prima schermata di 30-120px. */
@@ -1692,10 +1696,14 @@ input[type="radio"]:focus-visible {
 }
 [data-theme="light"] .cookie-banner-title { color: #7a5a14; }
 [data-theme="light"] .cookie-btn-reject { color: #7a5a14; border-color: rgba(120,90,30,0.4); }
+/* Sul telefono il banner era alto 320px e copriva i due pulsanti dell'hero
+   alla prima visita: titolo e testo più stretti, pulsanti affiancati. */
 @media (max-width: 480px) {
-  .cookie-banner { padding: 1rem 1.1rem; }
-  .cookie-actions { flex-direction: column; }
-  .cookie-btn { width: 100%; }
+  .cookie-banner { padding: 0.8rem 0.95rem 0.85rem; bottom: calc(0.6rem + env(safe-area-inset-bottom, 0px)); width: calc(100% - 1.2rem); }
+  .cookie-banner-title { font-size: 15px; margin-bottom: 0.25rem; }
+  .cookie-banner p { font-size: 13px; line-height: 1.45; margin-bottom: 0.7rem; }
+  .cookie-actions { gap: 0.5rem; }
+  .cookie-btn { min-width: 0; padding: 0.6rem 0.75rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .cookie-banner { animation: none; }
