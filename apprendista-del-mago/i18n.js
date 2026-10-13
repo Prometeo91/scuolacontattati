@@ -16,7 +16,7 @@ const STR = {
   resume:{it:"Riprendi",en:"Resume"},
   restart:{it:"Ricomincia",en:"Start over"},
   restartConfirm:{it:"Ricominciare da capo? Il progresso verrà azzerato.",en:"Start over? Progress will be reset."},
-  continua:{it:"Continua",en:"Continue"},
+  continua:{it:"Continua",en:"Continue"},chosenConscious:{it:"Scelta consapevole",en:"Conscious choice"},chosenMechanical:{it:"Scelta meccanica",en:"Mechanical choice"},chosenNeutral:{it:"Scelta neutra",en:"Neutral choice"},
   chapter:{it:"Capitolo",en:"Chapter"},
   backToMenu:{it:"Torna ai giochi",en:"Back to games"},
   playAgain:{it:"Gioca ancora",en:"Play again"},

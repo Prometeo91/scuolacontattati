@@ -96,6 +96,10 @@ body::after {
 .rpg-choice.chosen-mechanical { border-color: var(--danger); background: rgba(216,85,79,0.10); }
 .rpg-choice.chosen-neutral { border-color: var(--gold); background: rgba(var(--gold-rgb),0.10); }
 .rpg-choice.dim { opacity: 0.45; }
+/* un glifo oltre al colore, come «✦ Esatto / ○ Non esatto» nei quiz */
+.rpg-choice.chosen-conscious::after { content: " ✦"; color: var(--green); }
+.rpg-choice.chosen-mechanical::after { content: " ○"; color: var(--danger); }
+.rpg-choice.chosen-neutral::after { content: " ·"; color: var(--gold); }
 .rpg-choice:disabled { cursor: default; }
 
 /* ── Feedback ── */

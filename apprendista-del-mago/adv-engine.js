@@ -61,10 +61,14 @@ function renderScene(key){
   if(sc.chapter){
     n.appendChild(frag(`<div class="rpg-act-numeral" style="text-align:center;margin-bottom:0.3rem">${esc(t("chapter"))} ${sc.chapter}</div>`));
   }
-  n.appendChild(frag(`<div class="rpg-act-title" style="text-align:center;font-size:clamp(22px,5vw,34px);margin-bottom:1.5rem">${esc(L(sc.title))}</div>`));
+  // h2 con il focus a ogni scena: lo screen reader legge dove si è arrivati
+  n.appendChild(frag(`<h2 class="rpg-act-title" tabindex="-1" style="text-align:center;font-size:clamp(22px,5vw,34px);margin-bottom:1.5rem">${esc(L(sc.title))}</h2>`));
   // Scene card
   const card=frag('<div class="rpg-scene"></div>');
-  card.appendChild(frag(`<div class="rpg-scene-text" style="border-left-color:var(--gold)">${nl2br(L(sc.text))}</div>`));
+  card.appendChild(frag(`<div class="rpg-scene-text">${nl2br(L(sc.text))}</div>`));
+  // annuncia il tipo di scelta fatta (il colore del pulsante non basta allo screen reader)
+  const esito=frag('<p class="sr-only" aria-live="polite"></p>');
+  card.appendChild(esito);
   if(sc.choices&&sc.choices.length>0){
     const choicesW=frag('<div class="rpg-choices"></div>');
     sc.choices.forEach((ch,i)=>{
@@ -78,6 +82,7 @@ function renderScene(key){
           if(j===i)b.classList.add(ch.karma>0?"chosen-conscious":ch.karma<0?"chosen-mechanical":"chosen-neutral");
           else b.classList.add("dim");
         });
+        esito.textContent=t(ch.karma>0?"chosenConscious":ch.karma<0?"chosenMechanical":"chosenNeutral");
         // Show continue
         const foot=frag('<div class="rpg-foot" style="margin-top:1.2rem"></div>');
         const nextScene=D.scenes[ch.next];
@@ -92,6 +97,7 @@ function renderScene(key){
         });
         foot.appendChild(contBtn);
         card.appendChild(foot);
+        contBtn.focus({preventScroll:true});
         save();
       });
       choicesW.appendChild(btn);
@@ -109,13 +115,14 @@ function renderScene(key){
   n.appendChild(card);
   mount(n);
   window.scrollTo({top:0,behavior:"smooth"});
+  n.querySelector("h2").focus({preventScroll:true});
 }
 
 function renderEnding(endingKey){
   const endData=D.endings[endingKey]||{glyph:"?",score:0};
   const n=frag('<div class="rpg-profile"></div>');
   n.appendChild(frag(`<div class="rpg-profile-seal">${endData.glyph}</div>`));
-  n.appendChild(frag(`<h2>${esc(t("ending"))}</h2>`));
+  n.appendChild(frag(`<h2 tabindex="-1">${esc(t("ending"))}</h2>`));
   n.appendChild(frag(`<div class="rpg-profile-archetype" style="margin-top:1rem">${esc(t("end_"+endingKey))}</div>`));
   n.appendChild(frag(`<div class="rpg-profile-desc" style="white-space:pre-line">${esc(t("end_"+endingKey+"_d"))}</div>`));
   // Stats
@@ -136,6 +143,7 @@ function renderEnding(endingKey){
   n.appendChild(C.schoolNote());
   mount(n);
   window.scrollTo({top:0,behavior:"smooth"});
+  n.querySelector("h2").focus({preventScroll:true});
 }
 
 /* ══════════ CHROME — condiviso in ../giochi/game-core.js ══════════ */
