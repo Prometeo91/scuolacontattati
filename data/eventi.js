@@ -30,7 +30,7 @@ window.SC_EVENTI = [
   {day:5, month:9, year:2025,
    it:{titolo:'Presentazione Scuola — Il Mondo che Voglio', dettaglio:'Palese (Bari)'},
    en:{titolo:'School presentation — Il Mondo che Voglio', dettaglio:'Palese (Bari)'}},
-  {day:3, month:9, year:2025,
+  {day:3, month:9, year:2025, libero:true,
    it:{titolo:'Presentazione Scuola — Libreria Roma', dettaglio:'P.zza Aldo Moro 13, Bari'},
    en:{titolo:'School presentation — Libreria Roma', dettaglio:'P.zza Aldo Moro 13, Bari'}},
   {day:19, month:7, year:2025,
