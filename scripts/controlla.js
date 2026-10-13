@@ -192,6 +192,7 @@ for (const [home, pre] of [['index.html', ''], ['en/index.html', 'en/']]) {
   for (const slug of SOTTOPAGINE) {
     const f = pre + slug + '/index.html';
     if (!esiste(f)) { errore('pagine', `${f} non esiste ma la home ci rimanda`); continue; }
+    if (/class="nav-logo" href="#"/.test(leggi(f))) errore('pagine', `${f}: il logo in alto punta a "#", cioè alla pagina stessa, invece che alla home`);
     const m = vociMenu(f);
     if (m !== menuHome) errore('pagine', `${f}: il menu non coincide con ${home}\n    home:   ${menuHome}\n    pagina: ${m}`);
     const vPag = versioniInPagina(f);
