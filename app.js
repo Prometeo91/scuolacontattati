@@ -123,6 +123,16 @@ function lsSet(k,v){try{localStorage.setItem(k,v);}catch(e){}}
   }
 })();
 
+/* Si torna alla home col tasto Indietro o ricaricando, con una posizione
+   salvata: gli scroll automatici verso #anno-3 o #ancora non devono partire,
+   la pagina la rimette RITORNO in fondo al file. */
+var SC_RITORNO = (function(){
+  try {
+    var nv = performance.getEntriesByType('navigation')[0];
+    return !!(nv && /^(back_forward|reload)$/.test(nv.type) && history.state && history.state.scPos);
+  } catch(e) { return false; }
+})();
+
 /* ── MAIN APP (DOMContentLoaded) ── */
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -448,7 +458,7 @@ document.addEventListener('DOMContentLoaded', function() {
           if(pan)pan.style.display='block';
           /* #anno-3 non è l'id di nessun elemento: il browser non scrolla da
              solo, e chi apre il link resterebbe in cima alla pagina. */
-          if(daURL) window.addEventListener('load',function(){
+          if(daURL&&!SC_RITORNO) window.addEventListener('load',function(){
             var cal=document.getElementById('calendario');
             if(cal)cal.scrollIntoView();
           });
@@ -953,7 +963,7 @@ document.addEventListener('DOMContentLoaded', function() {
    (oracolo citazioni, carosello), spostando la sezione dopo lo scroll.
    Ri-scrolliamo all'ancora a caricamento completo. */
 (function(){
-  if(!location.hash) return;
+  if(!location.hash || SC_RITORNO) return;
   var id = location.hash.slice(1);
   function rescroll(){
     var el = document.getElementById(id);
@@ -962,4 +972,69 @@ document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('load', function(){
     setTimeout(rescroll, 150);
   });
+})();
+
+/* ── RITORNO — il punto della home in cui si era ──
+   Il browser, tornando indietro, rimette lo stesso numero di pixel. Ma le
+   sezioni lontane hanno altezze stimate finché non si disegnano (vedi
+   CONTENT-VISIBILITY), e quelle sopra il punto cambiano altezza fra l'andata
+   e il ritorno: si atterrava anche duemila pixel più in là, e chi aveva un
+   #anno-3 nell'URL veniva riportato al calendario. Si salva quindi in
+   history.state la sezione in cima allo schermo e lo scarto dentro di essa,
+   e la si rimette qui. Lo script in <head> toglie il ripristino al browser
+   (scrollRestoration «manual») su tutte le visite della home: lasciato
+   acceso, Chrome a volte completa il suo dopo questo e sposta la pagina di
+   nuovo. Per questo anche Indietro fra le ancore della home (#faq → punto di
+   prima) passa da qui. */
+(function(){
+  if(!document.getElementById('chi-siamo') || !history.replaceState) return;
+  function salva(){
+    var y = window.scrollY, pos = { y: y }, s = document.querySelectorAll('main > section[id]');
+    for (var i = s.length - 1; i >= 0; i--) {
+      var top = s[i].getBoundingClientRect().top + y;
+      if (top <= y) { pos = { id: s[i].id, off: y - top }; break; }
+    }
+    var st = history.state && typeof history.state === 'object' ? history.state : {};
+    var nuovo = {}; for (var k in st) nuovo[k] = st[k];
+    nuovo.scPos = pos;
+    try { history.replaceState(nuovo, ''); } catch(e) {}
+  }
+  var timer;
+  window.addEventListener('scroll', function(){ clearTimeout(timer); timer = setTimeout(salva, 200); }, { passive: true });
+  /* anche subito prima di un clic: un link #ancora apre una voce nuova */
+  document.addEventListener('click', function(){ clearTimeout(timer); salva(); }, true);
+  window.addEventListener('pagehide', salva);
+
+  function rimetti(){
+    var pos = history.state && history.state.scPos, y = 0;
+    if (pos) {
+      var el = pos.id && document.getElementById(pos.id);
+      y = el ? el.getBoundingClientRect().top + window.scrollY + pos.off : pos.y;
+    } else if (location.hash) {
+      var t = document.getElementById(location.hash.slice(1));
+      if (t) { t.scrollIntoView(); return; }
+    }
+    var html = document.documentElement, sb = html.style.scrollBehavior;
+    html.style.scrollBehavior = 'auto';   /* senza animazione: html ha smooth */
+    window.scrollTo(0, y);
+    html.style.scrollBehavior = sb;
+  }
+  window.addEventListener('popstate', function(){
+    document.documentElement.classList.add('cv-off');
+    rimetti();
+  });
+
+  if (!SC_RITORNO) return;
+  /* Se nel frattempo chi legge ha già scrollato, non lo si riporta indietro.
+     Conta solo l'input vero: scrollY cambia anche da solo, quando il browser
+     compensa i contenuti che crescono sopra (scroll anchoring). */
+  var mosso = false;
+  ['wheel','touchstart','keydown','mousedown'].forEach(function(t){
+    window.addEventListener(t, function(){ mosso = true; }, { once: true, passive: true });
+  });
+  function primaVolta(){ if (!mosso) rimetti(); }
+  /* Dopo gli altri DOMContentLoaded, che costruiscono calendario ed eventi;
+     poi di nuovo a caricamento finito, quando sono arrivati i caratteri. */
+  document.addEventListener('DOMContentLoaded', function(){ setTimeout(primaVolta, 0); });
+  window.addEventListener('load', function(){ setTimeout(primaVolta, 0); });
 })();

@@ -63,6 +63,17 @@
          nel punto giusto: le sezioni lontane si disegnano tutte da subito,
          altrimenti la destinazione si calcola su altezze stimate. */
       if(location.hash)document.documentElement.classList.add('cv-off');
+      /* Chi torna col tasto Indietro (o ricarica) deve ritrovare il punto in
+         cui era. Il browser ricorderebbe i pixel, contati su altezze in parte
+         stimate: si atterrava anche duemila pixel più in là. Il ripristino
+         lo fa app.js (RITORNO), con la sezione e lo scarto dentro di essa
+         salvati in history.state, e qui si disegnano tutte le sezioni. */
+      try{
+        history.scrollRestoration='manual';
+        var nv=performance.getEntriesByType('navigation')[0];
+        if(nv&&/^(back_forward|reload)$/.test(nv.type)&&history.state&&history.state.scPos)
+          document.documentElement.classList.add('cv-off');
+      }catch(e){}
       /* Il cielo dell'hero è uno sfondo CSS: il browser lo scoprirebbe solo
          dopo aver letto style.css. È l'elemento più grande della prima
          schermata, quindi si chiede subito, e solo nel tema scuro. */
@@ -1291,7 +1302,7 @@
      riportare alla pagina da cui si arriva, non al tab precedente. */
   function segnaURL(tab){
     if(!window.history||!history.replaceState)return;
-    try{history.replaceState(null,'','#anno-'+tab.dataset.anno);}catch(e){}
+    try{history.replaceState(history.state,'','#anno-'+tab.dataset.anno);}catch(e){}
   }
   tabs.forEach(function(tab,i){
     if(tab.classList.contains('disabled'))return;
@@ -1346,7 +1357,7 @@
 })();
 </script>
 <script src="../data/eventi.js?v=20261013f" defer></script>
-<script src="../app.js?v=20261013e" defer></script>
+<script src="../app.js?v=20261013g" defer></script>
 <script>
 /* GAME SEALS — show ✦ on completed game cards */
 (function(){
