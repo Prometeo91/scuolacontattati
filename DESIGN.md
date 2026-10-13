@@ -326,8 +326,9 @@ sezione dichiara la propria `grid-template-columns` e il proprio collasso.
 
 ### La barra di navigazione ha tre assetti
 
-Le dodici voci del menu (otto sezioni, Test, Portale Allievi, selettore di
-lingua, toggle del tema) stanno accanto al logo su una riga sola con la
+Le dodici voci del menu (otto sezioni, con «Eventi» al posto di «Giochi»
+dall'ottobre 2026, poi Test, Portale Allievi, selettore di lingua, toggle del
+tema) stanno accanto al logo su una riga sola con la
 spaziatura piena **solo da 1492px in su**. Le soglie sono misurate
 sull'italiano, che ha le voci più lunghe.
 
