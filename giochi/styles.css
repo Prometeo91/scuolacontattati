@@ -6,6 +6,11 @@
 :root {
   --gold: #c9973a;
   --gold-light: #e8c97a;
+  /* canali per le trasparenze dell'oro, come nel sito: nel tema chiaro
+     l'oro scuro a bassa opacità su pergamena diventa color fango */
+  --gold-rgb: 201,151,58;
+  --gold-light-rgb: 232,201,122;
+  --radius-sm: 6px;
   --on-gold: #1a1000;
   --text: #e8e0f0;
   --text-muted: #c4b8d0;
@@ -13,8 +18,8 @@
   --surface: rgba(255,255,255,0.04);
   --surface-2: rgba(255,255,255,0.018);
   --surface-hover: rgba(255,255,255,0.07);
-  --border: rgba(201,151,58,0.18);
-  --border-hover: rgba(201,151,58,0.4);
+  --border: rgba(var(--gold-rgb),0.18);
+  --border-hover: rgba(var(--gold-rgb),0.4);
   --purple: #7b5ea7;
   --purple-soft: #b49fe0;
   --green: #1d9e75;
@@ -39,6 +44,8 @@
   --gold: #816018;
   --gold-light: #7d5b1c;
   --gold-deep: #6b4f18;
+  --gold-rgb: 184,138,46;
+  --gold-light-rgb: 184,138,46;
   --on-gold: #f8f2e6;
   --surface: rgba(80,60,30,0.04);
   --surface-2: rgba(255,253,247,0.7);
@@ -80,11 +87,11 @@ body::before {
   background-attachment: fixed;
 }
 [data-theme="light"] body::before {
-  background: radial-gradient(ellipse 1200px 600px at 50% -10%, rgba(232,201,122,0.18) 0%, transparent 70%);
+  background: radial-gradient(ellipse 1200px 600px at 50% -10%, rgba(var(--gold-light-rgb),0.18) 0%, transparent 70%);
 }
 
-::selection { background: rgba(201,151,58,0.4); color: #fff; }
-[data-theme="light"] ::selection { background: rgba(232,201,122,0.55); color: #2a1f08; }
+::selection { background: rgba(var(--gold-rgb),0.4); color: #fff; }
+[data-theme="light"] ::selection { background: rgba(var(--gold-light-rgb),0.55); color: #2a1f08; }
 
 /* ================= TOP BAR ================= */
 .topbar {
@@ -97,16 +104,11 @@ body::before {
   border-bottom: 0.5px solid var(--border);
 }
 [data-theme="light"] .topbar { background: rgba(245,240,232,0.9); }
-.brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; min-width: 0; min-height: 44px; }
-.brand-seal {
-  width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
-  border: 1px solid var(--border-hover);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--gold-light); font-size: 13px;
-  background: rgba(201,151,58,0.06);
-}
+.brand { display: flex; align-items: center; gap: 0.35rem; text-decoration: none; min-width: 0; min-height: 44px; }
+/* ✶ e nome in Garamond oro, come .nav-logo del sito */
+.brand-seal { color: var(--gold-light); font-size: 16px; line-height: 1; flex-shrink: 0; }
 .brand-text { display: flex; flex-direction: column; line-height: 1.05; min-width: 0; }
-.brand-school { font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.06em; text-transform: none; font-variant-caps: all-small-caps; color: var(--text-muted); }
+.brand-school { font-family: var(--font-display); font-size: 18px; font-weight: 600; letter-spacing: 0.04em; color: var(--gold-light); white-space: nowrap; }
 .brand-game { font-family: var(--font-display); font-size: 16px; font-weight: 600; color: var(--gold-light); letter-spacing: 0.02em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .topbar-right { display: flex; align-items: center; gap: 0.6rem; }
 
@@ -137,6 +139,24 @@ body::before {
 .theme-toggle:hover { border-color: var(--border-hover); color: var(--gold); background: var(--surface); }
 .theme-toggle .ico { font-size: 15px; line-height: 1; }
 .theme-toggle .lbl { }
+/* Sotto i 480px la barra deve restare su una riga: marchio a 16px e
+   comandi più stretti (restano alti 44px). */
+@media (max-width: 480px) {
+  .topbar { padding: 0.45rem 0.75rem; }
+  .brand-school { font-size: 16px; }
+  .topbar-right { gap: 0.4rem; }
+  .games-link { padding: 6px 10px; }
+  .lang-pill button { min-width: 34px; padding: 4px 7px; }
+  .theme-toggle { min-width: 40px; }
+}
+@media (max-width: 400px) {
+  .topbar { padding: 0.45rem 0.6rem; }
+  .brand-school { font-size: 15px; }
+  .topbar-right { gap: 0.3rem; }
+  .games-link { padding: 6px 9px; }
+  .lang-pill button { min-width: 32px; padding: 4px 6px; }
+}
+@media (max-width: 360px) { .brand-seal { display: none; } }
 @media (max-width: 560px) {
   .theme-toggle .lbl { display: none; } .theme-toggle { padding: 6px 9px; }
   /* comandi a 44px: gli spazi si stringono perché la barra resti su una riga */
@@ -167,7 +187,7 @@ body::before {
 }
 .gold-rule::before, .gold-rule::after {
   content: ''; flex: 1; height: 0.5px;
-  background: linear-gradient(90deg, transparent, rgba(201,151,58,0.5) 50%, transparent);
+  background: linear-gradient(90deg, transparent, rgba(var(--gold-rgb),0.5) 50%, transparent);
 }
 .gold-rule .g { font-size: 7px; letter-spacing: 0.3em; opacity: 0.7; }
 .eyebrow {
@@ -175,8 +195,8 @@ body::before {
   font-size: 12px; letter-spacing: 0.06em; text-transform: none; font-variant-caps: all-small-caps; color: var(--gold);
   font-weight: 500; margin-bottom: 0.6rem;
 }
-.eyebrow::before, .eyebrow::after { content: ''; width: 30px; height: 0.5px; background: linear-gradient(90deg, transparent, rgba(201,151,58,0.55)); }
-.eyebrow::after { background: linear-gradient(90deg, rgba(201,151,58,0.55), transparent); }
+.eyebrow::before, .eyebrow::after { content: ''; width: 30px; height: 0.5px; background: linear-gradient(90deg, transparent, rgba(var(--gold-rgb),0.55)); }
+.eyebrow::after { background: linear-gradient(90deg, rgba(var(--gold-rgb),0.55), transparent); }
 
 /* ================= HOME ================= */
 .home { text-align: center; animation: fade-in var(--t-slow) both; flex: 1; }
@@ -184,19 +204,19 @@ body::before {
 .home-halo::before {
   content: ''; position: absolute; top: -30px; left: 50%; transform: translateX(-50%);
   width: 360px; height: 360px; max-width: 90vw; border-radius: 50%;
-  background: radial-gradient(circle, rgba(201,151,58,0.16) 0%, rgba(123,94,167,0.07) 45%, transparent 70%);
+  background: radial-gradient(circle, rgba(var(--gold-rgb),0.16) 0%, rgba(123,94,167,0.07) 45%, transparent 70%);
   z-index: 0; pointer-events: none; animation: halo 6s ease-in-out infinite;
 }
 @keyframes halo { 0%,100% { opacity: 0.7; transform: translateX(-50%) scale(1);} 50% { opacity: 1; transform: translateX(-50%) scale(1.06);} }
 
 /* emblema del gioco — medaglione circolare nella home */
-.home-emblema { width: 128px; height: 128px; margin: 0 auto 1.4rem; position: relative; z-index: 1; border-radius: 50%; overflow: hidden; border: 1px solid rgba(201,151,58,0.4); box-shadow: 0 0 28px rgba(201,151,58,0.22); }
+.home-emblema { width: 128px; height: 128px; margin: 0 auto 1.4rem; position: relative; z-index: 1; border-radius: 50%; overflow: hidden; border: 1px solid rgba(var(--gold-rgb),0.4); box-shadow: 0 0 28px rgba(var(--gold-rgb),0.22); }
 .home-emblema img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* diagramma 7 piani — cerchi concentrici (forme semplici) */
 .planes-diagram { width: 132px; height: 132px; margin: 0 auto 1.4rem; position: relative; z-index: 1; }
 .planes-diagram .ring { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); border-radius: 50%; border: 1px solid; }
-.planes-diagram .core { position: absolute; left: 50%; top: 50%; width: 7px; height: 7px; border-radius: 50%; transform: translate(-50%,-50%); background: var(--gold-light); box-shadow: 0 0 14px 2px rgba(232,201,122,0.7); }
+.planes-diagram .core { position: absolute; left: 50%; top: 50%; width: 7px; height: 7px; border-radius: 50%; transform: translate(-50%,-50%); background: var(--gold-light); box-shadow: 0 0 14px 2px rgba(var(--gold-light-rgb),0.7); }
 
 .home h1 {
   font-family: var(--font-display); font-weight: 500;
@@ -227,16 +247,16 @@ body::before {
 [data-theme="light"] .mode-card { box-shadow: 0 1px 8px rgba(80,60,30,0.06); }
 .mode-card::before {
   content: ''; position: absolute; inset: 6px; border-radius: 9px;
-  border: 0.5px solid rgba(201,151,58,0.12); pointer-events: none; transition: border-color var(--t-base);
+  border: 0.5px solid rgba(var(--gold-rgb),0.12); pointer-events: none; transition: border-color var(--t-base);
 }
 .mode-card:hover { border-color: var(--border-hover); background: var(--surface-hover); transform: translateY(-2px); box-shadow: 0 6px 22px rgba(0,0,0,0.25); }
-.mode-card:hover::before { border-color: rgba(201,151,58,0.4); }
+.mode-card:hover::before { border-color: rgba(var(--gold-rgb),0.4); }
 .mode-card:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 .mode-head { display: flex; align-items: center; gap: 0.7rem; }
 .mode-roman { font-family: var(--font-display); font-style: italic; font-size: 15px; color: var(--gold); width: 26px; flex-shrink: 0; }
 .mode-glyph {
   width: 34px; height: 34px; border-radius: 9px; flex-shrink: 0;
-  background: rgba(201,151,58,0.1); border: 0.5px solid rgba(201,151,58,0.3);
+  background: rgba(var(--gold-rgb),0.1); border: 0.5px solid rgba(var(--gold-rgb),0.3);
   display: flex; align-items: center; justify-content: center; color: var(--gold-light); font-size: 17px;
 }
 .mode-title { font-family: var(--font-display); font-size: 20px; font-weight: 500; color: var(--text); letter-spacing: 0.01em; }
@@ -254,12 +274,12 @@ body::before {
 .reset-btn:hover { color: var(--danger); opacity: 1; }
 
 /* ── Sigillo & Ripasso ── */
-.sigillo-badge { display: inline-flex; align-items: center; gap: 0.4rem; margin-bottom: 0.8rem; padding: 5px 16px; border-radius: 999px; background: rgba(201,151,58,0.1); border: 0.5px solid rgba(201,151,58,0.4); color: var(--gold-light); font-size: 13px; letter-spacing: 0.05em; font-variant-caps: all-small-caps; }
+.sigillo-badge { display: inline-flex; align-items: center; gap: 0.4rem; margin-bottom: 0.8rem; padding: 5px 16px; border-radius: 999px; background: rgba(var(--gold-rgb),0.1); border: 0.5px solid rgba(var(--gold-rgb),0.4); color: var(--gold-light); font-size: 13px; letter-spacing: 0.05em; font-variant-caps: all-small-caps; }
 .sigillo-hint { margin-top: 0.6rem; font-size: 11.5px; color: var(--text-muted); opacity: 0.8; line-height: 1.5; letter-spacing: 0.02em; }
-.review-chip { display: inline-flex; align-items: center; padding: 2px 10px; border-radius: 999px; background: rgba(201,151,58,0.12); border: 0.5px solid rgba(201,151,58,0.35); color: var(--gold-light); font-size: 11px; letter-spacing: 0.06em; font-variant-caps: all-small-caps; vertical-align: middle; margin-left: 0.4rem; }
+.review-chip { display: inline-flex; align-items: center; padding: 2px 10px; border-radius: 999px; background: rgba(var(--gold-rgb),0.12); border: 0.5px solid rgba(var(--gold-rgb),0.35); color: var(--gold-light); font-size: 11px; letter-spacing: 0.06em; font-variant-caps: all-small-caps; vertical-align: middle; margin-left: 0.4rem; }
 .result .review-chip { align-self: center; margin-left: 0; }
-.sigillo-earned { margin: 0.8rem auto 0.4rem; padding: 1rem 1.5rem; border-radius: 14px; background: rgba(201,151,58,0.07); border: 0.5px solid rgba(201,151,58,0.45); max-width: 380px; animation: sigillo-pop 0.6s cubic-bezier(0.2, 1.4, 0.4, 1); }
-.sigillo-earned-glyph { font-size: 30px; color: var(--gold-light); line-height: 1; margin-bottom: 0.3rem; text-shadow: 0 0 18px rgba(232,201,122,0.5); }
+.sigillo-earned { margin: 0.8rem auto 0.4rem; padding: 1rem 1.5rem; border-radius: 14px; background: rgba(var(--gold-rgb),0.07); border: 0.5px solid rgba(var(--gold-rgb),0.45); max-width: 380px; animation: sigillo-pop 0.6s cubic-bezier(0.2, 1.4, 0.4, 1); }
+.sigillo-earned-glyph { font-size: 30px; color: var(--gold-light); line-height: 1; margin-bottom: 0.3rem; text-shadow: 0 0 18px rgba(var(--gold-light-rgb),0.5); }
 .sigillo-earned-title { font-family: var(--font-display); font-size: 19px; color: var(--gold-light); margin-bottom: 0.2rem; }
 .sigillo-earned-sub { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
 @keyframes sigillo-pop { 0% { opacity: 0; transform: scale(0.85); } 60% { opacity: 1; transform: scale(1.04); } 100% { opacity: 1; transform: scale(1); } }
@@ -272,7 +292,7 @@ body::before {
 .round-stats { display: flex; gap: 0.5rem; align-items: center; }
 .stat-chip {
   font-size: 12px; letter-spacing: 0.04em; padding: 4px 11px; border-radius: 999px;
-  background: rgba(201,151,58,0.1); border: 0.5px solid rgba(201,151,58,0.3); color: var(--gold-light);
+  background: rgba(var(--gold-rgb),0.1); border: 0.5px solid rgba(var(--gold-rgb),0.3); color: var(--gold-light);
   font-variant-numeric: tabular-nums; white-space: nowrap;
 }
 .stat-chip.streak.hot { background: rgba(216,85,79,0.14); border-color: rgba(216,85,79,0.4); color: #f0a59f; }
@@ -282,7 +302,7 @@ body::before {
 .pips { display: flex; gap: 5px; flex-wrap: wrap; margin: 0.9rem 0 1.2rem; }
 .pip { flex: 1 1 0; min-width: 8px; height: 4px; border-radius: 2px; background: var(--surface); border: 0.5px solid var(--border); transition: background var(--t-base); }
 .pip.done { background: var(--gold); border-color: var(--gold); }
-.pip.current { background: var(--gold-light); border-color: var(--gold-light); box-shadow: 0 0 10px rgba(232,201,122,0.6); }
+.pip.current { background: var(--gold-light); border-color: var(--gold-light); box-shadow: 0 0 10px rgba(var(--gold-light-rgb),0.6); }
 .pip.wrong { background: var(--danger); border-color: var(--danger); }
 
 /* card domanda */
@@ -292,7 +312,7 @@ body::before {
   display: flex; flex-direction: column;
 }
 [data-theme="light"] .qcard { box-shadow: 0 2px 14px rgba(80,60,30,0.07); }
-.qcard::before { content: ''; position: absolute; inset: 7px; border-radius: 11px; border: 0.5px solid rgba(201,151,58,0.12); pointer-events: none; }
+.qcard::before { content: ''; position: absolute; inset: 7px; border-radius: 11px; border: 0.5px solid rgba(var(--gold-rgb),0.12); pointer-events: none; }
 .qcard > * { position: relative; z-index: 1; }
 
 .q-prompt { font-family: var(--font-display); font-size: clamp(19px, 3.4vw, 25px); font-weight: 500; line-height: 1.35; color: var(--text); text-wrap: pretty; }
@@ -301,7 +321,7 @@ body::before {
 /* descrizione (journey / entity) */
 .q-desc {
   font-family: var(--font-display); font-size: clamp(16px, 2.8vw, 19px); line-height: 1.6;
-  color: var(--text); border-left: 2.5px solid var(--gold); padding: 0.3rem 0 0.3rem 1rem; margin: 0.6rem 0 0.2rem;
+  color: var(--text); margin: 0.6rem 0 0.2rem;   /* testo nudo: la card lo contiene già */
 }
 .entity-group { font-size: 12px; letter-spacing: 0.04em; text-transform: none; font-variant-caps: all-small-caps; color: var(--gold); margin-top: 0.8rem; }
 
@@ -339,7 +359,7 @@ body::before {
   position: absolute; left: 0.85rem; top: 50%; transform: translateY(-50%);
   width: 26px; height: 26px; border-radius: 50%; border: 0.5px solid var(--border-hover);
   display: flex; align-items: center; justify-content: center; font-size: 13px;
-  font-family: var(--font-display); color: var(--gold); background: rgba(201,151,58,0.06);
+  font-family: var(--font-display); color: var(--gold); background: rgba(var(--gold-rgb),0.06);
   transition: all var(--t-base);
 }
 .option.correct { border-color: var(--green); background: rgba(29,158,117,0.12); }
@@ -368,15 +388,17 @@ body::before {
 
 /* ================= BOTTONI ================= */
 .btn {
+  /* come .btn-primary e .btn-ghost del sito: Garamond, raggio piccolo, niente maiuscole */
   display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
-  font-family: var(--font-sans); font-size: 14px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
-  border-radius: 999px; padding: 0.8rem 1.8rem; cursor: pointer; border: none;
-  min-height: 46px; transition: opacity var(--t-base), transform var(--t-base), background var(--t-base), border-color var(--t-base);
+  font-family: var(--font-display); font-size: 16px; font-weight: 600; letter-spacing: 0.04em;
+  border-radius: var(--radius-sm); padding: 0.8rem 2rem; cursor: pointer; border: none;
+  min-height: 46px; transition: background var(--t-base), border-color var(--t-base), opacity var(--t-base), transform 0.16s ease;
 }
+.btn:active { transform: scale(0.97); }
 .btn-primary { background: var(--gold); color: var(--on-gold); }
-.btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
-.btn-ghost { background: transparent; border: 0.5px solid var(--border-hover); color: var(--gold-light); }
-.btn-ghost:hover { background: rgba(201,151,58,0.08); transform: translateY(-2px); }
+.btn-primary:hover { background: var(--gold-light); }
+.btn-ghost { background: transparent; border: 1px solid var(--border-hover); color: var(--gold-light); }
+.btn-ghost:hover { background: rgba(var(--gold-rgb),0.08); border-color: var(--gold); }
 .btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 .rpg-choice:focus-visible, .lang-pill button:focus-visible, #themeToggle:focus-visible, .btn-back:focus-visible, a:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 .btn[disabled] { opacity: 0.4; cursor: default; transform: none; }
@@ -406,9 +428,9 @@ body::before {
   background: var(--surface-2); border: 0.5px solid var(--border); color: var(--gold);
   font-size: 22px; opacity: 1;
 }
-.mcard-back::before { content: ''; position: absolute; inset: 5px; border-radius: 8px; border: 0.5px solid rgba(201,151,58,0.16); }
+.mcard-back::before { content: ''; position: absolute; inset: 5px; border-radius: 8px; border: 0.5px solid rgba(var(--gold-rgb),0.16); }
 .mcard-front {
-  background: rgba(201,151,58,0.08); border: 0.5px solid var(--border-hover);
+  background: rgba(var(--gold-rgb),0.08); border: 0.5px solid var(--border-hover);
   font-family: var(--font-display); font-size: clamp(12px, 3vw, 15.5px); font-weight: 500; color: var(--text); line-height: 1.25;
   opacity: 0;
 }
@@ -424,7 +446,7 @@ body::before {
 .result-seal {
   width: 78px; height: 78px; border-radius: 50%; margin: 0 auto 1.2rem;
   border: 1px solid var(--border-hover); display: flex; align-items: center; justify-content: center;
-  font-size: 34px; color: var(--gold-light); background: rgba(201,151,58,0.06);
+  font-size: 34px; color: var(--gold-light); background: rgba(var(--gold-rgb),0.06);
 }
 .result h2 { font-family: var(--font-display); font-weight: 500; font-size: clamp(26px, 5vw, 36px); color: var(--gold-light); margin-bottom: 0.5rem; }
 .result-score { font-family: var(--font-display); font-size: clamp(40px, 11vw, 64px); color: var(--text); line-height: 1; margin: 0.4rem 0; font-variant-numeric: tabular-nums; }

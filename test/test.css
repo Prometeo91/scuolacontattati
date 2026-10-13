@@ -22,12 +22,15 @@
 :root {
   --gold: #c9973a;
   --gold-light: #e8c97a;
+  --gold-rgb: 201,151,58;        /* canali per le trasparenze, come nel sito */
+  --gold-light-rgb: 232,201,122;
+  --radius-sm: 6px;
   --text: #e8e0f0;
   --text-muted: #c4b8d0;
   --bg: #0d0b1a;
   --surface: rgba(255,255,255,0.04);
-  --border: rgba(201,151,58,0.18);
-  --border-hover: rgba(201,151,58,0.4);
+  --border: rgba(var(--gold-rgb),0.18);
+  --border-hover: rgba(var(--gold-rgb),0.4);
   --font-serif: 'EB Garamond', Georgia, serif;
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-display: 'EB Garamond', Georgia, serif;
@@ -37,6 +40,8 @@
   /* stessi valori del tema chiaro di style.css */
   --gold: #816018;
   --gold-light: #7d5b1c;
+  --gold-rgb: 184,138,46;
+  --gold-light-rgb: 184,138,46;
   --text: #2a1f08;
   --text-muted: #5a4a3a;
   --bg: #f5f0e8;
@@ -67,7 +72,7 @@ body::before {
   pointer-events: none; z-index: 0;
 }
 [data-theme="light"] body::before {
-  background: radial-gradient(ellipse at 50% 0%, rgba(201,151,58,0.08) 0%, transparent 65%);
+  background: radial-gradient(ellipse at 50% 0%, rgba(var(--gold-rgb),0.08) 0%, transparent 65%);
 }
 
 /* NAV */
@@ -112,7 +117,7 @@ nav.topnav {
   white-space: nowrap; min-width: 44px; min-height: 44px;
 }
 .theme-toggle:hover { border-color: var(--border-hover); color: var(--gold); background: var(--surface); }
-.theme-toggle-icon { font-size: 16px; line-height: 1; }
+.theme-toggle-icon { display: inline-flex; line-height: 1; }
 
 /* MAIN */
 main {
@@ -129,7 +134,7 @@ main {
 }
 .page-eyebrow::after {
   content: ''; flex: 1; height: 0.5px;
-  background: linear-gradient(90deg, rgba(201,151,58,0.55) 0%, transparent 100%);
+  background: linear-gradient(90deg, rgba(var(--gold-rgb),0.55) 0%, transparent 100%);
 }
 
 h1.page-title {
@@ -198,7 +203,7 @@ ol li::marker { color: var(--gold); font-family: var(--font-display); font-style
 .info-card::before {
   content: ''; position: absolute;
   inset: 6px; border-radius: 9px;
-  border: 0.5px solid rgba(201,151,58,0.12);
+  border: 0.5px solid rgba(var(--gold-rgb),0.12);
   pointer-events: none;
 }
 .info-card > * { position: relative; z-index: 1; }
@@ -212,7 +217,7 @@ ol li::marker { color: var(--gold); font-family: var(--font-display); font-style
 }
 .epigraphic-rule::before, .epigraphic-rule::after {
   content: ''; flex: 1; height: 0.5px;
-  background: linear-gradient(90deg, transparent 0%, rgba(201,151,58,0.45) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(var(--gold-rgb),0.45) 50%, transparent 100%);
 }
 .epigraphic-rule .glyph {
   color: var(--gold); font-size: 8px; opacity: 0.7;
@@ -323,16 +328,19 @@ a:focus-visible, button:focus-visible {
 [data-theme="light"] .test-actions { background: rgba(245,240,232,0.94); }
 .test-progress { font-size: 14px; color: var(--text-muted); font-variant-numeric: tabular-nums; }
 .btn-test {
+  /* come .btn-primary e .btn-ghost del sito */
   display: inline-flex; align-items: center; justify-content: center; min-height: 44px;
-  padding: 0.6rem 1.4rem; border-radius: 999px; border: none; cursor: pointer;
+  padding: 0.8rem 2rem; border-radius: var(--radius-sm); border: none; cursor: pointer;
   background: var(--gold); color: var(--on-gold);
-  font-family: var(--font-sans); font-size: 14px; font-weight: 500; letter-spacing: 0.06em;
+  font-family: var(--font-display); font-size: 16px; font-weight: 600; letter-spacing: 0.04em;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.16s ease;
 }
-.btn-test:hover { opacity: 0.9; }
+.btn-test:hover { background: var(--gold-light); }
+.btn-test:active { transform: scale(0.97); }
 .btn-test-ghost {
-  background: none; border: 0.5px solid var(--border-hover); color: var(--gold-light);
+  background: none; border: 1px solid var(--border-hover); color: var(--gold-light);
 }
-.btn-test-ghost:hover { border-color: var(--gold); opacity: 1; }
+.btn-test-ghost:hover { background: rgba(var(--gold-rgb),0.08); border-color: var(--gold); }
 
 .test-result { margin-top: 3rem; }
 .test-result[hidden] { display: none; }

@@ -155,7 +155,7 @@ function renderRoom(){
   n.appendChild(luceBar());
   n.appendChild(frag(`<div class="rpg-act-numeral" style="text-align:left;color:${p.color}">${esc(L(p.title))} — ${esc(t("room"))} ${S.room+1}/${p.rooms.length}</div>`));
   const card=frag('<div class="rpg-scene"></div>');
-  card.appendChild(frag(`<div class="rpg-scene-text" style="border-left-color:${p.color}">${nl2br(L(rm.text))}</div>`));
+  card.appendChild(frag(`<div class="rpg-scene-text" style="--act-accent:${p.color}">${nl2br(L(rm.text))}</div>`));
   const choicesW=frag('<div class="rpg-choices"></div>');
   rm.choices.forEach((ch,i)=>{
     const btn=frag(`<button class="rpg-choice">${esc(L(ch.text))}</button>`);
@@ -163,7 +163,7 @@ function renderRoom(){
     choicesW.appendChild(btn);
   });
   card.appendChild(choicesW);
-  card.appendChild(frag('<div class="rpg-feedback"><div class="rpg-result-text"></div><div class="rpg-stat-changes"></div></div>'));
+  card.appendChild(frag('<div class="rpg-feedback" aria-live="polite"><div class="rpg-result-text"></div><div class="rpg-stat-changes"></div></div>'));
   card.appendChild(frag('<div class="rpg-foot"></div>'));
   n.appendChild(card);
   mount(n);
@@ -216,7 +216,7 @@ function renderGuardian(){
   n.appendChild(frag(`<div class="rpg-act-numeral" style="text-align:center;color:${p.color}">⚔ ${esc(t("guardian"))} ⚔</div>`));
   n.appendChild(frag(`<div class="rpg-boss-name" style="text-align:center;font-size:clamp(20px,4vw,30px);margin-bottom:1rem">${esc(L(g.name))}</div>`));
   const card=frag('<div class="rpg-scene" style="border-color:'+p.color+'"></div>');
-  card.appendChild(frag(`<div class="rpg-scene-text" style="border-left-color:${p.color}">${nl2br(L(g.text))}</div>`));
+  card.appendChild(frag(`<div class="rpg-scene-text" style="--act-accent:${p.color}">${nl2br(L(g.text))}</div>`));
   const choicesW=frag('<div class="rpg-choices"></div>');
   g.choices.forEach((ch,i)=>{
     const btn=frag(`<button class="rpg-choice">${esc(L(ch.text))}</button>`);
@@ -224,7 +224,7 @@ function renderGuardian(){
     choicesW.appendChild(btn);
   });
   card.appendChild(choicesW);
-  card.appendChild(frag('<div class="rpg-feedback"><div class="rpg-result-text"></div><div class="rpg-stat-changes"></div></div>'));
+  card.appendChild(frag('<div class="rpg-feedback" aria-live="polite"><div class="rpg-result-text"></div><div class="rpg-stat-changes"></div></div>'));
   card.appendChild(frag('<div class="rpg-foot"></div>'));
   n.appendChild(card);
   mount(n);
@@ -271,6 +271,7 @@ function renderEnding(){
   const endKey=isGameOver?"gameOver":S.luce>=MAX_LUCE?"perfetto":S.luce>=MAX_LUCE*0.7?"alto":S.luce>=MAX_LUCE*0.4?"medio":"basso";
   const glyphs={gameOver:"☾",basso:"△",medio:"◇",alto:"☉",perfetto:"✦"};
   const n=frag('<div class="rpg-profile"></div>');
+  setTimeout(()=>{const h=document.querySelector('#app .rpg-profile h2');if(h){h.setAttribute('tabindex','-1');h.focus({preventScroll:true});}},0);
   n.appendChild(frag(`<div class="rpg-profile-seal" style="${isGameOver?'border-color:var(--text-muted);color:var(--text-muted)':''}">${glyphs[endKey]||"?"}</div>`));
   if(isGameOver){
     n.appendChild(frag(`<h2>${esc(t("gameOver"))}</h2>`));

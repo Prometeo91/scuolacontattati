@@ -56,7 +56,7 @@ body::after {
 }
 .rpg-level-glyph {
   width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  border: 1px solid var(--border-hover); font-size: 15px; background: rgba(201,151,58,0.08);
+  border: 1px solid var(--border-hover); font-size: 15px; background: rgba(var(--gold-rgb),0.08);
 }
 
 /* ── Scenario card ── */
@@ -67,12 +67,12 @@ body::after {
 [data-theme="light"] .rpg-scene { box-shadow: 0 2px 14px rgba(80,60,30,0.07); }
 .rpg-scene::before {
   content: ''; position: absolute; inset: 7px; border-radius: 11px;
-  border: 0.5px solid rgba(201,151,58,0.12); pointer-events: none;
+  border: 0.5px solid rgba(var(--gold-rgb),0.12); pointer-events: none;
 }
 .rpg-scene-text {
   font-family: var(--font-display); font-size: clamp(16px, 2.8vw, 19px);
   line-height: 1.65; color: var(--text); margin-bottom: 1.2rem;
-  border-left: 2.5px solid var(--act-accent, var(--gold)); padding-left: 1rem;
+  /* testo nudo: il colore dell'atto lo porta la riga del titolo sopra */
   text-wrap: pretty;
 }
 .rpg-scene-prompt {
@@ -94,7 +94,7 @@ body::after {
 .rpg-choice:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 .rpg-choice.chosen-conscious { border-color: var(--green); background: rgba(29,158,117,0.12); }
 .rpg-choice.chosen-mechanical { border-color: var(--danger); background: rgba(216,85,79,0.10); }
-.rpg-choice.chosen-neutral { border-color: var(--gold); background: rgba(201,151,58,0.10); }
+.rpg-choice.chosen-neutral { border-color: var(--gold); background: rgba(var(--gold-rgb),0.10); }
 .rpg-choice.dim { opacity: 0.45; }
 .rpg-choice:disabled { cursor: default; }
 
@@ -121,7 +121,7 @@ body::after {
   font-family: var(--font-display); font-style: italic; font-size: 15px;
   line-height: 1.6; color: var(--gold-light); margin-top: 0.8rem;
   padding: 0.6rem 1rem; border-radius: 10px;
-  background: rgba(201,151,58,0.06); border: 0.5px solid rgba(201,151,58,0.15);
+  background: rgba(var(--gold-rgb),0.06); border: 0.5px solid rgba(var(--gold-rgb),0.15);
 }
 
 /* ── Act intro ── */
@@ -178,7 +178,7 @@ body::after {
 .rpg-profile-seal {
   width: 88px; height: 88px; border-radius: 50%; margin: 0 auto 1rem;
   border: 1.5px solid var(--gold); display: flex; align-items: center; justify-content: center;
-  font-size: 40px; color: var(--gold-light); background: rgba(201,151,58,0.08);
+  font-size: 40px; color: var(--gold-light); background: rgba(var(--gold-rgb),0.08);
 }
 .rpg-profile h2 {
   font-family: var(--font-display); font-weight: 500;
@@ -228,7 +228,7 @@ body::after {
   transition: all var(--t-base);
 }
 .rpg-progress-dot.done { background: var(--gold); border-color: var(--gold); }
-.rpg-progress-dot.current { background: var(--gold-light); border-color: var(--gold-light); box-shadow: 0 0 8px rgba(232,201,122,0.5); }
+.rpg-progress-dot.current { background: var(--gold-light); border-color: var(--gold-light); box-shadow: 0 0 8px rgba(var(--gold-light-rgb),0.5); }
 .rpg-progress-dot.boss { width: 14px; height: 14px; }
 .rpg-progress-line {
   flex: 1; height: 1px; background: var(--border);

@@ -539,6 +539,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+  /* Esc chiude il menu aperto e rimette il focus sul bottone, come già
+     fanno la tendina Test e la lightbox. */
+  document.addEventListener('keydown',function(e){
+    if(e.key!=='Escape')return;
+    var nl=document.querySelector('.nav-links'), btn=document.querySelector('.nav-toggle');
+    if(nl&&btn&&nl.classList.contains('open')){
+      nl.classList.remove('open');
+      btn.setAttribute('aria-expanded','false');
+      btn.innerHTML='☰';
+      btn.setAttribute('aria-label',SC_T.apriMenu);
+      btn.focus();
+    }
+  });
+
   /* BACK TO TOP */
   var btt=document.getElementById('backToTop');
   if(btt){

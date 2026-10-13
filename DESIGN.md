@@ -247,7 +247,9 @@ sottoinsieme, e hanno un fallback con metriche corrette (`size-adjust`,
   `.section-title`, il titolo di ogni sezione.
 - **Title** (Garamond 500, 20px, ls 0.01em): `.card-title`, titolo di card.
 - **Body** (Inter 400, 16px, lh 1.65): testo corrente. I sottotitoli di
-  sezione (`.section-sub`) vanno a 17px con lh 1.75 e `max-width: 68ch`.
+  sezione (`.section-sub`) vanno a 17px con lh 1.75; la misura è la colonna
+  intera (`--measure: var(--col)`, scelta di Fabio: vedi il commento in
+  `style.css`).
 - **Label** (Inter 500, 11px, ls 0.22em, uppercase): `.section-eyebrow` e
   `.badge`.
 
@@ -439,7 +441,8 @@ Tre eccezioni, deliberate:
 Sul telefono (fino a 768px), dal basso: WhatsApp, Condividi e «torna su»,
 che compare solo dopo uno schermo di scroll. Dal tablet in su WhatsApp è
 nascosto e restano gli altri due. La colonna sul telefono è alta 180px e
-sporge di 40px sulla colonna di testo (il margine della pagina è 32px).
+sporge di 32px sulla colonna di testo (il margine della pagina è 32px, i
+pulsanti stanno a 12px dal bordo).
 Restano sempre visibili: per qualche giorno, nell'ottobre 2026, uscivano a
 destra mentre si scorreva verso il basso, e Fabio ha chiesto di tenerli
 fermi. All'apertura coprono il margine destro dello slogan: è una scelta di

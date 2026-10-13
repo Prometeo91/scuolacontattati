@@ -175,7 +175,7 @@
     const optsWrap = frag(`<div class="options"></div>`);
     it.options.forEach((o,i)=>{ const b=frag(`<button class="option" data-i="${i}"><span class="marker">${letter(i)}</span><span class="otext">${esc(L(o))}</span></button>`); b.addEventListener("click",()=>answer(i,card,optsWrap,node,it)); optsWrap.appendChild(b); });
     card.appendChild(optsWrap);
-    card.appendChild(frag(`<div class="feedback"><div class="feedback-verdict"></div><div class="feedback-note"></div></div>`));
+    card.appendChild(frag(`<div class="feedback" aria-live="polite"><div class="feedback-verdict"></div><div class="feedback-note"></div></div>`));
     card.appendChild(frag(`<div class="round-foot"></div>`));
     card.appendChild(frag(`<p class="keys-hint">${esc(tx("keysHint"))}</p>`));
     node.appendChild(card); mount(node);
@@ -265,6 +265,8 @@
     const again=frag(`<button class="btn ${res.missed&&res.missed.length?"btn-ghost":"btn-primary"}">${esc(t("playAgain"))}</button>`); again.addEventListener("click",()=>startMode(res.mode));
     const menu=frag(`<button class="btn btn-ghost">${esc(t("backToMenu"))}</button>`); menu.addEventListener("click",renderHome);
     actions.appendChild(again); actions.appendChild(menu); node.appendChild(actions); node.appendChild(C.schoolNote()); mount(node);
+    /* l'esito è una schermata nuova: il focus va sul titolo, così lo screen reader lo legge */
+    const h=node.querySelector("h2"); if(h){ h.setAttribute("tabindex","-1"); h.focus({preventScroll:true}); }
   }
 
   /* ============ MEMORY ============ */

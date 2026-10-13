@@ -1805,6 +1805,11 @@ input[type="radio"]:focus-visible {
   .back-to-top {
     bottom:calc(1.25rem + 52px + 12px + 48px + 12px + env(safe-area-inset-bottom, 0px));
   }
+  /* Arretrati di 8px nel margine (12px dal bordo invece di 20): coprono
+     32px della colonna di testo invece di 40. */
+  .wa-sticky, .share-site-btn, .back-to-top {
+    right:calc(0.75rem + env(safe-area-inset-right, 0px));
+  }
 }
 /* SCROLL REVEAL */
 .sr { opacity:0; transform:translateY(12px); transition:opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out); }
