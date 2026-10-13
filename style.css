@@ -1484,6 +1484,10 @@ input[type="radio"]:focus-visible {
 
 /* Presentazioni list */
 .pres-list { display:flex; flex-direction:column; gap:8px; }
+.pres-list .pres-hidden { display:none; }
+.pres-list.expanded .pres-hidden { display:flex; }
+.eventi-pubblici { margin-top:1.5rem; }
+.eventi-pubblici + .gallery-event { margin-top:3rem; }
 
 /* Chi siamo: separatore ornamentale sotto il titolo */
 #chi-siamo .section-sub {

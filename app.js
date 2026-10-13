@@ -24,7 +24,7 @@ var SC_T = SC_EN ? {
   anno:'Year', lezione:'Lesson', temi:'Topics',
   inArrivo:'Coming soon', locandinaInArrivo:'Details coming soon',
   di:'of',
-  presEventi:'events including conferences, festivals and presentations',
+  tuttiEventi:'Show all events ▾', ingressoLibero:'Free entry',
   formAttendiTitolo:'Please wait',
   formAttendiTesto:'The form was submitted too quickly. Please try again in a few seconds.',
   formInviatoTitolo:'Message sent',
@@ -35,8 +35,8 @@ var SC_T = SC_EN ? {
   formErroreTesto:'Something went wrong. You can write to us directly:',
   formConnTitolo:'Connection error',
   formConnTesto:'Unable to send the message. Check your connection and try again, or write to us directly:',
-  mostraMeno:'Show fewer ▴', mostraTutte:'Show all photos ▾',
-  mostraRiflessioni:'Show all reflections ▾', menoRiflessioni:'Show fewer ▴',
+  mostraMeno:'Show less ▴', mostraTutte:'Show all photos ▾',
+  mostraRiflessioni:'Show all reflections ▾', menoRiflessioni:'Show less ▴',
   foto:'Photo', fotoPrec:'Previous photo', fotoSucc:'Next photo', chiudi:'Close'
 } : {
   temaChiaro:'Tema chiaro', temaScuro:'Tema scuro',
@@ -52,7 +52,7 @@ var SC_T = SC_EN ? {
   anno:'Anno', lezione:'Lezione', temi:'Temi',
   inArrivo:'In arrivo', locandinaInArrivo:'Locandina in arrivo',
   di:'di',
-  presEventi:'eventi tra conferenze, festival e presentazioni',
+  tuttiEventi:'Mostra tutti gli eventi ▾', ingressoLibero:'Ingresso libero',
   formAttendiTitolo:'Attendi un momento',
   formAttendiTesto:'Il modulo è stato inviato troppo velocemente. Riprova tra qualche secondo.',
   formInviatoTitolo:'Messaggio inviato',
@@ -225,18 +225,28 @@ document.addEventListener('DOMContentLoaded', function() {
   function temiHTML(t){return '<ul class="lesson-topics">'+t.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>';}
   function panelHTML(l){var c=loc(l);return '<div class="lesson-panel"><div class="lesson-panel-inner"><p class="lesson-panel-title">'+c.titolo+(c.sottotitolo?'<br><span style="font-size:15px;font-weight:500;color:var(--gold-light);font-style:normal;">'+c.sottotitolo+'</span>':'')+'</p>'+(c.desc?'<p class="body-text-sm mb-1 lesson-desc">'+c.desc+'</p>':'')+temiHTML(c.temi)+(c.citazione?'<div class="lesson-quote">'+c.citazione+'<cite>&mdash; '+c.autore+'</cite></div>':'')+'</div></div>';}
 
-  /* PRESENTAZIONI & EVENTI — render da data/eventi.js (file unico IT+EN) */
+  /* INCONTRI ED EVENTI in #galleria — render da data/eventi.js (file unico
+     IT+EN). Aperti e in vista: conoscere la Scuola prima di iscriversi è parte
+     del suo posizionamento. Si vedono i più recenti; gli altri col pulsante. */
   var presList=document.getElementById('presList');
   if(presList && window.SC_EVENTI){
-    var presCount=document.getElementById('presCount');
-    if(presCount) presCount.textContent=SC_EVENTI.length+' '+SC_T.presEventi;
-    SC_EVENTI.forEach(function(ev){
+    var VISIBILI=4;
+    SC_EVENTI.forEach(function(ev,i){
       var txt=SC_EN?ev.en:ev.it;
       var card=document.createElement('div');
-      card.className='evento-card';
-      card.innerHTML='<div class="evento-data"><p class="evento-giorno">'+ev.day+'</p><p class="evento-mese">'+mesi[ev.month-1]+' '+ev.year+'</p></div><div class="evento-vline"></div><div class="flex-1"><p class="evento-titolo">'+txt.titolo+'</p><p class="evento-dettaglio">'+txt.dettaglio+'</p></div>';
+      card.className='evento-card'+(i>=VISIBILI?' pres-hidden':'');
+      card.innerHTML='<div class="evento-data"><p class="evento-giorno">'+ev.day+'</p><p class="evento-mese">'+mesi[ev.month-1]+' '+ev.year+'</p></div><div class="evento-vline"></div><div class="flex-1"><p class="evento-titolo">'+txt.titolo+'</p><p class="evento-dettaglio">'+txt.dettaglio+'</p></div>'+(ev.libero?'<span class="badge badge-gold">'+SC_T.ingressoLibero+'</span>':'');
       presList.appendChild(card);
     });
+    var presTog=document.getElementById('presToggle');
+    if(presTog&&SC_EVENTI.length>VISIBILI){
+      presTog.hidden=false;
+      presTog.addEventListener('click',function(){
+        var aperto=presList.classList.toggle('expanded');
+        presTog.setAttribute('aria-expanded',aperto);
+        presTog.textContent=aperto?SC_T.mostraMeno:SC_T.tuttiEventi;
+      });
+    }
   }
 
   /* NAV MOBILE TOGGLE */
@@ -248,25 +258,6 @@ document.addEventListener('DOMContentLoaded', function() {
       navToggle.setAttribute('aria-expanded', isOpen);
       navToggle.innerHTML = isOpen ? '✕' : '☰';
       navToggle.setAttribute('aria-label', isOpen ? SC_T.chiudiMenu : SC_T.apriMenu);
-    });
-  }
-
-  /* PRESENTAZIONI PANEL TOGGLE */
-  var presToggle = document.getElementById('pres-toggle');
-  var presPanel = document.getElementById('pres-panel');
-  if (presToggle && presPanel) {
-    function togglePresPanel() {
-      var wasOpen = presPanel.classList.contains('open');
-      presPanel.classList.toggle('open');
-      presToggle.classList.toggle('open');
-      presToggle.setAttribute('aria-expanded', !wasOpen);
-    }
-    presToggle.addEventListener('click', togglePresPanel);
-    presToggle.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        togglePresPanel();
-      }
     });
   }
 

@@ -347,7 +347,7 @@
     </script>
 
  <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) — self-hosted, zero dipendenze esterne -->
-  <link rel="stylesheet" href="style.css?v=20261013a"/>
+  <link rel="stylesheet" href="style.css?v=20261013b"/>
   <noscript><style>.sr{opacity:1!important;transform:none!important}</style></noscript>
 
 </head>
@@ -809,6 +809,13 @@
   <h2 class="section-title">I nostri eventi</h2>
   <p class="section-sub">Momenti vissuti insieme, tra insegnamento e natura.</p>
 
+  <div class="eventi-pubblici sr">
+    <h3 class="gallery-event-title">Incontri ed eventi</h3>
+    <p class="gallery-event-sub">Presentazioni, conferenze, festival e seminari degli ultimi anni.</p>
+    <div class="pres-list" id="presList"></div>
+    <button class="gallery-toggle" id="presToggle" aria-expanded="false" aria-controls="presList" hidden>Mostra tutti gli eventi ▾</button>
+  </div>
+
   <div class="gallery-event sr">
     <p class="gallery-event-title">I 7 Chakra — Amare Sé Stessi</p>
     <p class="gallery-event-sub">8 Luglio 2023 · Masseria Chinunno, Cassano (BA)</p>
@@ -1091,27 +1098,6 @@
       <p class="body-text-sm" style="padding:0.35rem 0;"><span class="text-gold">8.</span> Sussistenza e economia solida</p>
       </div>
     </details>
-  </div>
-
-  <!-- PRESENTAZIONI (collapsible) -->
-  <div class="mt-15">
-    <div class="event-row has-detail" role="button" tabindex="0" aria-expanded="false" id="pres-toggle">
-      <div class="evento-data">
-        <p class="text-gold icon-lg" aria-hidden="true"><svg class="icon-svg icon-svg-lg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg></p>
-      </div>
-      <div class="evento-vline"></div>
-      <div class="event-info">
-        <p class="event-title">Presentazioni & eventi</p>
-        <p class="body-text-xs" id="presCount">9 eventi tra conferenze, festival e presentazioni</p>
-      </div>
-      <span class="detail-pill">Eventi ▾</span>
-      <span class="expand-arrow">▼</span>
-    </div>
-    <div class="lesson-panel" id="pres-panel">
-      <div class="lesson-panel-inner">
-    <div class="pres-list" id="presList"></div>
-      </div>
-    </div>
   </div>
 
 </section>
@@ -1670,8 +1656,8 @@
   next();
 })();
 </script>
-<script src="data/eventi.js?v=20260908a" defer></script>
-<script src="app.js?v=20261013a" defer></script>
+<script src="data/eventi.js?v=20261013b" defer></script>
+<script src="app.js?v=20261013b" defer></script>
 <script>
 /* SIGILLI GIOCHI — mostra ✦ sulle card dei giochi completati */
 (function(){
