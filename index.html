@@ -69,10 +69,21 @@
          lo fa app.js (RITORNO), con la sezione e lo scarto dentro di essa
          salvati in history.state, e qui si disegnano tutte le sezioni. */
       try{
-        history.scrollRestoration='manual';
         var nv=performance.getEntriesByType('navigation')[0];
-        if(nv&&/^(back_forward|reload)$/.test(nv.type)&&history.state&&history.state.scPos)
-          document.documentElement.classList.add('cv-off');
+        if(nv){
+          var ritorno=/^(back_forward|reload)$/.test(nv.type);
+          /* Senza posizione salvata (voce di cronologia precedente a questo
+             codice, browser che ha rifiutato replaceState) si lascia fare
+             al browser: impreciso, ma meglio della cima della pagina. */
+          if(!ritorno||(history.state&&history.state.scPos)){
+            history.scrollRestoration='manual';
+            if(ritorno)document.documentElement.classList.add('cv-off');
+          }else{
+            /* «manual» resta scritto sulla voce di cronologia dalla visita
+               precedente: va rimesso «auto» esplicitamente. */
+            history.scrollRestoration='auto';
+          }
+        }
       }catch(e){}
       /* Il cielo dell'hero è uno sfondo CSS: il browser lo scoprirebbe solo
          dopo aver letto style.css. È l'elemento più grande della prima
@@ -1356,7 +1367,7 @@
 })();
 </script>
 <script src="data/eventi.js?v=20261013f" defer></script>
-<script src="app.js?v=20261013h" defer></script>
+<script src="app.js?v=20261013i" defer></script>
 <script>
 /* SIGILLI GIOCHI — mostra ✦ sulle card dei giochi completati */
 (function(){

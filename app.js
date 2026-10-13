@@ -984,6 +984,11 @@ document.addEventListener('DOMContentLoaded', function() {
   document.addEventListener('click', function(){ clearTimeout(timer); salva(); }, true);
   window.addEventListener('pagehide', salva);
 
+  /* Lo script in <head> lascia il ripristino al browser quando non ha una
+     posizione salvata o non sa il tipo di navigazione: allora si salva
+     soltanto, per la prossima volta, e non si tocca lo scroll. */
+  if (history.scrollRestoration !== 'manual') return;
+
   function rimetti(){
     var pos = history.state && history.state.scPos, y = 0;
     if (pos) {
