@@ -438,7 +438,11 @@ Tre eccezioni, deliberate:
 Sul telefono (fino a 768px), dal basso: WhatsApp, Condividi e «torna su»,
 che compare solo dopo uno schermo di scroll. Dal tablet in su WhatsApp è
 nascosto e restano gli altri due. La colonna sul telefono è alta 180px e
-all'apertura copre il margine destro dello slogan: è una scelta di Fabio.
+sporge di 40px sulla colonna di testo (il margine della pagina è 32px). Per
+questo, fino a 768px, mentre si scorre verso il basso i tre pulsanti escono a
+destra (classe `fab-via` su `html`, messa da `app.js`), tornano appena si
+risale di qualche pixel e restano sempre in cima e in fondo alla pagina.
+All'apertura coprono il margine destro dello slogan: è una scelta di Fabio.
 Chi vuole aggiungere un pulsante fisso sul telefono deve toglierne un altro.
 Il Condividi c'è anche nel footer, come quarta icona della fila social: i
 due pulsanti hanno la classe `.js-share` e ognuno mostra il proprio toast.
