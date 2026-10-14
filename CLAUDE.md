@@ -32,6 +32,10 @@ Sito della **Scuola ContattaTi** (Scuola di Consapevolezza ed Alchimia, Bari), g
 
 `node scripts/controlla.js` (nessuna dipendenza) verifica gli errori che su questo progetto si ripetono: `?v=` coerenti fra i due index e `sw.js`, stessi id in italiano e inglese, ogni file citato esistente, ogni lezione con titolo tradotta in `L_EN`, JSON-LD valido, sitemap senza pagine inesistenti. Con `BASE=origin/main` segnala anche un file in CORE modificato senza aggiornare il `?v=`. **Lanciarlo prima di ogni push.** La GitHub Action `.github/workflows/controlli.yml` lo esegue comunque a ogni push e pull request.
 
+## Critique di design (`/impeccable critique`, `audit`, `polish`)
+
+Un revisore a cui si chiede «trova i problemi» ne trova sempre: il 13 ottobre 2026 due critique indipendenti nello stesso giorno hanno dato 29/40 e 28/40 con problemi diversi, e la seconda ha segnalato cose identiche alla mattina che la prima non aveva visto. Il punteggio serve a sapere *cosa* correggere, non a misurare *quanto* si è migliorato. Regole che ne seguono: si rilancia un critique dopo un cambiamento vero (una sezione nuova, un seminario, un test), non per vedere se il numero sale; ogni segnalazione si verifica nel sorgente o si misura con Playwright prima di toccare il codice (il detector ha prodotto 450 voci, le reali erano una decina); le scelte già prese elencate in questo file non sono difetti anche se ogni revisione le rialza. Gli snapshot stanno in `.impeccable/critique/` e sono tracciati.
+
 ## Seminari in evidenza (pattern ricorrente, oggi non attivo)
 
 Quando c'è un seminario da promuovere si ricrea una sezione `#seminario` in entrambi gli index, più due landing `seminario.html` e `en/seminario.html` con i meta Open Graph per la condivisione su WhatsApp/Facebook, che rimandano a `/#seminario`.
