@@ -33,13 +33,7 @@
    punti la mappa è equilibrata e le energie cariche si esprimono in luce;
    altrimenti le più alte portano anche la loro ombra. Il pannello ha
    data-pages="30": le 270 affermazioni, nell'HTML in ordine per energia, sono
-   disposte in ordine sparso su nove pagine (vedi setupPager).
-
-   Frasi tipiche dell'Enneagramma (PDF di Anna Carla): 30 frasi per enneatipo
-   da spuntare liberamente (data-optional), in nove sezioni già divise per
-   tipo, ognuna aperta dal nome e dalla frase di focus del profilo. Conta le
-   spunte: il più alto è l'enneatipo primario; a 1–3 punti un'ala (tipo
-   adiacente) o un secondo tipo forte. */
+   disposte in ordine sparso su nove pagine (vedi setupPager). */
 (function () {
   'use strict';
   var PT = JSON.parse(document.getElementById('pageTxt').textContent);
@@ -263,7 +257,7 @@
       var vals = keys.map(function (k) { return s['t' + k] || 0; });
       var tot = vals.reduce(function (a, b) { return a + b; }, 0);
       var max = Math.max.apply(null, vals);
-      var nome = function (k) { return fmt(Lb.tipo, { k: k, nome: (Lb.nomi || {})[k] || '' }); };
+      var nome = function (k) { return fmt(Lb.tipo, { k: k }); };
       var order = keys.slice().sort(function (a, b) { return vals[b - 1] - vals[a - 1] || a - b; });
       var top = max ? order.filter(function (k) { return vals[k - 1] === max; }) : [];
       var lista = function (ks) { return ks.map(nome).join(' e '); };
@@ -287,8 +281,7 @@
       h += '<table class="result-table temp-table"><caption class="sr-only">' + esc(Lb.tabella) + '</caption><tbody>';
       order.forEach(function (k, i) {
         var v = vals[k - 1];
-        var breve = Lb.tipoBreve ? fmt(Lb.tipoBreve, { k: k }) : nome(k), nm = (Lb.nomi || {})[k];
-        h += '<tr' + (top.indexOf(k) >= 0 ? ' class="enn-top"' : '') + '><th scope="row">' + (i + 1) + '. ' + esc(breve) + (Lb.tipoBreve && nm ? '<span class="temp-el">' + esc(nm) + '</span>' : '') + '</th>' +
+        h += '<tr' + (top.indexOf(k) >= 0 ? ' class="enn-top"' : '') + '><th scope="row">' + (i + 1) + '. ' + esc(nome(k)) + '</th>' +
           '<td class="num">' + v + ' / 30<br><strong>' + pct(v) + '%</strong></td>' +
           '<td class="temp-bar-cell" aria-hidden="true"><span class="temp-bar-track"><span class="temp-bar" style="width:' + pct(v) + '%"></span></span></td></tr>';
       });
@@ -308,25 +301,22 @@
      pagina; Ricomincia lo cancella e la visita successiva ne estrae uno nuovo. */
   function setupPager(panel, form, LS) {
     var n = +panel.getAttribute('data-pages');
-    if (!n) return null;
-    var secs = [].slice.call(form.querySelectorAll('.test-section'));
-    var key = LS + '-ordine';
-    /* senza pool le sezioni sono già piene (una per enneatipo) e restano in ordine */
     var pool = form.querySelector('[data-role="pool"]');
-    if (pool) {
-      var qs = [].slice.call(pool.querySelectorAll('.q')), order = null;
-      try { order = JSON.parse(localStorage.getItem(key)); } catch (e) {}
-      if (!order || order.length !== qs.length) {
-        order = qs.map(function (_, i) { return i; });
-        for (var i = order.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = order[i]; order[i] = order[j]; order[j] = t; }
-        try { localStorage.setItem(key, JSON.stringify(order)); } catch (e) {}
-      }
-      order.forEach(function (idx, pos) {
-        var sec = secs[Math.min(secs.length - 1, Math.floor(pos / n))];
-        sec.querySelector('[data-role="slot"]').appendChild(qs[idx]);
-      });
-      pool.parentNode.removeChild(pool);
+    if (!n || !pool) return null;
+    var qs = [].slice.call(pool.querySelectorAll('.q'));
+    var secs = [].slice.call(form.querySelectorAll('.test-section'));
+    var key = LS + '-ordine', order = null;
+    try { order = JSON.parse(localStorage.getItem(key)); } catch (e) {}
+    if (!order || order.length !== qs.length) {
+      order = qs.map(function (_, i) { return i; });
+      for (var i = order.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = order[i]; order[i] = order[j]; order[j] = t; }
+      try { localStorage.setItem(key, JSON.stringify(order)); } catch (e) {}
     }
+    order.forEach(function (idx, pos) {
+      var sec = secs[Math.min(secs.length - 1, Math.floor(pos / n))];
+      sec.querySelector('[data-role="slot"]').appendChild(qs[idx]);
+    });
+    pool.parentNode.removeChild(pool);
     var cur = 0, saved = 0;
     try { saved = Math.max(0, Math.min(secs.length - 1, +localStorage.getItem(key + '-pagina') || 0)); } catch (e) {}
     function show(i, focus) {
