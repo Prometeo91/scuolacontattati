@@ -68,6 +68,22 @@
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
+  <url>
+    <loc>https://scuolacontattati.com/test/enneagramma-mappa/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scuolacontattati.com/test/enneagramma-mappa/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scuolacontattati.com/en/test/enneagramma-mappa/"/>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/en/test/enneagramma-mappa/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scuolacontattati.com/test/enneagramma-mappa/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scuolacontattati.com/en/test/enneagramma-mappa/"/>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
 
   <!-- Pagine proprie di Libro, Ispirazioni e Giochi -->
   <url>

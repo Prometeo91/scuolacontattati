@@ -22,7 +22,18 @@
    - Attenzione e Volontà, 7 domande da 1 a 5: ≥24, ≥27, ≥30.
 
    Temperamento (Ippocrate e Galeno): quattro aree S/C/M/Fl di 15 domande
-   da 1 a 5 (15–75); percentuale = punteggio / somma dei quattro × 100. */
+   da 1 a 5 (15–75); percentuale = punteggio / somma dei quattro × 100.
+
+   Mappa antropologica dell'Enneagramma (questionario de La Via dell'Enneagramma,
+   regole da Anna Carla): nove energie t1…t9 con 30 affermazioni sì/no ciascuna;
+   totale = numero di sì. Media = (minimo + massimo) / 2. Un'energia con
+   totale sopra la media è carica (verde); fino alla media compresa è scarica
+   (rossa), il pareggio incluso perché rischia di abbassarsi. Zero sì = paura
+   profonda. Se fra il totale più alto e il più basso ci sono al massimo 2
+   punti la mappa è equilibrata e le energie cariche si esprimono in luce;
+   altrimenti le più alte portano anche la loro ombra. Il pannello ha
+   data-pages="30": le 270 affermazioni, nell'HTML in ordine per energia, sono
+   disposte in ordine sparso su nove pagine (vedi setupPager). */
 (function () {
   'use strict';
   var PT = JSON.parse(document.getElementById('pageTxt').textContent);
@@ -179,8 +190,109 @@
       }
       h += '</section>';
       return { groups: groups, box: box, code: code, html: h };
+    },
+
+    enneagramma: function (s, T, ui) {
+      var Lb = T.labels, keys = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      var vals = keys.map(function (k) { return s['t' + k] || 0; });
+      var min = Math.min.apply(null, vals), max = Math.max.apply(null, vals);
+      var media = (min + max) / 2, disp = max - min;
+      var tot = vals.reduce(function (a, b) { return a + b; }, 0);
+      var num = function (v) { return String(v).replace('.', ','); };
+      var carica = function (v) { return v > media; };
+      var cls = function (v) { return carica(v) ? 'su' : 'giu'; };
+
+      var code = keys.map(function (k, i) { return k + '=' + vals[i]; }).join(', ') + ' (' + Lb.media.toLowerCase() + ' ' + num(media) + ')';
+      /* nel riquadro tre energie per riga */
+      var box = [[0, 1, 2], [3, 4, 5], [6, 7, 8]].map(function (r) {
+        return '<span class="code-line">' + r.map(function (i) { return '<span class="code-item">' + keys[i] + ' · ' + vals[i] + '</span>'; }).join(' – ') + '</span>';
+      }).join('');
+      /* figura: cerchio, triangolo 3-6-9, esagramma 1-4-2-8-5-7, un riquadro per energia */
+      function pt(k, r) { var a = (-90 + k * 40) * Math.PI / 180; return [+(200 + r * Math.cos(a)).toFixed(1), +(200 + r * Math.sin(a)).toFixed(1)]; }
+      function line(a, b) { var p = pt(a, 118), q = pt(b, 118); return '<line x1="' + p[0] + '" y1="' + p[1] + '" x2="' + q[0] + '" y2="' + q[1] + '"/>'; }
+      var svg = '<svg class="enn" viewBox="0 0 400 400" role="img" aria-label="' + esc(Lb.svg) + '">' +
+        '<circle cx="200" cy="200" r="118" class="enn-circle"/><g class="enn-lines">' +
+        line(3, 6) + line(6, 9) + line(9, 3) + line(1, 4) + line(4, 2) + line(2, 8) + line(8, 5) + line(5, 7) + line(7, 1) + '</g>';
+      keys.forEach(function (k, i) {
+        var b = pt(k, 164), n = pt(k, 126);
+        svg += '<g class="enn-box ' + cls(vals[i]) + '"><rect x="' + (b[0] - 22) + '" y="' + (b[1] - 18) + '" width="44" height="36" rx="6"/>' +
+          '<text x="' + b[0] + '" y="' + (b[1] + 1) + '">' + vals[i] + '</text></g>' +
+          '<text class="enn-n" x="' + n[0] + '" y="' + (n[1] + 1) + '">' + k + '</text>';
+      });
+      svg += '</svg>';
+
+      var h = '<div class="enn-media"><span>' + esc(Lb.min) + ' <b>' + min + '</b></span><span>' + esc(Lb.max) + ' <b>' + max + '</b></span>' +
+        '<span>' + esc(Lb.media) + ' <b>' + num(media) + '</b></span><span>' + esc(Lb.si) + ' <b>' + tot + '</b></span></div>' + svg +
+        '<p class="enn-legenda">' + esc(Lb.legenda) + '</p>' +
+        '<p class="enn-equilibrio ' + (disp <= 2 ? 'su' : 'giu') + '">' + esc(fmt(disp <= 2 ? Lb.equilibrata : Lb.squilibrata, { d: disp })) + '</p>';
+      h += '<table class="result-table enn-table"><caption class="sr-only">' + esc(Lb.tabella) + '</caption><tbody>';
+      keys.forEach(function (k, i) {
+        var st = carica(vals[i]) ? Lb.carica : Lb.scarica;
+        if (vals[i] === 0) st += ' · ' + Lb.zero;
+        h += '<tr><th scope="row">' + esc(fmt(Lb.tipo, { k: k })) + '</th><td class="num">' + vals[i] + ' / 30</td><td><span class="stato ' + cls(vals[i]) + '">' + esc(st) + '</span></td></tr>';
+      });
+      h += '</tbody></table>';
+
+      var msg = encodeURIComponent(fmt(T.wa_msg, { code: code }));
+      ui.role('wa-ac').href = 'https://wa.me/393929116441?text=' + msg;
+      ui.role('wa-nic').href = 'https://wa.me/393349991888?text=' + msg;
+      /* email con tutte le risposte: una riga per energia, S/N nell'ordine
+         originale delle 30 affermazioni (data-n), così chi legge le ritrova */
+      var mail = ui.role('mail');
+      if (mail) {
+        var per = {};
+        ui.risposte().forEach(function (r) { (per[r.key] = per[r.key] || [])[r.n - 1] = r.v ? 'S' : 'N'; });
+        var righe = keys.map(function (k, i) { return k + ' (' + vals[i] + '/30): ' + (per['t' + k] || []).join(''); }).join('\n');
+        mail.href = 'mailto:scuola-contattati@libero.it?subject=' + encodeURIComponent(T.mail_subject) +
+          '&body=' + encodeURIComponent(fmt(T.mail_body, { code: code, risposte: righe }));
+      }
+      return { groups: [code], box: box, code: Lb.codePrefix + ': ' + code, html: h };
     }
   };
+
+  /* Pagine: un pannello con data-pages="N" tiene le domande in [data-role="pool"]
+     e le distribuisce N per sezione in ordine sparso. L'ordine si salva accanto
+     alle risposte, così riprendendo il test ogni affermazione resta nella stessa
+     pagina; Ricomincia lo cancella e la visita successiva ne estrae uno nuovo. */
+  function setupPager(panel, form, LS) {
+    var n = +panel.getAttribute('data-pages');
+    var pool = form.querySelector('[data-role="pool"]');
+    if (!n || !pool) return null;
+    var qs = [].slice.call(pool.querySelectorAll('.q'));
+    var secs = [].slice.call(form.querySelectorAll('.test-section'));
+    var key = LS + '-ordine', order = null;
+    try { order = JSON.parse(localStorage.getItem(key)); } catch (e) {}
+    if (!order || order.length !== qs.length) {
+      order = qs.map(function (_, i) { return i; });
+      for (var i = order.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = order[i]; order[i] = order[j]; order[j] = t; }
+      try { localStorage.setItem(key, JSON.stringify(order)); } catch (e) {}
+    }
+    order.forEach(function (idx, pos) {
+      var sec = secs[Math.min(secs.length - 1, Math.floor(pos / n))];
+      sec.querySelector('[data-role="slot"]').appendChild(qs[idx]);
+    });
+    pool.parentNode.removeChild(pool);
+    var cur = 0;
+    function show(i, focus) {
+      cur = Math.max(0, Math.min(secs.length - 1, i));
+      secs.forEach(function (s, k) { s.hidden = k !== cur; });
+      if (focus) {
+        var h = secs[cur].querySelector('h2');
+        secs[cur].scrollIntoView({ block: 'start' });
+        if (h) h.focus({ preventScroll: true });
+      }
+    }
+    function pageOf(q) { return secs.indexOf(q.closest('.test-section')); }
+    form.addEventListener('click', function (ev) {
+      var b = ev.target.closest('[data-go]'); if (!b) return;
+      show(cur + (b.getAttribute('data-go') === 'next' ? 1 : -1), true);
+    });
+    return {
+      show: show,
+      reveal: function (q) { show(pageOf(q)); },
+      reset: function () { try { localStorage.removeItem(key); } catch (e) {} show(0); }
+    };
+  }
 
   function setupTest(panel) {
     var T = JSON.parse(panel.querySelector('.test-txt').textContent);
@@ -188,7 +300,12 @@
     var scorer = SCORERS[panel.getAttribute('data-test')];
     var ui = { role: function (r) { return panel.querySelector('[data-role="' + r + '"]'); } };
     var form = ui.role('form'), progress = ui.role('progress'), result = ui.role('result');
+    var pager = setupPager(panel, form, LS);
     var qs = [].slice.call(form.querySelectorAll('.q'));
+    /* risposte una per una, per chi le manda alla Scuola */
+    ui.risposte = function () {
+      return qs.map(function (q) { var c = q.querySelector('input:checked'); return { key: q.getAttribute('data-key'), n: +q.getAttribute('data-n'), v: c ? +c.value : null }; });
+    };
     /* «per niente vero / totalmente vero» sono aria-hidden sotto la scala:
        lo screen reader li sente come nome del primo e dell'ultimo valore. */
     qs.forEach(function (q) {
@@ -214,6 +331,11 @@
     function answered() { return qs.filter(function (q) { return q.querySelector('input:checked'); }); }
     function updateProgress() { progress.textContent = fmt(T.progress, { n: answered().length, tot: qs.length }); }
     updateProgress();
+    /* a pagine: si riparte dalla prima domanda senza risposta */
+    if (pager) {
+      var prima = qs.filter(function (q) { return !q.querySelector('input:checked'); })[0];
+      if (prima) pager.reveal(prima); else pager.show(0);
+    }
 
     form.addEventListener('change', function (ev) {
       var t = ev.target; if (t.type !== 'radio') return;
@@ -238,6 +360,7 @@
       missing.forEach(function (q) { q.classList.add('missing'); });
       if (missing.length) {
         progress.textContent = fmt(T.missing, { n: missing.length });
+        if (pager) pager.reveal(missing[0]);
         missing[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
         missing[0].querySelector('input').focus({ preventScroll: true });
         return;
@@ -277,6 +400,7 @@
       answers = {}; save(answers); form.reset();
       qs.forEach(function (q) { q.classList.remove('missing'); });
       result.hidden = true; updateProgress();
+      if (pager) pager.reset();
       panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   }

@@ -35,6 +35,11 @@
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-display: 'EB Garamond', Georgia, serif;
   --on-gold: #1a1000;
+  /* Mappa dell'Enneagramma: energia carica (verde) e scarica (rossa) */
+  --ok-rgb: 40,160,80;
+  --ok-text: #7de0a0;
+  --ko-rgb: 224,125,125;
+  --ko-text: #e8a0a0;
 }
 [data-theme="light"] {
   /* stessi valori del tema chiaro di style.css */
@@ -49,6 +54,10 @@
   --border: rgba(120,90,30,0.30);
   --border-hover: rgba(120,90,30,0.55);
   --on-gold: #f8f2e6;
+  --ok-rgb: 30,120,60;
+  --ok-text: #14542c;
+  --ko-rgb: 160,40,40;
+  --ko-text: #8f2020;
 }
 
 html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
@@ -426,3 +435,28 @@ h5.temp-profile-title { margin: 0 0 0.25rem; font-family: var(--font-display); f
 .temp-more-pct { margin-left: auto; font-family: var(--font-sans); font-size: 14px; font-weight: 500; color: var(--text-muted); font-variant-numeric: tabular-nums; }
 .temp-more > :not(summary) { margin-left: 1.25rem; margin-right: 1.25rem; }
 .temp-more[open] { padding-bottom: 1.1rem; }
+
+/* Mappa antropologica dell'Enneagramma */
+.test-attrib { font-size: 14px; color: var(--text-muted); margin: -1.25rem 0 2rem; }
+.scale-2 { grid-template-columns: repeat(2, 1fr); max-width: 260px; }
+.test-section[hidden] { display: none; }
+.test-section h2[tabindex="-1"]:focus { outline: none; }
+.sez-nav { display: flex; justify-content: space-between; gap: 1rem; margin-top: 1.5rem; }
+.enn { display: block; width: min(100%, 420px); margin: 1.5rem auto; }
+.enn-circle { fill: none; stroke: var(--border-hover); stroke-width: 1; }
+.enn-lines line { stroke: var(--gold); stroke-width: 1.4; stroke-linecap: round; opacity: 0.85; }
+.enn-n { font-family: var(--font-display); font-size: 13px; fill: var(--text-muted); text-anchor: middle; dominant-baseline: middle; }
+.enn-box rect { stroke-width: 1; }
+.enn-box text { font-family: var(--font-display); font-size: 19px; font-weight: 600; text-anchor: middle; dominant-baseline: middle; }
+/* oltre al colore, il riquadro delle energie scariche ha il bordo tratteggiato */
+.enn-box.su rect { fill: rgba(var(--ok-rgb),0.1); stroke: var(--ok-text); }
+.enn-box.su text { fill: var(--ok-text); }
+.enn-box.giu rect { fill: rgba(var(--ko-rgb),0.08); stroke: var(--ko-text); stroke-dasharray: 4 3; }
+.enn-box.giu text { fill: var(--ko-text); }
+.enn-media { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; font-size: 14px; color: var(--text-muted); margin-bottom: 1rem; }
+.enn-media b { font-family: var(--font-display); font-size: 18px; font-weight: 600; color: var(--text); }
+.enn-legenda { font-size: 14px; color: var(--text-muted); text-align: center; margin-top: 0.5rem; }
+.enn-equilibrio { text-align: center; font-family: var(--font-display); font-size: 18px; color: var(--text); margin-bottom: 1.5rem; }
+.enn-table th { white-space: nowrap; }
+.stato.su, .enn-equilibrio.su { color: var(--ok-text); }
+.stato.giu, .enn-equilibrio.giu { color: var(--ko-text); }
