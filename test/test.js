@@ -350,12 +350,19 @@
       });
       pool.parentNode.removeChild(pool);
     }
-    var cur = 0, saved = 0;
+    var cur = 0, saved = 0, viste = [];
     try { saved = Math.max(0, Math.min(secs.length - 1, +localStorage.getItem(key + '-pagina') || 0)); } catch (e) {}
+    /* sezioni già aperte almeno una volta: dove le frasi si possono lasciare
+       in bianco è l'unico modo di sapere che il test è stato letto tutto */
+    try { viste = JSON.parse(localStorage.getItem(key + '-viste')) || []; } catch (e) {}
     function show(i, focus) {
       cur = Math.max(0, Math.min(secs.length - 1, i));
       secs.forEach(function (s, k) { s.hidden = k !== cur; });
       try { localStorage.setItem(key + '-pagina', cur); } catch (e) {}
+      if (viste.indexOf(cur) < 0) {
+        viste.push(cur);
+        try { localStorage.setItem(key + '-viste', JSON.stringify(viste)); } catch (e) {}
+      }
       if (focus) {
         var h = secs[cur].querySelector('h2');
         secs[cur].scrollIntoView({ block: 'start' });
@@ -370,7 +377,15 @@
     return {
       show: show, saved: saved,
       reveal: function (q) { show(pageOf(q)); },
-      reset: function () { try { localStorage.removeItem(key); } catch (e) {} show(0); }
+      viste: function () { return viste.length; },
+      totale: secs.length,
+      /* la prima sezione mai aperta, -1 se le hanno viste tutte */
+      daVedere: function () { for (var k = 0; k < secs.length; k++) if (viste.indexOf(k) < 0) return k; return -1; },
+      reset: function () {
+        viste = [];
+        try { localStorage.removeItem(key); localStorage.removeItem(key + '-viste'); } catch (e) {}
+        show(0);
+      }
     };
   }
 
@@ -417,6 +432,8 @@
     if (pager) {
       var prima = optional ? null : qs.filter(function (q) { return !q.querySelector('input:checked'); })[0];
       if (prima) pager.reveal(prima); else pager.show(optional ? pager.saved : 0);
+      /* cambiando sezione l'avviso sulle sezioni mancanti torna il conteggio */
+      form.addEventListener('click', function (ev) { if (ev.target.closest('[data-go]')) updateProgress(); });
     }
 
     form.addEventListener('change', function (ev) {
@@ -443,6 +460,13 @@
          risposta manca mai; si ricorda che il risultato è stato calcolato */
       var missing = optional ? [] : qs.filter(function (q) { return !q.querySelector('input:checked'); });
       missing.forEach(function (q) { q.classList.add('missing'); });
+      /* con le frasi facoltative non manca mai una risposta, ma può mancare
+         una sezione mai aperta: si va lì invece di calcolare a metà */
+      if (optional && pager && pager.daVedere() >= 0) {
+        progress.textContent = fmt(T.unvisited, { n: pager.viste(), tot: pager.totale });
+        pager.show(pager.daVedere(), true);
+        return;
+      }
       if (optional) { answers._done = 1; save(answers); }
       if (missing.length) {
         progress.textContent = fmt(T.missing, { n: missing.length });
