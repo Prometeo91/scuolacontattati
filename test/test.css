@@ -104,7 +104,7 @@ nav.topnav {
 }
 .nav-back:hover { color: var(--gold-light); }
 .nav-logo, .nav-back { display: inline-flex; align-items: center; gap: 0.35em; min-height: 44px; }
-/* sotto i 600px la barra non ci sta su una riga: il logo porta già alla
+/* sotto i 680px la barra non ci sta su una riga: il logo porta già alla
    home, quindi si nasconde il link di ritorno e la scritta del tema */
 @media (max-width: 679px) {
   nav.topnav { padding: 0.5rem 1rem; }
