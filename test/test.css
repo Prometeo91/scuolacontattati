@@ -458,5 +458,25 @@ h5.temp-profile-title { margin: 0 0 0.25rem; font-family: var(--font-display); f
 .enn-legenda { font-size: 14px; color: var(--text-muted); text-align: center; margin-top: 0.5rem; }
 .enn-equilibrio { text-align: center; font-family: var(--font-display); font-size: 18px; color: var(--text); margin-bottom: 1.5rem; }
 .enn-table th { white-space: nowrap; }
+
+/* Frasi tipiche: una casella per frase, tutta la scheda è cliccabile */
+.q-check { padding: 0; }
+.q-check label { display: flex; align-items: flex-start; gap: 0.85rem; padding: 0.9rem 1.1rem; min-height: 44px; cursor: pointer; }
+.q-check input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.q-mark {
+  flex: none; width: 24px; height: 24px; margin-top: 0.1rem; border-radius: 6px;
+  border: 1px solid var(--border-hover); display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s, border-color 0.15s;
+}
+.q-mark::after { content: '\2713'; font-size: 15px; font-weight: 600; color: var(--on-gold); opacity: 0; }
+.q-check label:hover .q-mark { border-color: var(--gold); }
+.q-check input:checked ~ .q-mark { background: var(--gold); border-color: var(--gold); }
+.q-check input:checked ~ .q-mark::after { opacity: 1; }
+.q-check input:checked ~ .q-text { color: var(--text); }
+.q-check input:focus-visible ~ .q-mark { outline: 2px solid var(--gold); outline-offset: 2px; }
+.q-text { font-size: 16px; line-height: 1.6; color: var(--text-muted); transition: color 0.15s; }
+.q-check:has(input:checked) { border-color: var(--border-hover); }
+.code-sub { font-size: 16px; font-family: var(--font-sans); color: var(--text-muted); }
+.result-table tr.enn-top th, .result-table tr.enn-top td { color: var(--gold-light); }
 .stato.su, .enn-equilibrio.su { color: var(--ok-text); }
 .stato.giu, .enn-equilibrio.giu { color: var(--ko-text); }
