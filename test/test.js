@@ -48,10 +48,13 @@
   function fmt(s, o) { return s.replace(/\{(\w+)\}/g, function (_, k) { return o[k]; }); }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   /* nel riquadro del codice ogni gruppo va a capo, e dentro un gruppo si va a
-     capo solo fra una voce e l'altra (mai fra lettera e numero) */
+     capo solo fra una voce e l'altra (mai fra lettera e numero); un gruppo di
+     quattro voci si spezza al massimo in due coppie, non con l'ultima voce sola */
   function codeHtml(groups) {
     return groups.map(function (g) {
-      return '<span class="code-group">' + g.split(' – ').map(function (x) { return '<span class="code-item">' + esc(x) + '</span>'; }).join(' – ') + '</span>';
+      var items = g.split(' – ').map(function (x) { return '<span class="code-item">' + esc(x) + '</span>'; });
+      if (items.length === 4) items = [ '<span class="code-pair">' + items[0] + ' – ' + items[1] + '</span>', '<span class="code-pair">' + items[2] + ' – ' + items[3] + '</span>' ];
+      return '<span class="code-group">' + items.join(' – ') + '</span>';
     }).join(' ');
   }
 
@@ -72,6 +75,10 @@
     }
     return svg + '</svg>';
   }
+
+  /* glifo alchemico dell'Elemento: gli stessi tracciati dei titoli di sezione */
+  var GLYPH = { F: 'M10 2 L18.5 17.5 L1.5 17.5 Z', A: 'M10 2 L18.5 17.5 L1.5 17.5 Z M4.5 12 H15.5', Ac: 'M10 18 L1.5 2.5 L18.5 2.5 Z', T: 'M10 18 L1.5 2.5 L18.5 2.5 Z M4.5 8 H15.5' };
+  function glyph(k) { return '<svg class="el-glyph" viewBox="0 0 20 20" aria-hidden="true"><path d="' + GLYPH[k] + '"/></svg>'; }
 
   var SCORERS = {
     elementi: function (s, T, ui) {
@@ -118,15 +125,22 @@
       var mis = els.filter(function (k) { return s[k] < 18; }).map(function (k) { return N[k]; });
       var exc = els.filter(function (k) { return s['e' + k] >= 24; });
 
-      var h = '<table class="result-table"><caption class="sr-only">' + esc(Lb.elements) + '</caption><tbody>';
+      /* una scheda per Elemento: barra delle qualità con le tacche a 18 e 24,
+         barra dell'eccesso con le tacche a 18, 24 e 30, su 35 */
+      function bar(cls, v, ticks) {
+        return '<span class="el-track ' + cls + '" aria-hidden="true"><i style="width:' + (v * 100 / 35).toFixed(1) + '%"></i>' +
+          ticks.map(function (t) { return '<b style="left:' + (t * 100 / 35).toFixed(1) + '%"></b>'; }).join('') + '</span>';
+      }
+      var h = '<h3 class="sr-only">' + esc(Lb.elements) + '</h3><div class="el-cards">';
       els.forEach(function (k) {
-        h += '<tr><th scope="row">' + esc(N[k]) + '</th>' +
-          '<td class="num">' + esc(Lb.quality) + ' ' + s[k] + ' / 35<br>' + esc(Lb.excess) + ' ' + s['e' + k] + ' / 35</td>' +
-          '<td>' + esc(qualityStatus(s[k])) + '<br>' + esc(excessStatus(s['e' + k]) || Lb.el.nessuno) + '</td></tr>' +
-          '<tr class="state-row' + (unbalanced(s[k], s['e' + k]) ? ' off' : '') + '"><td colspan="3"><strong>' + esc(Lb.statoLabel) + ':</strong> ' +
-          esc(elementState(s[k], s['e' + k])) + '</td></tr>';
+        h += '<div class="el-card' + (unbalanced(s[k], s['e' + k]) ? ' off' : '') + '"><div class="el-head">' +
+          '<span class="el-name">' + glyph(k) + esc(N[k]) + '</span>' +
+          '<span class="el-status">' + esc(qualityStatus(s[k])) + ' · ' + esc(excessStatus(s['e' + k]) || Lb.el.nessuno) + '</span></div>' +
+          '<div class="el-bars"><span>' + esc(Lb.quality) + '</span>' + bar('quality', s[k], [18, 24]) + '<span class="num">' + s[k] + ' / 35</span>' +
+          '<span>' + esc(Lb.excess) + '</span>' + bar('excess', s['e' + k], [18, 24, 30]) + '<span class="num">' + s['e' + k] + ' / 35</span></div>' +
+          '<p class="el-state"><strong>' + esc(Lb.statoLabel) + ':</strong> ' + esc(elementState(s[k], s['e' + k])) + '</p></div>';
       });
-      h += '</tbody></table>';
+      h += '</div>' + (Lb.soglie ? '<p class="test-scale-note">' + esc(Lb.soglie) + '</p>' : '');
       h += '<p><strong>' + esc(Lb.dominant) + ':</strong> ' + esc(dom.length ? dom.join(', ') : Lb.noneDominant) + '<br>' +
            '<strong>' + esc(Lb.missingEl) + ':</strong> ' + esc(mis.length ? mis.join(', ') : Lb.noneMissing) + '<br>' +
            '<strong>' + esc(Lb.excessEl) + ':</strong> ' + esc(exc.length ? exc.map(function (k) { return N[k]; }).join(', ') : Lb.noneExcess) + '</p>';
@@ -378,6 +392,7 @@
       show: show, saved: saved,
       reveal: function (q) { show(pageOf(q)); },
       viste: function () { return viste.length; },
+      vista: function (i) { return viste.indexOf(i) >= 0; },
       totale: secs.length,
       /* la prima sezione mai aperta, -1 se le hanno viste tutte */
       daVedere: function () { for (var k = 0; k < secs.length; k++) if (viste.indexOf(k) < 0) return k; return -1; },
@@ -424,17 +439,44 @@
     });
 
     function answered() { return qs.filter(function (q) { return q.querySelector('input:checked'); }); }
-    function updateProgress() { progress.textContent = fmt(T.progress, { n: answered().length, tot: qs.length }); }
-    updateProgress();
+    var optional = panel.hasAttribute('data-optional');
+    /* nella barra fissa, un segmento per sezione (o per pagina) riempito in
+       proporzione alle risposte; dove le frasi sono facoltative, pieno quando
+       la sezione è stata aperta. Il pulsante resta ghost finché manca qualcosa */
+    var secs = [].slice.call(form.querySelectorAll('.test-section')).filter(function (sec) { return sec.querySelector('.q'); });
+    var submit = form.querySelector('.test-actions button[type="submit"]');
+    var segs = null;
+    if (progress && secs.length > 1) {
+      segs = document.createElement('span');
+      segs.className = 'test-segments'; segs.setAttribute('aria-hidden', 'true');
+      segs.innerHTML = secs.map(function () { return '<span><i></i></span>'; }).join('');
+      progress.parentNode.insertBefore(segs, progress);
+    }
+    function updateSegments() {
+      if (!segs) return;
+      [].slice.call(segs.children).forEach(function (seg, i) {
+        var all = [].slice.call(secs[i].querySelectorAll('.q')), done;
+        if (optional) done = pager && pager.vista(i) ? all.length : 0;
+        else done = all.filter(function (q) { return q.querySelector('input:checked'); }).length;
+        seg.firstChild.style.width = (done * 100 / all.length) + '%';
+        seg.classList.toggle('cur', !!pager && !secs[i].hidden);
+      });
+    }
+    function updateProgress() {
+      progress.textContent = fmt(T.progress, { n: answered().length, tot: qs.length });
+      updateSegments();
+      var complete = optional ? !pager || pager.daVedere() < 0 : answered().length === qs.length;
+      if (submit) submit.classList.toggle('btn-test-ghost', !complete);
+    }
     /* a pagine: si riparte dalla prima domanda senza risposta; se le frasi
        si possono lasciare in bianco, dall'ultima pagina vista */
-    var optional = panel.hasAttribute('data-optional');
     if (pager) {
       var prima = optional ? null : qs.filter(function (q) { return !q.querySelector('input:checked'); })[0];
       if (prima) pager.reveal(prima); else pager.show(optional ? pager.saved : 0);
       /* cambiando sezione l'avviso sulle sezioni mancanti torna il conteggio */
       form.addEventListener('click', function (ev) { if (ev.target.closest('[data-go]')) updateProgress(); });
     }
+    updateProgress();
 
     form.addEventListener('change', function (ev) {
       var t = ev.target; if (t.type !== 'radio' && t.type !== 'checkbox') return;
@@ -463,8 +505,9 @@
       /* con le frasi facoltative non manca mai una risposta, ma può mancare
          una sezione mai aperta: si va lì invece di calcolare a metà */
       if (optional && pager && pager.daVedere() >= 0) {
-        progress.textContent = fmt(T.unvisited, { n: pager.viste(), tot: pager.totale });
         pager.show(pager.daVedere(), true);
+        updateSegments();
+        progress.textContent = fmt(T.unvisited, { n: pager.viste(), tot: pager.totale });
         return;
       }
       if (optional) { answers._done = 1; save(answers); }
@@ -509,8 +552,9 @@
       if (!confirm(T.redo_confirm)) return;
       answers = {}; save(answers); form.reset();
       qs.forEach(function (q) { q.classList.remove('missing'); });
-      result.hidden = true; updateProgress();
+      result.hidden = true;
       if (pager) pager.reset();
+      updateProgress();
       panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   }

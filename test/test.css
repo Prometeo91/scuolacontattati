@@ -337,16 +337,36 @@ a:focus-visible, button:focus-visible {
 @media (max-width: 480px) {
   .scale-10 { grid-template-columns: repeat(5, 1fr); }
 }
+/* nella colonna da 760px cinque pulsanti per una cifra sola erano larghi
+   140px l'uno: la scala si ferma a 440px (640 quella a 10) e le scritte
+   «minimo / massimo» restano sotto i numeri */
+@media (min-width: 640px) {
+  .scale-5, .scale-5 + .scale-ends { max-width: 440px; }
+  .scale-10, .scale-10 + .scale-ends { max-width: 640px; }
+}
+/* Sì scelto pieno, No scelto col solo bordo: scorrendo una pagina i sì si
+   distinguono senza rileggere la posizione */
+.scale-2 label:last-child input:checked + span { background: var(--surface); border-color: var(--gold); color: var(--gold-light); }
+/* glifo alchemico dell'Elemento, nei titoli di sezione e nelle schede del risultato */
+.el-glyph { width: 0.72em; height: 0.72em; flex: none; fill: none; stroke: var(--gold); stroke-width: 1.5; stroke-linejoin: round; align-self: center; }
+h2 .el-glyph { margin-right: 0.1em; }
 
 .test-actions {
   position: sticky; bottom: 0; z-index: 50;
-  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem 1rem;
   margin: 2.5rem -1rem 0; padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom));
   background: rgba(13,11,26,0.92); backdrop-filter: blur(12px);
   border-top: 0.5px solid var(--border);
 }
 [data-theme="light"] .test-actions { background: rgba(245,240,232,0.94); }
 .test-progress { font-size: 14px; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+/* un segmento per sezione (o per pagina), che si riempie d'oro con le
+   risposte; lo costruisce test.js. Nei test a pagine la pagina aperta ha la
+   traccia più scura */
+.test-segments { flex: 1 1 100%; display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 4px; }
+.test-segments span { display: block; height: 4px; border-radius: 2px; background: var(--border); overflow: hidden; }
+.test-segments span.cur { background: rgba(var(--gold-rgb),0.38); }
+.test-segments i { display: block; height: 100%; background: var(--gold); transition: width 0.2s; }
 .btn-test {
   /* come .btn-primary e .btn-ghost del sito */
   display: inline-flex; align-items: center; justify-content: center; min-height: 44px;
@@ -383,7 +403,9 @@ a:focus-visible, button:focus-visible {
 .test-key p, .test-key li { font-size: 15px; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 .code-group { display: inline-block; margin: 0 0.35em; }
+@media (max-width: 479px) { .code-group { display: block; margin: 0; } }
 .code-item { white-space: nowrap; }
+.code-pair { display: inline-block; }
 .test-consult {
   margin-top: 2rem; padding: 1.25rem 1.5rem; border-radius: 14px;
   border: 0.5px solid var(--border-hover);
@@ -401,9 +423,25 @@ a.btn-test-ghost:hover { color: var(--gold-light); }
 .excess-desc h3 { margin-top: 0; }
 .excess-desc li { font-size: 15px; }
 .code-copy { justify-content: center; margin: -0.5rem 0 1.75rem; }
-.result-table tr.state-row td { padding-top: 0; color: var(--text); }
-.result-table tr:has(+ .state-row) th, .result-table tr:has(+ .state-row) td { border-bottom: none; }
-.result-table tr.state-row.off td { color: var(--gold-light); }
+/* Quattro Elementi: una scheda per Elemento con due barre (qualità piena,
+   eccesso attenuata) e le tacche alle soglie; dominante e mancante hanno il
+   bordo e il nome in oro chiaro */
+.el-cards { display: flex; flex-direction: column; gap: 0.75rem; margin: 0.5rem 0 1.25rem; }
+.el-card { padding: 0.9rem 1.1rem 1rem; border-radius: 12px; border: 0.5px solid var(--border); background: rgba(255,255,255,0.018); }
+[data-theme="light"] .el-card { background: rgba(255,255,255,0.6); }
+.el-card.off { border-color: var(--border-hover); }
+.el-head { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.6rem; }
+.el-name { display: inline-flex; align-items: center; gap: 0.4em; font-family: var(--font-display); font-size: 21px; font-weight: 600; color: var(--text); }
+.el-card.off .el-name { color: var(--gold-light); }
+.el-status { font-size: 13px; color: var(--text-muted); }
+.el-bars { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 0.5rem 0.65rem; align-items: center; font-size: 13px; color: var(--text-muted); }
+.el-bars .num { color: var(--text); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.el-track { position: relative; display: block; height: 8px; border-radius: 999px; background: var(--border); }
+.el-track i { position: absolute; left: 0; top: 0; height: 100%; border-radius: 999px; background: var(--gold); }
+.el-track.excess i { background: rgba(var(--gold-rgb),0.55); }
+.el-track b { position: absolute; top: -4px; width: 1px; height: 16px; background: var(--text); opacity: 0.8; }
+.el-state { margin: 0.6rem 0 0; font-size: 14px; color: var(--text); }
+.el-card.off .el-state { color: var(--gold-light); }
 
 /* Profilo temperamentale */
 .temp-el { display: block; font-size: 13px; color: var(--text-muted); font-weight: 400; }
