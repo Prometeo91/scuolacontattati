@@ -235,7 +235,8 @@
       var svg = ennSvg(vals, function (k) { return cls(vals[k - 1]); }, Lb.svg);
 
       var h = '<div class="enn-media"><span>' + esc(Lb.min) + ' <b>' + min + '</b></span><span>' + esc(Lb.max) + ' <b>' + max + '</b></span>' +
-        '<span>' + esc(Lb.media) + ' <b>' + num(media) + '</b></span><span>' + esc(Lb.si) + ' <b>' + tot + '</b></span></div>' + svg +
+        '<span>' + esc(Lb.media) + ' <b>' + num(media) + '</b></span><span>' + esc(Lb.si) + ' <b>' + tot + '</b></span>' +
+        (Lb.scariche ? '<span>' + esc(Lb.scariche) + ' <b>' + vals.filter(function (v) { return !carica(v); }).length + ' / 9</b></span>' : '') + '</div>' + svg +
         '<p class="enn-legenda">' + esc(Lb.legenda) + '</p>' +
         '<p class="enn-equilibrio ' + (disp <= 2 ? 'su' : 'giu') + '">' + esc(fmt(disp <= 2 ? Lb.equilibrata : Lb.squilibrata, { d: disp })) + '</p>';
       h += '<table class="result-table enn-table"><caption class="sr-only">' + esc(Lb.tabella) + '</caption><tbody>';
