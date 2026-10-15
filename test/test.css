@@ -439,6 +439,15 @@ h5.temp-profile-title { margin: 0 0 0.25rem; font-family: var(--font-display); f
 /* Mappa antropologica dell'Enneagramma */
 .test-attrib { font-size: 14px; color: var(--text-muted); margin: -1.25rem 0 2rem; }
 .scale-2 { grid-template-columns: repeat(2, 1fr); max-width: 260px; }
+/* dai 640px in su Sì e No stanno a destra del testo, nella stessa colonna
+   scheda dopo scheda. Il fieldset non mette la legend in riga con flex o
+   grid (resta la didascalia del riquadro), quindi si usano i float: la
+   legend è già float:left, qui si stringe e il gruppo va a destra. */
+@media (min-width: 640px) {
+  .q:has(.scale-2) { display: flow-root; padding: 0.85rem 1.1rem; }
+  .q:has(.scale-2) legend { width: calc(100% - 236px - 1.5rem); margin: 0; padding: 9px 0; }
+  .q:has(.scale-2) .scale-2 { float: right; clear: none; width: 236px; max-width: none; }
+}
 .test-section[hidden] { display: none; }
 .test-section h2[tabindex="-1"]:focus { outline: none; }
 .sez-nav { display: flex; justify-content: space-between; gap: 1rem; margin-top: 1.5rem; }
