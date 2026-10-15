@@ -33,7 +33,14 @@
    punti la mappa è equilibrata e le energie cariche si esprimono in luce;
    altrimenti le più alte portano anche la loro ombra. Il pannello ha
    data-pages="30": le 270 affermazioni, nell'HTML in ordine per energia, sono
-   disposte in ordine sparso su nove pagine (vedi setupPager). */
+   disposte in ordine sparso su nove pagine (vedi setupPager).
+
+   Frasi tipiche dell'Enneagramma (PDF di Anna Carla): 30 frasi per enneatipo
+   da spuntare liberamente (data-optional), in nove sezioni già divise per
+   tipo nell'HTML (nessun pool), ognuna aperta dal nome e dalla frase di
+   focus del profilo (secondo PDF). Conta le spunte: il più alto è
+   l'enneatipo primario; a 1–3 punti un'ala (tipo adiacente) o un secondo
+   tipo forte. */
 (function () {
   'use strict';
   var PT = JSON.parse(document.getElementById('pageTxt').textContent);
@@ -323,22 +330,25 @@
      pagina; Ricomincia lo cancella e la visita successiva ne estrae uno nuovo. */
   function setupPager(panel, form, LS) {
     var n = +panel.getAttribute('data-pages');
-    var pool = form.querySelector('[data-role="pool"]');
-    if (!n || !pool) return null;
-    var qs = [].slice.call(pool.querySelectorAll('.q'));
+    if (!n) return null;
     var secs = [].slice.call(form.querySelectorAll('.test-section'));
-    var key = LS + '-ordine', order = null;
-    try { order = JSON.parse(localStorage.getItem(key)); } catch (e) {}
-    if (!order || order.length !== qs.length) {
-      order = qs.map(function (_, i) { return i; });
-      for (var i = order.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = order[i]; order[i] = order[j]; order[j] = t; }
-      try { localStorage.setItem(key, JSON.stringify(order)); } catch (e) {}
+    var key = LS + '-ordine';
+    /* senza pool le sezioni sono già piene (una per enneatipo) e restano in ordine */
+    var pool = form.querySelector('[data-role="pool"]');
+    if (pool) {
+      var qs = [].slice.call(pool.querySelectorAll('.q')), order = null;
+      try { order = JSON.parse(localStorage.getItem(key)); } catch (e) {}
+      if (!order || order.length !== qs.length) {
+        order = qs.map(function (_, i) { return i; });
+        for (var i = order.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = order[i]; order[i] = order[j]; order[j] = t; }
+        try { localStorage.setItem(key, JSON.stringify(order)); } catch (e) {}
+      }
+      order.forEach(function (idx, pos) {
+        var sec = secs[Math.min(secs.length - 1, Math.floor(pos / n))];
+        sec.querySelector('[data-role="slot"]').appendChild(qs[idx]);
+      });
+      pool.parentNode.removeChild(pool);
     }
-    order.forEach(function (idx, pos) {
-      var sec = secs[Math.min(secs.length - 1, Math.floor(pos / n))];
-      sec.querySelector('[data-role="slot"]').appendChild(qs[idx]);
-    });
-    pool.parentNode.removeChild(pool);
     var cur = 0, saved = 0;
     try { saved = Math.max(0, Math.min(secs.length - 1, +localStorage.getItem(key + '-pagina') || 0)); } catch (e) {}
     function show(i, focus) {
