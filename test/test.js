@@ -247,51 +247,6 @@
           '&body=' + encodeURIComponent(fmt(T.mail_body, { code: code, risposte: righe }));
       }
       return { groups: [code], box: box, code: Lb.codePrefix + ': ' + code, html: h };
-    },
-
-    /* Frasi tipiche: conta le frasi spuntate per enneatipo; il più alto è il
-       primario (a pari punteggio, tutti), e chi gli sta a 1–3 punti è un'ala
-       (tipo adiacente sul cerchio) o un secondo tipo forte. */
-    enneatipo: function (s, T, ui) {
-      var Lb = T.labels, keys = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-      var vals = keys.map(function (k) { return s['t' + k] || 0; });
-      var tot = vals.reduce(function (a, b) { return a + b; }, 0);
-      var max = Math.max.apply(null, vals);
-      var nome = function (k) { return fmt(Lb.tipo, { k: k }); };
-      var order = keys.slice().sort(function (a, b) { return vals[b - 1] - vals[a - 1] || a - b; });
-      var top = max ? order.filter(function (k) { return vals[k - 1] === max; }) : [];
-      var lista = function (ks) { return ks.map(nome).join(' e '); };
-      var adiacente = function (a, b) { var d = Math.abs(a - b); return d === 1 || d === 8; };
-      var vicini = top.length === 1 ? order.filter(function (k) { var d = max - vals[k - 1]; return d >= 1 && d <= 3; }) : [];
-      var ali = vicini.filter(function (k) { return adiacente(k, top[0]); }), secondi = vicini.filter(function (k) { return !adiacente(k, top[0]); });
-      var pct = function (v) { return Math.round(v * 100 / 30); };
-
-      var code = max ? lista(top) + ' (' + max + '/30)' + (vicini.length ? ' · ' + lista(vicini) : '') : '—';
-      var box = '<span class="code-line">' + esc(max ? lista(top) : '—') + '</span>' +
-        (max ? '<span class="code-line code-sub">' + max + ' / 30 · ' + pct(max) + '%</span>' : '');
-      var h = '';
-      if (!max) h += '<p>' + esc(Lb.nessuna) + '</p>';
-      else {
-        h += '<h3>' + esc(fmt(top.length > 1 ? Lb.primario_pari : Lb.primario, { tipi: lista(top) })) + '</h3>' +
-          '<p>' + esc(fmt(top.length > 1 ? Lb.frasi_pari : Lb.frasi, { n: max, tipo: nome(top[0]) })) + '</p>';
-        var diff = function (ks) { var ds = ks.map(function (k) { return max - vals[k - 1]; }); return ds.length > 1 && ds[0] !== ds[ds.length - 1] ? ds[0] + '–' + ds[ds.length - 1] : ds[0]; };
-        if (ali.length) h += '<p>' + esc(fmt(Lb.ala, { tipi: lista(ali), d: diff(ali) })) + '</p>';
-        if (secondi.length) h += '<p>' + esc(fmt(Lb.secondo, { tipi: lista(secondi), d: diff(secondi) })) + '</p>';
-      }
-      h += '<table class="result-table temp-table"><caption class="sr-only">' + esc(Lb.tabella) + '</caption><tbody>';
-      order.forEach(function (k, i) {
-        var v = vals[k - 1];
-        h += '<tr' + (top.indexOf(k) >= 0 ? ' class="enn-top"' : '') + '><th scope="row">' + (i + 1) + '. ' + esc(nome(k)) + '</th>' +
-          '<td class="num">' + v + ' / 30<br><strong>' + pct(v) + '%</strong></td>' +
-          '<td class="temp-bar-cell" aria-hidden="true"><span class="temp-bar-track"><span class="temp-bar" style="width:' + pct(v) + '%"></span></span></td></tr>';
-      });
-      h += '</tbody></table><p class="test-scale-note">' + esc(Lb.totale) + ': ' + tot + '</p>';
-
-      var tutti = keys.map(function (k) { return k + '=' + vals[k - 1]; }).join(', ');
-      var msg = encodeURIComponent(fmt(T.wa_msg, { code: code + ' · ' + tutti }));
-      ui.role('wa-ac').href = 'https://wa.me/393929116441?text=' + msg;
-      ui.role('wa-nic').href = 'https://wa.me/393349991888?text=' + msg;
-      return { groups: [code], box: box, code: Lb.codePrefix + ': ' + code + ' · ' + tutti, html: h };
     }
   };
 
@@ -317,12 +272,10 @@
       sec.querySelector('[data-role="slot"]').appendChild(qs[idx]);
     });
     pool.parentNode.removeChild(pool);
-    var cur = 0, saved = 0;
-    try { saved = Math.max(0, Math.min(secs.length - 1, +localStorage.getItem(key + '-pagina') || 0)); } catch (e) {}
+    var cur = 0;
     function show(i, focus) {
       cur = Math.max(0, Math.min(secs.length - 1, i));
       secs.forEach(function (s, k) { s.hidden = k !== cur; });
-      try { localStorage.setItem(key + '-pagina', cur); } catch (e) {}
       if (focus) {
         var h = secs[cur].querySelector('h2');
         secs[cur].scrollIntoView({ block: 'start' });
@@ -335,7 +288,7 @@
       show(cur + (b.getAttribute('data-go') === 'next' ? 1 : -1), true);
     });
     return {
-      show: show, saved: saved,
+      show: show,
       reveal: function (q) { show(pageOf(q)); },
       reset: function () { try { localStorage.removeItem(key); } catch (e) {} show(0); }
     };
@@ -378,18 +331,15 @@
     function answered() { return qs.filter(function (q) { return q.querySelector('input:checked'); }); }
     function updateProgress() { progress.textContent = fmt(T.progress, { n: answered().length, tot: qs.length }); }
     updateProgress();
-    /* a pagine: si riparte dalla prima domanda senza risposta; se le frasi
-       si possono lasciare in bianco, dall'ultima pagina vista */
-    var optional = panel.hasAttribute('data-optional');
+    /* a pagine: si riparte dalla prima domanda senza risposta */
     if (pager) {
-      var prima = optional ? null : qs.filter(function (q) { return !q.querySelector('input:checked'); })[0];
-      if (prima) pager.reveal(prima); else pager.show(optional ? pager.saved : 0);
+      var prima = qs.filter(function (q) { return !q.querySelector('input:checked'); })[0];
+      if (prima) pager.reveal(prima); else pager.show(0);
     }
 
     form.addEventListener('change', function (ev) {
-      var t = ev.target; if (t.type !== 'radio' && t.type !== 'checkbox') return;
-      if (t.checked) answers[t.name] = +t.value; else delete answers[t.name];
-      save(answers);
+      var t = ev.target; if (t.type !== 'radio') return;
+      answers[t.name] = +t.value; save(answers);
       t.closest('.q').classList.remove('missing');
       updateProgress();
     });
@@ -406,11 +356,8 @@
     var codeText = '';
     form.addEventListener('submit', function (ev) {
       ev.preventDefault();
-      /* data-optional: ogni frase si può lasciare in bianco, quindi nessuna
-         risposta manca mai; si ricorda che il risultato è stato calcolato */
-      var missing = optional ? [] : qs.filter(function (q) { return !q.querySelector('input:checked'); });
+      var missing = qs.filter(function (q) { return !q.querySelector('input:checked'); });
       missing.forEach(function (q) { q.classList.add('missing'); });
-      if (optional) { answers._done = 1; save(answers); }
       if (missing.length) {
         progress.textContent = fmt(T.missing, { n: missing.length });
         if (pager) pager.reveal(missing[0]);
@@ -434,7 +381,7 @@
     }
     /* chi torna con tutte le risposte salvate ritrova il risultato, senza
        dover premere di nuovo il pulsante */
-    if (qs.length && (optional ? answers._done : answered().length === qs.length)) mostraRisultato(false);
+    if (qs.length && answered().length === qs.length) mostraRisultato(false);
 
     ui.role('copy').addEventListener('click', function () {
       var b = this, done = function () { var o = b.textContent; b.textContent = T.copied; setTimeout(function () { b.textContent = o; }, 1800); };
