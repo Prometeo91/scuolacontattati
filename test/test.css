@@ -453,6 +453,13 @@ h5.temp-profile-title { margin: 0 0 0.25rem; font-family: var(--font-display); f
 .enn-box.su text { fill: var(--ok-text); }
 .enn-box.giu rect { fill: rgba(var(--ko-rgb),0.08); stroke: var(--ko-text); stroke-dasharray: 4 3; }
 .enn-box.giu text { fill: var(--ko-text); }
+/* test del tipo: primario pieno, ala e secondo tipo forte col bordo, gli altri attenuati */
+.enn-box rect { fill: var(--surface); stroke: var(--border-hover); }
+.enn-box text { fill: var(--text-muted); }
+.enn-box.vicino rect { stroke: var(--gold); stroke-width: 1.5; }
+.enn-box.vicino text { fill: var(--gold-light); }
+.enn-box.top rect { fill: var(--gold); stroke: var(--gold); }
+.enn-box.top text { fill: var(--on-gold); }
 .enn-media { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; font-size: 14px; color: var(--text-muted); margin-bottom: 1rem; }
 .enn-media b { font-family: var(--font-display); font-size: 18px; font-weight: 600; color: var(--text); }
 .enn-legenda { font-size: 14px; color: var(--text-muted); text-align: center; margin-top: 0.5rem; }

@@ -48,6 +48,24 @@
     }).join(' ');
   }
 
+  /* Figura dell'Enneagramma: cerchio, triangolo 3-6-9, esagramma 1-4-2-8-5-7,
+     il 9 in alto e un riquadro con il totale per ogni tipo; cls(k) dà la
+     classe del riquadro (su/giu nella Mappa, top/vicino nel test del tipo). */
+  function ennSvg(vals, cls, label) {
+    function pt(k, r) { var a = (-90 + k * 40) * Math.PI / 180; return [+(200 + r * Math.cos(a)).toFixed(1), +(200 + r * Math.sin(a)).toFixed(1)]; }
+    function line(a, b) { var p = pt(a, 118), q = pt(b, 118); return '<line x1="' + p[0] + '" y1="' + p[1] + '" x2="' + q[0] + '" y2="' + q[1] + '"/>'; }
+    var svg = '<svg class="enn" viewBox="0 0 400 400" role="img" aria-label="' + esc(label) + '">' +
+      '<circle cx="200" cy="200" r="118" class="enn-circle"/><g class="enn-lines">' +
+      line(3, 6) + line(6, 9) + line(9, 3) + line(1, 4) + line(4, 2) + line(2, 8) + line(8, 5) + line(5, 7) + line(7, 1) + '</g>';
+    for (var k = 1; k <= 9; k++) {
+      var b = pt(k, 164), n = pt(k, 126);
+      svg += '<g class="enn-box ' + cls(k) + '"><rect x="' + (b[0] - 22) + '" y="' + (b[1] - 18) + '" width="44" height="36" rx="6"/>' +
+        '<text x="' + b[0] + '" y="' + (b[1] + 1) + '">' + vals[k - 1] + '</text></g>' +
+        '<text class="enn-n" x="' + n[0] + '" y="' + (n[1] + 1) + '">' + k + '</text>';
+    }
+    return svg + '</svg>';
+  }
+
   var SCORERS = {
     elementi: function (s, T, ui) {
       var Lb = T.labels, N = Lb.names, els = ['F', 'A', 'Ac', 'T'];
@@ -207,19 +225,7 @@
       var box = [[0, 1, 2], [3, 4, 5], [6, 7, 8]].map(function (r) {
         return '<span class="code-line">' + r.map(function (i) { return '<span class="code-item">' + keys[i] + ' · ' + vals[i] + '</span>'; }).join(' – ') + '</span>';
       }).join('');
-      /* figura: cerchio, triangolo 3-6-9, esagramma 1-4-2-8-5-7, un riquadro per energia */
-      function pt(k, r) { var a = (-90 + k * 40) * Math.PI / 180; return [+(200 + r * Math.cos(a)).toFixed(1), +(200 + r * Math.sin(a)).toFixed(1)]; }
-      function line(a, b) { var p = pt(a, 118), q = pt(b, 118); return '<line x1="' + p[0] + '" y1="' + p[1] + '" x2="' + q[0] + '" y2="' + q[1] + '"/>'; }
-      var svg = '<svg class="enn" viewBox="0 0 400 400" role="img" aria-label="' + esc(Lb.svg) + '">' +
-        '<circle cx="200" cy="200" r="118" class="enn-circle"/><g class="enn-lines">' +
-        line(3, 6) + line(6, 9) + line(9, 3) + line(1, 4) + line(4, 2) + line(2, 8) + line(8, 5) + line(5, 7) + line(7, 1) + '</g>';
-      keys.forEach(function (k, i) {
-        var b = pt(k, 164), n = pt(k, 126);
-        svg += '<g class="enn-box ' + cls(vals[i]) + '"><rect x="' + (b[0] - 22) + '" y="' + (b[1] - 18) + '" width="44" height="36" rx="6"/>' +
-          '<text x="' + b[0] + '" y="' + (b[1] + 1) + '">' + vals[i] + '</text></g>' +
-          '<text class="enn-n" x="' + n[0] + '" y="' + (n[1] + 1) + '">' + k + '</text>';
-      });
-      svg += '</svg>';
+      var svg = ennSvg(vals, function (k) { return cls(vals[k - 1]); }, Lb.svg);
 
       var h = '<div class="enn-media"><span>' + esc(Lb.min) + ' <b>' + min + '</b></span><span>' + esc(Lb.max) + ' <b>' + max + '</b></span>' +
         '<span>' + esc(Lb.media) + ' <b>' + num(media) + '</b></span><span>' + esc(Lb.si) + ' <b>' + tot + '</b></span></div>' + svg +
@@ -275,6 +281,8 @@
       var h = '';
       if (!max) h += '<p>' + esc(Lb.nessuna) + '</p>';
       else {
+        /* figura: il primario in oro pieno, ala e secondo tipo forte con il bordo in oro */
+        if (Lb.svg) h += ennSvg(vals, function (k) { return top.indexOf(k) >= 0 ? 'top' : vicini.indexOf(k) >= 0 ? 'vicino' : ''; }, fmt(Lb.svg, { tipi: lista(top) }));
         h += '<h3>' + esc(fmt(top.length > 1 ? Lb.primario_pari : Lb.primario, { tipi: lista(top) })) + '</h3>' +
           '<p>' + esc(fmt(top.length > 1 ? Lb.frasi_pari : Lb.frasi, { n: max, tipo: nome(top[0]) })) + '</p>';
         var diff = function (ks) { var ds = ks.map(function (k) { return max - vals[k - 1]; }); return ds.length > 1 && ds[0] !== ds[ds.length - 1] ? ds[0] + '–' + ds[ds.length - 1] : ds[0]; };
