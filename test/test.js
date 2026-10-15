@@ -257,7 +257,10 @@
       var vals = keys.map(function (k) { return s['t' + k] || 0; });
       var tot = vals.reduce(function (a, b) { return a + b; }, 0);
       var max = Math.max.apply(null, vals);
-      var nome = function (k) { return fmt(Lb.tipo, { k: k }); };
+      var nomi = Lb.nomi || {}, titoli = Lb.titoli || {}, focus = Lb.focus || {};
+      var nome = function (k) { return fmt(Lb.tipo, { k: k, nome: nomi[k] || '' }); };
+      /* scheda di un enneatipo: titolo completo del PDF e frase di focus */
+      var scheda = function (k) { return titoli[k] ? '<p class="enn-focus"><strong>' + esc(titoli[k]) + '</strong><br>' + esc(focus[k] || '') + '</p>' : ''; };
       var order = keys.slice().sort(function (a, b) { return vals[b - 1] - vals[a - 1] || a - b; });
       var top = max ? order.filter(function (k) { return vals[k - 1] === max; }) : [];
       var lista = function (ks) { return ks.map(nome).join(' e '); };
@@ -275,17 +278,28 @@
         h += '<h3>' + esc(fmt(top.length > 1 ? Lb.primario_pari : Lb.primario, { tipi: lista(top) })) + '</h3>' +
           '<p>' + esc(fmt(top.length > 1 ? Lb.frasi_pari : Lb.frasi, { n: max, tipo: nome(top[0]) })) + '</p>';
         var diff = function (ks) { var ds = ks.map(function (k) { return max - vals[k - 1]; }); return ds.length > 1 && ds[0] !== ds[ds.length - 1] ? ds[0] + '–' + ds[ds.length - 1] : ds[0]; };
-        if (ali.length) h += '<p>' + esc(fmt(Lb.ala, { tipi: lista(ali), d: diff(ali) })) + '</p>';
-        if (secondi.length) h += '<p>' + esc(fmt(Lb.secondo, { tipi: lista(secondi), d: diff(secondi) })) + '</p>';
+        top.forEach(function (k) { h += scheda(k); });
+        if (ali.length) h += '<p>' + esc(fmt(Lb.ala, { tipi: lista(ali), d: diff(ali) })) + '</p>' + ali.map(scheda).join('');
+        if (secondi.length) h += '<p>' + esc(fmt(Lb.secondo, { tipi: lista(secondi), d: diff(secondi) })) + '</p>' + secondi.map(scheda).join('');
       }
       h += '<table class="result-table temp-table"><caption class="sr-only">' + esc(Lb.tabella) + '</caption><tbody>';
       order.forEach(function (k, i) {
         var v = vals[k - 1];
-        h += '<tr' + (top.indexOf(k) >= 0 ? ' class="enn-top"' : '') + '><th scope="row">' + (i + 1) + '. ' + esc(nome(k)) + '</th>' +
+        var breve = Lb.tipoBreve ? fmt(Lb.tipoBreve, { k: k }) : nome(k);
+        h += '<tr' + (top.indexOf(k) >= 0 ? ' class="enn-top"' : '') + '><th scope="row">' + (i + 1) + '. ' + esc(breve) + (Lb.tipoBreve && nomi[k] ? '<span class="temp-el">' + esc(nomi[k]) + '</span>' : '') + '</th>' +
           '<td class="num">' + v + ' / 30<br><strong>' + pct(v) + '%</strong></td>' +
           '<td class="temp-bar-cell" aria-hidden="true"><span class="temp-bar-track"><span class="temp-bar" style="width:' + pct(v) + '%"></span></span></td></tr>';
       });
       h += '</tbody></table><p class="test-scale-note">' + esc(Lb.totale) + ': ' + tot + '</p>';
+      /* gli enneatipi non citati sopra, chiusi, nell'ordine della classifica */
+      var citati = top.concat(vicini), altri = order.filter(function (k) { return citati.indexOf(k) < 0; });
+      if (Lb.altri && altri.length && titoli[altri[0]]) {
+        h += '<section class="temp-profiles"><h4 class="temp-group">' + esc(Lb.altri) + '</h4>';
+        altri.forEach(function (k) {
+          h += '<details class="temp-profile temp-more"><summary>' + esc(titoli[k]) + ' <span class="temp-more-pct">' + vals[k - 1] + ' / 30</span></summary><p>' + esc(focus[k] || '') + '</p></details>';
+        });
+        h += '</section>';
+      }
 
       var tutti = keys.map(function (k) { return k + '=' + vals[k - 1]; }).join(', ');
       var msg = encodeURIComponent(fmt(T.wa_msg, { code: code + ' · ' + tutti }));
