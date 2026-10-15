@@ -291,6 +291,11 @@ a:focus-visible, button:focus-visible {
 .test-intro + .test-scale-note { margin-bottom: 2rem; }
 .code-legend { font-family: var(--font-sans); font-size: 13px; line-height: 1.5; color: var(--text-muted); margin-top: 0.7rem; font-variant-numeric: normal; }
 .test-scale-note { font-size: 14px; color: var(--text-muted); }
+/* soglie dei Quattro Elementi nelle istruzioni: una tabella al posto di sei voci */
+.soglie-table { font-size: 14px; margin: 0.5rem 0 0.75rem; }
+.soglie-table th, .soglie-table td { padding: 0.45rem 0.6rem 0.45rem 0; }
+.soglie-table thead th { color: var(--gold); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; }
+.soglie-table tbody th { white-space: nowrap; font-variant-numeric: tabular-nums; }
 
 .test-section { margin-top: 3rem; }
 .test-section h2 { margin-top: 0; margin-bottom: 0.25rem; }
