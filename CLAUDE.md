@@ -100,7 +100,7 @@ Playwright è installato ma la CLI non combacia col browser preinstallato. Se `r
 
 ```js
 const { chromium } = require('playwright-core');
-const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' }); // verificare la versione in /opt/pw-browsers
+const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium-1243/chrome-linux64/chrome' }); // versione e sottocartella cambiano col container (prima era chromium-1194/chrome-linux): verificare con ls /opt/pw-browsers/chromium-*/
 const ctx = await browser.newContext({
   viewport: { width: 390, height: 844 },
   deviceScaleFactor: 2,        // i telefoni veri sono 2-3x: a 1x i bordi da 1px spariscono
