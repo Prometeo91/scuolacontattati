@@ -19,6 +19,8 @@
      primo (le qualità alte non lo compensano). Vedi elementState().
    - Triarticolazione, 3 domande da 1 a 10 per centro: conta il centro più
      basso; ≥20 matura, ≥24 integrata, ≥27 Io operativo, ≥30 Io magico.
+     Se un centro è sotto 20 compaiono gli appunti di Anna Carla per
+     riequilibrarlo (nell'HTML, data-role="tri-guide").
    - Attenzione e Volontà, 7 domande da 1 a 5: ≥24, ≥27, ≥30.
 
    Temperamento (Ippocrate e Galeno): quattro aree S/C/M/Fl di 15 domande
@@ -161,6 +163,24 @@
          in eccesso (eccesso ≥24, squilibrio compreso) e precompila il messaggio WhatsApp */
       var off = els.filter(function (k) { return unbalanced(s[k], s['e' + k]); })
                    .map(function (k) { return N[k] + ' ' + elementState(s[k], s['e' + k]); });
+      /* centri sotto 20: si apre la possibilità di leggere gli appunti della
+         Scuola sulla Triarticolazione (nell'HTML, chiusi), con il punteggio
+         accanto ai centri da riequilibrare; i centri entrano anche nell'invito */
+      var low = ['P', 'S', 'V'].filter(function (k) { return s[k] < 20; });
+      var guide = ui.role('tri-guide');
+      if (guide) {
+        guide.hidden = !low.length;
+        var nomi = low.map(function (k) { return N[k]; });
+        var lista = nomi.length > 1 ? nomi.slice(0, -1).join(', ') + T.tri_and + nomi[nomi.length - 1] : nomi[0];
+        ui.role('tri-lead').textContent = low.length ? fmt(T.tri_lead, { list: lista, verb: low.length > 1 ? T.tri_many : T.tri_one }) : '';
+        guide.querySelectorAll('.tri-center').forEach(function (c) {
+          var k = c.getAttribute('data-center'), you = c.querySelector('.tri-you');
+          c.classList.toggle('low', s[k] < 20);
+          you.hidden = s[k] >= 20;
+          you.textContent = fmt(T.tri_you, { v: s[k] });
+        });
+        low.forEach(function (k) { off.push(N[k] + ' ' + T.tri_low); });
+      }
       var flag = ui.role('flag');
       flag.hidden = !off.length;
       if (off.length) flag.textContent = fmt(T.consult_flag, { list: off.join(', ') });

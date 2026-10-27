@@ -543,3 +543,12 @@ h5.temp-profile-title { margin: 0 0 0.25rem; font-family: var(--font-display); f
 .temp-more-pct { white-space: nowrap; }
 .stato.su, .enn-equilibrio.su { color: var(--ok-text); }
 .stato.giu, .enn-equilibrio.giu { color: var(--ko-text); }
+
+/* Quattro Elementi: appunti sulla Triarticolazione, solo con un centro sotto 20 */
+.tri-guide { margin-top: 2rem; }
+.tri-guide-lead { color: var(--text); }
+.tri-guide li { font-size: 15px; margin-bottom: 0.5rem; }
+.tri-guide h4 { margin: 1.75rem 0 0.4rem; font-family: var(--font-display); font-size: 19px; font-weight: 600; color: var(--text); }
+.tri-center.low h4 { color: var(--gold-light); }
+.tri-you { margin-top: -0.2rem; font-size: 14px; color: var(--gold-light); }
+.tri-guide-consult { margin-top: 1.5rem; }
