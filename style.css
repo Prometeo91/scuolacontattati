@@ -881,7 +881,8 @@ section#insegnamenti, section#seminario, section#faq {
 .chiave-item { display: flex; align-items: flex-start; gap: 1.75rem; padding: 1.5rem 1.75rem; }
 .chiave-num { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 600; color: var(--gold); opacity: 0.25; line-height: 1; flex-shrink: 0; width: 2.5rem; text-align: center; margin-top: -0.15rem; }
 .chiave-side { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; flex-shrink: 0; }
-.chiave-side .chiave-num { font-size: 1.5rem; width: auto; margin-top: 0; }
+/* accanto all'emblema il numero si legge (a 0.25 era a 1,5:1, quasi invisibile) */
+.chiave-side .chiave-num { font-size: 1.5rem; width: auto; margin-top: 0; opacity: 0.7; }
 .chiave-emblem { width: 104px; height: 104px; display: block; border-radius: var(--radius-md); border: 0.5px solid var(--border); object-fit: cover; }
 
 /* Gli emblemi sono incisioni in oro su carta blu notte: nel tema chiaro
@@ -2105,8 +2106,7 @@ section#ispirazioni > * { position: relative; z-index: 1; }
   transform: rotate(45deg);
   box-shadow:
     0 0 0 3px var(--bg, #0d0b1a),
-    0 0 0 4px rgba(var(--gold-rgb),0.4),
-    0 0 14px rgba(var(--gold-rgb),0.45);
+    0 0 0 4px rgba(var(--gold-rgb),0.4);   /* niente alone: DESIGN.md, «nessun glow diffuso» */
   z-index: 2;
   transition: transform var(--t-move), box-shadow var(--t-base), background var(--t-base);
 }
@@ -2115,8 +2115,7 @@ section#ispirazioni > * { position: relative; z-index: 1; }
   background: var(--gold-light);
   box-shadow:
     0 0 0 3px var(--bg, #0d0b1a),
-    0 0 0 5px rgba(var(--gold-light-rgb),0.6),
-    0 0 22px rgba(var(--gold-light-rgb),0.75);
+    0 0 0 5px rgba(var(--gold-light-rgb),0.6);
 }
 /* Lezione passata: gemma spenta */
 .calendar-list .lesson-wrap:has(.event-row.passata)::before {

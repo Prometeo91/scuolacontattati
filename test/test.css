@@ -552,3 +552,6 @@ h5.temp-profile-title { margin: 0 0 0.25rem; font-family: var(--font-display); f
 .tri-center.low h4 { color: var(--gold-light); }
 .tri-you { margin-top: -0.2rem; font-size: 14px; color: var(--gold-light); }
 .tri-guide-consult { margin-top: 1.5rem; }
+
+/* «Torna alla home» nel footer: comando isolato, alto 44px come gli altri */
+.footer-home { display: inline-flex; align-items: center; min-height: 44px; }
