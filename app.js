@@ -445,7 +445,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if(!btn||!pan)return false;
         btn.setAttribute('aria-expanded',aperto?'true':'false');
         pan.hidden=!aperto;
-        btn.parentNode.classList.toggle('open',aperto);
+        btn.closest('.pm-year').classList.toggle('open',aperto);
         return true;
       }
       function segnaURL(anno){
