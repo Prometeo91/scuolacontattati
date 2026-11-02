@@ -494,6 +494,9 @@ document.addEventListener('DOMContentLoaded', function() {
         var ht=document.getElementById('hp-titolo'), htl=loc(pross.l);
         ht.textContent=(SC_EN?'Year '+pross.anno:pross.anno+'° Anno')+(htl.titolo?' · '+htl.titolo:'');
         ht.href='#anno-'+pross.anno;
+        /* l'oggetto del messaggio dice quale lezione: «Partecipare alla lezione di domenica 8 novembre (2° Anno)» */
+        var hpp=document.getElementById('hp-partecipa');
+        if(hpp)hpp.setAttribute('data-oggetto',(SC_EN?'Joining the lesson on ':'Partecipare alla lezione di ')+giorno(pross.d,pross.l)+' ('+(SC_EN?'Year '+pross.anno:pross.anno+'° Anno')+')');
         prossPerAnno.filter(function(x){return x!==pross;}).sort(function(a,b){return a.d-b.d;}).forEach(function(x){
           var p=altroAnno(x); p.className='hp-altri';
           hp.appendChild(p);

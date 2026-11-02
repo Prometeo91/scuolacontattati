@@ -454,22 +454,30 @@ due pulsanti hanno la classe `.js-share` e ognuno mostra il proprio toast.
 ### Schermi bassi
 
 L'hero si adatta all'altezza, non solo alla larghezza. **I due pulsanti
-devono stare nella prima schermata** da 375×667 in su, in orizzontale sul
-telefono, a 1024×768 e 1280×800.
+devono stare nella prima schermata** da 360×640 in su, in orizzontale sul
+telefono, a 1024×768, 1280×800 e 1440×900. Dal novembre 2026 l'hero contiene
+anche il riquadro della prossima lezione (`#hero-prossima`), e le soglie sono
+state rifatte per lui:
 
-- **Telefono in verticale fino a 740px d'altezza**: stessi elementi, logo a
-  100px, spazi più stretti, la stellina sotto il motto sparisce.
+- **Telefono in verticale fino a 800px d'altezza**: logo a 56px, caratteri e
+  spazi più stretti, i due pulsanti affiancati invece che in colonna.
+- **Telefono in verticale fino a 660px** (360×640): logo a 40px e niente
+  traduzione del motto.
 - **Telefono in orizzontale** (altezza fino a 500px): due colonne, logo a
-  sinistra e testi allineati a sinistra accanto. La barra perde 16px di
-  padding.
-- **Tablet in orizzontale e portatili bassi** (larghezza da 641px, altezza
-  501-860px): logo a 140px e spazi più stretti.
+  sinistra e testi accanto; i pulsanti vengono prima del riquadro, che resta
+  sotto la piega.
+- **Portatili e tablet in orizzontale fino a 960px d'altezza** (da 900px di
+  larghezza: 1024×768, 1280×800, 1366×768, 1440×900): presentazione a
+  sinistra, riquadro a destra.
+- I pulsanti fissi WhatsApp e Condividi, sul telefono, compaiono solo quando
+  i pulsanti dell'hero escono dallo schermo; il banner dei cookie sta in
+  alto, sotto la barra, per non coprirli alla prima visita.
 
 Sotto il motto c'è la frase principale (`.hero-lead`, «Tornare padroni della
 propria vita.», Garamond 24-32px), il secondo elemento per evidenza dopo il
 nome. Su telefono i due pulsanti vanno uno sotto l'altro, della stessa
-larghezza. Ogni modifica alla hero va rimisurata a 375×667, 390×844 e
-1024×768.
+larghezza. Ogni modifica alla hero va rimisurata a 360×640, 375×667, 390×844, 844×390,
+1024×768 e 1440×900.
 
 A 320×568 i pulsanti restano sotto la piega: rimpicciolire ancora
 sacrificherebbe il logo.

@@ -598,6 +598,11 @@ body::before {
 .hp-luogo { margin: 0; font-family: var(--font-sans); font-size: 14px; line-height: 1.55; color: var(--text-muted); }
 .hp-luogo a { color: var(--text); text-decoration: underline; text-decoration-color: rgba(var(--gold-light-rgb),0.45); text-underline-offset: 3px; transition: text-decoration-color var(--t-fast); }
 .hp-luogo a:hover { text-decoration-color: var(--gold-light); }
+/* «Puoi iniziare da questa lezione: scrivici»: la strada «presenza a una
+   lezione» non aveva un'azione; porta ai contatti con l'oggetto già scritto */
+.hp-partecipa { margin: 0.35rem 0 0; font-family: var(--font-sans); font-size: 14px; }
+.hp-partecipa a { display: inline-flex; align-items: center; min-height: 44px; color: var(--gold-light); text-decoration: underline; text-decoration-color: rgba(var(--gold-light-rgb),0.45); text-underline-offset: 3px; transition: text-decoration-color var(--t-fast); }
+.hp-partecipa a:hover { text-decoration-color: var(--gold-light); }
 .hp-altri { margin: 0.7rem 0 0; padding-top: 0.6rem; border-top: 0.5px solid var(--border); font-family: var(--font-sans); font-size: 13px; color: var(--text-muted); }
 .hp-altri a { color: var(--gold-light); text-underline-offset: 3px; }
 /* Sul telefono i due pulsanti vanno uno sotto l'altro: stessa larghezza,
@@ -633,7 +638,16 @@ body::before {
   .hero-prossima { margin-bottom: 0.85rem; padding: 0.75rem 0.95rem 0.8rem; }
   .hp-data { font-size: 22px; }
   .hp-titolo { font-size: 16px; margin: 0.25rem 0 0.45rem; }
-  .hp-altri { margin-top: 0.5rem; padding-top: 0.45rem; }
+  .hp-partecipa { margin-top: 0.1rem; font-size: 13px; }
+  .hp-altri { margin-top: 0.3rem; padding-top: 0.45rem; }
+}
+/* Telefoni bassissimi (360×640): via la traduzione del motto e logo più
+   piccolo, così sotto il riquadro della prossima lezione entrano ancora i
+   due pulsanti */
+@media (max-width: 640px) and (max-height: 660px) and (orientation: portrait) {
+  .hero-emblem { width: 40px; height: 40px; }
+  .hero-motto-sub { display: none; }
+  .hero-motto { margin-bottom: 0.5rem; }
 }
 /* Tablet in orizzontale e portatili bassi (1024×768, 1280×800, 1366×768):
    i pulsanti restavano fuori dalla prima schermata di 30-120px. */
@@ -645,10 +659,11 @@ body::before {
   .hero-slogan { margin-bottom: 1.25rem; }
   .hero-prossima { margin-bottom: 1.4rem; }
 }
-/* Portatili e tablet in orizzontale bassi (1024×768, 1280×800, 1366×768): in
-   colonna il riquadro della prossima lezione usciva dallo schermo, a 1024 anche
-   per la barra su due righe. Presentazione a sinistra, riquadro a destra. */
-@media (min-width: 900px) and (max-height: 860px) and (min-height: 501px) {
+/* Portatili e tablet in orizzontale fino a 960px di altezza (1024×768,
+   1280×800, 1366×768, 1440×900): in colonna il riquadro della prossima
+   lezione spingeva i pulsanti fuori dallo schermo, a 1024 anche per la barra
+   su due righe. Presentazione a sinistra, riquadro a destra. */
+@media (min-width: 900px) and (max-height: 960px) and (min-height: 501px) {
   .hero {
     display: grid; grid-template-columns: minmax(0, 28rem) minmax(0, 25rem);
     justify-content: center; align-items: center; column-gap: 3.5rem; text-align: left;
