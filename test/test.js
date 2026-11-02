@@ -478,7 +478,7 @@
         var all = [].slice.call(secs[i].querySelectorAll('.q')), done;
         if (optional) done = pager && pager.vista(i) ? all.length : 0;
         else done = all.filter(function (q) { return q.querySelector('input:checked'); }).length;
-        seg.firstChild.style.width = (done * 100 / all.length) + '%';
+        seg.firstChild.style.transform = 'scaleX(' + (done / all.length) + ')';
         seg.classList.toggle('cur', !!pager && !secs[i].hidden);
       });
     }

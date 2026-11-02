@@ -317,7 +317,7 @@ document.addEventListener('DOMContentLoaded', function() {
       else{bc='badge badge-purple';bt=mesiL[l.month-1]+' '+l.year;}
       var sfx=st==='in-corso'?SC_T.inCorsoOra:isPr?SC_T.prossima:'';
       var w=document.createElement('div');w.className='lesson-wrap';
-      w.innerHTML='<div class="event-row has-detail '+st+'" role="button" tabindex="0" aria-expanded="false"><div class="event-date"><p class="event-day ev-num">'+toRoman(l.num)+'</p><p class="event-month">'+SC_T.anno+' 1</p></div><div class="event-vline"></div><div class="event-info"><p class="event-title">'+SC_T.lezione+' '+toRoman(l.num)+sfx+'</p><p class="event-sub">'+loc(l).titolo+'</p><p style="font-size:13px;color:var(--text-muted);margin-top:2px;">'+l.day+' '+mesiL[l.month-1]+' '+l.year+'</p></div><span class="'+bc+'">'+bt+'</span><span class="detail-pill">'+SC_T.temi+' ▾</span><span class="expand-arrow">▼</span></div>'+panelHTML(l);
+      w.innerHTML='<div class="event-row has-detail '+st+'" role="button" tabindex="0" aria-expanded="false"><div class="event-date"><p class="event-day ev-num">'+toRoman(l.num)+'</p><p class="event-month">'+SC_T.anno+' 1</p></div><div class="event-vline"></div><div class="event-info"><p class="event-title">'+SC_T.lezione+' '+toRoman(l.num)+sfx+'</p><p class="event-sub">'+loc(l).titolo+'</p><p style="font-size:13px;color:var(--text-muted);margin-top:2px;">'+l.day+' '+mesiL[l.month-1]+' '+l.year+'</p></div><span class="'+bc+'">'+bt+'</span><span class="detail-pill">'+SC_T.temi+' ▾</span></div>'+panelHTML(l);
       list1.appendChild(w);
       var row=w.querySelector('.event-row'),panel=w.querySelector('.lesson-panel');
       row.addEventListener('click',function(){toggle(row,panel);});
@@ -348,7 +348,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       var badgeHTML=hasDate?'<span class="'+bc+'">'+bt+'</span>':'';
       var sfx=st==='in-corso'?SC_T.inCorsoOra:isPr?SC_T.prossima:'';
-      w.innerHTML='<div class="event-row has-detail'+(st?' '+st:'')+'" role="button" tabindex="0" aria-expanded="false"><div class="event-date"><p class="event-day ev-num">'+toRoman(l.num)+'</p><p class="event-month">'+label+'</p></div><div class="event-vline"></div><div class="event-info"><p class="event-title">'+SC_T.lezione+' '+toRoman(l.num)+sfx+'</p><p class="event-sub">'+loc(l).titolo+'</p>'+(hasDate?'<p style="font-size:13px;color:var(--text-muted);margin-top:2px;">'+l.day+' '+mesiL[l.month-1]+' '+l.year+'</p>':'')+'</div>'+badgeHTML+'<span class="detail-pill">'+SC_T.temi+' ▾</span><span class="expand-arrow">▼</span></div>'+panelHTML(l);
+      w.innerHTML='<div class="event-row has-detail'+(st?' '+st:'')+'" role="button" tabindex="0" aria-expanded="false"><div class="event-date"><p class="event-day ev-num">'+toRoman(l.num)+'</p><p class="event-month">'+label+'</p></div><div class="event-vline"></div><div class="event-info"><p class="event-title">'+SC_T.lezione+' '+toRoman(l.num)+sfx+'</p><p class="event-sub">'+loc(l).titolo+'</p>'+(hasDate?'<p style="font-size:13px;color:var(--text-muted);margin-top:2px;">'+l.day+' '+mesiL[l.month-1]+' '+l.year+'</p>':'')+'</div>'+badgeHTML+'<span class="detail-pill">'+SC_T.temi+' ▾</span></div>'+panelHTML(l);
       el.appendChild(w);
       var row=w.querySelector('.event-row'),panel=w.querySelector('.lesson-panel');
       row.addEventListener('click',function(){toggle(row,panel);});
@@ -360,7 +360,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var el=document.getElementById(listId);if(!el)return;
     lista.forEach(function(l){
       var w=document.createElement('div');w.className='lesson-wrap';
-      w.innerHTML='<div class="event-row event-row-esp has-detail" role="button" tabindex="0" aria-expanded="false"><div class="event-date event-date-esp"><p class="ev-num-esp">✦</p></div><div class="event-vline event-vline-esp"></div><div class="event-info"><p class="event-sub">'+loc(l).titolo+'</p></div><span class="detail-pill detail-pill-esp">'+SC_T.temi+' ▾</span><span class="expand-arrow">▼</span></div>'+panelHTML(l);
+      w.innerHTML='<div class="event-row event-row-esp has-detail" role="button" tabindex="0" aria-expanded="false"><div class="event-date event-date-esp"><p class="ev-num-esp">✦</p></div><div class="event-vline event-vline-esp"></div><div class="event-info"><p class="event-sub">'+loc(l).titolo+'</p></div><span class="detail-pill detail-pill-esp">'+SC_T.temi+' ▾</span></div>'+panelHTML(l);
       el.appendChild(w);
       var row=w.querySelector('.event-row'),panel=w.querySelector('.lesson-panel');
       row.addEventListener('click',function(){toggle(row,panel);});

@@ -132,6 +132,11 @@
      conduttori. Nel tema chiaro vanno scurite per superare AA sul tint. */
   --tag-olistica: #b49fe0;
   --tag-coaching: #7de0a0;
+  /* canali per i fondi e i bordi trasparenti dei tag e dei badge (uguali nei due temi) */
+  --tag-olistica-rgb: 123,94,167;
+  --tag-coaching-rgb: 40,160,80;
+  /* fondo del footer; il tema chiaro lo sovrascrive col suo gradiente */
+  --footer-bg: rgba(0,0,0,0.55);
   /* I tre archetipi planetari del libro (simbolo e citazione) */
   --arch-urano: #e8c97a;
   --arch-nettuno: #b49fe0;
@@ -472,18 +477,21 @@ nav {
 }
 .nav-links a::after {
   content: ''; position: absolute;
-  left: 50%; bottom: 0;
-  width: 0; height: 0.5px;
+  left: 0; bottom: 0;
+  width: 100%; height: 0.5px;
   background: var(--gold);
   opacity: 0.85;
-  transition: width var(--t-move), left var(--t-move);
+  /* si allarga dal centro con transform, che non ricalcola il layout
+     (prima animava width e left) */
+  transform: scaleX(0); transform-origin: center;
+  transition: transform var(--t-move);
 }
-.nav-links a:hover::after { width: 100%; left: 0; }
+.nav-links a:hover::after { transform: scaleX(1); }
 .nav-links a:hover { color: var(--gold-light); }
 
 /* Scroll-spy: voce di menu della sezione corrente */
 .nav-links a.active { color: var(--gold-light); }
-.nav-links a.active::after { width: 100%; left: 0; }
+.nav-links a.active::after { transform: scaleX(1); }
 
 /* Le dodici voci stanno accanto al logo su una riga sola solo da 1492px in su
    (misurato sull'italiano, che ha le voci più lunghe).
@@ -581,7 +589,7 @@ body::before {
 [data-theme="light"] .hero-prossima { background: rgba(255,255,255,0.55); }
 .hp-label { margin: 0 0 0.35rem; font-family: var(--font-sans); font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); }
 .hp-row { display: flex; align-items: baseline; justify-content: space-between; gap: 0.25rem 1rem; flex-wrap: wrap; }
-.hp-data { margin: 0; font-family: var(--font-display); font-size: 27px; font-weight: 500; line-height: 1.15; color: var(--text); }
+.hp-data { margin: 0; font-family: var(--font-display); font-size: 26px; font-weight: 500; line-height: 1.15; color: var(--text); }
 .hp-count { font-family: var(--font-sans); font-size: 13px; color: var(--text-muted); white-space: nowrap; }
 .hp-count strong { color: var(--gold-light); font-weight: 600; }
 .hp-titolo { margin: 0.35rem 0 0.6rem; font-family: var(--font-display); font-size: 17px; line-height: 1.35; }
@@ -599,7 +607,7 @@ body::before {
   .hero h1 { font-size: 34px; margin-bottom: 0.4rem; }
   .hero-motto { font-size: 22px; }
   .hero-motto-sub { font-size: 13px; margin-bottom: 1rem; }
-  .hero-lead { font-size: 23px; margin-bottom: 0.35rem; }
+  .hero-lead { font-size: 22px; margin-bottom: 0.35rem; }
   .hero-slogan { font-size: 16px; line-height: 1.55; margin-bottom: 1.1rem; }
   .hero-prossima { margin-bottom: 1.25rem; padding: 0.9rem 1.05rem 1rem; }
   .hp-data { font-size: 24px; }
@@ -617,10 +625,10 @@ body::before {
   .hero-ctas a { width: auto; flex: 1 1 0; padding: 0.8rem 0.5rem; white-space: nowrap; }
   .hero-emblem { width: 56px; height: 56px; margin-bottom: 0.4rem; }
   .hero::before { top: 0; width: 300px; height: 300px; }
-  .hero h1 { font-size: 31px; margin-bottom: 0.25rem; }
+  .hero h1 { font-size: 32px; margin-bottom: 0.25rem; }
   .hero-motto { font-size: 20px; }
   .hero-motto-sub { margin-bottom: 0.7rem; }
-  .hero-lead { font-size: 21px; margin-bottom: 0.25rem; }
+  .hero-lead { font-size: 22px; margin-bottom: 0.25rem; }
   .hero-slogan { font-size: 15px; line-height: 1.5; margin-bottom: 0.8rem; }
   .hero-prossima { margin-bottom: 0.85rem; padding: 0.75rem 0.95rem 0.8rem; }
   .hp-data { font-size: 22px; }
@@ -800,7 +808,7 @@ section#insegnamenti, section#seminario, section#faq {
 .pi-list li { border-bottom: 0.5px solid var(--border); }
 .pi-list a { display: grid; grid-template-columns: 2rem minmax(0, 1fr) auto; align-items: baseline; column-gap: 0.75rem; min-height: 44px; padding: 0.7rem 0.25rem; text-decoration: none; color: var(--text); }
 .pi-num { font-family: var(--font-display); font-size: 22px; font-weight: 500; line-height: 1; color: var(--gold); }
-.pi-title { font-family: var(--font-display); font-size: 19px; line-height: 1.3; transition: color var(--t-fast); }
+.pi-title { font-family: var(--font-display); font-size: 20px; line-height: 1.3; transition: color var(--t-fast); }
 .pi-arrow { font-family: var(--font-sans); font-size: 15px; color: var(--gold); }
 @media (hover: hover) { .pi-list a:hover .pi-title { color: var(--gold-light); } }
 .pi-more { margin-top: 1.5rem; text-align: center; }
@@ -816,7 +824,7 @@ section#insegnamenti, section#seminario, section#faq {
 .pind-cta { margin-top: 1.25rem; }
 @media (max-width: 640px) {
   .pi-group { letter-spacing: 0.12em; }
-  .pi-title { font-size: 18px; }
+  .pi-title { font-size: 17px; }
   .pi-more .btn-ghost { width: 100%; text-align: center; }
 }
 
@@ -1151,8 +1159,8 @@ section#insegnamenti, section#seminario, section#faq {
 /* BADGE */
 .badge { font-size: 11px; font-weight: 500; padding: 3px 11px; border-radius: var(--radius-pill); letter-spacing: 0.05em; white-space: nowrap; align-self: center; flex-shrink: 0; }
 .badge-gold { background: rgba(var(--gold-rgb),0.12); color: var(--gold-light); border: 0.5px solid rgba(var(--gold-rgb),0.3); }
-.badge-purple { background: rgba(123,94,167,0.15); color: #b49fe0; border: 0.5px solid rgba(123,94,167,0.3); }
-.badge-green { background: rgba(40,160,80,0.12); color: #7de0a0; border: 0.5px solid rgba(40,160,80,0.3); }
+.badge-purple { background: rgba(var(--tag-olistica-rgb),0.15); color: var(--tag-olistica); border: 0.5px solid rgba(var(--tag-olistica-rgb),0.3); }
+.badge-green { background: rgba(var(--tag-coaching-rgb),0.12); color: var(--tag-coaching); border: 0.5px solid rgba(var(--tag-coaching-rgb),0.3); }
 .badge-muted { background: rgba(255,255,255,0.04); color: var(--text-muted); border: 0.5px solid rgba(255,255,255,0.08); }
 
 /* stato "in corso" — bordo dorato sottile (gemma sulla timeline pulsa, non il bordo) */
@@ -1175,11 +1183,6 @@ section#insegnamenti, section#seminario, section#faq {
   background: rgba(255,255,255,0.028);
   border-color: rgba(var(--gold-rgb),0.42);
 }
-.event-row .expand-arrow {
-  font-size: 13px; color: var(--text-muted); flex-shrink: 0;
-  transition: transform var(--t-base); align-self: center;
-}
-.event-row.open .expand-arrow { transform: rotate(180deg); }
 
 /* pill "Dettagli" visibile sulle lezioni con contenuto */
 .detail-pill {
@@ -1631,8 +1634,8 @@ input[type="radio"]:focus-visible {
 .bio-tag { font-size: 11px; padding:3px 10px; border-radius: var(--radius-pill); letter-spacing:0.03em; white-space:nowrap; }
 .tag-ermetica { background:rgba(var(--gold-rgb),0.12); color:var(--gold-light); border:0.5px solid rgba(var(--gold-rgb),0.3); }
 /* Forza un a-capo: i badge dorati occupano l'intera larghezza disponibile del loro "slot" */
-.tag-olistica { background:rgba(123,94,167,0.12); color:var(--tag-olistica); border:0.5px solid rgba(123,94,167,0.25); }
-.tag-coaching { background:rgba(40,160,80,0.1); color:var(--tag-coaching); border:0.5px solid rgba(40,160,80,0.25); }
+.tag-olistica { background:rgba(var(--tag-olistica-rgb),0.12); color:var(--tag-olistica); border:0.5px solid rgba(var(--tag-olistica-rgb),0.25); }
+.tag-coaching { background:rgba(var(--tag-coaching-rgb),0.1); color:var(--tag-coaching); border:0.5px solid rgba(var(--tag-coaching-rgb),0.25); }
 .tag-studio { background:rgba(255,255,255,0.04); color:var(--text-muted); border:0.5px solid rgba(255,255,255,0.1); }
 
 /* SECTION VISUAL VARIATION — full-width bands */
@@ -1904,7 +1907,7 @@ input[type="radio"]:focus-visible {
 
 /* FOOTER — epigrafe finale */
 footer {
-  background: rgba(0,0,0,0.55);
+  background: var(--footer-bg);
   border-top: 0.5px solid var(--border);
   color: var(--text-muted);
   text-align: center;
@@ -2214,10 +2217,10 @@ section#ispirazioni > * { position: relative; z-index: 1; }
    freccia apriva WhatsApp. La pill «Temi ▾» invece era già libera (248-307).
    Rientrare la sola freccia costava il 18% della larghezza del titolo, che a
    135px era già stretta. Mandando i comandi a capo il titolo passa invece a
-   239px e a destra non resta nessun bersaglio: la freccia, che ripeteva la
-   pill, si può togliere. Il resto della riga resta cliccabile come prima. */
+   239px e a destra non resta nessun bersaglio. La freccia, che ripeteva la
+   pill, è stata tolta del tutto (novembre 2026, anche su desktop). Il resto
+   della riga resta cliccabile come prima. */
 @media (max-width: 768px) {
-  .calendar-list .expand-arrow { display: none; }
   .calendar-list .event-row { flex-wrap: wrap; }
   .calendar-list .event-info { flex: 1 1 100%; min-width: 0; }
   .calendar-list .event-row > .detail-pill { margin: 0.6rem auto 0 0; }
@@ -2532,7 +2535,7 @@ html[data-theme="light"]::before {
 .pm-star { display: flex; align-items: center; justify-content: center; font-size: 22px; color: var(--gold); }
 .pm-num { display: block; font-family: var(--font-sans); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
 .pm-title { display: block; margin: 0.1rem 0 0.15rem; font-family: var(--font-display); font-size: 20px; font-weight: 500; line-height: 1.25; color: var(--text); transition: color var(--t-fast); }
-.pm-stato { display: block; font-family: var(--font-sans); font-size: 13.5px; line-height: 1.45; color: var(--text-muted); }
+.pm-stato { display: block; font-family: var(--font-sans); font-size: 13px; line-height: 1.45; color: var(--text-muted); }
 .pm-stato:empty { display: none; }
 .pm-year.corso .pm-stato { color: var(--gold-light); }
 .pm-chev::before { content: '+'; display: block; font-family: var(--font-sans); font-size: 20px; line-height: 1; text-align: center; color: var(--gold); }
@@ -2548,7 +2551,7 @@ html[data-theme="light"]::before {
   .pm-group { letter-spacing: 0.12em; }
   .pm-head { grid-template-columns: 48px minmax(0, 1fr) 24px; column-gap: 0.85rem; }
   .pm-emblem { width: 48px; height: 48px; }
-  .pm-title { font-size: 18px; }
+  .pm-title { font-size: 17px; }
   .pm-body { margin-left: 0; }
 }
   @media(max-width:560px){.contributo{padding:1.5rem 1.3rem}.contributo-row{gap:1.25rem}.contributo-divider{display:none}}

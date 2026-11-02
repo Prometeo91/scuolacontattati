@@ -307,7 +307,7 @@ a:focus-visible, button:focus-visible {
 .test-center { font-family: var(--font-display); font-size: 19px; font-weight: 600; color: var(--text); margin: 1.5rem 0 0.5rem; }
 
 .q {
-  border: 0.5px solid var(--border); border-radius: 12px;
+  border: 0.5px solid var(--border); border-radius: 14px;
   padding: 1rem 1.1rem 1.1rem; margin: 0 0 0.75rem;
   background: rgba(255,255,255,0.018);
 }
@@ -371,7 +371,7 @@ h2 .el-glyph { margin-right: 0.1em; }
 .test-segments { flex: 1 1 100%; display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 4px; }
 .test-segments span { display: block; height: 4px; border-radius: 2px; background: var(--border); overflow: hidden; }
 .test-segments span.cur { background: rgba(var(--gold-rgb),0.38); }
-.test-segments i { display: block; height: 100%; background: var(--gold); transition: width 0.2s; }
+.test-segments i { display: block; width: 100%; height: 100%; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.2s; }
 .btn-test {
   /* come .btn-primary e .btn-ghost del sito */
   display: inline-flex; align-items: center; justify-content: center; min-height: 44px;
@@ -422,7 +422,7 @@ a.btn-test { text-decoration: none; }
 a.btn-test:hover { color: var(--on-gold); }
 a.btn-test-ghost:hover { color: var(--gold-light); }
 .excess-desc {
-  margin: 1rem 0 1.5rem; padding: 1rem 1.25rem; border-radius: 12px;
+  margin: 1rem 0 1.5rem; padding: 1rem 1.25rem; border-radius: 14px;
   border: 0.5px solid var(--border);
 }
 .excess-desc h3 { margin-top: 0; }
@@ -432,7 +432,7 @@ a.btn-test-ghost:hover { color: var(--gold-light); }
    eccesso attenuata) e le tacche alle soglie; dominante e mancante hanno il
    bordo e il nome in oro chiaro */
 .el-cards { display: flex; flex-direction: column; gap: 0.75rem; margin: 0.5rem 0 1.25rem; }
-.el-card { padding: 0.9rem 1.1rem 1rem; border-radius: 12px; border: 0.5px solid var(--border); background: rgba(255,255,255,0.018); }
+.el-card { padding: 0.9rem 1.1rem 1rem; border-radius: 14px; border: 0.5px solid var(--border); background: rgba(255,255,255,0.018); }
 [data-theme="light"] .el-card { background: rgba(255,255,255,0.6); }
 .el-card.off { border-color: var(--border-hover); }
 .el-head { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.6rem; }
@@ -458,7 +458,7 @@ a.btn-test-ghost:hover { color: var(--gold-light); }
 .temp-profiles { margin-top: 2.5rem; }
 .temp-profiles > h3 { font-size: 24px; line-height: 1.3; color: var(--gold-light); margin-bottom: 0.5rem; }
 h4.temp-group { margin: 1.75rem 0 0.25rem; font-family: var(--font-display); font-size: 19px; font-weight: 600; color: var(--text); }
-.temp-profile { margin: 0.75rem 0 1.5rem; padding: 1.1rem 1.25rem; border-radius: 12px; border: 0.5px solid var(--border); }
+.temp-profile { margin: 0.75rem 0 1.5rem; padding: 1.1rem 1.25rem; border-radius: 14px; border: 0.5px solid var(--border); }
 .temp-profile p { font-size: 16px; }
 .temp-profile p:last-child { margin-bottom: 0; }
 h5.temp-profile-title { margin: 0 0 0.25rem; font-family: var(--font-display); font-size: 21px; font-weight: 600; color: var(--gold-light); }
@@ -474,7 +474,7 @@ h5.temp-profile-title { margin: 0 0 0.25rem; font-family: var(--font-display); f
 .temp-more summary::-webkit-details-marker { display: none; }
 .temp-more summary::after { content: '+'; font-family: var(--font-sans); font-weight: 400; color: var(--gold); }
 .temp-more[open] summary::after { content: '−'; }
-.temp-more summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 12px; }
+.temp-more summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 14px; }
 .temp-more-pct { margin-left: auto; font-family: var(--font-sans); font-size: 14px; font-weight: 500; color: var(--text-muted); font-variant-numeric: tabular-nums; }
 .temp-more > :not(summary) { margin-left: 1.25rem; margin-right: 1.25rem; }
 .temp-more[open] { padding-bottom: 1.1rem; }
@@ -537,7 +537,7 @@ h5.temp-profile-title { margin: 0 0 0.25rem; font-family: var(--font-display); f
 .q-check:has(input:checked) { border-color: var(--border-hover); }
 .code-sub { font-size: 16px; font-family: var(--font-sans); color: var(--text-muted); }
 .result-table tr.enn-top th, .result-table tr.enn-top td { color: var(--gold-light); }
-.enn-focus { padding: 0.9rem 1.1rem; border-radius: 12px; border: 0.5px solid var(--border); }
+.enn-focus { padding: 0.9rem 1.1rem; border-radius: 14px; border: 0.5px solid var(--border); }
 .enn-focus strong { font-family: var(--font-display); font-size: 19px; font-weight: 600; color: var(--gold-light); }
 .temp-more > p { margin-top: 0.25rem; }
 .temp-more-pct { white-space: nowrap; }
