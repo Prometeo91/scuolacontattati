@@ -588,6 +588,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
+  /* Pulsanti fissi del telefono nascosti finché si vedono i pulsanti
+     dell'hero (vedi .hero-cta-in-vista in style.css) */
+  var heroCta=document.querySelector('.hero-ctas');
+  if(heroCta&&'IntersectionObserver' in window){
+    new IntersectionObserver(function(en){
+      document.documentElement.classList.toggle('hero-cta-in-vista',en[0].isIntersecting);
+    }).observe(heroCta);
+  }
+
   /* BACK TO TOP */
   var btt=document.getElementById('backToTop');
   if(btt){
