@@ -805,6 +805,14 @@ section#insegnamenti, section#seminario, section#faq {
 .pi-arrow { font-family: var(--font-sans); font-size: 15px; color: var(--gold); }
 @media (hover: hover) { .pi-list a:hover .pi-title { color: var(--gold-light); } }
 .pi-more { margin-top: 1.5rem; text-align: center; }
+/* «Per gli studenti»: un test per riga, nome e cosa restituisce, come
+   l'indice dei sette anni; allineato a sinistra dentro il blocco centrato */
+.test-lista { list-style: none; max-width: 680px; margin: 0.75rem auto 0; padding: 0; text-align: left; border-top: 0.5px solid var(--border); }
+.test-lista li { border-bottom: 0.5px solid var(--border); }
+.test-lista a { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 1rem; min-height: 44px; padding: 0.85rem 0.25rem; text-decoration: none; }
+.tl-nome { display: block; font-family: var(--font-display); font-size: 20px; line-height: 1.3; color: var(--text); transition: color var(--t-fast); }
+.tl-desc { display: block; margin-top: 0.2rem; font-size: 14px; line-height: 1.55; color: var(--text-muted); }
+@media (hover: hover) { .test-lista a:hover .tl-nome { color: var(--gold-light); } }
 /* «Chiedi un primo colloquio» sotto il paragrafo del Percorso Individuale */
 .pind-cta { margin: 1.25rem 0 2.25rem; }
 @media (max-width: 640px) {
