@@ -82,12 +82,37 @@ if (BASE) {
     for (const [f, v] of Object.entries(vSw)) {
       let cambiato = false;
       try { git('diff', '--quiet', BASE, '--', f); } catch (e) { cambiato = true; }
-      if (cambiato && vBase[f] === v) errore('cache', `${f} è cambiato rispetto a ${BASE} ma ha ancora ?v=${v}: chi torna sul sito vedrebbe il file vecchio. Aggiornare ?v= nei due index e in sw.js, e VERSION`);
+      if (cambiato && vBase[f] === v) errore('cache', `${f} è cambiato rispetto a ${BASE} ma ha ancora ?v=${v}: chi torna sul sito vedrebbe il file vecchio. Lanciare node scripts/versione.js`);
     }
     if (JSON.stringify(swBase.core) !== JSON.stringify(sw.core) && swBase.version === sw.version) {
-      errore('cache', `la lista CORE di sw.js è cambiata rispetto a ${BASE} ma VERSION è ancora '${sw.version}'`);
+      errore('cache', `la lista CORE di sw.js è cambiata rispetto a ${BASE} ma VERSION è ancora '${sw.version}': lanciare node scripts/versione.js`);
     }
   }
+}
+
+/* Ogni ?v= è l'impronta del contenuto del file (scripts/versione.js): un
+   ?v= diverso vuol dire un file cambiato senza aggiornare la versione, e
+   chi torna sul sito resterebbe col file vecchio. Vale per tutte le pagine,
+   test compresi, e per la lista CORE di sw.js. */
+{
+  const crypto = require('crypto');
+  const impronta = f => crypto.createHash('sha256').update(fs.readFileSync(path.join(ROOT, f))).digest('hex').slice(0, 8);
+  const pagine = [];
+  (function giro(dir) {
+    for (const v of fs.readdirSync(path.join(ROOT, dir), { withFileTypes: true })) {
+      if (['.git', 'node_modules', '.impeccable', 'v2'].includes(v.name)) continue;
+      const rel = dir ? dir + '/' + v.name : v.name;
+      if (v.isDirectory()) giro(rel); else if (v.name.endsWith('.html')) pagine.push(rel);
+    }
+  })('');
+  const vecchi = new Set();
+  for (const pagina of pagine) {
+    for (const [f, v] of Object.entries(versioniInPagina(pagina))) {
+      if (esiste(f) && impronta(f) !== v) vecchi.add(`${f} (?v=${v} in ${pagina})`);
+    }
+  }
+  for (const [f, v] of Object.entries(vSw)) if (esiste(f) && impronta(f) !== v) vecchi.add(`${f} (?v=${v} in sw.js)`);
+  if (vecchi.size) errore('cache', `?v= che non corrispondono al contenuto del file: ${[...vecchi].slice(0, 5).join(', ')}${vecchi.size > 5 ? ` e altri ${vecchi.size - 5}` : ''}. Lanciare node scripts/versione.js`);
 }
 
 /* ── 3. Stessi id in italiano e in inglese ─────────────────────────────── */
