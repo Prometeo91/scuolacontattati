@@ -717,11 +717,13 @@ section#insegnamenti, section#seminario, section#faq {
 }
 .section-eyebrow::before,
 .section-eyebrow::after {
-  content: ''; display: block; width: 36px; height: 0.5px;
-  background: linear-gradient(90deg, transparent 0%, rgba(var(--gold-rgb),0.55) 100%);
+  /* 1px con meno opacità: a 0.5px il browser a seconda della posizione
+     sub-pixel non li disegnava (mancavano su 7-8 occhielli su 15) */
+  content: ''; display: block; width: 36px; height: 1px; flex-shrink: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(var(--gold-rgb),0.4) 100%);
 }
 .section-eyebrow::after {
-  background: linear-gradient(90deg, rgba(var(--gold-rgb),0.55) 0%, transparent 100%);
+  background: linear-gradient(90deg, rgba(var(--gold-rgb),0.4) 0%, transparent 100%);
 }
 
 /* Filetto epigrafico — separatore tra sezioni con glifo centrale */
@@ -1162,6 +1164,10 @@ section#insegnamenti, section#seminario, section#faq {
 .badge-purple { background: rgba(var(--tag-olistica-rgb),0.15); color: var(--tag-olistica); border: 0.5px solid rgba(var(--tag-olistica-rgb),0.3); }
 .badge-green { background: rgba(var(--tag-coaching-rgb),0.12); color: var(--tag-coaching); border: 0.5px solid rgba(var(--tag-coaching-rgb),0.3); }
 .badge-muted { background: rgba(255,255,255,0.04); color: var(--text-muted); border: 0.5px solid rgba(255,255,255,0.08); }
+/* nel tema chiaro il fondo e il bordo bianchi sparivano sulla pergamena,
+   e l'oro chiaro del badge oro scendeva a 4,43:1 */
+[data-theme="light"] .badge-muted { background: rgba(80,60,30,0.05); border-color: rgba(120,90,30,0.28); }
+[data-theme="light"] .badge-gold { color: var(--gold-deep); }
 
 /* stato "in corso" — bordo dorato sottile (gemma sulla timeline pulsa, non il bordo) */
 .event-row.in-corso { border-color: rgba(var(--gold-light-rgb),0.55); }
@@ -1695,8 +1701,11 @@ input[type="radio"]:focus-visible {
 
 /* COOKIE BANNER — GDPR / ePrivacy */
 .cookie-banner {
+  /* in alto, sotto la barra: in basso copriva alla prima visita i pulsanti
+     dell'hero (100% a 375x667, «Contattaci» a 390x844, 82% a 1024x768) e i
+     pulsanti fissi. --nav-h la misura app.js, anche con la barra su due righe */
   position: fixed;
-  bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+  top: calc(var(--nav-h, 67px) + 0.75rem);
   left: 50%; transform: translateX(-50%);
   z-index: 9999;
   max-width: 560px; width: calc(100% - 2rem);
@@ -1753,7 +1762,7 @@ input[type="radio"]:focus-visible {
 }
 .cookie-btn-reject:hover { background: rgba(var(--gold-rgb),0.08); }
 @keyframes cookieSlideUp {
-  from { opacity: 0; transform: translate(-50%, 20px); }
+  from { opacity: 0; transform: translate(-50%, -20px); }
   to { opacity: 1; transform: translate(-50%, 0); }
 }
 /* tema chiaro */
@@ -1767,7 +1776,7 @@ input[type="radio"]:focus-visible {
    alla prima visita: una frase sola (scelta di Fabio, le informazioni
    complete stanno nell'informativa), senza titolo, pulsanti affiancati. */
 @media (max-width: 480px) {
-  .cookie-banner { padding: 0.8rem 0.95rem 0.85rem; bottom: calc(0.6rem + env(safe-area-inset-bottom, 0px)); width: calc(100% - 1.2rem); }
+  .cookie-banner { padding: 0.8rem 0.95rem 0.85rem; top: calc(var(--nav-h, 67px) + 0.5rem); width: calc(100% - 1.2rem); }
   .cookie-banner-title { display: none; }   /* resta il nome del dialogo per aria-labelledby */
   .cookie-banner p { font-size: 13px; line-height: 1.45; margin-bottom: 0.7rem; }
   .cookie-actions { gap: 0.5rem; }
@@ -2163,6 +2172,11 @@ section#ispirazioni > * { position: relative; z-index: 1; }
 .calendar-list .event-row.tbd .event-title,
 .calendar-list .event-row.tbd .event-day { color: var(--text-muted); }
 .calendar-list .event-row.tbd .event-sub { color: var(--text-muted); font-weight: 400; }
+/* Lezioni svolte nel tema chiaro: stessa logica, colore invece di opacità
+   (con 0.78 il numero della lezione scendeva a 3,57:1 e «Temi» a 3,52:1) */
+[data-theme="light"] .event-row.passata { opacity: 1; }
+[data-theme="light"] .calendar-list .event-row.passata .event-title,
+[data-theme="light"] .calendar-list .event-row.passata .event-sub { color: var(--text-muted); }
 
 /* Event-row riposizionato: relative, padding sinistro normale */
 .calendar-list .event-row {
