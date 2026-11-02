@@ -586,6 +586,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }).observe(heroCta);
   }
 
+  /* Pulsanti che portano al form con un oggetto già scritto (data-oggetto,
+     es. «Chiedi un primo colloquio» del Percorso Individuale): lo scrivono
+     solo se il campo è vuoto, per non cancellare quello che c'era */
+  document.querySelectorAll('a[data-oggetto]').forEach(function(a){
+    a.addEventListener('click',function(){
+      var o=document.getElementById('cf-oggetto');
+      if(o&&!o.value)o.value=a.getAttribute('data-oggetto');
+    });
+  });
+
   /* BACK TO TOP */
   var btt=document.getElementById('backToTop');
   if(btt){

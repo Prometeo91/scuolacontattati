@@ -805,6 +805,8 @@ section#insegnamenti, section#seminario, section#faq {
 .pi-arrow { font-family: var(--font-sans); font-size: 15px; color: var(--gold); }
 @media (hover: hover) { .pi-list a:hover .pi-title { color: var(--gold-light); } }
 .pi-more { margin-top: 1.5rem; text-align: center; }
+/* «Chiedi un primo colloquio» sotto il paragrafo del Percorso Individuale */
+.pind-cta { margin: 1.25rem 0 2.25rem; }
 @media (max-width: 640px) {
   .pi-group { letter-spacing: 0.12em; }
   .pi-title { font-size: 18px; }
