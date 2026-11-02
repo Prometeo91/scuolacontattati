@@ -459,8 +459,9 @@ document.addEventListener('DOMContentLoaded', function() {
           if(aperto)segnaURL(btn.dataset.anno);
         });
       });
-      /* Link a un anno da un'altra parte della pagina (hero): lo apre, senza
-         richiuderlo se è già aperto, e ci scorre */
+      /* Link a un anno da un'altra parte della pagina (riquadro dell'hero,
+         indice degli Insegnamenti): lo apre, senza richiuderlo se è già
+         aperto, e ci scorre */
       function vaiAnno(anno,e){
         if(!apri(anno,true))return;
         e.preventDefault(); segnaURL(anno);
@@ -468,13 +469,16 @@ document.addEventListener('DOMContentLoaded', function() {
         document.documentElement.classList.add('cv-off');
         document.getElementById('pm-anno-'+anno).scrollIntoView({behavior:'smooth',block:'start'});
       }
+      document.addEventListener('click',function(e){
+        var a=e.target.closest&&e.target.closest('a[href^="#anno-"]');
+        if(a)vaiAnno(a.getAttribute('href').slice(6),e);
+      });
       /* «5° Anno: domenica 10 gennaio», con l'anno solare se diverso */
       function altroAnno(x){
         var p=document.createElement('p');
         p.appendChild(document.createTextNode((SC_EN?'Year '+x.anno:x.anno+'° Anno')+': '));
         var a=document.createElement('a'); a.href='#anno-'+x.anno;
         a.textContent=giorno(x.d,x.l)+(x.l.year!==pross.l.year?' '+x.l.year:'');
-        a.addEventListener('click',function(e){ vaiAnno(x.anno,e); });
         p.appendChild(a);
         return p;
       }
@@ -490,7 +494,6 @@ document.addEventListener('DOMContentLoaded', function() {
         var ht=document.getElementById('hp-titolo'), htl=loc(pross.l);
         ht.textContent=(SC_EN?'Year '+pross.anno:pross.anno+'° Anno')+(htl.titolo?' · '+htl.titolo:'');
         ht.href='#anno-'+pross.anno;
-        ht.addEventListener('click',function(e){ vaiAnno(pross.anno,e); });
         prossPerAnno.filter(function(x){return x!==pross;}).sort(function(a,b){return a.d-b.d;}).forEach(function(x){
           var p=altroAnno(x); p.className='hp-altri';
           hp.appendChild(p);
