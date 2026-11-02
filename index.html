@@ -369,7 +369,7 @@
     </script>
 
  <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) — self-hosted, zero dipendenze esterne -->
-  <link rel="stylesheet" href="style.css?v=20261013o"/>
+  <link rel="stylesheet" href="style.css?v=20261102a"/>
   <noscript><style>.sr{opacity:1!important;transform:none!important}</style></noscript>
 
 </head>
@@ -413,10 +413,17 @@
   <p class="hero-motto"><span lang="el">Γνῶθι Σεαυτόν</span></p>
   <p class="hero-motto-sub">Conosci Te Stesso · Oracolo di Delfi</p>
   <p class="hero-lead">Tornare padroni della propria vita.</p>
-  <p class="hero-slogan">Un laboratorio di risveglio attraverso gli Antichi Insegnamenti, l'Alchimia interiore e le 96 Leggi Universali.</p>
-  <!-- riempita da app.js con la stessa lezione del banner #ripresa; resta nascosta se non ce n'è una.
-       Sta sopra i pulsanti perché sul telefono entri nella prima schermata. -->
-  <p class="hero-prossima" id="hero-prossima" hidden></p>
+  <p class="hero-slogan">Un percorso di sette anni di Consapevolezza ed Alchimia, a Bari e online, con lezioni la domenica mattina.</p>
+  <!-- Prossima lezione: data, conto alla rovescia, titolo e altri anni in corso
+       li riempie app.js da lezioni.js (come il riquadro #ripresa del calendario);
+       resta nascosto se non c'è una lezione in programma. Sede e orario sono
+       quelli fissi delle lezioni: una lezione altrove va indicata a mano. -->
+  <div class="hero-prossima" id="hero-prossima" hidden>
+    <p class="hp-label">Prossima lezione</p>
+    <div class="hp-row"><p class="hp-data" id="hp-data"></p><span class="hp-count" id="hp-count"></span></div>
+    <p class="hp-titolo"><a href="#calendario" id="hp-titolo"></a></p>
+    <p class="hp-luogo">Ore 9:00–13:30<br/><a href="https://www.google.com/maps/search/?api=1&amp;query=MeetingRoom%2C+Via+Argiro+135%2C+Bari" target="_blank" rel="noopener">MeetingRoom, Via Argiro 135 (3° piano), Bari</a></p>
+  </div>
   <div class="hero-ctas">
     <a href="#calendario" class="btn-primary">Scopri il percorso</a>
     <a href="#contatti" class="btn-ghost">Contattaci</a>
@@ -1371,7 +1378,7 @@
 })();
 </script>
 <script src="data/eventi.js?v=20261013f" defer></script>
-<script src="app.js?v=20261013n" defer></script>
+<script src="app.js?v=20261102a" defer></script>
 <script>
 /* SIGILLI GIOCHI — mostra ✦ sulle card dei giochi completati */
 (function(){

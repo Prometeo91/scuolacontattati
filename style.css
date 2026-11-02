@@ -541,7 +541,7 @@ body::before {
 }
 
 /* HERO */
-.hero { position: relative; min-height: auto; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 6rem 2rem 4rem; overflow: hidden; }
+.hero { position: relative; min-height: auto; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 3.25rem 2rem 3rem; overflow: hidden; }
 /* Cielo stellato inciso, solo tema scuro: velo scuro sopra l'immagine per dosarla, sfumatura verso il fondo pagina */
 .hero {
   background:
@@ -558,59 +558,84 @@ body::before {
   }
 }
 [data-theme="light"] .hero { background: none; }
-.hero-emblem { width: 200px; height: 200px; margin-bottom: 1.75rem; position: relative; z-index: 2; filter: drop-shadow(0 8px 32px rgba(var(--gold-rgb),0.25)); }
-.hero::before { content: ''; position: absolute; top: 5rem; left: 50%; transform: translateX(-50%); width: 520px; height: 520px; background: radial-gradient(circle, rgba(var(--gold-rgb),0.07) 0%, rgba(var(--gold-rgb),0.035) 25%, rgba(123, 94, 167, 0.025) 50%, transparent 70%); border-radius: 50%; z-index: 0; pointer-events: none; }
+.hero-emblem { width: 120px; height: 120px; margin-bottom: 1.1rem; position: relative; z-index: 2; filter: drop-shadow(0 8px 32px rgba(var(--gold-rgb),0.25)); }
+.hero::before { content: ''; position: absolute; top: 1.5rem; left: 50%; transform: translateX(-50%); width: 420px; height: 420px; background: radial-gradient(circle, rgba(var(--gold-rgb),0.07) 0%, rgba(var(--gold-rgb),0.035) 25%, rgba(123, 94, 167, 0.025) 50%, transparent 70%); border-radius: 50%; z-index: 0; pointer-events: none; }
 @media (max-width: 640px) {
-  .hero-emblem { width: 150px; height: 150px; }
-  .hero::before { width: 380px; height: 380px; }
+  .hero-emblem { width: 84px; height: 84px; margin-bottom: 0.7rem; }
+  .hero::before { top: 0.5rem; width: 340px; height: 340px; }
 }
-.hero h1 { font-family: var(--font-display); font-size: clamp(34px, 6.4vw, 54px); font-weight: 500; color: var(--text); letter-spacing: 0.02em; line-height: 1.1; margin-bottom: 1.5rem; position: relative; z-index: 2; }
+.hero h1 { font-family: var(--font-display); font-size: clamp(34px, 6.4vw, 54px); font-weight: 500; color: var(--text); letter-spacing: 0.02em; line-height: 1.1; margin-bottom: 0.6rem; position: relative; z-index: 2; }
 .hero h1 span { color: var(--gold-light); font-weight: 500; }
-.hero-motto { font-family: var(--font-display); font-size: clamp(24px, 4vw, 40px); font-weight: 500; color: var(--gold-light); margin-bottom: 0.5rem; letter-spacing: 0.04em; line-height: 1.2; position: relative; z-index: 2; }
-.hero-motto-sub { font-family: var(--font-display); font-size: clamp(13px, 1.6vw, 16px); color: var(--text); opacity: 0.75; margin-bottom: 2rem; font-style: italic; letter-spacing: 0.1em; position: relative; z-index: 2; }
-.hero-motto-sub::after { content: '✶'; display: block; color: var(--gold); font-size: 12px; margin-top: 1.5rem; opacity: 0.7; letter-spacing: 0; }
-.hero-lead { font-family: var(--font-display); font-size: clamp(24px, 3.4vw, 32px); font-weight: 500; color: var(--text); line-height: 1.25; text-wrap: balance; letter-spacing: 0.01em; margin-bottom: 0.6rem; max-width: 560px; position: relative; z-index: 2; }
-.hero-slogan { font-family: var(--font-display); font-size: clamp(16px, 2.2vw, 20px); color: var(--text); max-width: 520px; line-height: 1.7; margin-bottom: 2.5rem; position: relative; z-index: 2; opacity: 0.85; letter-spacing: 0.01em; }
+.hero-motto { font-family: var(--font-display); font-size: clamp(22px, 3vw, 30px); font-weight: 500; color: var(--gold-light); margin-bottom: 0.15rem; letter-spacing: 0.04em; line-height: 1.2; position: relative; z-index: 2; }
+.hero-motto-sub { font-family: var(--font-display); font-size: clamp(13px, 1.6vw, 16px); color: var(--text); opacity: 0.75; margin-bottom: 1.4rem; font-style: italic; letter-spacing: 0.1em; position: relative; z-index: 2; }
+.hero-lead { font-family: var(--font-display); font-size: clamp(24px, 3.4vw, 32px); font-weight: 500; color: var(--text); line-height: 1.25; text-wrap: balance; letter-spacing: 0.01em; margin-bottom: 0.5rem; max-width: 560px; position: relative; z-index: 2; }
+.hero-slogan { font-family: var(--font-display); font-size: clamp(16px, 2.2vw, 20px); color: var(--text); max-width: 500px; line-height: 1.7; margin-bottom: 1.6rem; position: relative; z-index: 2; opacity: 0.85; letter-spacing: 0.01em; }
 .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; position: relative; z-index: 2; }
-.hero-prossima { margin: -0.75rem 0 0.85rem; font-family: var(--font-display); font-size: clamp(13px, 3.8vw, 17px); letter-spacing: 0.01em; position: relative; z-index: 2; }
-.hero-prossima a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 0.25rem; color: var(--gold-light); text-decoration: underline; text-decoration-color: rgba(var(--gold-light-rgb),0.45); text-underline-offset: 4px; transition: color var(--t-fast), text-decoration-color var(--t-fast); }
-.hero-prossima a:hover { color: var(--gold); text-decoration-color: var(--gold); }
+/* Prossima lezione (app.js la riempie da lezioni.js): riquadro allineato a
+   sinistra dentro l'hero centrato, perché data, titolo e sede si leggono
+   come una scheda e non come uno slogan */
+.hero-prossima { width: min(100%, 460px); margin: 0 auto 1.75rem; padding: 1.05rem 1.3rem 1.1rem; border: 0.5px solid var(--border-hover); border-radius: var(--radius-lg); background: var(--surface); text-align: left; position: relative; z-index: 2; }
+[data-theme="light"] .hero-prossima { background: rgba(255,255,255,0.55); }
+.hp-label { margin: 0 0 0.35rem; font-family: var(--font-sans); font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); }
+.hp-row { display: flex; align-items: baseline; justify-content: space-between; gap: 0.25rem 1rem; flex-wrap: wrap; }
+.hp-data { margin: 0; font-family: var(--font-display); font-size: 27px; font-weight: 500; line-height: 1.15; color: var(--text); }
+.hp-count { font-family: var(--font-sans); font-size: 13px; color: var(--text-muted); white-space: nowrap; }
+.hp-count strong { color: var(--gold-light); font-weight: 600; }
+.hp-titolo { margin: 0.35rem 0 0.6rem; font-family: var(--font-display); font-size: 17px; line-height: 1.35; }
+.hp-titolo a { color: var(--gold-light); text-decoration: none; }
+.hp-titolo a:hover { text-decoration: underline; text-decoration-color: rgba(var(--gold-light-rgb),0.45); text-underline-offset: 3px; }
+.hp-luogo { margin: 0; font-family: var(--font-sans); font-size: 14px; line-height: 1.55; color: var(--text-muted); }
+.hp-luogo a { color: var(--text); text-decoration: underline; text-decoration-color: rgba(var(--gold-light-rgb),0.45); text-underline-offset: 3px; transition: text-decoration-color var(--t-fast); }
+.hp-luogo a:hover { text-decoration-color: var(--gold-light); }
+.hp-altri { margin: 0.7rem 0 0; padding-top: 0.6rem; border-top: 0.5px solid var(--border); font-family: var(--font-sans); font-size: 13px; color: var(--text-muted); }
+.hp-altri a { color: var(--gold-light); text-underline-offset: 3px; }
 /* Sul telefono i due pulsanti vanno uno sotto l'altro: stessa larghezza,
    così conta solo la differenza di colore */
 @media (max-width: 640px) and (orientation: portrait) {
-  .hero h1 { margin-bottom: 1.1rem; }
-  .hero-motto-sub { margin-bottom: 1.25rem; }
-  .hero-motto-sub::after { margin-top: 0.9rem; }
-  .hero-lead { margin-bottom: 0.4rem; }
-  .hero-slogan { margin-bottom: 1.25rem; }   /* la riga della prossima lezione sta qui sotto */
+  .hero { padding: 1.75rem 1rem 2.5rem; }
+  .hero h1 { font-size: 34px; margin-bottom: 0.4rem; }
+  .hero-motto { font-size: 22px; }
+  .hero-motto-sub { font-size: 13px; margin-bottom: 1rem; }
+  .hero-lead { font-size: 23px; margin-bottom: 0.35rem; }
+  .hero-slogan { font-size: 16px; line-height: 1.55; margin-bottom: 1.1rem; }
+  .hero-prossima { margin-bottom: 1.25rem; padding: 0.9rem 1.05rem 1rem; }
+  .hp-data { font-size: 24px; }
   .hero-ctas { flex-direction: column; align-items: center; gap: 0.75rem; }
   .hero-ctas a { width: min(100%, 260px); text-align: center; }
 }
 /* Telefoni in verticale bassi (iPhone SE, 667px): stessi elementi, spazi più
    stretti, così i due pulsanti entrano nella prima schermata. */
 @media (max-width: 640px) and (max-height: 740px) and (orientation: portrait) {
-  .hero { padding-top: 2.25rem; padding-bottom: 3rem; }
-  .hero-emblem { width: 100px; height: 100px; margin-bottom: 0.9rem; }
-  .hero::before { top: 1rem; width: 320px; height: 320px; }
-  .hero h1 { margin-bottom: 0.9rem; }
-  .hero-motto-sub { margin-bottom: 1.1rem; }
-  /* la stellina sotto il motto cede il posto alla frase principale */
-  .hero-motto-sub::after { display: none; }
-  .hero-lead { margin-bottom: 0.4rem; }
-  .hero-slogan { line-height: 1.55; margin-bottom: 1rem; }
-  .hero-prossima { margin-bottom: 0.6rem; }
+  .hero { padding-top: 1.25rem; }
+  .hero-emblem { width: 64px; height: 64px; margin-bottom: 0.5rem; }
+  .hero::before { top: 0; width: 300px; height: 300px; }
+  .hero-motto-sub { margin-bottom: 0.8rem; }
+  .hero-slogan { margin-bottom: 0.9rem; }
+  .hero-prossima { margin-bottom: 1rem; }
 }
 /* Tablet in orizzontale e portatili bassi (1024×768, 1280×800, 1366×768):
    i pulsanti restavano fuori dalla prima schermata di 30-120px. */
 @media (min-width: 641px) and (max-height: 860px) and (min-height: 501px) {
-  .hero { padding-top: 3rem; }
-  .hero-emblem { width: 140px; height: 140px; margin-bottom: 1.2rem; }
-  .hero::before { top: 2rem; }
-  .hero h1 { margin-bottom: 1rem; }
-  .hero-motto-sub { margin-bottom: 1.25rem; }
-  .hero-motto-sub::after { margin-top: 0.8rem; }
-  .hero-lead { margin-bottom: 0.4rem; }
-  .hero-slogan { margin-bottom: 1.75rem; }
+  .hero { padding-top: 2.25rem; padding-bottom: 2.5rem; }
+  .hero-emblem { width: 96px; height: 96px; margin-bottom: 0.8rem; }
+  .hero::before { top: 0.5rem; }
+  .hero-motto-sub { margin-bottom: 1.1rem; }
+  .hero-slogan { margin-bottom: 1.25rem; }
+  .hero-prossima { margin-bottom: 1.4rem; }
+}
+/* Portatili e tablet in orizzontale bassi (1024×768, 1280×800, 1366×768): in
+   colonna il riquadro della prossima lezione usciva dallo schermo, a 1024 anche
+   per la barra su due righe. Presentazione a sinistra, riquadro a destra. */
+@media (min-width: 900px) and (max-height: 860px) and (min-height: 501px) {
+  .hero {
+    display: grid; grid-template-columns: minmax(0, 28rem) minmax(0, 25rem);
+    justify-content: center; align-items: center; column-gap: 3.5rem; text-align: left;
+  }
+  .hero > * { grid-column: 1; }
+  .hero-emblem { justify-self: start; }
+  .hero::before { left: calc(50% - 15rem); top: 0; }
+  .hero-prossima { grid-column: 2; grid-row: 1 / span 7; width: 100%; margin: 0; }
+  .hero-ctas { justify-content: flex-start; }
 }
 /* Telefoni in orizzontale: in 375px di altezza la colonna centrata mostrava
    solo il logo. Il logo passa a sinistra e i testi gli stanno accanto. */
@@ -621,14 +646,14 @@ body::before {
     text-align: left; padding: 1.75rem 2rem 2.5rem;
   }
   .hero > * { grid-column: 2; }
-  .hero-emblem { grid-column: 1; grid-row: 1 / span 6; width: 150px; height: 150px; margin: 0; }
+  .hero-emblem { grid-column: 1; grid-row: 1 / span 5; width: 150px; height: 150px; margin: 0; }   /* accanto a nome e frasi, non al riquadro */
   .hero::before { display: none; }
   .hero h1 { font-size: 40px; margin-bottom: 0.6rem; }
   .hero-motto { font-size: 26px; margin-bottom: 0.25rem; }
   .hero-motto-sub { margin-bottom: 1rem; }
-  .hero-motto-sub::after { display: none; }
   .hero-lead { font-size: 24px; margin-bottom: 0.3rem; }
   .hero-slogan { font-size: 17px; line-height: 1.55; margin-bottom: 1.25rem; }
+  .hero-prossima { margin: 0 0 1.25rem; }
   .hero-ctas { justify-content: flex-start; }
 }
 .btn-primary { display: inline-block; padding: 0.8rem 2rem; background: var(--gold); border: none; border-radius: var(--radius-sm); color: var(--bg); font-family: var(--font-display); font-size: 16px; font-weight: 600; text-decoration: none; letter-spacing: 0.04em; transition: background var(--t-base), transform var(--t-press); cursor: pointer; }

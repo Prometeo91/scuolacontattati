@@ -401,6 +401,39 @@ document.addEventListener('DOMContentLoaded', function() {
         if(propria){ prossPerAnno.push(propria); if(!pross||propria.d<pross.d)pross=propria; }
       });
 
+      /* «Tra 6 giorni», «È domani», «È oggi»: maiuscola a inizio riga nel
+         banner del calendario, minuscola accanto alla data nell'hero */
+      function conto(d,maiusc){
+        var oggi=new Date();oggi.setHours(0,0,0,0);
+        var mez=new Date(d);mez.setHours(0,0,0,0);
+        var n=Math.round((mez-oggi)/86400000), t;
+        if(n<=0)t=SC_EN?'<strong>Today</strong>':'<strong>È oggi</strong>';
+        else if(n===1)t=SC_EN?'<strong>Tomorrow</strong>':'<strong>È domani</strong>';
+        else t=SC_EN?'In <strong>'+n+' days</strong>':'Tra <strong>'+n+' giorni</strong>';
+        return maiusc?t:t.charAt(0).toLowerCase()+t.slice(1);
+      }
+      /* Link a un anno del calendario: apre la sua scheda e ci scorre */
+      function vaiAnno(anno,e){
+        var tab=document.getElementById('tab-anno-'+anno);
+        if(!tab)return;
+        e.preventDefault(); tab.click();
+        /* scroll animato: prima si disegnano tutte le sezioni (vedi .cv-off) */
+        document.documentElement.classList.add('cv-off');
+        tab.parentNode.scrollIntoView({behavior:'smooth',block:'start'});
+      }
+      /* «5° Anno: domenica 10 gennaio», con l'anno solare se diverso */
+      function altroAnno(x){
+        var m=SC_T.mesiL[x.l.month-1], g=SC_T.giorniL[x.d.getDay()];
+        var p=document.createElement('p');
+        p.appendChild(document.createTextNode((SC_EN?'Year '+x.anno:x.anno+'° Anno')+': '));
+        var a=document.createElement('a'); a.href='#anno-'+x.anno;
+        a.textContent=(SC_EN?g:g.toLowerCase())+' '+x.l.day+' '+(SC_EN?m:m.toLowerCase())+(x.l.year!==pross.l.year?' '+x.l.year:'');
+        a.addEventListener('click',function(e){ vaiAnno(x.anno,e); });
+        p.appendChild(a);
+        return p;
+      }
+      var altri=prossPerAnno.filter(function(x){return x!==pross;}).sort(function(a,b){return a.d-b.d;});
+
       var box=document.getElementById('ripresa');
       if(box&&pross){
         var t=document.getElementById('ripresa-title');
@@ -411,48 +444,34 @@ document.addEventListener('DOMContentLoaded', function() {
         if(t)t.textContent=gg+' '+pross.l.day+' '+(SC_EN?mese:mese.toLowerCase());
         var tl=loc(pross.l);
         if(s)s.textContent=(SC_EN?'Year '+pross.anno:pross.anno+'° Anno')+(tl.titolo?' · '+tl.titolo:'');
-        if(c){
-          var oggi=new Date();oggi.setHours(0,0,0,0);
-          var mez=new Date(pross.d);mez.setHours(0,0,0,0);
-          var n=Math.round((mez-oggi)/86400000);
-          if(n<=0)c.innerHTML=SC_EN?'<strong>Today</strong>':'<strong>È oggi</strong>';
-          else if(n===1)c.innerHTML=SC_EN?'<strong>Tomorrow</strong>':'<strong>È domani</strong>';
-          else c.innerHTML=SC_EN?'In <strong>'+n+' days</strong>':'Tra <strong>'+n+' giorni</strong>';
-        }
+        if(c)c.innerHTML=conto(pross.d,true);
         /* Più anni in corso insieme (oggi il 2° e il 5°): il banner dava solo la
            lezione più vicina, e chi frequenta l'altro anno leggeva una data non sua.
            Una riga per ciascun altro anno, col link alla sua scheda. */
-        prossPerAnno.filter(function(x){return x!==pross;}).sort(function(a,b){return a.d-b.d;}).forEach(function(x){
-          var m=SC_T.mesiL[x.l.month-1];
-          var p=document.createElement('p'); p.className='ripresa-altri';
-          p.appendChild(document.createTextNode((SC_EN?'Year '+x.anno:x.anno+'° Anno')+': '));
-          var a=document.createElement('a'); a.href='#anno-'+x.anno;
-          var g=SC_T.giorniL[x.d.getDay()];
-          a.textContent=(SC_EN?g:g.toLowerCase())+' '+x.l.day+' '+(SC_EN?m:m.toLowerCase())+(x.l.year!==pross.l.year?' '+x.l.year:'');
-          a.addEventListener('click',function(e){
-            var tab=document.getElementById('tab-anno-'+x.anno);
-            if(!tab)return;
-            e.preventDefault(); tab.click();
-            /* scroll animato: prima si disegnano tutte le sezioni (vedi .cv-off) */
-            document.documentElement.classList.add('cv-off');
-            tab.parentNode.scrollIntoView({behavior:'smooth',block:'start'});
-          });
-          p.appendChild(a);
-          var note=box.querySelector('.ripresa-note');
-          box.insertBefore(p,note);
+        altri.forEach(function(x){
+          var p=altroAnno(x); p.className='ripresa-altri';
+          box.insertBefore(p,box.querySelector('.ripresa-note'));
         });
         box.hidden=false;
       }
 
-      /* La stessa lezione in una riga sotto i pulsanti dell'hero: chi arriva
-         per sapere quando è la prossima lezione la trova nella prima
-         schermata, senza aprire il menu. */
+      /* La stessa lezione nel riquadro dell'hero, sopra i pulsanti: chi
+         arriva per sapere quando è la prossima lezione la trova nella prima
+         schermata. Sede e orario sono nel markup. */
       var hp=document.getElementById('hero-prossima');
       if(hp&&pross){
         var hg=SC_T.giorniL[pross.d.getDay()], hm=SC_T.mesiL[pross.l.month-1];
-        var ha=document.createElement('a'); ha.href='#calendario';
-        ha.textContent=SC_T.prossimaLezione+' · '+(SC_EN?hg:hg.toLowerCase())+' '+pross.l.day+' '+(SC_EN?hm:hm.toLowerCase())+' · '+(SC_EN?'Year '+pross.anno:pross.anno+'° Anno')+'\u00a0→';
-        hp.appendChild(ha); hp.hidden=false;
+        document.getElementById('hp-data').textContent=hg+' '+pross.l.day+' '+(SC_EN?hm:hm.toLowerCase());
+        document.getElementById('hp-count').innerHTML=conto(pross.d,false);
+        var ht=document.getElementById('hp-titolo'), htl=loc(pross.l);
+        ht.textContent=(SC_EN?'Year '+pross.anno:pross.anno+'° Anno')+(htl.titolo?' · '+htl.titolo:'');
+        ht.href='#anno-'+pross.anno;
+        ht.addEventListener('click',function(e){ vaiAnno(pross.anno,e); });
+        altri.forEach(function(x){
+          var p=altroAnno(x); p.className='hp-altri';
+          hp.appendChild(p);
+        });
+        hp.hidden=false;
       }
 
       /* Quale anno si apre: quello scritto nell'URL (#anno-3, #anno-esp), che
