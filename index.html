@@ -369,7 +369,7 @@
     </script>
 
  <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) — self-hosted, zero dipendenze esterne -->
-  <link rel="stylesheet" href="style.css?v=20261102b"/>
+  <link rel="stylesheet" href="style.css?v=20261102c"/>
   <noscript><style>.sr{opacity:1!important;transform:none!important}</style></noscript>
 
 </head>
@@ -874,17 +874,6 @@
   <h2 class="section-title">Il calendario delle lezioni</h2>
   <p class="section-sub">Sette anni di approfondimento progressivo, strutturati in cicli annuali. Ogni lezione si costruisce sulla precedente, e quello che si studia va messo alla prova nella vita di tutti i giorni.</p>
 
-  <!-- PROSSIMA LEZIONE — data, anno e titolo li scrive app.js leggendo lezioni.js.
-       Niente date a mano e niente data-expires: quando una lezione passa, il
-       banner mostra da solo la successiva. Resta nascosto se non ce ne sono più. -->
-  <div class="ripresa sr" id="ripresa" hidden>
-    <p class="ripresa-eyebrow">Prossima lezione</p>
-    <p class="ripresa-title" id="ripresa-title"></p>
-    <p class="ripresa-sub" id="ripresa-sub"></p>
-    <p class="ripresa-count" id="ripresa-count"></p>
-    <p class="ripresa-note">Ore 9:00–13:30 · MeetingRoom, Via Argiro 135 (3° piano), Bari<br/>Portate con voi una penna e il vostro «Quaderno Conosci Te Stesso»</p>
-  </div>
-
   <!-- CONTRIBUTO — messaggio elevato dal banner Porte Aperte, reso visibile una volta sola -->
   <div class="contributo sr">
     <p class="contributo-eyebrow">Il contributo</p>
@@ -902,73 +891,129 @@
     <p class="contributo-trust">Disponibile anche online · Inizi, ti fermi e riprendi quando vuoi</p>
   </div>
 
-  <!-- TAB BAR -->
-  <div class="anno-tabs-wrap" id="anno-tabs" role="tablist" aria-label="Anno del percorso">
-    <button id="tab-anno-1" role="tab" aria-selected="true" aria-controls="panel-anno-1" class="anno-tab active" data-anno="1">Anno 1</button>
-    <button id="tab-anno-2" role="tab" aria-selected="false" aria-controls="panel-anno-2" class="anno-tab" data-anno="2">Anno 2</button>
-    <button id="tab-anno-3" role="tab" aria-selected="false" aria-controls="panel-anno-3" class="anno-tab" data-anno="3">Anno 3</button>
-    <button id="tab-anno-4" role="tab" aria-selected="false" aria-controls="panel-anno-4" class="anno-tab" data-anno="4">Anno 4</button>
-    <button id="tab-anno-5" role="tab" aria-selected="false" aria-controls="panel-anno-5" class="anno-tab" data-anno="5">Anno 5</button>
-    <button id="tab-anno-6" role="tab" aria-selected="false" aria-controls="panel-anno-6" class="anno-tab" data-anno="6">Anno 6</button>
-    <button id="tab-anno-7" role="tab" aria-selected="false" aria-controls="panel-anno-7" class="anno-tab" data-anno="7">Anno 7</button>
-    <button id="tab-anno-esp" role="tab" aria-selected="false" aria-controls="panel-anno-esp" class="anno-tab anno-tab-esp" data-anno="esp">✶ Esperienziali</button>
-  </div>
-
-  <!-- PANNELLO ANNO 1 -->
-  <div class="anno-panel" id="panel-anno-1" role="tabpanel" aria-labelledby="tab-anno-1">
-    <div class="calendar-list" id="calendar-list"></div>
-    <div class="porte-aperte-slot"></div>
-  </div>
-
-  <!-- PANNELLO ANNO 2 -->
-  <div class="anno-panel" id="panel-anno-2" role="tabpanel" aria-labelledby="tab-anno-2" style="display:none;">
-    <div class="calendar-list" id="calendar-list-anno2"></div>
-    <div class="porte-aperte-slot"></div>
-  </div>
-
-  <!-- PANNELLI ANNI 3-7 -->
-  <div class="anno-panel" id="panel-anno-3" role="tabpanel" aria-labelledby="tab-anno-3" style="display:none;">
-    <div class="calendar-list" id="calendar-list-anno3"></div>
-    <div class="porte-aperte-slot"></div>
-  </div>
-  <div class="anno-panel" id="panel-anno-4" role="tabpanel" aria-labelledby="tab-anno-4" style="display:none;">
-    <div class="calendar-list" id="calendar-list-anno4"></div>
-    <div class="porte-aperte-slot"></div>
-  </div>
-  <div class="anno-panel" id="panel-anno-5" role="tabpanel" aria-labelledby="tab-anno-5" style="display:none;">
-    <div class="calendar-list" id="calendar-list-anno5"></div>
-    <div class="porte-aperte-slot"></div>
-  </div>
-  <div class="anno-panel" id="panel-anno-6" role="tabpanel" aria-labelledby="tab-anno-6" style="display:none;">
-    <div class="calendar-list" id="calendar-list-anno6"></div>
-    <div class="porte-aperte-slot"></div>
-  </div>
-  <div class="anno-panel" id="panel-anno-7" role="tabpanel" aria-labelledby="tab-anno-7" style="display:none;">
-    <div class="calendar-list" id="calendar-list-anno7"></div>
-    <div class="porte-aperte-slot"></div>
-  </div>
-
-  <!-- PANNELLO ESPERIENZIALI -->
-  <div class="anno-panel" id="panel-anno-esp" role="tabpanel" aria-labelledby="tab-anno-esp" style="display:none;">
-    <div class="esp-video-block">
-      <p class="esp-video-intro">Scopri com'è un residenziale della Scuola</p>
-      <!-- stessa facciata del video dell'hero: poster locale, YouTube si carica solo al clic -->
-      <div class="video-facade video-facade-esp" data-video-id="W8A2Ux5TyrE" data-video-title="Presentazione del residenziale — Scuola ContattaTi" role="button" tabindex="0" aria-label="Riproduci il video di presentazione del residenziale">
-        <div class="video-facade-bg" aria-hidden="true"></div>
-        <div class="video-facade-overlay" aria-hidden="true"></div>
-        <div class="video-facade-play" aria-hidden="true"><div class="video-facade-triangle"></div></div>
-        <div class="video-facade-content"><p class="video-facade-title">Il residenziale esperienziale</p><p class="video-facade-sub">guarda la presentazione</p></div>
+  <!-- MAPPA DEL PERCORSO — un anno per riga, con lo stato calcolato da app.js
+       su lezioni.js (concluso, in corso con la prossima data, date da definire).
+       Il pulsante apre il pannello con le lezioni (i link #anno-3 e #anno-esp
+       aprono quello e ci scorrono). Emblemi, titoli e descrizioni sono gli
+       stessi delle schede del percorso in #insegnamenti: chi ne cambia uno
+       cambia anche l'altro. -->
+  <div class="pm" id="anno-tabs" role="group" aria-label="Il percorso anno per anno">
+    <p class="pm-group">Ciclo base · 3 anni · 7 lezioni l’anno</p>
+    <div class="pm-years">
+      <div class="pm-year" id="pm-anno-1">
+        <button class="pm-head" type="button" id="tab-anno-1" data-anno="1" aria-expanded="false" aria-controls="panel-anno-1">
+          <img class="pm-emblem" src="images/percorso-1-alambicco.webp" alt="" width="56" height="56" loading="lazy" decoding="async"/>
+          <span class="pm-text"><span class="pm-num">Anno 1</span><span class="pm-title">Alchimia Trasmutativa e Quarta Via</span><span class="pm-stato" id="stato-anno-1"></span></span>
+          <span class="pm-chev" aria-hidden="true"></span>
+        </button>
+        <div class="pm-body" id="panel-anno-1" role="region" aria-labelledby="tab-anno-1" hidden>
+          <p class="pm-desc">La Carrozza di Gurdjieff e il risveglio della coscienza. Le 96 Leggi Universali, il Fuoco Alchemico, le tre fasi dell'Opera (Nigredo, Albedo, Rubedo). L'osservazione di sé come primo strumento di trasformazione.</p>
+          <div class="calendar-list" id="calendar-list"></div>
+        </div>
+      </div>
+      <div class="pm-year" id="pm-anno-2">
+        <button class="pm-head" type="button" id="tab-anno-2" data-anno="2" aria-expanded="false" aria-controls="panel-anno-2">
+          <img class="pm-emblem" src="images/percorso-2-enneagramma.webp" alt="" width="56" height="56" loading="lazy" decoding="async"/>
+          <span class="pm-text"><span class="pm-num">Anno 2</span><span class="pm-title">Enneagramma e Numerologia</span><span class="pm-stato" id="stato-anno-2"></span></span>
+          <span class="pm-chev" aria-hidden="true"></span>
+        </button>
+        <div class="pm-body" id="panel-anno-2" role="region" aria-labelledby="tab-anno-2" hidden>
+          <p class="pm-desc">La Geometria Sacra dell'Anima: i 9 Enneatipi attraverso i tre centri (viscerale, emotivo, mentale). Passioni, fissazioni e Archetipi Numerologici. La Legge di Polarità, il Tao e la scoperta della propria Mission.</p>
+          <div class="calendar-list" id="calendar-list-anno2"></div>
+        </div>
+      </div>
+      <div class="pm-year" id="pm-anno-3">
+        <button class="pm-head" type="button" id="tab-anno-3" data-anno="3" aria-expanded="false" aria-controls="panel-anno-3">
+          <img class="pm-emblem" src="images/percorso-3-albero.webp" alt="" width="56" height="56" loading="lazy" decoding="async"/>
+          <span class="pm-text"><span class="pm-num">Anno 3</span><span class="pm-title">Cabala e Insegnamento Cristico</span><span class="pm-stato" id="stato-anno-3"></span></span>
+          <span class="pm-chev" aria-hidden="true"></span>
+        </button>
+        <div class="pm-body" id="panel-anno-3" role="region" aria-labelledby="tab-anno-3" hidden>
+          <p class="pm-desc">L'Albero della Vita e le Sephiroth, le Geometrie Sacre e il Verbo Creativo. I 7 Raggi, le 7 Iniziazioni e la vita iniziatica del Cristo. Da'at, la Sephira nascosta, e il cammino verso Shamballah.</p>
+          <div class="calendar-list" id="calendar-list-anno3"></div>
+        </div>
       </div>
     </div>
-    <div class="calendar-list" id="calendar-list-esp"></div>
-    <div class="esp-banner">
-      <div class="icon-lg">✶</div>
-      <div>
-        <p class="esp-banner-title">Vuoi partecipare?</p>
-        <p class="body-text-sm">I seminari esperienziali vengono riproposti periodicamente. <a href="#contatti" class="text-gold-light">Scrivici</a> per conoscere le prossime date e i dettagli.</p>
+    <p class="pm-group">Ciclo avanzato · 4 anni · 3 lezioni l’anno</p>
+    <div class="pm-years">
+      <div class="pm-year" id="pm-anno-4">
+        <button class="pm-head" type="button" id="tab-anno-4" data-anno="4" aria-expanded="false" aria-controls="panel-anno-4">
+          <img class="pm-emblem" src="images/percorso-4-aura.webp" alt="" width="56" height="56" loading="lazy" decoding="async"/>
+          <span class="pm-text"><span class="pm-num">Anno 4</span><span class="pm-title">Teosofia e Antroposofia</span><span class="pm-stato" id="stato-anno-4"></span></span>
+          <span class="pm-chev" aria-hidden="true"></span>
+        </button>
+        <div class="pm-body" id="panel-anno-4" role="region" aria-labelledby="tab-anno-4" hidden>
+          <p class="pm-desc">I 7 corpi sottili e la Monade attraverso i 4 regni. La vita dopo la morte: Kamaloka, Devachan e la legge della Reincarnazione. La formazione del destino, il Karma e la Fiamma Violetta di Saint Germain.</p>
+          <div class="calendar-list" id="calendar-list-anno4"></div>
+        </div>
+      </div>
+      <div class="pm-year" id="pm-anno-5">
+        <button class="pm-head" type="button" id="tab-anno-5" data-anno="5" aria-expanded="false" aria-controls="panel-anno-5">
+          <img class="pm-emblem" src="images/percorso-5-caduceo.webp" alt="" width="56" height="56" loading="lazy" decoding="async"/>
+          <span class="pm-text"><span class="pm-num">Anno 5</span><span class="pm-title">Filosofia Ermetica e i 7 Principi</span><span class="pm-stato" id="stato-anno-5"></span></span>
+          <span class="pm-chev" aria-hidden="true"></span>
+        </button>
+        <div class="pm-body" id="panel-anno-5" role="region" aria-labelledby="tab-anno-5" hidden>
+          <p class="pm-desc">Ermete Trismegisto e le Tavole di Smeraldo. Il Kybalion e i 7 Principi Ermetici: Mentalismo, Corrispondenza, Vibrazione, Ritmo, Genere, Causalità. La Trasmutazione Mentale e la Magia attraverso i 5 Elementi.</p>
+          <div class="calendar-list" id="calendar-list-anno5"></div>
+        </div>
+      </div>
+      <div class="pm-year" id="pm-anno-6">
+        <button class="pm-head" type="button" id="tab-anno-6" data-anno="6" aria-expanded="false" aria-controls="panel-anno-6">
+          <img class="pm-emblem" src="images/percorso-6-chiavi.webp" alt="" width="56" height="56" loading="lazy" decoding="async"/>
+          <span class="pm-text"><span class="pm-num">Anno 6</span><span class="pm-title">Tavole di Smeraldo e Magia Archetipica</span><span class="pm-stato" id="stato-anno-6"></span></span>
+          <span class="pm-chev" aria-hidden="true"></span>
+        </button>
+        <div class="pm-body" id="panel-anno-6" role="region" aria-labelledby="tab-anno-6" hidden>
+          <p class="pm-desc">Le Proposizioni delle Tavole di Smeraldo, le Ferite Astrali e i Talenti Spirituali. Il processo incarnatorio, gli Archetipi Astrologici e le 7 Chiavi della Realizzazione Interiore.</p>
+          <div class="calendar-list" id="calendar-list-anno6"></div>
+        </div>
+      </div>
+      <div class="pm-year" id="pm-anno-7">
+        <button class="pm-head" type="button" id="tab-anno-7" data-anno="7" aria-expanded="false" aria-controls="panel-anno-7">
+          <img class="pm-emblem" src="images/percorso-7-tamburo.webp" alt="" width="56" height="56" loading="lazy" decoding="async"/>
+          <span class="pm-text"><span class="pm-num">Anno 7</span><span class="pm-title">Magia Operativa e Sciamanesimo</span><span class="pm-stato" id="stato-anno-7"></span></span>
+          <span class="pm-chev" aria-hidden="true"></span>
+        </button>
+        <div class="pm-body" id="panel-anno-7" role="region" aria-labelledby="tab-anno-7" hidden>
+          <p class="pm-desc">Il viaggio sciamanico e il tamburo come veicolo di coscienza. Il risveglio della Kundalini, l'attivazione del Terzo Occhio, la Teurgia Bianca e le Lettere Ebraiche. Integrazione finale del percorso.</p>
+          <div class="calendar-list" id="calendar-list-anno7"></div>
+        </div>
+      </div>
+    </div>
+    <p class="pm-group">Seminari esperienziali</p>
+    <div class="pm-years">
+      <div class="pm-year" id="pm-anno-esp">
+        <button class="pm-head" type="button" id="tab-anno-esp" data-anno="esp" aria-expanded="false" aria-controls="panel-anno-esp">
+          <span class="pm-emblem pm-star" aria-hidden="true">✶</span>
+          <span class="pm-text"><span class="pm-num">Residenziali</span><span class="pm-title">I seminari esperienziali</span><span class="pm-stato">Vengono riproposti periodicamente</span></span>
+          <span class="pm-chev" aria-hidden="true"></span>
+        </button>
+        <div class="pm-body" id="panel-anno-esp" role="region" aria-labelledby="tab-anno-esp" hidden>
+        <div class="esp-video-block">
+          <p class="esp-video-intro">Scopri com'è un residenziale della Scuola</p>
+          <!-- stessa facciata del video dell'hero: poster locale, YouTube si carica solo al clic -->
+          <div class="video-facade video-facade-esp" data-video-id="W8A2Ux5TyrE" data-video-title="Presentazione del residenziale — Scuola ContattaTi" role="button" tabindex="0" aria-label="Riproduci il video di presentazione del residenziale">
+            <div class="video-facade-bg" aria-hidden="true"></div>
+            <div class="video-facade-overlay" aria-hidden="true"></div>
+            <div class="video-facade-play" aria-hidden="true"><div class="video-facade-triangle"></div></div>
+            <div class="video-facade-content"><p class="video-facade-title">Il residenziale esperienziale</p><p class="video-facade-sub">guarda la presentazione</p></div>
+          </div>
+        </div>
+        <div class="calendar-list" id="calendar-list-esp"></div>
+        <div class="esp-banner">
+          <div class="icon-lg">✶</div>
+          <div>
+            <p class="esp-banner-title">Vuoi partecipare?</p>
+            <p class="body-text-sm">I seminari esperienziali vengono riproposti periodicamente. <a href="#contatti" class="text-gold-light">Scrivici</a> per conoscere le prossime date e i dettagli.</p>
+          </div>
+        </div>
+        </div>
       </div>
     </div>
   </div>
+
+  <p class="pm-nota">Le lezioni: ore 9:00–13:30 · MeetingRoom, Via Argiro 135 (3° piano), Bari<br/>Portate con voi una penna e il vostro «Quaderno Conosci Te Stesso»</p>
 
   <p class="calendario-faq">Dove si tengono le lezioni e se si può cominciare a percorso avviato: <a href="#faq" class="text-gold-light">lo trovi nelle FAQ</a>.</p>
 
@@ -1303,45 +1348,6 @@
   upd();setInterval(upd,60000);
 })();
 </script>
-<script>
-/* TAB ANNI — click + navigazione da tastiera (WAI-ARIA tablist) */
-(function(){
-  var tabs=document.querySelectorAll('.anno-tab');
-  if(!tabs.length)return;
-  function activate(tab){
-    tabs.forEach(function(t){t.classList.remove('active');t.setAttribute('aria-selected','false');t.setAttribute('tabindex','-1');});
-    tab.classList.add('active');
-    tab.setAttribute('aria-selected','true');
-    tab.setAttribute('tabindex','0');
-    tab.focus();
-    document.querySelectorAll('.anno-panel').forEach(function(p){p.style.display='none';});
-    var p=document.getElementById('panel-anno-'+tab.dataset.anno);
-    if(p)p.style.display='block';
-  }
-  /* L'anno aperto finisce nell'URL, cosi' si puo' mandare a qualcuno il link
-     di un anno preciso. replaceState e non pushState: il tasto Indietro deve
-     riportare alla pagina da cui si arriva, non al tab precedente. */
-  function segnaURL(tab){
-    if(!window.history||!history.replaceState)return;
-    try{history.replaceState(history.state,'','#anno-'+tab.dataset.anno);}catch(e){}
-  }
-  tabs.forEach(function(tab,i){
-    if(tab.classList.contains('disabled'))return;
-    tab.addEventListener('click',function(){activate(tab);segnaURL(tab);});
-    tab.addEventListener('keydown',function(e){
-      var idx=Array.prototype.indexOf.call(tabs,tab);
-      var next=-1;
-      if(e.key==='ArrowRight'||e.key==='ArrowDown'){next=(idx+1)%tabs.length;}
-      else if(e.key==='ArrowLeft'||e.key==='ArrowUp'){next=(idx-1+tabs.length)%tabs.length;}
-      else if(e.key==='Home'){next=0;}
-      else if(e.key==='End'){next=tabs.length-1;}
-      if(next>=0){e.preventDefault();activate(tabs[next]);segnaURL(tabs[next]);}
-    });
-    /* Solo il tab attivo è raggiungibile via Tab key */
-    if(!tab.classList.contains('active'))tab.setAttribute('tabindex','-1');
-  });
-})();
-</script>
 <script src="data/citazioni.js?v=20261026b"></script>
 <script>
 /* ORACOLO ISPIRAZIONI */
@@ -1378,7 +1384,7 @@
 })();
 </script>
 <script src="data/eventi.js?v=20261013f" defer></script>
-<script src="app.js?v=20261102b" defer></script>
+<script src="app.js?v=20261102c" defer></script>
 <script>
 /* SIGILLI GIOCHI — mostra ✦ sulle card dei giochi completati */
 (function(){

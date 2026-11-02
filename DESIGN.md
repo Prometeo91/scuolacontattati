@@ -418,7 +418,7 @@ Oro, sottolineatura solo in hover.
 
 ### Aree di tocco
 
-**Ogni comando isolato è alto almeno 44px** — tab del calendario, `summary`
+**Ogni comando isolato è alto almeno 44px** — anni della mappa del calendario, `summary`
 di «Leggi tutto», pulsanti di galleria e oracolo, hamburger, logo, icone
 social, voci del menu del footer, bottoni del banner cookie, chiusura della
 lightbox. Dove l'altezza cresce si toglie la spaziatura che la circondava
