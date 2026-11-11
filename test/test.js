@@ -236,7 +236,7 @@
       });
       h += '<table class="result-table"><tbody>';
       ['P', 'S', 'V'].forEach(function (k) { h += row(N[k], s[k], 30, ''); });
-      var triLevel = triMin < 20 && Lb.triNone ? Lb.triNone : level(triMin, [20, 24, 27, 30], Lb.tri);
+      var triLevel = level(triMin, [20, 24, 27, 30], Lb.tri);
       h += row(Lb.centers, triMin, 30, triLevel);
       h += row(N.ATT, s.ATT, 35, level(s.ATT, [24, 27, 30], Lb.att));
       h += row(N.VOL, s.VOL, 35, level(s.VOL, [24, 27, 30], Lb.vol));
