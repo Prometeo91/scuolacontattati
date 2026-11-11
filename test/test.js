@@ -42,7 +42,14 @@
    tipo nell'HTML (nessun pool), ognuna aperta dal nome e dalla frase di
    focus del profilo (secondo PDF). Conta le spunte: il più alto è
    l'enneatipo primario; a 1–3 punti un'ala (tipo adiacente) o un secondo
-   tipo forte. */
+   tipo forte.
+
+   Risultato da mandare alla Scuola: ogni calcolo restituisce in `text` il
+   risultato scritto per esteso (le stesse parole della pagina, una voce per
+   riga), che finisce nel pulsante Copia e nei messaggi WhatsApp precompilati:
+   le sole sigle non si leggevano. I due test dell'Enneagramma restituiscono
+   anche `img`, da cui ennImage() disegna un PNG con la figura a colori per
+   il pulsante «Condividi l'immagine». */
 (function () {
   'use strict';
   var PT = JSON.parse(document.getElementById('pageTxt').textContent);
@@ -76,6 +83,81 @@
         '<text class="enn-n" x="' + n[0] + '" y="' + (n[1] + 1) + '">' + k + '</text>';
     }
     return svg + '</svg>';
+  }
+
+  /* Immagine del risultato per i due test dell'Enneagramma: la stessa figura
+     della pagina disegnata su un canvas (un SVG passato per <img> perderebbe
+     i caratteri), con i colori del tema attivo letti dalle variabili CSS.
+     d = { title, vals, cls(k), lines: [{ t, c: text|muted|gold|ok|ko, s, sans }] } */
+  function ennImage(d) {
+    var cs = getComputedStyle(document.documentElement);
+    var v = function (n) { return cs.getPropertyValue(n).trim(); };
+    var C = { bg: v('--bg'), text: v('--text'), muted: v('--text-muted'), gold: v('--gold-light'), oro: v('--gold'), onGold: v('--on-gold'),
+              ok: v('--ok-text'), ko: v('--ko-text'), okBg: 'rgba(' + v('--ok-rgb') + ',0.1)', koBg: 'rgba(' + v('--ko-rgb') + ',0.08)',
+              surface: v('--surface'), line: v('--border-hover') };
+    var W = 1080, PAD = 80, K = 2.1, FX = (W - 400 * K) / 2, FY = 250;
+    var serif = "'EB Garamond', Georgia, serif", sans = "'Inter', system-ui, sans-serif";
+    var cv = document.createElement('canvas'), g = cv.getContext('2d');
+    function font(l) { return (l.sans ? '400 ' : '600 ') + l.s + 'px ' + (l.sans ? sans : serif); }
+    /* prima le righe a capo, per conoscere l'altezza */
+    var rows = [];
+    d.lines.forEach(function (l) {
+      g.font = font(l);
+      var cur = '';
+      l.t.split(' ').forEach(function (w) {
+        var t = cur ? cur + ' ' + w : w;
+        if (cur && g.measureText(t).width > W - 2 * PAD) { rows.push({ t: cur, l: l }); cur = w; } else cur = t;
+      });
+      rows.push({ t: cur, l: l, last: true });
+    });
+    var H = FY + 400 * K + 30;
+    rows.forEach(function (r) { H += r.l.s * 1.4 + (r.last ? 18 : 0); });
+    H += 110;
+    cv.width = W; cv.height = Math.round(H);
+    g.fillStyle = C.bg; g.fillRect(0, 0, W, cv.height);
+    g.textAlign = 'center'; g.textBaseline = 'middle';
+    g.fillStyle = C.gold; g.font = '600 38px ' + serif; g.fillText('Scuola ContattaTi', W / 2, 90);
+    g.fillStyle = C.text; g.font = '500 56px ' + serif; g.fillText(d.title, W / 2, 165);
+    g.fillStyle = C.muted; g.font = '400 26px ' + sans;
+    g.fillText(new Date().toLocaleDateString(document.documentElement.lang || 'it'), W / 2, 225);
+
+    function pt(k, r) { var a = (-90 + k * 40) * Math.PI / 180; return [FX + (200 + r * Math.cos(a)) * K, FY + (200 + r * Math.sin(a)) * K]; }
+    g.lineWidth = 1 * K; g.strokeStyle = C.line;
+    g.beginPath(); g.arc(FX + 200 * K, FY + 200 * K, 118 * K, 0, 2 * Math.PI); g.stroke();
+    g.lineWidth = 1.4 * K; g.strokeStyle = C.oro; g.lineCap = 'round'; g.globalAlpha = 0.85;
+    [[3, 6], [6, 9], [9, 3], [1, 4], [4, 2], [2, 8], [8, 5], [5, 7], [7, 1]].forEach(function (s) {
+      var p = pt(s[0], 118), q = pt(s[1], 118);
+      g.beginPath(); g.moveTo(p[0], p[1]); g.lineTo(q[0], q[1]); g.stroke();
+    });
+    g.globalAlpha = 1;
+    /* gli stessi riquadri di .enn-box in test.css */
+    var BOX = { su: [C.okBg, C.ok, C.ok], giu: [C.koBg, C.ko, C.ko, true], top: [C.oro, C.oro, C.onGold], vicino: [C.surface, C.oro, C.gold], '': [C.surface, C.line, C.muted] };
+    for (var k = 1; k <= 9; k++) {
+      var b = pt(k, 164), n = pt(k, 126), st = BOX[d.cls(k)] || BOX[''];
+      var x = b[0] - 22 * K, y = b[1] - 18 * K, w = 44 * K, h = 36 * K, r = 6 * K;
+      g.beginPath(); g.moveTo(x + r, y);
+      g.arcTo(x + w, y, x + w, y + h, r); g.arcTo(x + w, y + h, x, y + h, r); g.arcTo(x, y + h, x, y, r); g.arcTo(x, y, x + w, y, r); g.closePath();
+      g.fillStyle = C.bg; g.fill(); g.fillStyle = st[0]; g.fill();
+      g.setLineDash(st[3] ? [4 * K, 3 * K] : []); g.lineWidth = (d.cls(k) === 'vicino' ? 1.5 : 1) * K; g.strokeStyle = st[1]; g.stroke(); g.setLineDash([]);
+      g.fillStyle = st[2]; g.font = '600 ' + 19 * K + 'px ' + serif; g.fillText(d.vals[k - 1], b[0], b[1] + K);
+      g.fillStyle = C.muted; g.font = '400 ' + 13 * K + 'px ' + serif; g.fillText(k, n[0], n[1] + K);
+    }
+    var yy = FY + 400 * K + 30;
+    rows.forEach(function (r) {
+      g.font = font(r.l); g.fillStyle = C[r.l.c || 'text'];
+      g.fillText(r.t, W / 2, yy + r.l.s * 0.7);
+      yy += r.l.s * 1.4 + (r.last ? 18 : 0);
+    });
+    g.fillStyle = C.muted; g.font = '400 26px ' + sans; g.fillText('scuolacontattati.com', W / 2, cv.height - 60);
+    return cv;
+  }
+
+  /* messaggio WhatsApp precompilato con il risultato per esteso */
+  function waLinks(ui, T, text) {
+    var msg = encodeURIComponent(fmt(T.wa_msg, { code: text }));
+    [['wa-ac', '393929116441'], ['wa-nic', '393349991888']].forEach(function (w) {
+      var a = ui.role(w[0]); if (a) a.href = 'https://wa.me/' + w[1] + '?text=' + msg;
+    });
   }
 
   /* glifo alchemico dell'Elemento: gli stessi tracciati dei titoli di sezione */
@@ -154,7 +236,8 @@
       });
       h += '<table class="result-table"><tbody>';
       ['P', 'S', 'V'].forEach(function (k) { h += row(N[k], s[k], 30, ''); });
-      h += row(Lb.centers, triMin, 30, level(triMin, [20, 24, 27, 30], Lb.tri));
+      var triLevel = triMin < 20 && Lb.triNone ? Lb.triNone : level(triMin, [20, 24, 27, 30], Lb.tri);
+      h += row(Lb.centers, triMin, 30, triLevel);
       h += row(N.ATT, s.ATT, 35, level(s.ATT, [24, 27, 30], Lb.att));
       h += row(N.VOL, s.VOL, 35, level(s.VOL, [24, 27, 30], Lb.vol));
       h += '</tbody></table>';
@@ -184,17 +267,34 @@
       var flag = ui.role('flag');
       flag.hidden = !off.length;
       if (off.length) flag.textContent = fmt(T.consult_flag, { list: off.join(', ') });
-      var msg = encodeURIComponent(fmt(T.wa_msg, { code: code }));
-      ui.role('wa-ac').href = 'https://wa.me/393929116441?text=' + msg;
-      ui.role('wa-nic').href = 'https://wa.me/393349991888?text=' + msg;
+
+      /* il risultato per esteso: prima dominante, mancante ed eccesso, poi lo
+         stato di ogni Elemento, i tre centri, attenzione e volontà; il Codice in fondo */
+      var text = [
+        Lb.dominant + ': ' + (dom.length ? dom.join(', ') : Lb.noneDominant),
+        Lb.missingEl + ': ' + (mis.length ? mis.join(', ') : Lb.noneMissing),
+        Lb.excessEl + ': ' + (exc.length ? exc.map(function (k) { return N[k]; }).join(', ') : Lb.noneExcess),
+        ''
+      ].concat(els.map(function (k) {
+        return N[k] + ' — ' + elementState(s[k], s['e' + k]) + ' · ' + Lb.quality + ' ' + s[k] + '/35, ' + Lb.excess + ' ' + s['e' + k] + '/35';
+      }), [
+        '',
+        Lb.centers + ': ' + triMin + '/30, ' + triLevel,
+        ['P', 'S', 'V'].map(function (k) { return N[k] + ' ' + s[k] + '/30' + (s[k] < 20 ? ' (' + T.tri_low + ')' : ''); }).join(' · '),
+        N.ATT + ': ' + s.ATT + '/35, ' + level(s.ATT, [24, 27, 30], Lb.att),
+        N.VOL + ': ' + s.VOL + '/35, ' + level(s.VOL, [24, 27, 30], Lb.vol),
+        '',
+        Lb.codeLabel + ': ' + code
+      ]).join('\n');
+      waLinks(ui, T, text);
 
       /* legenda sotto il codice: le sigle con i nomi, nello stesso ordine */
       var legend = els.map(function (k) { return k + ' ' + N[k]; }).join(' · ') + ' (' + Lb.quality + ' / ' + Lb.excess + ') · ' +
                    'P ' + N.P + ' · S ' + N.S + ' · V ' + N.V + ' · A ' + N.ATT + ' · W ' + N.VOL;
-      return { groups: groups, code: code, html: h, legend: legend };
+      return { groups: groups, text: text, html: h, legend: legend };
     },
 
-    temperamento: function (s, T) {
+    temperamento: function (s, T, ui) {
       var Lb = T.labels, keys = ['S', 'C', 'M', 'Fl'];
       var tot = keys.reduce(function (a, k) { return a + s[k]; }, 0);
       /* percentuali intere che sommano a 100 (metodo dei resti più grandi);
@@ -215,7 +315,10 @@
       var pred = order.filter(function (k) { return s[k] === top; }).map(function (k) { return Lb.names[k]; });
 
       var groups = [order.map(function (k) { return Lb.names[k] + ' ' + P[k] + '%'; }).join(' – ')];
-      var code = Lb.codePrefix + ': ' + groups[0];
+      /* per esteso: il predominante e la gerarchia, un temperamento per riga */
+      var text = Lb.predominant + ': ' + pred.join(', ') + '\n' + Lb.hierarchy + ':\n' +
+        order.map(function (k, i) { return (i + 1) + '. ' + Lb.names[k] + ' (' + Lb.el[k] + ') ' + P[k] + '% · ' + s[k] + '/75'; }).join('\n');
+      waLinks(ui, T, text);
       /* nel riquadro la gerarchia va a capo un temperamento per riga */
       var box = order.map(function (k) { return '<span class="code-line">' + esc(Lb.names[k]) + ' ' + P[k] + '%</span>'; }).join('');
       var h = '<h3>' + esc(Lb.predominant) + '</h3><p class="temp-predominant">' + esc(pred.join(', ')) + '</p>';
@@ -248,7 +351,7 @@
         });
       }
       h += '</section>';
-      return { groups: groups, box: box, code: code, html: h };
+      return { groups: groups, box: box, text: text, html: h };
     },
 
     enneagramma: function (s, T, ui) {
@@ -261,7 +364,13 @@
       var carica = function (v) { return v > media; };
       var cls = function (v) { return carica(v) ? 'su' : 'giu'; };
 
-      var code = keys.map(function (k, i) { return k + '=' + vals[i]; }).join(', ') + ' (' + Lb.media.toLowerCase() + ' ' + num(media) + ')';
+      var nScariche = vals.filter(function (v) { return !carica(v); }).length;
+      var stato = function (i) { return (carica(vals[i]) ? Lb.carica : Lb.scarica) + (vals[i] === 0 ? ' · ' + Lb.zero : ''); };
+      var riepilogo = Lb.min + ' ' + min + ' · ' + Lb.max + ' ' + max + ' · ' + Lb.media + ' ' + num(media) + ' · ' + Lb.scariche + ' ' + nScariche + ' / 9';
+      var equilibrio = fmt(disp <= 2 ? Lb.equilibrata : Lb.squilibrata, { d: disp });
+      /* per esteso: una riga per energia con lo stato scritto, perché nel testo i colori non ci sono */
+      var text = riepilogo + '\n' + equilibrio + '\n\n' +
+        keys.map(function (k, i) { return fmt(Lb.tipo, { k: k }) + ': ' + vals[i] + '/30, ' + stato(i); }).join('\n');
       /* nel riquadro tre energie per riga */
       var box = [[0, 1, 2], [3, 4, 5], [6, 7, 8]].map(function (r) {
         return '<span class="code-line">' + r.map(function (i) { return '<span class="code-item">' + keys[i] + ' · ' + vals[i] + '</span>'; }).join(' – ') + '</span>';
@@ -270,20 +379,16 @@
 
       var h = '<div class="enn-media"><span>' + esc(Lb.min) + ' <b>' + min + '</b></span><span>' + esc(Lb.max) + ' <b>' + max + '</b></span>' +
         '<span>' + esc(Lb.media) + ' <b>' + num(media) + '</b></span><span>' + esc(Lb.si) + ' <b>' + tot + '</b></span>' +
-        (Lb.scariche ? '<span>' + esc(Lb.scariche) + ' <b>' + vals.filter(function (v) { return !carica(v); }).length + ' / 9</b></span>' : '') + '</div>' + svg +
+        '<span>' + esc(Lb.scariche) + ' <b>' + nScariche + ' / 9</b></span></div>' + svg +
         '<p class="enn-legenda">' + esc(Lb.legenda) + '</p>' +
-        '<p class="enn-equilibrio ' + (disp <= 2 ? 'su' : 'giu') + '">' + esc(fmt(disp <= 2 ? Lb.equilibrata : Lb.squilibrata, { d: disp })) + '</p>';
+        '<p class="enn-equilibrio ' + (disp <= 2 ? 'su' : 'giu') + '">' + esc(equilibrio) + '</p>';
       h += '<table class="result-table enn-table"><caption class="sr-only">' + esc(Lb.tabella) + '</caption><tbody>';
       keys.forEach(function (k, i) {
-        var st = carica(vals[i]) ? Lb.carica : Lb.scarica;
-        if (vals[i] === 0) st += ' · ' + Lb.zero;
-        h += '<tr><th scope="row">' + esc(fmt(Lb.tipo, { k: k })) + '</th><td class="num">' + vals[i] + ' / 30</td><td><span class="stato ' + cls(vals[i]) + '">' + esc(st) + '</span></td></tr>';
+        h += '<tr><th scope="row">' + esc(fmt(Lb.tipo, { k: k })) + '</th><td class="num">' + vals[i] + ' / 30</td><td><span class="stato ' + cls(vals[i]) + '">' + esc(stato(i)) + '</span></td></tr>';
       });
       h += '</tbody></table>';
 
-      var msg = encodeURIComponent(fmt(T.wa_msg, { code: code }));
-      ui.role('wa-ac').href = 'https://wa.me/393929116441?text=' + msg;
-      ui.role('wa-nic').href = 'https://wa.me/393349991888?text=' + msg;
+      waLinks(ui, T, text);
       /* email con tutte le risposte: una riga per energia, S/N nell'ordine
          originale delle 30 affermazioni (data-n), così chi legge le ritrova */
       var mail = ui.role('mail');
@@ -292,9 +397,13 @@
         ui.risposte().forEach(function (r) { (per[r.key] = per[r.key] || [])[r.n - 1] = r.v ? 'S' : 'N'; });
         var righe = keys.map(function (k, i) { return k + ' (' + vals[i] + '/30): ' + (per['t' + k] || []).join(''); }).join('\n');
         mail.href = 'mailto:scuola-contattati@libero.it?subject=' + encodeURIComponent(T.mail_subject) +
-          '&body=' + encodeURIComponent(fmt(T.mail_body, { code: code, risposte: righe }));
+          '&body=' + encodeURIComponent(fmt(T.mail_body, { code: text, risposte: righe }));
       }
-      return { groups: [code], box: box, code: Lb.codePrefix + ': ' + code, html: h };
+      var img = { title: T.share_title, vals: vals, cls: function (k) { return cls(vals[k - 1]); }, lines: [
+        { t: riepilogo, c: 'muted', s: 30, sans: true },
+        { t: equilibrio, c: disp <= 2 ? 'ok' : 'ko', s: 38 },
+        { t: Lb.legenda, c: 'muted', s: 28, sans: true }] };
+      return { box: box, text: text, html: h, img: img };
     },
 
     /* Frasi tipiche: conta le frasi spuntate per enneatipo; il più alto è il
@@ -317,7 +426,6 @@
       var ali = vicini.filter(function (k) { return adiacente(k, top[0]); }), secondi = vicini.filter(function (k) { return !adiacente(k, top[0]); });
       var pct = function (v) { return Math.round(v * 100 / 30); };
 
-      var code = max ? lista(top) + ' (' + max + '/30)' + (vicini.length ? ' · ' + lista(vicini) : '') : '—';
       var box = '<span class="code-line">' + esc(max ? lista(top) : '—') + '</span>' +
         (max ? '<span class="code-line code-sub">' + max + ' / 30 · ' + pct(max) + '%</span>' : '');
       var h = '';
@@ -351,11 +459,20 @@
         h += '</section>';
       }
 
-      var tutti = keys.map(function (k) { return k + '=' + vals[k - 1]; }).join(', ');
-      var msg = encodeURIComponent(fmt(T.wa_msg, { code: code + ' · ' + tutti }));
-      ui.role('wa-ac').href = 'https://wa.me/393929116441?text=' + msg;
-      ui.role('wa-nic').href = 'https://wa.me/393349991888?text=' + msg;
-      return { groups: [code], box: box, code: Lb.codePrefix + ': ' + code + ' · ' + tutti, html: h };
+      /* per esteso: primario, ala e secondo tipo con le frasi della pagina, poi le frasi segnate per tipo */
+      var righe = [], img = null;
+      if (max) {
+        righe.push(fmt(top.length > 1 ? Lb.primario_pari : Lb.primario, { tipi: lista(top) }) + ': ' + max + '/30');
+        if (ali.length) righe.push(fmt(Lb.ala, { tipi: lista(ali), d: diff(ali) }));
+        if (secondi.length) righe.push(fmt(Lb.secondo, { tipi: lista(secondi), d: diff(secondi) }));
+        img = { title: T.share_title, vals: vals, cls: function (k) { return top.indexOf(k) >= 0 ? 'top' : vicini.indexOf(k) >= 0 ? 'vicino' : ''; },
+          lines: righe.map(function (t, i) { return i ? { t: t, c: 'text', s: 30, sans: true } : { t: t, c: 'gold', s: 40 }; })
+            .concat([{ t: Lb.legendaImg, c: 'muted', s: 28, sans: true }]) };
+      } else righe.push(Lb.nessuna);
+      var text = righe.join('\n') + '\n\n' + Lb.tabella + ':\n' +
+        order.map(function (k) { return nome(k) + ': ' + vals[k - 1] + '/30'; }).join('\n');
+      waLinks(ui, T, text);
+      return { box: box, text: text, html: h, img: img };
     }
   };
 
@@ -516,6 +633,48 @@
     }
 
     var codeText = '';
+    /* Immagine del risultato. Il file si prepara appena c'è il risultato e non
+       al clic: navigator.share vuole partire dentro il gesto dell'utente, e su
+       Safari un'attesa (caratteri, toBlob) fra il clic e la chiamata lo fa
+       rifiutare. Se nel frattempo il tema è cambiato si ridisegna. */
+    var imgData = null, imgFile = null, imgTema = '';
+    var shareBtns = [].slice.call(panel.querySelectorAll('[data-role="share-img"]'));
+    function tema() { return document.documentElement.getAttribute('data-theme') || 'dark'; }
+    function prepara(poi) {
+      var d = imgData, t = tema();
+      var disegna = function () {
+        if (d !== imgData) return;
+        ennImage(d).toBlob(function (blob) {
+          if (d !== imgData || !blob) return;
+          imgTema = t;
+          try { imgFile = new File([blob], T.share_file, { type: 'image/png' }); } catch (e) { imgFile = blob; }
+          if (poi) poi();
+        }, 'image/png');
+      };
+      if (document.fonts && document.fonts.load) {
+        Promise.all([document.fonts.load("600 40px 'EB Garamond'"), document.fonts.load("500 40px 'EB Garamond'"), document.fonts.load("400 26px 'Inter'")]).then(disegna, disegna);
+      } else disegna();
+    }
+    function scarica(b) {
+      var a = document.createElement('a'), url = URL.createObjectURL(imgFile);
+      a.href = url; a.download = T.share_file; document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
+      var o = b.textContent; b.textContent = T.share_saved; setTimeout(function () { b.textContent = o; }, 2200);
+    }
+    function condividi(b) {
+      if (!imgFile) return;
+      var dati = { files: [imgFile], title: T.share_title };
+      if (imgFile.name && navigator.canShare && navigator.canShare(dati)) {
+        navigator.share(dati).catch(function (e) { if (!e || e.name !== 'AbortError') scarica(b); });
+      } else scarica(b);
+    }
+    shareBtns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        if (!imgData) return;
+        if (imgFile && imgTema === tema()) condividi(b);
+        else { imgFile = null; prepara(function () { condividi(b); }); }
+      });
+    });
     form.addEventListener('submit', function (ev) {
       ev.preventDefault();
       /* data-optional: ogni frase si può lasciare in bianco, quindi nessuna
@@ -543,7 +702,10 @@
 
     function mostraRisultato(vaiAlRisultato) {
       var r = scorer(sums(), T, ui);
-      codeText = r.code;
+      codeText = T.share_title + ' – Scuola ContattaTi\n\n' + r.text;
+      imgData = r.img || null; imgFile = null;
+      shareBtns.forEach(function (b) { b.hidden = !imgData; });
+      if (imgData) prepara();
       ui.role('code').innerHTML = (r.box || codeHtml(r.groups)) + (r.legend ? '<p class="code-legend">' + esc(r.legend) + '</p>' : '');
       ui.role('detail').innerHTML = r.html;
       result.hidden = false;
