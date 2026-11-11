@@ -659,7 +659,17 @@
       var a = document.createElement('a'), url = URL.createObjectURL(imgFile);
       a.href = url; a.download = T.share_file; document.body.appendChild(a); a.click(); document.body.removeChild(a);
       setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
-      var o = b.textContent; b.textContent = T.share_saved; setTimeout(function () { b.textContent = o; }, 2200);
+      /* dal computer l'immagine finisce anche negli appunti, per incollarla in
+         WhatsApp Web o in un'email senza cercare il file scaricato */
+      var o = b.getAttribute('data-label') || b.textContent, detto = function (t) {
+        b.setAttribute('data-label', o); b.textContent = t;
+        clearTimeout(b._t); b._t = setTimeout(function () { b.textContent = o; }, 4000);
+      };
+      detto(T.share_saved);
+      try {
+        if (navigator.clipboard && navigator.clipboard.write && window.ClipboardItem)
+          navigator.clipboard.write([new ClipboardItem({ 'image/png': imgFile })]).then(function () { detto(T.share_copied); }, function () {});
+      } catch (e) {}
     }
     function condividi(b) {
       if (!imgFile) return;
