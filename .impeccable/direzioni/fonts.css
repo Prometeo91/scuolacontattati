@@ -1,8 +1,0 @@
-@font-face { font-family: 'EB Garamond'; font-weight: 400; font-style: normal; src: url('../../fonts/eb-garamond-latin-400-normal.woff2') format('woff2'); }
-@font-face { font-family: 'EB Garamond'; font-weight: 500; font-style: normal; src: url('../../fonts/eb-garamond-latin-500-normal.woff2') format('woff2'); }
-@font-face { font-family: 'EB Garamond'; font-weight: 600; font-style: normal; src: url('../../fonts/eb-garamond-latin-600-normal.woff2') format('woff2'); }
-@font-face { font-family: 'EB Garamond'; font-weight: 400; font-style: italic; src: url('../../fonts/eb-garamond-latin-400-italic.woff2') format('woff2'); }
-@font-face { font-family: 'EB Garamond'; font-weight: 500; font-style: italic; src: url('../../fonts/eb-garamond-latin-500-italic.woff2') format('woff2'); }
-@font-face { font-family: 'EB Garamond'; font-weight: 500; font-style: normal; src: url('../../fonts/eb-garamond-greek-500-normal.woff2') format('woff2'); unicode-range: U+0370-03FF, U+1F00-1FFF; }
-@font-face { font-family: 'Inter'; font-weight: 400; src: url('../../fonts/inter-latin-400-normal.woff2') format('woff2'); }
-@font-face { font-family: 'Inter'; font-weight: 500; src: url('../../fonts/inter-latin-500-normal.woff2') format('woff2'); }
