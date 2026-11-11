@@ -47,9 +47,11 @@
    Risultato da mandare alla Scuola: ogni calcolo restituisce in `text` il
    risultato scritto per esteso (le stesse parole della pagina, una voce per
    riga), che finisce nel pulsante Copia e nei messaggi WhatsApp precompilati:
-   le sole sigle non si leggevano. I due test dell'Enneagramma restituiscono
-   anche `img`, da cui ennImage() disegna un PNG con la figura a colori per
-   il pulsante «Condividi l'immagine». */
+   le sole sigle non si leggevano. Una sola informazione per riga, a blocchi
+   con un titolo, e niente Codice: chi lo legge può essere dislessico.
+   Ogni calcolo restituisce anche `img`, da cui resultImage() disegna il PNG
+   del pulsante «Condividi l'immagine»: la figura a colori per l'Enneagramma,
+   le barre per Elementi e temperamento. */
 (function () {
   'use strict';
   var PT = JSON.parse(document.getElementById('pageTxt').textContent);
@@ -85,71 +87,100 @@
     return svg + '</svg>';
   }
 
-  /* Immagine del risultato per i due test dell'Enneagramma: la stessa figura
-     della pagina disegnata su un canvas (un SVG passato per <img> perderebbe
-     i caratteri), con i colori del tema attivo letti dalle variabili CSS.
-     d = { title, vals, cls(k), lines: [{ t, c: text|muted|gold|ok|ko, s, sans }] } */
-  function ennImage(d) {
+  /* Immagine del risultato da condividere: disegnata su un canvas (un SVG
+     passato per <img> perderebbe i caratteri), con i colori del tema attivo
+     letti dalle variabili CSS. d = { title, blocks }, e i blocchi sono:
+     { enn, vals, cls(k) }          la figura dell'Enneagramma, come in pagina
+     { t, c, s, sans, tight }       testo centrato, a capo da solo; c = text|muted|gold|ok|ko
+     { left, right, off }           titolo a sinistra e stato a destra (in oro se off)
+     { bar, frac, ticks, value, soft, wide }  etichetta, barra con le tacche, valore
+     { gap }                        spazio
+     I due test dell'Enneagramma passano { vals, cls, lines } al posto di blocks. */
+  function resultImage(d) {
     var cs = getComputedStyle(document.documentElement);
     var v = function (n) { return cs.getPropertyValue(n).trim(); };
     var C = { bg: v('--bg'), text: v('--text'), muted: v('--text-muted'), gold: v('--gold-light'), oro: v('--gold'), onGold: v('--on-gold'),
               ok: v('--ok-text'), ko: v('--ko-text'), okBg: 'rgba(' + v('--ok-rgb') + ',0.1)', koBg: 'rgba(' + v('--ko-rgb') + ',0.08)',
-              surface: v('--surface'), line: v('--border-hover') };
-    var W = 1080, PAD = 80, K = 2.1, FX = (W - 400 * K) / 2, FY = 250;
+              surface: v('--surface'), line: v('--border-hover'), track: v('--border'), oroSoft: 'rgba(' + v('--gold-rgb') + ',0.55)' };
+    var W = 1080, PAD = 80, K = 2.1;
     var serif = "'EB Garamond', Georgia, serif", sans = "'Inter', system-ui, sans-serif";
-    var cv = document.createElement('canvas'), g = cv.getContext('2d');
-    function font(l) { return (l.sans ? '400 ' : '600 ') + l.s + 'px ' + (l.sans ? sans : serif); }
-    /* prima le righe a capo, per conoscere l'altezza */
-    var rows = [];
-    d.lines.forEach(function (l) {
-      g.font = font(l);
-      var cur = '';
-      l.t.split(' ').forEach(function (w) {
-        var t = cur ? cur + ' ' + w : w;
-        if (cur && g.measureText(t).width > W - 2 * PAD) { rows.push({ t: cur, l: l }); cur = w; } else cur = t;
-      });
-      rows.push({ t: cur, l: l, last: true });
-    });
-    var H = FY + 400 * K + 30;
-    rows.forEach(function (r) { H += r.l.s * 1.4 + (r.last ? 18 : 0); });
-    H += 110;
-    cv.width = W; cv.height = Math.round(H);
-    g.fillStyle = C.bg; g.fillRect(0, 0, W, cv.height);
-    g.textAlign = 'center'; g.textBaseline = 'middle';
+    var blocks = d.blocks || [{ enn: true, vals: d.vals, cls: d.cls }].concat(d.lines);
+    /* si disegna su un foglio più alto del necessario e poi si ritaglia */
+    var cv = document.createElement('canvas'); cv.width = W; cv.height = 5000;
+    var g = cv.getContext('2d');
+    g.textBaseline = 'middle'; g.textAlign = 'center';
     g.fillStyle = C.gold; g.font = '600 38px ' + serif; g.fillText('Scuola ContattaTi', W / 2, 90);
     g.fillStyle = C.text; g.font = '500 56px ' + serif; g.fillText(d.title, W / 2, 165);
     g.fillStyle = C.muted; g.font = '400 26px ' + sans;
     g.fillText(new Date().toLocaleDateString(document.documentElement.lang || 'it'), W / 2, 225);
+    var y = 280;
 
-    function pt(k, r) { var a = (-90 + k * 40) * Math.PI / 180; return [FX + (200 + r * Math.cos(a)) * K, FY + (200 + r * Math.sin(a)) * K]; }
-    g.lineWidth = 1 * K; g.strokeStyle = C.line;
-    g.beginPath(); g.arc(FX + 200 * K, FY + 200 * K, 118 * K, 0, 2 * Math.PI); g.stroke();
-    g.lineWidth = 1.4 * K; g.strokeStyle = C.oro; g.lineCap = 'round'; g.globalAlpha = 0.85;
-    [[3, 6], [6, 9], [9, 3], [1, 4], [4, 2], [2, 8], [8, 5], [5, 7], [7, 1]].forEach(function (s) {
-      var p = pt(s[0], 118), q = pt(s[1], 118);
-      g.beginPath(); g.moveTo(p[0], p[1]); g.lineTo(q[0], q[1]); g.stroke();
-    });
-    g.globalAlpha = 1;
-    /* gli stessi riquadri di .enn-box in test.css */
-    var BOX = { su: [C.okBg, C.ok, C.ok], giu: [C.koBg, C.ko, C.ko, true], top: [C.oro, C.oro, C.onGold], vicino: [C.surface, C.oro, C.gold], '': [C.surface, C.line, C.muted] };
-    for (var k = 1; k <= 9; k++) {
-      var b = pt(k, 164), n = pt(k, 126), st = BOX[d.cls(k)] || BOX[''];
-      var x = b[0] - 22 * K, y = b[1] - 18 * K, w = 44 * K, h = 36 * K, r = 6 * K;
-      g.beginPath(); g.moveTo(x + r, y);
-      g.arcTo(x + w, y, x + w, y + h, r); g.arcTo(x + w, y + h, x, y + h, r); g.arcTo(x, y + h, x, y, r); g.arcTo(x, y, x + w, y, r); g.closePath();
-      g.fillStyle = C.bg; g.fill(); g.fillStyle = st[0]; g.fill();
-      g.setLineDash(st[3] ? [4 * K, 3 * K] : []); g.lineWidth = (d.cls(k) === 'vicino' ? 1.5 : 1) * K; g.strokeStyle = st[1]; g.stroke(); g.setLineDash([]);
-      g.fillStyle = st[2]; g.font = '600 ' + 19 * K + 'px ' + serif; g.fillText(d.vals[k - 1], b[0], b[1] + K);
-      g.fillStyle = C.muted; g.font = '400 ' + 13 * K + 'px ' + serif; g.fillText(k, n[0], n[1] + K);
+    function enn(b) {
+      var FX = (W - 400 * K) / 2, FY = y - 30;
+      function pt(k, r) { var a = (-90 + k * 40) * Math.PI / 180; return [FX + (200 + r * Math.cos(a)) * K, FY + (200 + r * Math.sin(a)) * K]; }
+      g.textAlign = 'center';
+      g.lineWidth = 1 * K; g.strokeStyle = C.line;
+      g.beginPath(); g.arc(FX + 200 * K, FY + 200 * K, 118 * K, 0, 2 * Math.PI); g.stroke();
+      g.lineWidth = 1.4 * K; g.strokeStyle = C.oro; g.lineCap = 'round'; g.globalAlpha = 0.85;
+      [[3, 6], [6, 9], [9, 3], [1, 4], [4, 2], [2, 8], [8, 5], [5, 7], [7, 1]].forEach(function (s) {
+        var p = pt(s[0], 118), q = pt(s[1], 118);
+        g.beginPath(); g.moveTo(p[0], p[1]); g.lineTo(q[0], q[1]); g.stroke();
+      });
+      g.globalAlpha = 1; g.lineCap = 'butt';
+      /* gli stessi riquadri di .enn-box in test.css */
+      var BOX = { su: [C.okBg, C.ok, C.ok], giu: [C.koBg, C.ko, C.ko, true], top: [C.oro, C.oro, C.onGold], vicino: [C.surface, C.oro, C.gold], '': [C.surface, C.line, C.muted] };
+      for (var k = 1; k <= 9; k++) {
+        var c = pt(k, 164), n = pt(k, 126), st = BOX[b.cls(k)] || BOX[''];
+        var x = c[0] - 22 * K, yy = c[1] - 18 * K, w = 44 * K, h = 36 * K, r = 6 * K;
+        g.beginPath(); g.moveTo(x + r, yy);
+        g.arcTo(x + w, yy, x + w, yy + h, r); g.arcTo(x + w, yy + h, x, yy + h, r); g.arcTo(x, yy + h, x, yy, r); g.arcTo(x, yy, x + w, yy, r); g.closePath();
+        g.fillStyle = C.bg; g.fill(); g.fillStyle = st[0]; g.fill();
+        g.setLineDash(st[3] ? [4 * K, 3 * K] : []); g.lineWidth = (b.cls(k) === 'vicino' ? 1.5 : 1) * K; g.strokeStyle = st[1]; g.stroke(); g.setLineDash([]);
+        g.fillStyle = st[2]; g.font = '600 ' + 19 * K + 'px ' + serif; g.fillText(b.vals[k - 1], c[0], c[1] + K);
+        g.fillStyle = C.muted; g.font = '400 ' + 13 * K + 'px ' + serif; g.fillText(k, n[0], n[1] + K);
+      }
+      y += 400 * K;
     }
-    var yy = FY + 400 * K + 30;
-    rows.forEach(function (r) {
-      g.font = font(r.l); g.fillStyle = C[r.l.c || 'text'];
-      g.fillText(r.t, W / 2, yy + r.l.s * 0.7);
-      yy += r.l.s * 1.4 + (r.last ? 18 : 0);
+    function testo(b) {
+      g.font = (b.sans ? '400 ' : '600 ') + b.s + 'px ' + (b.sans ? sans : serif);
+      g.fillStyle = C[b.c || 'text']; g.textAlign = 'center';
+      var rows = [], cur = '';
+      b.t.split(' ').forEach(function (w) {
+        var t = cur ? cur + ' ' + w : w;
+        if (cur && g.measureText(t).width > W - 2 * PAD) { rows.push(cur); cur = w; } else cur = t;
+      });
+      rows.push(cur);
+      rows.forEach(function (r) { g.fillText(r, W / 2, y + b.s * 0.7); y += b.s * 1.4; });
+      y += b.tight ? 0 : 18;
+    }
+    function titolo(b) {
+      g.textAlign = 'left'; g.font = '600 42px ' + serif; g.fillStyle = b.off ? C.gold : C.text; g.fillText(b.left, PAD, y + 30);
+      if (b.right) { g.textAlign = 'right'; g.font = '400 27px ' + sans; g.fillStyle = b.off ? C.gold : C.muted; g.fillText(b.right, W - PAD, y + 32); }
+      y += 70;
+    }
+    function barra(b) {
+      var lw = b.wide ? 300 : 170, vw = 130, x0 = PAD + lw, x1 = W - PAD - vw, h = 16, cy = y + 26;
+      g.textAlign = 'left'; g.font = (b.wide ? '600 34px ' + serif : '400 26px ' + sans); g.fillStyle = b.wide ? C.text : C.muted; g.fillText(b.bar, PAD, cy);
+      g.textAlign = 'right'; g.font = '400 27px ' + sans; g.fillStyle = C.text; g.fillText(b.value, W - PAD, cy);
+      g.lineCap = 'round'; g.lineWidth = h;
+      g.strokeStyle = C.track; g.beginPath(); g.moveTo(x0 + h / 2, cy); g.lineTo(x1 - h / 2, cy); g.stroke();
+      if (b.frac > 0) {
+        g.strokeStyle = b.soft ? C.oroSoft : C.oro; g.beginPath(); g.moveTo(x0 + h / 2, cy);
+        g.lineTo(Math.max(x0 + h / 2 + 0.1, x0 + (x1 - x0) * Math.min(1, b.frac) - h / 2), cy); g.stroke();
+      }
+      g.lineCap = 'butt'; g.lineWidth = 2; g.strokeStyle = C.text; g.globalAlpha = 0.8;
+      (b.ticks || []).forEach(function (t) { var x = x0 + (x1 - x0) * t; g.beginPath(); g.moveTo(x, cy - 16); g.lineTo(x, cy + 16); g.stroke(); });
+      g.globalAlpha = 1;
+      y += b.wide ? 64 : 52;
+    }
+    blocks.forEach(function (b) {
+      if (b.enn) enn(b); else if (b.gap) y += b.gap; else if (b.bar) barra(b); else if (b.left) titolo(b); else testo(b);
     });
-    g.fillStyle = C.muted; g.font = '400 26px ' + sans; g.fillText('scuolacontattati.com', W / 2, cv.height - 60);
-    return cv;
+    y += 30;
+    g.textAlign = 'center'; g.fillStyle = C.muted; g.font = '400 26px ' + sans; g.fillText('scuolacontattati.com', W / 2, y + 20);
+    var out = document.createElement('canvas'); out.width = W; out.height = Math.round(y + 80);
+    var o = out.getContext('2d'); o.fillStyle = C.bg; o.fillRect(0, 0, W, out.height); o.drawImage(cv, 0, 0);
+    return out;
   }
 
   /* messaggio WhatsApp precompilato con il risultato per esteso */
@@ -202,7 +233,6 @@
       var groups = [els.map(function (k) { return k + ' ' + s[k] + '/' + s['e' + k]; }).join(' – '),
                     'P ' + s.P + ' – S ' + s.S + ' – V ' + s.V,
                     'A ' + s.ATT + ' · W ' + s.VOL];
-      var code = groups.join(' · ');
 
       var top = Math.max.apply(null, els.map(function (k) { return s[k]; }));
       var dom = els.filter(function (k) { return s[k] >= 24 && s[k] === top; }).map(function (k) { return N[k]; });
@@ -268,30 +298,50 @@
       flag.hidden = !off.length;
       if (off.length) flag.textContent = fmt(T.consult_flag, { list: off.join(', ') });
 
-      /* il risultato per esteso: prima dominante, mancante ed eccesso, poi lo
-         stato di ogni Elemento, i tre centri, attenzione e volontà; il Codice in fondo */
+      /* il risultato per esteso, a blocchi con un titolo e una voce per riga:
+         prima gli Elementi (dominante, mancante, in eccesso e lo stato di
+         ciascuno), poi centri, attenzione e volontà; i punteggi tutti in fondo.
+         Lo stato si ferma ai due punti («in eccesso», senza la spiegazione). */
+      var breve = function (k) { return elementState(s[k], s['e' + k]).split(':')[0]; };
+      var domT = dom.length ? dom.join(', ') : Lb.noneDominant, misT = mis.length ? mis.join(', ') : Lb.noneMissing,
+          excT = exc.length ? exc.map(function (k) { return N[k]; }).join(', ') : Lb.noneExcess;
+      var attL = level(s.ATT, [24, 27, 30], Lb.att), volL = level(s.VOL, [24, 27, 30], Lb.vol);
+      var cap = function (t) { return t.charAt(0).toUpperCase() + t.slice(1); };
       var text = [
-        Lb.dominant + ': ' + (dom.length ? dom.join(', ') : Lb.noneDominant),
-        Lb.missingEl + ': ' + (mis.length ? mis.join(', ') : Lb.noneMissing),
-        Lb.excessEl + ': ' + (exc.length ? exc.map(function (k) { return N[k]; }).join(', ') : Lb.noneExcess),
+        Lb.elements.toUpperCase(),
+        Lb.dominant + ': ' + domT, Lb.missingEl + ': ' + misT, Lb.excessEl + ': ' + excT,
         ''
-      ].concat(els.map(function (k) {
-        return N[k] + ' — ' + elementState(s[k], s['e' + k]) + ' · ' + Lb.quality + ' ' + s[k] + '/35, ' + Lb.excess + ' ' + s['e' + k] + '/35';
-      }), [
-        '',
-        Lb.centers + ': ' + triMin + '/30, ' + triLevel,
-        ['P', 'S', 'V'].map(function (k) { return N[k] + ' ' + s[k] + '/30' + (s[k] < 20 ? ' (' + T.tri_low + ')' : ''); }).join(' · '),
-        N.ATT + ': ' + s.ATT + '/35, ' + level(s.ATT, [24, 27, 30], Lb.att),
-        N.VOL + ': ' + s.VOL + '/35, ' + level(s.VOL, [24, 27, 30], Lb.vol),
-        '',
-        Lb.codeLabel + ': ' + code
-      ]).join('\n');
+      ].concat(els.map(function (k) { return N[k] + ': ' + breve(k); }), [
+        '', N.TRI.toUpperCase(), cap(triLevel)
+      ], low.length ? [cap(T.tri_low) + ': ' + low.map(function (k) { return N[k]; }).join(', ')] : [], [
+        '', N.ATT.toUpperCase(), cap(attL),
+        '', N.VOL.toUpperCase(), cap(volL),
+        '', Lb.scores.toUpperCase()
+      ], els.map(function (k) { return N[k] + ': ' + Lb.quality + ' ' + s[k] + '/35, ' + Lb.excess + ' ' + s['e' + k] + '/35'; }),
+        ['P', 'S', 'V'].map(function (k) { return N[k] + ': ' + s[k] + '/30'; }),
+        [N.ATT + ': ' + s.ATT + '/35', N.VOL + ': ' + s.VOL + '/35']).join('\n');
+      /* immagine: i tre riepiloghi in grande, poi le stesse schede della pagina */
+      var bl = [];
+      [[Lb.dominant, domT], [Lb.missingEl, misT], [Lb.excessEl, excT]].forEach(function (p) {
+        bl.push({ t: p[0], c: 'muted', s: 26, sans: true, tight: true }, { t: cap(p[1]), c: 'gold', s: 42 });
+      });
+      bl.push({ gap: 14 });
+      els.forEach(function (k) {
+        bl.push({ left: N[k], right: breve(k), off: unbalanced(s[k], s['e' + k]) },
+          { bar: Lb.quality, frac: s[k] / 35, ticks: [18 / 35, 24 / 35], value: s[k] + ' / 35' },
+          { bar: Lb.excess, frac: s['e' + k] / 35, ticks: [18 / 35, 24 / 35, 30 / 35], value: s['e' + k] + ' / 35', soft: true }, { gap: 22 });
+      });
+      bl.push({ left: N.TRI, right: triLevel, off: triMin < 20 });
+      ['P', 'S', 'V'].forEach(function (k) { bl.push({ bar: N[k], frac: s[k] / 30, ticks: [20 / 30], value: s[k] + ' / 30' }); });
+      bl.push({ gap: 22 }, { left: N.ATT, right: attL }, { bar: ' ', frac: s.ATT / 35, ticks: [24 / 35, 27 / 35, 30 / 35], value: s.ATT + ' / 35' },
+        { gap: 22 }, { left: N.VOL, right: volL }, { bar: ' ', frac: s.VOL / 35, ticks: [24 / 35, 27 / 35, 30 / 35], value: s.VOL + ' / 35' });
+      var img = { title: T.share_title, blocks: bl };
       waLinks(ui, T, text);
 
       /* legenda sotto il codice: le sigle con i nomi, nello stesso ordine */
       var legend = els.map(function (k) { return k + ' ' + N[k]; }).join(' · ') + ' (' + Lb.quality + ' / ' + Lb.excess + ') · ' +
                    'P ' + N.P + ' · S ' + N.S + ' · V ' + N.V + ' · A ' + N.ATT + ' · W ' + N.VOL;
-      return { groups: groups, text: text, html: h, legend: legend };
+      return { groups: groups, text: text, html: h, legend: legend, img: img };
     },
 
     temperamento: function (s, T, ui) {
@@ -351,7 +401,13 @@
         });
       }
       h += '</section>';
-      return { groups: groups, box: box, text: text, html: h };
+      var img = { title: T.share_title, blocks: [
+        { t: Lb.predominant, c: 'muted', s: 28, sans: true, tight: true },
+        { t: pred.join(', '), c: 'gold', s: 76, tight: true },
+        { t: order.filter(function (k) { return s[k] === top; }).map(function (k) { return Lb.el[k]; }).join(', '), c: 'muted', s: 28, sans: true },
+        { gap: 30 }
+      ].concat(order.map(function (k, i) { return { bar: (i + 1) + '. ' + Lb.names[k], wide: true, frac: s[k] / 75, value: P[k] + '%' }; })) };
+      return { groups: groups, box: box, text: text, html: h, img: img };
     },
 
     enneagramma: function (s, T, ui) {
@@ -644,7 +700,7 @@
       var d = imgData, t = tema();
       var disegna = function () {
         if (d !== imgData) return;
-        ennImage(d).toBlob(function (blob) {
+        resultImage(d).toBlob(function (blob) {
           if (d !== imgData || !blob) return;
           imgTema = t;
           try { imgFile = new File([blob], T.share_file, { type: 'image/png' }); } catch (e) { imgFile = blob; }
