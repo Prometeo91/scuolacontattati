@@ -101,7 +101,23 @@
     <priority>0.4</priority>
   </url>
 
-  <!-- Pagine proprie di Libro, Ispirazioni e Giochi -->
+  <!-- Pagine proprie di Libro, Ispirazioni, Giochi e Argomenti -->
+  <url>
+    <loc>https://scuolacontattati.com/argomenti/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scuolacontattati.com/argomenti/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scuolacontattati.com/en/argomenti/"/>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://scuolacontattati.com/en/argomenti/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://scuolacontattati.com/argomenti/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scuolacontattati.com/en/argomenti/"/>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
   <url>
     <loc>https://scuolacontattati.com/libro/</loc>
     <xhtml:link rel="alternate" hreflang="it" href="https://scuolacontattati.com/libro/"/>

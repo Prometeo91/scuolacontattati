@@ -205,10 +205,10 @@ for (const m of leggi('sitemap.xml').matchAll(/<loc>https:\/\/scuolacontattati\.
 }
 
 /* ── 8. Le pagine proprie hanno lo stesso menu e gli stessi ?v= della home ──
-   Libro, Ispirazioni e Giochi copiano barra e footer della home: una voce di
+   Libro, Ispirazioni, Giochi e Argomenti copiano barra e footer della home: una voce di
    menu aggiunta solo in index.html, o un ?v= aggiornato solo lì, le lascerebbe
    indietro in silenzio. */
-const SOTTOPAGINE = ['libro', 'ispirazioni', 'giochi'];
+const SOTTOPAGINE = ['libro', 'ispirazioni', 'giochi', 'argomenti'];
 const vociMenu = f => [...(leggi(f).match(/<div class="nav-links">([\s\S]*?)<span class="lang-pill">/) || ['', ''])[1]
   .matchAll(/<(?:a|summary)\b[^>]*>([^<]+)/g)].map(m => m[1].trim()).filter(Boolean).join(' · ');
 for (const [home, pre] of [['index.html', ''], ['en/index.html', 'en/']]) {
