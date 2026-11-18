@@ -1,0 +1,47 @@
+/* Pagina «Argomenti delle lezioni». Solo variabili di style.css: nessun colore scritto qui. */
+
+.arg-cerca { margin: 0 0 1.5rem; }
+.arg-label { display: block; font-family: var(--font-display); font-size: 19px; font-weight: 500; color: var(--gold-light); margin-bottom: 0.5rem; }
+.arg-campo { position: relative; }
+.arg-lente { position: absolute; left: 0.9rem; top: 50%; width: 20px; height: 20px; transform: translateY(-50%); color: var(--gold); pointer-events: none; }
+.arg-campo input {
+  width: 100%; min-height: 48px; padding: 0.7rem 1rem 0.7rem 2.75rem;
+  font-family: var(--font-sans); font-size: 17px; color: var(--text);
+  background: var(--surface); border: 1px solid var(--border-hover); border-radius: var(--radius-md);
+  -webkit-appearance: none; appearance: none;
+}
+.arg-campo input::placeholder { color: var(--text-muted); opacity: 0.8; }
+.arg-campo input:focus { outline: 2px solid var(--gold); outline-offset: 2px; border-color: var(--gold); }
+.arg-conto { margin: 0.6rem 0 0; font-size: 14px; color: var(--text-muted); }
+
+.arg-lettere { display: grid; grid-template-columns: repeat(auto-fill, minmax(44px, 1fr)); gap: 0; margin: 0 0 1rem; padding: 0.5rem 0; border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); }
+.arg-lettere[hidden] { display: none; }
+.arg-lettere a, .arg-lettere span {
+  display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px;
+  font-family: var(--font-display); font-size: 19px; font-weight: 500; text-decoration: none; border-radius: var(--radius-sm);
+}
+.arg-lettere a { color: var(--gold-light); }
+.arg-lettere a:hover, .arg-lettere a:focus-visible { background: var(--surface-hover); }
+.arg-lettere span { color: var(--text-muted); opacity: 0.35; }
+
+.arg-gruppo { font-family: var(--font-display); font-size: 30px; font-weight: 600; color: var(--gold-light); margin: 2rem 0 0.25rem; line-height: 1.2; }
+.arg-gruppo-desc { font-size: 22px; font-weight: 500; }
+.arg-voci { list-style: none; margin: 0; padding: 0; border-top: 0.5px solid var(--border); }
+.arg-voci li { padding: 0.8rem 0.25rem; border-bottom: 0.5px solid var(--border); }
+.arg-tema { display: block; font-size: 17px; color: var(--text); line-height: 1.45; }
+.arg-tema mark { background: rgba(var(--gold-rgb), 0.24); color: inherit; border-radius: 2px; padding: 0 1px; }
+.arg-rifs { display: flex; flex-direction: column; gap: 0.15rem; margin-top: 0.3rem; }
+.arg-rif { display: block; padding: 0.2rem 0; text-decoration: none; font-size: 14px; line-height: 1.45; }
+.arg-dove { color: var(--gold); font-weight: 500; }
+.arg-titolo { color: var(--text-muted); }
+.arg-titolo::before { content: " · "; color: var(--text-muted); }
+.arg-rif:hover .arg-dove, .arg-rif:focus-visible .arg-dove { text-decoration: underline; text-underline-offset: 3px; }
+.arg-desc .arg-voci li { padding: 0.5rem 0.25rem; }
+
+.arg-nota { margin-top: 2.5rem; font-size: 15px; color: var(--text-muted); line-height: 1.65; }
+
+@media (min-width: 760px) {
+  .arg-voci li { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); column-gap: 1.5rem; align-items: baseline; }
+  .arg-rifs { margin-top: 0; }
+  .arg-desc .arg-voci li { display: block; }
+}
