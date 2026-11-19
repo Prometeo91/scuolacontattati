@@ -371,7 +371,7 @@
     </script>
 
  <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) — self-hosted, zero dipendenze esterne -->
-  <link rel="stylesheet" href="../style.css?v=da15c1d9"/>
+  <link rel="stylesheet" href="../style.css?v=ef262985"/>
   <noscript><style>.sr{opacity:1!important;transform:none!important}</style></noscript>
 
 </head>
@@ -421,7 +421,7 @@
     <p class="hp-label">Next lesson</p>
     <div class="hp-row"><p class="hp-data" id="hp-data"></p><span class="hp-count" id="hp-count"></span></div>
     <p class="hp-titolo"><a href="#calendario" id="hp-titolo"></a></p>
-    <p class="hp-luogo">9:00–13:30<br/><a href="https://www.google.com/maps/search/?api=1&amp;query=MeetingRoom%2C+Via+Argiro+135%2C+Bari" target="_blank" rel="noopener">MeetingRoom, Via Argiro 135 (3rd floor), Bari</a></p>
+    <p class="hp-luogo">9:00–13:30<span class="hp-calendario" hidden> · <a href="#" id="hp-calendario" data-inizio="09:00" data-fine="13:30" data-luogo="MeetingRoom, Via Argiro 135 (3rd floor), Bari"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><line x1="3.5" y1="10" x2="20.5" y2="10"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/><line x1="12" y1="13" x2="12" y2="18"/><line x1="9.5" y1="15.5" x2="14.5" y2="15.5"/></svg> Add to calendar</a></span><br/><a href="https://www.google.com/maps/search/?api=1&amp;query=MeetingRoom%2C+Via+Argiro+135%2C+Bari" target="_blank" rel="noopener">MeetingRoom, Via Argiro 135 (3rd floor), Bari</a></p>
     <p class="hp-partecipa"><a href="#contatti" id="hp-partecipa" data-oggetto="Joining a lesson">You can start from this lesson: write to us<span aria-hidden="true">&nbsp;→</span></a></p>
   </div>
   <div class="hero-ctas">
@@ -782,8 +782,17 @@
   <h2 class="section-title">Our events</h2>
   <p class="section-sub">Moments lived together, between teaching and nature.</p>
 
+  <div class="eventi-prossimi sr">
+    <h3 class="gallery-event-title">Coming up</h3>
+    <div class="pres-list" id="prossimiList" hidden></div>
+    <div id="prossimiVuoto">
+      <p class="eventi-vuoto">There are no public meetings scheduled at the moment.</p>
+      <p class="eventi-avvisa"><a href="#contatti" data-oggetto="Let me know about the next public meeting">Write to us to hear about the next one<span aria-hidden="true">&nbsp;→</span></a></p>
+    </div>
+  </div>
+
   <div class="eventi-pubblici sr">
-    <h3 class="gallery-event-title">Meetings and events</h3>
+    <h3 class="gallery-event-title">Past meetings</h3>
     <p class="gallery-event-sub">Presentations, conferences, festivals and seminars from recent years.</p>
     <div class="pres-list" id="presList"></div>
     <button class="gallery-toggle" id="presToggle" aria-expanded="false" aria-controls="presList" hidden>Show all events ▾</button>
@@ -1022,6 +1031,65 @@
   <h2 class="section-title">What you ask us most often</h2>
   <p class="section-sub">Answers to the most common questions for those approaching the School.</p>
 
+  <div class="faq-breve sr">
+    <h3 class="faq-gruppo">At a glance</h3>
+    <dl>
+      <div><dt>When</dt><dd>Sunday mornings, 9:00–13:30</dd></div>
+      <div><dt>Where</dt><dd>MeetingRoom, Via Argiro 135, Bari</dd></div>
+      <div><dt>Cost</dt><dd>30 € per lesson, no obligations. Annual package at 180 € (years 1-3)</dd></div>
+      <div><dt>Online</dt><dd>Every lesson is recorded and stays available</dd></div>
+      <div><dt>Starting</dt><dd>At any time, catching up with the recordings</dd></div>
+    </dl>
+  </div>
+
+  <h3 class="faq-gruppo sr">Practical information</h3>
+  <div class="faq-list sr">
+
+    <details class="faq-item">
+      <summary class="faq-question">How much does it cost?</summary>
+      <div class="faq-answer">
+        <p>The contribution is <strong>30 € per lesson</strong>, payable each time. For those who prefer, an annual package is available (years 1-3, 7 lessons) at 180 € instead of 210 €, with one lesson offered by the School. There are no ties or obligations: we embody the principle of free choice. You can start, pause and resume whenever you wish.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">Where do the in-person lessons take place?</summary>
+      <div class="faq-answer">
+        <p>At <strong>MeetingRoom</strong> — <strong>Via Argiro 135, 3rd floor, Bari</strong>. The venue is a few minutes from the central station and a short walk from the Gestipark Battisti (Ateneo) car park. On Sundays the blue-line parking spaces in the centre are <strong>free</strong>: arriving in good time, you can park right next to the venue. We ask for the utmost punctuality: we begin at 9:00. Arriving a few minutes early leaves time to sign the attendance sheet and pay the fee.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">Can I follow the lessons online?</summary>
+      <div class="faq-answer">
+        <p>Yes. Every lesson is recorded and made available through a reserved YouTube link, active permanently. You can rewatch the lesson as many times as you like, at your own pace. The in-person experience is naturally richer, but the online option ensures anyone can follow the path regardless of their location.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">Can I start even if lessons have already begun?</summary>
+      <div class="faq-answer">
+        <p>Yes. Thanks to the recordings, you can catch up on previous lessons and join the path at any time. There are no barriers or time-bound prerequisites.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">How long does the path last and how is it structured?</summary>
+      <div class="faq-answer">
+        <p>The School spans <strong>7 years</strong>: 3 foundational and 4 advanced. Even just the first 3 years constitute a complete path. Each year includes <strong>7 lessons</strong> at the foundational levels and 3 at the advanced levels, at intervals of about six weeks. Lessons take place on <strong>Sunday mornings from 9:00 to 13:30</strong>.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">What should I bring to the lessons?</summary>
+      <div class="faq-answer">
+        <p>A pen and a dedicated notebook, which will accompany you throughout the entire cycle of the School: we call it the <strong>“Know Thyself Notebook”</strong>. In it you record insights, self-observations and exercises: over time it becomes the written mirror of your journey. Re-reading it over the years is one of the most powerful tools of the path.</p>
+      </div>
+    </details>
+
+  </div>
+
+  <h3 class="faq-gruppo sr">About the School</h3>
   <div class="faq-list sr">
 
     <details class="faq-item">
@@ -1043,48 +1111,6 @@
       <summary class="faq-question">Is prior experience or spiritual training required?</summary>
       <div class="faq-answer">
         <p>No. The path starts from the foundations and accompanies each person from wherever they are. The only requirement is what in alchemy is called the <em>thirst of the soul</em>: that inner drive to know oneself more deeply which, once it arises, does not rest until it finds an answer. No prior reading or specific skills are needed.</p>
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-question">How long does the path last and how is it structured?</summary>
-      <div class="faq-answer">
-        <p>The School spans <strong>7 years</strong>: 3 foundational and 4 advanced. Even just the first 3 years constitute a complete path. Each year includes <strong>7 lessons</strong> at the foundational levels and 3 at the advanced levels, at intervals of about six weeks. Lessons take place on <strong>Sunday mornings from 9:00 to 13:30</strong>.</p>
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-question">Where do the in-person lessons take place?</summary>
-      <div class="faq-answer">
-        <p>At <strong>MeetingRoom</strong> — <strong>Via Argiro 135, 3rd floor, Bari</strong>. The venue is a few minutes from the central station and a short walk from the Gestipark Battisti (Ateneo) car park. On Sundays the blue-line parking spaces in the centre are <strong>free</strong>: arriving in good time, you can park right next to the venue. We ask for the utmost punctuality: we begin at 9:00. Arriving a few minutes early leaves time to sign the attendance sheet and pay the fee.</p>
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-question">What should I bring to the lessons?</summary>
-      <div class="faq-answer">
-        <p>A pen and a dedicated notebook, which will accompany you throughout the entire cycle of the School: we call it the <strong>“Know Thyself Notebook”</strong>. In it you record insights, self-observations and exercises: over time it becomes the written mirror of your journey. Re-reading it over the years is one of the most powerful tools of the path.</p>
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-question">How much does it cost?</summary>
-      <div class="faq-answer">
-        <p>The contribution is <strong>30 € per lesson</strong>, payable each time. For those who prefer, an annual package is available (years 1-3, 7 lessons) at 180 € instead of 210 €, with one lesson offered by the School. There are no ties or obligations: we embody the principle of free choice. You can start, pause and resume whenever you wish.</p>
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-question">Can I follow the lessons online?</summary>
-      <div class="faq-answer">
-        <p>Yes. Every lesson is recorded and made available through a reserved YouTube link, active permanently. You can rewatch the lesson as many times as you like, at your own pace. The in-person experience is naturally richer, but the online option ensures anyone can follow the path regardless of their location.</p>
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary class="faq-question">Can I start even if lessons have already begun?</summary>
-      <div class="faq-answer">
-        <p>Yes. Thanks to the recordings, you can catch up on previous lessons and join the path at any time. There are no barriers or time-bound prerequisites.</p>
       </div>
     </details>
 
@@ -1114,22 +1140,18 @@
   <p class="section-sub">If you feel something in these pages resonates with you, write to us. We will be happy to reply.</p>
   <div class="contact-wrapper sr">
     <div class="contact-info">
-      <div class="contact-detail">
-        <div class="contact-detail-icon" aria-hidden="true"><svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/></svg></div>
-        <div><strong>WhatsApp Nicolaos</strong><a class="contact-link" href="https://wa.me/393349991888" target="_blank" rel="noopener">334 999 1888</a></div>
+      <div class="contact-persona">
+        <h3>Nicolaos Anifantis</h3>
+        <a class="contact-wa" href="https://wa.me/393349991888" target="_blank" rel="noopener"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5a8.5 8.5 0 0 0-7.3 12.8L3.5 20.5l4.4-1.2A8.5 8.5 0 1 0 12 3.5z"/></svg> WhatsApp · 334 999 1888</a>
       </div>
-      <div class="contact-detail">
-        <div class="contact-detail-icon" aria-hidden="true"><svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/></svg></div>
-        <div><strong>WhatsApp Anna Carla</strong><a class="contact-link" href="https://wa.me/393929116441" target="_blank" rel="noopener">392 911 6441</a></div>
+      <div class="contact-persona">
+        <h3>Anna Carla Digregorio</h3>
+        <a class="contact-wa" href="https://wa.me/393929116441" target="_blank" rel="noopener"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5a8.5 8.5 0 0 0-7.3 12.8L3.5 20.5l4.4-1.2A8.5 8.5 0 1 0 12 3.5z"/></svg> WhatsApp · 392 911 6441</a>
       </div>
-      <div class="contact-detail">
-        <div class="contact-detail-icon" aria-hidden="true"><svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
-        <div><strong>Email</strong><span id="email-display"></span></div>
-      </div>
-      <div class="contact-detail">
-        <div class="contact-detail-icon" aria-hidden="true"><svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.12 8.44 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99C18.34 21.12 22 16.99 22 12z"/></svg></div>
-        <div><strong>Facebook</strong><a href="https://www.facebook.com/nicolaosanifantis" target="_blank" rel="noopener" class="contact-link">ContattaTi</a></div>
-      </div>
+      <dl class="contact-altri">
+        <div><dt>Email</dt><dd id="email-display"></dd></div>
+        <div><dt>Facebook</dt><dd><a href="https://www.facebook.com/nicolaosanifantis" target="_blank" rel="noopener">ContattaTi</a></dd></div>
+      </dl>
     </div>
     <form id="contact-form" class="contact-form" action="https://formspree.io/f/xwvavebr" method="POST" novalidate>
       <div class="form-row">
@@ -1348,8 +1370,8 @@
   next();
 })();
 </script>
-<script src="../data/eventi.js?v=27b0078a" defer></script>
-<script src="../app.js?v=bb009a0f" defer></script>
+<script src="../data/eventi.js?v=89a72091" defer></script>
+<script src="../app.js?v=a311fe34" defer></script>
 <script>
 /* GAME SEALS — show ✦ on completed game cards */
 (function(){
