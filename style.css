@@ -165,7 +165,7 @@
 
 /* ── FONT FEATURE SHORTCUTS ── */
 /* Applica font-features display a tutti gli elementi con font-display */
-.section-title, .section-sub, .section-blockquote, .hero h1, .hero-motto, .hero-motto-sub, .hero-lead, .hero-slogan, .nav-logo, .card-title, .pillar-title, .teacher-name, .quote-block p, .quote-oracle-text, .lesson-panel-title, .lesson-quote, .video-facade-title, .video-facade-sub, .video-facade-symbol, .contact-info h3, .footer-logo, .serif-footer, .serif-heading-sm, .chiave-num, .event-day, .event-sub, .pm-title {
+.section-title, .section-sub, .section-blockquote, .chiave-quote, .hero h1, .hero-motto, .hero-motto-sub, .hero-lead, .hero-slogan, .nav-logo, .card-title, .pillar-title, .teacher-name, .quote-block p, .quote-oracle-text, .lesson-panel-title, .lesson-quote, .video-facade-title, .video-facade-sub, .video-facade-symbol, .contact-info h3, .footer-logo, .serif-footer, .serif-heading-sm, .chiave-num, .event-day, .event-sub, .pm-title {
   font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "onum" 1, "calt" 1;
   font-variant-numeric: oldstyle-nums;
 }
@@ -1031,41 +1031,32 @@ section#insegnamenti, section#seminario, section#faq {
 [data-theme="light"] .book-content-card { background: rgba(255,253,247,0.92); box-shadow: 0 2px 14px rgba(80,60,30,0.07); }
 
 /* TEACHERS — stile storytelling */
-.conductor-story {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 2.5rem;
-  align-items: start;
-  margin-bottom: 2.5rem;
-}
-.conductor-story.reverse {
-  grid-template-columns: 1fr 200px;
-}
-.conductor-story.reverse .conductor-photo-wrap { order: 2; }
-.conductor-story.reverse .conductor-text { order: 1; }
-.conductor-photo-wrap { position: sticky; top: 6rem; }
+.conductor-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; margin-bottom: 2.5rem; }
+@media (min-width: 760px) { .conductor-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* con una scheda aperta l'altra resta alta quanto il suo contenuto, senza un vuoto sopra il pulsante */
+.conductor-grid:has(.conductor-tags-wrap[open]) { align-items: start; }
+.conductor-card { display: flex; flex-direction: column; padding: 1.5rem; border: 0.5px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); }
+.conductor-head { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1.1rem; }
 .conductor-photo-lg {
-  width: 200px; height: 200px;
-  border-radius: var(--radius-lg); object-fit: cover;
+  width: 132px; height: 132px; flex: none;
+  border-radius: var(--radius-md); object-fit: cover;
   border: 1px solid var(--border-hover);
-  box-shadow: var(--card-shadow);
 }
 .conductor-name {
   font-family: var(--font-display);
-  font-size: clamp(24px, 4vw, 32px);
+  font-size: 27px;
   font-weight: 500; color: var(--text);
-  margin-bottom: 0.2rem; line-height: 1.2;
+  margin-bottom: 0.35rem; line-height: 1.15;
 }
 .conductor-role {
   font-size: 12px; color: var(--gold);
   letter-spacing: 0.12em; text-transform: uppercase;
-  margin-bottom: 1rem;
 }
 .conductor-bio {
-  font-size: 16px; color: var(--text);
+  font-size: 16px; color: var(--text-reading);
   line-height: 1.72; margin-bottom: 1.25rem;
 }
-.conductor-tags-wrap { margin-top: 0.5rem; }
+.conductor-tags-wrap { margin-top: auto; }
 .conductor-tags-btn {
   display: inline-flex; align-items: center; gap: 0.4rem;
   font-family: var(--font-sans); font-size: 13px; font-weight: 500;
@@ -1123,16 +1114,10 @@ section#insegnamenti, section#seminario, section#faq {
   flex-shrink: 0;
 }
 @media (max-width: 640px) {
-  .conductor-story,
-  .conductor-story.reverse {
-    grid-template-columns: 1fr; gap: 1.25rem; text-align: center;
-  }
-  .conductor-story.reverse .conductor-photo-wrap,
-  .conductor-story.reverse .conductor-text { order: unset; }
-  .conductor-photo-wrap { position: static; display: flex; justify-content: center; }
-  .conductor-photo-lg { width: 160px; height: 160px; }
-  .conductor-bio { text-align: left; }   /* sei righe centrate si leggono male */
-  .conductor-tags { justify-content: center; }
+  .conductor-card { padding: 1.15rem; }
+  .conductor-head { gap: 1rem; }
+  .conductor-photo-lg { width: 96px; height: 96px; }
+  .conductor-name { font-size: 24px; }
   .collab-card { flex-direction: column; text-align: center; }
 }
 [data-theme="light"] .shared-story { background: rgba(255,253,247,0.92); box-shadow: 0 2px 14px rgba(80,60,30,0.07); }
@@ -1613,25 +1598,42 @@ input[type="radio"]:focus-visible {
 }
 
 /* Section blockquote (chi siamo) */
+/* Citazione di sezione: al centro, fra due filetti; quello sopra porta il rombo
+   delle divisioni fra sezioni (.epigraphic-rule) */
 .section-blockquote {
-  margin: 2.8rem 0 2.6rem;
-  padding: 1.5rem 0 0 0;
+  max-width: 680px;
+  margin: 3.2rem auto;
+  padding: 2.4rem 0 2rem;
   font-family: var(--font-display);
-  font-size: 22px;
+  font-size: clamp(25px, 3.6vw, 33px);
   font-style: italic;
-  line-height: 1.62;
+  line-height: 1.35;
+  text-align: center;
+  text-wrap: balance;
   color: var(--gold-light);
   position: relative;
+  background:
+    linear-gradient(90deg, var(--border-hover) calc(50% - 14px), transparent calc(50% - 14px), transparent calc(50% + 14px), var(--border-hover) calc(50% + 14px)) center top / 260px 1px no-repeat,
+    linear-gradient(var(--border-hover), var(--border-hover)) center bottom / 260px 1px no-repeat;
 }
 .section-blockquote::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 58px;
-  height: 1.5px;
-  background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
-  opacity: 0.7;
+  top: -3px; left: 50%;
+  width: 7px; height: 7px;
+  background: var(--gold);
+  transform: translateX(-50%) rotate(45deg);
+}
+.section-blockquote cite {
+  display: block; margin-top: 1.1rem;
+  font-family: var(--font-sans); font-size: 12px; font-style: normal; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted);
+}
+/* Citazione breve dentro una scheda delle Chiavi */
+.chiave-quote {
+  margin: 1rem 0 0;
+  font-family: var(--font-display); font-size: 17px; font-style: italic;
+  line-height: 1.62; color: var(--gold-light);
 }
 
 /* Footer elements */
