@@ -2541,3 +2541,17 @@ html[data-theme="light"]::before {
      dell'Enneagramma» a 375px usciva di 25px) */
   .nav-links .nav-drop-menu a { padding: 0.35rem 0; font-size: 16px; line-height: 1.35; white-space: normal; }
 }
+
+/* ── LETTURA SU SCHERMI LARGHI ── */
+/* Da 900px in su la colonna di testo è larga e le righe arrivavano a 80-100
+   caratteri, troppe per leggere bene (e ancora di più per chi è dislessico:
+   l'indicazione è 60-70). La colonna a 900px è una scelta di Fabio e non si
+   stringe: si ingrandisce il testo dei paragrafi lunghi, che porta la media
+   a 72 caratteri per riga. I titoli che li precedono salgono di conseguenza.
+   Sul telefono le righe sono già corte (35-43 caratteri) e non cambia nulla.
+   Sta in fondo al file perché deve venire dopo le regole base. */
+@media (min-width: 900px) {
+  .section-sub, .body-text, .body-text-sm, .card-body, .faq-answer, .shared-story p, .chiave-extra p, .pm-desc, .pillar-list li { font-size: 19px; line-height: 1.7; }
+  .card-title, .teacher-name { font-size: 22px; }
+  .faq-question { font-size: 20px; }
+}
