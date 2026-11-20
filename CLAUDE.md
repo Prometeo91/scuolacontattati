@@ -100,8 +100,8 @@ Attenzione a non confonderli con scelte già stabilite del sito: il piccolo test
 2. **Se la regola aveva un `[data-theme="light"]` a supporto di ciò che si sta rimuovendo, quell'override va rimosso insieme.** Un `background` o un `border` di tema chiaro sopravvissuto ridipinge quello che si è appena tolto, e senza il padding che lo reggeva il risultato è peggiore di prima.
 3. **Verificare ogni componente toccato in entrambi i temi.** Controllarne uno solo non basta: due componenti con lo stesso trattamento possono divergere, perché uno ha override di tema e l'altro no. Il tema non dipende da `colorScheme` di Playwright: il chiaro è il predefinito, lo scuro si ottiene con `localStorage.setItem('sctheme','dark')` prima del caricamento oppure con `document.documentElement.removeAttribute('data-theme')`.
 4. **`[data-theme="light"]` va scritto sull'elemento giusto.** `data-theme` sta su `html`: per colpire `html` stesso o i suoi pseudo-elementi il selettore è `html[data-theme="light"]::before`, non `[data-theme="light"] html::before`, che non si applica mai.
-6. **Dopo aver cancellato un blocco, guardare `git diff --stat`.** Nel novembre 2026 una cancellazione «da questa regola a quella» ha portato via 149 righe di override del tema chiaro: i controlli automatici non se ne accorgono, si è visto solo da un pulsante diventato scuro in uno screenshot.
 5. **Le regole rimaste senza usi vanno cancellate**, non lasciate lì: `grep -rl 'selettore' --include='*.html' --include='*.css' --include='*.js' .` per confermare che non serva più a nessuno, giochi compresi.
+6. **Dopo aver cancellato un blocco, guardare `git diff --stat`.** Nel novembre 2026 una cancellazione «da questa regola a quella» ha portato via 149 righe di override del tema chiaro: i controlli automatici non se ne accorgono, si è visto solo da un pulsante diventato scuro in uno screenshot.
 
 ## Screenshot / verifica visiva
 
