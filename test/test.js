@@ -810,7 +810,7 @@
   var panels = [].slice.call(document.querySelectorAll('.test-panel'));
   panels.forEach(setupTest);
 
-  /* Tema chiaro/scuro: stessa chiave (sctheme) e stessa logica del sito */
+  /* Tema chiaro/scuro: stessa chiave (sctema2) e stessa logica del sito */
   var btn = document.getElementById('themeToggle');
   if (btn) {
     var upd = function () {
@@ -823,7 +823,7 @@
       var m = document.getElementById('metaThemeColor');
       if (light) { document.documentElement.removeAttribute('data-theme'); if (m) m.content = '#0d0b1a'; }
       else { document.documentElement.setAttribute('data-theme', 'light'); if (m) m.content = '#f5f0e8'; }
-      try { localStorage.setItem('sctheme', light ? 'dark' : 'light'); } catch (e) {}
+      try { localStorage.setItem('sctema2', light ? 'dark' : 'light'); } catch (e) {}
       upd();
     });
   }

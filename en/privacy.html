@@ -18,7 +18,7 @@
   <!-- Anti-flash: apply saved theme before render -->
   <script>
     (function(){
-      var t=localStorage.getItem('sctheme');
+      var t=localStorage.getItem('sctema2');
       if(t!=='dark'){
         document.documentElement.setAttribute('data-theme','light');
         var m=document.getElementById('metaThemeColor');
@@ -513,7 +513,7 @@
   <h3>Technical cookies (always active)</h3>
   <p>These are the cookies strictly necessary for the site to function. We save two preferences in your browser via <code>localStorage</code>:</p>
   <ul>
-    <li><strong><code>sctheme</code></strong> — your theme choice (light/dark), so we don't ask you on every visit.</li>
+    <li><strong><code>sctema2</code></strong> — your theme choice (light/dark), so we don't ask you on every visit.</li>
     <li><strong><code>sc-cookie</code></strong> — your cookie banner choice (accepted / declined), so we don't show it again.</li>
   </ul>
   <p>For these cookies <strong>your consent is not required</strong>, as they are essential to provide you with the requested service (Art. 122 Italian Privacy Code).</p>
@@ -611,11 +611,11 @@
       isDark=!isDark;
       if(isDark){
         document.documentElement.removeAttribute('data-theme');
-        localStorage.setItem('sctheme','dark');
+        localStorage.setItem('sctema2','dark');
         document.getElementById('metaThemeColor').content='#0d0b1a';
       } else {
         document.documentElement.setAttribute('data-theme','light');
-        localStorage.setItem('sctheme','light');
+        localStorage.setItem('sctema2','light');
         document.getElementById('metaThemeColor').content='#f5f0e8';
       }
       upd();

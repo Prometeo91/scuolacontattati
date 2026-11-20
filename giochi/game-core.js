@@ -10,7 +10,7 @@
    ============================================================ */
 (function(){
 "use strict";
-const LS_LANG="sc-lang", LS_THEME="sctheme";
+const LS_LANG="sc-lang", LS_THEME="sctema2";
 
 /* Service worker: i giochi visitati restano disponibili offline */
 if('serviceWorker' in navigator){
