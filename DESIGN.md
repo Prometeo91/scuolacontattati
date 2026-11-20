@@ -254,6 +254,14 @@ sottoinsieme, e hanno un fallback con metriche corrette (`size-adjust`,
   sezione (`.section-sub`) vanno a 17px con lh 1.75; la misura è la colonna
   intera (`--measure: var(--col)`, scelta di Fabio: vedi il commento in
   `style.css`).
+- **Misure minime** (novembre 2026): testo da leggere ad almeno 16px, note
+  e didascalie ad almeno 14px, etichette di competenza a 13px. Sotto restano
+  solo contatori e segni grafici. I testi lunghi sono in Inter, non in
+  Garamond: sono le condizioni che aiutano anche chi è dislessico.
+- **Da 900px di larghezza** i paragrafi lunghi (`.body-text`, `.card-body`,
+  `.faq-answer`, `.section-sub`…) sono a 19px con interlinea 1,7, i titoli
+  delle card a 22px e le domande delle FAQ a 20px: con la colonna a 900px
+  le righe erano di 80-100 caratteri, ora la media è 72-75.
 - **Label** (Inter 500-600, 14px, minuscolo, senza spaziatura):
   `.section-eyebrow`, i gruppi della mappa del percorso (`.pm-group`), le
   etichette dei campi, i mesi degli eventi. **Niente maiuscolo spaziato**:

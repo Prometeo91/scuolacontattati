@@ -38,10 +38,13 @@
 .arg-rif:hover .arg-dove, .arg-rif:focus-visible .arg-dove { text-decoration: underline; text-underline-offset: 3px; }
 .arg-desc .arg-voci li { padding: 0.5rem 0.25rem; }
 
-.arg-nota { margin-top: 2.5rem; font-size: 15px; color: var(--text-muted); line-height: 1.65; }
+.arg-nota { margin-top: 2.5rem; font-size: 16px; color: var(--text-muted); line-height: 1.65; }
 
 @media (min-width: 760px) {
   .arg-voci li { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); column-gap: 1.5rem; align-items: baseline; }
   .arg-rifs { margin-top: 0; }
   .arg-desc .arg-voci li { display: block; }
 }
+/* su schermi larghi la nota in fondo segue il testo grande del sito
+   (vedi «Lettura su schermi larghi» in style.css) */
+@media (min-width: 900px) { .arg-nota { font-size: 19px; line-height: 1.7; } }
