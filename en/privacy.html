@@ -183,7 +183,7 @@
     .page-eyebrow {
       display: flex; align-items: center; gap: 0.75rem;
       margin-bottom: 0.75rem;
-      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      font-size: 14px;  
       color: var(--gold); font-weight: 500;
     }
     .page-eyebrow::after {
@@ -202,7 +202,7 @@
       margin-bottom: 2.5rem; letter-spacing: 0.01em;
     }
     .page-updated {
-      font-family: var(--font-sans); font-size: 13px;
+      font-family: var(--font-sans); font-size: 14px;
       color: var(--text-muted); margin-bottom: 2.5rem;
       letter-spacing: 0.05em;
     }
@@ -281,15 +281,14 @@
       vertical-align: top;
     }
     .data-table th {
-      font-family: var(--font-sans); font-size: 11px;
-      font-weight: 600; text-transform: uppercase;
-      letter-spacing: 0.12em; color: var(--gold);
+      font-family: var(--font-sans); font-size: 14px;
+      font-weight: 600;  color: var(--gold);
       border-bottom: 1px solid var(--border-hover);
     }
     .data-table td { color: var(--text-muted); }
     .data-table td:first-child { color: var(--text); font-weight: 500; }
     @media (max-width: 600px) {
-      .data-table { font-size: 13px; }
+      .data-table { font-size: 14px; }
       .data-table th, .data-table td { padding: 0.6rem 0.5rem; }
     }
 
@@ -318,7 +317,7 @@
     }
     [data-theme="light"] .toc { background: rgba(201,151,58,0.06); }
     .toc-title {
-      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      font-size: 14px;  
       color: var(--gold); margin-bottom: 0.75rem; font-weight: 500;
     }
     .toc ol {
@@ -348,8 +347,7 @@
       background: var(--gold);
       border: none; border-radius: 999px;
       color: var(--on-gold); font-family: var(--font-sans);
-      font-size: 13px; font-weight: 500;
-      letter-spacing: 0.08em; text-transform: uppercase;
+      font-size: 14px; font-weight: 500;  
       cursor: pointer; text-decoration: none;
       transition: opacity 0.2s, transform 0.2s;
     }
@@ -371,7 +369,7 @@
       font-family: var(--font-display); font-size: 22px; font-weight: 600;
       color: var(--gold-light); margin-bottom: 0.5rem; letter-spacing: 0.02em;
     }
-    footer p { font-size: 13px; line-height: 1.7; opacity: 0.85; }
+    footer p { font-size: 14px; line-height: 1.7; opacity: 0.85; }
     footer a { color: var(--gold-light); }
 
     /* SKIP LINK */
@@ -397,6 +395,9 @@
   .lang-pill a:not(.lang-active){color:var(--text-muted)}
   .lang-pill a:not(.active):hover{color:var(--gold-light)}
   .lang-pill .lang-dot{color:var(--border);font-size:8px;padding:0 1px;user-select:none}
+    /* su schermi larghi le righe arrivavano a 82-90 caratteri: testo più grande,
+     come nel resto del sito */
+    @media (min-width: 900px) { main p, main li { font-size: 19px; line-height: 1.7; } }
   </style>
 </head>
 <body>

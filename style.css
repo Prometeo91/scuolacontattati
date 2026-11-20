@@ -935,7 +935,7 @@ section#insegnamenti, section#seminario, section#faq {
 }
 .book-quote-editorial cite { display: block; font-size: 14px; font-style: normal; color: var(--gold); margin-top: 0.4rem; }
 .book-where-editorial { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.25rem; }
-.book-where-pill { font-size: 13px; padding: 6px 14px; border-radius: var(--radius-pill); background: rgba(var(--gold-rgb),0.1); border: 0.5px solid rgba(var(--gold-rgb),0.3); color: var(--gold-light); display: inline-flex; align-items: center; gap: 6px; }
+.book-where-pill { font-size: 14px; padding: 6px 14px; border-radius: var(--radius-pill); background: rgba(var(--gold-rgb),0.1); border: 0.5px solid rgba(var(--gold-rgb),0.3); color: var(--gold-light); display: inline-flex; align-items: center; gap: 6px; }
 .book-contents-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
 .book-content-card {
   position: relative; background: rgba(255,255,255,0.018); border: 0.5px solid var(--border);
@@ -1591,10 +1591,10 @@ input[type="radio"]:focus-visible {
 /* Sono <strong>, quindi senza queste due righe prendono Inter 700 dal
    browser: DESIGN.md vuole Garamond per il ruolo Title e nessun peso oltre
    il 600. Il tag resta <strong>, cambia solo come si vede. */
-.gioco-title{color:var(--gold-light);font-size:17px;font-family:var(--font-display);font-weight:600}
-.gioco-title-lg{color:var(--gold-light);font-size:17px;font-family:var(--font-display);font-weight:600}
-.gioco-sub{color:var(--text-muted);font-size: 14px;line-height:1.45}
-.gioco-sub-lg{color:var(--text-muted);font-size:14px;line-height:1.45}
+.gioco-title{color:var(--gold-light);font-size: 19px;font-family:var(--font-display);font-weight:600}
+.gioco-title-lg{color:var(--gold-light);font-size: 19px;font-family:var(--font-display);font-weight:600}
+.gioco-sub{color:var(--text-muted);font-size: 16px;line-height:1.45}
+.gioco-sub-lg{color:var(--text-muted);font-size: 16px;line-height:1.45}
 
 /* BIO TAGS */
 .bio-tag { font-size: 13px; padding:3px 10px; border-radius: var(--radius-pill); letter-spacing:0.03em; }
