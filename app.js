@@ -246,15 +246,27 @@ document.addEventListener('DOMContentLoaded', function() {
   var presList=document.getElementById('presList');
   if(presList && window.SC_EVENTI){
     var VISIBILI=4;
-    SC_EVENTI.forEach(function(ev,i){
+    /* Un evento con la data di oggi o successiva va in «In programma», in
+       ordine di data; se non ce ne sono resta la riga scritta nell'HTML. */
+    var oggi0=new Date(); oggi0.setHours(0,0,0,0);
+    var futuro=function(ev){return new Date(ev.year,ev.month-1,ev.day)>=oggi0;};
+    var prossimiList=document.getElementById('prossimiList');
+    var inArrivo=prossimiList?SC_EVENTI.filter(futuro).reverse():[];
+    var passati=SC_EVENTI.filter(function(ev){return inArrivo.indexOf(ev)<0;});
+    if(inArrivo.length){
+      prossimiList.hidden=false;
+      var pv=document.getElementById('prossimiVuoto'); if(pv)pv.hidden=true;
+    }
+    inArrivo.map(function(ev){return [ev,prossimiList,-1];}).concat(passati.map(function(ev,i){return [ev,presList,i];})).forEach(function(x){
+      var ev=x[0], i=x[2];
       var txt=SC_EN?ev.en:ev.it;
       var card=document.createElement('div');
       card.className='evento-card'+(i>=VISIBILI?' pres-hidden':'');
       card.innerHTML='<div class="evento-data"><p class="evento-giorno">'+ev.day+'</p><p class="evento-mese">'+mesi[ev.month-1]+' '+ev.year+'</p></div><div class="evento-vline"></div><div class="flex-1"><p class="evento-titolo">'+txt.titolo+'</p><p class="evento-dettaglio">'+txt.dettaglio+'</p>'+(ev.libero?'<p class="evento-badge"><span class="badge badge-gold">'+SC_T.ingressoLibero+'</span></p>':'')+'</div>';
-      presList.appendChild(card);
+      x[1].appendChild(card);
     });
     var presTog=document.getElementById('presToggle');
-    if(presTog&&SC_EVENTI.length>VISIBILI){
+    if(presTog&&passati.length>VISIBILI){
       presTog.hidden=false;
       presTog.addEventListener('click',function(){
         var aperto=presList.classList.toggle('expanded');
@@ -497,6 +509,28 @@ document.addEventListener('DOMContentLoaded', function() {
         /* l'oggetto del messaggio dice quale lezione: «Partecipare alla lezione di domenica 8 novembre (2° Anno)» */
         var hpp=document.getElementById('hp-partecipa');
         if(hpp)hpp.setAttribute('data-oggetto',(SC_EN?'Joining the lesson on ':'Partecipare alla lezione di ')+giorno(pross.d,pross.l)+' ('+(SC_EN?'Year '+pross.anno:pross.anno+'° Anno')+')');
+        /* «Aggiungi al calendario»: un file .ics con la lezione. Orario e
+           sede sono quelli scritti sul pulsante (ora di Roma, portata in UTC:
+           l'ora legale va dall'ultima domenica di marzo all'ultima di ottobre). */
+        var hc=document.getElementById('hp-calendario');
+        if(hc){
+          var cy=pross.l.year, cm=pross.l.month-1, cg=pross.l.day;
+          var ultimaDom=function(m){var u=new Date(Date.UTC(cy,m+1,0));return u.getUTCDate()-u.getUTCDay();};
+          var legale=(cm>2&&cm<9)||(cm===2&&cg>=ultimaDom(2))||(cm===9&&cg<ultimaDom(9));
+          var utc=function(hhmm){var p=hhmm.split(':');return new Date(Date.UTC(cy,cm,cg,p[0]-(legale?2:1),+p[1])).toISOString().replace(/[-:]|\.\d{3}/g,'');};
+          var esc=function(t){return String(t).replace(/\\/g,'\\\\').replace(/([,;])/g,'\\$1').replace(/\n/g,'\\n');};
+          var ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Scuola ContattaTi//Lezioni//IT','BEGIN:VEVENT',
+            'UID:lezione-'+cy+'-'+(cm+1)+'-'+cg+'-anno'+pross.anno+'@scuolacontattati.com',
+            'DTSTAMP:'+new Date().toISOString().replace(/[-:]|\.\d{3}/g,''),
+            'DTSTART:'+utc(hc.getAttribute('data-inizio')),'DTEND:'+utc(hc.getAttribute('data-fine')),
+            'SUMMARY:'+esc('Scuola ContattaTi · '+ht.textContent),
+            'LOCATION:'+esc(hc.getAttribute('data-luogo')),
+            'URL:https://scuolacontattati.com/'+(SC_EN?'en/':'')+'#anno-'+pross.anno,
+            'END:VEVENT','END:VCALENDAR'].join('\r\n');
+          hc.href='data:text/calendar;charset=utf-8,'+encodeURIComponent(ics);
+          hc.setAttribute('download',SC_EN?'scuola-contattati-lesson.ics':'lezione-scuola-contattati.ics');
+          hc.parentNode.hidden=false;
+        }
         prossPerAnno.filter(function(x){return x!==pross;}).sort(function(a,b){return a.d-b.d;}).forEach(function(x){
           var p=altroAnno(x); p.className='hp-altri';
           hp.appendChild(p);

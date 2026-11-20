@@ -1,5 +1,8 @@
 /* ═══════════════════════════════════════════════════
-   Presentazioni & eventi passati — Scuola ContattaTi
+   Presentazioni & eventi — Scuola ContattaTi
+   Un evento con data futura compare da solo sotto
+   «In programma» in #galleria; passata la data scende
+   fra gli «Incontri passati».
    FILE UNICO per sito italiano e inglese.
    Per aggiungere un evento: aggiungi UNA voce in cima
    alla lista con entrambe le lingue (it + en).
