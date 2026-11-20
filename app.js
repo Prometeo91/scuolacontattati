@@ -200,11 +200,11 @@ document.addEventListener('DOMContentLoaded', function() {
       isDark=!isDark;
       if(isDark){
         document.documentElement.removeAttribute('data-theme');
-        lsSet('sctheme','dark');
+        lsSet('sctema2','dark');
         document.getElementById('metaThemeColor').content='#0d0b1a';
       } else {
         document.documentElement.setAttribute('data-theme','light');
-        lsSet('sctheme','light');
+        lsSet('sctema2','light');
         document.getElementById('metaThemeColor').content='#f5f0e8';
       }
       updThemeBtn();
