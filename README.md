@@ -19,7 +19,7 @@ Il sito presenta la Scuola, il percorso settennale di studi con il calendario de
 index.html          Pagina principale (it) — tutte le sezioni del sito
 en/                 Versione inglese (index, privacy)
 style.css           Tutti gli stili — design system a variabili CSS
-app.js              Interazioni: tema, countdown, scroll-reveal, lightbox, ecc.
+app.js              Interazioni: tema, countdown, lightbox, ecc.
 lezioni.js          Dati delle lezioni per anno di corso (L1…L7)
 data/               citazioni.js, eventi.js
 privacy.html        Informativa privacy (it; l'inglese è in en/)

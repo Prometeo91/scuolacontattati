@@ -540,13 +540,11 @@ I timing stanno in variabili, che sono la voce cinetica del sito:
 
 Le durate non si scrivono a mano: si usa una di queste variabili.
 
-L'animazione d'ingresso è lo scroll-reveal: `.sr` parte da `opacity: 0` e
-`translateY(12px)` e arriva a zero in 500ms con `--ease-out`. Si applica ai
-blocchi di sezione, non ai singoli elementi. Tendina «Test», lightbox e
-risposte delle FAQ entrano in 180-200ms con `@starting-style`.
-
-L'unico movimento continuo è lo sfondo del tema scuro (`sfondo-respira`, 35
-secondi, quasi impercettibile): è voluto.
+Si muove solo ciò che risponde a un gesto: tendina «Test», lightbox e
+risposte delle FAQ entrano in 180-200ms con `@starting-style`, i pulsanti
+reagiscono alla pressione. Non c'è movimento che parte da solo: la
+dissolvenza d'ingresso dei blocchi (`.sr`) e lo sfondo che si muoveva
+(`sfondo-respira`) sono stati tolti nel novembre 2026, e non vanno rimessi.
 
 Con `prefers-reduced-motion: reduce` spariscono spostamenti, ingrandimenti e
 animazioni; restano le dissolvenze di colore e opacità, che aiutano a capire
@@ -578,7 +576,7 @@ le due della galleria.
 
 - Il toggle chiaro/scuro: i due temi sono entrambi di prima classe, nessuno
   dei due è una derivazione dell'altro.
-- La struttura a sezioni con scroll-reveal.
+- La struttura a sezioni.
 - I mockup SVG del gioco (mappa dell'Officina Sotterranea, Fucina dei Ricordi)
   come riferimento cromatico per la sezione giochi e tonale per il resto.
 - L'occhiello `.section-eyebrow` sopra i titoli.
@@ -589,8 +587,9 @@ le due della galleria.
 - Viola e oro kitsch da spiritualità commerciale; simboli esoterici messi a
   decorazione.
 - `#ffffff` come fondo nel tema chiaro.
-- Animazioni vistose. Oltre allo scroll-reveal esistente, solo transizioni
-  brevi secondo la scala `--t-*`.
+- Animazioni che partono da sole (ingressi allo scorrere, sfondi in
+  movimento). Solo transizioni brevi in risposta a un gesto, secondo la scala
+  `--t-*`.
 - Effetti da videogioco sul sito istituzionale: particelle, glow, pulsazioni.
 - Colori scritti a mano dentro una regola, senza la coppia di variabili.
 

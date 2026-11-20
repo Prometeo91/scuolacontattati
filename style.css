@@ -516,7 +516,7 @@ nav {
   .scroll-progress { transition: none; }
 }
 
-/* SFONDO VIVO — gradiente che respira */
+/* Fondo pagina: tre sfumature fisse (fino al novembre 2026 si muovevano) */
 body::before {
   content: '';
   position: fixed;
@@ -527,14 +527,7 @@ body::before {
     radial-gradient(ellipse 70% 50% at 80% 70%, rgba(15,25,45,0.6) 0%, transparent 70%),
     radial-gradient(ellipse 90% 80% at 50% 50%, rgba(20,12,35,0.4) 0%, transparent 80%);
   background-color: var(--bg);
-  animation: sfondo-respira 35s ease-in-out infinite;
 }
-@keyframes sfondo-respira {
-  0% { background-position: 0% 0%, 100% 100%, 50% 50%; }
-  25% { background-position: 30% 20%, 70% 80%, 40% 60%; }
-  50% { background-position: 60% 40%, 40% 60%, 60% 40%; }
-  75% { background-position: 20% 60%, 80% 30%, 30% 70%; }
-  100% { background-position: 0% 0%, 100% 100%, 50% 50%; }
 }
 [data-theme="light"] body::before {
   background: 
@@ -1874,17 +1867,6 @@ input[type="radio"]:focus-visible {
   .wa-sticky, .share-site-btn { transition:opacity var(--t-base), visibility 0s, transform var(--t-move), box-shadow var(--t-base), background var(--t-base), border-color var(--t-base); }
   .hero-cta-in-vista .wa-sticky, .hero-cta-in-vista .share-site-btn { opacity:0; visibility:hidden; pointer-events:none; transition:opacity 0.25s ease, visibility 0s linear 0.25s; }
 }
-/* SCROLL REVEAL */
-.sr { opacity:0; transform:translateY(12px); transition:opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out); }
-.sr.visible { opacity:1; transform:translateY(0); }
-/* Questo override stava dentro il blocco reduced-motion settanta righe più
-   in su, dove la ridichiarazione qui sotto lo batteva per posizione: chi
-   chiede meno movimento restava davanti a blocchi invisibili se
-   l'IntersectionObserver non partiva. Va dopo .sr, non prima. */
-@media (prefers-reduced-motion: reduce) {
-  .sr { opacity:1; transform:none; transition:none; }
-}
-
 /* FOOTER — epigrafe finale */
 footer {
   background: var(--footer-bg);

@@ -699,9 +699,6 @@ document.addEventListener('DOMContentLoaded', function() {
   },true);
   window.addEventListener('hashchange',cvOff);
 
-  /* SCROLL REVEAL — gestito inline in index.html (observer .sr + .sr-stagger)
-     per garantire visibilità del contenuto anche se app.js non carica */
-
   /* CONTACT FORM — AJAX submission with feedback */
   var cForm=document.getElementById('contact-form');
   if(cForm){

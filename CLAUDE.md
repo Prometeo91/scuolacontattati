@@ -23,7 +23,7 @@ Sito della **Scuola ContattaTi** (Scuola di Consapevolezza ed Alchimia, Bari), g
 | `argomenti/index.html` | Indice degli argomenti delle lezioni (novembre 2026, chiesto da un'allieva e da Anna Carla): tutti i temi di `lezioni.js` dalla A alla Z con una ricerca, e accanto a ogni tema anno e lezione con link a `/#anno-N`. Si costruisce da solo in `argomenti/argomenti.js` (stili in `argomenti.css`, usati anche da `en/argomenti/`): un tema aggiunto a una lezione compare qui senza toccare altro. Nell'ordine alfabetico non contano articoli e numeri iniziali, e le leggi sono ordinate per nome; la ricerca ignora accenti e vale a inizio di parola. Una ricerca si condivide con `?q=`, es. `/argomenti/?q=spirito santo`. Cerca solo nei temi scritti nel programma (più titoli e descrizioni): un argomento detto a voce a lezione non c'è, e la nota in fondo alla pagina lo dice. Link dal calendario, dal blocco «Per gli studenti» e dal footer; non dal menu (a 1024px non c'è spazio) |
 | `en/index.html` | Versione inglese speculare |
 | `style.css` | Tutti gli stili, design system a variabili CSS |
-| `app.js` | Tema chiaro/scuro, countdown eventi, scroll-reveal, lightbox, service worker |
+| `app.js` | Tema chiaro/scuro, countdown eventi, lightbox, service worker |
 | `lezioni.js` | **Fonte di verità** dei contenuti delle lezioni: array `L1`…`L7` (un array per anno di corso, con titoli, temi, date, citazioni). Consultarlo prima di scrivere qualsiasi testo sul percorso di studi. **In fondo al file c'è `L_EN` con le traduzioni inglesi**, innestate come campo `.en` su ogni lezione: chi aggiunge o modifica una lezione italiana deve aggiornare anche la voce corrispondente lì, altrimenti la pagina inglese mostra l'italiano. È nello stesso file apposta, perché un secondo file resterebbe indietro in silenzio |
 | `data/eventi.js`, `data/citazioni.js` | Dati eventi e citazioni |
 | `DESIGN.md` | Design system: frontmatter YAML di token estratti dal CSS + otto sezioni canoniche |
@@ -78,7 +78,7 @@ Su un telefono medio con 4G lenta la prima schermata è passata da 4,7s a 2,6s (
 - Tipografia: EB Garamond (display, weight 500–600) + Inter (testo). Mai altre famiglie.
 - Componenti card: pattern `.glass-card` con doppio bordo (pseudo-elemento `::before` con `inset`).
 - **Comandi isolati alti almeno 44px** e **navigazione a hamburger sotto i 1024px**: le due regole si reggono a vicenda (il menu desktop ci sta su una riga con la spaziatura piena solo da 1492px, e da 1024 a 1209 la barra è a due righe per scelta). Dettagli e le tre eccezioni al 44px in `DESIGN.md`. Chi aggiunge una voce di menu deve rimisurare: a 1024px il margine è di 4px. La voce «Test» è una tendina (`<details class="nav-drop">`, un link per test): la sua freccina è stata compensata stringendo la spaziatura fra le voci a 1.45rem e 0.65rem, al decimo di pixel, perché le soglie restassero 1210 e 1492 (con «Eventi» al posto di «Giochi», più stretta di 1,5px, la riga singola parte da 1209).
-- Animazioni d'ingresso: classe `.sr` (scroll-reveal via IntersectionObserver).
+- **Niente movimento che parte da solo.** La dissolvenza d'ingresso dei blocchi (classe `.sr`) e lo sfondo animato sono stati tolti nel novembre 2026: si muove solo ciò che risponde a un gesto (fisarmoniche, pulsanti, tendina).
 - Niente effetti "da videogioco" sul sito istituzionale: l'atmosfera la fanno palette, tipografia, spaziature.
 
 ### Tic visivi da non introdurre
@@ -120,8 +120,6 @@ const ctx = await browser.newContext({
 await ctx.addInitScript(() => { try { localStorage.setItem('sc-cookie','reject'); } catch(e){} });
 const page = await ctx.newPage();
 await page.goto('http://127.0.0.1:8080/');   // servire con: python3 -m http.server 8080 --bind 127.0.0.1
-// Le sezioni .sr sono invisibili in headless finché non scrollate: forzarle
-await page.evaluate(() => document.querySelectorAll('.sr').forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; }));
 ```
 
 Due trappole che fanno perdere tempo, entrambe già costate diversi tentativi a vuoto:
