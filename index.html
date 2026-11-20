@@ -370,7 +370,7 @@
     </script>
 
  <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) — self-hosted, zero dipendenze esterne -->
-  <link rel="stylesheet" href="style.css?v=d842b54e"/>
+  <link rel="stylesheet" href="style.css?v=eb23da05"/>
   <noscript><style>.sr{opacity:1!important;transform:none!important}</style></noscript>
 
 </head>
@@ -409,26 +409,31 @@
 
 <!-- HERO -->
 <header class="hero" role="banner">
-  <img class="hero-emblem" src="images/logo-scuola.png" alt="Logo Scuola ContattaTi" width="200" height="200" fetchpriority="high" decoding="async"/>
-  <h1>Scuola <span>ContattaTi</span></h1>
-  <p class="hero-motto"><span lang="el">Γνῶθι Σεαυτόν</span></p>
-  <p class="hero-motto-sub">Conosci Te Stesso · Oracolo di Delfi</p>
-  <p class="hero-lead">Tornare padroni della propria vita.</p>
-  <p class="hero-slogan">Un percorso di sette anni di Consapevolezza ed Alchimia, a Bari e online, con lezioni la domenica mattina.</p>
-  <!-- Prossima lezione: data, conto alla rovescia, titolo e altri anni in corso
+  <div class="hero-in">
+    <div class="hero-testa">
+      <img class="hero-emblem" src="images/logo-scuola.png" alt="Logo Scuola ContattaTi" width="200" height="200" fetchpriority="high" decoding="async"/>
+      <h1>Scuola <br>ContattaTi</h1>
+      <p class="hero-motto"><span lang="el">Γνῶθι σεαυτόν</span>. Conosci te stesso.</p>
+      <p class="hero-lead">Tornare padroni della propria vita. Un percorso di sette anni di Consapevolezza ed Alchimia, a Bari e online, con lezioni la domenica mattina.</p>
+    </div>
+    <div class="hero-lato">
+      <!-- Prossima lezione: data, conto alla rovescia, titolo e altri anni in corso
        li riempie app.js da lezioni.js (come il riquadro #ripresa del calendario);
        resta nascosto se non c'è una lezione in programma. Sede e orario sono
        quelli fissi delle lezioni: una lezione altrove va indicata a mano. -->
-  <div class="hero-prossima" id="hero-prossima" hidden>
-    <p class="hp-label">Prossima lezione</p>
-    <div class="hp-row"><p class="hp-data" id="hp-data"></p><span class="hp-count" id="hp-count"></span></div>
-    <p class="hp-titolo"><a href="#calendario" id="hp-titolo"></a></p>
-    <p class="hp-luogo">Ore 9:00–13:30<span class="hp-calendario" hidden> · <a href="#" id="hp-calendario" data-inizio="09:00" data-fine="13:30" data-luogo="MeetingRoom, Via Argiro 135 (3° piano), Bari"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><line x1="3.5" y1="10" x2="20.5" y2="10"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/><line x1="12" y1="13" x2="12" y2="18"/><line x1="9.5" y1="15.5" x2="14.5" y2="15.5"/></svg> Aggiungi al calendario</a></span><br/><a href="https://www.google.com/maps/search/?api=1&amp;query=MeetingRoom%2C+Via+Argiro+135%2C+Bari" target="_blank" rel="noopener">MeetingRoom, Via Argiro 135 (3° piano), Bari</a></p>
-    <p class="hp-partecipa"><a href="#contatti" id="hp-partecipa" data-oggetto="Partecipare a una lezione">Puoi iniziare da questa lezione: scrivici<span aria-hidden="true">&nbsp;→</span></a></p>
-  </div>
-  <div class="hero-ctas">
-    <a href="#calendario" class="btn-primary">Scopri il percorso</a>
-    <a href="#contatti" class="btn-ghost">Contattaci</a>
+      <div class="hero-prossima" id="hero-prossima" hidden>
+        <p class="hp-label">Prossima lezione<span class="hp-count" id="hp-count"></span></p>
+        <p class="hp-data" id="hp-data"></p>
+        <p class="hp-titolo"><a href="#calendario" id="hp-titolo"></a></p>
+        <p class="hp-luogo">Ore 9:00–13:30<br><a href="https://www.google.com/maps/search/?api=1&amp;query=MeetingRoom%2C+Via+Argiro+135%2C+Bari" target="_blank" rel="noopener">MeetingRoom, Via Argiro 135 (3° piano), Bari</a></p>
+        <p class="hp-partecipa"><a class="btn-primary" href="#contatti" id="hp-partecipa" data-oggetto="Partecipare a una lezione">Puoi iniziare da questa lezione: scrivici</a></p>
+        <p class="hp-calendario" hidden><a href="#" id="hp-calendario" data-inizio="09:00" data-fine="13:30" data-luogo="MeetingRoom, Via Argiro 135 (3° piano), Bari"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><line x1="3.5" y1="10" x2="20.5" y2="10"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/><line x1="12" y1="13" x2="12" y2="18"/><line x1="9.5" y1="15.5" x2="14.5" y2="15.5"/></svg> Aggiungi al calendario</a></p>
+      </div>
+      <div class="hero-ctas">
+        <a href="#calendario" class="btn-primary">Scopri il percorso</a>
+        <a href="#contatti" class="btn-ghost">Contattaci</a>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -465,12 +470,12 @@
     </details>
   </div>
   <div class="about-grid sr" style="margin-top:2rem;">
-    <div class="glass-card">
+    <div class="about-item">
       <div class="pillar-emblem"><img src="images/nico-anna-carla.webp" alt="Nicolaos e Anna Carla davanti alla lavagna a fogli durante una lezione" width="800" height="985" loading="lazy" decoding="async" style="object-position:50% 18%"/></div>
       <h3 class="card-title">Antichi Insegnamenti</h3>
       <p class="card-body">Il percorso attinge da tradizioni diverse: Scienza Iniziatica, Quarta Via di Gurdjieff, Magia Ermetica, Kabbalà, Enneagramma, Antroposofia, Teosofia, Buddismo, Taoismo, Sciamanesimo. Lingue differenti per dire la stessa cosa: dall'OM induista al Logos giovanneo, al centro c'è sempre un suono creativo che dà forma alla vita. L'uomo ne è custode e co-creatore. Il suo compito è riscoprire quel programma dell'anima, più antico e profondo di qualsiasi condizionamento acquisito.</p>
     </div>
-    <div class="glass-card">
+    <div class="about-item">
       <div class="pillar-emblem"><img src="images/lezione-sala.webp" alt="Una lezione di Anna Carla e Nicolaos alla MeetingRoom di Via Argiro a Bari, con gli allievi seduti davanti allo schermo" width="860" height="645" loading="lazy" decoding="async" style="object-position:50% 45%"/></div>
       <h3 class="card-title">Struttura e accesso</h3>
       <p class="card-body">I seminari si svolgono in presenza a Bari e online, per permettere a chiunque di accedere agli insegnamenti, indipendentemente da dove ci si trova.</p>
@@ -1360,7 +1365,7 @@
 })();
 </script>
 <script src="data/eventi.js?v=89a72091" defer></script>
-<script src="app.js?v=a311fe34" defer></script>
+<script src="app.js?v=578c9b7b" defer></script>
 <script>
 /* SIGILLI GIOCHI — mostra ✦ sulle card dei giochi completati */
 (function(){

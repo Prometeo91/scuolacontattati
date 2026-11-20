@@ -244,8 +244,9 @@ sottoinsieme, e hanno un fallback con metriche corrette (`size-adjust`,
 
 ### Hierarchy
 
-- **Display** (Garamond 500, `clamp(34px, 6.4vw, 54px)`, lh 1.1, ls 0.02em):
-  `h1` dell'hero. Uno per pagina.
+- **Display** (Garamond 600, `clamp(54px, 15.5vw, 92px)`, lh 0.98, ls -0.01em):
+  `h1` dell'hero, il nome della Scuola su due righe e in un solo colore.
+  Uno per pagina.
 - **Headline** (Garamond 500, `clamp(28px, 5vw, 42px)`, lh 1.15):
   `.section-title`, il titolo di ogni sezione.
 - **Title** (Garamond 500, 20px, ls 0.01em): `.card-title`, titolo di card.
@@ -460,34 +461,31 @@ due pulsanti hanno la classe `.js-share` e ognuno mostra il proprio toast.
 
 ### Schermi bassi
 
-L'hero si adatta all'altezza, non solo alla larghezza. **I due pulsanti
-devono stare nella prima schermata** da 360×640 in su, in orizzontale sul
-telefono, a 1024×768, 1280×800 e 1440×900. Dal novembre 2026 l'hero contiene
-anche il riquadro della prossima lezione (`#hero-prossima`), e le soglie sono
-state rifatte per lui:
+La prima schermata è stata rifatta nel novembre 2026: il nome della Scuola
+in grande a sinistra, sotto il motto («Γνῶθι σεαυτόν. Conosci te stesso.») e
+la frase di presentazione (`.hero-lead`); accanto, la prossima lezione
+(`#hero-prossima`) senza riquadro, sotto un filetto scuro. Tutto allineato a
+sinistra, sulla stessa colonna del testo delle sezioni. Prima era una colonna
+centrata di sei elementi, col nome in due colori.
 
-- **Telefono in verticale fino a 800px d'altezza**: logo a 56px, caratteri e
-  spazi più stretti, i due pulsanti affiancati invece che in colonna.
-- **Telefono in verticale fino a 660px** (360×640): logo a 40px e niente
-  traduzione del motto.
-- **Telefono in orizzontale** (altezza fino a 500px): due colonne, logo a
-  sinistra e testi accanto; i pulsanti vengono prima del riquadro, che resta
-  sotto la piega.
-- **Portatili e tablet in orizzontale fino a 960px d'altezza** (da 900px di
-  larghezza: 1024×768, 1280×800, 1366×768, 1440×900): presentazione a
-  sinistra, riquadro a destra.
+Il pulsante pieno è uno solo, «Puoi iniziare da questa lezione: scrivici».
+«Scopri il percorso» e «Contattaci» (`.hero-ctas`) sono link finché la
+prossima lezione è in vista, e tornano pulsanti quando non ce n'è una in
+programma. **Il pulsante pieno deve stare nella prima schermata**:
+
+- **Da 900px di larghezza**: due colonne, presentazione a sinistra e prossima
+  lezione a destra, allineate in basso.
+- **Sotto i 900px**: una colonna, la prossima lezione sotto la presentazione.
+- **Telefono in verticale fino a 700px d'altezza** (375×667, 360×640): via il
+  logo, titolo a 46px, caratteri e spazi più stretti.
+- **Telefono in orizzontale** (altezza fino a 500px): due colonne, senza logo.
 - I pulsanti fissi WhatsApp e Condividi, sul telefono, compaiono solo quando
-  i pulsanti dell'hero escono dallo schermo; il banner dei cookie sta in
-  alto, sotto la barra, per non coprirli alla prima visita.
+  `.hero-ctas` esce dallo schermo; il banner dei cookie sta in alto, sotto la
+  barra, per non coprirli alla prima visita.
 
-Sotto il motto c'è la frase principale (`.hero-lead`, «Tornare padroni della
-propria vita.», Garamond 24-32px), il secondo elemento per evidenza dopo il
-nome. Su telefono i due pulsanti vanno uno sotto l'altro, della stessa
-larghezza. Ogni modifica alla hero va rimisurata a 360×640, 375×667, 390×844, 844×390,
-1024×768 e 1440×900.
-
-A 320×568 i pulsanti restano sotto la piega: rimpicciolire ancora
-sacrificherebbe il logo.
+Ogni modifica alla hero va rimisurata a 360×640, 375×667, 390×844, 844×390,
+768×1024, 1024×768 e 1440×900: a tutte queste misure il pulsante pieno è
+dentro la prima schermata (novembre 2026).
 
 **Il menu a hamburger aperto è alto circa 670px** e la barra è fissa: se è
 più alto dello schermo scorre al suo interno, altrimenti su un 375×667 le
