@@ -31,7 +31,7 @@
 .arg-tema { display: block; font-size: 17px; color: var(--text); line-height: 1.45; }
 .arg-tema mark { background: rgba(var(--gold-rgb), 0.24); color: inherit; border-radius: 2px; padding: 0 1px; }
 .arg-rifs { display: flex; flex-direction: column; gap: 0.15rem; margin-top: 0.3rem; }
-.arg-rif { display: block; padding: 0.2rem 0; text-decoration: none; font-size: 14px; line-height: 1.45; }
+.arg-rif { display: block; padding: 0.2rem 0; text-decoration: none; font-size: 16px; line-height: 1.45; }
 .arg-dove { color: var(--gold); font-weight: 500; }
 .arg-titolo { color: var(--text-muted); }
 .arg-titolo::before { content: " · "; color: var(--text-muted); }

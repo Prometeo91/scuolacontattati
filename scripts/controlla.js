@@ -231,7 +231,7 @@ for (const [home, pre] of [['index.html', ''], ['en/index.html', 'en/']]) {
 /* Una graffa di chiusura in più non dà errore da nessuna parte: il browser
    scarta in silenzio la regola che viene dopo. Nel novembre 2026, tolta
    un'animazione, ne è rimasta una e il fondo del tema chiaro è sparito. */
-for (const css of ['style.css', 'test/test.css', 'argomenti/argomenti.css']) {
+for (const css of ['style.css', 'test/test.css', 'argomenti/argomenti.css', 'giochi/styles.css', 'il-cammino-alchimista/rpg.css']) {
   if (!esiste(css)) continue;
   const t = leggi(css).replace(/\/\*[\s\S]*?\*\//g, m => m.replace(/[^\n]/g, ' ')).replace(/"[^"\n]*"|'[^'\n]*'/g, '""');
   let prof = 0, riga = 1;
