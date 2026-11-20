@@ -54,7 +54,7 @@
   <script>
     (function(){
       var t=null;try{t=localStorage.getItem('sctheme')}catch(e){}
-      if(t==='light'){
+      if(t!=='dark'){
         document.documentElement.setAttribute('data-theme','light');
         var m=document.getElementById('metaThemeColor');
         if(m)m.content='#f5f0e8';
@@ -87,8 +87,9 @@
       }catch(e){}
       /* Il cielo dell'hero è uno sfondo CSS: il browser lo scoprirebbe solo
          dopo aver letto style.css. È l'elemento più grande della prima
-         schermata, quindi si chiede subito, e solo nel tema scuro. */
-      if(t!=='light'){
+         schermata, quindi si chiede subito, e solo a chi ha scelto il tema
+         scuro (il chiaro è il predefinito e non lo usa). */
+      if(t==='dark'){
         var sm=window.matchMedia('(max-width: 800px)').matches;
         var pl=document.createElement('link');
         pl.rel='preload';pl.as='image';pl.fetchPriority='high';
@@ -371,7 +372,7 @@
     </script>
 
  <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) — self-hosted, zero dipendenze esterne -->
-  <link rel="stylesheet" href="../style.css?v=8935db87"/>
+  <link rel="stylesheet" href="../style.css?v=d842b54e"/>
   <noscript><style>.sr{opacity:1!important;transform:none!important}</style></noscript>
 
 </head>
@@ -433,7 +434,6 @@
 <main>
 <!-- CHI SIAMO -->
 <section id="chi-siamo">
-  <div class="section-eyebrow"><span>Our vision</span></div>
   <h2 class="section-title">About us</h2>
   <p class="section-sub">A school devoted to the awakening of consciousness and the mastery of the self. Our path weaves Ancient Teachings, Alchemy and the 96 Universal Laws to reconnect with the deepest dimension of being: the Soul.</p>
   <div class="sr mb-15">
@@ -465,15 +465,15 @@
   </div>
   <div class="about-grid sr" style="margin-top:2rem;">
     <div class="glass-card">
-      <div class="pillar-emblem" aria-hidden="true"><img src="../images/chisiamo-libro.webp" alt="" width="860" height="860" loading="lazy" decoding="async" style="object-position:50% 62%"/></div>
+      <div class="pillar-emblem"><img src="../images/nico-anna-carla.webp" alt="Nicolaos and Anna Carla in front of the flip chart during a lesson" width="800" height="985" loading="lazy" decoding="async" style="object-position:50% 18%"/></div>
       <h3 class="card-title">Ancient Teachings</h3>
       <p class="card-body">The path draws from diverse traditions: Initiatic Science, Gurdjieff's Fourth Way, Hermetic Magic, Kabbalah, the Enneagram, Anthroposophy, Theosophy, Buddhism, Taoism, Shamanism. Different languages saying the same thing: from the Hindu OM to the Johannine Logos, at the centre there is always a creative sound that shapes life. The human being is its guardian and co-creator. Their task is to rediscover that programme of the soul, more ancient and profound than any acquired conditioning.</p>
     </div>
     <div class="glass-card">
-      <div class="pillar-emblem" aria-hidden="true"><img src="../images/chisiamo-portale.webp" alt="" width="860" height="860" loading="lazy" decoding="async" style="object-position:50% 55%"/></div>
+      <div class="pillar-emblem"><img src="../images/lezione-sala.webp" alt="A lesson by Anna Carla and Nicolaos at the MeetingRoom in Via Argiro, Bari, with the students seated in front of the screen" width="860" height="645" loading="lazy" decoding="async" style="object-position:50% 45%"/></div>
       <h3 class="card-title">Structure & access</h3>
       <p class="card-body">Seminars are held in person in Bari and online, allowing anyone to access the teachings regardless of their location.</p>
-      <p class="card-body" style="margin-top:1rem;">The path spans <strong class="text-gold-light">7 years</strong> (3 foundational + 4 advanced), with Sunday meetings at regular intervals. Each year builds on the previous one, guiding the student through a progressive and grounded transformation.</p>
+      <p class="card-body" style="margin-top:1rem;">The path spans <strong class="text-gold-light">7 years</strong> (3 foundational + 4 advanced), with Sunday meetings at regular intervals. Each year builds on the previous one.</p>
     </div>
   </div>
 
@@ -482,7 +482,6 @@
     <p class="section-label-small">Introduction video</p>
     <div class="video-facade" data-video-id="PGRpvB_6_rU" role="button" tabindex="0" aria-label="Play the Scuola ContattaTi introduction video">
       <div class="video-facade-bg" aria-hidden="true"></div>
-      <div class="video-facade-symbol" aria-hidden="true">✶</div>
       <div class="video-facade-overlay" aria-hidden="true"></div>
       <div class="video-facade-play" aria-hidden="true">
         <div class="video-facade-triangle"></div>
@@ -517,7 +516,6 @@
   <p class="section-sub">What we study and how we work: the two pillars of the path.</p>
   <div class="two-col sr">
     <div class="pillar-card">
-      <div class="pillar-emblem" aria-hidden="true"><img src="../images/pilastro-luna.webp" alt="" width="860" height="860" loading="lazy" decoding="async" style="object-position:50% 42%"/></div>
       <h3 class="pillar-title">Awareness</h3>
       <ul class="pillar-list">
         <li>Self-knowledge — lower and higher nature</li>
@@ -528,7 +526,6 @@
       </ul>
     </div>
     <div class="pillar-card">
-      <div class="pillar-emblem" aria-hidden="true"><img src="../images/pilastro-athanor.webp" alt="" width="860" height="860" loading="lazy" decoding="async" style="object-position:50% 60%"/></div>
       <h3 class="pillar-title">Alchemy</h3>
       <ul class="pillar-list">
         <li>Transmutation of lead into gold: Shadow into Light</li>
@@ -551,8 +548,8 @@
       <span>The 4 keys to awakening</span>
     </h3>
     <div class="chiavi-list">
-      <div class="chiave-item glass-card">
-        <div class="chiave-side" aria-hidden="true"><img class="chiave-emblem" src="../images/chiave-1-occhio.webp" alt="" width="400" height="400" loading="lazy" decoding="async"/><span class="chiave-num">1</span></div>
+      <div class="chiave-item">
+        <div class="chiave-side" aria-hidden="true"><span class="chiave-num">1</span></div>
         <div class="chiave-content">
           <h4 class="card-title">Presence & Observation</h4>
           <p class="card-body">Only 5% of our life is conscious. The remaining 95% is governed by unconscious programmes, like an autopilot.<span class="chiave-resto"> The first step is to develop the <strong>Alchemical Double</strong>, the inner Observer: observing without judging. Because time does not heal. Presence does.</span></p>
@@ -561,8 +558,8 @@
           </div></details>
         </div>
       </div>
-      <div class="chiave-item glass-card">
-        <div class="chiave-side" aria-hidden="true"><img class="chiave-emblem" src="../images/chiave-2-crogiolo.webp" alt="" width="400" height="400" loading="lazy" decoding="async"/><span class="chiave-num">2</span></div>
+      <div class="chiave-item">
+        <div class="chiave-side" aria-hidden="true"><span class="chiave-num">2</span></div>
         <div class="chiave-content">
           <h4 class="card-title">The Alchemical Fire</h4>
           <p class="card-body">Unprocessed emotions become poisons that intoxicate body, mind and relationships. The <strong>Alchemical Fire</strong> arises from the friction between inner discomfort and conscious observation: it is the fire that ignites transformation.<span class="chiave-resto"> Knowing is not enough; one must <em>become</em> what one knows.</span></p>
@@ -572,8 +569,8 @@
           </div></details>
         </div>
       </div>
-      <div class="chiave-item glass-card">
-        <div class="chiave-side" aria-hidden="true"><img class="chiave-emblem" src="../images/chiave-3-redini.webp" alt="" width="400" height="400" loading="lazy" decoding="async"/><span class="chiave-num">3</span></div>
+      <div class="chiave-item">
+        <div class="chiave-side" aria-hidden="true"><span class="chiave-num">3</span></div>
         <div class="chiave-content">
           <h4 class="card-title">Taking Back the Reins</h4>
           <p class="card-body">Gurdjieff describes the human being as a <strong>carriage without a master</strong>: the physical body is the carriage, the emotions are the impulsive horses, the mind the distracted coachman, and consciousness the sleeping passenger.<span class="chiave-resto"> As long as the passenger sleeps, the carriage drifts.</span></p>
@@ -587,8 +584,8 @@
           </div></details>
         </div>
       </div>
-      <div class="chiave-item glass-card">
-        <div class="chiave-side" aria-hidden="true"><img class="chiave-emblem" src="../images/chiave-4-scala.webp" alt="" width="400" height="400" loading="lazy" decoding="async"/><span class="chiave-num">4</span></div>
+      <div class="chiave-item">
+        <div class="chiave-side" aria-hidden="true"><span class="chiave-num">4</span></div>
         <div class="chiave-content">
           <h4 class="card-title">The Ascent</h4>
           <p class="card-body">Ancient tradition describes the soul's journey as a <strong>Tree of Life</strong> with ten fruits, ten divine attributes that the human being must embody to return to their origin.<span class="chiave-resto"> To do so they must traverse <strong>seven initiations</strong> and orient themselves through their own <strong>Soul Ray</strong>, the unique note that connects each person to their divine nature.</span></p>
@@ -677,9 +674,8 @@
 
 <!-- CONDUTTORI -->
 <section id="conduttori">
-  <div class="section-eyebrow"><span>The guides</span></div>
   <h2 class="section-title">The Guides</h2>
-  <p class="section-sub">They have walked for years the path they now teach. They lead individual and group journeys dedicated to awareness and transformative Alchemy.</p>
+  <p class="section-sub">They lead individual and group paths of Awareness and Alchemy.</p>
 
   <!-- I due conduttori: schede uguali, affiancate da 760px -->
   <div class="conductor-grid sr">
@@ -778,9 +774,8 @@
 
 <!-- GALLERIA EVENTI -->
 <section id="galleria">
-  <div class="section-eyebrow"><span>The School in action</span></div>
   <h2 class="section-title">Our events</h2>
-  <p class="section-sub">Moments lived together, between teaching and nature.</p>
+  <p class="section-sub">Meetings open to the public: upcoming and past.</p>
 
   <div class="eventi-prossimi sr">
     <h3 class="gallery-event-title">Coming up</h3>
@@ -873,7 +868,6 @@
     <div class="pm-years">
       <div class="pm-year" id="pm-anno-1">
         <h3 class="pm-h"><button class="pm-head" type="button" id="tab-anno-1" data-anno="1" aria-expanded="false" aria-controls="panel-anno-1">
-          <img class="pm-emblem" src="../images/percorso-1-alambicco.webp" alt="" width="56" height="56" loading="lazy" decoding="async"/>
           <span class="pm-text"><span class="pm-num">Year 1</span><span class="pm-title">Transmutative Alchemy & the Fourth Way</span><span class="pm-stato" id="stato-anno-1"></span></span>
           <span class="pm-chev" aria-hidden="true"></span>
         </button></h3>
@@ -884,7 +878,6 @@
       </div>
       <div class="pm-year" id="pm-anno-2">
         <h3 class="pm-h"><button class="pm-head" type="button" id="tab-anno-2" data-anno="2" aria-expanded="false" aria-controls="panel-anno-2">
-          <img class="pm-emblem" src="../images/percorso-2-enneagramma.webp" alt="" width="56" height="56" loading="lazy" decoding="async"/>
           <span class="pm-text"><span class="pm-num">Year 2</span><span class="pm-title">Enneagram & Numerology</span><span class="pm-stato" id="stato-anno-2"></span></span>
           <span class="pm-chev" aria-hidden="true"></span>
         </button></h3>
@@ -895,7 +888,6 @@
       </div>
       <div class="pm-year" id="pm-anno-3">
         <h3 class="pm-h"><button class="pm-head" type="button" id="tab-anno-3" data-anno="3" aria-expanded="false" aria-controls="panel-anno-3">
-          <img class="pm-emblem" src="../images/percorso-3-albero.webp" alt="" width="56" height="56" loading="lazy" decoding="async"/>
           <span class="pm-text"><span class="pm-num">Year 3</span><span class="pm-title">Kabbalah & Christic Teaching</span><span class="pm-stato" id="stato-anno-3"></span></span>
           <span class="pm-chev" aria-hidden="true"></span>
         </button></h3>
@@ -909,7 +901,6 @@
     <div class="pm-years">
       <div class="pm-year" id="pm-anno-4">
         <h3 class="pm-h"><button class="pm-head" type="button" id="tab-anno-4" data-anno="4" aria-expanded="false" aria-controls="panel-anno-4">
-          <img class="pm-emblem" src="../images/percorso-4-aura.webp" alt="" width="56" height="56" loading="lazy" decoding="async"/>
           <span class="pm-text"><span class="pm-num">Year 4</span><span class="pm-title">Theosophy & Anthroposophy</span><span class="pm-stato" id="stato-anno-4"></span></span>
           <span class="pm-chev" aria-hidden="true"></span>
         </button></h3>
@@ -920,7 +911,6 @@
       </div>
       <div class="pm-year" id="pm-anno-5">
         <h3 class="pm-h"><button class="pm-head" type="button" id="tab-anno-5" data-anno="5" aria-expanded="false" aria-controls="panel-anno-5">
-          <img class="pm-emblem" src="../images/percorso-5-caduceo.webp" alt="" width="56" height="56" loading="lazy" decoding="async"/>
           <span class="pm-text"><span class="pm-num">Year 5</span><span class="pm-title">Hermetic Philosophy & the 7 Principles</span><span class="pm-stato" id="stato-anno-5"></span></span>
           <span class="pm-chev" aria-hidden="true"></span>
         </button></h3>
@@ -931,7 +921,6 @@
       </div>
       <div class="pm-year" id="pm-anno-6">
         <h3 class="pm-h"><button class="pm-head" type="button" id="tab-anno-6" data-anno="6" aria-expanded="false" aria-controls="panel-anno-6">
-          <img class="pm-emblem" src="../images/percorso-6-chiavi.webp" alt="" width="56" height="56" loading="lazy" decoding="async"/>
           <span class="pm-text"><span class="pm-num">Year 6</span><span class="pm-title">Emerald Tablets & Archetypal Magic</span><span class="pm-stato" id="stato-anno-6"></span></span>
           <span class="pm-chev" aria-hidden="true"></span>
         </button></h3>
@@ -942,7 +931,6 @@
       </div>
       <div class="pm-year" id="pm-anno-7">
         <h3 class="pm-h"><button class="pm-head" type="button" id="tab-anno-7" data-anno="7" aria-expanded="false" aria-controls="panel-anno-7">
-          <img class="pm-emblem" src="../images/percorso-7-tamburo.webp" alt="" width="56" height="56" loading="lazy" decoding="async"/>
           <span class="pm-text"><span class="pm-num">Year 7</span><span class="pm-title">Operative Magic & Shamanism</span><span class="pm-stato" id="stato-anno-7"></span></span>
           <span class="pm-chev" aria-hidden="true"></span>
         </button></h3>
@@ -956,7 +944,6 @@
     <div class="pm-years">
       <div class="pm-year" id="pm-anno-esp">
         <h3 class="pm-h"><button class="pm-head" type="button" id="tab-anno-esp" data-anno="esp" aria-expanded="false" aria-controls="panel-anno-esp">
-          <span class="pm-emblem pm-star" aria-hidden="true">✶</span>
           <span class="pm-text"><span class="pm-num">Residential</span><span class="pm-title">The experiential seminars</span><span class="pm-stato">They are offered again periodically</span></span>
           <span class="pm-chev" aria-hidden="true"></span>
         </button></h3>
