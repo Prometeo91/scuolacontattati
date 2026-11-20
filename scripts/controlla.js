@@ -227,6 +227,22 @@ for (const [home, pre] of [['index.html', ''], ['en/index.html', 'en/']]) {
   }
 }
 
+/* ── 9. Graffe bilanciate nei fogli di stile ─────────────────────────────── */
+/* Una graffa di chiusura in più non dà errore da nessuna parte: il browser
+   scarta in silenzio la regola che viene dopo. Nel novembre 2026, tolta
+   un'animazione, ne è rimasta una e il fondo del tema chiaro è sparito. */
+for (const css of ['style.css', 'test/test.css', 'argomenti/argomenti.css']) {
+  if (!esiste(css)) continue;
+  const t = leggi(css).replace(/\/\*[\s\S]*?\*\//g, m => m.replace(/[^\n]/g, ' ')).replace(/"[^"\n]*"|'[^'\n]*'/g, '""');
+  let prof = 0, riga = 1;
+  for (const ch of t) {
+    if (ch === '\n') riga++;
+    else if (ch === '{') prof++;
+    else if (ch === '}' && --prof < 0) { errore('css', `${css}, riga ${riga}: una graffa di chiusura in più (la regola che segue viene scartata dal browser)`); prof = 0; }
+  }
+  if (prof > 0) errore('css', `${css}: ${prof} graffe aperte e mai chiuse`);
+}
+
 /* ── Esito ─────────────────────────────────────────────────────────────── */
 for (const a of avvisi) console.log('avviso  ' + a);
 for (const e of errori) console.log('ERRORE  ' + e);

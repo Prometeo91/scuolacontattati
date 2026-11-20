@@ -31,7 +31,7 @@ Sito della **Scuola ContattaTi** (Scuola di Consapevolezza ed Alchimia, Bari), g
 
 ## Controlli automatici
 
-`node scripts/controlla.js` (nessuna dipendenza) verifica gli errori che su questo progetto si ripetono: ogni `?v=` uguale all'impronta del file che carica (vedi sotto, cache-bust), stessi id in italiano e inglese, ogni file citato esistente, ogni lezione con titolo tradotta in `L_EN`, JSON-LD valido, sitemap senza pagine inesistenti. Con `BASE=origin/main` segnala anche un file in CORE modificato senza aggiornare il `?v=`. **Lanciarlo prima di ogni push.** La GitHub Action `.github/workflows/controlli.yml` lo esegue comunque a ogni push e pull request.
+`node scripts/controlla.js` (nessuna dipendenza) verifica gli errori che su questo progetto si ripetono: ogni `?v=` uguale all'impronta del file che carica (vedi sotto, cache-bust), stessi id in italiano e inglese, ogni file citato esistente, ogni lezione con titolo tradotta in `L_EN`, JSON-LD valido, sitemap senza pagine inesistenti, graffe bilanciate nei fogli di stile (una graffa di chiusura in più fa scartare al browser, in silenzio, la regola che segue). Con `BASE=origin/main` segnala anche un file in CORE modificato senza aggiornare il `?v=`. **Lanciarlo prima di ogni push.** La GitHub Action `.github/workflows/controlli.yml` lo esegue comunque a ogni push e pull request.
 
 ## Critique di design (`/impeccable critique`, `audit`, `polish`)
 
@@ -127,6 +127,8 @@ Due trappole che fanno perdere tempo, entrambe già costate diversi tentativi a 
 
 - **`clip` usa le coordinate del documento, non della viewport.** Dopo uno `scrollTo(0, 3000)` un `clip:{y:600}` fotografa la cima della pagina, e si ottiene un ritaglio vuoto che sembra un elemento mancante.
 - **Per un elemento `position:fixed` (pulsanti sticky, banner) usare `page.locator('#id').screenshot()`**, che lo inquadra da solo ed è l'unico modo affidabile: nello screenshot della viewport a pagina scrollata gli elementi fissi possono non comparire.
+
+- **Il fondo della pagina si controlla con uno screenshot della viewport, non a pagina intera.** Il fondo è un `body::before` fisso: in uno scatto `fullPage` copre solo la prima schermata e sotto resta bianco. Nel novembre 2026, per avere scatti lunghi presentabili, il colore di fondo veniva impostato a mano su `html` prima di fotografare: così un fondo rotto (macchie grigie nel tema chiaro, per una graffa orfana nel CSS) è passato in tutti gli scatti e l'ha visto Fabio. Dopo ogni modifica al CSS, almeno uno scatto della viewport a pagina scorsa, senza toccare gli stili.
 
 Quando un elemento non si vede nello screenshot, prima di concludere che manca controllare che sia davvero renderizzato:
 
