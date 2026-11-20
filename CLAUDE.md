@@ -89,6 +89,7 @@ L'equivalente visivo dei tell di scrittura: elementi che gli LLM aggiungono per 
 - **Bordo colorato su un solo lato** della card (la barretta verticale a sinistra).
 - **Numeri monospace 01 · 02 · 03** a scandire una sequenza di passi.
 - **Gradienti accesi** su testo o pulsanti, e glow diffusi.
+- **Etichette in maiuscolo spaziato** e **frecce in coda al testo di un pulsante**: tolte da tutto il sito nel novembre 2026. Le etichette sono in minuscolo a 14px; la freccia resta solo a fine riga negli elenchi (i sette anni, «Per gli studenti»), dove dice che la riga si può toccare. I punti medi fra dati veri («In corso · 2026/27 · …») sono rimasti per scelta.
 
 Attenzione a non confonderli con scelte già stabilite del sito: il piccolo testo sopra i titoli (`.section-eyebrow`) è parte del design system, ma si usa solo quando dice qualcosa che il titolo non dice (vedi `DESIGN.md`). Il criterio è la coerenza con `DESIGN.md`, non l'elenco in sé.
 

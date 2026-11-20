@@ -254,8 +254,13 @@ sottoinsieme, e hanno un fallback con metriche corrette (`size-adjust`,
   sezione (`.section-sub`) vanno a 17px con lh 1.75; la misura è la colonna
   intera (`--measure: var(--col)`, scelta di Fabio: vedi il commento in
   `style.css`).
-- **Label** (Inter 500, 11px, ls 0.22em, uppercase): `.section-eyebrow` e
-  `.badge`.
+- **Label** (Inter 500-600, 14px, minuscolo, senza spaziatura):
+  `.section-eyebrow`, i gruppi della mappa del percorso (`.pm-group`), le
+  etichette dei campi, i mesi degli eventi. **Niente maiuscolo spaziato**:
+  fino al novembre 2026 queste etichette erano a 11px in maiuscolo con
+  `letter-spacing` largo, ed erano fra le cose che facevano sembrare la
+  pagina generata. In `style.css` non c'è più nessun `text-transform:
+  uppercase`.
 
 ### La scala in pixel
 
@@ -311,7 +316,7 @@ I testi display usano cifre oldstyle e legature discrezionali
 ### Named Rules
 
 **La regola dell'occhiello.** `.section-eyebrow` è il piccolo testo in
-maiuscoletto sopra un titolo di sezione, con due filetti sfumati ai lati.
+minuscolo dorato sopra un titolo di sezione, con due filetti sfumati ai lati.
 Fa parte del sistema, ma si mette solo quando aggiunge un'informazione che
 il titolo non dà («Programma didattico», «Ciclo base · 3 anni»): quelli che
 ripetevano il titolo con altre parole («La nostra visione» sopra «Chi
