@@ -19,7 +19,7 @@
   <script>
     (function(){
       var t=localStorage.getItem('sctheme');
-      if(t==='light'){
+      if(t!=='dark'){
         document.documentElement.setAttribute('data-theme','light');
         var m=document.getElementById('metaThemeColor');
         if(m)m.content='#f5f0e8';

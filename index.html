@@ -54,7 +54,7 @@
   <script>
     (function(){
       var t=null;try{t=localStorage.getItem('sctheme')}catch(e){}
-      if(t==='light'){
+      if(t!=='dark'){
         document.documentElement.setAttribute('data-theme','light');
         var m=document.getElementById('metaThemeColor');
         if(m)m.content='#f5f0e8';
@@ -87,8 +87,9 @@
       }catch(e){}
       /* Il cielo dell'hero è uno sfondo CSS: il browser lo scoprirebbe solo
          dopo aver letto style.css. È l'elemento più grande della prima
-         schermata, quindi si chiede subito, e solo nel tema scuro. */
-      if(t!=='light'){
+         schermata, quindi si chiede subito, e solo a chi ha scelto il tema
+         scuro (il chiaro è il predefinito e non lo usa). */
+      if(t==='dark'){
         var sm=window.matchMedia('(max-width: 800px)').matches;
         var pl=document.createElement('link');
         pl.rel='preload';pl.as='image';pl.fetchPriority='high';
@@ -369,7 +370,7 @@
     </script>
 
  <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) — self-hosted, zero dipendenze esterne -->
-  <link rel="stylesheet" href="style.css?v=8935db87"/>
+  <link rel="stylesheet" href="style.css?v=d842b54e"/>
   <noscript><style>.sr{opacity:1!important;transform:none!important}</style></noscript>
 
 </head>
@@ -434,7 +435,6 @@
 <main>
 <!-- CHI SIAMO -->
 <section id="chi-siamo">
-  <div class="section-eyebrow"><span>La nostra visione</span></div>
   <h2 class="section-title">Chi siamo</h2>
   <p class="section-sub">Una scuola orientata al risveglio della coscienza e alla conquista della padronanza di sé. Il nostro percorso integra Antichi Insegnamenti, Alchimia e le 96 Leggi Universali per riconnetterci con la dimensione più profonda dell'essere: l'Anima.</p>
   <div class="sr mb-15">
@@ -466,15 +466,15 @@
   </div>
   <div class="about-grid sr" style="margin-top:2rem;">
     <div class="glass-card">
-      <div class="pillar-emblem" aria-hidden="true"><img src="images/chisiamo-libro.webp" alt="" width="860" height="860" loading="lazy" decoding="async" style="object-position:50% 62%"/></div>
+      <div class="pillar-emblem"><img src="images/nico-anna-carla.webp" alt="Nicolaos e Anna Carla davanti alla lavagna a fogli durante una lezione" width="800" height="985" loading="lazy" decoding="async" style="object-position:50% 18%"/></div>
       <h3 class="card-title">Antichi Insegnamenti</h3>
       <p class="card-body">Il percorso attinge da tradizioni diverse: Scienza Iniziatica, Quarta Via di Gurdjieff, Magia Ermetica, Kabbalà, Enneagramma, Antroposofia, Teosofia, Buddismo, Taoismo, Sciamanesimo. Lingue differenti per dire la stessa cosa: dall'OM induista al Logos giovanneo, al centro c'è sempre un suono creativo che dà forma alla vita. L'uomo ne è custode e co-creatore. Il suo compito è riscoprire quel programma dell'anima, più antico e profondo di qualsiasi condizionamento acquisito.</p>
     </div>
     <div class="glass-card">
-      <div class="pillar-emblem" aria-hidden="true"><img src="images/chisiamo-portale.webp" alt="" width="860" height="860" loading="lazy" decoding="async" style="object-position:50% 55%"/></div>
+      <div class="pillar-emblem"><img src="images/lezione-sala.webp" alt="Una lezione in sala: chi conduce in piedi accanto allo schermo, gli allievi seduti" width="860" height="645" loading="lazy" decoding="async" style="object-position:50% 45%"/></div>
       <h3 class="card-title">Struttura e accesso</h3>
       <p class="card-body">I seminari si svolgono in presenza a Bari e online, per permettere a chiunque di accedere agli insegnamenti, indipendentemente da dove ci si trova.</p>
-      <p class="card-body" style="margin-top:1rem;">Il percorso si articola in <strong class="text-gold-light">7 anni</strong> (3 di base + 4 avanzati), con incontri domenicali a cadenza regolare. Ogni anno costruisce sul precedente, accompagnando lo studente in una trasformazione progressiva e radicata.</p>
+      <p class="card-body" style="margin-top:1rem;">Il percorso si articola in <strong class="text-gold-light">7 anni</strong> (3 di base + 4 avanzati), con incontri domenicali a cadenza regolare. Ogni anno costruisce sul precedente.</p>
     </div>
   </div>
 
@@ -483,7 +483,6 @@
     <p class="section-label-small">Video di presentazione</p>
     <div class="video-facade" data-video-id="PGRpvB_6_rU" role="button" tabindex="0" aria-label="Riproduci il video di presentazione della Scuola ContattaTi">
       <div class="video-facade-bg" aria-hidden="true"></div>
-      <div class="video-facade-symbol" aria-hidden="true">✶</div>
       <div class="video-facade-overlay" aria-hidden="true"></div>
       <div class="video-facade-play" aria-hidden="true">
         <div class="video-facade-triangle"></div>
@@ -518,7 +517,6 @@
   <p class="section-sub">Cosa si studia e come si lavora: i due pilastri del percorso.</p>
   <div class="two-col sr">
     <div class="pillar-card">
-      <div class="pillar-emblem" aria-hidden="true"><img src="images/pilastro-luna.webp" alt="" width="860" height="860" loading="lazy" decoding="async" style="object-position:50% 42%"/></div>
       <h3 class="pillar-title">Consapevolezza</h3>
       <ul class="pillar-list">
         <li>Conoscenza di sé — natura inferiore e superiore</li>
@@ -529,7 +527,6 @@
       </ul>
     </div>
     <div class="pillar-card">
-      <div class="pillar-emblem" aria-hidden="true"><img src="images/pilastro-athanor.webp" alt="" width="860" height="860" loading="lazy" decoding="async" style="object-position:50% 60%"/></div>
       <h3 class="pillar-title">Alchimia</h3>
       <ul class="pillar-list">
         <li>Tramutazione del piombo in oro: Ombra in Luce</li>
@@ -552,8 +549,8 @@
       <span>Le 4 chiavi del risveglio</span>
     </h3>
     <div class="chiavi-list">
-      <div class="chiave-item glass-card">
-        <div class="chiave-side" aria-hidden="true"><img class="chiave-emblem" src="images/chiave-1-occhio.webp" alt="" width="400" height="400" loading="lazy" decoding="async"/><span class="chiave-num">1</span></div>
+      <div class="chiave-item">
+        <div class="chiave-side" aria-hidden="true"><span class="chiave-num">1</span></div>
         <div class="chiave-content">
           <h4 class="card-title">Presenza e Osservazione</h4>
           <p class="card-body">Solo il 5% della nostra vita è conscio. Il restante 95% è governato da programmi inconsci, come un pilota automatico.<span class="chiave-resto"> Il primo passo è sviluppare il <strong>Doppio Alchemico</strong>, l'Osservatore interiore: osservare senza giudicare. Perché il tempo non guarisce. La presenza sì.</span></p>
@@ -562,8 +559,8 @@
           </div></details>
         </div>
       </div>
-      <div class="chiave-item glass-card">
-        <div class="chiave-side" aria-hidden="true"><img class="chiave-emblem" src="images/chiave-2-crogiolo.webp" alt="" width="400" height="400" loading="lazy" decoding="async"/><span class="chiave-num">2</span></div>
+      <div class="chiave-item">
+        <div class="chiave-side" aria-hidden="true"><span class="chiave-num">2</span></div>
         <div class="chiave-content">
           <h4 class="card-title">Il Fuoco Alchemico</h4>
           <p class="card-body">Le emozioni non elaborate diventano veleni che intossicano corpo, mente e relazioni. Il <strong>Fuoco Alchemico</strong> nasce dall'attrito tra il disagio interiore e l'osservazione consapevole: è il fuoco che accende la trasformazione.<span class="chiave-resto"> Non basta sapere; bisogna <em>diventare</em> ciò che si sa.</span></p>
@@ -573,8 +570,8 @@
           </div></details>
         </div>
       </div>
-      <div class="chiave-item glass-card">
-        <div class="chiave-side" aria-hidden="true"><img class="chiave-emblem" src="images/chiave-3-redini.webp" alt="" width="400" height="400" loading="lazy" decoding="async"/><span class="chiave-num">3</span></div>
+      <div class="chiave-item">
+        <div class="chiave-side" aria-hidden="true"><span class="chiave-num">3</span></div>
         <div class="chiave-content">
           <h4 class="card-title">Riprendere le Redini</h4>
           <p class="card-body">Gurdjieff descrive l'essere umano come una <strong>carrozza senza padrone</strong>: il corpo fisico è la carrozza, le emozioni i cavalli impulsivi, la mente il cocchiere distratto, e la coscienza il passeggero addormentato.<span class="chiave-resto"> Finché il passeggero dorme, la carrozza va alla deriva.</span></p>
@@ -588,8 +585,8 @@
           </div></details>
         </div>
       </div>
-      <div class="chiave-item glass-card">
-        <div class="chiave-side" aria-hidden="true"><img class="chiave-emblem" src="images/chiave-4-scala.webp" alt="" width="400" height="400" loading="lazy" decoding="async"/><span class="chiave-num">4</span></div>
+      <div class="chiave-item">
+        <div class="chiave-side" aria-hidden="true"><span class="chiave-num">4</span></div>
         <div class="chiave-content">
           <h4 class="card-title">La Risalita</h4>
           <p class="card-body">L'antica tradizione descrive il cammino dell'anima come un <strong>Albero della Vita</strong> con dieci frutti, dieci attributi divini che l'essere umano deve incarnare per tornare alla propria origine.<span class="chiave-resto"> Per farlo dovrà attraversare <strong>sette iniziazioni</strong> e orientarsi grazie al proprio <strong>Raggio Animico</strong>, la nota unica che connette ciascuno alla propria natura divina.</span></p>
@@ -679,9 +676,8 @@
 
 <!-- CONDUTTORI -->
 <section id="conduttori">
-  <div class="section-eyebrow"><span>Le guide</span></div>
   <h2 class="section-title">I conduttori</h2>
-  <p class="section-sub">Hanno camminato per anni la strada che oggi insegnano. Guidano percorsi individuali e di gruppo, dedicati alla consapevolezza e all'Alchimia trasformativa.</p>
+  <p class="section-sub">Guidano percorsi individuali e di gruppo di Consapevolezza e Alchimia.</p>
 
   <!-- I due conduttori: schede uguali, affiancate da 760px -->
   <div class="conductor-grid sr">
@@ -780,9 +776,8 @@
 
 <!-- GALLERIA EVENTI -->
 <section id="galleria">
-  <div class="section-eyebrow"><span>La Scuola in azione</span></div>
   <h2 class="section-title">I nostri eventi</h2>
-  <p class="section-sub">Momenti vissuti insieme, tra insegnamento e natura.</p>
+  <p class="section-sub">Gli incontri aperti al pubblico: quelli in programma e quelli passati.</p>
 
   <div class="eventi-prossimi sr">
     <h3 class="gallery-event-title">In programma</h3>
@@ -875,7 +870,6 @@
     <div class="pm-years">
       <div class="pm-year" id="pm-anno-1">
         <h3 class="pm-h"><button class="pm-head" type="button" id="tab-anno-1" data-anno="1" aria-expanded="false" aria-controls="panel-anno-1">
-          <img class="pm-emblem" src="images/percorso-1-alambicco.webp" alt="" width="56" height="56" loading="lazy" decoding="async"/>
           <span class="pm-text"><span class="pm-num">Anno 1</span><span class="pm-title">Alchimia Trasmutativa e Quarta Via</span><span class="pm-stato" id="stato-anno-1"></span></span>
           <span class="pm-chev" aria-hidden="true"></span>
         </button></h3>
@@ -886,7 +880,6 @@
       </div>
       <div class="pm-year" id="pm-anno-2">
         <h3 class="pm-h"><button class="pm-head" type="button" id="tab-anno-2" data-anno="2" aria-expanded="false" aria-controls="panel-anno-2">
-          <img class="pm-emblem" src="images/percorso-2-enneagramma.webp" alt="" width="56" height="56" loading="lazy" decoding="async"/>
           <span class="pm-text"><span class="pm-num">Anno 2</span><span class="pm-title">Enneagramma e Numerologia</span><span class="pm-stato" id="stato-anno-2"></span></span>
           <span class="pm-chev" aria-hidden="true"></span>
         </button></h3>
@@ -897,7 +890,6 @@
       </div>
       <div class="pm-year" id="pm-anno-3">
         <h3 class="pm-h"><button class="pm-head" type="button" id="tab-anno-3" data-anno="3" aria-expanded="false" aria-controls="panel-anno-3">
-          <img class="pm-emblem" src="images/percorso-3-albero.webp" alt="" width="56" height="56" loading="lazy" decoding="async"/>
           <span class="pm-text"><span class="pm-num">Anno 3</span><span class="pm-title">Cabala e Insegnamento Cristico</span><span class="pm-stato" id="stato-anno-3"></span></span>
           <span class="pm-chev" aria-hidden="true"></span>
         </button></h3>
@@ -911,7 +903,6 @@
     <div class="pm-years">
       <div class="pm-year" id="pm-anno-4">
         <h3 class="pm-h"><button class="pm-head" type="button" id="tab-anno-4" data-anno="4" aria-expanded="false" aria-controls="panel-anno-4">
-          <img class="pm-emblem" src="images/percorso-4-aura.webp" alt="" width="56" height="56" loading="lazy" decoding="async"/>
           <span class="pm-text"><span class="pm-num">Anno 4</span><span class="pm-title">Teosofia e Antroposofia</span><span class="pm-stato" id="stato-anno-4"></span></span>
           <span class="pm-chev" aria-hidden="true"></span>
         </button></h3>
@@ -922,7 +913,6 @@
       </div>
       <div class="pm-year" id="pm-anno-5">
         <h3 class="pm-h"><button class="pm-head" type="button" id="tab-anno-5" data-anno="5" aria-expanded="false" aria-controls="panel-anno-5">
-          <img class="pm-emblem" src="images/percorso-5-caduceo.webp" alt="" width="56" height="56" loading="lazy" decoding="async"/>
           <span class="pm-text"><span class="pm-num">Anno 5</span><span class="pm-title">Filosofia Ermetica e i 7 Principi</span><span class="pm-stato" id="stato-anno-5"></span></span>
           <span class="pm-chev" aria-hidden="true"></span>
         </button></h3>
@@ -933,7 +923,6 @@
       </div>
       <div class="pm-year" id="pm-anno-6">
         <h3 class="pm-h"><button class="pm-head" type="button" id="tab-anno-6" data-anno="6" aria-expanded="false" aria-controls="panel-anno-6">
-          <img class="pm-emblem" src="images/percorso-6-chiavi.webp" alt="" width="56" height="56" loading="lazy" decoding="async"/>
           <span class="pm-text"><span class="pm-num">Anno 6</span><span class="pm-title">Tavole di Smeraldo e Magia Archetipica</span><span class="pm-stato" id="stato-anno-6"></span></span>
           <span class="pm-chev" aria-hidden="true"></span>
         </button></h3>
@@ -944,7 +933,6 @@
       </div>
       <div class="pm-year" id="pm-anno-7">
         <h3 class="pm-h"><button class="pm-head" type="button" id="tab-anno-7" data-anno="7" aria-expanded="false" aria-controls="panel-anno-7">
-          <img class="pm-emblem" src="images/percorso-7-tamburo.webp" alt="" width="56" height="56" loading="lazy" decoding="async"/>
           <span class="pm-text"><span class="pm-num">Anno 7</span><span class="pm-title">Magia Operativa e Sciamanesimo</span><span class="pm-stato" id="stato-anno-7"></span></span>
           <span class="pm-chev" aria-hidden="true"></span>
         </button></h3>
@@ -958,7 +946,6 @@
     <div class="pm-years">
       <div class="pm-year" id="pm-anno-esp">
         <h3 class="pm-h"><button class="pm-head" type="button" id="tab-anno-esp" data-anno="esp" aria-expanded="false" aria-controls="panel-anno-esp">
-          <span class="pm-emblem pm-star" aria-hidden="true">✶</span>
           <span class="pm-text"><span class="pm-num">Residenziali</span><span class="pm-title">I seminari esperienziali</span><span class="pm-stato">Vengono riproposti periodicamente</span></span>
           <span class="pm-chev" aria-hidden="true"></span>
         </button></h3>

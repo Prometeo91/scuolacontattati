@@ -54,7 +54,7 @@
   <script>
     (function(){
       var t=null;try{t=localStorage.getItem('sctheme')}catch(e){}
-      if(t==='light'){
+      if(t!=='dark'){
         document.documentElement.setAttribute('data-theme','light');
         var m=document.getElementById('metaThemeColor');
         if(m)m.content='#f5f0e8';
@@ -94,7 +94,7 @@
   <meta name="twitter:image" content="https://scuolacontattati.com/og-image.jpg?v=2"/>
 
  <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) — self-hosted, zero dipendenze esterne -->
-  <link rel="stylesheet" href="../../style.css?v=8935db87"/>
+  <link rel="stylesheet" href="../../style.css?v=d842b54e"/>
   <link rel="stylesheet" href="../../argomenti/argomenti.css?v=c9423ec2"/>
   <noscript><style>.sr{opacity:1!important;transform:none!important}</style></noscript>
 

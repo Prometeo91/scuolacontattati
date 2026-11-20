@@ -187,7 +187,9 @@
   --text: #2a1f08;
   --text-muted: #5a4a3a;
   --text-reading: #3a2c14;
-  --band: rgba(120,90,30,0.05);
+  /* Nel tema chiaro la fascia è un secondo tono di pergamena, pieno: le
+     sezioni si alternano fra questo e il fondo pagina (vedi «Fasce di ritmo»). */
+  --band: #ede2ca;
   --card-shadow: 0 1px 3px rgba(80,60,30,0.10), 0 4px 18px rgba(80,60,30,0.07);
   --text-soft: #7a6852;
 
@@ -568,7 +570,6 @@ body::before {
       url('images/hero-cielo-800.webp') center top / cover no-repeat;
   }
 }
-[data-theme="light"] .hero { background: none; }
 .hero-emblem { width: 120px; height: 120px; margin-bottom: 1.1rem; position: relative; z-index: 2; filter: drop-shadow(0 8px 32px rgba(var(--gold-rgb),0.25)); }
 .hero::before { content: ''; position: absolute; top: 1.5rem; left: 50%; transform: translateX(-50%); width: 420px; height: 420px; background: radial-gradient(circle, rgba(var(--gold-rgb),0.07) 0%, rgba(var(--gold-rgb),0.035) 25%, rgba(123, 94, 167, 0.025) 50%, transparent 70%); border-radius: 50%; z-index: 0; pointer-events: none; }
 @media (max-width: 640px) {
@@ -724,6 +725,18 @@ section#insegnamenti, section#seminario, section#faq {
   box-shadow: 0 0 0 100vmax var(--band);
   clip-path: inset(0 -100vmax);
 }
+/* Nel tema chiaro (il predefinito) la pagina sarebbe una tinta unita per
+   trenta schermate: le sezioni si alternano una sì e una no fra il fondo
+   pagina e la fascia, dalla prima schermata ai contatti. La FAQ, che nel tema
+   scuro è una fascia, qui cade sul turno chiaro. Chi aggiunge una sezione
+   rimette in fila l'alternanza. */
+[data-theme="light"] .hero { background: var(--band); }
+[data-theme="light"] section#galleria, [data-theme="light"] section#libro, [data-theme="light"] section#contatti {
+  background: var(--band);
+  box-shadow: 0 0 0 100vmax var(--band);
+  clip-path: inset(0 -100vmax);
+}
+[data-theme="light"] section#faq { background: none; box-shadow: none; clip-path: none; }
 
 /* ── SISTEMA DECORATIVO ── */
 /* Eyebrow numerato */
@@ -880,22 +893,17 @@ section#insegnamenti, section#seminario, section#faq {
 /* GRIDS */
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } }
-.chiavi-list { display: flex; flex-direction: column; gap: 14px; }
-.chiave-item { display: flex; align-items: flex-start; gap: 1.75rem; padding: 1.5rem 1.75rem; }
-.chiave-num { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 600; color: var(--gold); opacity: 0.25; line-height: 1; flex-shrink: 0; width: 2.5rem; text-align: center; margin-top: -0.15rem; }
-.chiave-side { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; flex-shrink: 0; }
-/* accanto all'emblema il numero si legge (a 0.25 era a 1,5:1, quasi invisibile) */
-.chiave-side .chiave-num { font-size: 1.5rem; width: auto; margin-top: 0; opacity: 0.7; }
-.chiave-emblem { width: 104px; height: 104px; display: block; border-radius: var(--radius-md); border: 0.5px solid var(--border); object-fit: cover; }
+/* Le 4 chiavi sono righe separate da un filo, col numero accanto al titolo:
+   erano quattro card con un emblema ciascuna, uguali a tutte le altre card. */
+.chiavi-list { display: flex; flex-direction: column; }
+.chiave-item { display: flex; align-items: flex-start; gap: 1.25rem; padding: 1.5rem 0; border-top: 1px solid var(--border); }
+.chiave-item:last-child { border-bottom: 1px solid var(--border); }
+.chiave-num { font-family: var(--font-display); font-size: 2.4rem; font-weight: 600; color: var(--gold); line-height: 1; width: 2.5rem; text-align: center; }
+.chiave-side { flex-shrink: 0; }
 
-/* Gli emblemi sono incisioni in oro su carta blu notte: nel tema chiaro
-   restano scuri, ed e' giusto cosi' — rifarli chiari costerebbe venti asset
-   nuovi e perderebbe il carattere inciso che e' l'identita' della Scuola.
-   Quello che serve e' che sembrino tavole montate e non rettangoli capitati:
-   sul fondo scuro della tavola il filetto bruno al 30% spariva, qui si
-   definisce e l'ombra li stacca dalla pergamena. */
-[data-theme="light"] .chiave-emblem,
-[data-theme="light"] .pm-emblem,
+/* Riquadri immagine nel tema chiaro: filetto bruno e ombra li staccano dalla
+   pergamena. In «Chi siamo» sono foto; in «Due percorsi» e nel libro sono
+   ancora incisioni scure. */
 [data-theme="light"] .pillar-emblem,
 [data-theme="light"] .book-content-emblem {
   border-color: rgba(120,90,30,0.55);
@@ -903,15 +911,14 @@ section#insegnamenti, section#seminario, section#faq {
 }
 .chiave-content { flex: 1; }
 .chiave-content .card-title { margin-bottom: 0.6rem; }
-/* Sul telefono le 4 chiavi erano alte quasi due schermate: emblema accanto
-   al titolo (il numero si toglie, l'ordine lo dà la lista) e del paragrafo
-   resta visibile l'inizio; il seguito (.chiave-resto, nell'HTML) compare
-   aprendo «Leggi tutto». Senza :has() il paragrafo resta intero. */
+/* Sul telefono le 4 chiavi erano alte quasi due schermate: numero accanto
+   al titolo e del paragrafo resta visibile l'inizio; il seguito
+   (.chiave-resto, nell'HTML) compare aprendo «Leggi tutto». Senza :has() il
+   paragrafo resta intero. */
 @media (max-width: 480px) {
-  .chiave-item { display: grid; grid-template-columns: 56px minmax(0, 1fr); column-gap: 0.9rem; row-gap: 0.5rem; align-items: center; padding: 1.1rem 1.15rem; }
+  .chiave-item { display: grid; grid-template-columns: 1.5rem minmax(0, 1fr); column-gap: 0.9rem; row-gap: 0.5rem; align-items: baseline; padding: 1.1rem 0; }
   .chiave-side { grid-column: 1; grid-row: 1; }
-  .chiave-side .chiave-num { display: none; }
-  .chiave-emblem { width: 56px; height: 56px; }
+  .chiave-num { font-size: 1.5rem; width: auto; }
   .chiave-content { display: contents; }
   .chiave-content > .card-title { grid-column: 2; grid-row: 1; margin: 0; }
   .chiave-content > :not(.card-title) { grid-column: 1 / -1; }
@@ -919,13 +926,6 @@ section#insegnamenti, section#seminario, section#faq {
     .chiave-resto { display: none; }
     .chiave-item:has(.chiave-details[open]) .chiave-resto { display: inline; }
   }
-  /* i due pilastri degli Insegnamenti: tavola piccola accanto al titolo
-     invece che a tutta larghezza sopra */
-  #insegnamenti > .two-col .pillar-card { display: grid; grid-template-columns: 64px minmax(0, 1fr); column-gap: 1rem; align-items: center; }
-  #insegnamenti > .two-col .pillar-emblem { grid-column: 1; grid-row: 1; width: 64px; margin: 0; }
-  #insegnamenti > .two-col .pillar-emblem img { aspect-ratio: 1; }
-  #insegnamenti > .two-col .pillar-title { grid-column: 2; grid-row: 1; margin: 0; }
-  #insegnamenti > .two-col .pillar-list { grid-column: 1 / -1; margin-top: 1rem; }
 }
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: stretch; }
 @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
@@ -1371,11 +1371,10 @@ section#insegnamenti, section#seminario, section#faq {
 .video-facade { position: relative; width: 100%; aspect-ratio: 16/9; border-radius: var(--radius-lg); overflow: hidden; border: 0.5px solid var(--border); cursor: pointer; background: #0f0b1e; isolation: isolate; }
 .video-facade-bg { position: absolute; inset: 0; background:
   linear-gradient(to bottom, rgba(10,8,20,0.32) 0%, rgba(10,8,20,0.16) 45%, rgba(10,8,20,0.74) 100%),
-  url('images/video-cammino.webp') center / cover no-repeat; z-index: 1; }
+  url('images/video-copertina.webp') center / cover no-repeat; z-index: 1; }
 @media (max-width: 800px) {
-  .video-facade-bg { background-image: linear-gradient(to bottom, rgba(10,8,20,0.32) 0%, rgba(10,8,20,0.16) 45%, rgba(10,8,20,0.74) 100%), url('images/video-cammino-800.webp'); }
+  .video-facade-bg { background-image: linear-gradient(to bottom, rgba(10,8,20,0.32) 0%, rgba(10,8,20,0.16) 45%, rgba(10,8,20,0.74) 100%), url('images/video-copertina-800.webp'); }
 }
-.video-facade-symbol { position: absolute; top: 42%; left: 50%; transform: translate(-50%, -50%); font-family: var(--font-display); font-size: clamp(180px, 35vw, 320px); color: rgba(var(--gold-rgb),0.08); line-height: 1; z-index: 2; user-select: none; pointer-events: none; }
 .video-facade-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.25); transition: background var(--t-base); z-index: 3; }
 .video-facade:hover .video-facade-overlay,
 .video-facade:focus-visible .video-facade-overlay { background: rgba(0,0,0,0.1); }
@@ -2577,19 +2576,13 @@ html[data-theme="light"]::before {
 .pm { margin-top: 2.5rem; }
 .pm-group { margin: 2.25rem 0 0.75rem; font-family: var(--font-sans); font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); }
 .pm-group:first-child { margin-top: 0; }
-.pm-years { position: relative; }
-.pm-years::before { content: ''; position: absolute; left: 28px; top: 34px; bottom: 34px; width: 1px; background: var(--border-hover); }
 .pm-year { position: relative; }
-.pm-year + .pm-year { margin-top: 0.35rem; }
+.pm-year + .pm-year { border-top: 1px solid var(--border); }
 /* l'h3 che contiene il pulsante dell'anno serve solo ai lettori di schermo
    (la mappa si naviga per titoli): nessun aspetto suo */
 .pm-h { margin: 0; font-size: inherit; font-weight: inherit; }
-.pm-head { display: grid; grid-template-columns: 56px minmax(0, 1fr) 24px; align-items: center; column-gap: 1rem; width: 100%; min-height: 44px; padding: 0.55rem 0; background: none; border: 0; border-radius: var(--radius-md); text-align: left; color: inherit; font: inherit; cursor: pointer; transition: transform var(--t-press); }
+.pm-head { display: grid; grid-template-columns: minmax(0, 1fr) 24px; align-items: center; column-gap: 1rem; width: 100%; min-height: 44px; padding: 0.8rem 0; background: none; border: 0; border-radius: var(--radius-md); text-align: left; color: inherit; font: inherit; cursor: pointer; transition: transform var(--t-press); }
 .pm-head:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
-.pm-emblem { position: relative; z-index: 1; display: block; width: 56px; height: 56px; border-radius: var(--radius-md); border: 0.5px solid var(--border-hover); background: var(--bg); object-fit: cover; }
-.pm-year.corso .pm-emblem { border: 1px solid var(--gold); box-shadow: 0 0 0 3px rgba(var(--gold-rgb),0.15); }
-.pm-year.concluso .pm-emblem { opacity: 0.85; }
-.pm-star { display: flex; align-items: center; justify-content: center; font-size: 22px; color: var(--gold); }
 .pm-num { display: block; font-family: var(--font-sans); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
 .pm-title { display: block; margin: 0.1rem 0 0.15rem; font-family: var(--font-display); font-size: 20px; font-weight: 500; line-height: 1.25; color: var(--text); transition: color var(--t-fast); }
 .pm-stato { display: block; font-family: var(--font-sans); font-size: 13px; line-height: 1.45; color: var(--text-muted); }
@@ -2598,18 +2591,12 @@ html[data-theme="light"]::before {
 .pm-chev::before { content: '+'; display: block; font-family: var(--font-sans); font-size: 20px; line-height: 1; text-align: center; color: var(--gold); }
 .pm-head[aria-expanded="true"] .pm-chev::before { content: '\2212'; }
 @media (hover: hover) { .pm-head:hover .pm-title { color: var(--gold-light); } }
-.pm-body { margin: 0.5rem 0 1.75rem 72px; }
+.pm-body { margin: 0.5rem 0 1.75rem; }
 .pm-desc { max-width: 62ch; margin-bottom: 1.25rem; font-size: 15px; line-height: 1.65; color: var(--text-reading); }
 .pm-nota { margin-top: 2rem; text-align: center; font-size: 13px; line-height: 1.65; color: var(--text-muted); }
 @media (max-width: 640px) {
-  /* sul telefono il pannello aperto prende tutta la larghezza e il filo fra
-     gli emblemi passerebbe sopra il testo: c'è già quello delle lezioni */
-  .pm-years::before { display: none; }
   .pm-group { letter-spacing: 0.12em; }
-  .pm-head { grid-template-columns: 48px minmax(0, 1fr) 24px; column-gap: 0.85rem; }
-  .pm-emblem { width: 48px; height: 48px; }
   .pm-title { font-size: 17px; }
-  .pm-body { margin-left: 0; }
 }
   @media(max-width:560px){.contributo{padding:1.5rem 1.3rem}.contributo-row{gap:1.25rem}.contributo-divider{display:none}}
 

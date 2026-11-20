@@ -102,7 +102,8 @@ Anti-reference confermata: l'estetica corporate/startup, il viola-e-oro della
 spiritualità commerciale, i simboli esoterici sparsi come decorazione.
 
 **Key Characteristics:**
-- Fondo scuro di default, tema chiaro di pari dignità (non derivato)
+- Tema chiaro (Pergamena) di default dal novembre 2026; il tema scuro
+  (Officina) resta di pari dignità e si sceglie dal pulsante in barra
 - Un solo accento cromatico: l'oro, in due livelli
 - Titoli serif, corpo sans: due famiglie in tutto
 - Profondità per stratificazione e filetti, non per ombre
@@ -146,21 +147,23 @@ non grigi freddi.
   che è una trasparenza sul fondo, non un colore pieno.
 - **Filetto** (`rgba(201,151,58,0.18)`, `--border`): bordo di default, oro a
   bassissima opacità. Hover: `rgba(201,151,58,0.4)`.
-- **Fascia** (`rgba(201,151,58,0.035)`, `--band`): velatura a piena larghezza
-  che scandisce il ritmo verticale.
+- **Fascia** (`--band`): fondo a piena larghezza che scandisce il ritmo
+  verticale. Nel tema scuro è una velatura (`rgba(201,151,58,0.035)`) su tre
+  sezioni; nel tema chiaro è un secondo tono pieno di pergamena (`#ede2ca`) e
+  le sezioni si alternano una sì e una no, dalla prima schermata ai contatti.
 
-### Gli emblemi restano scuri anche in Pergamena
+### Foto vere al posto degli emblemi
 
-Gli emblemi (`chiave-*`, `percorso-*`, `pilastro-*`, `libro-*`) sono incisioni
-in oro su carta blu notte, non ritagli su fondo trasparente. Nel tema chiaro
-restano quindi tavole scure sulla pergamena, ed **è una scelta**: rifarli in
-versione chiara vorrebbe dire venti asset nuovi da tenere coerenti fra loro,
-e perderebbe il carattere inciso che è l'identità della Scuola. Una tavola
-scura montata su carta chiara è un idioma da libro illustrato, non un errore.
-
-Perché si legga come montata e non come capitata lì, nel tema chiaro hanno
-una cornice più definita e un'ombra che le stacca dal fondo. Ogni revisione
-segnala questi emblemi come incoerenza del tema chiaro: non lo sono.
+Fino al novembre 2026 la home aveva una ventina di emblemi generati
+(incisioni in oro su carta blu notte): erano tutti dello stesso stile e
+occupavano il posto delle persone. Sono stati tolti dalle 4 chiavi, dai due
+pilastri di `#insegnamenti`, dalla mappa del percorso e dalla copertina del
+video; in «Chi siamo» ci sono due foto di lezione. Restano incisioni scure
+solo in «Due percorsi che si completano» (`pilastro-cerchio`,
+`pilastro-viandante`), nella carrozza di Gurdjieff e nelle pagine del libro
+(`libro-*`): nel tema chiaro hanno una cornice più definita e un'ombra che
+le stacca dal fondo. **Non aggiungere nuove illustrazioni generate**: dove
+serve un'immagine si usa una foto della Scuola.
 
 ### Le eccezioni all'oro
 
@@ -307,9 +310,12 @@ I testi display usano cifre oldstyle e legature discrezionali
 ### Named Rules
 
 **La regola dell'occhiello.** `.section-eyebrow` è il piccolo testo in
-maiuscoletto sopra ogni titolo di sezione, con due filetti sfumati ai lati.
-Fa parte del sistema e va mantenuto: somiglia a un vezzo generico, ma qui è
-una scelta presa e applicata ovunque.
+maiuscoletto sopra un titolo di sezione, con due filetti sfumati ai lati.
+Fa parte del sistema, ma si mette solo quando aggiunge un'informazione che
+il titolo non dà («Programma didattico», «Ciclo base · 3 anni»): quelli che
+ripetevano il titolo con altre parole («La nostra visione» sopra «Chi
+siamo», «Le guide», «La Scuola in azione») sono stati tolti nel novembre
+2026.
 
 ## Layout
 
@@ -318,7 +324,8 @@ padding `clamp(3rem, 7vw, 5rem) 2rem`: la misura di lettura resta stretta e
 il respiro verticale cresce con la viewport.
 
 Il ritmo verticale è dato dall'alternanza tra sezioni normali e sezioni con
-la velatura `--band` a piena larghezza, più il filetto epigrafico
+la fascia `--band` a piena larghezza (nel tema chiaro una sì e una no: chi
+aggiunge una sezione rimette in fila l'alternanza), più il filetto epigrafico
 (`.epigraphic-rule`) che separa i blocchi con un glifo al centro.
 
 I breakpoint in uso sono **1024px** (navigazione), **768px** e **700px**
