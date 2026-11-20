@@ -23,7 +23,7 @@ Sito della **Scuola ContattaTi** (Scuola di Consapevolezza ed Alchimia, Bari), g
 | `argomenti/index.html` | Indice degli argomenti delle lezioni (novembre 2026, chiesto da un'allieva e da Anna Carla): tutti i temi di `lezioni.js` dalla A alla Z con una ricerca, e accanto a ogni tema anno e lezione con link a `/#anno-N`. Si costruisce da solo in `argomenti/argomenti.js` (stili in `argomenti.css`, usati anche da `en/argomenti/`): un tema aggiunto a una lezione compare qui senza toccare altro. Nell'ordine alfabetico non contano articoli e numeri iniziali, e le leggi sono ordinate per nome; la ricerca ignora accenti e vale a inizio di parola. Una ricerca si condivide con `?q=`, es. `/argomenti/?q=spirito santo`. Cerca solo nei temi scritti nel programma (più titoli e descrizioni): un argomento detto a voce a lezione non c'è, e la nota in fondo alla pagina lo dice. Link dal calendario, dal blocco «Per gli studenti» e dal footer; non dal menu (a 1024px non c'è spazio) |
 | `en/index.html` | Versione inglese speculare |
 | `style.css` | Tutti gli stili, design system a variabili CSS |
-| `app.js` | Tema chiaro/scuro, countdown eventi, scroll-reveal, lightbox, service worker |
+| `app.js` | Tema chiaro/scuro, countdown eventi, lightbox, service worker |
 | `lezioni.js` | **Fonte di verità** dei contenuti delle lezioni: array `L1`…`L7` (un array per anno di corso, con titoli, temi, date, citazioni). Consultarlo prima di scrivere qualsiasi testo sul percorso di studi. **In fondo al file c'è `L_EN` con le traduzioni inglesi**, innestate come campo `.en` su ogni lezione: chi aggiunge o modifica una lezione italiana deve aggiornare anche la voce corrispondente lì, altrimenti la pagina inglese mostra l'italiano. È nello stesso file apposta, perché un secondo file resterebbe indietro in silenzio |
 | `data/eventi.js`, `data/citazioni.js` | Dati eventi e citazioni |
 | `DESIGN.md` | Design system: frontmatter YAML di token estratti dal CSS + otto sezioni canoniche |
@@ -52,7 +52,8 @@ Oggi **non esistono**: sezione e landing sono state rimosse col commit `2722cf3`
 - **Un anno del calendario è linkabile**: `scuolacontattati.com/#anno-3` (e `#anno-esp` per gli esperienziali) apre quell'anno e ci scorre; aprire un anno riscrive l'hash con `replaceState`. Senza hash valido si apre l'anno della prossima lezione.
 - Una lezione di cui si conosce solo la data si inserisce in `lezioni.js` con i soli campi `num`/`day`/`month`/`year`: il calendario ha già lo stato "programma in definizione" (riga attenuata, nessun pannello espandibile). Non inventare titoli o temi.
 - **Eventi in programma** (novembre 2026): un evento di `data/eventi.js` con data di oggi o futura compare da solo nel riquadro «In programma» in cima a `#galleria`; passata la data scende fra gli «Incontri passati». Senza eventi futuri resta la riga scritta nell'HTML, che invita a scrivere.
-- **«Aggiungi al calendario»** nel riquadro dell'hero: `app.js` prepara un file `.ics` dalla prossima lezione; orario e sede li legge dagli attributi `data-inizio`, `data-fine`, `data-luogo` del link, da tenere uguali al testo visibile. È un link sulla riga dell'orario e non un pulsante perché un pulsante spingeva «Contattaci» sotto la prima schermata (34px a 390×844).
+- **La prima schermata** (rifatta nel novembre 2026): nome della Scuola in grande a sinistra, motto e frase sotto, prossima lezione accanto senza riquadro. L'unico pulsante pieno è «Puoi iniziare da questa lezione: scrivici»; «Scopri il percorso» e «Contattaci» sono link finché c'è una lezione in programma. Fabio ha scartato due varianti col motto in grande (in greco e in italiano): il nome della Scuola deve restare la cosa più visibile. Misure e soglie in `DESIGN.md`.
+- **«Aggiungi al calendario»** sotto il pulsante dell'hero: `app.js` prepara un file `.ics` dalla prossima lezione; orario e sede li legge dagli attributi `data-inizio`, `data-fine`, `data-luogo` del link, da tenere uguali al testo visibile.
 - **FAQ**: il riquadro «In breve» ripete orario, sede, costo e modalità delle risposte sotto: chi cambia un prezzo o la sede lo cambia in tutti e due i punti (e nel JSON-LD), nelle due lingue.
 - Conduttori: Anna Carla Digregorio e Nicolaos Anifantis. Anna Carla comunica novità via WhatsApp che spesso vanno riportate sul sito.
 - Libro: *Ricchezza, Abbondanza e Mission* (Gagliano Edizioni).
@@ -77,7 +78,7 @@ Su un telefono medio con 4G lenta la prima schermata è passata da 4,7s a 2,6s (
 - Tipografia: EB Garamond (display, weight 500–600) + Inter (testo). Mai altre famiglie.
 - Componenti card: pattern `.glass-card` con doppio bordo (pseudo-elemento `::before` con `inset`).
 - **Comandi isolati alti almeno 44px** e **navigazione a hamburger sotto i 1024px**: le due regole si reggono a vicenda (il menu desktop ci sta su una riga con la spaziatura piena solo da 1492px, e da 1024 a 1209 la barra è a due righe per scelta). Dettagli e le tre eccezioni al 44px in `DESIGN.md`. Chi aggiunge una voce di menu deve rimisurare: a 1024px il margine è di 4px. La voce «Test» è una tendina (`<details class="nav-drop">`, un link per test): la sua freccina è stata compensata stringendo la spaziatura fra le voci a 1.45rem e 0.65rem, al decimo di pixel, perché le soglie restassero 1210 e 1492 (con «Eventi» al posto di «Giochi», più stretta di 1,5px, la riga singola parte da 1209).
-- Animazioni d'ingresso: classe `.sr` (scroll-reveal via IntersectionObserver).
+- **Niente movimento che parte da solo.** La dissolvenza d'ingresso dei blocchi (classe `.sr`) e lo sfondo animato sono stati tolti nel novembre 2026: si muove solo ciò che risponde a un gesto (fisarmoniche, pulsanti, tendina).
 - Niente effetti "da videogioco" sul sito istituzionale: l'atmosfera la fanno palette, tipografia, spaziature.
 
 ### Tic visivi da non introdurre
@@ -88,6 +89,7 @@ L'equivalente visivo dei tell di scrittura: elementi che gli LLM aggiungono per 
 - **Bordo colorato su un solo lato** della card (la barretta verticale a sinistra).
 - **Numeri monospace 01 · 02 · 03** a scandire una sequenza di passi.
 - **Gradienti accesi** su testo o pulsanti, e glow diffusi.
+- **Etichette in maiuscolo spaziato** e **frecce in coda al testo di un pulsante**: tolte da tutto il sito nel novembre 2026. Le etichette sono in minuscolo a 14px; la freccia resta solo a fine riga negli elenchi (i sette anni, «Per gli studenti»), dove dice che la riga si può toccare. I punti medi fra dati veri («In corso · 2026/27 · …») sono rimasti per scelta.
 
 Attenzione a non confonderli con scelte già stabilite del sito: il piccolo testo sopra i titoli (`.section-eyebrow`) è parte del design system, ma si usa solo quando dice qualcosa che il titolo non dice (vedi `DESIGN.md`). Il criterio è la coerenza con `DESIGN.md`, non l'elenco in sé.
 
@@ -100,6 +102,7 @@ Attenzione a non confonderli con scelte già stabilite del sito: il piccolo test
 3. **Verificare ogni componente toccato in entrambi i temi.** Controllarne uno solo non basta: due componenti con lo stesso trattamento possono divergere, perché uno ha override di tema e l'altro no. Il tema non dipende da `colorScheme` di Playwright: il chiaro è il predefinito, lo scuro si ottiene con `localStorage.setItem('sctheme','dark')` prima del caricamento oppure con `document.documentElement.removeAttribute('data-theme')`.
 4. **`[data-theme="light"]` va scritto sull'elemento giusto.** `data-theme` sta su `html`: per colpire `html` stesso o i suoi pseudo-elementi il selettore è `html[data-theme="light"]::before`, non `[data-theme="light"] html::before`, che non si applica mai.
 5. **Le regole rimaste senza usi vanno cancellate**, non lasciate lì: `grep -rl 'selettore' --include='*.html' --include='*.css' --include='*.js' .` per confermare che non serva più a nessuno, giochi compresi.
+6. **Dopo aver cancellato un blocco, guardare `git diff --stat`.** Nel novembre 2026 una cancellazione «da questa regola a quella» ha portato via 149 righe di override del tema chiaro: i controlli automatici non se ne accorgono, si è visto solo da un pulsante diventato scuro in uno screenshot.
 
 ## Screenshot / verifica visiva
 
@@ -118,8 +121,6 @@ const ctx = await browser.newContext({
 await ctx.addInitScript(() => { try { localStorage.setItem('sc-cookie','reject'); } catch(e){} });
 const page = await ctx.newPage();
 await page.goto('http://127.0.0.1:8080/');   // servire con: python3 -m http.server 8080 --bind 127.0.0.1
-// Le sezioni .sr sono invisibili in headless finché non scrollate: forzarle
-await page.evaluate(() => document.querySelectorAll('.sr').forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; }));
 ```
 
 Due trappole che fanno perdere tempo, entrambe già costate diversi tentativi a vuoto:

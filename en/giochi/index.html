@@ -94,8 +94,7 @@
   <meta name="twitter:image" content="https://scuolacontattati.com/og-image.jpg?v=2"/>
 
  <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) — self-hosted, zero dipendenze esterne -->
-  <link rel="stylesheet" href="../../style.css?v=d842b54e"/>
-  <noscript><style>.sr{opacity:1!important;transform:none!important}</style></noscript>
+  <link rel="stylesheet" href="../../style.css?v=368d078e"/>
 
 </head>
 <body id="top">
@@ -137,7 +136,7 @@
   <div class="section-eyebrow"><span>Initiatic trials</span></div>
   <h1 class="section-title">Learn by playing</h1>
   <p class="section-sub" style="margin-bottom:1.5rem">Quizzes, scenarios and memory · 5-minute games · we recommend starting with <em>The Awakening</em></p>
-  <div class="sr giochi-grid">
+  <div class="giochi-grid">
     <a class="glass-card gioco-card" href="../../il-risveglio/" onclick="try{localStorage.setItem('sc-lang','en')}catch(e){}">
       <img src="../../images/gioco-risveglio-144.webp" class="gioco-emblema" alt="" width="144" height="144" loading="lazy" decoding="async">
       <span><strong class="gioco-title">The Awakening</strong><br><span class="gioco-sub">Sleep, presence and self-remembering</span></span>
@@ -185,7 +184,7 @@
   <div class="section-eyebrow"><span>Adventures</span></div>
   <h2 class="section-title" style="font-size:clamp(22px,4vw,32px)">The inner path</h2>
   <p class="section-sub" style="margin-bottom:1.5rem">Interactive stories with save · 10–20 minute sessions</p>
-  <div class="sr giochi-grid-lg">
+  <div class="giochi-grid-lg">
     <a class="glass-card gioco-card-lg" href="../../il-cammino-alchimista/" onclick="try{localStorage.setItem('sc-lang','en')}catch(e){}">
       <img src="../../images/gioco-cammino.webp" class="gioco-emblema gioco-emblema-lg" alt="" width="400" height="400" loading="lazy" decoding="async">
       <span><strong class="gioco-title-lg">The Alchemist's Path</strong><br><span class="gioco-sub-lg">Interactive journey in 3 acts · Nigredo, Albedo, Rubedo</span></span>
@@ -274,21 +273,7 @@
     <button type="button" id="cookieAccept" class="cookie-btn cookie-btn-accept">Accept</button>
   </div>
 </div>
-<script>
-/* SCROLL REVEAL (.sr) — inline for app.js independence */
-(function(){
-  var srEls=document.querySelectorAll('.sr');
-  if('IntersectionObserver' in window){
-    var obs=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
-    },{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
-    srEls.forEach(function(el){obs.observe(el);});
-  } else {
-    srEls.forEach(function(el){el.classList.add('visible');});
-  }
-})();
-</script>
-<script src="../../app.js?v=a311fe34" defer></script>
+<script src="../../app.js?v=b58dbedb" defer></script>
 <script>
 /* GAME SEALS — show ✦ on completed game cards */
 (function(){

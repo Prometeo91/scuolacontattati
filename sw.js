@@ -11,11 +11,11 @@
    MANUTENZIONE: i ?v= della lista CORE e VERSION li aggiorna
    node scripts/versione.js (impronta del contenuto di ogni file).
    ═══════════════════════════════════════════════════ */
-var VERSION = 'sc-cache-v114';
+var VERSION = 'sc-cache-v117';
 var CORE = [
   '/',
-  '/style.css?v=d842b54e',
-  '/app.js?v=a311fe34',
+  '/style.css?v=368d078e',
+  '/app.js?v=b58dbedb',
   '/lezioni.js?v=0f24d52e',
   '/data/citazioni.js?v=d93b9e6a',
   '/data/eventi.js?v=89a72091',

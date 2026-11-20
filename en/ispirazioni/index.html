@@ -94,8 +94,7 @@
   <meta name="twitter:image" content="https://scuolacontattati.com/og-image.jpg?v=2"/>
 
  <!-- TYPOGRAPHY — EB Garamond (serif display) + Inter (sans body) — self-hosted, zero dipendenze esterne -->
-  <link rel="stylesheet" href="../../style.css?v=d842b54e"/>
-  <noscript><style>.sr{opacity:1!important;transform:none!important}</style></noscript>
+  <link rel="stylesheet" href="../../style.css?v=368d078e"/>
 
 </head>
 <body id="top">
@@ -137,7 +136,7 @@
   <h1 class="section-title">Thoughts & Inspirations</h1>
   <p class="section-sub">Words that have marked the journey. From masters of all ages, and from those who walk with the School today.</p>
 
-  <div class="quote-oracle sr" id="quoteOracle">
+  <div class="quote-oracle" id="quoteOracle">
     <div class="quote-oracle-symbol" aria-hidden="true">✶</div>
     <p class="quote-oracle-text" id="quoteText"></p>
     <p class="quote-oracle-author" id="quoteAuthor"></p>
@@ -338,20 +337,6 @@
     <button type="button" id="cookieAccept" class="cookie-btn cookie-btn-accept">Accept</button>
   </div>
 </div>
-<script>
-/* SCROLL REVEAL (.sr) — inline for app.js independence */
-(function(){
-  var srEls=document.querySelectorAll('.sr');
-  if('IntersectionObserver' in window){
-    var obs=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
-    },{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
-    srEls.forEach(function(el){obs.observe(el);});
-  } else {
-    srEls.forEach(function(el){el.classList.add('visible');});
-  }
-})();
-</script>
 <script src="../../data/citazioni.js?v=d93b9e6a"></script>
 <script>
 /* ORACOLO ISPIRAZIONI */
@@ -387,7 +372,7 @@
   next();
 })();
 </script>
-<script src="../../app.js?v=a311fe34" defer></script>
+<script src="../../app.js?v=b58dbedb" defer></script>
 <script>
 /* GAME SEALS — show ✦ on completed game cards */
 (function(){

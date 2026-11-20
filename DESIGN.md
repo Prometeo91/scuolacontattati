@@ -244,8 +244,9 @@ sottoinsieme, e hanno un fallback con metriche corrette (`size-adjust`,
 
 ### Hierarchy
 
-- **Display** (Garamond 500, `clamp(34px, 6.4vw, 54px)`, lh 1.1, ls 0.02em):
-  `h1` dell'hero. Uno per pagina.
+- **Display** (Garamond 600, `clamp(54px, 15.5vw, 92px)`, lh 0.98, ls -0.01em):
+  `h1` dell'hero, il nome della Scuola su due righe e in un solo colore.
+  Uno per pagina.
 - **Headline** (Garamond 500, `clamp(28px, 5vw, 42px)`, lh 1.15):
   `.section-title`, il titolo di ogni sezione.
 - **Title** (Garamond 500, 20px, ls 0.01em): `.card-title`, titolo di card.
@@ -253,8 +254,13 @@ sottoinsieme, e hanno un fallback con metriche corrette (`size-adjust`,
   sezione (`.section-sub`) vanno a 17px con lh 1.75; la misura è la colonna
   intera (`--measure: var(--col)`, scelta di Fabio: vedi il commento in
   `style.css`).
-- **Label** (Inter 500, 11px, ls 0.22em, uppercase): `.section-eyebrow` e
-  `.badge`.
+- **Label** (Inter 500-600, 14px, minuscolo, senza spaziatura):
+  `.section-eyebrow`, i gruppi della mappa del percorso (`.pm-group`), le
+  etichette dei campi, i mesi degli eventi. **Niente maiuscolo spaziato**:
+  fino al novembre 2026 queste etichette erano a 11px in maiuscolo con
+  `letter-spacing` largo, ed erano fra le cose che facevano sembrare la
+  pagina generata. In `style.css` non c'è più nessun `text-transform:
+  uppercase`.
 
 ### La scala in pixel
 
@@ -310,7 +316,7 @@ I testi display usano cifre oldstyle e legature discrezionali
 ### Named Rules
 
 **La regola dell'occhiello.** `.section-eyebrow` è il piccolo testo in
-maiuscoletto sopra un titolo di sezione, con due filetti sfumati ai lati.
+minuscolo dorato sopra un titolo di sezione, con due filetti sfumati ai lati.
 Fa parte del sistema, ma si mette solo quando aggiunge un'informazione che
 il titolo non dà («Programma didattico», «Ciclo base · 3 anni»): quelli che
 ripetevano il titolo con altre parole («La nostra visione» sopra «Chi
@@ -460,34 +466,31 @@ due pulsanti hanno la classe `.js-share` e ognuno mostra il proprio toast.
 
 ### Schermi bassi
 
-L'hero si adatta all'altezza, non solo alla larghezza. **I due pulsanti
-devono stare nella prima schermata** da 360×640 in su, in orizzontale sul
-telefono, a 1024×768, 1280×800 e 1440×900. Dal novembre 2026 l'hero contiene
-anche il riquadro della prossima lezione (`#hero-prossima`), e le soglie sono
-state rifatte per lui:
+La prima schermata è stata rifatta nel novembre 2026: il nome della Scuola
+in grande a sinistra, sotto il motto («Γνῶθι σεαυτόν. Conosci te stesso.») e
+la frase di presentazione (`.hero-lead`); accanto, la prossima lezione
+(`#hero-prossima`) senza riquadro, sotto un filetto scuro. Tutto allineato a
+sinistra, sulla stessa colonna del testo delle sezioni. Prima era una colonna
+centrata di sei elementi, col nome in due colori.
 
-- **Telefono in verticale fino a 800px d'altezza**: logo a 56px, caratteri e
-  spazi più stretti, i due pulsanti affiancati invece che in colonna.
-- **Telefono in verticale fino a 660px** (360×640): logo a 40px e niente
-  traduzione del motto.
-- **Telefono in orizzontale** (altezza fino a 500px): due colonne, logo a
-  sinistra e testi accanto; i pulsanti vengono prima del riquadro, che resta
-  sotto la piega.
-- **Portatili e tablet in orizzontale fino a 960px d'altezza** (da 900px di
-  larghezza: 1024×768, 1280×800, 1366×768, 1440×900): presentazione a
-  sinistra, riquadro a destra.
+Il pulsante pieno è uno solo, «Puoi iniziare da questa lezione: scrivici».
+«Scopri il percorso» e «Contattaci» (`.hero-ctas`) sono link finché la
+prossima lezione è in vista, e tornano pulsanti quando non ce n'è una in
+programma. **Il pulsante pieno deve stare nella prima schermata**:
+
+- **Da 900px di larghezza**: due colonne, presentazione a sinistra e prossima
+  lezione a destra, allineate in basso.
+- **Sotto i 900px**: una colonna, la prossima lezione sotto la presentazione.
+- **Telefono in verticale fino a 700px d'altezza** (375×667, 360×640): via il
+  logo, titolo a 46px, caratteri e spazi più stretti.
+- **Telefono in orizzontale** (altezza fino a 500px): due colonne, senza logo.
 - I pulsanti fissi WhatsApp e Condividi, sul telefono, compaiono solo quando
-  i pulsanti dell'hero escono dallo schermo; il banner dei cookie sta in
-  alto, sotto la barra, per non coprirli alla prima visita.
+  `.hero-ctas` esce dallo schermo; il banner dei cookie sta in alto, sotto la
+  barra, per non coprirli alla prima visita.
 
-Sotto il motto c'è la frase principale (`.hero-lead`, «Tornare padroni della
-propria vita.», Garamond 24-32px), il secondo elemento per evidenza dopo il
-nome. Su telefono i due pulsanti vanno uno sotto l'altro, della stessa
-larghezza. Ogni modifica alla hero va rimisurata a 360×640, 375×667, 390×844, 844×390,
-1024×768 e 1440×900.
-
-A 320×568 i pulsanti restano sotto la piega: rimpicciolire ancora
-sacrificherebbe il logo.
+Ogni modifica alla hero va rimisurata a 360×640, 375×667, 390×844, 844×390,
+768×1024, 1024×768 e 1440×900: a tutte queste misure il pulsante pieno è
+dentro la prima schermata (novembre 2026).
 
 **Il menu a hamburger aperto è alto circa 670px** e la barra è fissa: se è
 più alto dello schermo scorre al suo interno, altrimenti su un 375×667 le
@@ -542,13 +545,11 @@ I timing stanno in variabili, che sono la voce cinetica del sito:
 
 Le durate non si scrivono a mano: si usa una di queste variabili.
 
-L'animazione d'ingresso è lo scroll-reveal: `.sr` parte da `opacity: 0` e
-`translateY(12px)` e arriva a zero in 500ms con `--ease-out`. Si applica ai
-blocchi di sezione, non ai singoli elementi. Tendina «Test», lightbox e
-risposte delle FAQ entrano in 180-200ms con `@starting-style`.
-
-L'unico movimento continuo è lo sfondo del tema scuro (`sfondo-respira`, 35
-secondi, quasi impercettibile): è voluto.
+Si muove solo ciò che risponde a un gesto: tendina «Test», lightbox e
+risposte delle FAQ entrano in 180-200ms con `@starting-style`, i pulsanti
+reagiscono alla pressione. Non c'è movimento che parte da solo: la
+dissolvenza d'ingresso dei blocchi (`.sr`) e lo sfondo che si muoveva
+(`sfondo-respira`) sono stati tolti nel novembre 2026, e non vanno rimessi.
 
 Con `prefers-reduced-motion: reduce` spariscono spostamenti, ingrandimenti e
 animazioni; restano le dissolvenze di colore e opacità, che aiutano a capire
@@ -580,7 +581,7 @@ le due della galleria.
 
 - Il toggle chiaro/scuro: i due temi sono entrambi di prima classe, nessuno
   dei due è una derivazione dell'altro.
-- La struttura a sezioni con scroll-reveal.
+- La struttura a sezioni.
 - I mockup SVG del gioco (mappa dell'Officina Sotterranea, Fucina dei Ricordi)
   come riferimento cromatico per la sezione giochi e tonale per il resto.
 - L'occhiello `.section-eyebrow` sopra i titoli.
@@ -591,8 +592,9 @@ le due della galleria.
 - Viola e oro kitsch da spiritualità commerciale; simboli esoterici messi a
   decorazione.
 - `#ffffff` come fondo nel tema chiaro.
-- Animazioni vistose. Oltre allo scroll-reveal esistente, solo transizioni
-  brevi secondo la scala `--t-*`.
+- Animazioni che partono da sole (ingressi allo scorrere, sfondi in
+  movimento). Solo transizioni brevi in risposta a un gesto, secondo la scala
+  `--t-*`.
 - Effetti da videogioco sul sito istituzionale: particelle, glow, pulsazioni.
 - Colori scritti a mano dentro una regola, senza la coppia di variabili.
 

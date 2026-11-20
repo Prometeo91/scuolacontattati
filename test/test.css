@@ -136,10 +136,10 @@ main {
 }
 
 .page-eyebrow {
-  display: flex; align-items: center; gap: 0.75rem;
-  margin-bottom: 0.75rem;
-  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--gold); font-weight: 500;
+ display: flex; align-items: center; gap: 0.75rem;
+ margin-bottom: 0.75rem;
+ font-size: 14px; 
+ color: var(--gold); font-weight: 500;
 }
 .page-eyebrow::after {
   content: ''; flex: 1; height: 0.5px;
@@ -294,7 +294,7 @@ a:focus-visible, button:focus-visible {
 /* soglie dei Quattro Elementi nelle istruzioni: una tabella al posto di sei voci */
 .soglie-table { font-size: 14px; margin: 0.5rem 0 0.75rem; }
 .soglie-table th, .soglie-table td { padding: 0.45rem 0.6rem 0.45rem 0; }
-.soglie-table thead th { color: var(--gold); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; }
+.soglie-table thead th { color: var(--gold); font-size: 14px; font-weight: 500; }
 .soglie-table tbody th { white-space: nowrap; font-variant-numeric: tabular-nums; }
 
 .test-section { margin-top: 3rem; }
@@ -465,7 +465,7 @@ h4.temp-group { margin: 1.75rem 0 0.25rem; font-family: var(--font-display); fon
 h5.temp-profile-title { margin: 0 0 0.25rem; font-family: var(--font-display); font-size: 21px; font-weight: 600; color: var(--gold-light); }
 .temp-profile-sub { font-family: var(--font-display); font-style: italic; color: var(--gold-light); margin-bottom: 0.75rem; }
 .temp-work { margin-top: 1rem; padding: 0.9rem 1rem; border-radius: 10px; background: var(--surface); }
-.temp-work .temp-work-label { margin: 0 0 0.35rem; font-family: var(--font-sans); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); }
+.temp-work .temp-work-label { margin: 0 0 0.35rem; font-family: var(--font-sans); font-size: 15px; font-weight: 600; color: var(--gold); }
 .temp-more { padding: 0; }
 .temp-more summary {
   display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 44px;

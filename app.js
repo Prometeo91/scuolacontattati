@@ -504,7 +504,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('hp-data').textContent=hg+' '+pross.l.day+' '+(SC_EN?hm:hm.toLowerCase());
         document.getElementById('hp-count').innerHTML=conto(pross.d);
         var ht=document.getElementById('hp-titolo'), htl=loc(pross.l);
-        ht.textContent=(SC_EN?'Year '+pross.anno:pross.anno+'° Anno')+(htl.titolo?' · '+htl.titolo:'');
+        ht.textContent=(SC_EN?'Year '+pross.anno:pross.anno+'° Anno')+(htl.titolo?': '+htl.titolo:'');
         ht.href='#anno-'+pross.anno;
         /* l'oggetto del messaggio dice quale lezione: «Partecipare alla lezione di domenica 8 novembre (2° Anno)» */
         var hpp=document.getElementById('hp-partecipa');
@@ -698,9 +698,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if(a&&a.hash&&a.pathname===location.pathname)cvOff();
   },true);
   window.addEventListener('hashchange',cvOff);
-
-  /* SCROLL REVEAL — gestito inline in index.html (observer .sr + .sr-stagger)
-     per garantire visibilità del contenuto anche se app.js non carica */
 
   /* CONTACT FORM — AJAX submission with feedback */
   var cForm=document.getElementById('contact-form');
