@@ -183,7 +183,9 @@
     return out;
   }
 
-  /* messaggio WhatsApp precompilato con il risultato per esteso */
+  /* messaggio WhatsApp precompilato: solo un saluto. Il risultato si manda
+     come immagine (novembre 2026, chiesto da Anna Carla): il testo coi numeri
+     andava ogni volta richiesto di nuovo come immagine. */
   function waLinks(ui, T, text) {
     var msg = encodeURIComponent(fmt(T.wa_msg, { code: text }));
     [['wa-ac', '393929116441'], ['wa-nic', '393349991888']].forEach(function (w) {
@@ -688,7 +690,6 @@
       return s;
     }
 
-    var codeText = '';
     /* Immagine del risultato. Il file si prepara appena c'è il risultato e non
        al clic: navigator.share vuole partire dentro il gesto dell'utente, e su
        Safari un'attesa (caratteri, toBlob) fra il clic e la chiamata lo fa
@@ -768,7 +769,6 @@
 
     function mostraRisultato(vaiAlRisultato) {
       var r = scorer(sums(), T, ui);
-      codeText = T.share_title + ' – Scuola ContattaTi\n\n' + r.text;
       imgData = r.img || null; imgFile = null;
       shareBtns.forEach(function (b) { b.hidden = !imgData; });
       if (imgData) prepara();
@@ -784,18 +784,6 @@
        dover premere di nuovo il pulsante */
     if (qs.length && (optional ? answers._done : answered().length === qs.length)) mostraRisultato(false);
 
-    ui.role('copy').addEventListener('click', function () {
-      var b = this, done = function () { var o = b.textContent; b.textContent = T.copied; setTimeout(function () { b.textContent = o; }, 1800); };
-      /* riserva per i browser interni (WhatsApp, Instagram) dove clipboard non c'è o fallisce */
-      var fallback = function () {
-        var ta = document.createElement('textarea'); ta.value = codeText; ta.setAttribute('readonly', '');
-        ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select();
-        try { if (document.execCommand('copy')) done(); } catch (e) {}
-        document.body.removeChild(ta);
-      };
-      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(codeText).then(done, fallback);
-      else fallback();
-    });
     ui.role('redo').addEventListener('click', function () {
       if (!confirm(T.redo_confirm)) return;
       answers = {}; save(answers); form.reset();
